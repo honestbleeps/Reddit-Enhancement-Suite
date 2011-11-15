@@ -1,0 +1,177 @@
+<!--
+/*
+
+	RES is released under the GPL. However, I do ask a favor (obviously I don't/can't require it, I ask out of courtesy):
+	
+	Because RES auto updates and is hosted from a central server, I humbly request that if you intend to distribute your own
+	modified Reddit Enhancement Suite, you name it something else and make it very clear to your users that it's your own
+	branch and isn't related to mine.
+	
+	RES is updated very frequently, and I get lots of tech support questions/requests from people on outdated versions. If 
+	you're distributing RES via your own means, those recipients won't always be on the latest and greatest, which makes 
+	it harder for me to debug things and understand (at least with browsers that auto-update) whether or not people are on 
+	a current version of RES.
+	
+	I can't legally hold you to any of this - I'm just asking out of courtesy.
+	
+	Thanks, I appreciate your consideration.  Without further ado, the all-important GPL Statement:
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+*/
+-->
+<html>
+<head>
+	<script>
+	chrome.extension.onRequest.addListener(
+		function(request, sender, sendResponse) {
+			switch(request.requestType) {
+				case 'GM_xmlhttpRequest':
+					var xhr = new XMLHttpRequest();
+					xhr.open(request.method, request.url, true);
+					if (request.method == "POST") {
+						xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+						// xhr.setRequestHeader("Content-length", request.data.length);
+						// xhr.setRequestHeader("Connection", "close");					
+					}
+					xhr.onreadystatechange = function() {
+					  if (xhr.readyState == 4) {
+						sendResponse(xhr);
+					  }
+					}
+					xhr.send(request.data);
+					break;
+				case 'singleClick':
+					var button = !((request.button == 1) || (request.ctrl == 1));
+					// Get the selected tab so we can get the index of it.  This allows us to open our new tab as the "next" tab.
+					chrome.tabs.getSelected(null, function(tab) {
+						var newIndex = tab.index+1;
+						// handle requests from singleClick module
+						if (request.openOrder == 'commentsfirst') {
+							// only open a second tab if the link is different...
+							if (request.linkURL != request.commentsURL) {
+								chrome.tabs.create({url: request.commentsURL, selected: button, index: newIndex});
+							}
+							chrome.tabs.create({url: request.linkURL, selected: button, index: newIndex+1});
+						} else {
+							chrome.tabs.create({url: request.linkURL, selected: button, index: newIndex});
+							// only open a second tab if the link is different...
+							if (request.linkURL != request.commentsURL) {
+								chrome.tabs.create({url: request.commentsURL, selected: button, index: newIndex+1});
+							}
+						}
+						sendResponse({status: "success"});
+					});
+					break;
+				case 'keyboardNav':
+					var button = !(request.button == 1);
+					// handle requests from keyboardNav module
+					thisLinkURL = request.linkURL;
+					if (thisLinkURL.toLowerCase().substring(0,4) != 'http') {
+						(thisLinkURL.substring(0,1) == '/') ? thisLinkURL = 'http://www.reddit.com' + thisLinkURL : thisLinkURL = location.href + thisLinkURL;
+						
+					}
+					// Get the selected tab so we can get the index of it.  This allows us to open our new tab as the "next" tab.
+					chrome.tabs.getSelected(null, function(tab) {
+						var newIndex = tab.index+1;
+						chrome.tabs.create({url: thisLinkURL, selected: button, index: newIndex});
+						sendResponse({status: "success"});
+					});
+					break;
+				case 'openLinkInNewTab':
+					var focus = (request.focus == true);
+					// handle requests from keyboardNav module
+					thisLinkURL = request.linkURL;
+					if (thisLinkURL.toLowerCase().substring(0,4) != 'http') {
+						(thisLinkURL.substring(0,1) == '/') ? thisLinkURL = 'http://www.reddit.com' + thisLinkURL : thisLinkURL = location.href + thisLinkURL;
+						
+					}
+					// Get the selected tab so we can get the index of it.  This allows us to open our new tab as the "next" tab.
+					chrome.tabs.getSelected(null, function(tab) {
+						var newIndex = tab.index+1;
+						chrome.tabs.create({url: thisLinkURL, selected: focus, index: newIndex});
+						sendResponse({status: "success"});
+					});
+					break;
+				case 'compareVersion':
+					var xhr = new XMLHttpRequest();
+					xhr.open("GET", request.url, true);
+					xhr.onreadystatechange = function() {
+					  if (xhr.readyState == 4) {
+						// JSON.parse does not evaluate the attacker's scripts.
+						var resp = JSON.parse(xhr.responseText);
+						sendResponse(resp);
+					  }
+					}
+					xhr.send();
+					break;
+				case 'loadTweet':
+					var xhr = new XMLHttpRequest();
+					xhr.open("GET", request.url, true);
+					xhr.onreadystatechange = function() {
+					  if (xhr.readyState == 4) {
+						// JSON.parse does not evaluate the attacker's scripts.
+						var resp = JSON.parse(xhr.responseText);
+						sendResponse(resp);
+					  }
+					}
+					xhr.send();
+					break;
+				case 'getLocalStorage':
+					sendResponse(localStorage);
+					break;
+				case 'saveLocalStorage':
+					for (var key in request.data) {
+						localStorage.setItem(key,request.data[key]);
+					}
+					localStorage.setItem('importedFromForeground',true);
+					sendResponse(localStorage);
+					break;
+				case 'localStorage':
+					switch (request.operation) {
+						case 'getItem':
+							sendResponse({status: true, value: localStorage.getItem(request.itemName)});
+							break;
+						case 'removeItem':
+							localStorage.removeItem(request.itemName);
+							sendResponse({status: true, value: null});
+							break;
+						case 'setItem':
+							localStorage.setItem(request.itemName, request.itemValue);
+							sendResponse({status: true, value: null});
+							chrome.tabs.getSelected(null, function(resp) {
+								var thisTabID = resp.id;
+								chrome.tabs.getAllInWindow(null, function(tabs){
+									for (var i = 0; i < tabs.length; i++) {
+										if (thisTabID != tabs[i].id) {
+											chrome.tabs.sendRequest(tabs[i].id, { requestType: "localStorage", itemName: request.itemName, itemValue: request.itemValue });                         
+										}
+									}
+								});
+							})
+							break;
+					}
+					break;
+				case 'addURLToHistory':
+					chrome.history.addUrl({url: request.url});
+					break;
+				default:
+					sendResponse({status: "unrecognized request type"});
+					break;
+			}
+		}
+	);
+	</script>
+</head>
+</html>

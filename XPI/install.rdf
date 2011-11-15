@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<RDF:RDF xmlns:em="http://www.mozilla.org/2004/em-rdf#"
+         xmlns:NC="http://home.netscape.com/NC-rdf#"
+         xmlns:RDF="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <RDF:Description RDF:about="rdf:#$fzmtr3"
+                   em:id="{ec8030f7-c20a-464f-9b0e-13a3a9e97384}"
+                   em:minVersion="7.0"
+                   em:maxVersion="8.*" />
+  <RDF:Description RDF:about="urn:mozilla:install-manifest"
+                   em:id="jid1-xUfzOsOFlzSOXg@jetpack"
+                   em:version="4.0.2"
+                   em:type="2"
+                   em:bootstrap="true"
+                   em:unpack="true"
+                   em:name="Reddit Enhancement Suite"
+                   em:description="A suite of tools to enhance Reddit"
+                   em:creator="honestbleeps"
+                   em:updateURL="http://redditenhancementsuite.com/update.rdf"
+                   em:updateKey="MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC7nRFnidH+2hhYxT98Nlql4FWAun8nyw6XiW1HP7nNlzbBzDpWUDzHkH1Ene4hQPa23v/1G/3oEdcgL/xFXXIEl7Fwxqtm3o4WGRHXrChDrkZG7jnbgSG0HD9t0eEnTMvQtSrNwozsd1VRxrEQzDpX0Ke504FdFWfXop4bN4Eu6wIDAQAB">
+    <em:targetApplication RDF:resource="rdf:#$fzmtr3"/>
+  </RDF:Description>
+</RDF:RDF>

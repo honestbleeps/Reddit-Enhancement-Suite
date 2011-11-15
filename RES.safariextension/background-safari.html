@@ -1,0 +1,180 @@
+<!--
+/*
+
+	RES is released under the GPL. However, I do ask a favor (obviously I don't/can't require it, I ask out of courtesy):
+	
+	Because RES auto updates and is hosted from a central server, I humbly request that if you intend to distribute your own
+	modified Reddit Enhancement Suite, you name it something else and make it very clear to your users that it's your own
+	branch and isn't related to mine.
+	
+	RES is updated very frequently, and I get lots of tech support questions/requests from people on outdated versions. If 
+	you're distributing RES via your own means, those recipients won't always be on the latest and greatest, which makes 
+	it harder for me to debug things and understand (at least with browsers that auto-update) whether or not people are on 
+	a current version of RES.
+	
+	I can't legally hold you to any of this - I'm just asking out of courtesy.
+	
+	Thanks, I appreciate your consideration.  Without further ado, the all-important GPL Statement:
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+*/
+-->
+<html>
+<head>
+	<script>
+	
+	function respondToMessage (msgEvent) {
+		var request = msgEvent.message;
+		request.requestType = msgEvent.name;
+		switch(request.requestType) {
+			case 'GM_xmlhttpRequest':
+				var xhr = new XMLHttpRequest();
+				xhr.XHRID = msgEvent.message.XHRID;
+				xhr.open(request.method, request.url, true);
+				if (request.method == "POST") {
+					xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+				}
+				xhr.onreadystatechange = function() {
+				  if (xhr.readyState == 4) {
+					sendResponse(xhr, msgEvent);
+				  }
+				}
+				xhr.send(request.data);
+				break;
+			case 'singleClick':
+				((request.button == 1) || (request.ctrl == 1)) ? button = 'background' : button = 'foreground';
+				// handle requests from singleClick module
+				if (request.openOrder == 'commentsfirst') {
+					// only open a second tab if the link is different...
+					if (request.linkURL != request.commentsURL) {
+						// chrome.tabs.create({url: request.commentsURL});
+						var commentsTab = safari.application.activeBrowserWindow.openTab(button);
+						commentsTab.url = request.commentsURL;
+					}
+					// chrome.tabs.create({url: request.linkURL});
+					var linkTab = safari.application.activeBrowserWindow.openTab(button);
+					linkTab.url = request.linkURL;
+				} else {
+					// chrome.tabs.create({url: request.linkURL});
+					var linkTab = safari.application.activeBrowserWindow.openTab(button);
+					linkTab.url = request.linkURL;
+					// only open a second tab if the link is different...
+					if (request.linkURL != request.commentsURL) {
+						// chrome.tabs.create({url: request.commentsURL});
+						var commentsTab = safari.application.activeBrowserWindow.openTab(button);
+						commentsTab.url = request.commentsURL;
+					}
+				}
+				sendResponse({status: "success"}, msgEvent);
+				break;
+			case 'keyboardNav':
+				(request.button == 1) ? button = 'background' : button = 'foreground';
+				// handle requests from keyboardNav module
+				thisLinkURL = request.linkURL;
+				if (thisLinkURL.toLowerCase().substring(0,4) != 'http') {
+					(thisLinkURL.substring(0,1) == '/') ? thisLinkURL = 'http://www.reddit.com' + thisLinkURL : thisLinkURL = location.href + thisLinkURL;
+				}
+				// chrome.tabs.create({url: thisLinkURL});
+				var linkTab = safari.application.activeBrowserWindow.openTab(button);
+				linkTab.url = thisLinkURL;
+				sendResponse({status: "success"}, msgEvent);
+				break;
+			case 'openLinkInNewTab':
+				var focus = (request.button == true) ? 'foreground' : 'background';
+				thisLinkURL = request.linkURL;
+				if (thisLinkURL.toLowerCase().substring(0,4) != 'http') {
+					(thisLinkURL.substring(0,1) == '/') ? thisLinkURL = 'http://www.reddit.com' + thisLinkURL : thisLinkURL = location.href + thisLinkURL;
+				}
+				var linkTab = safari.application.activeBrowserWindow.openTab(focus);
+				linkTab.url = thisLinkURL;
+				sendResponse({status: "success"}, msgEvent);
+				break;
+			case 'compareVersion':
+				var xhr = new XMLHttpRequest();
+				xhr.open("GET", request.url, true);
+				xhr.onreadystatechange = function() {
+				  if (xhr.readyState == 4) {
+					// JSON.parse does not evaluate the attacker's scripts.
+					var resp = JSON.parse(xhr.responseText);
+					if (typeof(msgEvent.message.forceUpdate) != 'undefined') {
+						resp.forceUpdate = msgEvent.message.forceUpdate;
+					}
+					sendResponse(resp, msgEvent);
+				  }
+				}
+				xhr.send();
+				break;
+			case 'loadTweet':
+				var xhr = new XMLHttpRequest();
+				xhr.open("GET", request.url, true);
+				xhr.onreadystatechange = function() {
+				  if (xhr.readyState == 4) {
+					// JSON.parse does not evaluate the attacker's scripts.
+					var resp = JSON.parse(xhr.responseText);
+					if (typeof(msgEvent.message.target) != 'undefined') {
+						resp.target = msgEvent.message.target;
+					}
+					sendResponse(resp, msgEvent);
+				  }
+				}
+				xhr.send();
+				break;
+			case 'getLocalStorage':
+				sendResponse(localStorage, msgEvent);
+				break;
+			case 'saveLocalStorage':
+				for (var key in request.data) {
+					localStorage.setItem(key,request.data[key]);
+				}
+				localStorage.setItem('importedFromForeground',true);
+				sendResponse(localStorage, msgEvent);
+				break;
+			case 'localStorage':
+				switch (request.operation) {
+					case 'getItem':
+						sendResponse({status: true, value: localStorage.getItem(request.itemName)}, msgEvent);
+						break;
+					case 'removeItem':
+						localStorage.removeItem(request.itemName);
+						sendResponse({status: true, value: null}, msgEvent);
+						break;
+					case 'setItem':
+						localStorage.setItem(request.itemName, request.itemValue);
+						sendResponse({status: true, value: null}, msgEvent);
+						// now tell all of the other tabs about this update...
+						var thisTabID = safari.application.activeBrowserWindow.activeTab;
+						var tabs = safari.application.activeBrowserWindow.tabs;
+						for (var i = 0; i < tabs.length; i++) {
+							if (thisTabID != tabs[i]) {
+								if ((tabs[i]) && (tabs[i].page)) {
+									tabs[i].page.dispatchMessage("localStorage", { requestType: "localStorage", itemName: request.itemName, itemValue: request.itemValue });
+								} 
+							}
+						}
+						break;
+				}
+				break;
+			default:
+				sendResponse({status: "unrecognized request type"}, msgEvent);
+		}
+	};
+	function sendResponse(data, event) {
+		event.target.page.dispatchMessage(event.name, data);
+	}
+	safari.application.addEventListener("message",respondToMessage,false);
+
+	</script>
+</head>
+</html>

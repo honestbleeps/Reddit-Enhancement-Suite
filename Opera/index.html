@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<script>
+/*
+
+	RES is released under the GPL. However, I do ask a favor (obviously I don't/can't require it, I ask out of courtesy):
+	
+	Because RES auto updates and is hosted from a central server, I humbly request that if you intend to distribute your own
+	modified Reddit Enhancement Suite, you name it something else and make it very clear to your users that it's your own
+	branch and isn't related to mine.
+	
+	RES is updated very frequently, and I get lots of tech support questions/requests from people on outdated versions. If 
+	you're distributing RES via your own means, those recipients won't always be on the latest and greatest, which makes 
+	it harder for me to debug things and understand (at least with browsers that auto-update) whether or not people are on 
+	a current version of RES.
+	
+	I can't legally hold you to any of this - I'm just asking out of courtesy.
+	
+	Thanks, I appreciate your consideration.  Without further ado, the all-important GPL Statement:
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+*/
+opera.extension.addEventListener( "message", function( event ) {
+	// get JSON data (from event.data) using the same format used for chrome/safari extensions
+	var request = JSON.parse(event.data);
+	if ((typeof(request) != 'undefined') && (typeof(request.requestType) != 'undefined')) {
+		switch(request.requestType) {
+			case 'GM_xmlhttpRequest':
+				var xhr = new XMLHttpRequest();
+				if (typeof(request.data) == 'undefined') {
+					request.data = '';
+				}
+				xhr.open(request.method, request.url, true);
+				if (request.method == "POST") {
+					xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+					xhr.setRequestHeader("Content-length", request.data.length);
+					xhr.setRequestHeader("Connection", "close");					
+				}
+				xhr.onreadystatechange = function() {
+				  if (xhr.readyState == 4) {
+				// Ugh, frustrating.  Opera won't let me pass back the xhr object, so I have to fake out
+				// my script on the other side by manually passing it back what I need... we'll start with just
+				// responseText, but if I add any functions that need more than that, I'll need to manually add
+				// those bits here...
+					var resp = {
+						responseText: xhr.responseText,
+						url: request.url
+					};
+					var passBack = {
+						msgType: 'GM_xmlhttpRequest',
+						XHRID: request.XHRID,
+						data: resp
+					}
+					event.source.postMessage(passBack);
+				  }
+				}
+				xhr.send(request.data);
+				break;
+			case 'singleClick':
+				var button = !((request.button == 1) || (request.ctrl == 1));
+				// handle requests from singleClick module
+				if (request.openOrder == 'commentsfirst') {
+					// only open a second tab if the link is different...
+					if (request.linkURL != request.commentsURL) {
+						opera.extension.tabs.create({url: request.commentsURL, focused: button});
+					}
+					opera.extension.tabs.create({url: request.linkURL, focused: button});
+				} else {
+					opera.extension.tabs.create({url: request.linkURL, focused: button});
+					// only open a second tab if the link is different...
+					if (request.linkURL != request.commentsURL) {
+						opera.extension.tabs.create({url: request.commentsURL, focused: button});
+					}
+				}
+				var passBack = {
+					msgType: 'singleClick',
+					data: { status: 'success' }
+				}
+				event.source.postMessage(passBack);
+				break;
+			case 'keyboardNav':
+				var button = !(request.button == 1);
+				// handle requests from keyboardNav module
+				thisLinkURL = request.linkURL;
+				if (thisLinkURL.toLowerCase().substring(0,4) != 'http') {
+					(thisLinkURL.substring(0,1) == '/') ? thisLinkURL = 'http://www.reddit.com' + thisLinkURL : thisLinkURL = location.href + thisLinkURL;
+					
+				}
+				opera.extension.tabs.create({url: thisLinkURL, focused: button});
+				var passBack = {
+					msgType: 'keyboardNav',
+					data: { status: 'success' }
+				}
+				event.source.postMessage(passBack);
+				break;
+			case 'openLinkInNewTab':
+				var focus = (request.focus == true);
+				thisLinkURL = request.linkURL;
+				if (thisLinkURL.toLowerCase().substring(0,4) != 'http') {
+					(thisLinkURL.substring(0,1) == '/') ? thisLinkURL = 'http://www.reddit.com' + thisLinkURL : thisLinkURL = location.href + thisLinkURL;
+					
+				}
+				opera.extension.tabs.create({url: thisLinkURL, focused: focus});
+				var passBack = {
+					msgType: 'openLinkInNewTab',
+					data: { status: 'success' }
+				}
+				event.source.postMessage(passBack);
+				break;
+			case 'compareVersion':
+				var xhr = new XMLHttpRequest();
+				xhr.open("GET", request.url, true);
+				xhr.onreadystatechange = function() {
+				  if (xhr.readyState == 4) {
+					var resp = JSON.parse(xhr.responseText);
+					if (request.forceUpdate) resp.forceUpdate = request.forceUpdate;
+					var passBack = {
+						msgType: 'compareVersion',
+						data: resp
+					}
+					event.source.postMessage(passBack);
+				  }
+				}
+				xhr.send();
+				break;
+			case 'loadTweet':
+				var xhr = new XMLHttpRequest();
+				xhr.open("GET", request.url, true);
+				xhr.onreadystatechange = function() {
+				  if (xhr.readyState == 4) {
+					var resp = JSON.parse(xhr.responseText);
+					var passBack = {
+						msgType: 'loadTweet',
+						data: resp
+					}
+					event.source.postMessage(passBack);
+				  }
+				}
+				xhr.send();
+				break;
+			case 'getLocalStorage':
+				var ls = {};
+				for (var i = 0, len=localStorage.length; i < len; i++){
+					if (localStorage.key(i)) {
+						ls[localStorage.key(i)] = localStorage.getItem(localStorage.key(i));
+					}
+				}
+				var passBack = {
+					msgType: 'getLocalStorage',
+					data: ls
+				}
+				event.source.postMessage(passBack);
+				break;
+			case 'saveLocalStorage':
+				for (var key in request.data) {
+					localStorage.setItem(key,request.data[key]);
+				}
+				localStorage.setItem('importedFromForeground',true);
+				var ls = {};
+				for (var i = 0, len=localStorage.length; i < len; i++){
+					if (localStorage.key(i)) {
+						ls[localStorage.key(i)] = localStorage.getItem(localStorage.key(i));
+					}
+				}
+				var passBack = {
+					msgType: 'saveLocalStorage',
+					data: ls
+				}
+				event.source.postMessage(passBack);
+				break;
+			case 'localStorage':
+				switch (request.operation) {
+					case 'getItem':
+						var passBack = {
+							msgType: 'localStorage',
+							data: localStorage.getItem(request.itemName)
+						}
+						event.source.postMessage(passBack);
+						break;
+					case 'removeItem':
+						localStorage.removeItem(request.itemName);
+						var passBack = {
+							msgType: 'localStorage',
+							data: true
+						}
+						event.source.postMessage(passBack);
+						break;
+					case 'setItem':
+						localStorage.setItem(request.itemName, request.itemValue);
+						var passBack = {
+							msgType: 'localStorage',
+							data: true
+						}
+						event.source.postMessage(passBack);
+						opera.extension.broadcastMessage({ msgType: 'localStorage', itemName: request.itemName, itemValue: request.itemValue });
+						break;
+				}
+				break;
+			default:
+				var passBack = {
+					msgType: '',
+					data: { status: 'unrecognized request type' }
+				}
+				event.source.postMessage(passBack);
+				break;
+		}
+	}
+}, false);
+</script>
