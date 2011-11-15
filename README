@@ -1,5 +1,7 @@
 Reddit Enhancement Suite - github README
 
+/// FIRST, a note:
+
 Hi there! Thanks for checking out RES on github.  A few important notes:
 
 1) RES is GPLed, which means you're technically free to do whatever you wish in terms
@@ -25,3 +27,50 @@ Thanks!
 
 Steve Sobel
 steve@honestbleeps.com
+
+/// OKAY! On to what you came to the readme for - how is this project structured?
+
+- README - (YOU ARE HERE)
+
+- changelog.txt - self explanatory
+
+- lib/reddit_enhancement_suite.user.js 
+	This is the core userscript. There are hard links (which I hope github translates 
+	properly, we'll see!) from each browser's own directory to this file. Note that 
+	because Safari's extension builder barfs on symlinks, I had to use hard links instead.
+
+- Chrome/
+	This directory contains the following:
+		- background.html - the "background page" for RES, necessary for chrome extensions
+		- manifest.json - the project manifest
+		- icon.png, icon48.png, icon128.png - icons!
+		- jquery-1.6.4.min.js - jquery 1.6.4!
+		- reddit_enhancement_suite.user.js - a hard link to ../lib, not the "actual file"...
+
+- Opera/
+	This directory contains the following:
+		- index.html - the "background page" for RES, necessary for opera extensions
+		- config.xml - Opera's equivalent of Chrome's manifest.json
+		- logo.gif - a logo gif!
+		- includes/reddit_enhancement_suite.user.js - a hard link to ../lib, not the "actual file"...
+
+
+- RES.safariextension/
+	NOTE: This directory must have .safariextension in the name, or Safari's extension builder pukes.
+	This directory contains the following:
+		- background-safari.html - the "background page" for RES, necessary for safari extensions
+		- Info.plist - the project manifest
+		- icon.png, icon48.png, icon128.png - icons!
+		- jquery-1.6.4.min.js - jquery 1.6.4!
+		- reddit_enhancement_suite.user.js - a hard link to ../lib, not the "actual file"...
+
+
+- XPI/
+	NOTE: An XPI is a Firefox addon... This is compiled using the Addon SDK.
+	This directory contains the following:
+		- lib/main.js - this is firefox's sort of "background page" for RES, like what chrome has, but just a JS file
+		- data/jquery-1.6.4.min.js - jquery 1.6.4!
+		- data/reddit_enhancement_suite.user.js - a hard link to ../lib, not the "actual file"...
+		- doc/main.md - "documentation" file that's not currently being used.
+		- README.md - "documentation" file that's not currently being used.
+		- package.json - the project manifest for the Firefox addon
