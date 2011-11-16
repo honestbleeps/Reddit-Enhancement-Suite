@@ -1,19 +1,19 @@
-Reddit Enhancement Suite - github README
+Reddit Enhancement Suite - GitHub README
 
-/// FIRST, a note:
+### FIRST, a note ###
 
-Hi there! Thanks for checking out RES on github.  A few important notes:
+Hi there! Thanks for checking out RES on GitHub.  A few important notes:
 
-1) RES is GPLed, which means you're technically free to do whatever you wish in terms
+1. RES is GPLed, which means you're technically free to do whatever you wish in terms
 of redistribution.  However, I ask out of courtesy that should you choose to release
-your own, separate distribution of RES, you please name it something else completely.
+your own, separate distribution of RES, you please name it something else entirely.
 Unfortunately, I have run into problems in the past with people redistributing under
 the same name, and causing me tech support headaches.
 
-2) Related: RES is not submitted to browser extension pages like the Chrome Extension
+2. Related: RES is not submitted to browser extension pages like the Chrome Extension
 Gallery, AMO, etc, because the hope/intent is to provide simultaneous releases for all
-four browsers at once - which is not possible given the variable approval times in each
-gallery.  I ask that you please do not submit your own RES that isn't renamed there 
+four browsers at once. This isn't possible given the variable approval times in each
+gallery, though.  I ask that you please do not submit your own RES that isn't renamed there 
 just to get browser syncing of extensions going - because like in #1, it has caused me
 issues in the past.  Someone decided to submit to Chrome's gallery, then I was getting
 tech support requests from people who were on an old (his) version and weren't getting
@@ -28,9 +28,9 @@ Thanks!
 Steve Sobel
 steve@honestbleeps.com
 
-/// OKAY! On to what you came to the readme for - how is this project structured?
+### OKAY! On to what you came to the readme for - how is this project structured? ###
 
-- README - (YOU ARE HERE)
+- README - (YOU ARE HERE - unless you're on GitHub browsing)
 
 - changelog.txt - self explanatory
 
