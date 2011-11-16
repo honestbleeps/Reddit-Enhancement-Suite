@@ -954,11 +954,12 @@ var RESUtils = {
 		return this.headerOffset;
 	},
 	setSelectValue: function(obj, value) {
-		console.log('set select value... ???!!?@#?!@#');
 		for (var i=0, len=obj.length; i < len; i++) {
 			// for some reason in firefox, obj[0] is undefined... weird. adding a test for existence of obj[i]...
-			// console.log(i);
-			if ((typeof(obj[i]) != 'undefined') && (obj[i].value == value)) {
+			// okay, now as of ff8, it's even barfing here unless we console.log out a check - nonsensical.
+			// a bug has been filed to bugzilla at:
+			// https://bugzilla.mozilla.org/show_bug.cgi?id=702847
+			if ((obj[i]) && (obj[i].value == value)) {
 				obj[i].selected = true;
 			}
 		}
