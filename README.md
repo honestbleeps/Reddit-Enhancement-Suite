@@ -74,3 +74,5 @@ steve@honestbleeps.com
 		- doc/main.md - "documentation" file that's not currently being used.
 		- README.md - "documentation" file that's not currently being used.
 		- package.json - the project manifest for the Firefox addon
+
+More documentation to come...
