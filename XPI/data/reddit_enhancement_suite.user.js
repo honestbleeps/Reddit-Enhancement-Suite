@@ -10930,8 +10930,8 @@ modules['neverEndingReddit'] = {
 					RESUtils.addCSS('#NREFloat { position: fixed; top: 10px; right: 10px; display: none; }');
 				}
 				RESUtils.addCSS('#NREMail { width: 16px; height: 12px; float: left; margin-top: 4px; }');
-				RESUtils.addCSS('#NREMail.nohavemail { background-image: url(/static/sprite-main.png?v=816b8dcd1f863d0343bb5e0d9e094215); background-position: 0px -22px; }');
-				RESUtils.addCSS('#NREMail.havemail { background-image: url(/static/sprite-main.png?v=816b8dcd1f863d0343bb5e0d9e094215); background-position: 0px -4px; }');
+				RESUtils.addCSS('#NREMail.nohavemail { background-image: url(/static/sprite-main.png?v=816b8dcd1f863d0343bb5e0d9e094215); background-position: -16px -521px; }');
+				RESUtils.addCSS('#NREMail.havemail { background-image: url(/static/sprite-main.png?v=816b8dcd1f863d0343bb5e0d9e094215); background-position: 0px -521px; }');
 				this.NREFloat.appendChild(this.NREMail);
 				var hasNew = false;
 				if ((typeof(this.navMail) != 'undefined') && (this.navMail != null)) {
@@ -12479,7 +12479,11 @@ modules['accountSwitcher'] = {
 		}
 		// console.log('request with user: ' +username+ ' -- passwd: ' + password);
 		var loginUrl = 'https://ssl.reddit.com/api/login';
-		if (typeof(opera) != 'undefined') loginUrl = 'http://'+location.hostname+'/api/login';
+		if (typeof(opera) != 'undefined') {
+			loginUrl = 'http://'+location.hostname+'/api/login';
+		} else if ((typeof(chrome) != 'undefined') && (chrome.extension.inIncognitoContext)) {
+			loginUrl = 'http://'+location.hostname+'/api/login';
+		}
 		GM_xmlhttpRequest({
 			method:	"POST",
 			url:	loginUrl,
