@@ -1,0 +1,20 @@
+#!/bin/bash
+
+mkdir "$1"
+
+for i in {1..5}
+do
+    mkdir "$1/$i"
+    for q in {1..10}
+    do
+        mkdir "$1/$i/$q"
+        for d in {1..20}
+        do
+            touch "$1/$i/$q/$d.js"
+            for b in {1..50}
+            do
+                echo "var v$b = 'abcd';" >> "$1/$i/$q.js"
+            done
+        done
+    done
+done
