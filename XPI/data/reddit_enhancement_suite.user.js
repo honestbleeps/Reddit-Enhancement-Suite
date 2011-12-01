@@ -9939,6 +9939,7 @@ modules['showImages'] = {
 			var isMinus = ((checkhref.indexOf('min.us')>=0) && (checkhref.indexOf('blog.') == -1));
 			var isQkme = (checkhref.indexOf('qkme.me')>=0) || (checkhref.indexOf('quickmeme.com')>=0);
 			var isGifSound = (checkhref.indexOf('gifsound.com')>=0);
+			var isDeviantArt = (checkhref.indexof('deviantart.com')>=0) ||	 (checkhref.indexOf('fav.me')>=0);
 			// if (href && (gonewild == '' || titleMatch) && (!isGifSound) && (!NSFW) && (href.indexOf('wikipedia.org/wiki') < 0) && (!isPhotobucket) && (isImgur || isEhost || isSnaggy || isFlickr || isMinus || isQkme || href.indexOf('imgur.')>=0 || href.indexOf('.jpeg')>=0 || href.indexOf('.jpg')>=0 || href.indexOf('.gif')>=0 || href.indexOf('.png')>=0)) {
 				if (hasClass(this.imageList[i].parentNode,'title')) {
 					var targetImage = this.imageList[i].parentNode.nextSibling
@@ -9981,6 +9982,7 @@ modules['showImages'] = {
 		// make an array to store any links we've made calls to for the imgur API so we don't do any multiple hits to it.
 		this.imgurCalls = [];
 		this.minusCalls = [];
+		this.deviantArtCalls = []
 		// this.allElements contains all link elements on the page - now let's filter it for images...
 		// this.imgurHashRe = /^http:\/\/([i.]|[edge.]|[www.])*imgur.com\/([\w]+)(\..+)?$/i;
 		this.imgurHashRe = /^http:\/\/(?:[i.]|[edge.]|[www.])*imgur.com\/(?:r\/[\w]+\/)?([\w]+)(\..+)?$/i;
@@ -9988,6 +9990,11 @@ modules['showImages'] = {
 		this.minusHashRe = /^http:\/\/min.us\/([\w]+)(?:#[\d+])?$/i;
 		this.qkmeHashRe = /^http:\/\/(?:www.quickmeme.com\/meme|qkme.me)\/([\w]+)\/?/i;
 		this.ehostHashRe = /^http:\/\/(?:i\.)?(?:\d+\.)?eho.st\/(\w+)\/?/i;
+		//Matches
+		//	http://*.deviantart.com/art/*
+		//	http://*.deviantart.com/*#/d*
+		//	http://fav.me/*
+		this.deviantArtMatchRe = /^http:\/\/(?:fav.me\/.*|(?:[\w]+\.)?deviantart.com\/(?:art\/.*|[^#]*#\/d.*))$/i;
 		var groups = [];
 		this.allElementsCount=this.allElements.length;
 		this.allElementsi = 0;
@@ -10044,7 +10051,8 @@ modules['showImages'] = {
 			var isMinus = ((checkhref.indexOf('min.us')>=0) && (checkhref.indexOf('blog.') == -1));
 			var isQkme = (checkhref.indexOf('qkme.me')>=0) || (checkhref.indexOf('quickmeme.com')>=0);
 			var isGifSound = (checkhref.indexOf('gifsound.com')>=0);
-			if (!(ele.getAttribute('scanned') == 'true') && (checkhref.indexOf('wikipedia.org/wiki') < 0) && (!isGifSound) && (!NSFW) && (!isPhotobucket) && (isImgur || isEhost || isSnaggy || isFlickr || isMinus || isQkme || checkhref.indexOf('.jpeg')>=0 || checkhref.indexOf('.jpg')>=0 || checkhref.indexOf('.gif')>=0 || checkhref.indexOf('.png')>=0)) {
+			var isDeviantArt = (checkhref.indexOf('deviantart.com')>=0) || (checkhref.indexOf('fav.me')>=0);
+			if (!(ele.getAttribute('scanned') == 'true') && (checkhref.indexOf('wikipedia.org/wiki') < 0) && (!isGifSound) && (!NSFW) && (!isPhotobucket) && (isImgur || isEhost || isSnaggy || isFlickr || isMinus || isQkme || isDeviantArt || checkhref.indexOf('.jpeg')>=0 || checkhref.indexOf('.jpg')>=0 || checkhref.indexOf('.gif')>=0 || checkhref.indexOf('.png')>=0)) {
 				if (isImgur) {
 					// if it's not a full (direct) imgur link, get the relevant data and append it... otherwise, go now!
 					// first, kill any URL parameters that screw with the parser, like ?full.
@@ -10155,6 +10163,30 @@ modules['showImages'] = {
 					if (groups) {
 						ele.setAttribute('href','http://i.qkme.me/'+groups[1]+'.jpg');
 						this.createImageExpando(ele);
+					}
+				} else if (isDeviantArt) {
+					if (this.deviantArtMatchRe.test(href)) {
+						var apiURL = 'http://backend.deviantart.com/oembed?url=' + encodeURIComponent(href);
+						if (typeof(this.deviantArtCalls[apiURL]) == 'undefined') {
+							this.deviantArtCalls[apiURL] = ele;
+							GM_xmlhttpRequest({
+								method:'GET',
+								url: apiURL,
+								onload: function (response) {
+									try {
+										var json = safeJSON.parse(response.responseText);
+									} catch(error) {
+										var json = {};
+									}
+									if (typeof(json.url) != 'undefined') {
+										if (typeof(modules['showImages'].deviantArtCalls[apiURL]) != 'undefined') {
+											modules['showImages'].deviantArtCalls[apiURL].setAttribute('href', json.url)										;
+										}
+									}
+								}
+							});
+						}
+						this.createImageExpando(ele)
 					}
 				} else {
 					this.createImageExpando(ele);
