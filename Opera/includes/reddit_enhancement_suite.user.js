@@ -2,6 +2,8 @@
 // @name          Reddit Enhancement Suite
 // @namespace 	  http://reddit.honestbleeps.com/
 // @description	  A suite of tools to enhance reddit...
+// @copyright     2010-2011, Steve Sobel (http://redditenhancementsuite.com/)
+// @license       GPL version 3 or any later version; http://www.gnu.org/copyleft/gpl.html/
 // @author        honestbleeps
 // @include       http://redditenhancementsuite.com/*
 // @include       http://reddit.honestbleeps.com/*
@@ -9,9 +11,13 @@
 // @include       https://reddit.com/*
 // @include       http://*.reddit.com/*
 // @include       https://*.reddit.com/*
+// @version       4.0.2
+// @updateURL     http://redditenhancementsuite.com/latest/reddit_enhamcement_suite.meta.js
+// @installURL    http://redditenhancementsuite.com/test/reddit_enhancement_suite.user.js
+// @require       http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js
 // ==/UserScript==
 
-var RESVersion = "4.0.2";
+var RESVersion = "4.0.3";
 
 /*
 	Reddit Enhancement Suite - a suite of tools to enhance Reddit
@@ -267,7 +273,7 @@ var safeJSON = {
 function keyArrayCompare(fromArr, toArr) {
 	// if we've passed in a number, fix that and make it an array with alt, shift and ctrl set to false.
 	if (typeof(toArr) == 'number') {
-		toArr = Array(toArr,false,false,false);
+		toArr = [toArr, false, false, false];
 	} else if (toArr.length == 4) {
 		toArr.push(false);
 	}
@@ -655,9 +661,9 @@ if ((typeof GM_deleteValue == 'undefined') || (typeof GM_addStyle == 'undefined'
 
 var RESConsoleContainer = '';
 var modalOverlay = '';
-var RESMenuItems = new Array();
-var RESConsolePanels = new Array();
-var modules = new Array();
+var RESMenuItems = [];
+var RESConsolePanels = [];
+var modules = [];
 
 // define common RESUtils - reddit related functions and data that may need to be accessed...
 var RESUtils = {
@@ -842,7 +848,7 @@ var RESUtils = {
 	},
 	currentSubreddit: function(check) {
 		if (typeof(this.curSub) == 'undefined') {
-			var match = location.href.match(/https?:\/\/(?:[a-z]+).reddit.com\/r\/([\w\.]+).*/i);
+			var match = location.href.match(/https?:\/\/(?:[a-z]+).reddit.com\/r\/([\w\.\+]+).*/i);
 			if (match != null) {
 				this.curSub = match[1];
 				if (check) return (match[1].toLowerCase() == check.toLowerCase());
@@ -1371,7 +1377,7 @@ var RESUtils = {
 			f=29;
 		}
 
-		m = new Array(31, f, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31);
+		m = [31, f, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
 		dyear = tyear-(ayear);
 
@@ -1670,7 +1676,7 @@ var RESUtils = {
 				this.adFrame.style.display = 'none';
 			}
 			this.notificationCount = 0;
-			this.notificationTimers = new Array();
+			this.notificationTimers = [];
 			this.RESNotifications = createElementWithID('div','RESNotifications');
 			document.body.appendChild(this.RESNotifications);
 		}
@@ -2754,33 +2760,10 @@ var RESConsole = {
 	addConsoleLink: function() {
 		this.userMenu = document.querySelector('#header-bottom-right');
 		if (this.userMenu) {
-			var preferencesUL = this.userMenu.querySelector('UL');
-			var separator = document.createElement('span');
-			separator.setAttribute('class','separator');
-			separator.innerHTML = '|';
-			this.RESPrefsLink = document.createElement('span');
-			this.RESPrefsLink.setAttribute('id','openRESPrefs');
-			/*
-			if (RESStorage.getItem('RESoutdated') == 'true') {
-				// this.RESPrefsLink.innerHTML = '[RES](u)';
-				this.RESPrefsLink.innerHTML = '<span id="RESSettingsButton" title="RES Settings"></span>(u)';
-			} else {
-				// this.RESPrefsLink.innerHTML = '[RES]';
-				this.RESPrefsLink.innerHTML = '<span id="RESSettingsButton" title="RES Settings"></span>';
-			}
-			*/
-			this.RESPrefsLink.innerHTML = '<span id="RESSettingsButton" title="RES Settings"></span>';
-			/*
-			this.RESPrefsLink.addEventListener('click', function(e) {
-				e.preventDefault();
-				// RESConsole.open();
-				RESConsole.showPrefsDropdown();
-			}, true);
-			*/
-			// this.RESPrefsLink.addEventListener('click', RESConsole.showPrefsDropdown, true);
-			$(this.RESPrefsLink).mouseenter(RESConsole.showPrefsDropdown);
-			insertAfter(preferencesUL, this.RESPrefsLink);
-			insertAfter(preferencesUL, separator);
+			var RESPrefsLink = $("<span id='openRESPrefs'><span id='RESSettingsButton' title='RES Settings'></span>")
+			                    .mouseenter(RESConsole.showPrefsDropdown);
+            $(this.userMenu).find("ul").after(RESPrefsLink).after("<span class='separator'>|</span>");
+            this.RESPrefsLink = RESPrefsLink[0];
 		}
 	},
 	addConsoleDropdown: function() {
@@ -2940,7 +2923,7 @@ var RESConsole = {
 			RESConsoleTopBar.appendChild(RESOutdated); 
 		}
 		*/
-		this.categories = new Array();
+		this.categories = [];
 		for (i in modules) {
 			if ((typeof(modules[i].category) != 'undefined') && (this.categories.indexOf(modules[i].category) == -1)) {
 				this.categories.push(modules[i].category);
@@ -2948,8 +2931,8 @@ var RESConsole = {
 		}
 		this.categories.sort();
 		// create the menu
-		// var menuItems = this.categories.concat(Array('RES Pro','About RES'));
-		var menuItems = this.categories.concat(Array('About RES'));
+		// var menuItems = this.categories.concat(['RES Pro','About RES'));
+		var menuItems = this.categories.concat(['About RES']);
 		RESMenu = createElementWithID('ul', 'RESMenu');
 		for (i in menuItems) {
 			thisMenuItem = document.createElement('li');
@@ -3044,7 +3027,7 @@ var RESConsole = {
 		}
 		*/
 
-		var moduleList = Array();
+		var moduleList = [];
 		for (i in modules) {
 			if (modules[i].category == category) moduleList.push(i);
 		}
@@ -3281,7 +3264,7 @@ var RESConsole = {
 						alert('misconfigured table option in module: ' + moduleID + ' - options of type "table" must have fields defined');
 					} else {
 						// get field names...
-						var fieldNames = new Array();
+						var fieldNames = [];
 						// now that we know the field names, get table rows...
 						var thisTable = document.createElement('table');
 						thisTable.setAttribute('moduleID',moduleID);
@@ -3389,7 +3372,7 @@ var RESConsole = {
 							// capture the key, display something nice for it, and then close the popup...
 							e.preventDefault();
 							document.getElementById(RESConsole.captureKeyID).value = e.keyCode + ',' + e.altKey + ',' + e.ctrlKey + ',' + e.shiftKey + ',' + e.metaKey;
-							var keyArray = Array(e.keyCode, e.altKey, e.ctrlKey, e.shiftKey, e.metaKey);
+							var keyArray = [e.keyCode, e.altKey, e.ctrlKey, e.shiftKey, e.metaKey];
 							document.getElementById(RESConsole.captureKeyID+'-display').value = RESUtils.niceKeyCode(keyArray);
 							RESConsole.keyCodeModal.style.display = 'none';
 							RESConsole.captureKey = false;
@@ -3455,7 +3438,7 @@ var RESConsole = {
 					if ((inputs[i].getAttribute('class')) && (inputs[i].getAttribute('class').indexOf('keycode') >= 0)) {
 						var tempArray = inputs[i].value.split(',');
 						// convert the internal values of this array into their respective types (int, bool, bool, bool)
-						var optionValue = Array(parseInt(tempArray[0]), (tempArray[1] == 'true'), (tempArray[2] == 'true'), (tempArray[3] == 'true'), (tempArray[4] == 'true'));
+						var optionValue = [parseInt(tempArray[0]), (tempArray[1] == 'true'), (tempArray[2] == 'true'), (tempArray[3] == 'true'), (tempArray[4] == 'true')];
 					} else {
 						var optionValue = inputs[i].value;
 					}
@@ -3478,10 +3461,10 @@ var RESConsole = {
 				// check if there are any rows...
 				if (typeof(thisRows) != 'undefined') {
 					// go through each row, and get all of the inputs...
-					var optionMulti = Array();
+					var optionMulti = [];
 					var optionRowCount = 0;
 					for (var j=0;j<thisRows.length;j++) {
-						var optionRow = Array();
+						var optionRow = [];
 						var cells = thisRows[j].querySelectorAll('td');
 						var notAllBlank = false;
 						for (var k=0; k<cells.length; k++) {
@@ -3501,7 +3484,7 @@ var RESConsole = {
 									if ((inputs[l].getAttribute('class')) && (inputs[l].getAttribute('class').indexOf('keycode') >= 0)) {
 										var tempArray = inputs[l].value.split(',');
 										// convert the internal values of this array into their respective types (int, bool, bool, bool)
-										optionValue = Array(parseInt(tempArray[0]), (tempArray[1] == 'true'), (tempArray[2] == 'true'), (tempArray[3] == 'true'));
+										optionValue = [parseInt(tempArray[0]), (tempArray[1] == 'true'), (tempArray[2] == 'true'), (tempArray[3] == 'true')];
 									} else {
 										optionValue = inputs[l].value;
 									}
@@ -3887,8 +3870,8 @@ modules['subRedditTagger'] = {
 			// do stuff now!
 			// this is where your code goes...
 			this.checkForOldSettings();
-			this.SRTDoesntContain = new Array();
-			this.SRTTagWith = new Array();
+			this.SRTDoesntContain = [];
+			this.SRTTagWith = [];
 			this.loadSRTRules();
 			
 			document.body.addEventListener('DOMNodeInserted', function(event) {
@@ -3939,7 +3922,7 @@ modules['subRedditTagger'] = {
 		}
 	},
 	checkForOldSettings: function() {
-		var settingsCopy = Array();
+		var settingsCopy = [];
 		var subRedditCount = 0;
 		while (RESStorage.getItem('subreddit_' + subRedditCount)) {
 			var thisGet = RESStorage.getItem('subreddit_' + subRedditCount).replace(/\"/g,"");
@@ -4024,15 +4007,15 @@ modules['uppersAndDowners'] = {
 			css += '.res_post_ups { '+this.options.postUpvoteStyle.value+forceVisible+' } .res_post_downs { '+this.options.postDownvoteStyle.value+forceVisible+' }';
 			RESUtils.addCSS(css);
 			if ((RESUtils.pageType() == 'comments') || (RESUtils.pageType() == 'profile')) {
-				this.commentsWithMoos = Array();
-				this.moreCommentsIDs = Array();
+				this.commentsWithMoos = [];
+				this.moreCommentsIDs = [];
 				this.applyUppersAndDownersToComments();
 				var moreComments = document.querySelectorAll('.morecomments > a');
 				for (var i=0, len=moreComments.length; i<len; i++) {
 					moreComments[i].addEventListener('click', this.addParentListener, true);
 				}
 			} else if ((RESUtils.pageType() == 'linklist') && (this.options.applyToLinks.value)) {
-				this.linksWithMoos = Array();
+				this.linksWithMoos = [];
 				this.applyUppersAndDownersToLinks();
 				document.body.addEventListener('DOMNodeInserted', function(event) {
 					if ((event.target.tagName == 'DIV') && (event.target.getAttribute('id') && event.target.getAttribute('id').indexOf('siteTable') != -1)) {
@@ -4244,24 +4227,6 @@ modules['uppersAndDowners'] = {
 							frag.appendChild(closeparen);
 
 							item.appendChild(frag);
-							// thanks to Reddit user semanticist for the idea/patch to put the date created in here... 
-							// reddit has now added this natively, we don't need this...
-							/*
-							if (modules['uppersAndDowners'].options.showTimestamp.value) {
-								// find the modified time and wrap it in a span...
-								for (var i=1, len=item.childNodes.length; i<len; i++) {
-									// if this is a text node, and comes right after a div with a class of score, it's the time...
-									if ((item.childNodes[i].nodeType == 3) && (item.childNodes[i-1].nodeType == 1) && (hasClass(item.childNodes[i-1],'score'))) {
-										var timeStampNode = document.createElement('span');
-										timeStampNode.innerHTML = item.childNodes[i].textContent;
-										timeStampNode.title = new Date(votes.created*1000).toString();
-										insertAfter(item.childNodes[i],timeStampNode);
-										item.removeChild(item.childNodes[i]);
-										break;
-									}
-								}
-							}
-							*/
 						}
 					}				
 				}
@@ -4388,26 +4353,12 @@ modules['uppersAndDowners'] = {
 					}
 					// Check if compressed link display or regular...
 					if ((typeof(thisTagline) != 'undefined') && (thisTagline != null)) {
-						var upsAndDowns = ' (<span class="res_post_ups">'+thisPlus+thisups+'</span>|<span class="res_post_downs">'+thisMinus+thisdowns+'</span>) ';
-						var upsAndDownsEle = document.createElement('span');
-						upsAndDownsEle.innerHTML = upsAndDowns;
-						// thanks to Reddit user semanticist for the idea/patch to put the date created in here... 
-						// reddit does this natively now, no more need for this code...
-						/*
-						if (modules['uppersAndDowners'].options.showTimestamp.value) {
-							var thisTimeString = new Date(linkList[i].data.created_utc*1000).toString();
-							// find the modified time and wrap it in a span...
-							var timeStampNode = document.createElement('span');
-							timeStampNode.innerHTML = thisTagline.childNodes[0].textContent;
-							timeStampNode.title = thisTimeString;
-							insertAfter(thisTagline.childNodes[0],timeStampNode);
-							thisTagline.removeChild(thisTagline.childNodes[0]);
-						}
-						*/
+						var upsAndDownsEle = $("<span> (<span class='res_post_ups'>"+thisPlus+thisups+"</span>|<span class='res_post_downs'>"+thisMinus+thisdowns+"</span>) </span>");
 						if (displayType == 'regular') {
-							thisTagline.insertBefore(upsAndDownsEle, thisTagline.firstChild);
+							// thisTagline.insertBefore(upsAndDownsEle, thisTagline.firstChild);
+							$(thisTagline).prepend(upsAndDownsEle);
 						} else {
-							insertAfter(thisTagline, upsAndDownsEle);
+							$(thisTagline).after(upsAndDownsEle);
 						}
 					}
 				}
@@ -5266,7 +5217,7 @@ modules['keyboardNav'] = {
 					keyCodeAarray = parseInt(keyCodeArray);
 				}
 				if (typeof(keyCodeArray) == 'number') {
-					keyCodeArray = Array(keyCodeArray, false, false, false, false);
+					keyCodeArray = [keyCodeArray, false, false, false, false];
 				}
 				thisRowKey.innerHTML = RESUtils.niceKeyCode(keyCodeArray);
 				thisRow.appendChild(thisRowKey);
@@ -5282,7 +5233,7 @@ modules['keyboardNav'] = {
 	handleKeyPress: function(e) {
 		if ((document.activeElement.tagName == 'BODY') && (!(konami.almostThere))) {
 			// comments page, or link list?
-			keyArray = Array(e.keyCode, e.altKey, e.ctrlKey, e.shiftKey, e.metaKey);
+			keyArray = [e.keyCode, e.altKey, e.ctrlKey, e.shiftKey, e.metaKey];
 			switch(this.pageType) {
 				case 'linklist':
 				case 'profile':
@@ -5988,10 +5939,10 @@ modules['userTagger'] = {
 				this.updateTagStorage();
 			}
 			// set up an array to cache user data
-			this.authorInfoCache = Array();
+			this.authorInfoCache = [];
 			if (this.options.colorUser.value) {
 				var voteButtons = document.body.querySelectorAll('.arrow');
-				this.voteStates = new Array();
+				this.voteStates = [];
 				for (var i=0, len=voteButtons.length;i<len;i++) {
 					// get current vote states so that when we listen, we check the delta...
 					// pairNum is just the index of the "pair" of vote arrows... it's i/2 with no remainder...
@@ -6398,7 +6349,7 @@ modules['userTagger'] = {
 		})();		
 	},
 	applyTagToAuthor: function(thisAuthorObj) {
-		var userObject = new Array();
+		var userObject = [];
 		// var thisAuthorObj = this.authors[authorNum];
 		if ((thisAuthorObj) && (!(hasClass(thisAuthorObj,'userTagged'))) && (typeof(thisAuthorObj) != 'undefined') && (thisAuthorObj != null)) {
 			if (this.options.hoverInfo.value) {
@@ -6657,7 +6608,7 @@ modules['userTagger'] = {
 		// It's OK that we're directly accessing localStorage here because if they have old school tag storage, it IS in localStorage.
 		(typeof(unsafeWindow) != 'undefined') ? ls = unsafeWindow.localStorage : ls = localStorage;
 		var tags = {};
-		var toRemove = new Array();
+		var toRemove = [];
 		for (var i = 0, len=ls.length; i < len; i++){
 			var keySplit = null;
 			if (ls.key(i)) keySplit = ls.key(i).split('.');
@@ -6738,11 +6689,6 @@ modules['betteReddit'] = {
 			value: true,
 			description: 'Show lengths of videos when possible'
 		},
-		linkifySubreddits: {
-			type: 'boolean',
-			value: true,
-			description: 'Auto linkify subreddit text that is not already a link'
-		},
 		toolbarFix: { 
 			type: 'boolean',
 			value: true,
@@ -6799,12 +6745,6 @@ modules['betteReddit'] = {
 			}
 			if (((RESUtils.pageType() == 'linklist') || (RESUtils.pageType() == 'comments')) && (this.options.fixHideLinks.value)) {
 				this.fixHideLinks();
-			}
-			if ((RESUtils.pageType() == 'comments') && (this.options.linkifySubreddits.value)) {
-				var allComments = document.querySelectorAll('div.content div.usertext-body > div.md');
-				for (var i=0;i<allComments.length;i++) {
-					allComments[i].innerHTML = allComments[i].innerHTML.replace(/(?:^|\s)\/?(r\/[\w]+)(?![^<]*>|[^<]*<\/a>)/ig, " <a href=\"http://www.reddit.com/$1\">$1</a> ");
-				}
 			}
 			document.body.addEventListener('DOMNodeInserted', function(event) {
 				if ((event.target.tagName == 'DIV') && (event.target.getAttribute('id') && event.target.getAttribute('id').indexOf('siteTable') != -1)) {
@@ -7168,7 +7108,7 @@ modules['betteReddit'] = {
 			var getYoutubeIDRegex = /\?v=([\w\-]{11})&?/i;
 			var getYoutubeStartTimeRegex = /[\#|\&]t=([\d]+[m|s][\d]*[m|s]?)/i;
 			// var getYoutubeIDRegex = /\?v=([\w\-]+)&?/i;
-			this.youtubeLinkIDs = new Array();
+			this.youtubeLinkIDs = [];
 			this.youtubeLinkRefs = {};
 			for (var i=0, len=youtubeLinks.length; i<len; i++) {
 				var match = getYoutubeIDRegex.exec(youtubeLinks[i].getAttribute('href'));
@@ -7290,6 +7230,8 @@ modules['betteReddit'] = {
 		RESUtils.addCSS('#header, ul#accountSwitcherMenu {position:fixed;}');
 		// RESUtils.addCSS('#header {left: 0; right: 0; box-shadow: 0px 2px 2px #AAA;}');
 		RESUtils.addCSS('#header {left: 0; right: 0; }');
+		var headerHeight = $('#header').height() + 15;
+		RESUtils.addCSS('#RESNotifications { top: '+headerHeight+'px } ');
 		this.pinCommonElements(sm);
 
 		// TODO Needs testing
@@ -7638,9 +7580,9 @@ modules['commentPreview'] = {
 				// from other articles when generating a page which contains more than
 				// one article (e.g. an index page that shows the N most recent
 				// articles):
-				g_urls = new Array();
-				g_titles = new Array();
-				g_html_blocks = new Array();
+				g_urls = [];
+				g_titles = [];
+				g_html_blocks = [];
 
 				// Replace < with &lt; and > with &gt;
 				// COMMENTING TO TEST PATCH FROM: 
@@ -8588,7 +8530,7 @@ modules['commentPreview'] = {
 									thisRow = thisTable[j];
 									thisRowCells = thisRow.split('|');
 									if (j == 1) {
-										var thisAlign = new Array();
+										var thisAlign = [];
 										for (cell in thisRowCells) {
 											if (thisRowCells[cell].substr(0,1) == ':') {
 												thisAlign[cellCount] = 'left';
@@ -8684,7 +8626,7 @@ modules['commentPreview'] = {
 				text = text.replace(/\n+$/g,"");
 
 				var grafs = text.split(/\n{2,}/g);
-				var grafsOut = new Array();
+				var grafsOut = [];
 
 				//
 				// Wrap <p> tags.
@@ -9839,9 +9781,9 @@ modules['showImages'] = {
 			// RESUtils.addCSS(".md { max-width: 100% !important;}");
 			
 			
-			this.imageList = Array();
-			this.imagesRevealed = Array();
-			this.flickrImages = Array();
+			this.imageList = [];
+			this.imagesRevealed = [];
+			this.flickrImages = [];
 			this.dupeAnchors = 0;
 			if (this.options.markVisited.value) {
 				this.imageTrackFrame = document.createElement('iframe');
@@ -9851,7 +9793,7 @@ modules['showImages'] = {
 				this.imageTrackFrame.style.display = 'none';
 				this.imageTrackFrame.style.width = '0px';
 				this.imageTrackFrame.style.height = '0px';
-				this.imageTrackStack = Array();
+				this.imageTrackStack = [];
 				document.body.appendChild(this.imageTrackFrame);
 			}
 
@@ -9891,7 +9833,8 @@ modules['showImages'] = {
 		}
 	},
 	getDragSize: function(e){
-		return (p=Math.pow)(p(e.clientX-(rc=e.target.getBoundingClientRect()).left,2)+p(e.clientY-rc.top,2),.5)
+		var dragSize = (p=Math.pow)(p(e.clientX-(rc=e.target.getBoundingClientRect()).left,2)+p(e.clientY-rc.top,2),.5);
+		return Math.round(dragSize);
 	},
 	createImageButtons: function() {
 		if (location.href.match(/search\?\/?q\=/)) {
@@ -10036,8 +9979,8 @@ modules['showImages'] = {
 			this.allElements = ele.querySelectorAll('#siteTable A.title');
 		}
 		// make an array to store any links we've made calls to for the imgur API so we don't do any multiple hits to it.
-		this.imgurCalls = new Array();
-		this.minusCalls = new Array();
+		this.imgurCalls = [];
+		this.minusCalls = [];
 		// this.allElements contains all link elements on the page - now let's filter it for images...
 		// this.imgurHashRe = /^http:\/\/([i.]|[edge.]|[www.])*imgur.com\/([\w]+)(\..+)?$/i;
 		this.imgurHashRe = /^http:\/\/(?:[i.]|[edge.]|[www.])*imgur.com\/(?:r\/[\w]+\/)?([\w]+)(\..+)?$/i;
@@ -10045,7 +9988,7 @@ modules['showImages'] = {
 		this.minusHashRe = /^http:\/\/min.us\/([\w]+)(?:#[\d+])?$/i;
 		this.qkmeHashRe = /^http:\/\/(?:www.quickmeme.com\/meme|qkme.me)\/([\w]+)\/?/i;
 		this.ehostHashRe = /^http:\/\/(?:i\.)?(?:\d+\.)?eho.st\/(\w+)\/?/i;
-		var groups = Array();
+		var groups = [];
 		this.allElementsCount=this.allElements.length;
 		this.allElementsi = 0;
 		if (RESUtils.pageType() == 'comments') {
@@ -10157,7 +10100,7 @@ modules['showImages'] = {
 						}
 					}
 				} else if (isSnaggy) {
-					var extensions = new Array('.jpg','.png','.gif');
+					var extensions = ['.jpg','.png','.gif'];
 					if (href.indexOf('i.snag') == -1) href = href.replace('snag.gy','i.snag.gy');
 					if (extensions.indexOf(href.substr(-4)) == -1) href = href+'.jpg';
 					ele.setAttribute('href',href);
@@ -10320,7 +10263,7 @@ modules['showImages'] = {
 			}
 		} else {
 			// we haven't revealed this image before. Load it in.
-			var href = thisImageLink.getAttribute('href');
+			var href = thisImageLink.getAttribute('href').replace('"','&quot;');
 			var orighref = href;
 			var ext = (href.indexOf('imgur.')>=0 && href.indexOf('.jpg')<0 && href.indexOf('.png')<0 && href.indexOf('.gif')<0) ? '.jpg' :'';
 			/*
@@ -10528,9 +10471,9 @@ modules['showKarma'] = {
 	isEnabled: function() {
 		return RESConsole.getModulePrefs(this.moduleID);
 	},
-	include: Array(
+	include: [
 		/https?:\/\/([a-z]+).reddit.com\/.*/i
-	),
+	],
 	isMatchURL: function() {
 		return RESUtils.isMatchURL(this.moduleID);
 	},
@@ -10574,10 +10517,10 @@ modules['hideChildComments'] = {
 	isEnabled: function() {
 		return RESConsole.getModulePrefs(this.moduleID);
 	},
-	include: Array(
+	include: [
 		/https?:\/\/([a-z]+).reddit.com\/[-\w\.\/]+\/comments\/[-\w\.]+/i,
 		/https?:\/\/([a-z]+).reddit.com\/comments\/[-\w\.]+/i
-	),
+	],
 	isMatchURL: function() {
 		return RESUtils.isMatchURL(this.moduleID);
 	},
@@ -10686,10 +10629,10 @@ modules['showParent'] = {
 	isEnabled: function() {
 		return RESConsole.getModulePrefs(this.moduleID);
 	},
-	include: Array(
+	include: [
 		/https?:\/\/([a-z]+).reddit.com\/[-\w\.\/]+\/comments\/[-\w\.]+/i,
 		/https?:\/\/([a-z]+).reddit.com\/comments\/[-\w\.]+/i
-	),
+	],
 	isMatchURL: function() {
 		return RESUtils.isMatchURL(this.moduleID);
 	},
@@ -10730,7 +10673,7 @@ modules['showParent'] = {
 			if ((!(modules['styleTweaks'].options.commentBoxes.value)) || (!(modules['styleTweaks'].isEnabled())))  {
 				(modules['styleTweaks'].options.lightOrDark.value == 'dark') ? bgFix = 'border: 1px solid #666666; padding: 4px; background-color: #333333;' : bgFix = 'border: 1px solid #666666; padding: 4px; background-color: #FFFFFF;';
 			}
-			div.setAttribute('style','position:absolute; top:'+top+'px; left:'+left+'px; '+bgFix+';');
+			div.setAttribute('style','width:auto;position:absolute; top:'+top+'px; left:'+left+'px; '+bgFix+';');
 			var parentDiv = document.querySelector('div.id-t1_'+id);
 			div.innerHTML = parentDiv.innerHTML.replace(/\<ul\s+class[\s\S]+\<\/ul\>/,"").replace(/\<a[^\>]+>\[-\]\<\/a\>/,'');
 			modules['showParent'].getTag('body')[0].appendChild(div);
@@ -10825,12 +10768,12 @@ modules['neverEndingReddit'] = {
 	isEnabled: function() {
 		return RESConsole.getModulePrefs(this.moduleID);
 	},
-	include: Array(
+	include: [
 		/https?:\/\/([a-z]+).reddit.com\/[-\w\.\_\?=]*/i
-	),
-	exclude: Array(
+	],
+	exclude: [
 		/https?:\/\/([a-z]+).reddit.com\/saved\//i
-	),
+	],
 	isMatchURL: function() {
 		return RESUtils.isMatchURL(this.moduleID);
 	},
@@ -10931,7 +10874,7 @@ modules['neverEndingReddit'] = {
 				}
 				RESUtils.addCSS('#NREMail { width: 16px; height: 12px; float: left; margin-top: 4px; }');
 				RESUtils.addCSS('#NREMail.nohavemail { background-image: url(/static/sprite-main.png?v=816b8dcd1f863d0343bb5e0d9e094215); background-position: -16px -521px; }');
-				RESUtils.addCSS('#NREMail.havemail { background-image: url(/static/sprite-main.png?v=816b8dcd1f863d0343bb5e0d9e094215); background-position: 0px -521px; }');
+				RESUtils.addCSS('#NREMail.havemail { background-image: url(/static/sprite-main.png?v=816b8dcd1f863d0343bb5e0d9e094215); background-position: 0 -521px; }');
 				this.NREFloat.appendChild(this.NREMail);
 				var hasNew = false;
 				if ((typeof(this.navMail) != 'undefined') && (this.navMail != null)) {
@@ -10946,8 +10889,8 @@ modules['neverEndingReddit'] = {
 			document.body.appendChild(this.NREFloat);
 		}
 	},
-	pageMarkers: new Array(),
-	pageURLs: new Array(),
+	pageMarkers: [],
+	pageURLs: [],
 	togglePause: function() {
 		modules['neverEndingReddit'].isPaused = !modules['neverEndingReddit'].isPaused;
 		RESStorage.setItem('RESmodules.neverEndingReddit.isPaused', modules['neverEndingReddit'].isPaused);
@@ -11529,7 +11472,7 @@ modules['saveComments'] = {
 	},
 	unsaveComment: function(id, unsaveLink) {
 		/*
-		var newStoredComments = Array();
+		var newStoredComments = [];
 		for (var i=0, len=this.storedComments.length;i<len;i++) {
 			if (this.storedComments[i].href != href) {
 				newStoredComments.push(this.storedComments[i]);
@@ -11801,6 +11744,11 @@ modules['styleTweaks'] = {
 			value: 'light',
 			description: 'Light, or dark?'
 		},
+		visitedStyle: {
+			type: 'boolean',
+			value: false,
+			description: 'Reddit makes it so no links on comment pages appear as "visited" - including user profiles. This option undoes that.'
+		},
 		showExpandos: {
 			type: 'boolean',
 			value: true,
@@ -11826,8 +11774,14 @@ modules['styleTweaks'] = {
 			// get this module's options...
 			// RESUtils.getOptions(this.moduleID);
 			
-			// wow, Reddit doesn't define a visited class for links in comments.. we need to do that.
-			RESUtils.addCSS(".comment a:visited { color:#551a8b }");
+			// wow, Reddit doesn't define a visited class for any links on comments pages...
+			// let's put that back if users want it back.
+			// If not, we still need a visited class for links in comments, like imgur photos for example, or inline image viewer can't make them look different when expanded!
+			if (this.options.visitedStyle.value) {
+				RESUtils.addCSS(".comment a:visited { color:#551a8b }");
+			} else {
+				RESUtils.addCSS(".comment .md p > a:visited { color:#551a8b }");
+			}
 
 			// get rid of antequated option we've removed (err, renamed) due to performance issues.
 			if (typeof(this.options.commentBoxHover) != 'undefined') {
@@ -12098,7 +12052,7 @@ modules['styleTweaks'] = {
 		$('#RESDropdownOptions').append(this.lightSwitch);
 	},
 	subredditStyles: function() {
-		this.ignoredSubReddits = Array();
+		this.ignoredSubReddits = [];
 		var getIgnored = RESStorage.getItem('RESmodules.styleTweaks.ignoredSubredditStyles');
 		if (getIgnored) {
 			this.ignoredSubReddits = safeJSON.parse(getIgnored, 'RESmodules.styleTweaks.ignoredSubredditStyles');
@@ -12165,7 +12119,15 @@ modules['styleTweaks'] = {
 			var css = "div[class=\"organic-listing\"] ul[class=\"tabmenu \"], div[id=\"header-bottom-left\"]] {background-color: #666 !important; } ::-moz-selection {	background:orangered; }";
 			css += "html {background-color:#222 !important;}";
 			css += ".res-nightmode {background-color:#222 !important;}";
-			css += "body > .content {background-color:#222 !important;}"; 
+			css += ".res-nightmode body > .content {background-color:#222 !important;}";
+			css += ".res-nightmode .flair {background-color:#bbb!important;color:black!important;}";
+			css += ".res-nightmode .RESUserTagImage, .res-nightmode button.arrow.prev, .res-nightmode button.arrow.next {opacity:0.5;}";
+			css += ".res-nightmode #RESConsole {background-color:#ddd;}";
+			css += ".res-nightmode #RESConsoleTopBar #RESLogo, .res-nightmode #progressIndicator {opacity:0.4;}";
+			css += ".res-nightmode .tabmenu li a, .res-nightmode .login-form, .res-nightmode .login-form input[name*='passwd'], .res-nightmode .login-form-side .submit {background-color:#bbb;}";
+			css += ".res-nightmode .login-form-side input {width:auto!important;}";
+			css += ".res-nightmode form.login-form.login-form-side {background-color: #888;color: #eee;}";
+			css += ".res-nightmode #RESConsoleTopBar, .res-nightmode .moduleHeader, .res-nightmode .allOptionsContainer, .res-nightmode .optionContainer {background-color: #ccc;color:black !important;}"; 
 			css += ".res-nightmode #siteTable sitetable{background-color:#222 !important;}";
 			css += ".res-nightmode #commentNavButtons * {color:white !important;}";
 			css += ".res-nightmode .usertable .btn {border-color:#aa9 !important;color:#aa9 !important;}";
@@ -13296,7 +13258,7 @@ modules['commentNavigator'] = {
 			if (commentArea) {
 				this.commentNavToggle = createElementWithID('div','REScommentNavToggle');
 				this.commentNavToggle.innerHTML = '<span>navigate by:</span>';
-				var sortTypes = Array('submitter', 'moderator', 'friend', 'admin', 'IAmA', 'images', 'popular', 'new');
+				var sortTypes = ['submitter', 'moderator', 'friend', 'admin', 'IAmA', 'images', 'popular', 'new'];
 				for (i=0, len=sortTypes.length; i<len; i++) {
 					var thisCategory = sortTypes[i];
 					// var thisEle = document.createElement('div');
@@ -13383,8 +13345,8 @@ modules['commentNavigator'] = {
 						</div> \
 					</div> \
 				';
-				this.posts = new Array();
-				this.nav = new Array();
+				this.posts = [];
+				this.nav = [];
 				this.navSelect = this.commentNavBox.querySelector('#commentNavBy');
 				this.commentNavPostCount = this.commentNavBox.querySelector('#commentNavPostCount');
 				this.commentNavButtons = this.commentNavBox.querySelector('#commentNavButtons');
@@ -13429,7 +13391,7 @@ modules['commentNavigator'] = {
 						break;
 					case 'IAmA':
 						var submitterPosts = document.querySelectorAll('.noncollapsed a.author.submitter');
-						this.posts[category] = new Array();
+						this.posts[category] = [];
 						for (var i=0, len=submitterPosts.length; i<len; i++) {
 							// go seven parents up to get the proper parent post...
 							var sevenUp = submitterPosts[i].parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode;
@@ -13446,7 +13408,7 @@ modules['commentNavigator'] = {
 						break;
 					case 'popular':
 						var allComments = document.querySelectorAll('.noncollapsed');
-						var commentsObj = new Array();
+						var commentsObj = [];
 						for (var i=0, len=allComments.length; i<len; i++) {
 							var thisScore = allComments[i].querySelector('.unvoted');
 							if (thisScore) {
@@ -13463,7 +13425,7 @@ modules['commentNavigator'] = {
 						commentsObj.sort(function(a, b) {
 							return parseInt(b.score) - parseInt(a.score);
 						});
-						this.posts[category] = new Array();
+						this.posts[category] = [];
 						for (var i=0, len=commentsObj.length; i<len; i++) {
 							this.posts[category][i] = commentsObj[i].comment;
 						}
@@ -13929,7 +13891,7 @@ modules['subredditManager'] = {
 		} else {
 			this.shortCutsContainer.style.textTransform = 'none';
 			this.shortCutsContainer.innerHTML = 'add shortcuts from the my subreddits menu at left or click the button by the subreddit name, drag and drop to sort';
-			this.mySubredditShortcuts = new Array();
+			this.mySubredditShortcuts = [];
 		}
 		// clip the width of the container to the remaining area...
 		// this.shortCutsContainer.style.width = parseInt(window.innerWidth - this.srLeftContainerWidth - 40) + 'px';
@@ -14133,7 +14095,7 @@ modules['subredditManager'] = {
 				var srcSubreddit = modules['subredditManager'].mySubredditShortcuts[srcOrderIndex];
 				var destOrderIndex = parseInt(this.getAttribute('orderIndex'));
 				var destSubreddit = modules['subredditManager'].mySubredditShortcuts[destOrderIndex];
-				var rearranged = new Array();
+				var rearranged = [];
 				var rearrangedI = 0;
 				for (var i=0, len=modules['subredditManager'].mySubredditShortcuts.length; i<len; i++) {
 					if ((i != srcOrderIndex) && (i != destOrderIndex)) {
@@ -14437,7 +14399,7 @@ modules['subredditManager'] = {
 	
 	},
 	getSubreddits: function() {
-		modules['subredditManager'].mySubreddits = new Array();
+		modules['subredditManager'].mySubreddits = [];
 		var lastCheck = parseInt(RESStorage.getItem('RESmodules.subredditManager.subreddits.lastCheck.'+RESUtils.loggedInUser())) || 0;
 		var now = new Date();
 		var check = RESStorage.getItem('RESmodules.subredditManager.subreddits.'+RESUtils.loggedInUser());
@@ -14954,7 +14916,7 @@ modules['RESPro'] = {
 							for (var username in serverResponse.data) {
 								var newSubredditData = serverResponse.data[username];
 								var oldSubredditData = safeJSON.parse(RESStorage.getItem('RESmodules.subredditManager.subredditShortcuts.'+username), 'RESmodules.subredditManager.subredditShortcuts.'+username);
-								if (oldSubredditData == null) oldSubredditData = new Array();
+								if (oldSubredditData == null) oldSubredditData = [];
 								for (var newidx in newSubredditData) {
 									var exists = false;
 									for (var oldidx in oldSubredditData) {
@@ -15736,9 +15698,13 @@ function RESInit() {
 			console.log('Uh oh, something has gone wrong loading jQuery...');
 		}
 	} else if ((typeof(unsafeWindow) != 'undefined') && (unsafeWindow.jQuery)) {
-		// greasemonkey
-		$ = unsafeWindow.jQuery;
-		jQuery = $;
+		// greasemonkey -- should load jquery automatically because of @require line
+		// in this file's header
+		if (typeof($) == 'undefined') {
+			// greasemonkey-like userscript
+			$ = unsafeWindow.jQuery;
+			jQuery = $;
+		}
 	} else if (typeof(window.jQuery) == 'function') {
 		// opera...
 		$ = window.jQuery;
@@ -17120,19 +17086,22 @@ function setUpRESStorage (response) {
 		}
 		// if the fromBG parameter is true, we've been informed by another tab that this item has updated. We should update the data locally, but not send a background request.
 		RESStorage.setItem = function(key, value, fromBG) {
-			// save it locally in the RESStorage variable, but also write it to the extension's localStorage...
-			// It's OK that saving it is asynchronous since we're saving it in this local variable, too...
-			RESStorage[key] = value;
-			var thisJSON =  {
-				requestType: 'localStorage',
-				operation: 'setItem',
-				itemName: key,
-				itemValue: value
-			}
-			if (!fromBG) {
-				chrome.extension.sendRequest(thisJSON, function(response) {
-					// this is an asynchronous response, we don't really need to do anything here...
-				});
+			//Protect from excessive disk I/O...
+			if (RESStorage[key] != value) {
+				// save it locally in the RESStorage variable, but also write it to the extension's localStorage...
+				// It's OK that saving it is asynchronous since we're saving it in this local variable, too...
+				RESStorage[key] = value;
+				var thisJSON =  {
+					requestType: 'localStorage',
+					operation: 'setItem',
+					itemName: key,
+					itemValue: value
+				}
+				if (!fromBG) {
+					chrome.extension.sendRequest(thisJSON, function(response) {
+						// this is an asynchronous response, we don't really need to do anything here...
+					});
+				}
 			}
 		}
 		RESStorage.removeItem = function(key) {
@@ -17157,17 +17126,20 @@ function setUpRESStorage (response) {
 			return null;
 		}
 		RESStorage.setItem = function(key, value, fromBG) {
-			// save it locally in the RESStorage variable, but also write it to the extension's localStorage...
-			// It's OK that saving it is asynchronous since we're saving it in this local variable, too...
-			RESStorage[key] = value;
-			var thisJSON =  {
-				requestType: 'localStorage',
-				operation: 'setItem',
-				itemName: key,
-				itemValue: value
-			}
-			if (!fromBG) {
-				safari.self.tab.dispatchMessage("localStorage", thisJSON);
+			//Protect from excessive disk I/O...
+			if (RESStorage[key] != value) {
+				// save it locally in the RESStorage variable, but also write it to the extension's localStorage...
+				// It's OK that saving it is asynchronous since we're saving it in this local variable, too...
+				RESStorage[key] = value;
+				var thisJSON =  {
+					requestType: 'localStorage',
+					operation: 'setItem',
+					itemName: key,
+					itemValue: value
+				}
+				if (!fromBG) {
+					safari.self.tab.dispatchMessage("localStorage", thisJSON);
+				}
 			}
 		}
 		RESStorage.removeItem = function(key) {
@@ -17189,18 +17161,21 @@ function setUpRESStorage (response) {
 			return null;
 		}
 		RESStorage.setItem = function(key, value, fromBG) {
-			// save it locally in the RESStorage variable, but also write it to the extension's localStorage...
-			// It's OK that saving it is asynchronous since we're saving it in this local variable, too...
-			RESStorage[key] = value;
-			var thisJSON =  {
-				requestType: 'localStorage',
-				operation: 'setItem',
-				itemName: key,
-				itemValue: value
+			//Protect from excessive disk I/O...
+			if (RESStorage[key] != value) {
+				// save it locally in the RESStorage variable, but also write it to the extension's localStorage...
+				// It's OK that saving it is asynchronous since we're saving it in this local variable, too...
+				RESStorage[key] = value;
+				var thisJSON =  {
+					requestType: 'localStorage',
+					operation: 'setItem',
+					itemName: key,
+					itemValue: value
+				}
+				if (!fromBG) {
+					opera.extension.postMessage(JSON.stringify(thisJSON));
+				} 
 			}
-			if (!fromBG) {
-				opera.extension.postMessage(JSON.stringify(thisJSON));
-			} 
 		}
 		RESStorage.removeItem = function(key) {
 			// delete it locally in the RESStorage variable, but also delete it from the extension's localStorage...
@@ -17264,11 +17239,14 @@ function setUpRESStorage (response) {
 				if (typeof(value) == 'number') {
 					value = value.toString();
 				}
-				RESStorage[key] = value;
-				// because we may want to use jQuery events to call GM_setValue and GM_getValue, we must use this ugly setTimeout hack.
-				setTimeout(function() {
-					GM_setValue(key, value);
-				}, 0);
+			//Protect from excessive disk I/O...
+			if (RESStorage[key] != value) {
+					RESStorage[key] = value;
+					// because we may want to use jQuery events to call GM_setValue and GM_getValue, we must use this ugly setTimeout hack.
+					setTimeout(function() {
+						GM_setValue(key, value);
+					}, 0);
+				}
 			}
 			return true;
 		}
