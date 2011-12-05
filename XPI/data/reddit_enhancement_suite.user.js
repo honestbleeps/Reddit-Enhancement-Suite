@@ -9940,6 +9940,7 @@ modules['showImages'] = {
 			var isQkme = (checkhref.indexOf('qkme.me')>=0) || (checkhref.indexOf('quickmeme.com')>=0);
 			var isGifSound = (checkhref.indexOf('gifsound.com')>=0);
 			var isDeviantArt = (checkhref.indexof('deviantart.com')>=0) ||	 (checkhref.indexOf('fav.me')>=0);
+			var isMemeCrunch = (checkhref.indexOf('memecrunch.com')>=0);
 			// if (href && (gonewild == '' || titleMatch) && (!isGifSound) && (!NSFW) && (href.indexOf('wikipedia.org/wiki') < 0) && (!isPhotobucket) && (isImgur || isEhost || isSnaggy || isFlickr || isMinus || isQkme || href.indexOf('imgur.')>=0 || href.indexOf('.jpeg')>=0 || href.indexOf('.jpg')>=0 || href.indexOf('.gif')>=0 || href.indexOf('.png')>=0)) {
 				if (hasClass(this.imageList[i].parentNode,'title')) {
 					var targetImage = this.imageList[i].parentNode.nextSibling
@@ -9995,6 +9996,8 @@ modules['showImages'] = {
 		//	http://*.deviantart.com/*#/d*
 		//	http://fav.me/*
 		this.deviantArtMatchRe = /^http:\/\/(?:fav.me\/.*|(?:[\w]+\.)?deviantart.com\/(?:art\/.*|[^#]*#\/d.*))$/i;
+		this.memeCrunchHashRe = /^http:\/\/memecrunch.com\/meme\/([0-9A-Z]+)\/([\w\-]+)(\/image\.(png|jpg))?/i;
+
 		var groups = [];
 		this.allElementsCount=this.allElements.length;
 		this.allElementsi = 0;
@@ -10052,7 +10055,8 @@ modules['showImages'] = {
 			var isQkme = (checkhref.indexOf('qkme.me')>=0) || (checkhref.indexOf('quickmeme.com')>=0);
 			var isGifSound = (checkhref.indexOf('gifsound.com')>=0);
 			var isDeviantArt = (checkhref.indexOf('deviantart.com')>=0) || (checkhref.indexOf('fav.me')>=0);
-			if (!(ele.getAttribute('scanned') == 'true') && (checkhref.indexOf('wikipedia.org/wiki') < 0) && (!isGifSound) && (!NSFW) && (!isPhotobucket) && (isImgur || isEhost || isSnaggy || isFlickr || isMinus || isQkme || isDeviantArt || checkhref.indexOf('.jpeg')>=0 || checkhref.indexOf('.jpg')>=0 || checkhref.indexOf('.gif')>=0 || checkhref.indexOf('.png')>=0)) {
+			var isMemeCrunch = (checkhref.indexOf('memecrunch.com')>=0);
+			if (!(ele.getAttribute('scanned') == 'true') && (checkhref.indexOf('wikipedia.org/wiki') < 0) && (!isGifSound) && (!NSFW) && (!isPhotobucket) && (isImgur || isEhost || isSnaggy || isFlickr || isMinus || isQkme || isDeviantArt || isMemeCrunch || checkhref.indexOf('.jpeg')>=0 || checkhref.indexOf('.jpg')>=0 || checkhref.indexOf('.gif')>=0 || checkhref.indexOf('.png')>=0)) {
 				if (isImgur) {
 					// if it's not a full (direct) imgur link, get the relevant data and append it... otherwise, go now!
 					// first, kill any URL parameters that screw with the parser, like ?full.
@@ -10192,6 +10196,14 @@ modules['showImages'] = {
 					} else if (/\.(png|jpe?g|gif)$/.test(href)) {
 						//correctly handle direct links
 						ele.setAttribute('href', href);
+						this.createImageExpando(ele);
+					}
+				} else if (isMemeCrunch) {
+					var groups = this.memeCrunchHashRe.exec(href);
+					if (typeof(groups[1]) != 'undefined') {
+						var hash = groups[1];
+						var title = groups[2] || "null";
+						ele.setAttribute('href', "http://memecrunch.com/meme/"+hash+"/"+title+"/image.png");
 						this.createImageExpando(ele);
 					}
 				} else {
