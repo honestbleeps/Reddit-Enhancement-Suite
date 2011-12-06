@@ -9995,7 +9995,7 @@ modules['showImages'] = {
 		//	http://*.deviantart.com/art/*
 		//	http://*.deviantart.com/*#/d*
 		//	http://fav.me/*
-		this.deviantArtMatchRe = /^http:\/\/(?:fav.me\/.*|(?:[\w]+\.)?deviantart.com\/(?:art\/.*|[^#]*#\/d.*))$/i;
+		this.deviantArtMatchRe = /^http:\/\/(?:fav.me\/.*|(?:.+\.)?deviantart.com\/(?:art\/.*|[^#]*#\/d.*))$/i;
 		this.memeCrunchHashRe = /^http:\/\/memecrunch.com\/meme\/([0-9A-Z]+)\/([\w\-]+)(\/image\.(png|jpg))?/i;
 
 		var groups = [];
