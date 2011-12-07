@@ -7169,22 +7169,16 @@ modules['betteReddit'] = {
 
 		// add a dummy <div> inside the header to replace the subreddit bar (for spacing)
 		var spacer = document.createElement('div');
+		spacer.id = "RESPinnedSubredditBarSpacer";
 		spacer.style.paddingTop = window.getComputedStyle(sb).paddingTop;
 		spacer.style.paddingBottom = window.getComputedStyle(sb).paddingBottom;
+		spacer.style.height = window.getComputedStyle(sb).height;
 
-		// HACK: for some reason, if the SM is enabled, the SB gets squeezed horizontally,
-		//       and takes up three rows of vertical space (even at low horizontal resolution).
-		if (sm) spacer.style.height = (parseInt(window.getComputedStyle(sb).height) / 3 - 3)+'px';
-		else    spacer.style.height = window.getComputedStyle(sb).height;
-
-		//window.setTimeout(function(){
 		// add the spacer; take the subreddit bar out of the header and put it above
 		header.insertBefore(spacer, sb);
 		document.body.insertBefore(sb,header);
 
 		// make it fixed
-		// RESUtils.addCSS('div#sr-header-area {position: fixed; z-index: 10000 !important; left: 0; right: 0; box-shadow: 0px 2px 2px #AAA;}');
-		RESUtils.addCSS('#header-bottom-left { margin-top: 19px; }');
 		RESUtils.addCSS('div#sr-header-area {position: fixed; z-index: 10000 !important; left: 0; right: 0; }');
 		this.pinCommonElements(sm);
 	},
@@ -7233,18 +7227,6 @@ modules['betteReddit'] = {
 		var headerHeight = $('#header').height() + 15;
 		RESUtils.addCSS('#RESNotifications { top: '+headerHeight+'px } ');
 		this.pinCommonElements(sm);
-
-		// TODO Needs testing
-		// Sometimes this gets executed before the subreddit logo has finished loading. When that
-		// happens, the spacer gets created too short, so when the SR logo finally loads, the header
-		// grows and overlaps the top of the page, potentially obscuring the first link. This checks
-		// to see if the image is finished loading. If it is, then the spacer's height is set. Otherwise,
-		// it pauses, then loops.
-		if (!document.getElementById('header-img').complete) setTimeout(function(){
-					   if (document.getElementById('header-img').complete)
-							   document.getElementById('RESPinnedHeaderSpacer').style.height = window.getComputedStyle(document.getElementById('header')).height;
-					   else setTimeout(arguments.callee, 10);
-			   }, 10);
 	},
 	pinCommonElements: function(sm) {
 		// pin the elements common to both pinHeader() and pinSubredditBar()
@@ -13625,6 +13607,11 @@ modules['subredditManager'] = {
 			value: true,
 			description: 'Show "ALL" link in subreddit manager'
 		},
+        linkHome: {
+            type: 'boolean',
+            value: true,
+            description: 'show "HOME" link in subreddit manager'
+        },
 		linkRandom: {
 			type: 'boolean',
 			value: true,
@@ -13814,6 +13801,7 @@ modules['subredditManager'] = {
 				delete betteRedditOptions.linkFriends;
 				delete betteRedditOptions.linkMod;
 				delete betteRedditOptions.linkRandom;
+				delete betteRedditOptions.linkHome;
 				RESStorage.setItem('RESoptions.betteReddit', JSON.stringify(betteRedditOptions));
 				RESStorage.setItem('RESmodules.subredditManager.subredditShortcuts.'+RESUtils.loggedInUser(), shortCuts);
 				RESStorage.removeItem('RESmodules.betteReddit.subredditShortcuts.'+RESUtils.loggedInUser());
@@ -14167,6 +14155,7 @@ modules['subredditManager'] = {
 			/* this probably isn't the best way to give the option, since the mechanic is drag/drop for other stuff..  but it's much easier for now... */
 			this.staticShortCutsContainer.innerHTML = '';
 			if (this.options.linkAll.value) this.staticShortCutsContainer.innerHTML += '<span class="separator">-</span><a href="/r/all/">ALL</a>';
+			if (this.options.linkHome.value) this.staticShortCutsContainer.innerHTML += '<span class="separator">-</span><a href="/">HOME</a>';
 			if (this.options.linkRandom.value) this.staticShortCutsContainer.innerHTML += '<span class="separator">-</span><a href="/r/random/">RANDOM</a>';
 			if (RESUtils.loggedInUser() != null) {
 				if (this.options.linkFriends.value) this.staticShortCutsContainer.innerHTML += '<span class="separator">-</span><a href="/r/friends/">FRIENDS</a>';
