@@ -10185,7 +10185,7 @@ modules['showImages'] = {
 									if (typeof(json.url) != 'undefined') {
 										if (typeof(modules['showImages'].deviantArtCalls[apiURL]) != 'undefined') {
 											var elem = modules['showImages'].deviantArtCalls[apiURL];
-											elem.setAttribute('href', json.url);
+											elem.setAttribute('src', json.url);
 											//move the createImageExpando call here because some links can't be embedded.
 											modules['showImages'].createImageExpando(elem);
 										}
@@ -10313,8 +10313,14 @@ modules['showImages'] = {
 			}
 		} else {
 			// we haven't revealed this image before. Load it in.
-			var href = thisImageLink.getAttribute('href').replace('"','&quot;');
-			var orighref = href;
+			//if the link has a `src` attribute then use `href` only for the link and use `src` for the url of the actual image
+			if (thisImageLink.hasAttribute('src')) {
+				var href = thisImageLink.getAttribute('src').replace('"','&quot;');
+				var orighref = thisImageLink.getAttribute('href').replace('"','&quot;');
+			} else {
+				var href = thisImageLink.getAttribute('href').replace('"','&quot;');
+				var orighref = href;
+			}
 			var ext = (href.indexOf('imgur.')>=0 && href.indexOf('.jpg')<0 && href.indexOf('.png')<0 && href.indexOf('.gif')<0) ? '.jpg' :'';
 			/*
 			if ((this.options.imageSize.value != null) && (this.options.imageSize.value != '') && (href.indexOf('imgur.com') != -1)) {
