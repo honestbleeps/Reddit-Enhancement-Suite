@@ -10185,13 +10185,21 @@ modules['showImages'] = {
 									if (typeof(json.url) != 'undefined') {
 										if (typeof(modules['showImages'].deviantArtCalls[apiURL]) != 'undefined') {
 											var elem = modules['showImages'].deviantArtCalls[apiURL];
-											elem.setAttribute('src', json.url);
+											if (json.type == 'file') {
+												//files may not embed properly
+												elem.setAttribute('src', json.thumbnail_url);
+											} else {
+												elem.setAttribute('src', json.url);
+											}
 											//move the createImageExpando call here because some links can't be embedded.
 											modules['showImages'].createImageExpando(elem);
 										}
 									}
 								}
 							});
+						} else {
+							ele.setAttribute('src', this.deviantArtCalls[apiURL].getAttribute('src'));
+							modules['showImages'].createImageExpando(ele);
 						}
 					} else if (/\.(png|jpe?g|gif)$/.test(href)) {
 						//correctly handle direct links
