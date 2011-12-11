@@ -10185,7 +10185,7 @@ modules['showImages'] = {
 									if (typeof(json.url) != 'undefined') {
 										if (typeof(modules['showImages'].deviantArtCalls[apiURL]) != 'undefined') {
 											var elem = modules['showImages'].deviantArtCalls[apiURL];
-											if (json.type == 'file') {
+											if (json.url == href) {
 												//files may not embed properly
 												elem.setAttribute('src', json.thumbnail_url);
 											} else {
