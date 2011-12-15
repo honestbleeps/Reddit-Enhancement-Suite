@@ -55,24 +55,22 @@
 				case 'singleClick':
 					var button = !((request.button == 1) || (request.ctrl == 1));
 					// Get the selected tab so we can get the index of it.  This allows us to open our new tab as the "next" tab.
-					chrome.tabs.getSelected(null, function(tab) {
-						var newIndex = tab.index+1;
-						// handle requests from singleClick module
-						if (request.openOrder == 'commentsfirst') {
-							// only open a second tab if the link is different...
-							if (request.linkURL != request.commentsURL) {
-								chrome.tabs.create({url: request.commentsURL, selected: button, index: newIndex});
-							}
-							chrome.tabs.create({url: request.linkURL, selected: button, index: newIndex+1});
-						} else {
-							chrome.tabs.create({url: request.linkURL, selected: button, index: newIndex});
-							// only open a second tab if the link is different...
-							if (request.linkURL != request.commentsURL) {
-								chrome.tabs.create({url: request.commentsURL, selected: button, index: newIndex+1});
-							}
+					var newIndex = sender.tab.index+1;
+					// handle requests from singleClick module
+					if (request.openOrder == 'commentsfirst') {
+						// only open a second tab if the link is different...
+						if (request.linkURL != request.commentsURL) {
+							chrome.tabs.create({url: request.commentsURL, selected: button, index: newIndex});
 						}
-						sendResponse({status: "success"});
-					});
+						chrome.tabs.create({url: request.linkURL, selected: button, index: newIndex+1});
+					} else {
+						chrome.tabs.create({url: request.linkURL, selected: button, index: newIndex});
+						// only open a second tab if the link is different...
+						if (request.linkURL != request.commentsURL) {
+							chrome.tabs.create({url: request.commentsURL, selected: button, index: newIndex+1});
+						}
+					}
+					sendResponse({status: "success"});
 					break;
 				case 'keyboardNav':
 					var button = !(request.button == 1);
@@ -83,11 +81,9 @@
 						
 					}
 					// Get the selected tab so we can get the index of it.  This allows us to open our new tab as the "next" tab.
-					chrome.tabs.getSelected(null, function(tab) {
-						var newIndex = tab.index+1;
-						chrome.tabs.create({url: thisLinkURL, selected: button, index: newIndex});
-						sendResponse({status: "success"});
-					});
+					var newIndex = sender.tab.index+1;
+					chrome.tabs.create({url: thisLinkURL, selected: button, index: newIndex});
+					sendResponse({status: "success"});
 					break;
 				case 'openLinkInNewTab':
 					var focus = (request.focus == true);
@@ -98,11 +94,9 @@
 						
 					}
 					// Get the selected tab so we can get the index of it.  This allows us to open our new tab as the "next" tab.
-					chrome.tabs.getSelected(null, function(tab) {
-						var newIndex = tab.index+1;
-						chrome.tabs.create({url: thisLinkURL, selected: focus, index: newIndex});
-						sendResponse({status: "success"});
-					});
+					var newIndex = sender.tab.index+1;
+					chrome.tabs.create({url: thisLinkURL, selected: focus, index: newIndex});
+					sendResponse({status: "success"});
 					break;
 				case 'compareVersion':
 					var xhr = new XMLHttpRequest();
@@ -150,16 +144,14 @@
 						case 'setItem':
 							localStorage.setItem(request.itemName, request.itemValue);
 							sendResponse({status: true, value: null});
-							chrome.tabs.getSelected(null, function(resp) {
-								var thisTabID = resp.id;
-								chrome.tabs.getAllInWindow(null, function(tabs){
-									for (var i = 0; i < tabs.length; i++) {
-										if (thisTabID != tabs[i].id) {
-											chrome.tabs.sendRequest(tabs[i].id, { requestType: "localStorage", itemName: request.itemName, itemValue: request.itemValue });                         
-										}
+							var thisTabID = sender.tab.id;
+							chrome.tabs.getAllInWindow(null, function(tabs){
+								for (var i = 0; i < tabs.length; i++) {
+									if (thisTabID != tabs[i].id) {
+										chrome.tabs.sendRequest(tabs[i].id, { requestType: "localStorage", itemName: request.itemName, itemValue: request.itemValue });                         
 									}
-								});
-							})
+								}
+							});
 							break;
 					}
 					break;

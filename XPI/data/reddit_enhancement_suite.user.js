@@ -602,24 +602,11 @@ if ((typeof GM_deleteValue == 'undefined') || (typeof GM_addStyle == 'undefined'
 			// Safari is a bastard.  Since it doesn't provide legitimate callbacks, I have to store the onload function here
 			// in the main userscript in a queue (see xhrQueue), wait for data to come back from the background page, then call the onload. Damn this sucks.
 			// See how much easier it was up there in the Chrome statement?  Damn.
-
-			// oy vey... another problem. When Opera sends xmlhttpRequests from the background page, it loses the cookies etc that it'd have 
-			// had from the foreground page... so we need to write a bit of a hack here, and call different functions based on whether or 
-			// not the request is cross domain... For same-domain requests, we'll call from the foreground...
-			var crossDomain = (obj.url.indexOf(location.hostname) == -1);
-			
-			if ((typeof(obj.onload) != 'undefined') && (crossDomain)) {
+			if (typeof(obj.onload) != 'undefined') {
 				obj.XHRID = xhrQueue.count;
 				xhrQueue.onloads[xhrQueue.count] = obj.onload;
 				safari.self.tab.dispatchMessage("GM_xmlhttpRequest", obj);
 				xhrQueue.count++;
-			} else {
-				var request=new XMLHttpRequest();
-				request.onreadystatechange=function() { if(obj.onreadystatechange) { obj.onreadystatechange(request); }; if(request.readyState==4 && obj.onload) { obj.onload(request); } }
-				request.onerror=function() { if(obj.onerror) { obj.onerror(request); } }
-				try { request.open(obj.method,obj.url,true); } catch(e) { if(obj.onerror) { obj.onerror( {readyState:4,responseHeaders:'',responseText:'',responseXML:'',status:403,statusText:'Forbidden'} ); }; return; }
-				if(obj.headers) { for(name in obj.headers) { request.setRequestHeader(name,obj.headers[name]); } }
-				request.send(obj.data); return request;
 			}
 		}
 	} else if (typeof(opera) != 'undefined') {
@@ -5558,9 +5545,6 @@ modules['keyboardNav'] = {
 					RESUtils.scrollTo(0,thisXY.y);
 				} else {
 					RESUtils.scrollTo(0,thisXY.y - window.innerHeight + thisHeight + 5);
-					if (this.activeIndex == (this.keyboardLinks.length-1)) {
-						this.nextPage();
-					}
 				}
 			}
 			modules['keyboardNav'].recentKey();
@@ -6539,7 +6523,7 @@ modules['userTagger'] = {
 			modules['userTagger'].authorInfoToolTipHeader.innerHTML += friendButton;
 		});
 		this.authorInfoToolTipContents.innerHTML = '<a class="hoverAuthor" href="/user/'+obj.textContent+'">'+obj.textContent+'</a>:<br><img src="'+RESConsole.loader+'"> loading...';
-		this.authorInfoToolTip.setAttribute('style', 'top: ' + (thisXY.y - 14) + 'px; left: ' + (thisXY.x - 10) + 'px;');
+		this.authorInfoToolTip.setAttribute('style', 'top: ' + (thisXY.y - 8) + 'px; left: ' + (thisXY.x - 8) + 'px;');
 		RESUtils.fadeElementIn(this.authorInfoToolTip, 0.3);
 		var thisUserName = obj.textContent;
 		setTimeout(function() {
@@ -6700,11 +6684,6 @@ modules['betteReddit'] = {
 			value: true,
 			description: 'Show unread message count next to orangered?'
 		},
-		showUnreadCountInTitle: {
-			type: 'boolean',
-			value: true,
-			description: 'Show unread message count in page/tab title?'
-		},
 		videoTimes: {
 			type: 'boolean',
 			value: true,
@@ -6728,7 +6707,6 @@ modules['betteReddit'] = {
 			   { name: 'None', value: 'none' },
 			   { name: 'Subreddit Bar only', value: 'sub' },
 			   { name: 'User Bar', value: 'userbar' },
-			   { name: 'Subreddit Bar and User bar', value: 'subanduser' },
 			   { name: 'Full Header', value: 'header' }
 		   ],
 		   value: 'none',
@@ -6799,7 +6777,7 @@ modules['betteReddit'] = {
 					}
 				}, true);
 			}
-			if ((RESUtils.loggedInUser() != null) && ((this.options.showUnreadCount.value) || (this.options.showUnreadCountInTitle.value))) {
+			if ((RESUtils.loggedInUser() != null) && (this.options.showUnreadCount.value)) {
 				// Reddit CSS change broke this when they went to sprite sheets.. new CSS will fix the issue.
 				// RESUtils.addCSS('#mail { min-width: 16px !important; width: auto !important; text-indent: 18px !important; background-repeat: no-repeat !important; line-height: 8px !important; }');
 				// removing text indent - on 11/14/11 reddit changed the mail sprites, so I have to change how this is handled..
@@ -6818,9 +6796,6 @@ modules['betteReddit'] = {
 				case 'sub':
 					this.pinSubredditBar();
 					break;
-				case 'subanduser':
-					this.pinSubredditBar();
-					this.pinUserBar();
 				case 'userbar':
 					this.pinUserBar();
 					break;
@@ -6872,37 +6847,25 @@ modules['betteReddit'] = {
 	},
 	setUnreadCount: function(count) {
 		if (count>0) {
-			if (this.options.showUnreadCountInTitle.value) {
-				var newTitle = '[' + count + '] ' + document.title.replace(/^\[[\d]+\]\s/,'');
-				document.title = newTitle;
-			}
-			if (this.options.showUnreadCount.value) {
-				modules['betteReddit'].mailCount.display = 'inline-block'
-				modules['betteReddit'].mailCount.innerHTML = '['+count+']';
-				if (modules['neverEndingReddit'].NREMailCount) {
-					modules['neverEndingReddit'].NREMailCount.display = 'inline-block'
-					modules['neverEndingReddit'].NREMailCount.innerHTML = '['+count+']';
-				}
-			}
+			var newTitle = '[' + count + '] ' + document.title.replace(/^\[[\d]+\]\s/,'');
+			document.title = newTitle;
+			modules['betteReddit'].mailCount.display = 'inline-block'
+			modules['betteReddit'].mailCount.innerHTML = '['+count+']';
 		} else {
 			modules['betteReddit'].mailCount.display = 'none'
 			modules['betteReddit'].mailCount.innerHTML = '';
-			if (modules['neverEndingReddit'].NREMailCount) {
-				modules['neverEndingReddit'].NREMailCount.display = 'none'
-				modules['neverEndingReddit'].NREMailCount.innerHTML = '';
-			}
 		}
 	},
 	toolbarFix: function(ele) {
 		var root = ele || document;
 		var links = root.querySelectorAll('div.entry a.title');
 		for (var i=0, len=links.length; i<len; i++) {
-			if ((links[i].getAttribute('href').indexOf('youtube.com') != -1) || (links[i].getAttribute('href').indexOf('twitter.com') != -1) || (links[i].getAttribute('href').indexOf('teamliquid.net') != -1) || (links[i].getAttribute('href').indexOf('flickr.com') != -1) || (links[i].getAttribute('href').indexOf('github.com') != -1)) {
+			if ((links[i].getAttribute('href').indexOf('youtube.com') != -1) || (links[i].getAttribute('href').indexOf('twitter.com') != -1) || (links[i].getAttribute('href').indexOf('teamliquid.net') != -1)) {
 				links[i].setAttribute('onmousedown','');
 			}
 			// patch below for comments pages thanks to redditor and resident helperninja gavin19
 			if (links[i].getAttribute('srcurl')) {
-				if ((links[i].getAttribute('srcurl').indexOf('youtube.com') != -1) || (links[i].getAttribute('srcurl').indexOf('twitter.com') != -1) || (links[i].getAttribute('srcurl').indexOf('teamliquid.net') != -1) || (links[i].getAttribute('srcurl').indexOf('flickr.com') != -1) || (links[i].getAttribute('srcurl').indexOf('github.com') != -1)) {
+					if ((links[i].getAttribute('srcurl').indexOf('youtube.com') != -1) || (links[i].getAttribute('srcurl').indexOf('twitter.com') != -1) || (links[i].getAttribute('srcurl').indexOf('teamliquid.net') != -1)) {
 					links[i].setAttribute('onmousedown','');
 				}
 			}
@@ -7022,6 +6985,9 @@ modules['betteReddit'] = {
 			}
 			// var params = 'id='+linkid+'&executed='+executed+'&uh='+modhash[1]+'&renderstyle=html';
 			var params = 'id='+linkid+'&executed='+executed+'&uh='+modules['betteReddit'].modhash+'&renderstyle=html';
+			if (RESUtils.currentSubreddit()) {
+				params += '&r='+RESUtils.currentSubreddit();
+			}
 			GM_xmlhttpRequest({
 				method:	"POST",
 				url:	apiURL,
@@ -7139,16 +7105,8 @@ modules['betteReddit'] = {
 		obj = obj || document;
 		var youtubeLinks = obj.querySelectorAll('a.title[href*="youtube.com"]');
 		if (youtubeLinks) {
-			var re = new RegExp(/[\[|\(][0-9]*:[0-9]*[\]|\)]/), ytLinks = [];
-			for (var i=0, len=youtubeLinks.length; i<len; i+=1) {
-				if(!youtubeLinks[i].innerHTML.match(re)) {
-					ytLinks.push(youtubeLinks[i]);
-				}
-			}
-			youtubeLinks = ytLinks;
 			var getYoutubeIDRegex = /\?v=([\w\-]{11})&?/i;
-			var getYoutubeStartTimeRegex = /\[[\d]+:[\d]+\]/i;
-			var titleHasTimeRegex = 
+			var getYoutubeStartTimeRegex = /[\#|\&]t=([\d]+[m|s][\d]*[m|s]?)/i;
 			// var getYoutubeIDRegex = /\?v=([\w\-]+)&?/i;
 			this.youtubeLinkIDs = [];
 			this.youtubeLinkRefs = {};
@@ -7161,8 +7119,7 @@ modules['betteReddit'] = {
 					this.youtubeLinkRefs[thisYTID] = youtubeLinks[i];
 				}
 				var timeMatch = getYoutubeStartTimeRegex.exec(youtubeLinks[i].getAttribute('href'));
-				var titleMatch = youtubeLinks[i].innerHTML.match(titleHasTimeRegex);
-				if (timeMatch && !titleMatch) {
+				if (timeMatch) {
 					youtubeLinks[i].innerHTML += ' (@'+timeMatch[1]+')';
 				}
 			}
@@ -7245,10 +7202,7 @@ modules['betteReddit'] = {
 	handleScroll: function(e) {
 		if (RESUtils.elementInViewport(modules['betteReddit'].userBarElement)) {
 			modules['betteReddit'].userBarElement.setAttribute('style','');
-		} else if (modules['betteReddit'].options.pinHeader.value === 'subanduser') {
-			modules['betteReddit'].userBarElement.setAttribute('style','position: fixed; z-index: 10000 !important; top: 19px; right: 0; opacity: 0.6; -webkit-transition:opacity 0.3s ease-in; -moz-transition:opacity 0.3s ease-in; -o-transition:opacity 0.3s ease-in; -ms-transition:opacity 0.3s ease-in; -transition:opacity 0.3s ease-in;');
-		}
-		else {
+		} else {
 			modules['betteReddit'].userBarElement.setAttribute('style','position: fixed; z-index: 10000 !important; top: 0px; right: 0; opacity: 0.6; -webkit-transition:opacity 0.3s ease-in; -moz-transition:opacity 0.3s ease-in; -o-transition:opacity 0.3s ease-in; -ms-transition:opacity 0.3s ease-in; -transition:opacity 0.3s ease-in;');
 		}
 	},
@@ -7286,8 +7240,7 @@ modules['betteReddit'] = {
 		// grows and overlaps the top of the page, potentially obscuring the first link. This checks
 		// to see if the image is finished loading. If it is, then the spacer's height is set. Otherwise,
 		// it pauses, then loops.
-		// added a check that this element exists, so it doesn't error out RES.
-		if (document.getElementById('header-img') && (!document.getElementById('header-img').complete)) setTimeout(function(){
+		if (!document.getElementById('header-img').complete) setTimeout(function(){
 					   if (document.getElementById('header-img').complete)
 							   document.getElementById('RESPinnedHeaderSpacer').style.height = window.getComputedStyle(document.getElementById('header')).height;
 					   else setTimeout(arguments.callee, 10);
@@ -7324,11 +7277,6 @@ modules['singleClick'] = {
 			type: 'boolean',
 			value: false,
 			description: 'Hide the [l=c] when the link is the same as the comments page'
-		},
-		openBackground: {
-			type: 'boolean',
-			value: false,
-			description: 'Open the [l+c] link in background tabs'
 		}
 	},
 	description: 'Adds an [l+c] link that opens a link and the comments page in new tabs for you in one click.',
@@ -7396,7 +7344,6 @@ modules['singleClick'] = {
 					// ?? We should still preventDefault on a click though, maybe?
 					singleClickLink.addEventListener('mousedown', function(e) {
 						e.preventDefault();
-						var lcMouseBtn = (modules['singleClick'].options.openBackground.value) ? 1 : 0;
 						if (e.button != 2) {
 							// check if it's a relative link (no http://domain) because chrome barfs on these when creating a new tab...
 							var thisLink = this.getAttribute('thisLink')
@@ -7406,7 +7353,7 @@ modules['singleClick'] = {
 									linkURL: this.getAttribute('thisLink'), 
 									openOrder: modules['singleClick'].options.openOrder.value,
 									commentsURL: this.getAttribute('thisComments'),
-									button: lcMouseBtn,
+									button: e.button,
 									ctrl: e.ctrlKey
 								}
 								chrome.extension.sendRequest(thisJSON, function(response) {
@@ -7419,7 +7366,7 @@ modules['singleClick'] = {
 									linkURL: this.getAttribute('thisLink'), 
 									openOrder: modules['singleClick'].options.openOrder.value,
 									commentsURL: this.getAttribute('thisComments'),
-									button: lcMouseBtn,
+									button: e.button,
 									ctrl: e.ctrlKey
 								}
 								safari.self.tab.dispatchMessage("singleClick", thisJSON);
@@ -7429,7 +7376,7 @@ modules['singleClick'] = {
 									linkURL: this.getAttribute('thisLink'), 
 									openOrder: modules['singleClick'].options.openOrder.value,
 									commentsURL: this.getAttribute('thisComments'),
-									button: lcMouseBtn,
+									button: e.button,
 									ctrl: e.ctrlKey
 								}
 								opera.extension.postMessage(JSON.stringify(thisJSON));
@@ -7439,7 +7386,7 @@ modules['singleClick'] = {
 									linkURL: this.getAttribute('thisLink'), 
 									openOrder: modules['singleClick'].options.openOrder.value,
 									commentsURL: this.getAttribute('thisComments'),
-									button: lcMouseBtn,
+									button: e.button,
 									ctrl: e.ctrlKey
 								}
 								self.postMessage(thisJSON);
@@ -10980,7 +10927,6 @@ modules['neverEndingReddit'] = {
 			this.isPaused = (RESStorage.getItem('RESmodules.neverEndingReddit.isPaused') == true);
 			if (this.isPaused) addClass(this.NREPause,'paused');
 			this.NREPause.addEventListener('click',modules['neverEndingReddit'].togglePause, false);
-			RESUtils.addCSS('#NREMailCount { margin-left: 0px; float: left; margin-top: 3px;}');
 			RESUtils.addCSS('#NREPause { margin-left: 2px; width: 16px; height: 16px; float: left; background-image: url("http://f.thumbs.redditmedia.com/ykyGgtUvyXldPc3A.png"); cursor: pointer; background-position: 0px -192px; }');
 			RESUtils.addCSS('#NREPause.paused { width: 16px; height: 16px; background-image: url("http://f.thumbs.redditmedia.com/ykyGgtUvyXldPc3A.png"); cursor: pointer; background-position: -16px -192px; }');
 			if ((modules['betteReddit'].options.pinHeader.value != 'userbar') && (modules['betteReddit'].options.pinHeader.value != 'header')) {
@@ -10994,10 +10940,6 @@ modules['neverEndingReddit'] = {
 				RESUtils.addCSS('#NREMail.nohavemail { background-image: url(/static/sprite-main.png?v=816b8dcd1f863d0343bb5e0d9e094215); background-position: -16px -521px; }');
 				RESUtils.addCSS('#NREMail.havemail { background-image: url(/static/sprite-main.png?v=816b8dcd1f863d0343bb5e0d9e094215); background-position: 0 -521px; }');
 				this.NREFloat.appendChild(this.NREMail);
-				this.NREMailCount = createElementWithID('a','NREMailCount');
-				this.NREMailCount.display = 'none';
-				this.NREMailCount.setAttribute('href','/message/unread');
-				this.NREFloat.appendChild(this.NREMailCount);
 				var hasNew = false;
 				if ((typeof(this.navMail) != 'undefined') && (this.navMail != null)) {
 					hasNew = hasClass(this.navMail,'havemail');
@@ -12182,10 +12124,7 @@ modules['styleTweaks'] = {
 		this.head = document.getElementsByTagName("head")[0];
 		var subredditTitle = document.querySelector('.titlebox h1');
 		var styleToggle = document.createElement('div');
-		// great, now people are still finding ways to hide this.. these extra declarations are to try and fight that.
-		// Sorry, subreddit moderators, but users can disable all subreddit stylesheets if they want - this is a convenience 
-		// for them and I think taking this functionality away from them is unacceptable.
-		styleToggle.setAttribute('style','display: block !important; position: relative !important; left: 0px !important;');
+		styleToggle.setAttribute('style','display: block !important;');
 		var thisLabel = document.createElement('label');
 		addClass(styleToggle,'styleToggle');
 		thisLabel.setAttribute('for','subRedditStyleCheckbox');
@@ -12242,16 +12181,12 @@ modules['styleTweaks'] = {
 			this.isDark = true;
 			addClass(document.body,'res-nightmode');
 			var css = "div[class=\"organic-listing\"] ul[class=\"tabmenu \"], div[id=\"header-bottom-left\"]] {background-color: #666 !important; } ::-moz-selection {	background:orangered; }";
-			css += "html, body.res-nightmode, body.res-nightmode > .content {background-color:#222 !important;}";
-			css += "body.res-nightmode {background-image:none !important}";
-			css += ".res-nightmode a[href='/spoiler'] {background-color: #000 !important;color: #000 !important;}";
-			css += ".res-nightmode a[href='/spoiler']:hover, a[href='/spoiler']:active {color: #FFF !important;}";
-			css += ".res-nightmode .titlebox blockquote, .res-nightmode .sidecontentbox .content {background-color: #111;}";
+			css += "html {background-color:#222 !important;}";
+			css += ".res-nightmode {background-color:#222 !important;}";
+			css += ".res-nightmode body > .content {background-color:#222 !important;}";
 			css += ".res-nightmode .flair {background-color:#bbb!important;color:black!important;}";
 			css += ".res-nightmode .RESUserTagImage, .res-nightmode button.arrow.prev, .res-nightmode button.arrow.next {opacity:0.5;}";
 			css += ".res-nightmode #RESConsole {background-color:#ddd;}";
-			css += ".res-nightmode #RESMenu li.active {background-color:#7f7f7f !important;}";
-			css += ".res-nightmode #RESConsoleContent, .res-nightmode #RESMenu li {background-color:#eee;}";
 			css += ".res-nightmode #RESConsoleTopBar #RESLogo, .res-nightmode #progressIndicator {opacity:0.4;}";
 			css += ".res-nightmode .tabmenu li a, .res-nightmode .login-form, .res-nightmode .login-form input[name*='passwd'], .res-nightmode .login-form-side .submit {background-color:#bbb;}";
 			css += ".res-nightmode .login-form-side input {width:auto!important;}";
@@ -12289,8 +12224,10 @@ modules['styleTweaks'] = {
 			css += ".res-nightmode .message.message-reply.recipient > .entry .head, .message.message-parent.recipient > .entry .head {color:inherit !important;}"
 			css += ".res-nightmode #header {background-color:#666660 !important;}";
 			css += "body { background-color: #222 !important; } .infobar { background-color:#222 !important; color:black !important; }";
-			css += "h2, .tagline a, .content a, .footer a, .wired a, .side a, .subredditbox li a { color:#8AD !important; }";
+			css += ".side { background:none !important; } h2, .tagline a, .content a, .footer a, .wired a, .side a, .subredditbox li a { color:#8AD !important; }";
 			css += ".rank .star { color:orangered !important; } .content { color:#CCC !important; } .thing .title.loggedin, .link .title { color:#DFDFDF !important; }";
+			// css += ".link .midcol, .linkcompressed .midcol, .comment .midcol { background:none !important; margin-right:6px !important; margin-top:4px !important; margin-left: 0px !important; }";
+			// css += ".link .midcol { width:24px !important; } .link .midcol .arrow { margin-left:7px !important; margin-right:7px !important; }";
 			css += ".arrow { height:14px !important; margin-top:0 !important; width:15px !important; }";
 			css += ".arrow.up { background:url(http://thumbs.reddit.com/t5_2qlyl_0.png?v=zs9q49wxah08x4kpv2tu5x4nbda7kmcpgkbj) -15px 0 no-repeat !important; }";
 			css += ".arrow.down { background:url(http://thumbs.reddit.com/t5_2qlyl_0.png?v=10999ad3mtco31oaf6rrggme3t9jdztmxtg6) -15px -14px no-repeat !important; }";
@@ -12303,8 +12240,10 @@ modules['styleTweaks'] = {
 			css += ".linkcompressed .entry .buttons li a, .link .usertext .md, .thing .compressed, organic-listing .link, .organic-listing .link.promotedlink, .link.promotedlink.promoted { background:none !important; }";
 			css += ".message.new > .entry {background-color:#444444; border:1px solid #E9E9E9; padding:6px; } ";
 			css += ".subredditbox li a:before { content:\"#\" !important; } .subredditbox li { font-weight:bold !important; text-transform:lowercase !important; }";
+			css += ".side h3:after { content:\" (#reddit on freenode)\" !important; font-size:85% !important; font-weight:normal !important; }";
 			css += "#subscribe a { color:#8AD !important; } .dropdown.lightdrop .drop-choices { background-color:#333 !important; }";
-			css += ".dropdown.lightdrop a.choice:hover { background-color:#111 !important; } .midcol {margin-right:7px !important;} .res-nightmode .side {color:#fff; margin-left:10px !important; }";
+			css += ".dropdown.lightdrop a.choice:hover { background-color:#111 !important; } .midcol {margin-right:7px !important;} .side { background:none !important; color:#fff; margin-left:10px !important; }";
+			css += ".dropdown.lightdrop a.choice:hover { background-color:#111 !important; } .side { background:none !important; color:#fff !important; margin-left:10px !important; }";
 			css += ".side h4, .side h3 { color:#ddd !important; } .side h5 { color:#aaa !important; margin-top:5px !important; } .side p { margin-top:5px !important; }";
 			css += ".sidebox, .subredditbox, .subreddit-info, .raisedbox, .login-form-side { background-color:#393939 !important; border:2px solid #151515 !important; color:#aaa !important; border-radius:8px !important; -moz-border-radius:8px !important; -webkit-border-radius:8px !important; }";
 			css += ".login-form-side { background:#e8690a !important; border-bottom:0 !important; border-color:#e8690a !important; padding-bottom:1px !important; position:relative !important; }";
@@ -12337,6 +12276,7 @@ modules['styleTweaks'] = {
 			css += "a.author.admin, a.admin{color: #611 !important; } a.author.submitter { }   table[class=\"markhelp md\"] tr td { background-color: #555 !important; }";
 			css += "div.infobar { color: #ccc !important; }  table[class=\"markhelp md\"] tr[style=\"background-color: rgb(255, 255, 153); text-align: center;\"] td { background-color: #36c !important; }";
 			css += "form[class=\"usertext border\"] div.usertext-body { background-color: transparent !important;  border-width: 2px !important; border-style: solid !important; border-color: #999 !important; }";
+			// css += "div[class=\"midcol likes\"], div[class=\"midcol dislikes\"], div[class=\"midcol unvoted\"] {padding: 0px 7px 0px 0px !important;}";
 			css += "form[class=\"usertext border\"] div.usertext-body div.md { background-color: transparent !important; } form#form-t1_c0b71p54yc div {color: black !important;}";
 			css += "a[rel=\"tag\"], a.dsq-help {color: #8AD !important; }  div[class=\"post-body entry-content\"], div.dsq-auth-header { color: #ccc !important; }";
 			css += "div#siteTable div[onclick=\"click_thing(this)\"] {background-color: #222 !important;} .md p {color: #ddd !important; } .mail .havemail img, .mail .nohavemail img {   visibility: hidden; }";
@@ -12416,7 +12356,7 @@ modules['styleTweaks'] = {
 				"}";
 				css += '.thing { margin-bottom: 10px; border: 1px solid #666666 !important; } ';
 			}
-			css += '.organic-listing .link { background-color: #333333 !important; } .sidecontentbox { background-color: #111111; }';
+			css += '.organic-listing .link { background-color: #333333 !important; } .sidecontentbox { background-color: #111111; } .side { background: none !important; }';
 			if (this.options.continuity.value) {
 				css += '.comment div.child { border-left: 1px dotted #555555 !important; } ';
 			} else {
@@ -12428,6 +12368,8 @@ modules['styleTweaks'] = {
 			css += '.usertext-edit textarea { background-color: #666666 !important; color: #CCCCCC !important; } ';
 			css += '.RESDialogSmall { background-color: #666666 !important; color: #CCCCCC !important; } ';
 			css += '.RESDialogSmall h3 { background-color: #222222 !important; color: #CCCCCC !important; } ';
+			// css += 'body, .sidecontentbox .content, .linkinfo, .titlebox  { background-image: none !important }';
+			// css += '.titlebox .md {background-color: transparent !important}';
 			this.darkStyle = createElementWithID('style', 'darkStyle');
 			this.darkStyle.innerHTML = css;
 			document.body.appendChild(this.darkStyle);
@@ -13747,11 +13689,6 @@ modules['subredditManager'] = {
 			value: true,
 			description: 'Show "ALL" link in subreddit manager'
 		},
-		linkHome: {
-			type: 'boolean',
-			value: false,
-			description: 'show "HOME" link in subreddit manager'
-		},
 		linkRandom: {
 			type: 'boolean',
 			value: true,
@@ -13855,7 +13792,7 @@ modules['subredditManager'] = {
 		if (RESUtils.currentSubreddit()) {
 			var subButton = document.querySelector('.fancy-toggle-button');
 			if (! ($('#subButtons').length>0)) {
-				this.subButtons = $('<div id="subButtons" style="margin: 0 !important;"></div>');
+				this.subButtons = $('<div id="subButtons"></div>');
 				$(subButton).wrap(this.subButtons);
 			}
 			if (subButton) {
@@ -13866,7 +13803,6 @@ modules['subredditManager'] = {
 				var theSubredditLink = document.querySelector('h1.redditname');
 				if (theSubredditLink) {
 					var theSC = document.createElement('span');
-					theSC.setAttribute('style','display: inline-block !important;');
 					theSC.setAttribute('class','RESshortcut RESshortcutside');
 					theSC.setAttribute('subreddit',RESUtils.currentSubreddit());
 					var idx = -1;
@@ -13942,7 +13878,6 @@ modules['subredditManager'] = {
 				delete betteRedditOptions.linkFriends;
 				delete betteRedditOptions.linkMod;
 				delete betteRedditOptions.linkRandom;
-				delete betteRedditOptions.linkHome;
 				RESStorage.setItem('RESoptions.betteReddit', JSON.stringify(betteRedditOptions));
 				RESStorage.setItem('RESmodules.subredditManager.subredditShortcuts.'+RESUtils.loggedInUser(), shortCuts);
 				RESStorage.removeItem('RESmodules.betteReddit.subredditShortcuts.'+RESUtils.loggedInUser());
@@ -14296,7 +14231,6 @@ modules['subredditManager'] = {
 			/* this probably isn't the best way to give the option, since the mechanic is drag/drop for other stuff..  but it's much easier for now... */
 			this.staticShortCutsContainer.innerHTML = '';
 			if (this.options.linkAll.value) this.staticShortCutsContainer.innerHTML += '<span class="separator">-</span><a href="/r/all/">ALL</a>';
-			if (this.options.linkHome.value) this.staticShortCutsContainer.innerHTML += '<span class="separator">-</span><a href="/">HOME</a>';
 			if (this.options.linkRandom.value) this.staticShortCutsContainer.innerHTML += '<span class="separator">-</span><a href="/r/random/">RANDOM</a>';
 			if (RESUtils.loggedInUser() != null) {
 				if (this.options.linkFriends.value) this.staticShortCutsContainer.innerHTML += '<span class="separator">-</span><a href="/r/friends/">FRIENDS</a>';
@@ -15669,7 +15603,7 @@ modules['dashboard'] = {
 		RESUtils.addCSS('.RESDashboardToggle.remove { background-image: url(/static/bg-button-remove.png) }');
 		var subButton = document.querySelector('.fancy-toggle-button');
 		if (! ($('#subButtons').length>0)) {
-			this.subButtons = $('<div id="subButtons" style="margin: 0 !important;"></div>');
+			this.subButtons = $('<div id="subButtons"></div>');
 			$(subButton).wrap(this.subButtons);
 		}
 		var dashboardToggle = document.createElement('span');
