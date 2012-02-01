@@ -31,6 +31,24 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 */
+voteDB = openDatabase('VoteDB', '', 'Reddit Vote Database', 32 * 1024 * 1024, function(db) {});
+if (voteDB) {
+	if (localStorage['RESVoteDBVersion'] == undefined) {
+		voteDB.transaction(function(tx) {
+			tx.executeSql('CREATE TABLE votes(thing TEXT PRIMARY KEY ON CONFLICT REPLACE, link TEXT NOT NULL, user TEXT NOT NULL, vote INTEGER CHECK (vote IN (1, 0, -1)), content TEXT NOT NULL, timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP, subreddit NOT NULL);');
+			tx.executeSql('CREATE INDEX user_index ON votes(user);');
+			tx.executeSql('CREATE INDEX subreddit_index ON votes(subreddit);');
+		}, function(error){
+			console.error(error);
+			voteDB = null;
+		}, function() {
+			localStorage['RESVoteDBVersion'] = '1';
+		});
+	}
+} else {
+	console.error('Could not open vote database.');
+}
+
 opera.extension.addEventListener( "message", function( event ) {
 	// get JSON data (from event.data) using the same format used for chrome/safari extensions
 	var request = JSON.parse(event.data);
@@ -204,6 +222,27 @@ opera.extension.addEventListener( "message", function( event ) {
 						}
 						event.source.postMessage(passBack);
 						opera.extension.broadcastMessage({ msgType: 'localStorage', itemName: request.itemName, itemValue: request.itemValue });
+						break;
+				}
+				break;
+			case 'vote':
+				if (voteDB == null) {
+					console.error('database unreadable');
+					event.source.postMessage({msgType: 'vote', status: "database can't be read"});
+					break;
+				}
+				switch (request.operation) {
+					case 'insert':
+						voteDB.transaction(function(tx) {
+							tx.executeSql(
+									'INSERT INTO votes(thing, link, user, vote, content, subreddit) VALUES(?, ?, ?, ?, ?, ?)', 
+									[request.thing, request.link, request.user, request.vote, request.content, request.subreddit]);
+						},function(error) {
+							console.error("INSERT FAILED", error);
+							event.source.postMessage({msgType: 'vote', status: 'insert failed', error: error});
+						},function(){
+							event.source.postMessage({msgType: 'vote', status: 'success'});
+						});
 						break;
 				}
 				break;

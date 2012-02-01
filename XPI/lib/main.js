@@ -25,6 +25,22 @@ localStorage.removeItem = function(key) {
 	delete ss.storage[key];
 }
 
+
+const {Cc,Ci} = require("chrome");
+
+const fileDirectoryService = Cc["@mozilla.org/file/directory_service;1"].getService(Ci.nsIProperties).get("ProfD",Ci.nsIFile);
+const storageService = Cc["@mozilla.org/storage/service;1"].getService(Ci.mozIStorageService);
+fileDirectoryService.append("votes.sqlite");
+var sql = storageService.openDatabase(fileDirectoryService);
+
+
+if (typeof(localStorage.version) == "undefined") {
+	sql.executeSimpleSQL('CREATE TABLE votes(thing TEXT PRIMARY KEY ON CONFLICT REPLACE, link TEXT NOT NULL, user TEXT NOT NULL, vote INTEGER CHECK (vote IN (1, 0, -1)), content TEXT NOT NULL, timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP, subreddit NOT NULL);');
+	sql.executeSimpleSQL('CREATE INDEX user_index ON votes(user);');
+	sql.executeSimpleSQL('CREATE INDEX subreddit_index ON votes(user);');
+	localStorage.version = '1';
+}
+
 pageMod.PageMod({
   include: ["*.reddit.com"],
   contentScriptWhen: 'ready',
@@ -161,6 +177,17 @@ pageMod.PageMod({
 						break;
 				}
 				break;
+			case 'vote':
+				switch (request.operation) {
+					case 'insert':
+						voteInsert(request, function(rs){
+						}, function(err){
+							console.error(JSON.stringify(err));
+							worker.postMessage({"name": "vote", operation:"insert", status:"insert failed", error:err});
+						});
+						break;
+				}
+				break;
 			default:
 				worker.postMessage({status: "unrecognized request type"});
 				break;
@@ -172,3 +199,32 @@ pageMod.PageMod({
 });
 
 
+function voteInsert(data, resultCallback, errorCallback) {
+	sql.beginTransaction();
+	var stat = sql.createStatement("INSERT INTO votes(thing, link, user, vote, content, subreddit) VALUES(:thing, :link, :user, :vote, :content, :subreddit);");
+
+	stat.params.thing = data.thing;
+	stat.params.link = data.link;
+	stat.params.user = data.user;
+	stat.params.vote = data.vote;
+	stat.params.content = data.content;
+	stat.params.subreddit = data.subreddit;
+	stat.executeAsync({
+		handleResult: function(rs){
+			resultCallback(rs);
+		},
+		handleError: function(error) {
+			console.error(error);
+			errorCallback(error);
+			
+		},
+		handleCompletion: function(reason) {
+			if (reason == Components.interfaces.mozIStorageStatementCallback.REASON_FINISHED){
+				sql.commitTransaction();
+				
+			} else {
+		      	console.log("Query canceled or aborted!");
+			}
+		}
+	});
+}
