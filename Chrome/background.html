@@ -34,23 +34,22 @@
 <html>
 <head>
 	<script>
-	voteDB = openDatabase('VoteDB', '', 'Reddit Vote Database', 32 * 1024 * 1024, function(db) {});
+	voteDB = openDatabase('VoteDB', '', 'Reddit Vote Database', 32 * 1024 * 1024);
 	if (voteDB) {
-		if (localStorage['RESVoteDBVersion'] == undefined) {
-			voteDB.transaction(function(tx) {
+		if (voteDB.version == '') {
+			voteDB.changeVersion('', '1', function(tx){
 				tx.executeSql('CREATE TABLE votes(thing TEXT PRIMARY KEY ON CONFLICT REPLACE, link TEXT NOT NULL, user TEXT NOT NULL, vote INTEGER CHECK (vote IN (1, 0, -1)), content TEXT NOT NULL, timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP, subreddit NOT NULL);');
 				tx.executeSql('CREATE INDEX user_index ON votes(user);');
 				tx.executeSql('CREATE INDEX subreddit_index ON votes(subreddit);');
-			}, function(error){
-				console.error(error);
-				voteDB = null;
-			}, function() {
-				localStorage['RESVoteDBVersion'] = '1';
+			}, function(error) {
+				console.error("Version 0 to 1 migration failed.");
+				window.voteDB = null;
 			});
 		}
 	} else {
 		console.error('Could not open vote database.');
 	}
+
 	chrome.extension.onRequest.addListener(
 		function(request, sender, sendResponse) {
 			switch(request.requestType) {
