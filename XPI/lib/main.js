@@ -5,7 +5,7 @@ var self = require("self");
 var firefox = typeof(require);
 var tabs = require("tabs");
 var ss = require("simple-storage");
-var workers = new Array();
+// var workers = new Array();
 
 function detachWorker(worker, workerArray) {
 	var index = workerArray.indexOf(worker);
@@ -25,17 +25,26 @@ localStorage.removeItem = function(key) {
 	delete ss.storage[key];
 }
 
+
+
 pageMod.PageMod({
   include: ["*.reddit.com"],
   contentScriptWhen: 'ready',
   // contentScriptFile: [self.data.url('jquery-1.6.4.min.js'), self.data.url('reddit_enhancement_suite.user.js')],
   contentScriptFile: [self.data.url('jquery-1.6.4.min.js'), self.data.url('reddit_enhancement_suite.user.js')],
   onAttach: function(worker) {
-    workers.push(worker);
+	// when a tab is activated, repopulate localStorage so that changes propagate across tabs...
+	tabs.on('activate', function(tab) {
+		worker.postMessage({ name: "getLocalStorage", message: localStorage });
+	});
+
+    /*
+	workers.push(worker);
 	worker.on('detach', function () {
 		detachWorker(this, workers);
 		// console.log('worker detached, total now: ' + workers.length);
     });
+	*/
 	// console.log('total workers: ' + workers.length);
 	// worker.postMessage('init');
 	worker.on('message', function(data) {
@@ -153,11 +162,14 @@ pageMod.PageMod({
 					case 'setItem':
 						localStorage.setItem(request.itemName, request.itemValue);
 						// worker.postMessage({status: true, value: null});
+						// console.log('set item called for: ' + request.itemName + ' - ' + new Date().getTime());
+						/*
 						for each (var thisWorker in workers) {
 							if (thisWorker != worker) {
 								thisWorker.postMessage({ name: "localStorage", itemName: request.itemName, itemValue: request.itemValue });
 							} 
 						}
+						*/
 						break;
 				}
 				break;
