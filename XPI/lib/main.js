@@ -33,12 +33,28 @@ const storageService = Cc["@mozilla.org/storage/service;1"].getService(Ci.mozISt
 fileDirectoryService.append("votes.sqlite");
 var sql = storageService.openDatabase(fileDirectoryService);
 
-
-if (typeof(localStorage.version) == "undefined") {
-	sql.executeSimpleSQL('CREATE TABLE votes(thing TEXT PRIMARY KEY ON CONFLICT REPLACE, link TEXT NOT NULL, user TEXT NOT NULL, vote INTEGER CHECK (vote IN (1, 0, -1)), content TEXT NOT NULL, timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP, subreddit NOT NULL);');
-	sql.executeSimpleSQL('CREATE INDEX user_index ON votes(user);');
-	sql.executeSimpleSQL('CREATE INDEX subreddit_index ON votes(user);');
-	localStorage.version = '1';
+var dbReady = false;
+if (sql.schemaVersion == 0) {
+	sql.executeAsync([
+		//Done in one statemeny due to asyncronity issues
+		sql.createStatement(
+			'CREATE TABLE votes(thing TEXT PRIMARY KEY ON CONFLICT REPLACE, link TEXT NOT NULL, user TEXT NOT NULL, vote INTEGER CHECK (vote IN (1, 0, -1)), content TEXT NOT NULL, timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP, subreddit NOT NULL);'
+		+	'CREATE INDEX user_index ON votes(user);'
+		+	'CREATE INDEX subreddit_index ON votes(subreddit);')
+		], 1, {
+			handleError: function(error) {
+				console.error(error);
+			},
+			handleCompletion: function(reason) {
+				if (reason == Components.interfaces.mozIStorageStatementCallback.REASON_FINISHED){
+					console.log("schema created");
+					dbReady = true;
+					sql.schemaVersion = 1;
+				} else {
+	      			console.error("Database setup failure!");
+				}
+			}
+		});
 }
 
 pageMod.PageMod({
@@ -178,6 +194,9 @@ pageMod.PageMod({
 				}
 				break;
 			case 'vote':
+				if (!dbReady) {
+					return;
+				}
 				switch (request.operation) {
 					case 'insert':
 						voteInsert(request, function(rs){
