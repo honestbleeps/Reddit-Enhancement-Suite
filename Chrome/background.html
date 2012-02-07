@@ -192,6 +192,20 @@
 								sendResponse({status: 'success', operation: request.operation});
 							});
 							break;
+						case 'select-user':
+							selectUser(request, function(data){
+								sendResponse({status:'success', data:data})
+							}, function(error){
+								sendResponse({status: error})
+							})
+							break;
+						case 'select-subreddit':
+							selectSubreddit(request, function(data){
+								sendResponse({status:'success', data:data})
+							}, function(error){
+								sendResponse({status: error})
+							})
+							break;
 					}
 					break;
 				default:
@@ -200,6 +214,44 @@
 			}
 		}
 	);
+
+	function selectUser(request, success, failure) {
+		var pageLen = ('length' in request?request.length:25);
+		var offset = (('page' in request?request.page:1)-1)*pageLen;
+		voteDB.readTransaction(function(tx) {
+			tx.executeSql('SELECT thing, link, vote, content, subreddit, timestamp FROM votes WHERE user = ? LIMIT ? OFFSET ?', [request.user, pageLen, offset], function(tx,rs){
+				var data = [];
+				for (var i = 0; i < rs.rows.length; i++) {
+					data[i] = rs.rows.item(i);
+				}
+				success(data);
+			}, function(tx,error){
+				failure(error);
+			});
+		},function(error) {
+			console.log("SELECT FAILED", error)
+		},function(){//success
+		});
+	}
+
+	function selectSubreddit(request, success, failure) {
+		var pageLen = ('length' in request?request.length:25);
+		var offset = (('page' in request?request.page:1)-1)*pageLen;
+		voteDB.readTransaction(function(tx) {
+			tx.executeSql('SELECT thing, link, vote, content, user, timestamp FROM votes WHERE subreddit = ? LIMIT ? OFFSET ?', [request.subreddit, pageLen, offset], function(tx,rs){
+				var data = [];
+				for (var i = 0; i < rs.rows.length; i++) {
+					data[i] = rs.rows.item(i);
+				}
+				success(data);
+			}, function(tx,error){
+				failure(error);
+			});
+		},function(error) {
+			console.log("SELECT FAILED", error)
+		},function(){//success
+		});
+	}
 	</script>
 </head>
 </html>
