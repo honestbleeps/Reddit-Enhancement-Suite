@@ -194,16 +194,23 @@
 							break;
 						case 'select-user':
 							selectUser(request, function(data){
-								sendResponse({status:'success', data:data})
+								sendResponse({
+									status:'success',
+									user:request.user,
+									data:data.data,
+									count:data.count,
+									page:request.page,
+									length:request.length
+								});
 							}, function(error){
-								sendResponse({status: error})
+								sendResponse({status: error});
 							})
 							break;
 						case 'select-subreddit':
 							selectSubreddit(request, function(data){
-								sendResponse({status:'success', data:data})
+								sendResponse({status:'success', data:data});
 							}, function(error){
-								sendResponse({status: error})
+								sendResponse({status: error});
 							})
 							break;
 					}
@@ -224,7 +231,14 @@
 				for (var i = 0; i < rs.rows.length; i++) {
 					data[i] = rs.rows.item(i);
 				}
-				success(data);
+				tx.executeSql('SELECT COUNT(*) AS count FROM votes WHERE user=?;', [request.user], function(tx,rs){
+					success({
+						count:rs.rows.item(0).count,
+						data:data
+					});
+				}, function(tx, error){
+					failure(error);
+				});
 			}, function(tx,error){
 				failure(error);
 			});
