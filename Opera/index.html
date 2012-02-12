@@ -73,6 +73,22 @@ function selectUser(request, success, failure) {
 	});
 }
 
+function pruneVotes(age, celebrityProtection, success, error) {
+	age = parseInt(age.toString());
+	if (isNaN(age)) {
+		return;
+	}
+	age = age + ' months';
+	if (celebrityProtection) {
+		voteDB.transaction(function(tx){
+			tx.executeSql("DELETE FROM votes WHERE timestamp < DATETIME('now', ?) AND user NOT IN (SELECT user FROM votes GROUP BY user HAVING COUNT(user)>=5);")
+		}, error, success);
+	} else {
+		voteDB.transaction(function(tx){
+			tx.executeSql("DELETE FROM votes WHERE timestamp<DATETIME('now', ?);");
+		}, error, success);
+	}
+}
 opera.extension.addEventListener( "message", function( event ) {
 	// get JSON data (from event.data) using the same format used for chrome/safari extensions
 	var request = JSON.parse(event.data);
@@ -289,6 +305,14 @@ opera.extension.addEventListener( "message", function( event ) {
 						}, function(error){
 							event.source.postMessage({msgType:'vote', status: error});
 						})
+						break;
+					case 'prune-votes':
+						pruneVotes(request.age, request.celebrityProtection, function(){
+							event.source.postMessage({status:'success'});
+						}, function(error){
+							console.error("ERROR WHILE PRUNING", error);
+							event.source.postMessagesendResponse({status:'prune error', error:error});
+						});
 						break;
 				}
 				break;

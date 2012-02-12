@@ -76,6 +76,23 @@
 		});
 	}
 
+	function pruneVotes(age, celebrityProtection, success, error) {
+		age = parseInt(age.toString());
+		if (isNaN(age)) {
+			return;
+		}
+		age = age + ' months';
+		if (celebrityProtection) {
+			voteDB.transaction(function(tx){
+				tx.executeSql("DELETE FROM votes WHERE timestamp < DATETIME('now', ?) AND user NOT IN (SELECT user FROM votes GROUP BY user HAVING COUNT(user)>=5);")
+			}, error, success);
+		} else {
+			voteDB.transaction(function(tx){
+				tx.executeSql("DELETE FROM votes WHERE timestamp<DATETIME('now', ?);");
+			}, error, success);
+		}
+	}
+
 	function respondToMessage (msgEvent) {
 		var request = msgEvent.message;
 		request.requestType = msgEvent.name;
@@ -242,12 +259,13 @@
 							sendResponse({status: error}, msgEvent);
 						})
 						break;
-					case 'select-subreddit':
-						selectSubreddit(request, function(data){
-							sendResponse({status:'success', data:data}, msgEvent);
+					case 'prune-votes':
+						pruneVotes(request.age, request.celebrityProtection, function(){
+							sendResponse({status:'success'}, msgEvent);
 						}, function(error){
-							sendResponse({status: error}, msgEvent);
-						})
+							console.error("ERROR WHILE PRUNING", error);
+							sendResponse({status:'prune error', error:error}, msgEvent);
+						});
 						break;
 				}
 				break;

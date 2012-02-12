@@ -227,6 +227,14 @@ pageMod.PageMod({
 							worker.postMessage({msgType:'vote', status:error});
 						});
 						break;
+					case 'prune-votes':
+						pruneVotes(request.age, request.celebrityProtection, function(){
+							worker.postMessage({status:'success'});
+						}, function(error){
+							console.error("ERROR WHILE PRUNING", error);
+							worker.postMessage({status:'prune error', error:error});
+						});
+						break;
 				}
 				break;
 			default:
@@ -309,5 +317,38 @@ function selectUser(request, success, failure) {
 			failure(error);
 		},
 		handleCompletion: function(reason) {}
+	});
+}
+
+
+function pruneVotes(age, celebrityProtection, success, error) {
+	age = parseInt(age.toString());
+	if (isNaN(age)) {
+		return;
+	}
+	age = age + ' months';
+	if (celebrityProtection) {
+		var stat = sql.createStatement"DELETE FROM votes WHERE timestamp < DATETIME('now', :age) AND user NOT IN (SELECT user FROM votes GROUP BY user HAVING COUNT(user)>=5);");
+		stat.params.age = age;
+	} else {
+		var stat = sql.createStatement("DELETE FROM votes WHERE timestamp<DATETIME('now', :age);");
+		stat.params.age = age;
+	}
+	stat.executeAsync({
+		handleResult: function(rs){
+			success();
+		},
+		handleError: function(error) {
+			console.error(error);
+			error(error);
+			
+		},
+		handleCompletion: function(reason) {
+			if (reason == Components.interfaces.mozIStorageStatementCallback.REASON_FINISHED){
+				sql.commitTransaction();
+			} else {
+		      	console.log("Query canceled or aborted!");
+			}
+		}
 	});
 }
