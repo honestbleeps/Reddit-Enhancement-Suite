@@ -47,6 +47,32 @@ if (voteDB) {
 	console.error('Could not open vote database.');
 }
 
+function selectUser(request, success, failure) {
+	var pageLen = ('length' in request?request.length:25);
+	var offset = (('page' in request?request.page:1)-1)*pageLen;
+	voteDB.readTransaction(function(tx) {
+		tx.executeSql('SELECT thing, link, vote, content, subreddit, timestamp FROM votes WHERE user = ? LIMIT ? OFFSET ?', [request.user, pageLen, offset], function(tx,rs){
+			var data = [];
+			for (var i = 0; i < rs.rows.length; i++) {
+				data[i] = rs.rows.item(i);
+			}
+			tx.executeSql('SELECT COUNT(*) AS count FROM votes WHERE user=?;', [request.user], function(tx,rs){
+				success({
+					count:rs.rows.item(0).count,
+					data:data
+				});
+			}, function(tx, error){
+				failure(error);
+			});
+		}, function(tx,error){
+			failure(error);
+		});
+	},function(error) {
+		console.log("SELECT FAILED", JSON.stringify(error))
+	},function(){//success
+	});
+}
+
 opera.extension.addEventListener( "message", function( event ) {
 	// get JSON data (from event.data) using the same format used for chrome/safari extensions
 	var request = JSON.parse(event.data);
@@ -237,10 +263,32 @@ opera.extension.addEventListener( "message", function( event ) {
 									[request.thing, request.link, request.user, request.vote, request.content, request.subreddit]);
 						},function(error) {
 							console.error("INSERT FAILED", error);
-							event.source.postMessage({msgType: 'vote', status: 'insert failed', error: error});
+							event.source.postMessage({msgType: 'vote', status: 'insert failed', error: error, operation:request.operation});
 						},function(){
-							event.source.postMessage({msgType: 'vote', status: 'success'});
+							event.source.postMessage({msgType: 'vote', status: 'success', operation:request.operation});
 						});
+						break;
+					case 'select-user':
+						selectUser(request, function(data){
+							var msg = {
+								msgType:'vote',
+								status:'success',
+								operation:'select-user',
+								user:request.user,
+								data:data.data,
+								count:data.count,
+								page:request.page,
+								length:request.length
+							};
+							/*
+							Why only Opera requires this step is completely lost on me.
+							If I don't do this it throws a DATA_CLONE_ERR
+							*/
+							event.source.postMessage(JSON.parse(JSON.stringify(msg)));
+							// event.source.postMessage(msg);
+						}, function(error){
+							event.source.postMessage({msgType:'vote', status: error});
+						})
 						break;
 				}
 				break;
