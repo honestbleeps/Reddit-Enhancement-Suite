@@ -324,6 +324,7 @@ function selectUser(request, success, failure) {
 function pruneVotes(age, celebrityProtection, success, error) {
 	age = parseInt(age.toString());
 	if (isNaN(age)) {
+		error('NaN');
 		return;
 	}
 	age = age + ' months';

@@ -79,16 +79,17 @@
 	function pruneVotes(age, celebrityProtection, success, error) {
 		age = parseInt(age.toString());
 		if (isNaN(age)) {
+			error('NaN');
 			return;
 		}
 		age = age + ' months';
 		if (celebrityProtection) {
 			voteDB.transaction(function(tx){
-				tx.executeSql("DELETE FROM votes WHERE timestamp < DATETIME('now', ?) AND user NOT IN (SELECT user FROM votes GROUP BY user HAVING COUNT(user)>=5);")
+				tx.executeSql("DELETE FROM votes WHERE timestamp < DATETIME('now', ?) AND user NOT IN (SELECT user FROM votes GROUP BY user HAVING COUNT(user)>=5);", [age])
 			}, error, success);
 		} else {
 			voteDB.transaction(function(tx){
-				tx.executeSql("DELETE FROM votes WHERE timestamp<DATETIME('now', ?);");
+				tx.executeSql("DELETE FROM votes WHERE timestamp<DATETIME('now', ?);", [age]);
 			}, error, success);
 		}
 	}
