@@ -55,6 +55,8 @@ if (sql.schemaVersion == 0) {
 				}
 			}
 		});
+} else {
+	dbReady = true;
 }
 
 pageMod.PageMod({
@@ -195,6 +197,7 @@ pageMod.PageMod({
 				break;
 			case 'vote':
 				if (!dbReady) {
+					console.log("ERROR: DATABASE UNACCESSIBLE");
 					return;
 				}
 				switch (request.operation) {
@@ -203,6 +206,25 @@ pageMod.PageMod({
 						}, function(err){
 							console.error(JSON.stringify(err));
 							worker.postMessage({"name": "vote", operation:"insert", status:"insert failed", error:err});
+						});
+						break;
+					case 'select-user':
+						console.log('select-user');
+						selectUser(request, function(data){
+							console.log('complete');
+							var msg = {
+								name:'vote',
+								status:'success',
+								operation:'select-user',
+								user:request.user,
+								data:data.data,
+								count:data.count,
+								page:request.page,
+								length:request.length
+							};
+							worker.postMessage(msg);
+						}, function(error){
+							worker.postMessage({msgType:'vote', status:error});
 						});
 						break;
 				}
@@ -245,5 +267,47 @@ function voteInsert(data, resultCallback, errorCallback) {
 		      	console.log("Query canceled or aborted!");
 			}
 		}
+	});
+}
+
+function selectUser(request, success, failure) {
+	var pageLen = ('length' in request?request.length:25);
+	var offset = (('page' in request?request.page:1)-1)*pageLen;
+	var stat = sql.createStatement('SELECT thing, link, vote, content, subreddit, timestamp FROM votes WHERE user = :user LIMIT :limit OFFSET :offset;');
+	stat.params.user = request.user;
+	stat.params.limit = pageLen;
+	stat.params.offset = offset;
+	stat.executeAsync({
+		handleResult: function(rs){
+			var columns = ['thing', 'link', 'vote', 'content', 'subreddit', 'timestamp'];
+			var data = [];
+			for (let row = rs.getNextRow(); row; row = rs.getNextRow()) {
+				var row_ = {};
+				for  (let i = 0; i < columns.length; i++) {
+					row_[columns[i]] = row.getResultByName(columns[i]);
+				}
+				data.push(row_);
+			}
+			var stat2 = sql.createStatement('SELECT COUNT(*) AS count FROM votes WHERE user = :user;');
+			stat.params.user = request.user;
+			stat2.executeAsync({
+				handleResult: function(rs){
+					var count = rs.getNextRow().getResultByName('count');
+					success({
+						data: data,
+						count: count
+					});
+				},
+				handleError: function(error) {
+					console.error(JSON.stringify(error));
+					failure(error);
+				}
+			});
+		},
+		handleError: function(error) {
+			console.error(JSON.stringify(error));
+			failure(error);
+		},
+		handleCompletion: function(reason) {}
 	});
 }
