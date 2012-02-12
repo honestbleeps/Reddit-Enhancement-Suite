@@ -82,11 +82,15 @@ function pruneVotes(age, celebrityProtection, success, error) {
 	age = age + ' months';
 	if (celebrityProtection) {
 		voteDB.transaction(function(tx){
-			tx.executeSql("DELETE FROM votes WHERE timestamp < DATETIME('now', ?) AND user NOT IN (SELECT user FROM votes GROUP BY user HAVING COUNT(user)>=5);", [age])
+			tx.executeSql("DELETE FROM votes WHERE timestamp < DATETIME('now', ?) AND user NOT IN (SELECT user FROM votes GROUP BY user HAVING COUNT(user)>=5);", [age], function(tx,rs){
+				console.log('Pruned ' + rs.rowsAffected + ' rows.');
+			})
 		}, error, success);
 	} else {
 		voteDB.transaction(function(tx){
-			tx.executeSql("DELETE FROM votes WHERE timestamp<DATETIME('now', ?);", [age]);
+			tx.executeSql("DELETE FROM votes WHERE timestamp<DATETIME('now', ?);", [age], function(tx,rs){
+				console.log('Pruned ' + rs.rowsAffected + ' rows.');
+			});
 		}, error, success);
 	}
 }
@@ -310,10 +314,10 @@ opera.extension.addEventListener( "message", function( event ) {
 						break;
 					case 'prune-votes':
 						pruneVotes(request.age, request.celebrityProtection, function(){
-							event.source.postMessagesendResponse({msgType:'vote' operation:'prune-votes', status:'success'});
+							event.source.postMessage({msgType:'vote', operation:'prune-votes', status:'success'});
 						}, function(error){
 							console.error("ERROR WHILE PRUNING", error);
-							event.source.postMessagesendResponse({msgType:'vote' operation:'prune-votes', status:'prune error', error:error});
+							event.source.postMessage({msgType:'vote', operation:'prune-votes', status:'prune error', error:error});
 						});
 						break;
 				}

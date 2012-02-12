@@ -281,11 +281,15 @@
 		age = age + ' months';
 		if (celebrityProtection) {
 			voteDB.transaction(function(tx){
-				tx.executeSql("DELETE FROM votes WHERE timestamp < DATETIME('now', ?) AND user NOT IN (SELECT user FROM votes GROUP BY user HAVING COUNT(user)>=5);", [age])
+				tx.executeSql("DELETE FROM votes WHERE timestamp < DATETIME('now', ?) AND user NOT IN (SELECT user FROM votes GROUP BY user HAVING COUNT(user)>=5);", [age], function(tx,rs){
+					console.log('Pruned ' + rs.rowsAffected + ' rows.');
+				});
 			}, error, success);
 		} else {
 			voteDB.transaction(function(tx){
-				tx.executeSql("DELETE FROM votes WHERE timestamp<DATETIME('now', ?);", [age]);
+				tx.executeSql("DELETE FROM votes WHERE timestamp<DATETIME('now', ?);", [age], function(tx,rs){
+					console.log('Pruned ' + rs.rowsAffected + ' rows.');
+				});
 			}, error, success);
 		}
 	}

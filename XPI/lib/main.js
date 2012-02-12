@@ -328,17 +328,15 @@ function pruneVotes(age, celebrityProtection, success, error) {
 		return;
 	}
 	age = age + ' months';
+	var stat = null;
 	if (celebrityProtection) {
-		var stat = sql.createStatement"DELETE FROM votes WHERE timestamp < DATETIME('now', :age) AND user NOT IN (SELECT user FROM votes GROUP BY user HAVING COUNT(user)>=5);");
+		stat = sql.createStatement("DELETE FROM votes WHERE timestamp < DATETIME('now', :age) AND user NOT IN (SELECT user FROM votes GROUP BY user HAVING COUNT(user)>=5);");
 		stat.params.age = age;
 	} else {
-		var stat = sql.createStatement("DELETE FROM votes WHERE timestamp<DATETIME('now', :age);");
+		stat = sql.createStatement("DELETE FROM votes WHERE timestamp<DATETIME('now', :age);");
 		stat.params.age = age;
 	}
 	stat.executeAsync({
-		handleResult: function(rs){
-			success();
-		},
 		handleError: function(error) {
 			console.error(error);
 			error(error);
@@ -346,7 +344,8 @@ function pruneVotes(age, celebrityProtection, success, error) {
 		},
 		handleCompletion: function(reason) {
 			if (reason == Components.interfaces.mozIStorageStatementCallback.REASON_FINISHED){
-				sql.commitTransaction();
+				// sql.commitTransaction();
+				success()
 			} else {
 		      	console.log("Query canceled or aborted!");
 			}
