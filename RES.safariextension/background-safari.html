@@ -42,12 +42,38 @@
 				tx.executeSql('CREATE INDEX user_index ON votes(user);');
 				tx.executeSql('CREATE INDEX subreddit_index ON votes(subreddit);');
 			}, function(error) {
-				console.error("Version 0 to 1 migration failed.");
+				console.error("Version 0 to 1 migration failed.", error);
 				window.voteDB = null;
 			});
 		}
 	} else {
 		console.error('Could not open vote database.');
+	}
+
+	function selectUser(request, success, failure) {
+		var pageLen = ('length' in request?request.length:25);
+		var offset = (('page' in request?request.page:1)-1)*pageLen;
+		voteDB.readTransaction(function(tx) {
+			tx.executeSql('SELECT thing, link, vote, content, subreddit, timestamp FROM votes WHERE user = ? LIMIT ? OFFSET ?', [request.user, pageLen, offset], function(tx,rs){
+				var data = [];
+				for (var i = 0; i < rs.rows.length; i++) {
+					data[i] = rs.rows.item(i);
+				}
+				tx.executeSql('SELECT COUNT(*) AS count FROM votes WHERE user=?;', [request.user], function(tx,rs){
+					success({
+						count:rs.rows.item(0).count,
+						data:data
+					});
+				}, function(tx, error){
+					failure(error);
+				});
+			}, function(tx,error){
+				failure(error);
+			});
+		},function(error) {
+			console.log("SELECT FAILED", error)
+		},function(){//success
+		});
 	}
 
 	function respondToMessage (msgEvent) {
@@ -195,10 +221,33 @@
 									[request.thing, request.link, request.user, request.vote, request.content, request.subreddit]);
 						},function(error) {
 							console.error("INSERT FAILED", error);
-							sendResponse({status: 'insert failed', error: error}, msgEvent);
+							sendResponse({status: 'insert failed', operation: request.operation, error: error}, msgEvent);
 						},function(){
-							sendResponse({status: 'success'}, msgEvent);
+							sendResponse({status: 'success', operation: request.operation}, msgEvent);
 						});
+						break;
+					case 'select-user':
+						selectUser(request, function(data){
+							console.log(data);
+							sendResponse({
+								status:'success',
+								operation:'select-user',
+								user:request.user,
+								data:data.data,
+								count:data.count,
+								page:request.page,
+								length:request.length
+							}, msgEvent);
+						}, function(error){
+							sendResponse({status: error}, msgEvent);
+						})
+						break;
+					case 'select-subreddit':
+						selectSubreddit(request, function(data){
+							sendResponse({status:'success', data:data}, msgEvent);
+						}, function(error){
+							sendResponse({status: error}, msgEvent);
+						})
 						break;
 				}
 				break;
