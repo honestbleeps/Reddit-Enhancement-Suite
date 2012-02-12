@@ -205,7 +205,7 @@ pageMod.PageMod({
 						voteInsert(request, function(rs){
 						}, function(err){
 							console.error(JSON.stringify(err));
-							worker.postMessage({"name": "vote", operation:"insert", status:"insert failed", error:err});
+							worker.postMessage({name: "vote", operation:"insert", status:"insert failed", error:err});
 						});
 						break;
 					case 'select-user':
@@ -224,15 +224,15 @@ pageMod.PageMod({
 							};
 							worker.postMessage(msg);
 						}, function(error){
-							worker.postMessage({msgType:'vote', status:error});
+							worker.postMessage({name:'vote', operation:'select-user', status:'error', error:error});
 						});
 						break;
 					case 'prune-votes':
 						pruneVotes(request.age, request.celebrityProtection, function(){
-							worker.postMessage({status:'success'});
+							worker.postMessage({name:'vote', operation:'prune-votes', status:'success'});
 						}, function(error){
 							console.error("ERROR WHILE PRUNING", error);
-							worker.postMessage({status:'prune error', error:error});
+							worker.postMessage({name:'vote', operation:'prune-votes', status:'prune error', error:error});
 						});
 						break;
 				}

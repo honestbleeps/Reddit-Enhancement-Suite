@@ -262,10 +262,10 @@
 						break;
 					case 'prune-votes':
 						pruneVotes(request.age, request.celebrityProtection, function(){
-							sendResponse({status:'success'}, msgEvent);
+							sendResponse({status:'success', operation:'prune-votes'}, msgEvent);
 						}, function(error){
 							console.error("ERROR WHILE PRUNING", error);
-							sendResponse({status:'prune error', error:error}, msgEvent);
+							sendResponse({status:'prune error', operation:'prune-votes', error:error}, msgEvent);
 						});
 						break;
 				}

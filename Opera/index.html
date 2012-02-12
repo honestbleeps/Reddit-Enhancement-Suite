@@ -305,15 +305,15 @@ opera.extension.addEventListener( "message", function( event ) {
 							event.source.postMessage(JSON.parse(JSON.stringify(msg)));
 							// event.source.postMessage(msg);
 						}, function(error){
-							event.source.postMessage({msgType:'vote', status: error});
+							event.source.postMessage({msgType:'vote', operation:'select-user', status:'error', error:error});
 						})
 						break;
 					case 'prune-votes':
 						pruneVotes(request.age, request.celebrityProtection, function(){
-							event.source.postMessage({status:'success'});
+							event.source.postMessagesendResponse({msgType:'vote' operation:'prune-votes', status:'success'});
 						}, function(error){
 							console.error("ERROR WHILE PRUNING", error);
-							event.source.postMessagesendResponse({status:'prune error', error:error});
+							event.source.postMessagesendResponse({msgType:'vote' operation:'prune-votes', status:'prune error', error:error});
 						});
 						break;
 				}
