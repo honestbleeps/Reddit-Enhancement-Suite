@@ -154,13 +154,17 @@
 						localStorage.setItem(request.itemName, request.itemValue);
 						sendResponse({status: true, value: null}, msgEvent);
 						// now tell all of the other tabs about this update...
-						var thisTabID = safari.application.activeBrowserWindow.activeTab;
-						var tabs = safari.application.activeBrowserWindow.tabs;
-						for (var i = 0; i < tabs.length; i++) {
-							if (thisTabID != tabs[i]) {
-								if ((tabs[i]) && (tabs[i].page)) {
-									tabs[i].page.dispatchMessage("localStorage", { requestType: "localStorage", itemName: request.itemName, itemValue: request.itemValue });
-								} 
+						var thisTabID = msgEvent.target;
+						var windows = safari.application.browserWindows;
+						for (var i = 0; i < windows.length; i++) {
+							var tabs = windows[i].tabs;
+							for (var j = 0; j < tabs.length; j++) {
+								if (thisTabID != tabs[j]) {
+									//Should we also filter tabs that RES won't run on?
+									if ((tabs[j]) && (tabs[j].page)) {
+										tabs[j].page.dispatchMessage("localStorage", { requestType: "localStorage", itemName: request.itemName, itemValue: request.itemValue });
+									}
+								}
 							}
 						}
 						break;
