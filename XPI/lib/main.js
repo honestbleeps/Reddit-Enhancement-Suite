@@ -25,7 +25,62 @@ localStorage.removeItem = function(key) {
 	delete ss.storage[key];
 }
 
+XHRCache = {
+	forceCache: false,
+	capacity: 250,
+	entries: {},
+	count: 0,
+	check: function(key) {
+		if (key in this.entries) {
+//			console.log("hit");
+			this.entries[key].hits++;
+			return this.entries[key].data;
+		} else {
+//			console.log("miss");
+			return null;
+		}
+	},
+	add: function(key, value) {
+		if (key in this.entries) {
+			return;
+		} else {
+//			console.log("add");
+			this.entries[key] = {data: value, timestamp: new Date(), hits: 1};
+			this.count++;
+		}
+		if (this.count > this.capacity) {
+			this.prune();
+		}
+	},
+	prune: function() {
+		var now = new Date();
+		var bottom = [];
+		for (var key in this.entries) {
+//			if (this.entries[key].hits == 1) {
+//				delete this.entries[key];
+//				this.count--;
+//				continue;
+//			}
 
+			//Weight by hits/age which is similar to reddit's hit/controversial sort orders
+			bottom.push({
+				key: key,
+				weight: this.entries[key].hits/(now - this.entries[key].timestamp)
+			});
+		}
+		bottom.sort(function(a,b){return a.weight-b.weight;});
+		var count = this.count - Math.floor(this.capacity / 2);
+		for (var i = 0; i < count; i++) {
+			delete this.entries[bottom[i].key];
+			this.count--;
+		}
+//		console.log("prune");
+	},
+	clear: function() {
+		this.entries = {};
+		this.count = 0;
+	}
+};
 
 pageMod.PageMod({
   include: ["*.reddit.com"],
@@ -55,6 +110,14 @@ pageMod.PageMod({
 					XHRID: request.XHRID,
 					name: request.requestType
 				}
+				if (request.aggressiveCache || XHRCache.forceCache) {
+					var cachedResult = XHRCache.check(request.url);
+					if (cachedResult) {
+						responseObj.response = cachedResult;
+						worker.postMessage(responseObj);
+						return;
+					}
+				}
 				if (request.method == 'POST') {
 					Request({
 						url: request.url,
@@ -62,6 +125,10 @@ pageMod.PageMod({
 							responseObj.response = {
 								responseText: response.text,
 								status: response.status
+							}
+							//Only cache on HTTP OK and non empty body
+							if ((request.aggressiveCache || XHRCache.forceCache) && (response.status == 200 && response.text)) {
+								XHRCache.add(request.url, responseObj.response);
 							}
 							worker.postMessage(responseObj);
 						},
@@ -75,6 +142,9 @@ pageMod.PageMod({
 							responseObj.response = {
 								responseText: response.text,
 								status: response.status
+							}
+							if ((request.aggressiveCache || XHRCache.forceCache) && (response.status == 200 && response.text)) {
+								XHRCache.add(request.url, responseObj.response);
 							}
 							worker.postMessage(responseObj);
 						},
