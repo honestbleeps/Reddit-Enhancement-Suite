@@ -280,6 +280,13 @@ opera.extension.addEventListener( "message", function( event ) {
 						break;
 				}
 				break;
+			case 'XHRCache':
+				switch (request.operation) {
+					case 'clear':
+						XHRCache.clear();
+						break;
+				}
+				break;
 			default:
 				var passBack = {
 					msgType: '',

@@ -243,6 +243,13 @@ pageMod.PageMod({
 						break;
 				}
 				break;
+			case 'XHRCache':
+				switch (request.operation) {
+					case 'clear':
+						XHRCache.clear();
+						break;
+				}
+				break;
 			default:
 				worker.postMessage({status: "unrecognized request type"});
 				break;

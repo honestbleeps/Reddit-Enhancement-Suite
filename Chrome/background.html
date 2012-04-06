@@ -227,6 +227,13 @@
 				case 'addURLToHistory':
 					chrome.history.addUrl({url: request.url});
 					break;
+				case 'XHRCache':
+					switch (request.operation) {
+						case 'clear':
+							XHRCache.clear();
+							break;
+					}
+					break;
 				default:
 					sendResponse({status: "unrecognized request type"});
 					break;
