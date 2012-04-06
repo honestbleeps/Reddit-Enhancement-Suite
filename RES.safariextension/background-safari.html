@@ -237,6 +237,13 @@
 						break;
 				}
 				break;
+			case 'XHRCache':
+				switch (request.operation) {
+					case 'clear':
+						XHRCache.clear();
+						break;
+				}
+				break;
 			default:
 				sendResponse({status: "unrecognized request type"}, msgEvent);
 		}
