@@ -119,7 +119,7 @@ function createElementWithID(elementType, id, classname) {
 	return obj;
 };
 
-// sigh.. opera just has to be a pain in the ass... check for navigator object...
+// this alias is to account for opera having different behavior...
 if (typeof(navigator) == 'undefined') navigator = window.navigator;
 
 //Because Safari 5.1 doesn't have Function.bind
@@ -473,7 +473,7 @@ function operaMessageHandler(msgEvent) {
 			if ((typeof(RESStorage) != 'undefined') && (typeof(RESStorage.setItem) == 'function')) {
 				RESStorage.setItem(eventData.itemName, eventData.itemValue, true);
 			} else {
-				// great, opera has screwed some shit up. let's wait until RESStorage is defined, then try again...
+				// a change in opera requires this wait/timeout for the RESStorage grab to work...
 				function waitForRESStorage(eData) {
 					if ((typeof(RESStorage) != 'undefined') && (typeof(RESStorage.setItem) == 'function')) {
 						RESStorage.setItem(eData.itemName, eData.itemValue, true);
@@ -518,6 +518,7 @@ if (typeof(safari) != 'undefined') {
 // opera compatibility
 if (typeof(opera) != 'undefined') {
 	// removing this line for new localStorage methodology (store in extension localstorage)
+	sessionStorage = window.sessionStorage;
 	localStorage = window.localStorage;
 	location = window.location;
 	XMLHttpRequest = window.XMLHttpRequest;
@@ -608,9 +609,8 @@ if ((typeof GM_deleteValue == 'undefined') || (typeof GM_addStyle == 'undefined'
 	} else if (typeof(safari) != 'undefined')  {
 		GM_xmlhttpRequest = function(obj) {
 			obj.requestType = 'GM_xmlhttpRequest';
-			// Safari is a bastard.  Since it doesn't provide legitimate callbacks, I have to store the onload function here
-			// in the main userscript in a queue (see xhrQueue), wait for data to come back from the background page, then call the onload. Damn this sucks.
-			// See how much easier it was up there in the Chrome statement?  Damn.
+			// Since Safari doesn't provide legitimate callbacks, I have to store the onload function here in the main
+			// userscript in a queue (see xhrQueue), wait for data to come back from the background page, then call the onload.
 
 			// oy vey... another problem. When Safari sends xmlhttpRequests from the background page, it loses the cookies etc that it'd have 
 			// had from the foreground page... so we need to write a bit of a hack here, and call different functions based on whether or 
@@ -635,7 +635,6 @@ if ((typeof GM_deleteValue == 'undefined') || (typeof GM_addStyle == 'undefined'
 		GM_xmlhttpRequest = function(obj) {
 			obj.requestType = 'GM_xmlhttpRequest';
 			// Turns out, Opera works this way too, but I'll forgive them since their extensions are so young and they're awesome people...
-			// Really though, we need callbacks like Chrome has!  This is such a hacky way to emulate GM_xmlhttpRequest.
 
 			// oy vey... cross domain same issue with Opera.
 			var crossDomain = (obj.url.indexOf(location.hostname) == -1);
@@ -687,8 +686,6 @@ var modules = [];
 
 // define common RESUtils - reddit related functions and data that may need to be accessed...
 var RESUtils = {
-	// imgur API key
-	imgurAPIKey: 'fe266bc9466fe69aa1cf0904e7298eda',
 	// A cache variable to store CSS that will be applied at the end of execution...
 	css: '',
 	addCSS: function(css) {
@@ -1789,7 +1786,22 @@ var RESUtils = {
 			x1 = x1.replace(rgx, '$1' + ',' + '$2');
 		}
 		return x1 + x2;
-	}	
+	},
+	xhrCache: function(operation) {
+		var thisJSON = {
+			requestType: 'XHRCache',
+			operation: operation
+		};
+		if (typeof(chrome) != 'undefined') {
+			chrome.extension.sendRequest(thisJSON, function(response) {});
+		} else if (typeof(safari) != 'undefined') {
+			safari.self.tab.dispatchMessage('XHRCache', thisJSON);
+		} else if (typeof(opera) != 'undefined') {
+			opera.extension.postMessage(JSON.stringify(thisJSON));
+		} else if (typeof(self.on) == 'function') {
+			self.postMessage(thisJSON);
+		}
+	}
 }
 // end RESUtils;
 
@@ -3154,6 +3166,7 @@ var RESConsole = {
 						method: "POST",
 						queryParam: "query",
 						theme: "facebook",
+						allowCustomEntry: true,
 						onResult: (typeof(optionObject.onResult) == 'function') ? optionObject.onResult : null,
 						prePopulate: prepop,
 						hintText: (typeof(optionObject.hintText) == 'string') ? optionObject.hintText : null
@@ -4075,11 +4088,14 @@ modules['uppersAndDowners'] = {
 				this.applyUppersAndDownersToLinks();
 				document.body.addEventListener('DOMNodeInserted', function(event) {
 					if ((event.target.tagName == 'DIV') && (event.target.getAttribute('id') && event.target.getAttribute('id').indexOf('siteTable') != -1)) {
+						/*
 						if (!RESUtils.currentSubreddit('dashboard')) {
 							modules['uppersAndDowners'].applyUppersAndDownersToLinks(modules['neverEndingReddit'].nextPageURL);
 						} else {
 							modules['uppersAndDowners'].applyUppersAndDownersToLinks(event.target.getAttribute('url'));
 						}
+						*/
+						modules['uppersAndDowners'].applyUppersAndDownersToLinks(event.target);
 					}
 				}, true);
 				
@@ -4093,57 +4109,99 @@ modules['uppersAndDowners'] = {
 			moreCommentsParent = moreCommentsParent.parentNode;
 		}
 		var i=0;
-		var isDeepComment = true;
 		// Now, check if this is link nested deep inside comments, or a top level "load more comments" link at the bottom of a page.
 		while (i<6) {
 			if ((moreCommentsParent != null) && (typeof(moreCommentsParent.parentNode) != 'undefined')) {
 				moreCommentsParent = moreCommentsParent.parentNode;
 				if (moreCommentsParent.className == 'commentarea') {
 					i=6;
-					isDeepComment = false;
 				}
 			} else {
 				i=6;
-				isDeepComment = false;
 			}
 			i++;
 		}
-		if (isDeepComment) {
-			moreCommentsParent.addEventListener('DOMNodeInserted', modules['uppersAndDowners'].processMoreComments, true);
-		} else {
-			// There isn't a good way to handle this with a single API call right now, so it'd make a new API call for each
-			// hit, and that sucks.  Skipping this for now.
-			// document.body.addEventListener('DOMNodeInserted', modules['uppersAndDowners'].processMoreCommentsTopLevel, true);
-		}
-	},
-	processMoreCommentsTopLevel: function (event) {
-		if (typeof(trackCount) == 'undefined') {
-			trackCount = 0;
-		} else {
-			if (event.target.tagName == 'DIV') {
-				trackCount++;
-				if (trackCount < 30) {
-					// console.log(event.target);
-				}
-			}
-		}
+		moreCommentsParent.addEventListener('DOMNodeInserted', modules['uppersAndDowners'].processMoreComments, true);
 	},
 	processMoreComments: function (event) {
+		console.log(event.target);
 		if ((event.target.tagName == 'DIV') && (hasClass(event.target, 'thing'))) {
-			var getID = /id-([\w])+\_([\w]+)/i;
-			var IDMatch = getID.exec(event.currentTarget.getAttribute('class'));
-			if (IDMatch) {
-				var thisID = IDMatch[2];
-				if (typeof(modules['uppersAndDowners'].moreCommentsIDs[thisID]) == 'undefined') {
-					modules['uppersAndDowners'].moreCommentsIDs[thisID] = true;
-					var thisHREF = location.href + thisID;
-					event.currentTarget.removeEventListener('DOMNodeInserted', this.processMoreComments, true);
-					modules['uppersAndDowners'].applyUppersAndDownersToComments(thisHREF);
-				}
-			}
+			modules['uppersAndDowners'].applyUppersAndDownersToComments(event.target);
 		}			
 	},
-	applyUppersAndDownersToComments: function(href) {
+	applyUppersAndDownersToComments: function(ele) {
+		if (!ele) {
+			ele = document.body;
+		} 
+		if (hasClass(ele,'comment')) {
+			this.allComments = [ele];
+		} else {
+			this.allComments = ele.querySelectorAll('div.comment');
+		}
+		this.allCommentsCount = this.allComments.length;
+		this.allCommentsi = 0;
+		(function(){
+			// add 15 save links at a time...
+			var chunkLength = Math.min((modules['uppersAndDowners'].allCommentsCount - modules['uppersAndDowners'].allCommentsi), 15);
+			for (var i=0;i<chunkLength;i++) {
+				var thisi = modules['uppersAndDowners'].allCommentsi;
+				var thisComment = modules['uppersAndDowners'].allComments[thisi];
+				modules['uppersAndDowners'].showUppersAndDownersOnComment(thisComment);
+				modules['uppersAndDowners'].allCommentsi++;
+			}
+			if (modules['uppersAndDowners'].allCommentsi < modules['uppersAndDowners'].allCommentsCount) {
+				setTimeout(arguments.callee, 1000);
+			}
+		})();		
+
+	},
+	showUppersAndDownersOnComment: function(commentEle) {
+		if (commentEle.getAttribute('data-votesvisible') == 'true') return;
+		commentEle.setAttribute('data-votesvisible', 'true');
+		var tagline = commentEle.querySelector('p.tagline');
+		var ups = commentEle.getAttribute('data-ups');
+		var downs = commentEle.getAttribute('data-downs');
+		frag = document.createDocumentFragment(); //using a fragment speeds this up by a factor of about 2
+
+
+		if (modules['uppersAndDowners'].options.showSigns.value) {
+			ups = '+'+ups;
+			downs = '-'+downs;
+		}
+
+		openparen = document.createTextNode(" (");
+		frag.appendChild(openparen);
+
+		mooups = document.createElement("span");
+		mooups.className = "res_comment_ups";
+		voteUps = document.createTextNode(ups);
+
+		mooups.appendChild(voteUps);
+		frag.appendChild(mooups);
+
+		pipe = document.createTextNode("|");
+		tagline.appendChild(pipe);
+
+		moodowns = document.createElement("span");
+		moodowns.className = "res_comment_downs";
+
+		voteDowns = document.createTextNode(downs);
+		moodowns.appendChild(voteDowns);
+
+		frag.appendChild(moodowns);
+
+		closeparen = document.createTextNode(")");
+		frag.appendChild(closeparen);
+
+		frag.appendChild(openparen);
+		frag.appendChild(mooups);
+		frag.appendChild(pipe);
+		frag.appendChild(moodowns);
+		frag.appendChild(closeparen);
+
+		tagline.appendChild(frag);
+	},
+	applyUppersAndDownersToCommentsOld: function(href) {
 		/*
 			The Reddit Uppers/Downers module is included as a convenience, but I did not write it.
 			Original credits are below.
@@ -4354,99 +4412,34 @@ modules['uppersAndDowners'] = {
 			}, 200);
 		}
 	},
-	applyUppersAndDownersToLinks: function(href) {
-		var loc, onloadJSONLinks
-		//Get the URL for the JSON details of this comments page
-		if (href) {
-			loc = href;
+	applyUppersAndDownersToLinks: function(ele) {
+		// Since we're dealing with max 100 links at a time, we don't need a chunker here...
+		ele = ele || document.body;
+		var linkList = ele.querySelectorAll('div.thing.link');
+		var displayType = 'regular';
+		if (modules['uppersAndDowners'].options.showSigns.value) {
+			var thisPlus = '+';
+			var thisMinus = '-';
 		} else {
-			loc = "" + window.location;
+			var thisPlus = '';
+			var thisMinus = '';
 		}
-		jsonURL = loc.replace(/\/$/,'') + "/.json";
-		if (loc.indexOf("?") !== -1) {
-			jsonURL = loc.replace("?", "/.json?");
-		}
-		jsonURL = RESUtils.insertParam(jsonURL,'app','res');
-		onloadJSONLinks = function (response) {
-			var jsonText = response.responseText, data;
+		for (var i=0, len=linkList.length; i<len; i++) {
+			var thisups = linkList[i].getAttribute('data-ups');
+			var thisdowns = linkList[i].getAttribute('data-downs');
 
-			try {
-				data = JSON.parse(jsonText);
-			} catch (e) {
-				if (window.console) {
-					// window.console.error(e);
-				}
-			}
-
-			// Since we're dealing with max 100 links at a time, we don't need a chunker here...
-			if ((typeof(data) != 'undefined') && ((typeof(data.data) != 'undefined'))) {
-				var linkList = data.data.children;
-				var displayType = 'regular';
-				if (modules['uppersAndDowners'].options.showSigns.value) {
-					var thisPlus = '+';
-					var thisMinus = '-';
+			var thisTagline = linkList[i].querySelector('p.tagline');
+			// Check if compressed link display or regular...
+			if ((typeof(thisTagline) != 'undefined') && (thisTagline != null)) {
+				var upsAndDownsEle = $("<span> (<span class='res_post_ups'>"+thisPlus+thisups+"</span>|<span class='res_post_downs'>"+thisMinus+thisdowns+"</span>) </span>");
+				if (displayType == 'regular') {
+					// thisTagline.insertBefore(upsAndDownsEle, thisTagline.firstChild);
+					$(thisTagline).prepend(upsAndDownsEle);
 				} else {
-					var thisPlus = '';
-					var thisMinus = '';
-				}
-				for (var i=0, len=linkList.length; i<len; i++) {
-					var thisups = linkList[i].data.ups;
-					var thisdowns = linkList[i].data.downs;
-					var thisid = linkList[i].data.id;
-					var thisClass = '.id-t3_'+thisid;
-					// if this is a self post, shortcut the selftext expando since we already have the text
-					// this makes it faster, woo!
-					if (linkList[i].data.is_self) {
-						$(thisClass).find('.expando-button').attr('onclick','').data('selftext',linkList[i].data.selftext_html).click(function() {
-							if ($(this).hasClass('collapsed')) {
-								$(this).removeClass('collapsed');
-								$(this).addClass('expanded');
-								$(this).parent().find('.expando').html('<form class="usertext"><div class="usertext-body">' + $('<div/>').html($(this).data('selftext')).text() + '</div></form>').show();
-							} else {
-								$(this).removeClass('expanded');
-								$(this).addClass('collapsed');
-								$(this).parent().find('.expando').hide();
-							}
-						})
-					}
-					
-					if (i == 0) {
-						var thisSelector = thisClass + ' p.tagline';
-						var thisTagline = document.body.querySelector(thisSelector);
-						if ((thisTagline) && (thisTagline.innerHTML.indexOf('span class="score likes"') != -1)) {
-							displayType = 'compressed';
-							var thisSelector = thisClass + ' p.tagline span.likes';
-							var thisTagline = document.body.querySelector(thisSelector);
-						} 
-					} else if (displayType == 'regular') {
-						var thisSelector = thisClass + ' p.tagline';
-						var thisTagline = document.body.querySelector(thisSelector);
-					} else {
-						var thisSelector = thisClass + ' p.tagline span.likes';
-						var thisTagline = document.body.querySelector(thisSelector);
-					}
-					// Check if compressed link display or regular...
-					if ((typeof(thisTagline) != 'undefined') && (thisTagline != null)) {
-						var upsAndDownsEle = $("<span> (<span class='res_post_ups'>"+thisPlus+thisups+"</span>|<span class='res_post_downs'>"+thisMinus+thisdowns+"</span>) </span>");
-						if (displayType == 'regular') {
-							// thisTagline.insertBefore(upsAndDownsEle, thisTagline.firstChild);
-							$(thisTagline).prepend(upsAndDownsEle);
-						} else {
-							$(thisTagline).after(upsAndDownsEle);
-						}
-					}
+					$(thisTagline).after(upsAndDownsEle);
 				}
 			}
-		};
-		// load the JSON
-		setTimeout(function() {
-			GM_xmlhttpRequest({
-				method:	"GET",
-				url:	jsonURL,
-				onload:	onloadJSONLinks
-			});
-		}, 200);
-		
+		}
 	}
 };
 
@@ -4583,6 +4576,16 @@ modules['keyboardNav'] = {
 			type: 'keycode',
 			value: [88,false,false,false], // x
 			description: 'Toggle expando (image/text/video) (link pages only)'
+		},
+		previousGalleryImage: {
+			type: 'keycode',
+			value: [219, false, false, false], //[
+			description: 'View the previous image of an inline gallery.'
+		},
+		nextGalleryImage: {
+			type: 'keycode',
+			value: [221, false, false, false], //]
+			description: 'View the next image of an inline gallery.'
 		},
 		toggleViewImages: {
 			type: 'keycode',
@@ -4903,6 +4906,8 @@ modules['keyboardNav'] = {
 				}
 			}
 			this.cmdLineShowTip(str);
+		} else if (command == 'XHRCache') {
+			this.cmdLineShowTip('clear - clear the cache (use if inline images aren\'t loading properly)');
 		} else if (command.slice(0,1) == '?') {
 			var str = 'Currently supported commands:';
 			str += '<ul>';
@@ -4917,6 +4922,7 @@ modules['keyboardNav'] = {
 			str += '<li>ls - toggle lightSwitch</li>';
 			str += '<li>srstyle [subreddit] [on|off] - toggle subreddit style on/off (if no subreddit is specified, uses current subreddit)</li>';
 			str += '<li>RESStorage [get|set|update|remove] [key] [value] - For debug use only, you shouldn\'t mess with this unless you know what you\'re doing.</li>';
+			str += '<li>XHRCache clear - manipulate the XHR cache </li>';
 			str += '</ul>';
 			this.cmdLineShowTip(str);
 		} else {
@@ -5051,7 +5057,7 @@ modules['keyboardNav'] = {
 					} else {
 						GM_xmlhttpRequest({
 							method:	"GET",
-							url:	location.protocol + "//www.reddit.com/user/" + val + "/about.json?app=res",
+							url:	location.protocol + "//"+location.hostname+"/user/" + val + "/about.json?app=res",
 							onload:	function(response) {
 								alert(response.responseText);
 							}
@@ -5066,7 +5072,7 @@ modules['keyboardNav'] = {
 					} else {
 						GM_xmlhttpRequest({
 							method:	"GET",
-							url:	location.protocol + "//www.reddit.com/user/" + val + "/about.json?app=res",
+							url:	location.protocol + "//"+location.hostname+"/user/" + val + "/about.json?app=res",
 							onload:	function(response) {
 								var thisResponse = JSON.parse(response.responseText);
 								var css = ', .id-t2_'+thisResponse.data.id+':before';
@@ -5154,6 +5160,21 @@ modules['keyboardNav'] = {
 						}
 					}
 					break;
+				case 'XHRCache':
+					var splitWords = val.split(' ');
+					if (splitWords.length < 1) {
+						modules['keyboardNav'].cmdLineShowError('Operation required [clear]');
+					} else {
+						switch (splitWords[0]) {
+							case 'clear':
+								RESUtils.xhrCache('clear');
+								break;
+							default:
+								modules['keyboardNav'].cmdLineShowError('The only accepted operation is <tt>clear</tt>');
+								break;
+						}
+					}
+					break;
 				case '?':
 					// user is already looking at help... do nothing.
 					return false;
@@ -5216,7 +5237,8 @@ modules['keyboardNav'] = {
 		if ((typeof(this.keyboardLinks) != 'undefined') && (this.options.clickFocus.value)) {
 			for (var i=0, len=this.keyboardLinks.length;i<len;i++) {
 				this.keyboardLinks[i].setAttribute('keyIndex', i);
-				this.keyboardLinks[i].parentElement.addEventListener('click', (function(e) {
+				// changed parentElement to parentNode for FF3.6 compatibility.
+				this.keyboardLinks[i].parentNode.addEventListener('click', (function(e) {
 					var thisIndex = parseInt(this.getAttribute('keyIndex'));
 					if (modules['keyboardNav'].activeIndex != thisIndex) {
 						modules['keyboardNav'].keyUnfocus(modules['keyboardNav'].keyboardLinks[modules['keyboardNav'].activeIndex]);
@@ -5388,6 +5410,12 @@ modules['keyboardNav'] = {
 						case keyArrayCompare(keyArray, this.options.toggleExpando.value):
 							this.toggleExpando();
 							break;
+						case keyArrayCompare(keyArray, this.options.previousGalleryImage.value):
+							this.previousGalleryImage();
+							break;
+						case keyArrayCompare(keyArray, this.options.nextGalleryImage.value):
+							this.nextGalleryImage();
+							break;
 						case keyArrayCompare(keyArray, this.options.toggleViewImages.value):
 							this.toggleViewImages();
 							break;
@@ -5483,6 +5511,12 @@ modules['keyboardNav'] = {
 							break;
 						case keyArrayCompare(keyArray, this.options.toggleExpando.value):
 							this.toggleAllExpandos();
+							break;
+						case keyArrayCompare(keyArray, this.options.previousGalleryImage.value):
+							this.previousGalleryImage();
+							break;
+						case keyArrayCompare(keyArray, this.options.nextGalleryImage.value):
+							this.nextGalleryImage();
 							break;
 						case keyArrayCompare(keyArray, this.options.toggleViewImages.value):
 							this.toggleViewImages();
@@ -5668,7 +5702,7 @@ modules['keyboardNav'] = {
 					RESUtils.scrollTo(0,thisXY.y - window.innerHeight + thisHeight + 5);
 				}
 			}
-			if (this.activeIndex == (this.keyboardLinks.length-1)) {
+			if (this.activeIndex == (this.keyboardLinks.length-1) && modules['neverEndingReddit'].options.autoLoad.value) {
 				this.nextPage();
 			}
 			modules['keyboardNav'].recentKey();
@@ -5793,6 +5827,18 @@ modules['keyboardNav'] = {
 				thisXY=RESUtils.getXYpos(this.keyboardLinks[this.activeIndex]);
 				RESUtils.scrollTo(0,thisXY.y);
 			}
+		}
+	},
+	previousGalleryImage: function() {
+		var previousButton = this.keyboardLinks[this.activeIndex].querySelector('.RESGalleryControls .previous');
+		if (previousButton) {
+			RESUtils.click(previousButton);
+		}
+	},
+	nextGalleryImage: function() {
+		var nextButton = this.keyboardLinks[this.activeIndex].querySelector('.RESGalleryControls .next');
+		if (nextButton) {
+			RESUtils.click(nextButton);
 		}
 	},
 	toggleViewImages: function() {
@@ -5938,10 +5984,10 @@ modules['keyboardNav'] = {
 		}
 	},
 	inbox: function() {
-		location.href = location.protocol + '//www.reddit.com/message/inbox/';
+		location.href = location.protocol + '//'+location.hostname+'/message/inbox/';
 	},
 	frontPage: function(subreddit) {
-		var newhref = location.protocol + '//www.reddit.com/';
+		var newhref = location.protocol + '//'+location.hostname+'/';
 		if (subreddit) {
 			newhref += 'r/' + RESUtils.currentSubreddit();
 		}
@@ -6006,7 +6052,7 @@ modules['userTagger'] = {
 		hardIgnore: {
 			type: 'boolean',
 			value: false,
-			description: 'If "hard ignore" is off, only post titles and comment text is hidden. If it is on, the entire block is hidden - note that this would make it difficult/impossible for you to unignore a person.'
+			description: 'If "hard ignore" is off, only post titles and comment text is hidden. If it is on, the entire block is hidden (or in comments, collapsed).'
 		},
 		colorUser: {
 			type: 'boolean',
@@ -6109,115 +6155,7 @@ modules['userTagger'] = {
 			// set up an array to cache user data
 			this.authorInfoCache = [];
 			if (this.options.colorUser.value) {
-				var voteButtons = document.body.querySelectorAll('.arrow');
-				this.voteStates = [];
-				for (var i=0, len=voteButtons.length;i<len;i++) {
-					// get current vote states so that when we listen, we check the delta...
-					// pairNum is just the index of the "pair" of vote arrows... it's i/2 with no remainder...
-					pairNum = Math.floor(i/2);
-					if (typeof(this.voteStates[pairNum]) == 'undefined') {
-						this.voteStates[pairNum] = 0;
-					}
-					if (hasClass(voteButtons[i], 'upmod')) {
-						this.voteStates[pairNum] = 1;
-					} else if (hasClass(voteButtons[i], 'downmod')) {
-						this.voteStates[pairNum] = -1;
-					}
-					// add an event listener to vote buttons to track votes, but only if we're logged in....
-					voteButtons[i].setAttribute('pairNum',pairNum);
-					if (RESUtils.loggedInUser()) {
-						voteButtons[i].addEventListener('click', function(e) {
-							var tags = RESStorage.getItem('RESmodules.userTagger.tags');
-							if (typeof(tags) != 'undefined') modules['userTagger'].tags = safeJSON.parse(tags, 'RESmodules.userTagger.tags');
-							if (e.target.getAttribute('onclick').indexOf('unvotable') == -1) {
-								var pairNum = e.target.getAttribute('pairNum');
-								if (pairNum) pairNum = parseInt(pairNum);
-								var thisAuthorA = this.parentNode.nextSibling.querySelector('p.tagline a.author');
-								// ???? TODO: fix on posts with thumbnails?
-								if (thisAuthorA == null && this.parentNode.nextSibling.nextSibling != null) {
-									thisAuthorA = this.parentNode.nextSibling.nextSibling.querySelector('p.tagline a.author');
-								}
-								if (thisAuthorA) {
-									var thisVWobj = this.parentNode.nextSibling.querySelector('.voteWeight');
-									if (!thisVWobj) thisVWobj = this.parentNode.parentNode.querySelector('.voteWeight');
-									// but what if no obj exists
-									var thisAuthor = thisAuthorA.text;
-									var votes = 0;
-									if (typeof(modules['userTagger'].tags[thisAuthor]) != 'undefined') {
-										if (typeof(modules['userTagger'].tags[thisAuthor].votes) != 'undefined') {
-											votes = parseInt(modules['userTagger'].tags[thisAuthor].votes);
-										}
-									} else {
-										modules['userTagger'].tags[thisAuthor] = {};
-									}
-									// there are 6 possibilities here:
-									// 1) no vote yet, click upmod
-									// 2) no vote yet, click downmod
-									// 3) already upmodded, undoing
-									// 4) already downmodded, undoing
-									// 5) upmodded before, switching to downmod
-									// 6) downmodded before, switching to upmod
-									var upOrDown = '';
-									((hasClass(this, 'up')) || (hasClass(this, 'upmod'))) ? upOrDown = 'up' : upOrDown = 'down';
-									// did they click the up arrow, or down arrow?
-									switch (upOrDown) {
-										case 'up':
-											// the class changes BEFORE the click event is triggered, so we have to look at them backwards.
-											// if the arrow now has class "up" instead of "upmod", then it was "upmod" before, which means
-											// we are undoing an upvote...
-											if (hasClass(this, 'up')) {
-												// this is an undo of an upvote. subtract one from votes. We end on no vote.
-												votes--;
-												modules['userTagger'].voteStates[pairNum] = 0;
-											} else {
-												// They've upvoted... the question is, is it an upvote alone, or an an undo of a downvote?
-												// add one vote either way...
-												votes++;
-												// if it was previously downvoted, add another!
-												if (modules['userTagger'].voteStates[pairNum] == -1) {
-													votes++;
-												}
-												modules['userTagger'].voteStates[pairNum] = 1;
-											}
-											break;
-										case 'down':
-											// the class changes BEFORE the click event is triggered, so we have to look at them backwards.
-											// if the arrow now has class "up" instead of "upmod", then it was "upmod" before, which means
-											// we are undoing an downvote...
-											if (hasClass(this, 'down')) {
-												// this is an undo of an downvote. subtract one from votes. We end on no vote.
-												votes++;
-												modules['userTagger'].voteStates[pairNum] = 0;
-											} else {
-												// They've downvoted... the question is, is it an downvote alone, or an an undo of an upvote?
-												// subtract one vote either way...
-												votes--;
-												// if it was previously upvoted, subtract another!
-												if (modules['userTagger'].voteStates[pairNum] == 1) {
-													votes--;
-												}
-												modules['userTagger'].voteStates[pairNum] = -1;
-											}
-											break;
-									}
-									/*
-									if ((hasClass(this, 'upmod')) || (hasClass(this, 'down'))) {
-										// upmod = upvote.  down = undo of downvote.
-										votes = votes + 1;
-									} else if ((hasClass(this, 'downmod')) || (hasClass(this, 'up'))) {
-										// downmod = downvote.  up = undo of downvote.
-										votes = votes - 1;
-									}
-									*/
-									modules['userTagger'].tags[thisAuthor].votes = votes;
-									RESStorage.setItem('RESmodules.userTagger.tags', JSON.stringify(modules['userTagger'].tags));
-									modules['userTagger'].colorUser(thisVWobj, thisAuthor, votes);
-								}
-							}
-							
-						}, true);
-					}
-				}
+				this.attachVoteHandlers(document.body);
 			}
 			// add tooltip to document body...
 			var css = '#userTaggerToolTip { display: none; position: absolute; width: 334px; height: 248px; }';
@@ -6337,6 +6275,7 @@ modules['userTagger'] = {
 			document.body.addEventListener('DOMNodeInserted', function(event) {
 				// if ((event.target.tagName == 'DIV') && (event.target.getAttribute('id') && event.target.getAttribute('id').indexOf('siteTable') != -1)) {
 				if ((event.target.tagName == 'DIV') && ((event.target.getAttribute('id') && event.target.getAttribute('id').indexOf('siteTable') != -1) || (hasClass(event.target,'child')) || (hasClass(event.target,'thing')))) {
+					modules['userTagger'].attachVoteHandlers(event.target);
 					modules['userTagger'].applyTags(event.target);
 				}
 			}, true);
@@ -6351,11 +6290,125 @@ modules['userTagger'] = {
 					} else {
 						var thisFriendComment = '';
 					}
+					// this stopped working. commenting it out for now.  if i add this back I need to check if you're reddit gold anyway.
+					/*
 					var benefitsForm = document.createElement('div');
 					var thisUser = document.querySelector('.titlebox > h1').innerHTML;
 					benefitsForm.innerHTML = '<form action="/post/friendnote" id="friendnote-r9_2vt1" method="post" class="pretty-form medium-text friend-note" onsubmit="return post_form(this, \'friendnote\');"><input type="hidden" name="name" value="'+thisUser+'"><input type="text" maxlength="300" name="note" id="benefits" class="tiny" onfocus="$(this).parent().addClass(\'edited\')" value="'+thisFriendComment+'"><button onclick="$(this).parent().removeClass(\'edited\')" type="submit">submit</button><span class="status"></span></form>';
 					insertAfter( friendButton, benefitsForm );
+					*/
 				}
+			}
+		}
+	},
+	attachVoteHandlers: function(obj) {
+		var voteButtons = obj.querySelectorAll('.arrow');
+		this.voteStates = [];
+		for (var i=0, len=voteButtons.length;i<len;i++) {
+			// get current vote states so that when we listen, we check the delta...
+			// pairNum is just the index of the "pair" of vote arrows... it's i/2 with no remainder...
+			pairNum = Math.floor(i/2);
+			if (typeof(this.voteStates[pairNum]) == 'undefined') {
+				this.voteStates[pairNum] = 0;
+			}
+			if (hasClass(voteButtons[i], 'upmod')) {
+				this.voteStates[pairNum] = 1;
+			} else if (hasClass(voteButtons[i], 'downmod')) {
+				this.voteStates[pairNum] = -1;
+			}
+			// add an event listener to vote buttons to track votes, but only if we're logged in....
+			voteButtons[i].setAttribute('pairNum',pairNum);
+			if (RESUtils.loggedInUser()) {
+				voteButtons[i].addEventListener('click', function(e) {
+					var tags = RESStorage.getItem('RESmodules.userTagger.tags');
+					if (typeof(tags) != 'undefined') modules['userTagger'].tags = safeJSON.parse(tags, 'RESmodules.userTagger.tags');
+					if (e.target.getAttribute('onclick').indexOf('unvotable') == -1) {
+						var pairNum = e.target.getAttribute('pairNum');
+						if (pairNum) pairNum = parseInt(pairNum);
+						var thisAuthorA = this.parentNode.nextSibling.querySelector('p.tagline a.author');
+						// ???? TODO: fix on posts with thumbnails?
+						if (thisAuthorA == null && this.parentNode.nextSibling.nextSibling != null) {
+							thisAuthorA = this.parentNode.nextSibling.nextSibling.querySelector('p.tagline a.author');
+						}
+						if (thisAuthorA) {
+							var thisVWobj = this.parentNode.nextSibling.querySelector('.voteWeight');
+							if (!thisVWobj) thisVWobj = this.parentNode.parentNode.querySelector('.voteWeight');
+							// but what if no obj exists
+							var thisAuthor = thisAuthorA.text;
+							var votes = 0;
+							if (typeof(modules['userTagger'].tags[thisAuthor]) != 'undefined') {
+								if (typeof(modules['userTagger'].tags[thisAuthor].votes) != 'undefined') {
+									votes = parseInt(modules['userTagger'].tags[thisAuthor].votes);
+								}
+							} else {
+								modules['userTagger'].tags[thisAuthor] = {};
+							}
+							// there are 6 possibilities here:
+							// 1) no vote yet, click upmod
+							// 2) no vote yet, click downmod
+							// 3) already upmodded, undoing
+							// 4) already downmodded, undoing
+							// 5) upmodded before, switching to downmod
+							// 6) downmodded before, switching to upmod
+							var upOrDown = '';
+							((hasClass(this, 'up')) || (hasClass(this, 'upmod'))) ? upOrDown = 'up' : upOrDown = 'down';
+							// did they click the up arrow, or down arrow?
+							switch (upOrDown) {
+								case 'up':
+									// the class changes BEFORE the click event is triggered, so we have to look at them backwards.
+									// if the arrow now has class "up" instead of "upmod", then it was "upmod" before, which means
+									// we are undoing an upvote...
+									if (hasClass(this, 'up')) {
+										// this is an undo of an upvote. subtract one from votes. We end on no vote.
+										votes--;
+										modules['userTagger'].voteStates[pairNum] = 0;
+									} else {
+										// They've upvoted... the question is, is it an upvote alone, or an an undo of a downvote?
+										// add one vote either way...
+										votes++;
+										// if it was previously downvoted, add another!
+										if (modules['userTagger'].voteStates[pairNum] == -1) {
+											votes++;
+										}
+										modules['userTagger'].voteStates[pairNum] = 1;
+									}
+									break;
+								case 'down':
+									// the class changes BEFORE the click event is triggered, so we have to look at them backwards.
+									// if the arrow now has class "up" instead of "upmod", then it was "upmod" before, which means
+									// we are undoing an downvote...
+									if (hasClass(this, 'down')) {
+										// this is an undo of an downvote. subtract one from votes. We end on no vote.
+										votes++;
+										modules['userTagger'].voteStates[pairNum] = 0;
+									} else {
+										// They've downvoted... the question is, is it an downvote alone, or an an undo of an upvote?
+										// subtract one vote either way...
+										votes--;
+										// if it was previously upvoted, subtract another!
+										if (modules['userTagger'].voteStates[pairNum] == 1) {
+											votes--;
+										}
+										modules['userTagger'].voteStates[pairNum] = -1;
+									}
+									break;
+							}
+							/*
+							if ((hasClass(this, 'upmod')) || (hasClass(this, 'down'))) {
+								// upmod = upvote.  down = undo of downvote.
+								votes = votes + 1;
+							} else if ((hasClass(this, 'downmod')) || (hasClass(this, 'up'))) {
+								// downmod = downvote.  up = undo of downvote.
+								votes = votes - 1;
+							}
+							*/
+							modules['userTagger'].tags[thisAuthor].votes = votes;
+							RESStorage.setItem('RESmodules.userTagger.tags', JSON.stringify(modules['userTagger'].tags));
+							modules['userTagger'].colorUser(thisVWobj, thisAuthor, votes);
+						}
+					}
+					
+				}, true);
 			}
 		}
 	},
@@ -6585,7 +6638,7 @@ modules['userTagger'] = {
 	},
 	applyTags: function(ele) {
 		if (ele == null) ele = document;
-		this.authors = ele.querySelectorAll('.noncollapsed a.author, p.tagline a.author, #friend-table span.user a, .sidecontentbox .author, div.md a[href*="/u/"]');
+		this.authors = ele.querySelectorAll('.noncollapsed a.author, p.tagline a.author, #friend-table span.user a, .sidecontentbox .author, div.md a[href^="/u/"], .usertable a.author');
 		this.authorCount = this.authors.length;
 		this.authori = 0;
 		(function(){
@@ -6699,6 +6752,7 @@ modules['userTagger'] = {
 				if (thisIgnore && (RESUtils.pageType('profile') != true)) {
 					if (this.options.hardIgnore.value) {
 						if (RESUtils.pageType() == 'comments') {
+							/*
 							var thisComment = thisAuthorObj.parentNode.parentNode;
 							// hide comment block first...
 							thisComment.style.display = 'none';
@@ -6706,6 +6760,13 @@ modules['userTagger'] = {
 							if (thisComment.previousSibling) {
 								thisComment.previousSibling.style.display = 'none';
 							}
+							*/
+							var thisComment = thisAuthorObj.parentNode.parentNode.querySelector('.usertext');
+							if (thisComment) {
+								thisComment.innerHTML = thisAuthor + ' is an ignored user';
+								addClass(thisComment, 'ignoredUserComment');
+							}
+							$(thisComment).parent().find('a.expand').click();
 						} else {
 							var thisPost = thisAuthorObj.parentNode.parentNode.parentNode;
 							// hide post block first...
@@ -6771,7 +6832,6 @@ modules['userTagger'] = {
 	showAuthorInfo: function(obj) {
 		var isFriend = (hasClass(obj, 'friend')) ? true : false;
 		thisXY=RESUtils.getXYpos(obj);
-		var objClass = obj.getAttribute('class');
 		var thisUserName = obj.textContent;
 		if (thisUserName.substr(0,3) == '/u/') thisUserName = thisUserName.substr(3);
 		this.authorInfoToolTipHeader.innerHTML = '<a href="/user/'+thisUserName+'">' + thisUserName + '</a>';
@@ -6804,7 +6864,7 @@ modules['userTagger'] = {
 		} else {
 			GM_xmlhttpRequest({
 				method:	"GET",
-				url:	location.protocol + "//www.reddit.com/user/" + thisUserName + "/about.json?app=res",
+				url:	location.protocol + "//"+location.hostname+"/user/" + thisUserName + "/about.json?app=res",
 				onload:	function(response) {
 					var thisResponse = JSON.parse(response.responseText);
 					modules['userTagger'].authorInfoCache[thisUserName] = thisResponse;
@@ -6981,6 +7041,11 @@ modules['betteReddit'] = {
 		   ],
 		   value: 'none',
 		   description: 'Pin the subreddit bar or header to the top, even when you scroll.'
+		},
+		turboSelfText: {
+			type: 'boolean',
+			value: true,
+			description: 'Preload selftext data to make selftext expandos faster (preloads after first expando)'
 		}
 	},
 	description: 'Adds a number of interface enhancements to Reddit, such as "full comments" links, the ability to unhide accidentally hidden posts, and more',
@@ -7015,6 +7080,9 @@ modules['betteReddit'] = {
 			}
 			if (((RESUtils.pageType() == 'linklist') || (RESUtils.pageType() == 'comments')) && (this.options.fixHideLinks.value)) {
 				this.fixHideLinks();
+			}
+			if ((this.options.turboSelfText.value) && (RESUtils.pageType() == 'linklist')) {
+				this.setUpTurboSelfText();
 			}
 			document.body.addEventListener('DOMNodeInserted', function(event) {
 				if ((event.target.tagName == 'DIV') && (event.target.getAttribute('id') && event.target.getAttribute('id').indexOf('siteTable') != -1)) {
@@ -7076,6 +7144,55 @@ modules['betteReddit'] = {
 				default:
 					break;
 			}
+		}
+	},
+	setUpTurboSelfText: function() {
+		modules['betteReddit'].selfTextHash = {};
+		$('.expando-button.selftext').live('click', modules['betteReddit'].showSelfText);
+		$('#siteTable').data('jsonURL', location.href+'.json');
+		document.body.addEventListener('DOMNodeInserted', function(event) {
+			if ((event.target.tagName == 'DIV') && (event.target.getAttribute('id') && event.target.getAttribute('id').indexOf('siteTable') != -1)) {
+				// modules['betteReddit'].getSelfTextData(modules['neverEndingReddit'].nextPageURL);
+				var jsonURL = modules['neverEndingReddit'].nextPageURL.replace('/?','/.json?');
+				$(event.target).data('jsonURL',jsonURL);
+			}
+		}, true);
+	},
+	showSelfText: function(event) {
+		var thisID = $(event.target).parent().parent().attr('data-fullname');
+		if (typeof(modules['betteReddit'].selfTextHash[thisID]) == 'undefined') {
+			// we haven't gotten JSON data for this set of links yet... get it, then replace the click listeners with our own...
+			var jsonURL = $(event.target).closest('.sitetable.linklisting').data('jsonURL');
+			modules['betteReddit'].getSelfTextData(jsonURL);
+		} else {
+			if ($(event.target).hasClass('collapsed')) {
+				$(event.target).removeClass('collapsed');
+				$(event.target).addClass('expanded');
+				$(event.target).parent().find('.expando').html(
+					'<form class="usertext"><div class="usertext-body">' + 
+					$('<div/>').html(modules['betteReddit'].selfTextHash[thisID]).text() + 
+					'</div></form>'
+				).show();
+			} else {
+				$(event.target).removeClass('expanded');
+				$(event.target).addClass('collapsed');
+				$(event.target).parent().find('.expando').hide();
+			}
+
+		}
+	},
+	getSelfTextData: function(href) {
+		$.getJSON(href, modules['betteReddit'].applyTurboSelfText);
+	},
+	applyTurboSelfText: function(data) {
+		var linkList = data.data.children;
+		for (var i=0, len=linkList.length; i<len; i++) {
+			var thisID = linkList[i].data.name;
+			if (i == 0) {
+				var thisSiteTable = $('.id-'+thisID).closest('.sitetable.linklisting');
+				$(thisSiteTable).find('.expando-button.selftext').attr('onclick','');
+			}
+			modules['betteReddit'].selfTextHash[thisID] = linkList[i].data.selftext_html;
 		}
 	},
 	showUnreadCount: function() {
@@ -7264,10 +7381,10 @@ modules['betteReddit'] = {
 			*/
 			if (action == 'unsave') {
 				var executed = 'unsaved';
-				var apiURL = 'http://'+location.hostname+'/api/unsave';
+				var apiURL = '//'+location.hostname+'/api/unsave';
 			} else {
 				var executed = 'saved';
-				var apiURL = 'http://'+location.hostname+'/api/save';
+				var apiURL = '//'+location.hostname+'/api/save';
 			}
 			// var params = 'id='+linkid+'&executed='+executed+'&uh='+modhash[1]+'&renderstyle=html';
 			var params = 'id='+linkid+'&executed='+executed+'&uh='+modules['betteReddit'].modhash+'&renderstyle=html';
@@ -7296,7 +7413,7 @@ modules['betteReddit'] = {
 		} else {
 			GM_xmlhttpRequest({
 				method:	"GET",
-				url:	location.protocol + '//www.reddit.com/api/me.json?app=res',
+				url:	location.protocol + '//'+location.hostname+'/api/me.json?app=res',
 				onload:	function(response) {
 					var data = safeJSON.parse(response.responseText);
 					if (typeof(data.data) == 'undefined') {
@@ -7360,7 +7477,7 @@ modules['betteReddit'] = {
 		} else {
 			GM_xmlhttpRequest({
 				method:	"GET",
-				url:	location.protocol + '//www.reddit.com/api/me.json?app=res',
+				url:	location.protocol + '//'+location.hostname+'/api/me.json?app=res',
 				onload:	function(response) {
 					var data = safeJSON.parse(response.responseText);
 					if (typeof(data.data) == 'undefined') {
@@ -7461,13 +7578,14 @@ modules['betteReddit'] = {
 
 		// add a dummy <div> inside the header to replace the subreddit bar (for spacing)
 		var spacer = document.createElement('div');
-		spacer.style.paddingTop = window.getComputedStyle(sb).paddingTop;
-		spacer.style.paddingBottom = window.getComputedStyle(sb).paddingBottom;
+		// null parameter is necessary for FF3.6 compatibility.
+		spacer.style.paddingTop = window.getComputedStyle(sb, null).paddingTop;
+		spacer.style.paddingBottom = window.getComputedStyle(sb, null).paddingBottom;
 
 		// HACK: for some reason, if the SM is enabled, the SB gets squeezed horizontally,
 		//       and takes up three rows of vertical space (even at low horizontal resolution).
-		if (sm) spacer.style.height = (parseInt(window.getComputedStyle(sb).height) / 3 - 3)+'px';
-		else    spacer.style.height = window.getComputedStyle(sb).height;
+		if (sm) spacer.style.height = (parseInt(window.getComputedStyle(sb, null).height) / 3 - 3)+'px';
+		else    spacer.style.height = window.getComputedStyle(sb, null).height;
 
 		//window.setTimeout(function(){
 		// add the spacer; take the subreddit bar out of the header and put it above
@@ -7521,7 +7639,7 @@ modules['betteReddit'] = {
 
 		// without the next line, the subreddit manager would make the subreddit bar three lines tall and very narrow
 		RESUtils.addCSS('#sr-header-area {left: 0; right: 0;}');
-		spacer.style.height = window.getComputedStyle(header).height;
+		spacer.style.height = window.getComputedStyle(header, null).height;
 
 		// insert the spacer
 		document.body.insertBefore(spacer, header.nextSibling);
@@ -7543,7 +7661,8 @@ modules['betteReddit'] = {
 		// added a check that this element exists, so it doesn't error out RES.
 		if (document.getElementById('header-img') && (!document.getElementById('header-img').complete)) setTimeout(function(){
 					   if (document.getElementById('header-img').complete)
-							   document.getElementById('RESPinnedHeaderSpacer').style.height = window.getComputedStyle(document.getElementById('header')).height;
+							   // null parameter is necessary for FF3.6 compatibility.
+							   document.getElementById('RESPinnedHeaderSpacer').style.height = window.getComputedStyle(document.getElementById('header'), null).height;
 					   else setTimeout(arguments.callee, 10);
 			   }, 10);
 	},
@@ -9289,8 +9408,8 @@ modules['commentPreview'] = {
 			
 			function wireupViewSourceButtons(ele) {
 				if (ele == null) ele = document;
-				if (RESUtils.pageType() == 'comments') {
-					modules['commentPreview'].commentMenus = ele.querySelectorAll('.entry .flat-list.buttons .first');
+				if ((RESUtils.pageType() == 'comments') || (RESUtils.pageType() == 'inbox'))  {
+					modules['commentPreview'].commentMenus = ele.querySelectorAll('.entry .flat-list.buttons li:first-child');
 					modules['commentPreview'].commentMenusCount = modules['commentPreview'].commentMenus.length;
 					modules['commentPreview'].commentMenusi = 0;
 					(function(){
@@ -9641,6 +9760,15 @@ modules['commentPreview'] = {
 					}
 				);
 				
+				var reddiquette = new EditControl(
+					'reddiquette',
+					function() {
+						prefixSelectionLines( targetTextArea, '[reddiquette](http://www.reddit.com/help/reddiquette)' );
+						refreshPreview( preview, targetTextArea );
+						targetTextArea.focus();
+					}
+				);
+				
 				controlBox.appendChild( bold.create() );
 				controlBox.appendChild( italics.create() );
 				controlBox.appendChild( strikethrough.create() );
@@ -9651,6 +9779,7 @@ modules['commentPreview'] = {
 				controlBox.appendChild( bullets.create() );
 				controlBox.appendChild( numbers.create() );
 				controlBox.appendChild( disapproval.create() );
+				controlBox.appendChild( reddiquette.create() );
 				controlBox.appendChild( promoteRES.create() );
 				Array.prototype.slice.call(modules['commentPreview'].options['macros'].value).forEach(function(elem, index, array) {
 					controlBox.appendChild(new EditControl(elem[0], function(){
@@ -9807,9 +9936,12 @@ modules['commentPreview'] = {
 	viewSource: function(ele) {
 		if (ele) {
 			var permalink = ele.parentNode.parentNode.firstChild.firstChild;
+			console.log(permalink);
 			if (permalink) {
 				// check if we've already viewed the source.. if so just reveal it instead of loading...
-				var sourceDiv = ele.parentNode.parentNode.previousSibling.querySelector('.viewSource');
+				var prevSib = ele.parentNode.parentNode.previousSibling;
+				if (typeof(prevSib.querySelector) == 'undefined') prevSib = prevSib.previousSibling;
+				var sourceDiv = prevSib.querySelector('.viewSource');
 				if (sourceDiv) {
 					sourceDiv.style.display = 'block';
 				} else {
@@ -9818,7 +9950,11 @@ modules['commentPreview'] = {
 					if (hasClass(permalink, 'comments')) {
 						sourceLink = 'selftext';
 					}
-					jsonURL += '/.json';
+					if (jsonURL.indexOf('?context') != -1) {
+						jsonURL = jsonURL.replace('?context=3','.json?');
+					} else {
+						jsonURL += '/.json';
+					}
 					this.viewSourceEle = ele;
 					this.viewSourceLink = sourceLink;
 					jsonURL = RESUtils.insertParam(jsonURL,'app','res');
@@ -9839,7 +9975,9 @@ modules['commentPreview'] = {
 							}
 							var cancelButton = userTextForm.querySelector('.cancel');
 							cancelButton.addEventListener('click', modules['commentPreview'].hideSource, false);
-							modules['commentPreview'].viewSourceEle.parentNode.parentNode.previousSibling.appendChild(userTextForm);
+							var prevSib = modules['commentPreview'].viewSourceEle.parentNode.parentNode.previousSibling;
+							if (typeof(prevSib.querySelector) == 'undefined') prevSib = prevSib.previousSibling;
+							prevSib.appendChild(userTextForm);
 						}
 					});
 				}
@@ -10048,6 +10186,54 @@ modules['usernameHider'] = {
 	}
 };
 
+/* siteModule format:
+name: {
+//Initialization method for things that cannot be performed inline. The method 
+//is required to be present, but it can be empty
+	go: function(){},
+
+//Returns true/false to indicate whether the siteModule will attempt to handle the link
+//the only parameter is the anchor element
+	detect: function(element) {return true/false;},
+
+//This is where links are parsed, cache checks are made, and XHR is performed.
+//This method will call handleInfo unless the module is deferred in which case it will call createImageExpando
+//the only parameter is the anchor element
+	handleLink: function(element) {},
+
+//This is were the embedding information is added to the link
+//the first parameter is the same anchor element passed to handleLink
+//the second parameter is module specific data
+//if successful handleInfo should call modules['showImages'].createImageExpando(elem)
+//if the module is deferred, then use revealImageDeferred
+	handleInfo: function(elem, info) {}
+
+//Optional value indication part of the process of the retrieving 
+//embed information should not occur until the user clicks on the 
+//expand button
+	deferred: boolean,
+
+//optional method that acts in place of the usual handleLink when the module is deferred
+	deferredHandleInk: function(elem) {}
+}
+*/
+/*
+Embedding infomation:
+all embedding information (except 'site') is to be attatched the 
+html anchor in the handleInfo function
+
+required type:
+	'IMAGE' for single images | 'GALLERY' for image galleries
+required src:
+	if type is IMAGE then src is an image URL string
+	if type is GALLERY then src is an array of URL strings
+optional imageTitle:
+	string to be dispalyed above the image.
+optional caption:
+	string to be displayed below the image
+optional credits:
+	string to be displayed below caption
+*/
 modules['showImages'] = {
 	moduleID: 'showImages',
 	moduleName: 'Inline Image Viewer',
@@ -10073,23 +10259,6 @@ modules['showImages'] = {
 			value: false,
 			description: 'If checked, do not show images marked NSFW.'
 		},
-		/*
-		it seems imgur has made some changes that break this feature, time to remove it...
-		imageSize: {
-			type: 'enum',
-			values: [
-				{ name: 'default', value: '' },
-				{ name: 'Huge', value: 'h' },
-				{ name: 'Large', value: 'l' },
-				{ name: 'Medium', value: 'm' },
-				{ name: 'Small', value: 't' },
-				{ name: 'Big Square', value: 'b' },
-				{ name: 'Small Square', value: 's' }
-			],
-			value: '',
-			description: 'imgur only: which imgur size to display inline.'
-		},
-		*/
 		autoExpandSelfText: {
 			type: 'boolean',
 			value: true,
@@ -10100,13 +10269,6 @@ modules['showImages'] = {
 			value: true,
 			description: 'Allow dragging to resize/zoom images.'
 		},
-		/* reddit made this impossible by hiding the HTML, sorry...
-		hoverPreview: {
-			type: 'boolean',
-			value: true,
-			description: 'Show thumbnail preview when hovering over expando.'
-		},
-		*/
 		markVisited: {
 			type: 'boolean',
 			value: true,
@@ -10129,12 +10291,6 @@ modules['showImages'] = {
 	},
 	go: function() {
 		if ((this.isEnabled()) && (this.isMatchURL())) {
-			// get this module's options...
-			// RESUtils.getOptions(this.moduleID);
-			
-			// Show Images - source originally from Richard Lainchbury - http://userscripts.org/scripts/show/67729
-			// Source modified to work as a module in RES, and improved slightly..
-			// RESUtils.addCSS(".expando-button.image { float: left; width: 23px; height: 23px; max-width: 23px; max-height: 23px; display: inline-block; background-image: url('http://f.thumbs.redditmedia.com/ykyGgtUvyXldPc3A.png'); margin-right: 6px; cursor: pointer;  padding: 0px; }");
 			RESUtils.addCSS(".expando-button.image { vertical-align:top !important; float: left; width: 23px; height: 23px; max-width: 23px; max-height: 23px; display: inline-block; background-image: url('http://f.thumbs.redditmedia.com/ykyGgtUvyXldPc3A.png'); margin-right: 6px; cursor: pointer;  padding: 0px; }");
 			RESUtils.addCSS(".expando-button.image.commentImg { float: none; margin-left: 4px; } ");
 			RESUtils.addCSS(".expando-button.image.collapsed { background-position: 0px 0px; } ");
@@ -10147,19 +10303,22 @@ modules['showImages'] = {
 			RESUtils.addCSS(".RESImage { float: left; display: block !important;  } ");
 			RESUtils.addCSS(".RESdupeimg { color: #000000; font-size: 10px;  } ");
 			RESUtils.addCSS(".RESClear { clear: both; margin-bottom: 10px;  } ");
-			// potential fix for sidebar overlapping expanded images, but only helps partially...
-			// now that drag hides sidebar, removing this css. 4.0.2
-			// RESUtils.addCSS(".md { max-width: 100% !important;}");
-			
-			this.thumbnailsEnabled = ((RESUtils.pageType() == 'linklist') && ($('a.thumbnail').length > 0));
+			RESUtils.addCSS('.RESGalleryControls { }');
+			// TODO: merge this image sprite with RES image sprite... don't use imgur.
+			RESUtils.addCSS('.RESGalleryControls a { cursor: pointer; display: inline-block; background-image: url("http://i.imgur.com/VyouB.png"); width: 16px; height: 16px; margin: 5px; }');
+			RESUtils.addCSS('.RESGalleryControls span { position: relative; top: -9px; }');
+			RESUtils.addCSS('.RESGalleryControls .previous { background-position: 0px 16px; }');
+			RESUtils.addCSS('.RESGalleryControls .next { background-position: 16px 16px; }');
+			RESUtils.addCSS('.RESGalleryControls .end { background-position-y: 32px; }');
+
 			this.imageList = [];
-			this.imagesRevealed = [];
-			this.flickrImages = [];
+			this.imagesRevealed = {};
 			this.dupeAnchors = 0;
+
 			if (this.options.markVisited.value) {
 				this.imageTrackFrame = document.createElement('iframe');
 				this.imageTrackFrame.addEventListener('load', function() {
-					setTimeout(modules['showImages'].imageTrackPop, 300);
+					setTimeout(modules['showImages'].imageTrackShift, 300);
 				}, false);
 				this.imageTrackFrame.style.display = 'none';
 				this.imageTrackFrame.style.width = '0px';
@@ -10168,671 +10327,510 @@ modules['showImages'] = {
 				document.body.appendChild(this.imageTrackFrame);
 			}
 
+			//set up all site modules
+			for (var key in this.siteModules) {
+				this.siteModules[key].go();
+			}
+			this.scanningForImages = false;
+
 			document.body.addEventListener('DOMNodeInserted', function(event) {
+				var target = event.target;
 				if (
-					((event.target.tagName == 'DIV') && (event.target.getAttribute('id') && event.target.getAttribute('id').indexOf('siteTable') != -1)) ||
-					((event.target.tagName == 'DIV') && (hasClass(event.target, 'comment'))) ||
-					((event.target.tagName == 'FORM') && (event.target.getAttribute('class') == 'usertext'))
-				)
-				{
-					var isSelfText = false;
-					if (event.target.tagName == 'FORM') {
-						isSelfText = true;
-					}
-					modules['showImages'].findAllImages(event.target, isSelfText);
-					if ((modules['showImages'].allImagesVisible) && (!isSelfText)) {
-						modules['showImages'].waitForScan = setInterval(function() {
-							if (!(modules['showImages'].scanningForImages)) {
-								modules['showImages'].showImages(modules['showImages'].gw, true);
-								clearInterval(modules['showImages'].waitForScan);
-							}
-						}, 100);
-					}
-				}
+					((target.tagName == 'DIV') && ( (target.id.indexOf('siteTable') != -1) || hasClass(target, 'comment')))
+					|| ((target.tagName == 'FORM') && target.className == 'userText')
+				   ) {
+					   var isSelfText = (target.tagName == 'FORM');
+					   modules['showImages'].findAllImages(target, isSelfText);
+					   if (modules['showImages'].allImagesVisible && !isSelfText) {
+						   modules['showImages'].waitForScan = setInterval(function(){
+							   if (!modules['showImages'].scanningForImages) {
+								   modules['showImages'].showImagesToggle(modules['showImages'].goneWild, true);
+								   clearInterval(modules['showImages'].waitForScan);
+							   }
+						   }, 100);
+					   }
+				   }
 			}, true);
-			
-			// create a div for the thumbnail tooltip...
-			RESUtils.addCSS('#RESThumbnailToolTip { display: none; position: absolute; border: 2px solid gray; z-index: 9999; }');
-			modules['showImages'].toolTip = createElementWithID('div','RESThumbnailToolTip');
-			document.body.appendChild(modules['showImages'].toolTip);
-			
-			
-			// this.imguReddit();
+
 			this.createImageButtons();
 			this.findAllImages();
-			document.addEventListener('dragstart',function(){return false}, false);
+			document.addEventListener('dragstart', function(){return false;}, false);
+
 		}
-	},
-	getDragSize: function(e){
-		var dragSize = (p=Math.pow)(p(e.clientX-(rc=e.target.getBoundingClientRect()).left,2)+p(e.clientY-rc.top,2),.5);
-		return Math.round(dragSize);
 	},
 	createImageButtons: function() {
 		if (location.href.match(/search\?\/?q\=/)) {
 			var hbl = document.body.querySelector('#header-bottom-left');
 			if (hbl) {
-				var mainmenuUL = document.createElement('ul');
-				mainmenuUL.setAttribute('class','tabmenu');
-				hbl.appendChild(mainmenuUL);
+				var mainMenuUL = document.createElement('ul');
+				mainMenuUL.setAttribute('class','tabmenu');
+				hbl.appendChild(mainMenuUL);
 			}
 		} else {
-			var mainmenuUL = document.body.querySelector('#header-bottom-left ul.tabmenu');
+			var mainMenuUL = document.body.querySelector('#header-bottom-left ul.tabmenu');
 		}
-		
-		if (mainmenuUL) {
 
+		if (mainMenuUL) {
 			var li = document.createElement('li');
 			var a = document.createElement('a');
 			var text = document.createTextNode('scanning for images...');
 			this.scanningForImages = true;
 
-			a.setAttribute('href','javascript:void(0);');
-			a.setAttribute('id','viewImagesButton');
+			a.href = 'javascript:void(0);';
+			a.id = 'viewImagesButton';
 			a.addEventListener('click', function(e) {
 				e.preventDefault();
-				if (!(modules['showImages'].scanningForImages)) {
-					modules['showImages'].showImages();
+				if (!modules['showImages'].scanningForImages) {
+					modules['showImages'].showImagesToggle();
 				}
 			}, true);
 			a.appendChild(text);
 			li.appendChild(a);
-			mainmenuUL.appendChild(li);
-			this.viewButton = a;
-			this.gw = '';
+			mainMenuUL.appendChild(li);
+			this.viewImageButton = a;
+			this.goneWild = '';
 
-			var commentsre = new RegExp(/comments\/[-\w\.\/]/i);
-			// if (!(commentsre.test(location.href)) && (window.location.href.indexOf('gonewild')>=0)){
-			if (!(commentsre.test(location.href)) && (window.location.href.match(/gonewild/i))) {
+			if (!/comments\/[-\w\.\/]/i.test(location.href) && /gonewild/i.test(location.href)) {
 				var li = document.createElement('li');
 				var a = document.createElement('a');
 				var text = document.createTextNode('[m]');
-				a.setAttribute('href','javascript:void(0);');
+				a.href = 'javascript:void(0);';
 				a.addEventListener('click', function(e) {
 					e.preventDefault();
-					modules['showImages'].gw = 'm';
-					modules['showImages'].showImages('m');
+					modules['showImages'].goneWild = 'm';
+					modules['showImages'].showImagesToggle('m');
 				}, true);
 				a.appendChild(text);
 				li.appendChild(a);
-				mainmenuUL.appendChild(li);
+				mainMenuUL.appendChild(li);
 
 				var li = document.createElement('li');
 				var a = document.createElement('a');
 				var text = document.createTextNode('[f]');
-				a.setAttribute('href','javascript:void(0);');
+				a.href = 'javascript:void(0);';
 				a.addEventListener('click', function(e) {
 					e.preventDefault();
-					modules['showImages'].gw = 'f';
-					modules['showImages'].showImages('f');
+					modules['showImages'].goneWild = 'f';
+					modules['showImages'].showImagesToggle('f');
 				}, true);
 				a.appendChild(text);
 				li.appendChild(a);
-				mainmenuUL.appendChild(li);
+				mainMenuUL.appendChild(li);
 			}
 		}
-	
 	},
 	updateImageButtons: function(imgCount) {
-		if ((typeof(this.viewButton) != 'undefined')) {
-			if (this.allImagesVisible) {
-				this.viewButton.innerHTML = 'hide images ('+imgCount+')';
-			} else {
-				this.viewButton.innerHTML = 'view images ('+imgCount+')';
-			}
+		if (typeof(this.viewImageButton) != 'undefined') {
+			this.viewImageButton.innerHTML = (this.allImagesVisible?'hide':'view')+ ' images (' + imgCount + ')';
 		}
 	},
-	findImages: function(gonewild, showmore) {
-		switch (gonewild) {
-			case 'f':
-				re = new RegExp(/[\[\{\<\(](f|fem|female)[\]\}\>\)]/i);
-				break;
-			case 'm':
-				re = new RegExp(/[\[\{\<\(](m|man|male)[\]\}\>\)]/i);
-				break;
-		}
+	findImages: function(goneWild, showMore) {
+		//TODO: restructure this Regex stuff
+		var re;
 		if (this.options.hideNSFW.value) {
-			re = new RegExp(/nsfw/i);
+			re = /nsfw/i;
+		} else {
+			switch (goneWild) {
+				case 'f':
+					re = /[\[\{\<\(](f|fem|female)[\]\}\>\)]/i;
+					break;
+				case 'm':
+					re = /[\[\{\<\(](m|man|male)[\]\}\>\)]/i;
+					break;
+			}
 		}
-		for(var i=0, len=this.imageList.length;i<len;i++) {
-			var href = this.imageList[i].getAttribute("href").toLowerCase();
-			var checkhref = href.toLowerCase();
-			var title_text=this.imageList[i].text;
-			(gonewild) ? titleMatch = re.test(title_text) : titleMatch = false;
-			var NSFW = false;
+		for (var i = 0, len = this.imageList.length; i < len; i++) {
+			var image = this.imageList[i];
+			var titleMatch = (goneWild?re.test(image.text):false);
+			image.NSFW = false;
 			if (this.options.hideNSFW.value) {
-				NSFW = re.test(title_text);
+				image.NSFW = /nsfw/i.test(image.text);
 			}
-			var isImgur = (checkhref.indexOf('imgur.com')>=0);
-			var isEhost = (checkhref.indexOf('eho.st')>=0);
-			var isSnaggy = (checkhref.indexOf('snag.gy')>=0);
-			var isPicsarus = (checkhref.indexOf('picsarus.com')>=0);
-			var isPhotobucket = (checkhref.indexOf('photobucket.com')>=0);
-			var isFlickr = ((checkhref.indexOf('flickr.com')>=0) && (checkhref.indexOf('/sets/') == -1));
-			var isMinus = ((checkhref.indexOf('min.us')>=0) && (checkhref.indexOf('blog.') == -1));
-			var isQkme = (checkhref.indexOf('qkme.me')>=0) || (checkhref.indexOf('quickmeme.com')>=0);
-			var isGifSound = (checkhref.indexOf('gifsound.com')>=0);
-			var isDeviantArt = (checkhref.indexOf('deviantart.com')>=0) ||	 (checkhref.indexOf('fav.me')>=0);
-			var isMemeCrunch = (checkhref.indexOf('memecrunch.com')>=0);
-			// why was the line below here commented out? confused.
-			if (href && (gonewild == '' || titleMatch) && (!isGifSound) && (!NSFW) && (href.indexOf('wikipedia.org/wiki') < 0) && (!isPhotobucket) && (isImgur || isEhost || isSnaggy || isPicsarus || isFlickr || isMinus || isQkme || isGifSound || isDeviantArt || isMemeCrunch || href.indexOf('imgur.')>=0 || href.indexOf('.jpeg')>=0 || href.indexOf('.jpg')>=0 || href.indexOf('.gif')>=0 || href.indexOf('.png')>=0)) {
-				if (hasClass(this.imageList[i].parentNode,'title')) {
-					var targetImage = this.imageList[i].parentNode.nextSibling
-				} else {
-					var targetImage = this.imageList[i].nextSibling
+			//I suspect that this part is not necessary
+			if (typeof(image.site) == 'undefined') {
+				console.log('site missing', image);
+				var siteFound = false;
+				if (siteFound = this.siteModules['default'].detect(image)) {
+					image.site = 'default';
 				}
-				this.revealImage(targetImage, showmore);
+				if (!siteFound) {
+					for (var site in this.siteModules) {
+						if (site == 'default') continue;
+						if (this.siteModules[site].detect(image)) {
+							image.site = site;
+							siteFound = true;
+							break;
+						}
+					}
+				}
+			} else {
+				var siteFound = true;
+			}
+			if (image.href && (goneWild == '' || titleMatch) && !image.NSFW && siteFound) {
+				if (hasClass(this.imageList[i].parentNode,'title')) {
+					this.revealImage(this.imageList[i].parentNode.nextSibling, showMore);
+				} else {
+					this.revealImage(this.imageList[i].nextSibling, showMore);
+				}
 			}
 		}
 	},
-	imgurType: function(url) {
-		// Detect the type of imgur link
-		// Direct image link?  http://i.imgur.com/0ZxQF.jpg
-		// imgur "page" link?  http://imgur.com/0ZxQF
-		// imgur "gallery"?    ??????????
-		var urlPieces = url.split('?');
-		var cleanURL = urlPieces[0];
-		var directImg = /i.imgur.com\/[\w]+\.[\w]+/gi;
-		var imgPage = /imgur.com\.[\w+]$/gi;
+	showImagesToggle: function(goneWild, showMore) {
+		if (this.allImagesVisible && !showMore) {
+			// Images are visible, and this request didn't come from never ending reddit, so hide the images...
+			// (if it came from NER, we'd want to make the next batch also visible...)
+
+			this.allImagesVisible = false;
+			var imageList = document.querySelectorAll("div.madeVisible");
+			for (var i=0, len=this.imageList.length; i < len; i++) {
+				if (i in imageList) {
+					if (hasClass(imageList[i].previousSibling, 'commentImg')) {
+						this.revealImage(imageList[i].previousSibling, false);
+					} else {
+						this.revealImage(imageList[i].parentNode.firstChild.nextSibling, false);
+					}
+				}
+			}
+			this.updateImageButtons(this.imageList.length);
+			return false;
+		} else {
+			this.allImagesVisible = true;
+			this.updateImageButtons(this.imageList.length);
+			this.findImages(goneWild||'', true);
+		}
 	},
-	findAllImages: function(ele, isSelfText) {
+	findAllImages: function(elem, isSelfText) {
 		this.scanningForImages = true;
-		if (ele == null) {
-			ele = document.body;
+		if (elem == null) {
+			elem = document.body;
 		}
 		// get elements common across all pages first...
 		// if we're on a comments page, get those elements too...
-		var commentsre = new RegExp(/comments\/[-\w\.\/]/i);
-		var userre = new RegExp(/user\/[-\w\.\/]/i);
+		var commentsre = /comments\/[-\w\.\/]/i;
+		var userre = /user\/[-\w\.\/]/i;
 		this.scanningSelfText = false;
-		if ((commentsre.test(location.href)) || (userre.test(location.href))) {
-			this.allElements = ele.querySelectorAll('#siteTable A.title, .expando .usertext-body > div.md a, .content .usertext-body > div.md a');
+		var allElements = [];
+		if (commentsre.test(location.href) || userre.test(location.href)) {
+			allElements = elem.querySelectorAll('#siteTable a.title, .expando .usertext-body > div.md a, .content .usertext-body > div.md a');
 		} else if (isSelfText) {
 			// We're scanning newly opened (from an expando) selftext...
-			this.allElements = ele.querySelectorAll('.usertext-body > div.md a');
+			allElements = elem.querySelectorAll('.usertext-body > div.md a');
 			this.scanningSelfText = true;
 		} else {
-			this.allElements = ele.querySelectorAll('#siteTable A.title');
+			allElements = elem.querySelectorAll('#siteTable A.title');
 		}
-		// make an array to store any links we've made calls to for the imgur API so we don't do any multiple hits to it.
-		this.imgurCalls = [];
-		this.minusCalls = [];
-		this.deviantArtCalls = []
-		// this.allElements contains all link elements on the page - now let's filter it for images...
-		// this.imgurHashRe = /^http:\/\/([i.]|[edge.]|[www.])*imgur.com\/([\w]+)(\..+)?$/i;
-		// this.imgurHashRe = /^http:\/\/(?:[i.]|[edge.]|[www.])*imgur.com\/(?:r\/[\w]+\/)?([\w]+)(\..+)?$/i;
-		this.imgurHashRe = /^http:\/\/(?:[i.]|[edge.]|[www.])*imgur.com\/(?:r\/[\w]+\/)?([\w]{5})(\..+)?$/i;
-		// this.imgurAlbumRe = /^http:\/\/[i.]*imgur.com\/a\/([\w]+)(\..+)?$/i;
-		this.minusHashRe = /^http:\/\/min.us\/([\w]+)(?:#[\d+])?$/i;
-		this.qkmeHashRe = /^http:\/\/(?:www.quickmeme.com\/meme|qkme.me)\/([\w]+)\/?/i;
-		this.ehostHashRe = /^http:\/\/(?:i\.)?(?:\d+\.)?eho.st\/(\w+)\/?/i;
-		//Matches
-		//	http://*.deviantart.com/art/*
-		//	http://*.deviantart.com/*#/d*
-		//	http://fav.me/*
-		this.deviantArtMatchRe = /^http:\/\/(?:fav.me\/.*|(?:.+\.)?deviantart.com\/(?:art\/.*|[^#]*#\/d.*))$/i;
-		this.memeCrunchHashRe = /^http:\/\/memecrunch.com\/meme\/([0-9A-Z]+)\/([\w\-]+)(\/image\.(png|jpg))?/i;
 
-		var groups = [];
-		this.allElementsCount=this.allElements.length;
-		this.allElementsi = 0;
 		if (RESUtils.pageType() == 'comments') {
 			(function(){
 				// we're on a comments page which is more intense, so just scan 15 links at a time...
-				var chunkLength = Math.min((modules['showImages'].allElementsCount - modules['showImages'].allElementsi), 15);
-				for (var i=0;i<chunkLength;i++) {
-					modules['showImages'].checkElementForImage(modules['showImages'].allElementsi);
-					modules['showImages'].allElementsi++;
+				var chunkLength = Math.min(this.elements.length - this.elementIndex, 15);
+				for (var i = 0; i < chunkLength; i++, this.elementIndex++) {
+					modules['showImages'].checkElementForImage(this.elements[this.elementIndex]);
 				}
-				if (modules['showImages'].allElementsi < modules['showImages'].allElementsCount) {
-					setTimeout(arguments.callee, 1000);
+				if (this.elementIndex < this.elements.length) {
+					setTimeout(arguments.callee.bind(this), 1000);
 				} else {
 					modules['showImages'].scanningSelfText = false;
 					modules['showImages'].scanningForImages = false;
 					modules['showImages'].updateImageButtons(modules['showImages'].imageList.length);
 				}
-			})();		
+			}).bind({
+				elements: allElements,
+				elementIndex: 0
+			})();
 		} else {
-			var chunkLength = modules['showImages'].allElementsCount;
-			for (var i=0;i<chunkLength;i++) {
-				modules['showImages'].checkElementForImage(modules['showImages'].allElementsi);
-				modules['showImages'].allElementsi++;
+			var chunkLength = allElements.length;
+			for (var i = 0; i < chunkLength; i++) {
+				this.checkElementForImage(allElements[i]);
 			}
-			modules['showImages'].scanningSelfText = false;
-			modules['showImages'].scanningForImages = false;
-			modules['showImages'].updateImageButtons(modules['showImages'].imageList.length);
+			this.scanningSelfText = false;
+			this.scanningForImages = false;
+			this.updateImageButtons(this.imageList.length);
 		}
 	},
-	checkElementForImage: function(index) {
-		var NSFW = false;
-		ele = this.allElements[index];
-		var href = ele.getAttribute('href');
-		var checkhref = href.toLowerCase();
+	checkElementForImage: function(elem) {
 		if (this.options.hideNSFW.value) {
-			// if it's a link, not a comment link, check for over18 class...
-			if (hasClass(ele,'title')) {
-				var thingObj = ele.parentNode.parentNode.parentNode;
-				if (hasClass(thingObj,'over18')) NSFW = true;
+			if (hasClass(elem, 'title')) {
+				elem.NSFW = hasClass(elem.parentNode.parentNode.parentNode, 'over18');
 			}
+		} else {
+			elem.NSFW = false;
 		}
-		// the this.scanningSelfText variable is set as true when we're scanning newly loaded selfText via an expando...
-		// this is done so that we do not do the RES ignored duplicate image thing, because when you close a selfText expando,
-		// reddit completely deletes it from the DOM instead of just hiding it, so re-opening it causes a total rescan.
-		if (((!(hasClass(ele,'imgScanned'))) && (typeof(this.imagesRevealed[href]) == 'undefined') && (href != null)) || this.scanningSelfText) {
-			addClass(ele,'imgScanned');
+		var href = elem.href;
+		if ((!hasClass(elem, 'imgScanned') && typeof(this.imagesRevealed[href]) == 'undefined' && href != null) || this.scanningSelfText) {
+			addClass(elem, 'imgScanned');
 			this.dupeAnchors++;
-			var isImgur = (checkhref.indexOf('imgur.com')>=0);
-			var isEhost = (checkhref.indexOf('eho.st')>=0);
-			var isSnaggy = (checkhref.indexOf('snag.gy')>=0);
-			var isPicsarus = (checkhref.indexOf('picsarus.com')>=0);
-			var isPhotobucket = (checkhref.indexOf('photobucket.com')>=0);
-			var isFlickr = ((href.indexOf('flickr.com')>=0) && (href.indexOf('/sets/') == -1));
-			var isMinus = ((checkhref.indexOf('min.us')>=0) && (checkhref.indexOf('blog.') == -1));
-			var isQkme = (checkhref.indexOf('qkme.me')>=0) || (checkhref.indexOf('quickmeme.com')>=0);
-			var isGifSound = (checkhref.indexOf('gifsound.com')>=0);
-			var isDeviantArt = (checkhref.indexOf('deviantart.com')>=0) || (checkhref.indexOf('fav.me')>=0);
-			var isMemeCrunch = (checkhref.indexOf('memecrunch.com')>=0);
-			if (!(ele.getAttribute('scanned') == 'true') && (checkhref.indexOf('wikipedia.org/wiki') < 0) && (!isGifSound) && (!NSFW) && (!isPhotobucket) && (isImgur || isEhost || isSnaggy || isPicsarus || isFlickr || isMinus || isQkme || isDeviantArt || isMemeCrunch || checkhref.indexOf('.jpeg')>=0 || checkhref.indexOf('.jpg')>=0 || checkhref.indexOf('.gif')>=0 || checkhref.indexOf('.png')>=0)) {
-				if (isImgur) {
-					// if it's not a full (direct) imgur link, get the relevant data and append it... otherwise, go now!
-					// first, kill any URL parameters that screw with the parser, like ?full.
-					var splithref = href.split('?');
-					href = splithref[0];
-					var orighref = href;
-					/*
-					if ((this.options.imageSize.value != null) && (this.options.imageSize.value != '')) { 
-						splithref = href.split('.');
-						if ((splithref[splithref.length-1] == 'jpg') || (splithref[splithref.length-1] == 'jpeg') || (splithref[splithref.length-1] == 'png') || (splithref[splithref.length-1] == 'gif'))  {
-							splithref[splithref.length-2] += this.options.imageSize.value;
-							href = splithref.join('.');
-						}
+			var siteFound = false;
+			if (siteFound = this.siteModules['default'].detect(elem)) {
+				elem.site = 'default';
+			}
+			if (!siteFound) {
+				for (var site in this.siteModules) {
+					if (site == 'default') continue;
+					if (this.siteModules[site].detect(elem)) {
+						elem.site = site;
+						siteFound = true;
+						break;
 					}
-					*/
-					ele.setAttribute('href',href);
-					// now, strip the hash off of it so we can make an API call if need be
-					var groups = this.imgurHashRe.exec(href);
-					// if we got a match, but we don't have a file extension, hit the imgur API for that info
-					if (groups && !groups[2]) {
-						var apiURL = 'http://api.imgur.com/2/image/'+groups[1]+'.json';
-						// avoid making duplicate calls from the same page... want to minimize hits to imgur API
-						if (typeof(this.imgurCalls[apiURL]) == 'undefined') {
-							// store the object we want to modify when the json request is finished...
-							this.imgurCalls[apiURL] = ele;
-							GM_xmlhttpRequest({ 
-								method: 'GET', 
-								url: apiURL,
-								onload: function(response) {
-									try {
-										var json = JSON.parse(response.responseText);
-									} catch(error) {
-										// uh oh, we got something bad back from the API.
-										// console.log(response.responseText);
-										var json = {};
-									}
-									if ((typeof(json.image) != 'undefined') && (json.image.links.original)) {
-										if (typeof(modules['showImages'].imgurCalls[apiURL]) != 'undefined') {
-											modules['showImages'].imgurCalls[apiURL].setAttribute('href',json.image.links.original);
-											// if thumbnails are present, also change the URL for that...
-											if (modules['showImages'].thumbnailsEnabled) {
-												var closestThumb = $(modules['showImages'].imgurCalls[apiURL]).parent().parent().prev();
-												if ($(closestThumb).hasClass('thumbnail')) {
-													$(closestThumb).attr('href',json.image.links.original);
-												}
-											}
-											// if singleClick module is enabled, change the URL of that imgur link to this new one too...
-											if (modules['singleClick'].isEnabled()) {
-												var closestSingleClick = $(modules['showImages'].imgurCalls[apiURL]).parent().parent().find('.redditSingleClick');
-												$(closestSingleClick).attr('thisLink',json.image.links.original);
-											}
-										}
-									}
-								}
-							});
-						}
-					} 
-					if (groups) this.createImageExpando(ele);
-				} else if (isEhost) {
-					if (href.substr(-1) != '+') {
-						var groups = this.ehostHashRe.exec(href);
-						if (groups) {
-							ele.setAttribute('href','http://i.eho.st/'+groups[1]+'.jpg');
-							this.createImageExpando(ele);
-						}
-					}
-				} else if (isSnaggy) {
-					var extensions = ['.jpg','.png','.gif'];
-					if (href.indexOf('i.snag') == -1) href = href.replace('snag.gy','i.snag.gy');
-					if (extensions.indexOf(href.substr(-4)) == -1) href = href+'.jpg';
-					ele.setAttribute('href',href);
-					this.createImageExpando(ele);
-				} else if (isPicsarus) {
-					var extensions = ['.jpg','.png','.gif'];
-					if (extensions.indexOf(href.substr(-4)) == -1) {
-						href = href+'.jpg';
-					} else {
-						href = href.replace(href.slice(-4),'.jpg');
-					}
-					ele.setAttribute('href',href);
-					this.createImageExpando(ele);
-				} else if (isMinus) {
-					var splithref = href.split('?');
-					href = splithref[0];
-					var getExt = href.split('.');
-					var ext = '';
-					if (getExt.length > 1) {
-						ext = getExt[getExt.length-1].toLowerCase();
-					} 
-					if ((ext != 'jpg') && (ext != 'jpeg') && (ext != 'gif') && (ext != 'png')) {
-						var orighref = href;
-						var groups = this.minusHashRe.exec(href);
-						if (groups && !groups[2]) {
-							var imgHash = groups[1];
-							if (imgHash.substr(0,1) == 'm') {
-								var apiURL = 'http://min.us/api/GetItems/' + imgHash;
-								if (typeof(this.minusCalls[apiURL]) == 'undefined') {
-									this.minusCalls[apiURL] = ele;
-									GM_xmlhttpRequest({ 
-										method: 'GET', 
-										url: apiURL,
-										onload: function(response) {
-											// console.log(response.responseText);
-											var json = safeJSON.parse(response.responseText, null, true);
-											if (typeof(json.ITEMS_GALLERY) == 'undefined') {
-												// return; // api failure
-											} else {
-												var firstImg = json.ITEMS_GALLERY[0];
-												var imageString = json.ITEMS_GALLERY.join(' ');
-												modules['showImages'].minusCalls[apiURL].setAttribute('minusgallery',imageString);
-											}
-										}
-									});
-								}
-								this.createImageExpando(ele);
-							} // if not 'm', not a gallery, we can't do anything with the API.
-						}
-					} else {
-						this.createImageExpando(ele);
-					}
-				} else if (isFlickr) {
-					// Check to make sure we don't already have an expando... Reddit creates them for videos.
-					var videoExpando = ele.parentNode.parentNode.querySelector('DIV.video');
-					if (videoExpando == null) {
-						this.createImageExpando(ele);
-					}
-				} else if (isQkme) {
-					var groups = this.qkmeHashRe.exec(href);
-					if (groups) {
-						ele.setAttribute('href','http://i.qkme.me/'+groups[1]+'.jpg');
-						this.createImageExpando(ele);
-					}
-				} else if (isDeviantArt) {
-					if (this.deviantArtMatchRe.test(href)) {
-						var apiURL = 'http://backend.deviantart.com/oembed?url=' + encodeURIComponent(href);
-						if (typeof(this.deviantArtCalls[apiURL]) == 'undefined') {
-							this.deviantArtCalls[apiURL] = ele;
-							GM_xmlhttpRequest({
-								method:'GET',
-								url: apiURL,
-								onload: function (response) {
-									try {
-										var json = JSON.parse(response.responseText);
-									} catch(error) {
-										var json = {};
-									}
-									if (typeof(json.url) != 'undefined') {
-										if (typeof(modules['showImages'].deviantArtCalls[apiURL]) != 'undefined') {
-											var elem = modules['showImages'].deviantArtCalls[apiURL];
-											if (!(json.url.indexOf('.jpeg')>=0 || json.url.indexOf('.jpg')>=0 || json.url.indexOf('.gif')>=0 || json.url.indexOf('.png')>=0)) {
-												//files may not embed properly
-												elem.setAttribute('src', json.thumbnail_url);
-											} else {
-												elem.setAttribute('src', json.url);
-											}
-											//move the createImageExpando call here because some links can't be embedded.
-											modules['showImages'].createImageExpando(elem);
-										}
-									}
-								}
-							});
-						} else {
-							function linkRecheckFunc(context) {
-								var src = modules['showImages'].deviantArtCalls[apiURL].getAttribute('src');
-								if (src != null) {
-									context.elem.setAttribute('src', src);
-									modules['showImages'].createImageExpando(context.ele);
-								} else {
-									setTimeout(linkRecheckFunc, 1000, context);
-								}
-							};
-							linkRecheckFunc({elem:ele, api:apiURL});
-						}
-					} else if (/\.(png|jpe?g|gif)$/.test(href)) {
-						//correctly handle direct links
-						ele.setAttribute('href', href);
-						this.createImageExpando(ele);
-					}
-				} else if (isMemeCrunch) {
-					var groups = this.memeCrunchHashRe.exec(href);
-					if (typeof(groups[1]) != 'undefined') {
-						var hash = groups[1];
-						var title = groups[2] || "null";
-						ele.setAttribute('href', "http://memecrunch.com/meme/"+hash+"/"+title+"/image.png");
-						this.createImageExpando(ele);
-					}
-				} else {
-					this.createImageExpando(ele);
 				}
 			}
-		} else if (!(hasClass(ele,'imgFound'))) {
-			if (!(RESUtils.currentSubreddit('dashboard')) && !(ele.getAttribute('scanned') == 'true') && (checkhref.indexOf('wikipedia.org/wiki') < 0) && (checkhref.indexOf('imgur.')>=0 || checkhref.indexOf('.jpeg')>=0 || checkhref.indexOf('.jpg')>=0 || checkhref.indexOf('.gif')>=0)) {
-				var textFrag = document.createElement('span');
-				textFrag.setAttribute('class','RESdupeimg');
-				textFrag.innerHTML = ' <a class="noKeyNav" href="#img'+this.imagesRevealed[href]+'" title="click to scroll to original">[RES ignored duplicate image]</a>';
-				insertAfter(ele, textFrag);
+			if (siteFound && !elem.NSFW) {
+				this.imagesRevealed[href] = this.dupeAnchors;
+				this.siteModules[elem.site].handleLink(elem);
 			}
+		} else if (!hasClass(elem, 'imgScanned')) {
+			var textFrag = document.createElement('span');
+			textFrag.setAttribute('class','RESdupeimg');
+			textFrag.innerHTML = ' <a class="noKeyNav" href="#img'+this.imagesRevealed[href]+'" title="click to scroll to original">[RES ignored duplicate image]</a>';
+			insertAfter(elem, textFrag);
 		}
 	},
-	createImageExpando: function(obj) {
-		if (!obj) return false;
-		var href = obj.getAttribute('href');
-		// check if there's a corresponding thumbnail for this, and update it accordingly...
-		if (modules['showImages'].thumbnailsEnabled) {
-			var closestThumb = $(ele).parent().parent().prev();
-			if ($(closestThumb).hasClass('thumbnail')) {
-				$(closestThumb).attr('href',href);
-			}
-		}
-		this.imagesRevealed[href] = this.dupeAnchors;
-		ele.setAttribute('name','img'+this.dupeAnchors);
-		addClass(obj,'imgFound');
-		obj.setAttribute('scanned','true');
-		this.imageList.push(obj);
-		var thisExpandLink = document.createElement('a');
-		thisExpandLink.setAttribute('class','toggleImage expando-button image');
-		// thisExpandLink.innerHTML = '[show img]';
-		thisExpandLink.innerHTML = '&nbsp;';
-		removeClass(thisExpandLink, 'expanded');
-		addClass(thisExpandLink, 'collapsed');
-		thisExpandLink.addEventListener('click', function(e) {
+	createImageExpando: function(elem) {
+		if (!elem) return false;
+		var href = elem.href;
+		if (!href) return false;
+		//This should not be reached in the case of duplicates
+		elem.name = 'img'+this.imagesRevealed[href];
+		this.imageList.push(elem);
+
+		var expandLink = document.createElement('a');
+		expandLink.className = 'toggleImage expando-button image collapsed';
+		expandLink.innerHTML = '&nbsp;';
+		expandLink.addEventListener('click', function(e) {
 			e.preventDefault();
-			var isCollapsed = hasClass(e.target, 'collapsed') != null;
-			modules['showImages'].revealImage(e.target, isCollapsed);
+			modules['showImages'].revealImage(e.target, (hasClass(e.target, 'collapsed') != null));
 		}, true);
-		if (hasClass(obj.parentNode,'title')) {
-			var nodeToInsertAfter = obj.parentNode;
-			addClass(thisExpandLink, 'linkImg');
-			/* reddit broke this :(
-			if (this.options.hoverPreview.value) {
-				thisExpandLink.addEventListener('mouseover', function(e) {
-					e.preventDefault();
-					modules['showImages'].thumbnailTarget = e.target;
-					modules['showImages'].toolTipTimer = setTimeout(modules['showImages'].showThumbnail, 1000);
-				}, false);
-				thisExpandLink.addEventListener('mouseout', function(e) {
-					e.preventDefault();
-					clearTimeout(modules['showImages'].toolTipTimer);
-					modules['showImages'].hideThumbnail();
-				}, false);
-			}
-			*/
+		var preNode = null;
+		if (hasClass(elem.parentNode, 'title')) {
+			preNode = elem.parentNode;
+			addClass(expandLink, 'linkImg');
 		} else {
-			var nodeToInsertAfter = obj;
-			addClass(thisExpandLink, 'commentImg');
+			preNode = elem;
+			addClass(expandLink, 'commentImg');
 		}
-		insertAfter(nodeToInsertAfter, thisExpandLink);
+		insertAfter(preNode, expandLink);
 		if (this.scanningSelfText && this.options.autoExpandSelfText.value) {
-			this.revealImage(thisExpandLink, true);
+			this.revealImage(expandLink, true);
 		}
 	},
-	showThumbnail: function() {
-		var gpClass = modules['showImages'].thumbnailTarget.parentNode.parentNode.getAttribute('class');
-		console.log(gpClass);
-		var idRe = /id-([\w]+)/;
-		var match = idRe.exec(gpClass);
-		if (match && (typeof(match[1]) != 'undefined')) {
-			thisXY=RESUtils.getXYpos(modules['showImages'].thumbnailTarget);
-			// console.log(thisXY.x);
-			thisXY.x += 30;
-			// console.log(thisXY.x);
-			modules['showImages'].toolTip.innerHTML = '<img src="http://thumbs.reddit.com/'+match[1]+'.png">';
-			// console.log('top: ' + thisXY.y + 'px; left: ' + thisXY.x + 'px;');
-			modules['showImages'].toolTip.setAttribute('style', 'top: ' + thisXY.y + 'px; left: ' + thisXY.x + 'px;');
-			RESUtils.fadeElementIn(modules['showImages'].toolTip, 0.3);
-		}
-	},
-	hideThumbnail: function(e) {
-		if (modules['showImages'].toolTip.getAttribute('isfading') != 'in') {
-			RESUtils.fadeElementOut(modules['showImages'].toolTip, 0.3);
+	//Used when returning to the deferred call needs to go back to the reveal process
+	revealImageDeferred: function(elem) {
+		if (hasClass(elem.parentNode, 'title')) {
+			var button = elem.parentNode.nextSibling;
 		} else {
-			// image is in the middle of fading in... try again in 200ms and fade it out after it's done fading in.
-			setTimeout(modules['showImages'].hideThumbnail, 200);
+			var button = elem.nextSibling;
 		}
+		this.revealImage(button, true);
 	},
-	revealImage: function(showLink, showhide) {
-		clearTimeout(modules['showImages'].toolTipTimer);
-		this.hideThumbnail();
+	revealImage: function(expandoButton, showHide) {
 		// showhide = false means hide, true means show!
-		if (hasClass(showLink, 'commentImg')) {
-			var thisImageLink = showLink.previousSibling;
-			var imageCheck = showLink.nextSibling;
+
+		if (hasClass(expandoButton, 'commentImg')) {
+			var imageLink = expandoButton.previousSibling;
+			var expandoBox = expandoButton.nextSibling;
 		} else {
-			var thisImageLink = showLink.parentNode.firstChild.firstChild;
-			var imageCheck = showLink.parentNode.lastChild;
+			var imageLink = expandoButton.parentNode.firstChild.firstChild;
+			var expandoBox = expandoButton.parentNode.lastChild;
 		}
-		// Check if the next sibling is an image. If so, we've already revealed that image.
-		if ((typeof(imageCheck) != 'undefined') && (imageCheck != null) && (typeof(imageCheck.tagName) != 'undefined') && (hasClass(imageCheck, 'madeVisible'))) {
-			// if ((showhide != true) && (imageCheck.style.display != 'none')) {
-			if (showhide != true) {
-				imageCheck.style.display = 'none';
-				removeClass(showLink, 'expanded');
-				addClass(showLink, 'collapsed');
+
+		if (this.siteModules[imageLink.site].deferred && typeof(imageLink.src) == 'undefined') {
+			this.siteModules[imageLink.site].deferredHandleLink(imageLink);
+			return;
+		}
+		if (typeof(expandoBox) != 'undefined' && expandoBox != null
+		&&  typeof(expandoBox.tagName) != 'undefined' && hasClass(expandoBox, 'madeVisible')) {
+			if (!showHide) {
+				expandoBox.style.display = 'none';
+				removeClass(expandoButton, 'expanded');
+				addClass(expandoButton, 'collapsed');
 				$('div.side').fadeIn();
 			} else {
-				imageCheck.style.display = 'block';
-				removeClass(showLink, 'collapsed');
-				addClass(showLink, 'expanded');
+				expandoBox.style.display = 'block';
+				removeClass(expandoButton, 'collapsed');
+				addClass(expandoButton, 'expanded');
 			}
 		} else {
-			// we haven't revealed this image before. Load it in.
-			//if the link has a `src` attribute then use `href` only for the link and use `src` for the url of the actual image
-			if (thisImageLink.hasAttribute('src')) {
-				var href = thisImageLink.getAttribute('src').replace('"','&quot;');
-				var orighref = thisImageLink.getAttribute('href').replace('"','&quot;');
-			} else {
-				var href = thisImageLink.getAttribute('href').replace('"','&quot;');
-				var orighref = href;
+			//TODO: text, flash, custom
+			switch (imageLink.type) {
+				case 'IMAGE':
+					this.generateImageExpando(expandoButton, imageLink);
+					break;
+				case 'GALLERY':
+					this.generateGalleryExpando(expandoButton, imageLink);
+					break;
 			}
-			var ext = (href.indexOf('imgur.')>=0 && href.indexOf('.jpg')<0 && href.indexOf('.png')<0 && href.indexOf('.gif')<0) ? '.jpg' :'';
-			/*
-			if ((this.options.imageSize.value != null) && (this.options.imageSize.value != '') && (href.indexOf('imgur.com') != -1)) {
-				var repString = this.options.imageSize.value + '.' + ext;
-				orighref = href.replace(repString, '.'+ext);
-			}
-			*/
-			var img = document.createElement('div');
-			img.setAttribute('class','madeVisible');
-			var imgA = document.createElement('a');
-			addClass(imgA,'madeVisible');
-			if (this.options.openInNewWindow.value) {
-				imgA.setAttribute('target','_blank');
-			}
-			imgA.setAttribute('href',orighref);
-			img.appendChild(imgA);
-			if (thisImageLink.getAttribute('minusGallery') != null) {
-				var imageList = thisImageLink.getAttribute('minusGallery').split(' ');
-				var imageNum = 0;
-				var hashTest = thisImageLink.getAttribute('href').split('#');
-				if (hashTest.length > 1) {
-					imageNum = hashTest[1] - 1;
-				}
-				var href = imageList[imageNum];
-				// if the min.us gallery is empty, the image was deleted.. show a placeholder..
-				if (href == '') href = 'http://i.min.us/ibmYy2.jpg';
-				imgA.innerHTML = '<img class="RESImage" style="max-width:'+this.options.maxWidth.value+'px; max-height:'+this.options.maxHeight.value+'px;" src="' + href + ext + '" /><div class="isGallery">[this is the first image in a gallery - click for more]</div>';
-				var imgTag = img.querySelector('IMG');
-				this.trackImageLoad(imgTag);
-				this.makeImageZoomable(imgTag);
-			} else if (href.indexOf('www.flickr.com') >= 0) {
-				this.flickrImages[href] = img;
-				GM_xmlhttpRequest({
-					method:	"GET",
-					url:	href,
-					onload:	function(response) {
-						var thisHTML = response.responseText;
-						var tempDiv = document.createElement(tempDiv);
-						// This regex has been commented out because it slows Opera WAY down...
-						// It's there as a security check to kill out any script tags... but for now it's not known to cause any problems if we leave it, so we will.
-						// tempDiv.innerHTML = thisHTML.replace(/<script(.|\s)*?\/script>/g, '');
-						tempDiv.innerHTML = thisHTML;
-						if (href.indexOf('/sizes') != -1) {
-							var flickrImg = tempDiv.querySelector('#allsizes-photo > IMG');
-						} else {
-							var flickrImg = tempDiv.querySelector('#photo > .photo-div > IMG');
-						}
-						var flickrStyle = 'display:block;max-width:'+modules['showImages'].options.maxWidth.value+'px;max-height:'+modules['showImages'].options.maxHeight.value+'px;';
-						flickrImg.setAttribute('width','');
-						flickrImg.setAttribute('height','');
-						flickrImg.setAttribute('style',flickrStyle);
-						modules['showImages'].flickrImages[href].querySelector('a').appendChild(flickrImg);
-						var imgTag = img.querySelector('IMG');
-						imgTag.setAttribute('flickrsrc',href);
-						modules['showImages'].trackImageLoad(imgTag);
-						modules['showImages'].makeImageZoomable(imgTag);
-					}
-				});
-			} else {
-				imgA.innerHTML = '<img title="drag to resize" class="RESImage" style="max-width:'+this.options.maxWidth.value+'px;max-height:'+this.options.maxHeight.value+'px;" src="' + href + ext + '" />';
-				var imgTag = img.querySelector('IMG');
-				this.trackImageLoad(imgTag);
-				this.makeImageZoomable(imgTag);
-			}
-			// var clear = document.createElement('div');
-			// clear.setAttribute('class','RESclear');
-			if (hasClass(showLink, 'commentImg')) {
-				insertAfter(showLink, img);
-			} else {
-				showLink.parentNode.appendChild(img);
-			}
-			// insertAfter(showLink, img);
-			// insertAfter(img, clear);
-			removeClass(showLink, 'collapsed');
-			addClass(showLink, 'expanded');
 		}
 	},
-	trackImageLoad: function(imgTag) {
-		if (this.options.markVisited.value) {
-			imgTag.addEventListener('load', function(e) {
-				var thisURL = e.target.getAttribute('src');
-				if (e.target.getAttribute('flickrsrc')) {
-					thisURL = e.target.getAttribute('flickrsrc');
-				}
-				addClass(e.target.parentNode,'visited');
-				modules['showImages'].imageTrackStack.push(thisURL);
-				if (modules['showImages'].imageTrackStack.length == 1) setTimeout(modules['showImages'].imageTrackPop, 300);
+	generateImageExpando: function(expandoButton, imageLink) {
+		var imgDiv = document.createElement('div');
+		addClass(imgDiv, 'madeVisible');
+
+		if ('imageTitle' in imageLink) {
+			var header = document.createElement('h3');
+			header.innerHTML = imageLink.imageTitle;
+			imgDiv.appendChild(header);
+		}
+
+		var imageAnchor = document.createElement('a');
+		addClass(imageAnchor, 'madeVisible');
+		imageAnchor.href = imageLink.href;
+		if (this.options.openInNewWindow.value) {
+			imageAnchor.target = '_blank';
+		}
+
+		var image = document.createElement('img');
+		if (imageLink.type == 'IMAGE_SCRAPE') {
+			image.src = imageLink.getAttribute('scraped_src');
+		} else {
+			image.src = imageLink.src;
+		}
+		image.title = 'drag to resize';
+		addClass(image, 'RESImage');
+		image.style.maxWidth = this.options.maxWidth.value + 'px';
+		image.style.maxHeight = this.options.maxHeight.value + 'px';
+
+		imageAnchor.appendChild(image);
+		imgDiv.appendChild(imageAnchor);
+
+		if ('caption' in imageLink) {
+			var captions = document.createElement('div');
+			//TODO: style captions
+//			captions.className = 'imgCaptions';
+			captions.innerHTML = imageLink.caption;
+			imgDiv.appendChild(captions);
+		}
+
+		if ('credits' in imageLink) {
+			var credits = document.createElement('div');
+			credits.className = 'imgCredits';
+			credits.innerHTML = imageLink.credits;
+			imgDiv.appendChild(credits);
+		}
+
+		if (hasClass(expandoButton, 'commentImg')) {
+			insertAfter(expandoButton, imgDiv);
+		} else {
+			expandoButton.parentNode.appendChild(imgDiv);
+		}
+		removeClass(expandoButton, 'collapsed');
+		addClass(expandoButton, 'expanded');
+
+		this.trackImageLoad(imageLink, image);
+		this.makeImageZoomable(image);
+	},
+	generateGalleryExpando: function(expandoButton, imageLink) {
+		var imgDiv = document.createElement('div');
+		addClass(imgDiv, 'madeVisible');
+		imgDiv.sources = imageLink.src;
+		imgDiv.currentImage = 0;
+
+		var imageAnchor = document.createElement('a');
+		addClass(imageAnchor, 'madeVisible');
+		imageAnchor.href = imageLink.href;
+		if (this.options.openInNewWindow.valeu) {
+			imageAnchor.target ='_blank';
+		}
+		
+		var image = document.createElement('img');
+		image.src = imgDiv.sources[0];
+		image.title = 'drag to resize';
+		addClass(image, 'RESImage');
+		image.style.maxWidth = this.options.maxWidth.value + 'px';
+		image.style.maxHeight = this.options.maxHeight.value + 'px';
+
+		imageAnchor.appendChild(image);
+		imgDiv.appendChild(imageAnchor);
+
+		//Adjusts the images for the gallery navigation buttons as well as the "n of m" dispaly.
+		function adjustGalleryDisplay(topLevel) {
+			topLevel.querySelector('img.RESImage').src = topLevel.sources[topLevel.currentImage];
+			topLevel.querySelector('.RESGalleryLabel').innerHTML = ((topLevel.currentImage+1)+" of "+topLevel.sources.length);
+			if (topLevel.currentImage == 0) {
+				leftButton.classList.add('end');
+				rightButton.classList.remove('end');
+			} else if (topLevel.currentImage == topLevel.sources.length-1) {
+				leftButton.classList.remove('end');
+				rightButton.classList.add('end');
+			} else {
+				leftButton.classList.remove('end');
+				rightButton.classList.remove('end');
+			}
+		}
+
+		var controlWrapper = document.createElement('div');
+		controlWrapper.className  = 'RESGalleryControls';
+
+		var leftButton = document.createElement("a");
+		leftButton.className = 'previous';
+		leftButton.addEventListener('click', function(e){
+			var topWrapper = e.target.parentElement.parentElement;
+			if (topWrapper.currentImage == 0) {
+				topWrapper.currentImage = topWrapper.sources.length-1;
+			} else {
+				topWrapper.currentImage -= 1;
+			}
+			adjustGalleryDisplay(topWrapper);
+		});
+		controlWrapper.appendChild(leftButton);
+
+		var posLabel = document.createElement('span');
+		posLabel.className = 'RESGalleryLabel';
+		posLabel.innerHTML = "1 of " + imgDiv.sources.length;
+		controlWrapper.appendChild(posLabel);
+
+		var rightButton = document.createElement("a");
+		rightButton.className = 'next';
+		rightButton.addEventListener('click', function(e){
+			var topWrapper = e.target.parentElement.parentElement;
+			if (topWrapper.currentImage == topWrapper.sources.length-1) {
+				topWrapper.currentImage = 0;
+			} else {
+				topWrapper.currentImage += 1;
+			}
+			adjustGalleryDisplay(topWrapper);
+		});
+		controlWrapper.appendChild(rightButton);
+
+		imgDiv.appendChild(controlWrapper);
+
+		if ('caption' in imageLink) {
+			var captions = document.createElement('div');
+			//TODO: style captions
+//			captions.className = 'imgCaptions';
+			captions.innerHTML = imageLink.caption;
+			imgDiv.appendChild(captions);
+		}
+
+		if ('credits' in imageLink) {
+			var credits = document.createElement('div');
+			credits.className = 'imgCredits';
+			credits.innerHTML = imageLink.credits;
+			imgDiv.appendChild(credits);
+		}
+
+		if (hasClass(expandoButton, 'commentImg')) {
+			insertAfter(expandoButton, imgDiv);
+		} else {
+			expandoButton.parentNode.appendChild(imgDiv);
+		}
+		removeClass(expandoButton, 'collapsed');
+		addClass(expandoButton, 'expanded');
+
+		this.trackImageLoad(imageLink, image);
+		this.makeImageZoomable(image);
+	},
+	trackImageLoad: function(link, image) {
+		if (modules['showImages'].options.markVisited.value) {
+			image.addEventListener('load', function(e) {
+				var url = link.historyURL || link.href;
+				addClass(link, 'visited');
+				modules['showImages'].imageTrackStack.push(url);
+				if (modules['showImages'].imageTrackStack.length == 1) setTimeout(modules['showImages'].imageTrackShift, 300);
 			}, false);
 		}
 		// hide the sidebar if the image is bigger when it expands...
-		imgTag.addEventListener('load', function(e) {
-			$(e.target).data('containerWidth',$(imgTag).closest('.entry').width());
+		image.addEventListener('load', function(e) {
+			$(e.target).data('containerWidth',$(image).closest('.entry').width());
 			if (parseInt(e.target.style.maxWidth) > $(e.target).data('containerWidth')) {
 				$(e.target).closest('.md').css('max-width','100%');
 				$('div.side').fadeOut();
@@ -10841,53 +10839,58 @@ modules['showImages'] = {
 			}
 		}, false);
 	},
-	imageTrackPop: function() {
-		var thisURL = modules['showImages'].imageTrackStack.pop();
-		if (typeof(thisURL) != 'undefined') {
-			if (typeof(chrome) != 'undefined') {
-				if (!(chrome.extension.inIncognitoContext)) {
-					thisJSON = {
-						requestType: 'addURLToHistory',
-						url: thisURL
-					}
-					chrome.extension.sendRequest(thisJSON, function(response) {
-						// we don't need to do anything here...
-					});
-				}
-			} else if (typeof(self.on) != 'undefined') {
-				// this is a terrible hack, because instead of just swapping out the location of the iframe,
-				// we're destroying and recreating it every time... but it's the only way around the
-				// jetpack SDK bug at: https://bugzilla.mozilla.org/show_bug.cgi?id=723434
-				modules['showImages'].imageTrackFrame.parentNode.removeChild(modules['showImages'].imageTrackFrame);
-				modules['showImages'].imageTrackFrame = document.createElement('iframe');
-				modules['showImages'].imageTrackFrame.addEventListener('load', function() {
-					setTimeout(modules['showImages'].imageTrackPop, 300);
-				}, false);
-				modules['showImages'].imageTrackFrame.style.display = 'none';
-				modules['showImages'].imageTrackFrame.style.width = '0px';
-				modules['showImages'].imageTrackFrame.style.height = '0px';
-				modules['showImages'].imageTrackFrame.src = thisURL;
-				document.body.appendChild(modules['showImages'].imageTrackFrame);
-			} else if (typeof(modules['showImages'].imageTrackFrame.contentWindow) != 'undefined') {
-				modules['showImages'].imageTrackFrame.contentWindow.location.replace(thisURL);
-			} else {
-				modules['showImages'].imageTrackFrame.location.replace(thisURL);
+	imageTrackShift: function() {
+		var url = modules['showImages'].imageTrackStack.shift();
+		if (typeof(url) == 'undefined') return;
+		if (typeof(chrome) != 'undefined') {
+			if (!chrome.extension.inIncognitoContext) {
+				chrome.extension.sendRequest({
+					requestType: 'addURLToHistory',
+					url: url
+				}, function(response) {
+					//nothing to do here
+				});
 			}
-		}
+			modules['showImages'].imageTrackShift();
+		} else if (typeof(self.on) != 'undefined') {
+			// this is a terrible hack, because instead of just swapping out the location of the iframe,
+			// we're destroying and recreating it every time... but it's the only way around the
+			// jetpack SDK bug at: https://bugzilla.mozilla.org/show_bug.cgi?id=723434
+			modules['showImages'].imageTrackFrame.parentNode.removeChild(modules['showImages'].imageTrackFrame);
+			modules['showImages'].imageTrackFrame = document.createElement('iframe');
+			modules['showImages'].imageTrackFrame.addEventListener('load', function() {
+				setTimeout(modules['showImages'].imageTrackShift, 300);
+			}, false);
+			modules['showImages'].imageTrackFrame.style.display = 'none';
+			modules['showImages'].imageTrackFrame.style.width = '0px';
+			modules['showImages'].imageTrackFrame.style.height = '0px';
+			modules['showImages'].imageTrackFrame.src = url;
+			document.body.appendChild(modules['showImages'].imageTrackFrame);
+		} else if (typeof(modules['showImages'].imageTrackFrame.contentWindow) != 'undefined') {
+			modules['showImages'].imageTrackFrame.contentWindow.location.replace(url);
+		} else {
+			modules['showImages'].imageTrackFrame.location.replace(url);
+		}			
 	},
-	makeImageZoomable: function(imgTag) {
+	dragTargetData: {},
+	getDragSize: function(e){
+		var dragSize = (p=Math.pow)(p(e.clientX-(rc=e.target.getBoundingClientRect()).left,2)+p(e.clientY-rc.top,2),.5);
+		return Math.round(dragSize);
+	},
+	makeImageZoomable: function(imageTag) {
+		//TODO: rewrite this sucker
 		if (this.options.imageZoom.value) {
 			// Add listeners for drag to resize functionality...
-			imgTag.addEventListener('mousedown', function(e) {
+			imageTag.addEventListener('mousedown', function(e) {
 				if (e.button == 0) {
-					$(imgTag).data('containerWidth',$(imgTag).closest('.entry').width());
+					$(imageTag).data('containerWidth', $(imageTag).closest('.entry').width());
 					modules['showImages'].dragTargetData.iw=e.target.width;
 					modules['showImages'].dragTargetData.d=modules['showImages'].getDragSize(e);
 					modules['showImages'].dragTargetData.dr=false;
 					e.preventDefault();
 				}
 			}, true);
-			imgTag.addEventListener('mousemove', function(e) {
+			imageTag.addEventListener('mousemove', function(e) {
 				if (modules['showImages'].dragTargetData.d){
 					e.target.style.maxWidth=e.target.style.width=((modules['showImages'].getDragSize(e))*modules['showImages'].dragTargetData.iw/modules['showImages'].dragTargetData.d)+"px";
 					if (parseInt(e.target.style.maxWidth) > $(e.target).data('containerWidth')) {
@@ -10901,11 +10904,11 @@ modules['showImages'] = {
 					modules['showImages'].dragTargetData.dr=true;
 				}
 			}, false);
-			imgTag.addEventListener('mouseout', function(e) {
+			imageTag.addEventListener('mouseout', function(e) {
 				modules['showImages'].dragTargetData.d=false;
 				if (modules['showImages'].dragTargetData.dr) return false;
 			}, false);
-			imgTag.addEventListener('mouseup', function(e) {
+			imageTag.addEventListener('mouseup', function(e) {
 				e.target.style.maxWidth=e.target.style.width=((modules['showImages'].getDragSize(e))*modules['showImages'].dragTargetData.iw/modules['showImages'].dragTargetData.d)+"px";
 				if (parseInt(e.target.style.maxWidth) > $(e.target).data('containerWidth')) {
 					$(e.target).closest('.md').css('max-width','100%');
@@ -10916,7 +10919,7 @@ modules['showImages'] = {
 				modules['showImages'].dragTargetData.d=false;
 				if (modules['showImages'].dragTargetData.dr) return false;
 			}, false);
-			imgTag.addEventListener('click', function(e) {
+			imageTag.addEventListener('click', function(e) {
 				modules['showImages'].dragTargetData.d=false;
 				if (modules['showImages'].dragTargetData.dr) {
 					e.preventDefault();
@@ -10925,33 +10928,437 @@ modules['showImages'] = {
 			}, false);
 		}
 	},
-	dragTargetData: {},
-	showImages: function(gonewild, showmore) {
-		if ((this.allImagesVisible) && (!(showmore))) {
-			// Images are visible, and this request didn't come from never ending reddit, so hide the images...
-			// (if it came from NER, we'd want to make the next batch also visible...)
-			this.allImagesVisible = false;
-			var imageList = document.body.querySelectorAll('div.madeVisible');
-			for (var i=0, len=this.imageList.length;i<len;i++) {
-				if (typeof(imageList[i]) != 'undefined') {
-					if (hasClass(imageList[i].previousSibling,'commentImg')) {
-						var targetExpando = imageList[i].previousSibling;
+	scrapeHTML: function(elem, url, selector) {
+		GM_xmlhttpRequest({
+			method:	"GET",
+			url:	url,
+			onload:	function(response) {
+				var thisHTML = response.responseText;
+				var tempDiv = document.createElement('div');
+				tempDiv.innerHTML = thisHTML;
+				var scrapedImg = tempDiv.querySelector(selector);
+				// just in case the site (i.e. flickr) has an onload, kill it to avoid JS errors.
+//				if (!scrapedImg) return;
+				scrapedImg.onload = '';
+
+				modules['showImages'].siteModules[elem.site].handleInfo(elem, {
+					src: scrapedImg.src
+				});
+			}
+		});
+
+	},
+	siteModules: {
+		default: {
+			acceptRegex: /\.(gif|jpe?g|png)$/i,
+			rejectRegex: /(wikipedia\.org\/wiki|photobucket\.com|gifsound\.com)/i,
+			go: function(){},
+			detect: function(elem) {
+				var href = elem.href;
+				return (this.acceptRegex.test(href) && !this.rejectRegex.test(href));
+			},
+			handleLink: function(elem) {
+				var href = elem.href;
+				this.handleInfo(elem, {
+					type: 'IMAGE',
+					src: elem.href
+				});
+			},
+			handleInfo: function(elem, info) {
+				elem.type = info.type;
+				elem.src = info.src;
+				modules['showImages'].createImageExpando(elem);
+			}
+		},
+		imgur: {
+			APIKey: 'fe266bc9466fe69aa1cf0904e7298eda',
+			hashRe:/^http:\/\/(?:[i.]|[edge.]|[www.])*imgur.com\/(?:r\/[\w]+\/)?([\w]{5,})(\..+)?$/i,
+			albumHashRe: /^http:\/\/(?:i\.)?imgur.com\/a\/([\w]+)(\..+)?(?:#\d*)?$/i,
+			apiPrefix: 'http://api.imgur.com/2/',
+			calls: {},
+			go: function(){},
+			detect: function(elem) {
+				return elem.href.toLowerCase().indexOf('imgur.com/') >= 0;
+			},
+			handleLink: function(elem) {
+				var href = elem.href.split('?')[0];
+				var groups = this.hashRe.exec(href);
+				if (!groups) var albumGroups = this.albumHashRe.exec(href);
+				if (groups && !groups[2]) {
+					var apiURL = this.apiPrefix + 'image/' + groups[1] + '.json';
+					if (apiURL in this.calls) {
+						this.handleInfo(elem, this.calls[apiURL]);
 					} else {
-						var targetExpando = imageList[i].parentNode.firstChild.nextSibling;
+						GM_xmlhttpRequest({
+							method: 'GET',
+							url: apiURL,
+//							aggressiveCache: true,
+							onload: function(response) {
+								try {
+									var json = JSON.parse(response.responseText);
+								} catch (error) {
+									var json = {};
+								}
+								modules['showImages'].siteModules['imgur'].calls[apiURL] = json;
+								modules['showImages'].siteModules['imgur'].handleInfo(elem, json);
+							}
+						});
 					}
-					this.revealImage(targetExpando, false);
+				} else if (albumGroups && !albumGroups[2]) {
+					//TODO: handle multi captions
+					//TODO: handle multi links
+					var apiURL = this.apiPrefix + 'album/' + albumGroups[1] + '.json';
+					if (apiURL in this.calls) {
+						this.handleInfo(elem, this.calls[apiURL]);
+					} else {
+						GM_xmlhttpRequest({
+							method: 'GET',
+							url: apiURL,
+//							aggressiveCache: true,
+							onload: function(response) {
+								try {
+									var json = JSON.parse(response.responseText);
+								} catch (error) {
+									var json = {};
+								}
+								modules['showImages'].siteModules['imgur'].calls[apiURL] = json;
+								modules['showImages'].siteModules['imgur'].handleInfo(elem, json);
+							}
+						});
+					}
+				}
+			},
+			handleInfo: function(elem, info) {
+				if ('image' in info) {
+					this.handleSingleImage(elem, info);
+				} else if ('album' in info) {
+					this.handleGallery(elem, info);
+				} else {
+					// console.log("ERROR", info);
+					// console.log(arguments.callee.caller);
+				}
+			},
+			handleSingleImage: function(elem, info) {
+				elem.src = info.image.links.original;
+				elem.type = 'IMAGE';
+				if (info.image.image.caption) elem.caption = info.image.image.caption;
+				modules['showImages'].createImageExpando(elem);
+			},
+			handleGallery: function(elem, info) {
+				elem.src = info.album.images.map(function(e) {
+					return e.links.original;
+				});
+				elem.type = 'GALLERY';
+				modules['showImages'].createImageExpando(elem);
+			}
+		},
+		ehost: {
+			hashRe: /^http:\/\/(?:i\.)?(?:\d+\.)?eho.st\/(\w+)\/?/i,
+			go: function() {},
+			detect: function(elem) {
+				var href = elem.href.toLowerCase();
+				return href.indexOf('eho.st') >= 0 && href.substring(-1) != '+';
+			},
+			handleLink: function(elem) {
+				var groups = this.hashRe.exec(elem.href);
+				if (groups) {
+					this.handleInfo(elem, {
+						src: 'http://i.eho.st/'+groups[1]+'.jpg'
+					});
+				}
+			},
+			handleInfo: function(elem, info) {
+				elem.type = 'IMAGE';
+				elem.src = info.src;
+				modules['showImages'].createImageExpando(elem);
+			}
+		},
+		snaggy: {
+			go: function() {},
+			detect: function(elem) {
+				return elem.href.toLowerCase().indexOf('snag.gy') >= 0;
+			},
+			handleLink: function(elem) {
+				var href = elem.href;
+				var extensions = ['.jpg','.png','.gif'];
+				if (href.indexOf('i.snag') == -1) href = href.replace('snag.gy', 'i.snag.gy');
+				if (extensions.indexOf(href.substr(-4)) == -1) href = href+'.jpg';
+				this.handleInfo(elem, {src: href});
+			},
+			handleInfo: function(elem, info) {
+				elem.type = 'IMAGE';
+				elem.src = info.src;
+				modules['showImages'].createImageExpando(elem);
+			}
+		},
+		minus: {
+			hashRe: /^http:\/\/min.us\/([\w]+)(?:#[\d+])?$/i,
+			calls: {},
+			go: function() {},
+			detect: function(elem) {
+				var href = elem.href.toLowerCase();
+				return href.indexOf('min.us') >= 0 && href.indexOf('blog.') == -1;
+			},
+			handleLink: function(elem) {
+				var href = elem.href.split('?')[0];
+				//TODO: just make default run first and remove this
+				var getExt = href.split('.');
+				var ext = (getExt.length > 1?getExt[getExt.length - 1].toLowerCase():'');
+				if (['jpg', 'jpeg', 'png', 'gif'].indexOf(ext)) {
+					var groups = this.hashRe.exec(href);
+					if (groups && !groups[2]) {
+						var hash = groups[1];
+						if (hash.substr(0, 1) == 'm') {
+							var apiURL = 'http://min.us/api/GetItems/' + hash;
+							if (apiURL in this.calls) {
+								this.handleInfo(elem, this.calls[apiURL]);
+							} else {
+								GM_xmlhttpRequest({
+									method: 'GET',
+									url: apiURL,
+									onload: function(response) {
+										try {
+											var json = JSON.parse(response.responseText);
+										} catch (e) {
+											var json = {};
+										}
+										modules['showImages'].siteModules['minus'].calls[apiURL] = json;
+										modules['showImages'].siteModules['minus'].handleInfo(elem, json);
+									}
+								});
+							}
+						} // if not 'm', not a gallery, we can't do anything with the API.
+					}
+				}
+			},
+			handleInfo: function(elem, info) {
+				//TODO: Handle titles
+				//TODO: Handle possibility of flash items
+				if ('ITEMS_GALLERY' in info) {
+					console.log(elem, info.GALLERY_TITLE, info.ITEMS_GALLERY.length, info);
+					if (info.ITEMS_GALLERY.length > 1) {
+						elem.type = 'GALLERY';
+						elem.src = info.ITEMS_GALLERY;
+					} else {
+						elem.type = 'IMAGE';
+						elem.src = info.ITEMS_GALLERY[0];
+					}
+					modules['showImages'].createImageExpando(elem);
 				}
 			}
-			this.viewButton.innerHTML = 'view images ('+this.imageList.length+')';
-			return false;
-		} else {
-			this.allImagesVisible = true;
-			this.viewButton.innerHTML = 'hide images ('+this.imageList.length+')';
-			var gw = gonewild || '';
-			this.findImages(gw, true);
+		},
+		flickr: {
+			deferred: true,
+			go: function() {},
+			detect: function(elem) {
+				return ((elem.href.indexOf('flickr.com')>=0) && (elem.href.indexOf('/sets/') == -1));
+			},
+			handleLink: function(elem) {
+				//Only do this here if deferred
+				modules['showImages'].createImageExpando(elem);
+			},
+			deferredHandleLink: function(elem) {
+				if (elem.href.indexOf('/sizes') != -1) {
+					var selector = '#allsizes-photo > IMG';
+				} else {
+					var selector = '#photo > .photo-div > IMG';
+				}
+				modules['showImages'].scrapeHTML(elem, elem.href, selector)
+			},
+			handleInfo: function(elem, info) {
+				elem.type = 'IMAGE';
+				elem.src = info.src;
+				modules['showImages'].revealImageDeferred(elem);
+			}
+		},
+		imgclean: {
+			deferred: true,
+			go: function() {},
+			detect: function(elem) {
+				return (elem.href.indexOf('imgclean.com/?p=')>=0);
+			},
+			handleLink: function(elem) {
+				//Only do this here if deferred
+				modules['showImages'].createImageExpando(elem);
+			},
+			deferredHandleLink: function(elem) {
+				modules['showImages'].scrapeHTML(elem, elem.href, '.imgclear-entry-image > IMG')
+			},
+			handleInfo: function(elem, info) {
+				elem.type = 'IMAGE';
+				elem.src = info.src;
+				modules['showImages'].revealImageDeferred(elem);
+			}
+		},
+		steam: {
+			go: function() {},
+			detect: function(elem) {
+				return elem.href.toLowerCase().indexOf('cloud.steampowered.com') >= 0;
+			},
+			handleLink: function(elem) {
+				this.handleInfo(elem, elem.href);
+			},
+			handleInfo: function(elem, info) {
+				elem.type = 'IMAGE';
+				elem.src = info;
+				modules['showImages'].createImageExpando(elem);
+			}
+		},
+		quickmeme: {
+			hashRe: /^http:\/\/(?:(?:www.)?quickmeme.com\/meme|qkme.me|i.qkme.me)\/([\w]+)\/?/i,
+			go: function() {},
+			detect: function(elem) {
+				var href = elem.href.toLowerCase();
+				return href.indexOf('qkme.me') >= 0 || href.indexOf('quickmeme.com') >= 0;
+			},
+			handleLink: function(elem) {
+				var groups = this.hashRe.exec(elem.href);
+				if (groups) {
+					this.handleInfo(elem, 'http://i.qkme.me/'+groups[1]+'.jpg');
+				}
+			},
+			handleInfo: function(elem, info) {
+				elem.type = 'IMAGE';
+				elem.src = info;
+				modules['showImages'].createImageExpando(elem);
+			}
+		},
+		deviantart: {
+			calls: {},
+			matchRe: /^http:\/\/(?:fav.me\/.*|(?:.+\.)?deviantart.com\/(?:art\/.*|[^#]*#\/d.*))$/i,
+			go: function() {},
+			detect: function(elem) {
+				return this.matchRe.test(elem.href);
+			},
+			handleLink: function(elem) {
+				var apiURL = 'http://backend.deviantart.com/oembed?url=' + encodeURIComponent(elem.href);
+				if (apiURL in this.calls) {
+					this.handleInfo(elem, this.calls[apiURL]);
+				} else {
+					GM_xmlhttpRequest({
+						method: 'GET',
+						url: apiURL,
+						aggressiveCache: true,
+						onload: function(response) {
+							try {
+								var json = JSON.parse(response.responseText);
+							} catch(error) {
+								var json = {};
+							}
+							modules['showImages'].siteModules['deviantart'].calls[apiURL] = json;
+							modules['showImages'].siteModules['deviantart'].handleInfo(elem, json);
+						}
+					});
+				}
+			},
+			handleInfo: function(elem, info) {
+				if ('url' in info) {
+					elem.imageTitle = info.title;
+					if(['jpg', 'jpeg', 'png', 'gif'].indexOf(info.url)) {
+						elem.src = info.url;
+					} else {
+						elem.src = info.thumbnail_url;
+					}
+					elem.credits = 'Art by: <a href="'+info.author_url+'">'+info.author_name+'</a> @ DeviantArt';
+					elem.type = 'IMAGE';
+					modules['showImages'].createImageExpando(elem);
+				}
+			}
+		},
+		tumblr: {
+			calls: {},
+			APIKey: 'WeJQquHCAasi5EzaN9jMtIZkYzGfESUtEvcYDeSMLICveo3XDq',
+			matchRE: /^https?:\/\/([a-z0-9\-]+\.tumblr\.com)\/post\/(\d+)(?:\/.*)?$/i,
+			go: function() { },
+			detect: function(elem) {
+				return this.matchRE.test(elem.href);
+			},
+			handleLink: function(elem) {
+				var groups = this.matchRE.exec(elem.href);
+				if (groups) {
+					var apiURL = 'http://api.tumblr.com/v2/blog/'+groups[1]+'/posts?api_key='+this.APIKey+'&id='+groups[2];
+					if (apiURL in this.calls) {
+						this.handleInfo(elem, this.calls[apiURL]);
+					} else {
+						GM_xmlhttpRequest({
+							method:'GET',
+							url: apiURL,
+							aggressiveCache: true,
+							onload: function(response) {
+								try {
+									var json = JSON.parse(response.responseText);
+								} catch (error) {
+									var json = {};
+								}
+								if ('meta' in json && json.meta.status == 200) {
+									modules['showImages'].siteModules['tumblr'].calls[apiURL] = json;
+									modules['showImages'].siteModules['tumblr'].handleInfo(elem, json);
+								}
+							}
+						});
+					}
+				}
+			},
+			handleInfo: function(elem, info) {
+				var post = info.response.posts[0];
+				switch (post.type) {
+					case 'photo':
+						if (post.photos.length > 1) {
+							elem.type = 'GALLERY';
+							elem.src = post.photos.map(function(elem) {
+								return elem.original_size.url;
+							});
+						} else {
+							elem.type = "IMAGE";
+							elem.src = post.photos[0].original_size.url;
+						}
+						break;
+					default:
+						return;
+						break;
+				}
+				elem.credits = 'Post by: <a href="'+info.response.blog.url+'">'+info.response.blog.name+'</a> @ Tumblr';
+				modules['showImages'].createImageExpando(elem);
+			}
+		},
+		memecrunch: {
+			hashRe: /^http:\/\/memecrunch.com\/meme\/([0-9A-Z]+)\/([\w\-]+)(\/image\.(png|jpg))?/i,
+			go: function() {},
+			detect: function(elem) {
+				return elem.href.toLowerCase().indexOf('memecrunch.com') >= 0;
+			},
+			handleLink: function(elem) {
+				var groups = this.hashRe.exec(elem.href);
+				if (groups && typeof(groups[1]) != 'undefined') {
+					this.handleInfo(elem, 'http://memecrunch.com/meme/'+groups[1]+'/'+(groups[2]||'null')+'/image.png');
+				}
+			},
+			handleInfo: function(elem, info) {
+					elem.type = 'IMAGE';
+					elem.src = info;
+					modules['showImages'].createImageExpando(elem);
+			}
+		},
+		livememe: {
+			hashRe: /^http:\/\/(?:www.livememe.com|lvme.me)\/([\w]+)\/?/i,
+			go: function() { },
+			detect: function(elem) {
+				return elem.href.toLowerCase().indexOf('livememe.com') >= 0;
+			},
+			handleLink: function(elem) {
+				var groups = this.hashRe.exec(elem.href);
+				if (groups) {
+					this.handleInfo(elem, 'http://www.livememe.com/'+groups[1]+'.jpg');
+				}
+			},
+			handleInfo: function(elem, info) {
+				elem.type = 'IMAGE';
+				elem.src = info;
+				modules['showImages'].createImageExpando(elem);
+			}
 		}
 	}
-}; // end showImages
+};
 
 modules['showKarma'] = {
 	moduleID: 'showKarma',
@@ -11327,24 +11734,20 @@ modules['neverEndingReddit'] = {
 				var nextLink = nextPrevLinks[nextPrevLinks.length-1];
 				if (nextLink) {
 					this.nextPageURL = nextLink.getAttribute('href');
-					// remove NERpage parameter, no sense sending it to reddit.
-					this.nextPageURL = this.nextPageURL.replace(/\&NERpage=([\d]+)/,'');
 					var nextXY=RESUtils.getXYpos(nextLink);
 					this.nextPageScrollY = nextXY.y;
 				}
 				this.attachLoaderWidget();
 				
+				//Reset this info if the page is in a new tab
+				// wait, this is always  tre... commenting out.
+				/*
+				if (window.history.length) {
+					console.log('delete nerpage');
+					delete sessionStorage['NERpage'];
+				*/
 				if (this.options.returnToPrevPage.value) {
-					this.attachModalWidget();
-					// Set the current page to page 1...
-					this.currPage = 1;
-					// If there's a page=# value in location.hash, then update the currPage...
-					var currPageRe = /NERpage=([0-9]+)/i;
-					var backButtonPageNumber = currPageRe.exec(location.href);
-					if ((backButtonPageNumber) && (backButtonPageNumber[1] > 1)) {
-						this.currPage = backButtonPageNumber[1];
-						this.loadNewPage(true);
-					}
+					this.returnToPrevPageCheck();
 				}
 					
 				// watch for the user scrolling to the bottom of the page.  If they do it, load a new page.
@@ -11412,6 +11815,16 @@ modules['neverEndingReddit'] = {
 			modules['neverEndingReddit'].handleScroll();
 		}
 	},
+	returnToPrevPageCheck: function() {
+		this.attachModalWidget();
+		// Set the current page to page 1...
+		this.currPage = 1;
+		var backButtonPageNumber = sessionStorage.getItem('NERpage') || 1;
+		if (backButtonPageNumber > 1) {
+			this.currPage = backButtonPageNumber;
+			this.loadNewPage(true);
+		}
+	},
 	handleScroll: function(e) {
 		if (this.scrollTimer) clearTimeout(this.scrollTimer);
 		this.scrollTimer = setTimeout(modules['neverEndingReddit'].handleScrollAfterTimer, 300);
@@ -11428,32 +11841,12 @@ modules['neverEndingReddit'] = {
 		}
 		var thisPageType = RESUtils.pageType()+'.'+RESUtils.currentSubreddit();
 		RESStorage.setItem('RESmodules.neverEndingReddit.lastPage.'+thisPageType, modules['neverEndingReddit'].pageURLs[thisPageNum]);
-		// this needed to be replaced to avoid a chrome bug where hash changes screw up searching and middle-click scrolling..
-		//		if ((thisPageNum > 1) || (location.hash != '')) location.hash = 'page='+thisPageNum;
-		var urlParams = RESUtils.getUrlParams();
-		if (thisPageNum != urlParams.NERpage) {
+		if (thisPageNum != sessionStorage.NERpage) {
 			if (thisPageNum > 1) {
-				urlParams.NERpage = thisPageNum;
+				sessionStorage.NERpage = thisPageNum;
 				modules['neverEndingReddit'].pastFirstPage = true;
 			} else {
-				urlParams.NERpage = null;
-			}
-			if (modules['neverEndingReddit'].pastFirstPage) {
-				var qs = '?';
-				var count = 0;
-				var and = '';
-				for (i in urlParams) {
-					count++;
-					if (urlParams[i] != null) {
-						if (count == 2) and = '&';
-						qs += and+i+'='+urlParams[i];
-					}
-				}
-				// delete query parameters if there are none to display so we don't just show a ?
-				if (qs == '?') {
-					qs = location.pathname;
-				}
-				window.history.replaceState(thisPageNum, "thepage="+thisPageNum, qs);
+				delete sessionStorage['NERpage'];
 			}
 		}
 		if ((modules['neverEndingReddit'].fromBackButton != true) && (modules['neverEndingReddit'].options.returnToPrevPage.value)) {
@@ -11603,9 +11996,12 @@ modules['neverEndingReddit'] = {
 							modules['neverEndingReddit'].setMailIcon(false);
 						} 
 						// load up uppers and downers, if enabled...
-						if (modules['uppersAndDowners'].isEnabled()) {
+						// maybe not necessary anymore..
+						/*
+						if ((modules['uppersAndDowners'].isEnabled()) && (RESUtils.pageType() == 'comments')) {
 							modules['uppersAndDowners'].applyUppersAndDownersToComments(modules['neverEndingReddit'].nextPageURL);
 						}
+						*/
 						// get the new nextLink value for the next page...
 						var nextPrevLinks = tempDiv.querySelectorAll('.content .nextprev a');
 						if ((nextPrevLinks) && (nextPrevLinks.length)) {
@@ -11797,28 +12193,30 @@ modules['saveComments'] = {
 			}
 			var isTopLevel = ((nextLink == null) || (nextLink.indexOf('#') == -1));
 			var userLink = commentObj.querySelector('a.author');
-			if (userLink != null) {
+			if (userLink == null) {
+				var saveUser = '[deleted]';
+			} else {
 				var saveUser = userLink.text;
-				var saveHREF = permaLink.getAttribute('href');
-				var splitHref = saveHREF.split('/');
-				var saveID = splitHref[splitHref.length-1];
-				var saveLink = document.createElement('li');
-				if ((typeof(this.storedComments) != 'undefined') && (typeof(this.storedComments[saveID]) != 'undefined')) {
-					saveLink.innerHTML = '<a href="/saved#comments">saved</a>';
-				} else {
-					saveLink.innerHTML = '<a href="javascript:void(0);" class="saveComments">save</a>';
-					saveLink.setAttribute('saveID',saveID);
-					saveLink.setAttribute('saveLink',saveHREF);
-					saveLink.setAttribute('saveUser',saveUser);
-					saveLink.addEventListener('click', function(e) {
-						e.preventDefault();
-						modules['saveComments'].saveComment(this, this.getAttribute('saveID'), this.getAttribute('saveLink'), this.getAttribute('saveUser'));
-					}, true);
-				}
-				var whereToInsert = commentsUL.lastChild;
-				if (isTopLevel) whereToInsert = whereToInsert.previousSibling;
-				commentsUL.insertBefore(saveLink, whereToInsert);
 			}
+			var saveHREF = permaLink.getAttribute('href');
+			var splitHref = saveHREF.split('/');
+			var saveID = splitHref[splitHref.length-1];
+			var saveLink = document.createElement('li');
+			if ((typeof(this.storedComments) != 'undefined') && (typeof(this.storedComments[saveID]) != 'undefined')) {
+				saveLink.innerHTML = '<a href="/saved#comments">saved</a>';
+			} else {
+				saveLink.innerHTML = '<a href="javascript:void(0);" class="saveComments">save</a>';
+				saveLink.setAttribute('saveID',saveID);
+				saveLink.setAttribute('saveLink',saveHREF);
+				saveLink.setAttribute('saveUser',saveUser);
+				saveLink.addEventListener('click', function(e) {
+					e.preventDefault();
+					modules['saveComments'].saveComment(this, this.getAttribute('saveID'), this.getAttribute('saveLink'), this.getAttribute('saveUser'));
+				}, true);
+			}
+			var whereToInsert = commentsUL.lastChild;
+			if (isTopLevel) whereToInsert = whereToInsert.previousSibling;
+			commentsUL.insertBefore(saveLink, whereToInsert);
 		}
 	},
 	loadSavedComments: function() {
@@ -12420,7 +12818,8 @@ modules['styleTweaks'] = {
 		RESUtils.addCSS("#userbarToggle { position: absolute; top: 0px; left: -5px; width: 16px; padding-right: 3px; height: 21px; font-size: 15px; border-radius: 4px 0px 0px 4px; color: #a1bcd6; display: inline-block; background-color: #dfecf9; border-right: 1px solid #cee3f8; cursor: pointer; text-align: right; line-height: 20px; }");
 		RESUtils.addCSS("#header-bottom-right .user { margin-left: 16px; }");
 		// RESUtils.addCSS(".userbarHide { background-position: 0px -137px; }");
-		RESUtils.addCSS("#userbarToggle.userbarShow { left: -12px; }");
+		RESUtils.addCSS("#userbarToggle.userbarShow { left: -12px; top:-13px }");
+		RESUtils.addCSS(".res-navTop #userbarToggle.userbarShow { top:0 }");
 		var userbar = document.getElementById('header-bottom-right');
 		if (userbar) {
 			this.userbarToggle = createElementWithID('div','userbarToggle');
@@ -12676,7 +13075,7 @@ modules['styleTweaks'] = {
 			css += ".res-nightmode .livePreview blockquote {border-left: 2px solid white !important};";
 			css += ".res-nightmode #RESDashboardComponent, .res-nightmode RESDashboardComponentHeader {background-color: #ddd !important;}";
 			css += ".res-nightmode #RESDashboardAddComponent, .res-nightmode .RESDashboardComponentHeader {background-color: #bbb !important;}";
-			css += ".res-nightmode .addNewWidget, .res-nightmode .widgetPath, .res-nightmode #authorInfoToolTip a.option {color: white !important;}";
+			css += ".res-nightmode .addNewWidget, .res-nightmode .widgetPath, .res-nightmode #authorInfoToolTip a.option, .res-nightmode .updateTime {color: white !important;}";
 			css += ".res-nightmode .entry .score {color:#dde !important;}";
 			css += ".res-nightmode .entry p.tagline:first-of-type, .res-nightmode .entry time {color:#dd8;}"
 			css += ".res-nightmode  code {color:#6c0 !important;}"
@@ -13128,6 +13527,8 @@ modules['filteReddit'] = {
 			// shh I'm cheating. This runs the toggle on every single page, bypassing isMatchURL.
 			if ((this.isEnabled()) && (this.options.NSFWQuickToggle.value)) {
 				RESUtils.addCSS('#nsfwSwitchToggle { float: right; margin-right: 10px; margin-top: 10px; line-height: 10px; }');
+				RESUtils.addCSS('.RESFilterToggle { margin-right: 5px; color: white; background-image: url(/static/bg-button-add.png); cursor: pointer; text-align: center; width: 68px; font-weight: bold; font-size: 10px; border: 1px solid #444444; padding: 1px 6px; border-radius: 3px 3px 3px 3px;  }');
+				RESUtils.addCSS('.RESFilterToggle.remove { background-image: url(/static/bg-button-remove.png) }');
 				var thisFrag = document.createDocumentFragment();
 				this.nsfwSwitch = document.createElement('li');
 				this.nsfwSwitch.setAttribute('title',"Toggle NSFW Filter");
@@ -13233,7 +13634,7 @@ modules['filteReddit'] = {
 		while (i--) {
 			var thisObj = obj[i];
 			if ((typeof(obj[i]) != 'object') || (obj[i].length<3)) {
-				if (obj[i].length = 1) obj[i] = obj[i][0];
+				if (obj[i].length == 1) obj[i] = obj[i][0];
 				obj[i] = [obj[i], 'everywhere',''];
 			}
 			var searchString = obj[i][0];
@@ -13259,7 +13660,32 @@ modules['filteReddit'] = {
 			}
 		}
 		return false;
-	}
+	},
+	toggleFilter: function(e) {
+		var thisSubreddit = e.target.getAttribute('subreddit').toLowerCase();
+		var filteredReddits = modules['filteReddit'].options.subreddits.value;
+		var exists=false;
+		for (var i=0, len=filteredReddits.length; i<len; i++) {
+			if ((filteredReddits[i]) && (filteredReddits[i][0].toLowerCase() == thisSubreddit)) {
+				exists=true;
+				filteredReddits.splice(i,1);
+				e.target.setAttribute('title','Filter this subreddit form /r/all');
+				e.target.innerHTML = '+filter';
+				removeClass(e.target,'remove');
+				break;
+			}
+		}
+		if (!exists) {
+			var thisObj = [thisSubreddit, 'everywhere',''];
+			filteredReddits.push(thisObj);
+			e.target.setAttribute('title','Stop filtering this subreddit from /r/all');
+			e.target.innerHTML = '-filter';
+			addClass(e.target,'remove');
+		}
+		modules['filteReddit'].options.subreddits.value = filteredReddits;
+		// save change to options...
+		RESStorage.setItem('RESoptions.filteReddit', JSON.stringify(modules['filteReddit'].options));
+	},
 };
 
 modules['newCommentCount'] = {
@@ -13565,7 +13991,8 @@ modules['spamButton'] = {
 				a.setAttribute('title', 'Report this user as a spammer');
 				a.addEventListener('click', modules['spamButton'].reportPost, false);
 				a.setAttribute('href', 'javascript:void(0)');
-				a.innerHTML= 'spam';
+				a.innerHTML= 'rts';
+				a.title = "reportthespammers"
 				spam.appendChild(a);
 			}
 		}
@@ -13854,6 +14281,7 @@ modules['commentNavigator'] = {
 	}
 }; 
 
+
 /*
 modules['redditProfiles'] = {
 	moduleID: 'redditProfiles',
@@ -14131,41 +14559,50 @@ modules['subredditManager'] = {
 		// Listen for subscriptions / unsubscriptions from reddits so we know to reload the JSON string...
 		// also, add a +/- shortcut button...
 		if (RESUtils.currentSubreddit()) {
-			var subButton = document.querySelector('.fancy-toggle-button');
-			if (! ($('#subButtons').length>0)) {
-				this.subButtons = $('<div id="subButtons" style="margin: 0 !important;"></div>');
-				$(subButton).wrap(this.subButtons);
-			}
-			if (subButton) {
+			var subButtons = document.querySelectorAll('.fancy-toggle-button');
+			// for (var h=0, len=currentSubreddits.length; h<len; h++) {
+			for (var h=0, len=subButtons.length; h<len; h++) {
+				var subButton = subButtons[h];
+				if ($(subButton).parent().hasClass('subButtons')) {
+					var thisSubredditFragment = $(subButton).parent().prev().text();
+				} else {
+					var thisSubredditFragment = $(subButton).next().text();
+				}
+				if (! ($('#subButtons-'+thisSubredditFragment).length>0)) {
+					subButtonsWrapper = $('<div id="subButtons-'+thisSubredditFragment+'" class="subButtons" style="margin: 0 !important;"></div>');
+					$(subButton).wrap(subButtonsWrapper);
+				}
 				subButton.addEventListener('click',function() {
 					// reset the last checked time for the subreddit list so that we refresh it anew no matter what.
 					RESStorage.setItem('RESmodules.subredditManager.subreddits.lastCheck.'+RESUtils.loggedInUser(),0);
 				},false);
-				var theSubredditLink = document.querySelector('h1.redditname');
-				if (theSubredditLink) {
-					var theSC = document.createElement('span');
-					theSC.setAttribute('style','display: inline-block !important;');
-					theSC.setAttribute('class','RESshortcut RESshortcutside');
-					theSC.setAttribute('subreddit',RESUtils.currentSubreddit());
-					var idx = -1;
-					for (var i=0, len=modules['subredditManager'].mySubredditShortcuts.length; i<len; i++) {
-						if (modules['subredditManager'].mySubredditShortcuts[i].subreddit == RESUtils.currentSubreddit()) {
-							idx=i;
-							break;
-						}
+				var theSC = document.createElement('span');
+				theSC.setAttribute('style','display: inline-block !important;');
+				theSC.setAttribute('class','RESshortcut RESshortcutside');
+				theSC.setAttribute('subreddit',thisSubredditFragment);
+				var idx = -1;
+				for (var i=0, sublen=modules['subredditManager'].mySubredditShortcuts.length; i<sublen; i++) {
+					if (modules['subredditManager'].mySubredditShortcuts[i].subreddit == thisSubredditFragment) {
+						idx=i;
+						break;
 					}
-					if (idx != -1) {
-						theSC.innerHTML = '-shortcut';
-						theSC.setAttribute('title','Remove this subreddit from your shortcut bar');
-						addClass(theSC,'remove');
-					} else {
-						theSC.innerHTML = '+shortcut';
-						theSC.setAttribute('title','Add this subreddit to your shortcut bar');
-					}
-					theSC.addEventListener('click', modules['subredditManager'].toggleSubredditShortcut, false);
-					// subButton.parentNode.insertBefore(theSC, subButton);
-					// theSubredditLink.appendChild(theSC);
-					$('#subButtons').append(theSC);
+				}
+				if (idx != -1) {
+					theSC.innerHTML = '-shortcut';
+					theSC.setAttribute('title','Remove this subreddit from your shortcut bar');
+					addClass(theSC,'remove');
+				} else {
+					theSC.innerHTML = '+shortcut';
+					theSC.setAttribute('title','Add this subreddit to your shortcut bar');
+				}
+				theSC.addEventListener('click', modules['subredditManager'].toggleSubredditShortcut, false);
+				// subButton.parentNode.insertBefore(theSC, subButton);
+				// theSubredditLink.appendChild(theSC);
+				$('#subButtons-'+thisSubredditFragment).append(theSC);
+				var next = $('#subButtons-'+thisSubredditFragment).next();
+				if ($(next).hasClass('title') && (! $('#subButtons-'+thisSubredditFragment).hasClass('swapped'))) {
+					$('#subButtons-'+thisSubredditFragment).before($(next));
+					$('#subButtons-'+thisSubredditFragment).addClass('swapped');
 				}
 			}
 		}
@@ -15725,25 +16162,29 @@ modules['dashboard'] = {
 		return RESUtils.isMatchURL(this.moduleID);
 	},
 	go: function() {
-		if ((this.isEnabled()) && (this.isMatchURL())) {
-			$('#RESDropdownOptions').prepend('<li id="DashboardLink"><a href="/r/Dashboard">my dashboard</a></li>');
-			if (RESUtils.currentSubreddit()) {
-				RESUtils.addCSS('.RESDashboardToggle {}');
-				try {
-					this.widgets = JSON.parse(RESStorage.getItem('RESmodules.dashboard.' + RESUtils.loggedInUser())) || [];
-				} catch (e) {
-					this.widgets = [];
+		if (this.isEnabled()) {
+			try {
+				this.widgets = JSON.parse(RESStorage.getItem('RESmodules.dashboard.' + RESUtils.loggedInUser())) || [];
+			} catch (e) {
+				this.widgets = [];
+			}
+			RESUtils.addCSS('.RESDashboardToggle { margin-right: 5px; color: white; background-image: url(/static/bg-button-add.png); cursor: pointer; text-align: center; width: 68px; font-weight: bold; font-size: 10px; border: 1px solid #444444; padding: 1px 6px; border-radius: 3px 3px 3px 3px;  }');
+			RESUtils.addCSS('.RESDashboardToggle.remove { background-image: url(/static/bg-button-remove.png) }');
+			if (this.isMatchURL()) {
+				$('#RESDropdownOptions').prepend('<li id="DashboardLink"><a href="/r/Dashboard">my dashboard</a></li>');
+				if (RESUtils.currentSubreddit()) {
+					RESUtils.addCSS('.RESDashboardToggle {}');
+					// one more safety check... not sure how people's widgets[] arrays are breaking.
+					if (!(this.widgets instanceof Array)) {
+						this.widgets = [];
+					}
+					if (RESUtils.currentSubreddit('dashboard')) {
+						$('#noresults, #header-bottom-left .tabmenu').hide();
+						$('#header-bottom-left .redditname a:first').html('My Dashboard');
+						this.drawDashboard();
+					}
+					this.addDashboardShortcuts();
 				}
-				// one more safety check... not sure how people's widgets[] arrays are breaking.
-				if (!(this.widgets instanceof Array)) {
-					this.widgets = [];
-				}
-				if (RESUtils.currentSubreddit('dashboard')) {
-					$('#noresults, #header-bottom-left .tabmenu').hide();
-					$('#header-bottom-left .redditname a:first').html('My Dashboard');
-					this.drawDashboard();
-				}
-				this.addDashboardShortcuts();
 			}
 		}
 	},
@@ -15800,7 +16241,7 @@ modules['dashboard'] = {
 		modules['dashboard'].updateQueue = [];
 		for (i in this.widgets) if (this.widgets[i]) this.addWidget(this.widgets[i]);
 		setTimeout(function () {
-			$('#RESDashboard').dragsort({ dragSelector: "div.RESDashboardComponentHeader", dragSelectorExclude: 'a, li, li.refresh > div', dragEnd: modules['dashboard'].saveOrder, placeHolderTemplate: "<div class='placeHolder'><div></div></div>" });
+			$('#RESDashboard').dragsort({ dragSelector: "div.RESDashboardComponentHeader", dragSelectorExclude: 'a, li, li.refreshAll, li.refresh > div', dragEnd: modules['dashboard'].saveOrder, placeHolderTemplate: "<div class='placeHolder'><div></div></div>" });
 		}, 300);
 	},
 	addToUpdateQueue: function(updateFunction) {
@@ -16049,11 +16490,14 @@ modules['dashboard'] = {
 				$(thisWidget.sortControls).hide();
 			}, 100);
 		}
-		thisWidget.stateControls = $('<ul class="widgetStateButtons"><li class="updateTime"></li><li action="refresh" class="refresh"><div action="refresh"></div></li><li action="addRow">+row</li><li action="subRow">-row</li><li action="minimize" class="minimize">-</li><li action="delete" class="RESClose">X</li></ul>');
+		thisWidget.stateControls = $('<ul class="widgetStateButtons"><li class="updateTime"></li><li action="refresh" class="refresh"><div action="refresh"></div></li><li action="refreshAll" class="refreshAll">Refresh All</li><li action="addRow">+row</li><li action="subRow">-row</li><li action="minimize" class="minimize">-</li><li action="delete" class="RESClose">X</li></ul>');
 		$(thisWidget.stateControls).find('li').click(function (e) {
 			switch ($(e.target).attr('action')) {
 				case 'refresh':
 					thisWidget.update();
+					break;
+				case 'refreshAll':
+					$('li[action="refresh"]').click();
 					break;
 				case 'addRow':
 					if (thisWidget.numPosts == 10) break;
@@ -16173,33 +16617,45 @@ modules['dashboard'] = {
 		}
 	},
 	addDashboardShortcuts: function() {
-		RESUtils.addCSS('.RESDashboardToggle { margin-right: 5px; color: white; background-image: url(/static/bg-button-add.png); cursor: pointer; text-align: center; width: 68px; font-weight: bold; font-size: 10px; border: 1px solid #444444; padding: 1px 6px; border-radius: 3px 3px 3px 3px;  }');
-		RESUtils.addCSS('.RESDashboardToggle.remove { background-image: url(/static/bg-button-remove.png) }');
-		var subButton = document.querySelector('.fancy-toggle-button');
-		if (! ($('#subButtons').length>0)) {
-			this.subButtons = $('<div id="subButtons" style="margin: 0 !important;"></div>');
-			$(subButton).wrap(this.subButtons);
-		}
-		var dashboardToggle = document.createElement('span');
-		dashboardToggle.setAttribute('class','RESDashboardToggle');
-		dashboardToggle.setAttribute('subreddit',RESUtils.currentSubreddit());
-		var exists=false;
-		for (var i=0, len=this.widgets.length; i<len; i++) {
-			if ((this.widgets[i]) && (this.widgets[i].basePath.toLowerCase() == '/r/'+RESUtils.currentSubreddit().toLowerCase())) {
-				exists=true;
-				break;
+		var subButtons = document.querySelectorAll('.fancy-toggle-button');
+		for (var h=0, len=subButtons.length; h<len; h++) {
+			var subButton = subButtons[h];
+			if ($(subButton).parent().hasClass('subButtons')) {
+				var thisSubredditFragment = $(subButton).parent().prev().text();
+			} else {
+				var thisSubredditFragment = $(subButton).next().text();
+			}
+			if (! ($('#subButtons-'+thisSubredditFragment).length>0)) {
+				subButtonsWrapper = $('<div id="subButtons-'+thisSubredditFragment+'" class="subButtons" style="margin: 0 !important;"></div>');
+				$(subButton).wrap(subButtonsWrapper);
+			}
+			var dashboardToggle = document.createElement('span');
+			dashboardToggle.setAttribute('class','RESDashboardToggle');
+			dashboardToggle.setAttribute('subreddit',RESUtils.currentSubreddit());
+			var exists=false;
+			for (var i=0, sublen=this.widgets.length; i<sublen; i++) {
+				if ((this.widgets[i]) && (this.widgets[i].basePath.toLowerCase() == '/r/'+thisSubredditFragment.toLowerCase())) {
+					exists=true;
+					break;
+				}
+			}
+			if (exists) {
+				dashboardToggle.innerHTML = '-dashboard';
+				dashboardToggle.setAttribute('title','Remove this subreddit from your dashboard');
+				addClass(dashboardToggle,'remove');
+			} else {
+				dashboardToggle.innerHTML = '+dashboard';
+				dashboardToggle.setAttribute('title','Add this subreddit to your dashboard');
+			}
+			dashboardToggle.setAttribute('subreddit',thisSubredditFragment)
+			dashboardToggle.addEventListener('click', modules['dashboard'].toggleDashboard, false);
+			$('#subButtons-'+thisSubredditFragment).append(dashboardToggle);
+			var next = $('#subButtons-'+thisSubredditFragment).next();
+			if ($(next).hasClass('title') && (! $('#subButtons-'+thisSubredditFragment).hasClass('swapped'))) {
+				$('#subButtons-'+thisSubredditFragment).before($(next));
+				$('#subButtons-'+thisSubredditFragment).addClass('swapped');
 			}
 		}
-		if (exists) {
-			dashboardToggle.innerHTML = '-dashboard';
-			dashboardToggle.setAttribute('title','Remove this subreddit from your dashboard');
-			addClass(dashboardToggle,'remove');
-		} else {
-			dashboardToggle.innerHTML = '+dashboard';
-			dashboardToggle.setAttribute('title','Add this subreddit to your dashboard');
-		}
-		dashboardToggle.addEventListener('click', modules['dashboard'].toggleDashboard, false);
-		$('#subButtons').append(dashboardToggle);
 	},
 	toggleDashboard: function(e) {
 		var thisBasePath = '/r/'+e.target.getAttribute('subreddit');
@@ -16232,6 +16688,374 @@ modules['dashboard'] = {
 			$('#'+tabID).show();
 		});
 	}	
+}; 
+
+modules['subredditInfo'] = {
+	moduleID: 'subredditInfo',
+	moduleName: 'Subreddit Info',
+	category: 'UI',
+	options: {
+		hoverInfo: {
+			type: 'boolean',
+			value: true,
+			description: 'Show information on user (karma, how long they\'ve been a redditor) on hover.'
+		},
+		hoverDelay: {
+			type: 'text',
+			value: 800,
+			description: 'Delay, in milliseconds, before hover tooltip loads. Default is 800.'
+		},
+		fadeDelay: {
+			type: 'text',
+			value: 200,
+			description: 'Delay, in milliseconds, before hover tooltip fades away. Default is 200.'
+		},
+		fadeSpeed: {
+ 			type: 'text',
+			value: 0.3,
+ 			description: 'Fade animation\'s speed. Default is 0.3, the range is 0-1. Setting the speed to 1 will disable the animation.'
+ 		},
+		USDateFormat: {
+			type: 'boolean',
+			value: false,
+			description: 'Show date (subreddit created...) in US format (i.e. 08-31-2010)'
+		}
+	},
+	description: 'Adds a hover tooltip to subreddits',
+	isEnabled: function() {
+		return RESConsole.getModulePrefs(this.moduleID);
+	},
+	include: Array(
+		/https?:\/\/([a-z]+).reddit.com\/[\?]*/i
+	),
+	isMatchURL: function() {
+		return RESUtils.isMatchURL(this.moduleID);
+	},
+	go: function() {
+		if ((this.isEnabled()) && (this.isMatchURL())) {
+			// do stuff now!
+			// this is where your code goes...
+			var css = '';
+			css += '#subredditInfoToolTip { display: none; position: absolute; width: 412px; z-index: 10001; }';
+			css += '#subredditInfoToolTip .subredditLabel { float: left; width: 140px; margin-bottom: 12px; }';
+			css += '#subredditInfoToolTip .subredditDetail { float: left; width: 240px; margin-bottom: 12px; }';
+			css += '#subredditInfoToolTip .blueButton { float: right; margin-left: 8px; cursor: pointer; margin-top: 12px; padding-top: 3px; padding-bottom: 3px; padding-left: 5px; padding-right: 5px; font-size: 12px; color: #ffffff !important; border: 1px solid #636363; border-radius: 3px 3px 3px 3px; -moz-border-radius: 3px 3px 3px 3px; -webkit-border-radius: 3px 3px 3px 3px; background-color: #107ac4; }';
+			css += '#subredditInfoToolTip .redButton { float: right; margin-left: 8px; cursor: pointer; margin-top: 12px; padding-top: 3px; padding-bottom: 3px; padding-left: 5px; padding-right: 5px; font-size: 12px; color: #ffffff !important; border: 1px solid #bc3d1b; border-radius: 3px 3px 3px 3px; -moz-border-radius: 3px 3px 3px 3px; -webkit-border-radius: 3px 3px 3px 3px; background-color: #ff5757; }';
+			RESUtils.addCSS(css);
+
+			// create a cache for subreddit data so we only load it once even if the hover is triggered many times
+			this.subredditInfoCache = [];
+
+			// create the tooltip...
+			this.subredditInfoToolTip = createElementWithID('div', 'subredditInfoToolTip', 'RESDialogSmall');
+			this.subredditInfoToolTipHeader = document.createElement('h3');
+			this.subredditInfoToolTip.appendChild(this.subredditInfoToolTipHeader);
+			this.subredditInfoToolTipCloseButton = createElementWithID('div', 'subredditInfoToolTipClose', 'RESCloseButton');
+			this.subredditInfoToolTipCloseButton.innerHTML = 'X';
+			this.subredditInfoToolTip.appendChild(this.subredditInfoToolTipCloseButton);
+			this.subredditInfoToolTipCloseButton.addEventListener('click', function(e) {
+				if (typeof(modules['subredditInfo'].hideTimer) != 'undefined') {
+					clearTimeout(modules['subredditInfo'].hideTimer);
+				}
+				modules['subredditInfo'].hideSubredditInfo();
+			}, false);
+			this.subredditInfoToolTipContents = createElementWithID('div','subredditInfoToolTipContents', 'RESDialogContents');
+			this.subredditInfoToolTip.appendChild(this.subredditInfoToolTipContents);
+			this.subredditInfoToolTip.addEventListener('mouseover', function(e) {
+				if (typeof(modules['subredditInfo'].hideTimer) != 'undefined') {
+					clearTimeout(modules['subredditInfo'].hideTimer);
+				}
+			}, false);
+			this.subredditInfoToolTip.addEventListener('mouseout', function(e) {
+				if (e.target.getAttribute('class') != 'hoverSubreddit') {
+					modules['subredditInfo'].hideTimer = setTimeout(function() {
+						modules['subredditInfo'].hideSubredditInfo();
+					}, modules['subredditInfo'].options.fadeDelay.value);
+				}
+			}, false);
+			document.body.appendChild(this.subredditInfoToolTip);
+
+			// get subreddit links and add event listeners...
+			var subredditLinks = document.body.querySelectorAll('.listing-page a.subreddit');
+			if (subredditLinks) {
+				var len=subredditLinks.length;
+				for (var i=0; i<len; i++) {
+					var thisSRLink = subredditLinks[i];
+					thisSRLink.addEventListener('mouseover', function(e) {
+						modules['subredditInfo'].showTimer = setTimeout(function() {
+							modules['subredditInfo'].showSubredditInfo(e.target);
+						}, modules['subredditInfo'].options.hoverDelay.value);
+					}, false);
+					thisSRLink.addEventListener('mouseout', function(e) {
+						clearTimeout(modules['subredditInfo'].showTimer);
+					}, false);
+				}
+			}
+		}
+	},
+	showSubredditInfo: function(obj) {
+		var thisXY=RESUtils.getXYpos(obj);
+		var thisSubreddit = obj.textContent;
+		this.subredditInfoToolTipHeader.innerHTML = '<a href="/r/'+thisSubreddit+'">/r/' + thisSubreddit + '</a>';
+		this.subredditInfoToolTipContents.innerHTML = '<a class="hoverSubreddit" href="/user/'+thisSubreddit+'">'+thisSubreddit+'</a>:<br><img src="'+RESConsole.loader+'"> loading...';
+		if((window.innerWidth-thisXY.x)<=412){
+			this.subredditInfoToolTip.setAttribute('style', 'top: ' + (thisXY.y - 14) + 'px; left: ' + (thisXY.x - 180) + 'px;');
+		} else {
+			this.subredditInfoToolTip.setAttribute('style', 'top: ' + (thisXY.y - 14) + 'px; left: ' + (thisXY.x - 10) + 'px;');
+		}
+		if(this.options.fadeSpeed.value < 0 || this.options.fadeSpeed.value > 1 || isNaN(this.options.fadeSpeed.value)) {
+			this.options.fadeSpeed.value = 0.3;
+		}
+		RESUtils.fadeElementIn(this.subredditInfoToolTip, this.options.fadeSpeed.value);
+		setTimeout(function() {
+			if (!RESUtils.elementUnderMouse(modules['subredditInfo'].subredditInfoToolTip)) {
+				modules['subredditInfo'].hideSubredditInfo();
+			}
+		}, 1000);
+		if (typeof(this.subredditInfoCache[thisSubreddit]) != 'undefined') {
+			this.writeSubredditInfo(this.subredditInfoCache[thisSubreddit]);
+		} else {
+			GM_xmlhttpRequest({
+				method:	"GET",
+				url:	location.protocol + "//"+location.hostname+"/r/" + thisSubreddit + "/about.json?app=res",
+				onload:	function(response) {
+					var thisResponse = JSON.parse(response.responseText);
+					modules['subredditInfo'].subredditInfoCache[thisSubreddit] = thisResponse;
+					modules['subredditInfo'].writeSubredditInfo(thisResponse);
+				}
+			});
+		}
+	},
+	writeSubredditInfo: function(jsonData) {
+		var utctime = jsonData.data.created;
+		var d = new Date(utctime*1000);
+		var srHTML = '<div class="subredditLabel">Subreddit created:</div> <div class="subredditDetail">' + RESUtils.niceDate(d, this.options.USDateFormat.value) + ' ('+RESUtils.niceDateDiff(d)+')</div>';
+		srHTML += '<div class="subredditLabel">Subscribers:</div> <div class="subredditDetail">' + RESUtils.addCommas(jsonData.data.subscribers) + '</div>';
+		srHTML += '<div class="subredditLabel">Title:</div> <div class="subredditDetail">' + jsonData.data.title + '</div>';
+		srHTML += '<div class="subredditLabel">Over 18:</div> <div class="subredditDetail">' + jsonData.data.over18 + '</div>';
+		// srHTML += '<div class="subredditLabel">Description:</div> <div class="subredditDetail">' + jsonData.data.description + '</div>';
+		srHTML += '<div class="clear"></div><div id="subTooltipButtons" class="bottomButtons">';
+		srHTML += '<div class="clear"></div></div>'; // closes bottomButtons div
+		this.subredditInfoToolTipContents.innerHTML = srHTML;
+		// bottom buttons will include: +filter +shortcut +dashboard (maybe sub/unsub too?)
+		if (modules['subredditManager'].isEnabled()) {
+			var theSC = document.createElement('span');
+			theSC.setAttribute('style','display: inline-block !important;');
+			theSC.setAttribute('class','RESshortcut RESshortcutside');
+			theSC.setAttribute('subreddit',jsonData.data.display_name.toLowerCase());
+			var idx = -1;
+			for (var i=0, len=modules['subredditManager'].mySubredditShortcuts.length; i<len; i++) {
+				if (modules['subredditManager'].mySubredditShortcuts[i].subreddit == jsonData.data.display_name.toLowerCase()) {
+					idx=i;
+					break;
+				}
+			}
+			if (idx != -1) {
+				theSC.innerHTML = '-shortcut';
+				theSC.setAttribute('title','Remove this subreddit from your shortcut bar');
+				addClass(theSC,'remove');
+			} else {
+				theSC.innerHTML = '+shortcut';
+				theSC.setAttribute('title','Add this subreddit to your shortcut bar');
+			}
+			theSC.addEventListener('click', modules['subredditManager'].toggleSubredditShortcut, false);
+			// subButton.parentNode.insertBefore(theSC, subButton);
+			// theSubredditLink.appendChild(theSC);
+			$('#subTooltipButtons').append(theSC);
+		}
+		if (modules['dashboard'].isEnabled()) {
+			var dashboardToggle = document.createElement('span');
+			dashboardToggle.setAttribute('class','RESDashboardToggle');
+			dashboardToggle.setAttribute('subreddit',jsonData.data.display_name.toLowerCase());
+			var exists=false;
+			for (var i=0, len=modules['dashboard'].widgets.length; i<len; i++) {
+				if ((modules['dashboard'].widgets[i]) && (modules['dashboard'].widgets[i].basePath.toLowerCase() == '/r/'+jsonData.data.display_name.toLowerCase())) {
+					exists=true;
+					break;
+				}
+			}
+			if (exists) {
+				dashboardToggle.innerHTML = '-dashboard';
+				dashboardToggle.setAttribute('title','Remove this subreddit from your dashboard');
+				addClass(dashboardToggle,'remove');
+			} else {
+				dashboardToggle.innerHTML = '+dashboard';
+				dashboardToggle.setAttribute('title','Add this subreddit to your dashboard');
+			}
+			dashboardToggle.addEventListener('click', modules['dashboard'].toggleDashboard, false);
+			$('#subTooltipButtons').append(dashboardToggle);
+		}
+		if (modules['filteReddit'].isEnabled()) {
+			var filterToggle = document.createElement('span');
+			filterToggle.setAttribute('class','RESFilterToggle');
+			filterToggle.setAttribute('subreddit',jsonData.data.display_name.toLowerCase());
+			var exists=false;
+			var filteredReddits = modules['filteReddit'].options.subreddits.value;
+			for (var i=0, len=filteredReddits.length; i<len; i++) {
+				if ((filteredReddits[i]) && (filteredReddits[i][0].toLowerCase() == jsonData.data.display_name.toLowerCase())) {
+					exists=true;
+					break;
+				}
+			}
+			if (exists) {
+				filterToggle.innerHTML = '-filter';
+				filterToggle.setAttribute('title','Stop filtering from /r/all');
+				addClass(filterToggle,'remove');
+			} else {
+				filterToggle.innerHTML = '+filter';
+				filterToggle.setAttribute('title','Filter this subreddit from /r/all');
+			}
+			filterToggle.addEventListener('click', modules['filteReddit'].toggleFilter, false);
+			$('#subTooltipButtons').append(filterToggle);
+		}
+	},
+	hideSubredditInfo: function(obj) {
+		if(this.options.fadeSpeed.value < 0 || this.options.fadeSpeed.value > 1 || isNaN(this.options.fadeSpeed.value)) {
+			this.options.fadeSpeed.value = 0.3;
+		}
+		RESUtils.fadeElementOut(this.subredditInfoToolTip, this.options.fadeSpeed.value);
+	}
+}; // note: you NEED this semicolon at the end!
+
+
+
+/**
+ * CommentHidePersistor - stores hidden comments in localStorage and re-hides
+ * them on reload of the page.
+**/
+m_chp = modules['commentHidePersistor'] = {
+    moduleID: 'commentHidePersistor',
+    moduleName: 'Comment Hide Persistor',
+    category: 'Comments',
+    description: 'Saves the state of hidden comments across page views.',
+    allHiddenThings: {},
+    hiddenKeys: [],
+    hiddenThings: [],
+    hiddenThingsKey: window.location.href,
+    maxKeys: 100,
+    pruneKeysTo: 50,
+
+    options: {},
+    isEnabled: function () {
+        return RESConsole.getModulePrefs(this.moduleID);
+    },
+    include: new Array(
+        /https?:\/\/([a-z]+).reddit.com\/[-\w\.\/]+\/comments\/[-\w\.]+/i,
+        /https?:\/\/([a-z]+).reddit.com\/comments\/[-\w\.]+/i
+    ),
+    isMatchURL: function () {
+        return RESUtils.isMatchURL(this.moduleID);
+    },
+    go: function () {
+        if ((this.isEnabled()) && (this.isMatchURL())) {
+            m_chp.bindToHideLinks();
+            m_chp.hideHiddenThings();
+        }
+    },
+    bindToHideLinks: function () {
+        /**
+         * For every expand/collapse link, add a click listener that will
+         * store or remove the comment ID from our list of hidden comments.
+        **/
+        $('a.expand').live('click', function () {
+            var thing   = $(this).parents('.thing'),
+                thingId = thing.data('fullname'),
+                collapsing = !$(this).parent().is('.collapsed');
+
+            /* Add our key to pages interacted with, for potential pruning
+               later */
+            if (m_chp.hiddenKeys.indexOf(m_chp.hiddenThingsKey) == -1) {
+                m_chp.hiddenKeys.push(m_chp.hiddenThingsKey);
+            }
+
+            if (collapsing) {
+                m_chp.addHiddenThing(thingId);
+            } else {
+                m_chp.removeHiddenThing(thingId);
+            }
+        });
+    },
+    loadHiddenThings: function () {
+        var hidePersistorJson = RESStorage.getItem('RESmodules.commentHidePersistor.hidePersistor')
+
+        if (hidePersistorJson) {
+            try {
+                m_chp.hidePersistorData = safeJSON.parse(hidePersistorJson)
+                m_chp.allHiddenThings = m_chp.hidePersistorData['hiddenThings']
+                m_chp.hiddenKeys = m_chp.hidePersistorData['hiddenKeys']
+
+                /**
+                 * Prune allHiddenThings of old content so it doesn't get
+                 * huge.
+                **/
+                if (m_chp.hiddenKeys.length > m_chp.maxKeys) {
+                    var pruneStart = m_chp.maxKeys - m_chp.pruneKeysTo,
+                        newHiddenThings = {},
+                        newHiddenKeys = [];
+                    
+                    /* Recreate our object as a subset of the original */
+                    for (var i=pruneStart; i < m_chp.hiddenKeys.length; i++) {
+                        var hiddenKey = m_chp.hiddenKeys[i];
+                        newHiddenKeys.push(hiddenKey);
+                        newHiddenThings[hiddenKey] = m_chp.allHiddenThings[hiddenKey];
+                    }
+                    m_chp.allHiddenThings = newHiddenThings;
+                    m_chp.hiddenKeys = newHiddenKeys;
+                    m_chp.syncHiddenThings();
+                }
+
+                if (typeof m_chp.allHiddenThings[m_chp.hiddenThingsKey] !== 'undefined') {
+                    m_chp.hiddenThings = m_chp.allHiddenThings[m_chp.hiddenThingsKey];
+                    return;
+                }
+            } catch(e) {}
+        }
+    },
+    addHiddenThing: function (thingId) {
+       var i = m_chp.hiddenThings.indexOf(thingId);
+       if (i === -1) {
+           m_chp.hiddenThings.push(thingId);
+       }
+       m_chp.syncHiddenThings();
+    },
+    removeHiddenThing: function (thingId) {
+        var i = m_chp.hiddenThings.indexOf(thingId);
+        if (i !== -1) {
+            m_chp.hiddenThings.splice(i, 1);
+        }
+        m_chp.syncHiddenThings();
+    },
+    syncHiddenThings: function () {
+        var hidePersistorData;
+        m_chp.allHiddenThings[m_chp.hiddenThingsKey] = m_chp.hiddenThings;
+        hidePersistorData = {
+            'hiddenThings': m_chp.allHiddenThings,
+            'hiddenKeys': m_chp.hiddenKeys
+        }
+        RESStorage.setItem('RESmodules.commentHidePersistor.hidePersistor', JSON.stringify(hidePersistorData));
+    },
+    hideHiddenThings: function () {
+        m_chp.loadHiddenThings();
+
+        for(var i=0, il=m_chp.hiddenThings.length; i < il; i++) {
+            var thingId = m_chp.hiddenThings[i],
+                $hideLink = $('div.id-' + thingId + ':first > div.entry div.noncollapsed a.expand'); 
+
+            if ($hideLink.length) {
+                /**
+                 * Zero-length timeout to defer this action until after the
+                 * other modules have finished. For some reason without
+                 * deferring the hide was conflicting with the
+                 * commentNavToggle width.
+                **/
+                (function ($hideLink) {
+                    window.setTimeout(function () {
+                        $hideLink.click();
+                    }, 0);
+                })($hideLink)
+            }
+        }
+    }
 }; 
 
 
@@ -16404,6 +17228,12 @@ var DEFAULT_SETTINGS = {
 
 	// Manipulation settings
     idPrefix: "token-input-",
+
+    // Keep track if the input is currently in disabled mode
+    disabled: false,
+
+	// Allowed add token which is not in suggest list
+    allowCustomEntry: false,
 
 	// Formatters
     resultsFormatter: function(item){ return "<li>" + item[this.propertyToSearch]+ "</li>" },
@@ -16629,11 +17459,19 @@ $.TokenList = function (input, url_or_data, settings) {
                 case KEY.TAB:
                 case KEY.ENTER:
                 case KEY.NUMPAD_ENTER:
+                case KEY.SPACE: // added by honestbleeps
                 case KEY.COMMA:
                   if(selected_dropdown_item) {
                     add_token($(selected_dropdown_item).data("tokeninput"));
                     hidden_input.change();
                     return false;
+                  } else if (settings.allowCustomEntry) {
+                  	// this functionality added by honestbleeps, doesn't exist in current plugin.
+                  	// this allows tokens to be added for elements that don't show up in the search.
+                  	var currentTokenInputItem = {"name": event.target.value};
+                  	add_token(currentTokenInputItem);
+                  	hidden_input.change();
+                  	return false;
                   }
                   break;
 
@@ -17070,6 +17908,7 @@ $.TokenList = function (input, url_or_data, settings) {
         } else {
             if(settings.noResultsText) {
                 dropdown.html("<p>"+settings.noResultsText+"</p>");
+                selected_dropdown_item = null;
                 show_dropdown();
             }
         }
