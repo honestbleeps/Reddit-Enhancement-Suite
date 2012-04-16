@@ -84,7 +84,7 @@ XHRCache = {
 
 pageMod.PageMod({
   include: ["*.reddit.com"],
-  contentScriptWhen: 'ready',
+  contentScriptWhen: 'start',
   // contentScriptFile: [self.data.url('jquery-1.6.4.min.js'), self.data.url('reddit_enhancement_suite.user.js')],
   contentScriptFile: [self.data.url('jquery-1.6.4.min.js'), self.data.url('reddit_enhancement_suite.user.js')],
   onAttach: function(worker) {
@@ -93,6 +93,7 @@ pageMod.PageMod({
 		worker.postMessage({ name: "getLocalStorage", message: localStorage });
 	});
 
+	// this seems better to handle individually, rather than on tab change.. commenting out.
     /*
 	workers.push(worker);
 	worker.on('detach', function () {

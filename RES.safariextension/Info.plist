@@ -5,7 +5,7 @@
 	<key>Author</key>
 	<string>Steve Sobel</string>
 	<key>Builder Version</key>
-	<string>534.50</string>
+	<string>534.55.3</string>
 	<key>CFBundleDisplayName</key>
 	<string>Reddit Enhancement Suite</string>
 	<key>CFBundleIdentifier</key>
@@ -29,8 +29,11 @@
 		<dict>
 			<key>End</key>
 			<array>
-				<string>reddit_enhancement_suite.user.js</string>
 				<string>jquery-1.6.4.min.js</string>
+			</array>
+			<key>Start</key>
+			<array>
+				<string>reddit_enhancement_suite.user.js</string>
 			</array>
 		</dict>
 	</dict>
