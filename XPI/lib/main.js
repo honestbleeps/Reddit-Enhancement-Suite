@@ -5,14 +5,14 @@ var self = require("self");
 var firefox = typeof(require);
 var tabs = require("tabs");
 var ss = require("simple-storage");
-// var workers = new Array();
-
+var workers = [];
 function detachWorker(worker, workerArray) {
-	var index = workerArray.indexOf(worker);
-	if(index != -1) {
-		workerArray.splice(index, 1);
-	}
+  var index = workerArray.indexOf(worker);
+  if(index != -1) {
+    workerArray.splice(index, 1);
+  }
 }
+
 var localStorage = ss.storage;
 
 localStorage.getItem = function(key) {
@@ -81,6 +81,15 @@ XHRCache = {
 		this.count = 0;
 	}
 };
+tabs.on('activate', function(tab) {
+	// find this worker...
+	for (i in workers) {
+		if ((typeof(workers[i].tab) != 'undefined') && (tab.title == workers[i].tab.title)) {
+			workers[i].postMessage({ name: "getLocalStorage", message: localStorage });
+		}
+	}
+});
+
 
 pageMod.PageMod({
   include: ["*.reddit.com"],
@@ -89,20 +98,11 @@ pageMod.PageMod({
   contentScriptFile: [self.data.url('jquery-1.6.4.min.js'), self.data.url('reddit_enhancement_suite.user.js')],
   onAttach: function(worker) {
 	// when a tab is activated, repopulate localStorage so that changes propagate across tabs...
-	tabs.on('activate', function(tab) {
-		worker.postMessage({ name: "getLocalStorage", message: localStorage });
-	});
 
-	// this seems better to handle individually, rather than on tab change.. commenting out.
-    /*
 	workers.push(worker);
-	worker.on('detach', function () {
-		detachWorker(this, workers);
-		// console.log('worker detached, total now: ' + workers.length);
+    worker.on('detach', function () {
+      detachWorker(this, workers);
     });
-	*/
-	// console.log('total workers: ' + workers.length);
-	// worker.postMessage('init');
 	worker.on('message', function(data) {
 		var request = data;
 		switch(request.requestType) {
@@ -232,15 +232,6 @@ pageMod.PageMod({
 						break;
 					case 'setItem':
 						localStorage.setItem(request.itemName, request.itemValue);
-						// worker.postMessage({status: true, value: null});
-						// console.log('set item called for: ' + request.itemName + ' - ' + new Date().getTime());
-						/*
-						for each (var thisWorker in workers) {
-							if (thisWorker != worker) {
-								thisWorker.postMessage({ name: "localStorage", itemName: request.itemName, itemValue: request.itemValue });
-							} 
-						}
-						*/
 						break;
 				}
 				break;
@@ -260,5 +251,3 @@ pageMod.PageMod({
 	});
   }
 });
-
-
