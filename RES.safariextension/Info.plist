@@ -27,12 +27,9 @@
 	<dict>
 		<key>Scripts</key>
 		<dict>
-			<key>End</key>
-			<array>
-				<string>jquery-1.6.4.min.js</string>
-			</array>
 			<key>Start</key>
 			<array>
+				<string>jquery-1.6.4.min.js</string>
 				<string>reddit_enhancement_suite.user.js</string>
 			</array>
 		</dict>
