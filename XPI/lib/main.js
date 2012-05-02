@@ -5,6 +5,19 @@ var self = require("self");
 var firefox = typeof(require);
 var tabs = require("tabs");
 var ss = require("simple-storage");
+
+// require chrome allows us to use XPCOM objects...
+var {Cc, Cu, Cr} = require("chrome");
+// from XPCOM, use the NSIGlobalHistory2 service...
+var historyService = Components.classes["@mozilla.org/browser/nav-history-service;1"] .getService(Components.interfaces.nsIGlobalHistory2)
+
+// this function takes in a string (and optional charset, paseURI) and creates an nsURI object, which is required by historyService.addURI...
+function makeURI(aURL, aOriginCharset, aBaseURI) {  
+  var ioService = Components.classes["@mozilla.org/network/io-service;1"]  
+                  .getService(Components.interfaces.nsIIOService);  
+  return ioService.newURI(aURL, aOriginCharset, aBaseURI);  
+} 
+
 var workers = [];
 function detachWorker(worker, workerArray) {
   var index = workerArray.indexOf(worker);
@@ -241,6 +254,10 @@ pageMod.PageMod({
 						XHRCache.clear();
 						break;
 				}
+				break;
+			case 'addURLToHistory':
+				var uri = makeURI(request.url);
+				historyService.addURI(uri, false, true, null);
 				break;
 			default:
 				worker.postMessage({status: "unrecognized request type"});
