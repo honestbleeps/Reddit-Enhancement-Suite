@@ -1,6 +1,6 @@
 {
 	"name": "Reddit Enhancement Suite",
-	"version": "4.1.0",
+	"version": "4.1.1",
 	"description": "Reddit Enhancement Suite - a group of enhancements for browsing Reddit",
 	"update_url": "http://redditenhancementsuite.com/update-chrome.php",
 	"background_page": "background.html",
@@ -14,7 +14,7 @@
 				"http://*.reddit.com/*",
 				"https://*.reddit.com/*"
 			],
-			"js": ["reddit_enhancement_suite.user.js", "jquery-1.6.4.min.js"],
+			"js": ["jquery-1.6.4.min.js", "reddit_enhancement_suite.user.js"],
 			"run_at": "document_start"
 		}
 	],
