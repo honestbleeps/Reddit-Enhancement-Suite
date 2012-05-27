@@ -13,9 +13,9 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleShortVersionString</key>
-	<string>4.1.2</string>
+	<string>@@VERSION@@</string>
 	<key>CFBundleVersion</key>
-	<string>4.1.2</string>
+	<string>@@VERSION@@</string>
 	<key>Chrome</key>
 	<dict>
 		<key>Database Quota</key>
@@ -29,8 +29,8 @@
 		<dict>
 			<key>Start</key>
 			<array>
-				<string>jquery-1.6.4.min.js</string>
-				<string>reddit_enhancement_suite.user.js</string>
+				<string>@@JQUERY_FILE@@</string>
+				<string>@@RES_FILE@@</string>
 			</array>
 		</dict>
 	</dict>
