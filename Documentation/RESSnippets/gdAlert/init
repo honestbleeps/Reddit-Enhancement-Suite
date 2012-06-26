@@ -1,0 +1,42 @@
+	init: function(callback) {
+		//init
+		var alertCSS = '#alert_message { ' +
+			'display: none;' +
+			'opacity: 0.0;' +
+			'background-color: #EFEFEF;' +
+			'border: 1px solid black;' +
+			'color: black;' +
+			'font-size: 10px;' +
+			'padding: 20px;' +
+			'padding-left: 60px;' +
+			'padding-right: 60px;' +
+			'position: fixed!important;' +
+			'position: absolute;' +
+			'width: 400px;' +
+			'float: left;' +
+			'z-index: 10000;' +
+			'text-align: left;' +
+			'left: auto;' +
+			'top: auto;' +
+			'}' +
+		'#alert_message .button {' +
+			'border: 1px solid black;' +
+			'font-weight: bold;' +
+			'font-size: 10px;' +
+			'padding: 4px;' +
+			'padding-left: 7px;' +
+			'padding-right: 7px;' +
+			'float: left;' +
+			'background-color: #DFDFDF;' +
+			'cursor: pointer;' +
+			'}' +
+		'#alert_message span {' +
+			'display: block;' +
+			'margin-bottom: 15px;	' +
+			'}';
+
+		GM_addStyle(alertCSS);
+
+		gdAlert.populateContainer(callback);
+
+	},

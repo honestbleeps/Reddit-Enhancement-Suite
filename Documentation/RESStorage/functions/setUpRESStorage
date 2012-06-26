@@ -1,0 +1,257 @@
+function setUpRESStorage (response) {
+	if (typeof(chrome) != 'undefined') {
+		RESStorage = response;
+		// we'll set up a method for getItem, but it's not adviseable to use since it's asynchronous...
+		RESStorage.getItem = function(key) {
+			if (typeof(RESStorage[key]) != 'undefined') return RESStorage[key];
+			return null;
+		}
+		// if the fromBG parameter is true, we've been informed by another tab that this item has updated. We should update the data locally, but not send a background request.
+		RESStorage.setItem = function(key, value, fromBG) {
+			//Protect from excessive disk I/O...
+			if (RESStorage[key] != value) {
+				// save it locally in the RESStorage variable, but also write it to the extension's localStorage...
+				// It's OK that saving it is asynchronous since we're saving it in this local variable, too...
+				RESStorage[key] = value;
+				var thisJSON =  {
+					requestType: 'localStorage',
+					operation: 'setItem',
+					itemName: key,
+					itemValue: value
+				}
+				if (!fromBG) {
+					chrome.extension.sendRequest(thisJSON, function(response) {
+						// this is an asynchronous response, we don't really need to do anything here...
+					});
+				}
+			}
+		}
+		RESStorage.removeItem = function(key) {
+			// delete it locally in the RESStorage variable, but also delete it from the extension's localStorage...
+			// It's OK that deleting it is asynchronous since we're deleting it in this local variable, too...
+			delete RESStorage[key];
+			var thisJSON =  {
+				requestType: 'localStorage',
+				operation: 'removeItem',
+				itemName: key
+			}
+			chrome.extension.sendRequest(thisJSON, function(response) {
+				// this is an asynchronous response, we don't really need to do anything here...
+			});
+		}
+		window.localStorage = RESStorage;
+		RESInit();
+	} else if (typeof(safari) != 'undefined') {
+		RESStorage = response;
+		RESStorage.getItem = function(key) {
+			if (typeof(RESStorage[key]) != 'undefined') return RESStorage[key];
+			return null;
+		}
+		RESStorage.setItem = function(key, value, fromBG) {
+			//Protect from excessive disk I/O...
+			if (RESStorage[key] != value) {
+				// save it locally in the RESStorage variable, but also write it to the extension's localStorage...
+				// It's OK that saving it is asynchronous since we're saving it in this local variable, too...
+				RESStorage[key] = value;
+				var thisJSON =  {
+					requestType: 'localStorage',
+					operation: 'setItem',
+					itemName: key,
+					itemValue: value
+				}
+				if (!fromBG) {
+					safari.self.tab.dispatchMessage("localStorage", thisJSON);
+				}
+			}
+		}
+		RESStorage.removeItem = function(key) {
+			// delete it locally in the RESStorage variable, but also delete it from the extension's localStorage...
+			// It's OK that deleting it is asynchronous since we're deleting it in this local variable, too...
+			delete RESStorage[key];
+			var thisJSON =  {
+				requestType: 'localStorage',
+				operation: 'removeItem',
+				itemName: key
+			}
+			safari.self.tab.dispatchMessage("localStorage", thisJSON);
+		}
+		window.localStorage = RESStorage;
+	} else if (typeof(opera) != 'undefined') {
+		RESStorage = response;
+		RESStorage.getItem = function(key) {
+			if (typeof(RESStorage[key]) != 'undefined') return RESStorage[key];
+			return null;
+		}
+		RESStorage.setItem = function(key, value, fromBG) {
+			//Protect from excessive disk I/O...
+			if (RESStorage[key] != value) {
+				// save it locally in the RESStorage variable, but also write it to the extension's localStorage...
+				// It's OK that saving it is asynchronous since we're saving it in this local variable, too...
+				RESStorage[key] = value;
+				var thisJSON =  {
+					requestType: 'localStorage',
+					operation: 'setItem',
+					itemName: key,
+					itemValue: value
+				}
+				if (!fromBG) {
+					opera.extension.postMessage(JSON.stringify(thisJSON));
+				} 
+			}
+		}
+		RESStorage.removeItem = function(key) {
+			// delete it locally in the RESStorage variable, but also delete it from the extension's localStorage...
+			// It's OK that deleting it is asynchronous since we're deleting it in this local variable, too...
+			delete RESStorage[key];
+			var thisJSON =  {
+				requestType: 'localStorage',
+				operation: 'removeItem',
+				itemName: key
+			}
+			opera.extension.postMessage(JSON.stringify(thisJSON));
+		}
+		window.localStorage = RESStorage;
+	} else if (typeof(self.on) != 'undefined') {
+		RESStorage = response;
+		RESStorage.getItem = function(key) {
+			if (typeof(RESStorage[key]) != 'undefined') return RESStorage[key];
+			return null;
+		}
+		RESStorage.setItem = function(key, value, fromBG) {
+			// save it locally in the RESStorage variable, but also write it to the extension's localStorage...
+			// It's OK that saving it is asynchronous since we're saving it in this local variable, too...
+			RESStorage[key] = value;
+			var thisJSON =  {
+				requestType: 'localStorage',
+				operation: 'setItem',
+				itemName: key,
+				itemValue: value
+			}
+			if (!fromBG) {
+				self.postMessage(thisJSON);
+			} 
+		}
+		RESStorage.removeItem = function(key) {
+			// delete it locally in the RESStorage variable, but also delete it from the extension's localStorage...
+			// It's OK that deleting it is asynchronous since we're deleting it in this local variable, too...
+			delete RESStorage[key];
+			var thisJSON =  {
+				requestType: 'localStorage',
+				operation: 'removeItem',
+				itemName: key
+			}
+			self.postMessage(thisJSON);
+		}
+		window.localStorage = RESStorage;
+	} else {
+		// must be firefox w/greasemonkey...
+		//
+		RESStorage.getItem = function(key) {
+			if (typeof(RESStorage[key]) != 'undefined') return RESStorage[key];
+			RESStorage[key] = GM_getValue(key);
+			if (typeof(RESStorage[key]) == 'undefined') return null;
+			return GM_getValue(key);
+		}
+		RESStorage.setItem = function(key, value) {
+			// save it locally in the RESStorage variable, but also write it to the extension's localStorage...
+			// It's OK that saving it is asynchronous since we're saving it in this local variable, too...
+			// Wow, GM_setValue doesn't support big integers, so we have to store anything > 2147483647 as a string, so dumb.
+			if (typeof(value) != 'undefined') {
+				// if ((typeof(value) == 'number') && (value > 2147483647)) {
+				if (typeof(value) == 'number') {
+					value = value.toString();
+				}
+			//Protect from excessive disk I/O...
+			if (RESStorage[key] != value) {
+					RESStorage[key] = value;
+					// because we may want to use jQuery events to call GM_setValue and GM_getValue, we must use this ugly setTimeout hack.
+					setTimeout(function() {
+						GM_setValue(key, value);
+					}, 0);
+				}
+			}
+			return true;
+		}
+		RESStorage.removeItem = function(key) {
+			// delete it locally in the RESStorage variable, but also delete it from the extension's localStorage...
+			// It's OK that deleting it is asynchronous since we're deleting it in this local variable, too...
+			delete RESStorage[key];
+			GM_deleteValue(key);
+			return true;
+		}
+	}
+}
+
+if (typeof(opera) != 'undefined') {
+	// I freaking hate having to use different code that won't run in other browsers to log debugs, so I'm overriding console.log with opera.postError here
+	// so I don't have to litter my code with different statements for different browsers when debugging.
+	console.log = opera.postError;
+	opera.extension.addEventListener( "message", operaMessageHandler, false);	
+	window.addEventListener("DOMContentLoaded", function(u) {
+		// we've got opera, let's check for old localStorage...
+		// RESInit() will be called from operaMessageHandler()
+		thisJSON = {
+			requestType: 'getLocalStorage'
+		}
+		opera.extension.postMessage(JSON.stringify(thisJSON));
+	}, false);
+} else {
+	(function(u) {
+		if (typeof(chrome) != 'undefined') {
+			// we've got chrome, get a copy of the background page's localStorage first, so don't init until after.
+			var thisJSON = {
+				requestType: 'getLocalStorage'
+			}
+			chrome.extension.sendRequest(thisJSON, function(response) {
+				// Does RESStorage have actual data in it?  If it doesn't, they're a legacy user, we need to copy 
+				// old schol localStorage from the foreground page to the background page to keep their settings...
+				if (typeof(response.importedFromForeground) == 'undefined') {
+					// it doesn't exist.. copy it over...
+					var thisJSON = {
+						requestType: 'saveLocalStorage',
+						data: localStorage
+					}
+					chrome.extension.sendRequest(thisJSON, function(response) {
+						setUpRESStorage(response);
+					});
+				} else {
+					setUpRESStorage(response);
+				}
+			});
+		} else if (typeof(safari) != 'undefined') {
+			// we've got safari, get localStorage from background process
+			thisJSON = {
+				requestType: 'getLocalStorage'
+			}
+			safari.self.tab.dispatchMessage("getLocalStorage", thisJSON);
+		} else if (typeof(self.on) != 'undefined') {
+			// we've got firefox jetpack, get localStorage from background process
+			thisJSON = {
+				requestType: 'getLocalStorage'
+			}
+			self.postMessage(thisJSON);
+		} else {
+			// Check if GM_getValue('importedFromForeground') has been set.. if not, this is an old user using localStorage;
+			(typeof(unsafeWindow) != 'undefined') ? ls = unsafeWindow.localStorage : ls = localStorage;
+			if (GM_getValue('importedFromForeground') != 'true') {
+				// It doesn't exist, so we need to copy localStorage over to GM_setValue storage...
+				for (var i = 0, len=ls.length; i < len; i++){
+					var value = ls.getItem(ls.key(i));
+					if (typeof(value) != 'undefined') {
+						if ((typeof(value) == 'number') && (value > 2147483647)) {
+							value = value.toString();
+						}
+						if (ls.key(i)) {
+							GM_setValue(ls.key(i), value);
+						}
+					}
+				}
+				GM_setValue('importedFromForeground','true');
+			}
+			setUpRESStorage();
+			RESInit();
+			// console.log(GM_listValues());
+		}
+	})();
+}
+

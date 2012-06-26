@@ -1,0 +1,11 @@
+	close: function() {
+		gdAlert.isOpen = false;
+		/*
+		new Effect.Fade(gdAlert.container, {duration: 0.3});
+		new Effect.Fade(gdAlert.overlay, {duration: 0.3, afterFinish: function() {
+			document.body.removeChild(gdAlert.overlay);
+		}});	
+		*/
+		RESUtils.fadeElementOut(gdAlert.container, 0.3);
+		RESUtils.fadeElementOut(gdAlert.overlay, 0.3);
+	},

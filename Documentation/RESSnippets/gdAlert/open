@@ -1,0 +1,43 @@
+	open: function(text, callback) {
+		if (gdAlert.isOpen) {
+			console.log('there is already an alert open. break out.');
+			return;
+		}
+		gdAlert.isOpen = true;
+		gdAlert.populateContainer(callback);
+
+		//set message
+		gdAlert.container.getElementsByTagName("SPAN")[0].innerHTML = text;
+		gdAlert.container.getElementsByTagName("INPUT")[0].focus();
+		gdAlert.container.getElementsByTagName("INPUT")[0].focus();
+
+		//create site overlay
+		gdAlert.overlay = document.createElement("DIV");
+		gdAlert.overlay.style.width = gdAlert.getPageSize()[0] + "px";
+		gdAlert.overlay.style.height = gdAlert.getPageSize()[1] + "px";
+		gdAlert.overlay.style.backgroundColor = '#333333';
+		gdAlert.overlay.style.top = '0';
+		gdAlert.overlay.style.left = '0';
+		gdAlert.overlay.style.position = 'absolute';
+		gdAlert.overlay.style.zIndex = '9999';
+
+		document.body.appendChild(gdAlert.overlay);
+
+		// center messagebox (requires prototype functions we don't have, so we'll redefine...)
+		// var arrayPageScroll = document.viewport.getScrollOffsets();
+        // var winH = arrayPageScroll[1] + (document.viewport.getHeight());
+        // var lightboxLeft = arrayPageScroll[0];
+		var arrayPageScroll = [ document.documentElement.scrollLeft , document.documentElement.scrollTop ];
+        var winH = arrayPageScroll[1] + (window.innerHeight);
+        var lightboxLeft = arrayPageScroll[0];
+
+		gdAlert.container.style.top = ((winH / 2) - 90) + "px";
+		gdAlert.container.style.left = ((gdAlert.getPageSize()[0] / 2) - 155) + "px";
+
+		/*
+		new Effect.Appear(gdAlert.container, {duration: 0.2});
+		new Effect.Opacity(gdAlert.overlay, {duration: 0.2, to: 0.8});
+		*/
+		RESUtils.fadeElementIn(gdAlert.container, 0.3);
+		RESUtils.fadeElementIn(gdAlert.overlay, 0.3);
+	},

@@ -1,0 +1,33 @@
+	populateContainer: function(callback) {
+		gdAlert.container = createElementWithID('div','alert_message');
+		gdAlert.container.appendChild(document.createElement('span'));
+		if (typeof(callback) == 'function') {
+			this.okButton = document.createElement('input');
+			this.okButton.setAttribute('type','button');
+			this.okButton.setAttribute('value','confirm');
+			this.okButton.addEventListener('click',callback, false);
+			this.okButton.addEventListener('click',gdAlert.close, false);
+			var closeButton = document.createElement('input');
+			closeButton.setAttribute('type','button');
+			closeButton.setAttribute('value','cancel');
+			closeButton.addEventListener('click',gdAlert.close, false);
+			gdAlert.container.appendChild(this.okButton);
+			gdAlert.container.appendChild(closeButton);
+		} else {
+			/* if (this.okButton) {
+				gdAlert.container.removeChild(this.okButton);
+				delete this.okButton;
+			} */
+			var closeButton = document.createElement('input');
+			closeButton.setAttribute('type','button');
+			closeButton.setAttribute('value','ok');
+			closeButton.addEventListener('click',gdAlert.close, false);
+			gdAlert.container.appendChild(closeButton);
+		}
+		var br = document.createElement('br');
+		br.setAttribute('style','clear: both');
+		gdAlert.container.appendChild(br);
+		document.body.appendChild(gdAlert.container);
+
+	},
+
