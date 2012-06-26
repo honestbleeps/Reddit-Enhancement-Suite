@@ -5,14 +5,27 @@ var self = require("self");
 var firefox = typeof(require);
 var tabs = require("tabs");
 var ss = require("simple-storage");
-var workers = new Array();
 
+// require chrome allows us to use XPCOM objects...
+var {Cc, Cu, Cr} = require("chrome");
+// from XPCOM, use the NSIGlobalHistory2 service...
+var historyService = Components.classes["@mozilla.org/browser/nav-history-service;1"] .getService(Components.interfaces.nsIGlobalHistory2)
+
+// this function takes in a string (and optional charset, paseURI) and creates an nsURI object, which is required by historyService.addURI...
+function makeURI(aURL, aOriginCharset, aBaseURI) {  
+  var ioService = Components.classes["@mozilla.org/network/io-service;1"]  
+                  .getService(Components.interfaces.nsIIOService);  
+  return ioService.newURI(aURL, aOriginCharset, aBaseURI);  
+} 
+
+var workers = [];
 function detachWorker(worker, workerArray) {
-	var index = workerArray.indexOf(worker);
-	if(index != -1) {
-		workerArray.splice(index, 1);
-	}
+  var index = workerArray.indexOf(worker);
+  if(index != -1) {
+    workerArray.splice(index, 1);
+  }
 }
+
 var localStorage = ss.storage;
 
 localStorage.getItem = function(key) {
@@ -25,19 +38,84 @@ localStorage.removeItem = function(key) {
 	delete ss.storage[key];
 }
 
+XHRCache = {
+	forceCache: false,
+	capacity: 250,
+	entries: {},
+	count: 0,
+	check: function(key) {
+		if (key in this.entries) {
+//			console.log("hit");
+			this.entries[key].hits++;
+			return this.entries[key].data;
+		} else {
+//			console.log("miss");
+			return null;
+		}
+	},
+	add: function(key, value) {
+		if (key in this.entries) {
+			return;
+		} else {
+//			console.log("add");
+			this.entries[key] = {data: value, timestamp: new Date(), hits: 1};
+			this.count++;
+		}
+		if (this.count > this.capacity) {
+			this.prune();
+		}
+	},
+	prune: function() {
+		var now = new Date();
+		var bottom = [];
+		for (var key in this.entries) {
+//			if (this.entries[key].hits == 1) {
+//				delete this.entries[key];
+//				this.count--;
+//				continue;
+//			}
+
+			//Weight by hits/age which is similar to reddit's hit/controversial sort orders
+			bottom.push({
+				key: key,
+				weight: this.entries[key].hits/(now - this.entries[key].timestamp)
+			});
+		}
+		bottom.sort(function(a,b){return a.weight-b.weight;});
+		var count = this.count - Math.floor(this.capacity / 2);
+		for (var i = 0; i < count; i++) {
+			delete this.entries[bottom[i].key];
+			this.count--;
+		}
+//		console.log("prune");
+	},
+	clear: function() {
+		this.entries = {};
+		this.count = 0;
+	}
+};
+tabs.on('activate', function(tab) {
+	// find this worker...
+	for (i in workers) {
+		if ((typeof(workers[i].tab) != 'undefined') && (tab.title == workers[i].tab.title)) {
+			workers[i].postMessage({ name: "getLocalStorage", message: localStorage });
+		}
+	}
+});
+
+
 pageMod.PageMod({
   include: ["*.reddit.com"],
-  contentScriptWhen: 'ready',
+  contentScriptWhen: 'start',
   // contentScriptFile: [self.data.url('jquery-1.6.4.min.js'), self.data.url('reddit_enhancement_suite.user.js')],
   contentScriptFile: [self.data.url('jquery-1.6.4.min.js'), self.data.url('reddit_enhancement_suite.user.js')],
   onAttach: function(worker) {
-    workers.push(worker);
-	worker.on('detach', function () {
-		detachWorker(this, workers);
-		// console.log('worker detached, total now: ' + workers.length);
+	// when a tab is activated, repopulate localStorage so that changes propagate across tabs...
+
+	workers.push(worker);
+    worker.on('detach', function () {
+      detachWorker(this, workers);
     });
-	// console.log('total workers: ' + workers.length);
-	// worker.postMessage('init');
 	worker.on('message', function(data) {
 		var request = data;
 		switch(request.requestType) {
@@ -46,6 +124,14 @@ pageMod.PageMod({
 					XHRID: request.XHRID,
 					name: request.requestType
 				}
+				if (request.aggressiveCache || XHRCache.forceCache) {
+					var cachedResult = XHRCache.check(request.url);
+					if (cachedResult) {
+						responseObj.response = cachedResult;
+						worker.postMessage(responseObj);
+						return;
+					}
+				}
 				if (request.method == 'POST') {
 					Request({
 						url: request.url,
@@ -53,6 +139,10 @@ pageMod.PageMod({
 							responseObj.response = {
 								responseText: response.text,
 								status: response.status
+							}
+							//Only cache on HTTP OK and non empty body
+							if ((request.aggressiveCache || XHRCache.forceCache) && (response.status == 200 && response.text)) {
+								XHRCache.add(request.url, responseObj.response);
 							}
 							worker.postMessage(responseObj);
 						},
@@ -66,6 +156,9 @@ pageMod.PageMod({
 							responseObj.response = {
 								responseText: response.text,
 								status: response.status
+							}
+							if ((request.aggressiveCache || XHRCache.forceCache) && (response.status == 200 && response.text)) {
+								XHRCache.add(request.url, responseObj.response);
 							}
 							worker.postMessage(responseObj);
 						},
@@ -152,14 +245,19 @@ pageMod.PageMod({
 						break;
 					case 'setItem':
 						localStorage.setItem(request.itemName, request.itemValue);
-						// worker.postMessage({status: true, value: null});
-						for each (var thisWorker in workers) {
-							if (thisWorker != worker) {
-								thisWorker.postMessage({ name: "localStorage", itemName: request.itemName, itemValue: request.itemValue });
-							} 
-						}
 						break;
 				}
+				break;
+			case 'XHRCache':
+				switch (request.operation) {
+					case 'clear':
+						XHRCache.clear();
+						break;
+				}
+				break;
+			case 'addURLToHistory':
+				var uri = makeURI(request.url);
+				historyService.addURI(uri, false, true, null);
 				break;
 			default:
 				worker.postMessage({status: "unrecognized request type"});
@@ -170,5 +268,3 @@ pageMod.PageMod({
 	});
   }
 });
-
-

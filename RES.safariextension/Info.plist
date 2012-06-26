@@ -5,7 +5,7 @@
 	<key>Author</key>
 	<string>Steve Sobel</string>
 	<key>Builder Version</key>
-	<string>534.50</string>
+	<string>534.55.3</string>
 	<key>CFBundleDisplayName</key>
 	<string>Reddit Enhancement Suite</string>
 	<key>CFBundleIdentifier</key>
@@ -13,9 +13,9 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleShortVersionString</key>
-	<string>4.0.3</string>
+	<string>4.1.2</string>
 	<key>CFBundleVersion</key>
-	<string>4.0.3</string>
+	<string>4.1.2</string>
 	<key>Chrome</key>
 	<dict>
 		<key>Database Quota</key>
@@ -27,10 +27,10 @@
 	<dict>
 		<key>Scripts</key>
 		<dict>
-			<key>End</key>
+			<key>Start</key>
 			<array>
-				<string>reddit_enhancement_suite.user.js</string>
 				<string>jquery-1.6.4.min.js</string>
+				<string>reddit_enhancement_suite.user.js</string>
 			</array>
 		</dict>
 	</dict>
@@ -52,10 +52,12 @@
 				<string>api.imgur.com</string>
 				<string>min.us</string>
 				<string>*.flickr.com</string>
+				<string>imgclean.com</string>
 				<string>img.photobucket.com</string>
 				<string>gdata.youtube.com</string>
 				<string>redditenhancementsuite.com</string>
 				<string>backend.deviantart.com</string>
+				<string>api.tumblr.com</string>
 			</array>
 			<key>Include Secure Pages</key>
 			<true/>
