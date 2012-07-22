@@ -1,4 +1,3 @@
-<!--
 /*
 
 	RES is released under the GPL. However, I do ask a favor (obviously I don't/can't require it, I ask out of courtesy):
@@ -30,216 +29,209 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 */
--->
-<html>
-<head>
-	<script>
 
-	XHRCache = {
-		forceCache: false,
-		capacity: 250,
-		entries: {},
-		count: 0,
-		check: function(key) {
-			if (key in this.entries) {
+XHRCache = {
+	forceCache: false,
+	capacity: 250,
+	entries: {},
+	count: 0,
+	check: function(key) {
+		if (key in this.entries) {
 //				console.count("hit");
-				this.entries[key].hits++;
-				return this.entries[key].data;
-			} else {
+			this.entries[key].hits++;
+			return this.entries[key].data;
+		} else {
 //				console.count("miss");
-				return null;
-			}
-		},
-		add: function(key, value) {
-			if (key in this.entries) {
-				return;
-			} else {
+			return null;
+		}
+	},
+	add: function(key, value) {
+		if (key in this.entries) {
+			return;
+		} else {
 //				console.count("add");
-				this.entries[key] = {data: value, timestamp: new Date(), hits: 1};
-				this.count++;
-			}
-			if (this.count > this.capacity) {
-				this.prune();
-			}
-		},
-		prune: function() {
-			var now = new Date();
-			var bottom = [];
-			for (var key in this.entries) {
+			this.entries[key] = {data: value, timestamp: new Date(), hits: 1};
+			this.count++;
+		}
+		if (this.count > this.capacity) {
+			this.prune();
+		}
+	},
+	prune: function() {
+		var now = new Date();
+		var bottom = [];
+		for (var key in this.entries) {
 //				if (this.entries[key].hits == 1) {
 //					delete this.entries[key];
 //					this.count--;
 //					continue;
 //				}
 
-				//Weight by hits/age which is similar to reddit's hit/controversial sort orders
-				bottom.push({
-					key: key,
-					weight: this.entries[key].hits/(now - this.entries[key].timestamp)
-				});
-			}
-			bottom.sort(function(a,b){return a.weight-b.weight;});
-			var count = this.count - Math.floor(this.capacity / 2);
-			for (var i = 0; i < count; i++) {
-				delete this.entries[bottom[i].key];
-				this.count--;
-			}
+			//Weight by hits/age which is similar to reddit's hit/controversial sort orders
+			bottom.push({
+				key: key,
+				weight: this.entries[key].hits/(now - this.entries[key].timestamp)
+			});
+		}
+		bottom.sort(function(a,b){return a.weight-b.weight;});
+		var count = this.count - Math.floor(this.capacity / 2);
+		for (var i = 0; i < count; i++) {
+			delete this.entries[bottom[i].key];
+			this.count--;
+		}
 //			console.count("prune");
-		},
-		clear: function() {
-			this.entries = {};
-			this.count = 0;
-		}
-	};
+	},
+	clear: function() {
+		this.entries = {};
+		this.count = 0;
+	}
+};
 
-	chrome.extension.onRequest.addListener(
-		function(request, sender, sendResponse) {
-			switch(request.requestType) {
-				case 'GM_xmlhttpRequest':
-					if (request.aggressiveCache || XHRCache.forceCache) {
-						var cachedResult = XHRCache.check(request.url);
-						if (cachedResult) {
-							sendResponse(cachedResult);
-							return;
-						}
+chrome.extension.onRequest.addListener(
+	function(request, sender, sendResponse) {
+		switch(request.requestType) {
+			case 'GM_xmlhttpRequest':
+				if (request.aggressiveCache || XHRCache.forceCache) {
+					var cachedResult = XHRCache.check(request.url);
+					if (cachedResult) {
+						sendResponse(cachedResult);
+						return;
 					}
-					var xhr = new XMLHttpRequest();
-					xhr.open(request.method, request.url, true);
-					if (request.method == "POST") {
-						xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-						// xhr.setRequestHeader("Content-length", request.data.length);
-						// xhr.setRequestHeader("Connection", "close");					
+				}
+				var xhr = new XMLHttpRequest();
+				xhr.open(request.method, request.url, true);
+				if (request.method == "POST") {
+					xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+					// xhr.setRequestHeader("Content-length", request.data.length);
+					// xhr.setRequestHeader("Connection", "close");					
+				}
+				xhr.onreadystatechange = function() {
+				  if (xhr.readyState == 4) {
+					sendResponse(xhr);
+					//Only cache on HTTP OK and non empty body
+					if ((request.aggressiveCache || XHRCache.forceCache) && (xhr.status == 200 && xhr.responseText)) {
+						XHRCache.add(request.url, xhr);
 					}
-					xhr.onreadystatechange = function() {
-					  if (xhr.readyState == 4) {
-						sendResponse(xhr);
-						//Only cache on HTTP OK and non empty body
-						if ((request.aggressiveCache || XHRCache.forceCache) && (xhr.status == 200 && xhr.responseText)) {
-							XHRCache.add(request.url, xhr);
-						}
-					  }
+				  }
+				}
+				xhr.send(request.data);
+				break;
+			case 'singleClick':
+				var button = !((request.button == 1) || (request.ctrl == 1));
+				// Get the selected tab so we can get the index of it.  This allows us to open our new tab as the "next" tab.
+				var newIndex = sender.tab.index+1;
+				// handle requests from singleClick module
+				if (request.openOrder == 'commentsfirst') {
+					// only open a second tab if the link is different...
+					if (request.linkURL != request.commentsURL) {
+						chrome.tabs.create({url: request.commentsURL, selected: button, index: newIndex});
 					}
-					xhr.send(request.data);
-					break;
-				case 'singleClick':
-					var button = !((request.button == 1) || (request.ctrl == 1));
-					// Get the selected tab so we can get the index of it.  This allows us to open our new tab as the "next" tab.
-					var newIndex = sender.tab.index+1;
-					// handle requests from singleClick module
-					if (request.openOrder == 'commentsfirst') {
-						// only open a second tab if the link is different...
-						if (request.linkURL != request.commentsURL) {
-							chrome.tabs.create({url: request.commentsURL, selected: button, index: newIndex});
-						}
-						chrome.tabs.create({url: request.linkURL, selected: button, index: newIndex+1});
-					} else {
-						chrome.tabs.create({url: request.linkURL, selected: button, index: newIndex});
-						// only open a second tab if the link is different...
-						if (request.linkURL != request.commentsURL) {
-							chrome.tabs.create({url: request.commentsURL, selected: button, index: newIndex+1});
-						}
+					chrome.tabs.create({url: request.linkURL, selected: button, index: newIndex+1});
+				} else {
+					chrome.tabs.create({url: request.linkURL, selected: button, index: newIndex});
+					// only open a second tab if the link is different...
+					if (request.linkURL != request.commentsURL) {
+						chrome.tabs.create({url: request.commentsURL, selected: button, index: newIndex+1});
 					}
-					sendResponse({status: "success"});
-					break;
-				case 'keyboardNav':
-					var button = !(request.button == 1);
-					// handle requests from keyboardNav module
-					thisLinkURL = request.linkURL;
-					if (thisLinkURL.toLowerCase().substring(0,4) != 'http') {
-						(thisLinkURL.substring(0,1) == '/') ? thisLinkURL = 'http://www.reddit.com' + thisLinkURL : thisLinkURL = location.href + thisLinkURL;
-						
-					}
-					// Get the selected tab so we can get the index of it.  This allows us to open our new tab as the "next" tab.
-					var newIndex = sender.tab.index+1;
-					chrome.tabs.create({url: thisLinkURL, selected: button, index: newIndex});
-					sendResponse({status: "success"});
-					break;
-				case 'openLinkInNewTab':
-					var focus = (request.focus == true);
-					// handle requests from keyboardNav module
-					thisLinkURL = request.linkURL;
-					if (thisLinkURL.toLowerCase().substring(0,4) != 'http') {
-						(thisLinkURL.substring(0,1) == '/') ? thisLinkURL = 'http://www.reddit.com' + thisLinkURL : thisLinkURL = location.href + thisLinkURL;
-						
-					}
-					// Get the selected tab so we can get the index of it.  This allows us to open our new tab as the "next" tab.
-					var newIndex = sender.tab.index+1;
-					chrome.tabs.create({url: thisLinkURL, selected: focus, index: newIndex});
-					sendResponse({status: "success"});
-					break;
-				case 'compareVersion':
-					var xhr = new XMLHttpRequest();
-					xhr.open("GET", request.url, true);
-					xhr.onreadystatechange = function() {
-					  if (xhr.readyState == 4) {
-						// JSON.parse does not evaluate the attacker's scripts.
-						var resp = JSON.parse(xhr.responseText);
-						sendResponse(resp);
-					  }
-					}
-					xhr.send();
-					break;
-				case 'loadTweet':
-					var xhr = new XMLHttpRequest();
-					xhr.open("GET", request.url, true);
-					xhr.onreadystatechange = function() {
-					  if (xhr.readyState == 4) {
-						// JSON.parse does not evaluate the attacker's scripts.
-						var resp = JSON.parse(xhr.responseText);
-						sendResponse(resp);
-					  }
-					}
-					xhr.send();
-					break;
-				case 'getLocalStorage':
-					sendResponse(localStorage);
-					break;
-				case 'saveLocalStorage':
-					for (var key in request.data) {
-						localStorage.setItem(key,request.data[key]);
-					}
-					localStorage.setItem('importedFromForeground',true);
-					sendResponse(localStorage);
-					break;
-				case 'localStorage':
-					switch (request.operation) {
-						case 'getItem':
-							sendResponse({status: true, value: localStorage.getItem(request.itemName)});
-							break;
-						case 'removeItem':
-							localStorage.removeItem(request.itemName);
-							sendResponse({status: true, value: null});
-							break;
-						case 'setItem':
-							localStorage.setItem(request.itemName, request.itemValue);
-							sendResponse({status: true, value: null});
-							var thisTabID = sender.tab.id;
-							chrome.tabs.getAllInWindow(null, function(tabs){
-								for (var i = 0; i < tabs.length; i++) {
-									if (thisTabID != tabs[i].id) {
-										chrome.tabs.sendRequest(tabs[i].id, { requestType: "localStorage", itemName: request.itemName, itemValue: request.itemValue });                         
-									}
+				}
+				sendResponse({status: "success"});
+				break;
+			case 'keyboardNav':
+				var button = !(request.button == 1);
+				// handle requests from keyboardNav module
+				thisLinkURL = request.linkURL;
+				if (thisLinkURL.toLowerCase().substring(0,4) != 'http') {
+					(thisLinkURL.substring(0,1) == '/') ? thisLinkURL = 'http://www.reddit.com' + thisLinkURL : thisLinkURL = location.href + thisLinkURL;
+					
+				}
+				// Get the selected tab so we can get the index of it.  This allows us to open our new tab as the "next" tab.
+				var newIndex = sender.tab.index+1;
+				chrome.tabs.create({url: thisLinkURL, selected: button, index: newIndex});
+				sendResponse({status: "success"});
+				break;
+			case 'openLinkInNewTab':
+				var focus = (request.focus == true);
+				// handle requests from keyboardNav module
+				thisLinkURL = request.linkURL;
+				if (thisLinkURL.toLowerCase().substring(0,4) != 'http') {
+					(thisLinkURL.substring(0,1) == '/') ? thisLinkURL = 'http://www.reddit.com' + thisLinkURL : thisLinkURL = location.href + thisLinkURL;
+					
+				}
+				// Get the selected tab so we can get the index of it.  This allows us to open our new tab as the "next" tab.
+				var newIndex = sender.tab.index+1;
+				chrome.tabs.create({url: thisLinkURL, selected: focus, index: newIndex});
+				sendResponse({status: "success"});
+				break;
+			case 'compareVersion':
+				var xhr = new XMLHttpRequest();
+				xhr.open("GET", request.url, true);
+				xhr.onreadystatechange = function() {
+				  if (xhr.readyState == 4) {
+					// JSON.parse does not evaluate the attacker's scripts.
+					var resp = JSON.parse(xhr.responseText);
+					sendResponse(resp);
+				  }
+				}
+				xhr.send();
+				break;
+			case 'loadTweet':
+				var xhr = new XMLHttpRequest();
+				xhr.open("GET", request.url, true);
+				xhr.onreadystatechange = function() {
+				  if (xhr.readyState == 4) {
+					// JSON.parse does not evaluate the attacker's scripts.
+					var resp = JSON.parse(xhr.responseText);
+					sendResponse(resp);
+				  }
+				}
+				xhr.send();
+				break;
+			case 'getLocalStorage':
+				sendResponse(localStorage);
+				break;
+			case 'saveLocalStorage':
+				for (var key in request.data) {
+					localStorage.setItem(key,request.data[key]);
+				}
+				localStorage.setItem('importedFromForeground',true);
+				sendResponse(localStorage);
+				break;
+			case 'localStorage':
+				switch (request.operation) {
+					case 'getItem':
+						sendResponse({status: true, value: localStorage.getItem(request.itemName)});
+						break;
+					case 'removeItem':
+						localStorage.removeItem(request.itemName);
+						sendResponse({status: true, value: null});
+						break;
+					case 'setItem':
+						localStorage.setItem(request.itemName, request.itemValue);
+						sendResponse({status: true, value: null});
+						var thisTabID = sender.tab.id;
+						chrome.tabs.getAllInWindow(null, function(tabs){
+							for (var i = 0; i < tabs.length; i++) {
+								if (thisTabID != tabs[i].id) {
+									chrome.tabs.sendRequest(tabs[i].id, { requestType: "localStorage", itemName: request.itemName, itemValue: request.itemValue });                         
 								}
-							});
-							break;
-					}
-					break;
-				case 'addURLToHistory':
-					chrome.history.addUrl({url: request.url});
-					break;
-				case 'XHRCache':
-					switch (request.operation) {
-						case 'clear':
-							XHRCache.clear();
-							break;
-					}
-					break;
-				default:
-					sendResponse({status: "unrecognized request type"});
-					break;
-			}
+							}
+						});
+						break;
+				}
+				break;
+			case 'addURLToHistory':
+				chrome.history.addUrl({url: request.url});
+				break;
+			case 'XHRCache':
+				switch (request.operation) {
+					case 'clear':
+						XHRCache.clear();
+						break;
+				}
+				break;
+			default:
+				sendResponse({status: "unrecognized request type"});
+				break;
 		}
-	);
-	</script>
-</head>
-</html>
+	}
+);
