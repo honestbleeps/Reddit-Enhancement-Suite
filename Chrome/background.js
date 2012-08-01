@@ -87,7 +87,7 @@ XHRCache = {
 	}
 };
 
-chrome.extension.onRequest.addListener(
+chrome.extension.onMessage.addListener(
 	function(request, sender, sendResponse) {
 		switch(request.requestType) {
 			case 'GM_xmlhttpRequest':
@@ -212,7 +212,7 @@ chrome.extension.onRequest.addListener(
 						chrome.tabs.getAllInWindow(null, function(tabs){
 							for (var i = 0; i < tabs.length; i++) {
 								if (thisTabID != tabs[i].id) {
-									chrome.tabs.sendRequest(tabs[i].id, { requestType: "localStorage", itemName: request.itemName, itemValue: request.itemValue });                         
+									chrome.tabs.sendMessage(tabs[i].id, { requestType: "localStorage", itemName: request.itemName, itemValue: request.itemValue });                         
 								}
 							}
 						});
