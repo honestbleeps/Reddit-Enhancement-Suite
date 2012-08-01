@@ -111,10 +111,11 @@
 				}
 				xhr.onreadystatechange = function() {
 				  if (xhr.readyState == 4) {
-					  sendResponse(xhr, msgEvent);
+					  var response = {status: xhr.status, responseText: xhr.responseText};
+					  sendResponse(response, msgEvent);
 					  //Only cache on HTTP OK and non empty body
 					  if ((request.aggressiveCache || XHRCache.forceCache) && (xhr.status == 200 && xhr.responseText)) {
-						  XHRCache.add(request.url, xhr);
+						  XHRCache.add(request.url, response);
 					  }
 				  }
 				}
