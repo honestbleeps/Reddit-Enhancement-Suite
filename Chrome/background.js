@@ -87,7 +87,7 @@ XHRCache = {
 	}
 };
 
-chrome.extension.onRequest.addListener(
+chrome.extension.onMessage.addListener(
 	function(request, sender, sendResponse) {
 		switch(request.requestType) {
 			case 'GM_xmlhttpRequest':
@@ -105,16 +105,19 @@ chrome.extension.onRequest.addListener(
 					// xhr.setRequestHeader("Content-length", request.data.length);
 					// xhr.setRequestHeader("Connection", "close");					
 				}
-				xhr.onreadystatechange = function() {
-				  if (xhr.readyState == 4) {
-					sendResponse(xhr);
-					//Only cache on HTTP OK and non empty body
-					if ((request.aggressiveCache || XHRCache.forceCache) && (xhr.status == 200 && xhr.responseText)) {
-						XHRCache.add(request.url, xhr);
+				xhr.onreadystatechange = function(a) {
+					if (xhr.readyState == 4) {
+						//Only store `status` and `responseText` fields
+						var response = {status: xhr.status, responseText: xhr.responseText};
+						sendResponse(response);
+						//Only cache on HTTP OK and non empty body
+						if ((request.aggressiveCache || XHRCache.forceCache) && (xhr.status == 200 && xhr.responseText)) {
+							XHRCache.add(request.url, response);
+						}
 					}
-				  }
 				}
 				xhr.send(request.data);
+				return true;
 				break;
 			case 'singleClick':
 				var button = !((request.button == 1) || (request.ctrl == 1));
@@ -173,6 +176,7 @@ chrome.extension.onRequest.addListener(
 				  }
 				}
 				xhr.send();
+				return true;
 				break;
 			case 'loadTweet':
 				var xhr = new XMLHttpRequest();
@@ -185,6 +189,7 @@ chrome.extension.onRequest.addListener(
 				  }
 				}
 				xhr.send();
+				return true;
 				break;
 			case 'getLocalStorage':
 				sendResponse(localStorage);
@@ -209,10 +214,10 @@ chrome.extension.onRequest.addListener(
 						localStorage.setItem(request.itemName, request.itemValue);
 						sendResponse({status: true, value: null});
 						var thisTabID = sender.tab.id;
-						chrome.tabs.getAllInWindow(null, function(tabs){
+						chrome.tabs.query({}, function(tabs){
 							for (var i = 0; i < tabs.length; i++) {
 								if (thisTabID != tabs[i].id) {
-									chrome.tabs.sendRequest(tabs[i].id, { requestType: "localStorage", itemName: request.itemName, itemValue: request.itemValue });                         
+									chrome.tabs.sendMessage(tabs[i].id, { requestType: "localStorage", itemName: request.itemName, itemValue: request.itemValue });                         
 								}
 							}
 						});
