@@ -123,6 +123,7 @@ opera.extension.addEventListener( "message", function( event ) {
 				// responseText, but if I add any functions that need more than that, I'll need to manually add
 				// those bits here...
 					var resp = {
+						status: xhr.status,
 						responseText: xhr.responseText,
 						url: request.url
 					};
