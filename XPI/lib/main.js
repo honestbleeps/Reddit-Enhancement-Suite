@@ -7,14 +7,15 @@ var tabs = require("tabs");
 var ss = require("simple-storage");
 
 // require chrome allows us to use XPCOM objects...
-var {Cc, Cu, Cr} = require("chrome");
+// var {Cc, Cu, Cr} = require("chrome");
+const {Cc,Ci} = require("chrome");
 // from XPCOM, use the NSIGlobalHistory2 service...
-var historyService = Components.classes["@mozilla.org/browser/nav-history-service;1"] .getService(Components.interfaces.nsIGlobalHistory2)
+var historyService = Cc["@mozilla.org/browser/nav-history-service;1"] .getService(Ci.nsIGlobalHistory2)
 
 // this function takes in a string (and optional charset, paseURI) and creates an nsURI object, which is required by historyService.addURI...
 function makeURI(aURL, aOriginCharset, aBaseURI) {  
-  var ioService = Components.classes["@mozilla.org/network/io-service;1"]  
-                  .getService(Components.interfaces.nsIIOService);  
+  var ioService = Cc["@mozilla.org/network/io-service;1"]  
+                  .getService(Ci.nsIIOService);  
   return ioService.newURI(aURL, aOriginCharset, aBaseURI);  
 } 
 
