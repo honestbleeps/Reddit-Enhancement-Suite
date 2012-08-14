@@ -2,8 +2,8 @@
 	"name": "Reddit Enhancement Suite",
 	"version": "4.1.3",
 	"manifest_version": 2,
+	"minimum_chrome_version": 20,
 	"description": "Reddit Enhancement Suite - a group of enhancements for browsing Reddit",
-	"update_url": "http://redditenhancementsuite.com/update-chrome.php",
 	"background": {
 		"scripts": ["background.js"]
 	},
@@ -18,7 +18,15 @@
 				"http://*.reddit.com/*",
 				"https://*.reddit.com/*"
 			],
-			"js": ["jquery-1.6.4.min.js", "reddit_enhancement_suite.user.js"],
+			"js": [
+				"jquery-1.6.4.min.js",
+				"guiders-1.2.8.js",
+				"jquery.dragsort-0.4.3.min.js",
+				"jquery-fieldselection.min.js",
+				"tinycon.min.js",
+				"jquery.tokeninput.js",
+				"reddit_enhancement_suite.user.js"
+			],
 			"run_at": "document_start"
 		}
 	],
