@@ -108,8 +108,15 @@ tabs.on('activate', function(tab) {
 pageMod.PageMod({
   include: ["*.reddit.com"],
   contentScriptWhen: 'start',
-  // contentScriptFile: [self.data.url('jquery-1.6.4.min.js'), self.data.url('reddit_enhancement_suite.user.js')],
-  contentScriptFile: [self.data.url('jquery-1.6.4.min.js'), self.data.url('reddit_enhancement_suite.user.js')],
+  contentScriptFile: [
+  	self.data.url('jquery-1.6.4.min.js'), 
+	self.data.url('guiders-1.2.8.js'),
+	self.data.url('jquery.dragsort-0.4.3.min.js'),
+	self.data.url('jquery-fieldselection.min.js'),
+	self.data.url('tinycon.min.js'),
+	self.data.url('jquery.tokeninput.js'),
+  	self.data.url('reddit_enhancement_suite.user.js')
+  ],
   onAttach: function(worker) {
 	// when a tab is activated, repopulate localStorage so that changes propagate across tabs...
 
