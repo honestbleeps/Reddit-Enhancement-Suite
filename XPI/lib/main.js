@@ -10,7 +10,8 @@ var ss = require("simple-storage");
 // var {Cc, Cu, Cr} = require("chrome");
 const {Cc,Ci} = require("chrome");
 // from XPCOM, use the NSIGlobalHistory2 service...
-var historyService = Cc["@mozilla.org/browser/nav-history-service;1"] .getService(Ci.nsIGlobalHistory2)
+// var historyService = Cc["@mozilla.org/browser/nav-history-service;1"].getService(Ci.nsIGlobalHistory2);
+var historyService = Cc["@mozilla.org/browser/global-history;2"].getService(Ci.nsIGlobalHistory2)
 
 // this function takes in a string (and optional charset, paseURI) and creates an nsURI object, which is required by historyService.addURI...
 function makeURI(aURL, aOriginCharset, aBaseURI) {  
