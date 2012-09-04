@@ -99,6 +99,7 @@
 				if (request.aggressiveCache || XHRCache.forceCache) {
 					var cachedResult = XHRCache.check(request.url);
 					if (cachedResult) {
+						cachedResult.XHRID = msgEvent.message.XHRID;
 						sendResponse(cachedResult, msgEvent);
 						return;
 					}
@@ -111,7 +112,7 @@
 				}
 				xhr.onreadystatechange = function() {
 				  if (xhr.readyState == 4) {
-					  var response = {status: xhr.status, responseText: xhr.responseText};
+					  var response = {status: xhr.status, responseText: xhr.responseText, XHRID: xhr.XHRID};
 					  sendResponse(response, msgEvent);
 					  //Only cache on HTTP OK and non empty body
 					  if ((request.aggressiveCache || XHRCache.forceCache) && (xhr.status == 200 && xhr.responseText)) {
