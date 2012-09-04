@@ -116,6 +116,7 @@ pageMod.PageMod({
 	self.data.url('jquery-fieldselection.min.js'),
 	self.data.url('tinycon.min.js'),
 	self.data.url('jquery.tokeninput.js'),
+	self.data.url('snuownd.js'),
   	self.data.url('reddit_enhancement_suite.user.js')
   ],
   onAttach: function(worker) {
