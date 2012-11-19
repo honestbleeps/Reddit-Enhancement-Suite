@@ -1,3 +1,99 @@
+changelog: v4.1
+
+New Features:
+- General
+	- Major overhaul to how and when certain parts of RES are executed - this MAY result in getting rid of the dreaded "flash of unstyled content", such as a white page before night mode kicks in, in some cases!
+	- Some efficiency improvements specific to the Firefox addon including: compiling with a new addon SDK version (biggest help), some adjustments to how storage is handled between tabs, and eliminating some code
+	- Added "fadespeed" option to user hover tooltip so that users can have it fade in/out faster (or just instantly appear)
+	- Now calling more HTTPS stuff to play nicer with addons like HTTPS Everywhere (note: compatibility is still not guaranteed)
+	- Added a way to dynamically grab known/popular bug reports and geature request for when people try to submit to Enhancement or RESIssues
+	- Added "turbo selftext" option - which will make sefltext expandos much faster after the first one you load on any given page
+	- Adjusted clickable area for selecting comments
+	- Added a new subreddit tooltip - allows easy filtering, adding of shortcuts/dashboard widgets, etc
+	- New Module: Comment hide peristor - keeps track of collapsed comments and re-collapses them when you return to a thread - thanks, umbrae!
+	- Added "source" button to inbox
+	- Adding a class of .res to the BODY tag to help moderators better style their subreddits with RES in mind
+	- Added app=res to all calls to Reddit, so that the Reddit admins can more easily measure RES's impact
+	- Added a few more URL patterns that will break out of the Reddit Toolbar since they don't play nice together
+	- Diabling "spam button" module by default due to misuse/abuse.  If enabled, button now reads "rts" so as not to conflict with newly added "spam" button from Reddit itself
+	- Made a few code changes that should allow older version of Firefox (via Greasemonkey) to still work.  I cannot actively support this with a lot of time, but a cursory test shows you should be able to run RES with FF3.6_GM now
+	- Added code to allow saving of comments even if they're from deleted users
+	- Added the ability for filteReddit and dashboard subreddits to be added even if they don't exist in Reddit's autocomplete feature
+	- Improved multireddit experience - now including +dashboard and +shortcut buttons for each reddit in the sidebar, etc
+	- Updates to Reddit API calls to maintain current location protocol (should mean less problems browsing https with pay.reddit.com)
+- Dashboard
+	- Major additions to Dashboard - you can now see all of your user tags and subscribed threads there!
+	- Added "View Images" tab
+	- Added "refresh all" function
+- User Tagger
+	- Now stores a link to the link or comment you tagged a user from by default
+	- Hover tip now works on /u/username links
+	- "Hard ignore" option in User Tagger now collapses sub comments as well
+	- Added user tagger / hover tip to flair page for moderators
+- filteReddit
+	- Added easy-access NSFW filter toggle to dropdown menu
+- Account Switcher
+	- Updated drowpdown for easier access and more UI consistency
+	- Added the ability to show current username (thanks, Lugghawk!)
+- Uppers and Downers Enhanced
+	- Completely overhauled how uppers/downders are displayed - no more JSON request required, which means it's faster!
+- Inline Image Viewer
+	- Major overhaul of inline image viewer - improved code, support for a few more sites (deviantart, imgclean, picsarus, i.qkme), etc
+- Tips and Tricks
+	- Added a checkbox to more easily disable RES Tips and Tricks
+- Never Ending Reddit
+	- Updated with "friendlier" error messaging and easier reloading
+- Comment Preview
+	- Added the ability to add custom macro buttons to comment preview toolbar
+	- No longer auto-linking subreddits since Reddit now does it itself
+	- Added "reddiquette" button to comment preview toolbar
+- Subreddit Manager
+	- Added a few more optional links to the subreddit manager: DASHBOARD, FRONT, MODQUEUE, RANDNSFW (thanks to Signe for the last 2)
+- New Comment Count
+	- Added the ability to control how long thread subscriptions last
+
+Bug Fixes:
+- General
+	- Reddit changed how karma is displayed, which made Comment Karma not show in RES - this is now fixed
+	- Reddit added a new features, "link flair" which broke RES - this is now fixed
+	- Fixed an issue for international users having problems with keyboard shortcuts blocking their extended charsets
+	- Added a MAJOR fix for Safari users who often used the back button resulting in a broken RES
+	- Fixed a bug where "view images" broke when encountering a post from an ingnored user
+	- Fix for misaligned userbar icon when not using navTop
+	Minore bug fix with commandline sorting
+	- Fixed an issue that messed up the flair dropdown for moderators in some cases
+	- Changed structure of settings dropdown menu to not block other buttons from being clicked
+	- Adjusted how Firefox handles tab communication of settings changes - should be more efficient
+	- Some fixes for user hover tooltip placement / alignment
+	- Added user hover tip to moderator box in sidebar
+	- Updated new comment count cache to be cleared more often
+	- Further "protection" of subreddit style checkbox
+	- Timezone fix for date function
+	- Added support for cmd-click of subreddit shortcuts on OSX
+- Keyboard Navigation
+	- Preventing autoload of next page when autoload is disabled
+	- Documentation updates for a few unclear keyboard commands
+	- Fixed a couple of minor issues with Never Ending Reddit
+- User Tagger
+	- Several miscellaneous bug fixes
+- Style Tweaks
+	- More tweaks to Night Mode to style some elements that were overlooked
+- Inline Image Viewer
+	- History recording should work in Firefox now that it's compiled with a newer Addon SDK version
+- Never Ending Reddit
+	- No longer relies on rewriting the current URL to keep track of what page you're on, which should alleviate ctrl-f borking out in Chrome, and also caching/history problem in Chrome
+	- Added a fix for "username hider" module not applying to multiple pages
+	- Fixed duplicate "full comments" link on user pages
+	- A lot of other minor bug fixes, UI fixes, etc - really, I've lost track...
+- Live Comment Preview
+	- Complete overhaul using new markdown engine, etc.
+- filteReddit
+	- exclusive/inclusive filters often broke other filters
+- Live Comment Preview
+	- Added option to disable keyboard shortcuts for bold/italic/strikethrough
+- Subreddit Manager
+	- Bugfix to highlighting of current subreddit
+
 changelog: v4.0.3
 
 New Features:
