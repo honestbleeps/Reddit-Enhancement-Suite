@@ -1,3 +1,44 @@
+changelog: v4.0.3
+
+New Features:
+- General
+	- Adjusted positioning of user detail dialog for better alignment of username
+	- Checking for existing video times before adding new ones...
+	- Added deviantart and memecrunch to inline image viewer (thanks gamefreak)
+	- Removed linkifySubreddits option, as Reddit now does this natively
+- Keyboard Navigation
+	- Now handles "continue this thread" links (thanks gavin19)
+	- Added new commandline command, srstyle, to toggle subreddit styles on and off
+- Subreddit Manager
+	- Current subreddit now highlighted on shortcut bar (thanks gavin19)
+	- Added "home" link option in subreddit manager (thanks s-quark)
+- Never Ending Reddit
+	- Added close button in case it fails and you get stuck there
+	- Added unread message count to never ending reddit floating mail indicator
+
+Bug Fixes:
+- General
+	- Fixed a XSS threat, huge thanks to I_know_HTML for reporting it anonymously and with detail
+	- Added an additional fix for hiding the sidebar on resizing images which were sometimes still getting cut off
+	- Fixed ability to save links in multireddits (thanks calaveraDeluxe)
+	- CPU usage fix for some users whose scrolling + updating localStorage was causing locks (thanks gamefreak)
+	- Added flickr.com and github.com to toolbarFix since they also seem to break the reddit toolbar
+	- Firefox XPI only: compiled using patched FF addon-sdk to get around a bug in their SDK that caused problems for the user tagger when a color was selected
+	- Set drag/resized images to only even pixel widths to get around a Firefox bug...
+	- Fixed another mail icon sprite issue
+- Never Ending Reddit
+	- Fixed a problem with Safari and cross-domain versus non-cross-domain XHR causing issues
+- Account Switcher
+	- Fixed in chrome incognito mode
+- Uppers and Downers Enhanced
+	- Fixed a bug when logged out caused by a change in reddit's html
+- betteReddit
+	- Fixed an issue where subscription notifications were obscured when pinHeader option is on
+	- Other fixes related to pinHeader (thanks s-quark)
+	- Added option to pin subreddit bar and userbar together (thanks gavin19)
+- Style Tweaks
+	- more night mode fixes (thanks gavin19)
+
 changelog: v4.0.2
 
 New features:
