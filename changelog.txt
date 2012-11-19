@@ -1,3 +1,24 @@
+changelog: v4.1.2
+
+New Features:
+- General
+	- DeviantART and Tumblr links are no longer reqritten - thanks to a huge improvement made in Firefox, this will only detrimentally affect Opera and Safari users who use "view all images" on pages full of these links...
+	- Made some huge performance improvements in Opera
+	- Direct link to users' links and comments now exist in the user hover tooltip
+
+Bugfixes:
+- General
+	- Reddit made a breaking change (moving location of saved links) making it impossible for RES users to get to saved comments - this is fixed
+	- Fixed a bug causing the "About RES" panel not to display in the console for Firefox users
+	- Fixed a few CSS issues (thanks gavin19!)
+	- A number of other minor/misc tweaks and bugfixes
+- Live Comment Preview
+	- Fixed an issue with attachment to the top level comment even when not necessary
+- Uppers and Downers Enhanced
+	- Now work on user profile past page #1
+- Never Ending Reddit
+	- Some new updates to back button detection shouold make it a little smoother
+
 changelog: v4.1.1
 
 New Features:
