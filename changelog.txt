@@ -1,3 +1,31 @@
+changelog: v4.1.5
+
+New Features:
+- General
+	- Added a new option to allow orangered envelope to link to full inbox, instead of /unread (this is off by default), thanks to [andytuba's contribution](https://github.com/honestbleeps/Reddit-Enhancement-Suite/pull/207)
+- Comment Navigator
+	- Added "me" to comment navigator - allows scrolling through your own posts on a thread
+- Subreddit Manager
+	- RANDNSFW link is now hidden if NSFW filter is on
+- Keyboard Navigation
+	- Added a few keyboard navigation features thanks to [urhereimnot's contribution](https://github.com/honestbleeps/Reddit-Enhancement-Suite/pull/204)
+
+Bugfixes:
+- General
+	- Security fixes to prevent XSS attacks via external sources
+	- Fixed a few issues with Opera - **Now REQUIRES Opera 12.10**
+	- Fixed "Show parent on hoever", which broke when Reddit's HTML changed
+	- Fixed doubling up of "full comments" on friends/comments page (also due to reddit change)
+	- Fixed an issue that broke Twitter expandos for some users
+	- Fixed a bug in Safari related to XHR (thanks Gamefreak)
+	- Updated snuownd per Gamefreak
+	- Bugfixes for nested instances of "load more comments" not getting applied RES functions
+	- Updates for compatibility with newer versions of Firefox Addon SDK (aka jetpack)
+	- Broke out plugins into separate files
+	- Using Mutationobserver instead of DOMNodeInserted when available for greater efficiency
+	- Cleanup of keyboard index storage for greater efficiency
+	- Some various cleanup to CSS
+
 changelog: v4.1.3
 
 New Features:
