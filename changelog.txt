@@ -1,3 +1,43 @@
+changelog: v4.1.1
+
+New Features:
+- General
+	- Users now have the ability to disable +dashboard and +shortcut links in the sidebar
+	- Subscription checking is now more efficient thanks to a different Reddit API call
+- Account Switcher
+	- Menu can now be switched between snoo (the alien) and a dropdown
+	- Menu has returned to being "click to open", rather than rollover
+- Dashboard
+	- User tag list now has pagination (thanks, gamefreak!)
+- Live Comment Preview
+	- Macros now support multiple lines of text
+	- Macro rollover has been changed to click to activate to avoid accidentally opening
+- Inline Image Viewer
+	- Image galleries noew have a unique icon so you can tell it's a gallery
+	- Support for picsarus.com image host
+	- Added the option for users to disable the display of image captions in gallery view
+- Never Ending Reddit
+	- Firefox should get a greate performance improvement on long pages with many images open thanks to a new method of tracking history
+
+Bug Fixes:
+-General
+	- A small subset of people were experiencing RES-ERROR localStorage messages in Firefox, this should be fixed
+	- A different small subset of Chrome users were having RES periodically not run due to a crash in the SnuOwnd live comment preview markdown parser
+	- Fixed an issue with +dashboard / +shortcut buttons in the modqueue
+	- Fixed an issue related to deleting subreddit shortcuts
+	- Fixed a bug preventing users from subscribing to threads that had 0 comments
+	- Fixed some edge cases of displaying negative values for new user account ages
+	- A number of other minor bugfixes too tiny and/or numerous to list...
+- Inline Image Viewer
+	- A number of tweaks were made to how inline image viewer works to restore it to proper functionality
+- Style Tweaks
+	- CSS tweaks to Night Mode (spoiler tags and a few other fixes, thanks, gavin19!)
+- Never Ending Reddit
+	- Some additional bug fixes were made for back button detection (specifically to avoid thiking you've come from the back button on a page refresh)
+	- Fixed accidental triggering of module via keyboard
+- Subreddit Manager
+	- Fixed another bug relating to subreddit highlighting on the user bar
+
 changelog: v4.1
 
 New Features:
