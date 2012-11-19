@@ -1,4 +1,34 @@
-changelog is outdated, needs to be updated to cover 3.4->4.0.x
+changelog: v4.0.1
+
+New features:
+- General
+	- Got rid of the (u) indicator since all browsers now auto update
+
+Bug fixes:
+- General
+	- Adjusted how the console scrim is handled to avoid a slow scrolling bug in Opera
+	- Fixed an issue where users who have youtube blocked (corporate firewall, etc) were getting error messages
+	- Opera: fixed a bug with the save options button sometimes not appearing properly
+	- Fixed navTop=off incompatibility with pin options
+- Keyboard Navigation
+	- Fixed an issue where onHdeMoveDown wasn't moving down
+	- Addressed safari/osx issue where keyboard shortcuts were being blocked
+- User Tagger
+	- Removed unnecessary defaultMark option from past instances
+	- Fixed a bug when a color was set (only affected Firefox)
+- Subreddit Manager
+	- Fixed a bug disallowing slashes in subreddit shortcuts
+- Style Tweaks
+	- Fixed some night mode issues
+- Account Switcher
+	- Opera: fixed a bug where account switcher wouldn't work in Opera - but that means not using https...
+- filteReddit
+	- Fixed a bug where filteReddit on specific subreddits was case sensitive and shouldn't have been
+- Never Ending Reddit
+	- Fixed a bug where page numbers weren't recording right with certain options set
+
+**Missing changelog v 4.0**
+**All updated changelog information is taken from redditenhancementsuite.com/whatsnew?v=4.1.5
 
 changelog: v3.4
 
@@ -19,10 +49,10 @@ New features:
 - New Comment Count
 	- New comment counts are now displayed on the comment page (just the count, you still need Reddit Gold for highlighting)
 - Comment Navigator
-	- Added two new search methods: 
+	- Added two new search methods:
 		- Friend - click through posts from friends
 		- Popular - clicks through posts in order of popularity (point total)
-	
+
 Bug fixes:
 - General (well, actually Keyboard Navigation but that's non-obvious)
 	- Fixed an issue where links with mixed-case protocols (i.e. "Http") were not opening properly in some browsers
@@ -39,7 +69,7 @@ Bug fixes:
 	- If enabled, "Commenting as" in the Live Comment Preview won't be displayed
 - Inline Image Viewer
 	- Fixed an issue where some Flickr images would show at the wrong aspect ratio before resizing
-	
+
 
 changelog: v3.3
 
@@ -58,14 +88,14 @@ New features:
 - Live Comment Preview
 	- Added "commenting as" with your logged in username to avoid confusion for frequent account switchers
 	- Added option to turn "commenting as" text off for those who don't want to see it
-	
+
 Bug fixes:
 - betteReddit
 	- Fixed some CSS annoyances on the subreddit bar for some users
 	- Fixed an issue where shortcuts with a period in them wouldn't save properly
 - Inline Image Viewer
 	- Fixed a bug where preview thumbnails sometimes got stuck open
-	
+
 
 changelog: v3.2
 
@@ -164,7 +194,7 @@ New features:
 	- Changed the way saved comments are stored in preparation for exciting new functionality... :)
 - User Tagger
 	- Changed the way user tags / vote info are stored, also in preparation for exciting new functionality!
-	
+
 Bug fixes:
 - General
 	- Better detection of localStorage failure to let the user know why RES won't work - hopefully a "graceful" failure now.
@@ -201,7 +231,7 @@ New features:
 	- Added spam link to comments page of an individual link
 - Keyboard Navigation
 	- Added the option to *not* automatically move to the next post when hitting the "hide" keyboard shortcut
-	
+
 Bug fixes:
 - Account Switcher
 	- Made a change that allows this module to run properly in Opera as a native extension.
@@ -254,7 +284,7 @@ New features:
 - Save Comments
 	- "Save" link now becomes "Unsave" when you click it.
 	- Updated style sheets for viewing saved comments, fixed some display issues
-	
+
 Bug fixes:
 - New Comments Count
 	- Fixed a bug where new counts weren't showing on certain sorting methods
@@ -266,8 +296,8 @@ Bug fixes:
 - Comment Preview / View Source
 	- Fixed a bug where you couldn't hide the source of self posts
 	- Fixed a bug where clicking "source" button multiple times displayed multiple copies of the source
-- 
-	
+-
+
 ------------------------------------------------------------------------
 
 
@@ -305,7 +335,7 @@ Bug fixes:
 	- Fixed a bug where the same comment could be saved multiple times
 - Hide Child Comments
 	- Fixed a bug that wouldn't allow child comments to be hidden if you had clicked reply
-	
+
 ------------------------------------------------------------------------
 
 changelog: v2.3
@@ -323,7 +353,7 @@ New features:
 	- Removed the "useSmallImage" option and replaced it with "imageSize" - pick any size image from imgur! Great for low bandwidth connections, and smaller screens like netbooks.
 - Live Comment Preview
 	- Surprise! Live preview of tables!
-		
+
 Bug fixes:
 - General
 	- Fixed a settings issue that was causing problems in Chrome dev builds. More a bug with Chrome in my opinion, but whatever. ;-)
@@ -366,7 +396,7 @@ Bug fixes:
 	- Fixed a situation with repeated looks of disapproval looking wrong.
 	- Fixed a problem with < and > characters not rendering right in the live preview.
 - Inline Image Viewer
-	- Fixed a bug that was excluding it from running on /user/username/submitted 
+	- Fixed a bug that was excluding it from running on /user/username/submitted
 - Style Tweaks
 	- Fixed a few more minor issues with Dark style
 
@@ -397,11 +427,11 @@ Bug fixes:
 - Style Tweaks
 	- Fixed an issue with deeper threads and reddit dark
 - filteReddit
-	- Added filtering on Never Ending Reddit loads... 
+	- Added filtering on Never Ending Reddit loads...
 - Save Comments
 	- Fixed the behavior of the 'saved' link when saving a comment
 	- Fixed some CSS as well
-	
+
 ------------------------------------------------------------------------
 
 changelog: v2.0
@@ -512,7 +542,7 @@ Bug fixes:
 - User Tagger
 	- Fixed an issue where up/downvote tracking was still happening even if colorUser was turned off.
 	- Fixed a date bug in the user info rollover
-	
+
 ------------------------------------------------------------------------
 
 
