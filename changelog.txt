@@ -1,3 +1,64 @@
+changelog: v4.1.3
+
+New Features:
+- General
+	- Several significant efficiency improvements that should make RES run a bit smoother
+	- A few style tweaks for the header (thanks Marcel)
+	- Added length display of text/title fields on submission page (thanks gamefreak)
+	- A large collection of CSS tweaks/fixes (thanks gavin19)
+	- Added support for scrolling subreddit dropdown (thanks spencerhakim)
+	- Semantic improvements to HTML fro certain RES elements for friendlier subreddit styling
+- filteReddit
+	- Added the ability to filter by flair (e.g. "gore")
+	- Added the ability for subreddits to trigger RES to enable gonewild filter functionality (thanks gamefreak)
+- Keyboard Navigation
+	- Improvements to annotations to not be triggered by commonly used reddit "emoticons" (thanks DanGe42)
+	- Added option to automatically move to the next post after voting (thanks gavin19)
+	- Added shortcut for inbox in a new tab (thanks gavin19)
+	Added shortcut for opening subreddit in a new tab (thanks cpettit)
+- Inline Image Viewer
+	- Added picshd.com support to image viewer
+	- Added comma separated album functionality to imgur posts (thanks gamefreak)
+	- Improvements to image zooming functionality (thanks gamefreak)
+	- A number of other minor/less visible inline image viewer teaks/improvements (thanks gamefreak)
+	- Zero padding gallery numbers in image galleries to avoid cursor jump
+	- Improvements to the behavior of auto sidebar hiding when images are expanded
+	- Updates to imgur support (less reliance on API calls)
+	- Drastically improved flickr support
+- Dashboard
+	- Added the ability to edit widgets
+	- Added "ignored" column to user tagger table
+- Account Switcher
+	- Added "delete" button to table-type options in the console
+
+Bug Fixes:
+- General
+	- A number of new preventative measures to combat subreddits trying to hide the "use subreddit stylesheet" button (thanks Krenair)
+	- Fixed comment hide persistor in Firefox
+	- Fix for the pesky userbar toggle button size getting messed up in certain situations when closed
+	- Fix for username links with non-username text bringing up wrong info
+	- Fixed a bug caused by hiding many links in rapid succession
+	- Fixed saved comments tab not showing up on locale subdomains
+	- Fixed username hider on edited comments (thanks thelinmichael)
+	- Update to remove new message count when needed (thanks dxprog)
+- Inline Image Viewers
+	- Fixed a bug with imgur links not working when they had parameters after them (e.g. ?1)
+	- Fixed an issue with the sidebar being hidden on user pages even if expanded images weren't large
+- New Comment Count
+	- Fixed module overwriting localizations on comments page
+- Never Ending Reddit
+	- Fixed a bug with module not returning users to the correct page after viewing a Reddit comments page
+	- Fixed an issue with subreddit hover popup
+- Live Comment Preview
+	- Fixes in Snuownd parser (thanks gamefreak)
+	- Fix for module not showing up on edit
+- filteReddit
+	- Fixed an issue with saving options for users moving from old versions of RES
+- User Tagger
+	- Fixed hyphenated usernames
+- Subreddit Manager
+	- Fixed a bug with < and > buttons scrolling too far sometimes
+
 changelog: v4.1.2
 
 New Features:
