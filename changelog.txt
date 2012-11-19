@@ -4,12 +4,15 @@ Release Date: Wednesday, November 14, 2012
 New Features:
 - General
 	- Added a new option to allow orangered envelope to link to full inbox, instead of /unread (this is off by default), thanks to [andytuba's contribution](https://github.com/honestbleeps/Reddit-Enhancement-Suite/pull/207)
+	- Introduced Qunit testing to verify functionality of code changes within RES.  Thanks to [thelinmichael's contributions](https://github.com/honestbleeps/Reddit-Enhancement-Suite/pull/199)
 - Comment Navigator
 	- Added "me" to comment navigator - allows scrolling through your own posts on a thread
 - Subreddit Manager
 	- RANDNSFW link is now hidden if NSFW filter is on
 - Keyboard Navigation
 	- Added a few keyboard navigation features thanks to [urhereimnot's contribution](https://github.com/honestbleeps/Reddit-Enhancement-Suite/pull/204)
+- Inline Image Viewer
+	- Added a space between view images and (#) to conform to reddit tab styles for other discussions () and related ().  Thanks to [noahkissinger's contribution](https://github.com/honestbleeps/Reddit-Enhancement-Suite/pull/197)
 
 Bugfixes:
 - General
@@ -26,6 +29,8 @@ Bugfixes:
 	- Using Mutationobserver instead of DOMNodeInserted when available for greater efficiency
 	- Cleanup of keyboard index storage for greater efficiency
 	- Some various cleanup to CSS
+	- Correction for escaping quotes correctly in the code where Github would have formatted quotes when it should not be formatted.  Thanks to [thelinmichael's contribution](https://github.com/honestbleeps/Reddit-Enhancement-Suite/pull/198)
+	- Added a shared class for +shortcut and +dashboard.  Thanks to [noahkissinger's contribution](https://github.com/honestbleeps/Reddit-Enhancement-Suite/pull/197)
 
 changelog: v4.1.3
 
