@@ -87,6 +87,13 @@ XHRCache = {
 	}
 };
 
+function copyLocalStorage() {
+	var s = {};
+	for (var key in localStorage)
+		s[key] = localStorage[key];
+	return s;
+}
+
 chrome.extension.onMessage.addListener(
 	function(request, sender, sendResponse) {
 		switch(request.requestType) {
@@ -192,14 +199,14 @@ chrome.extension.onMessage.addListener(
 				return true;
 				break;
 			case 'getLocalStorage':
-				sendResponse(localStorage);
+				sendResponse(copyLocalStorage());
 				break;
 			case 'saveLocalStorage':
 				for (var key in request.data) {
 					localStorage.setItem(key,request.data[key]);
 				}
 				localStorage.setItem('importedFromForeground',true);
-				sendResponse(localStorage);
+				sendResponse(copyLocalStorage());
 				break;
 			case 'localStorage':
 				switch (request.operation) {
