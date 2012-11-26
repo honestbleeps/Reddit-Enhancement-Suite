@@ -1,4 +1,358 @@
-changelog is outdated, needs to be updated to cover 3.4->4.0.x
+changelog: v4.1.5
+Release Date: Wednesday, November 14, 2012
+
+New Features:
+- General
+	- Added a new option to allow orangered envelope to link to full inbox, instead of /unread (this is off by default), thanks to [andytuba's contribution](https://github.com/honestbleeps/Reddit-Enhancement-Suite/pull/207)
+	- Introduced Qunit testing to verify functionality of code changes within RES.  Thanks to [thelinmichael's contributions](https://github.com/honestbleeps/Reddit-Enhancement-Suite/pull/199)
+- Comment Navigator
+	- Added "me" to comment navigator - allows scrolling through your own posts on a thread
+- Subreddit Manager
+	- RANDNSFW link is now hidden if NSFW filter is on
+- Keyboard Navigation
+	- Added a few keyboard navigation features thanks to [urhereimnot's contribution](https://github.com/honestbleeps/Reddit-Enhancement-Suite/pull/204)
+- Inline Image Viewer
+	- Added a space between view images and (#) to conform to reddit tab styles for other discussions () and related ().  Thanks to [noahkissinger's contribution](https://github.com/honestbleeps/Reddit-Enhancement-Suite/pull/197)
+
+Bugfixes:
+- General
+	- Security fixes to prevent XSS attacks via external sources
+	- Fixed a few issues with Opera - **Now REQUIRES Opera 12.10**
+	- Fixed "Show parent on hoever", which broke when Reddit's HTML changed
+	- Fixed doubling up of "full comments" on friends/comments page (also due to reddit change)
+	- Fixed an issue that broke Twitter expandos for some users
+	- Fixed a bug in Safari related to XHR (thanks Gamefreak)
+	- Updated snuownd per Gamefreak
+	- Bugfixes for nested instances of "load more comments" not getting applied RES functions
+	- Updates for compatibility with newer versions of Firefox Addon SDK (aka jetpack)
+	- Broke out plugins into separate files
+	- Using Mutationobserver instead of DOMNodeInserted when available for greater efficiency
+	- Cleanup of keyboard index storage for greater efficiency
+	- Some various cleanup to CSS
+	- Correction for escaping quotes correctly in the code where Github would have formatted quotes when it should not be formatted.  Thanks to [thelinmichael's contribution](https://github.com/honestbleeps/Reddit-Enhancement-Suite/pull/198)
+	- Added a shared class for +shortcut and +dashboard.  Thanks to [noahkissinger's contribution](https://github.com/honestbleeps/Reddit-Enhancement-Suite/pull/197)
+
+changelog: v4.1.3
+
+New Features:
+- General
+	- Several significant efficiency improvements that should make RES run a bit smoother
+	- A few style tweaks for the header (thanks Marcel)
+	- Added length display of text/title fields on submission page (thanks gamefreak)
+	- A large collection of CSS tweaks/fixes (thanks gavin19)
+	- Added support for scrolling subreddit dropdown (thanks spencerhakim)
+	- Semantic improvements to HTML fro certain RES elements for friendlier subreddit styling
+- filteReddit
+	- Added the ability to filter by flair (e.g. "gore")
+	- Added the ability for subreddits to trigger RES to enable gonewild filter functionality (thanks gamefreak)
+- Keyboard Navigation
+	- Improvements to annotations to not be triggered by commonly used reddit "emoticons" (thanks DanGe42)
+	- Added option to automatically move to the next post after voting (thanks gavin19)
+	- Added shortcut for inbox in a new tab (thanks gavin19)
+	Added shortcut for opening subreddit in a new tab (thanks cpettit)
+- Inline Image Viewer
+	- Added picshd.com support to image viewer
+	- Added comma separated album functionality to imgur posts (thanks gamefreak)
+	- Improvements to image zooming functionality (thanks gamefreak)
+	- A number of other minor/less visible inline image viewer teaks/improvements (thanks gamefreak)
+	- Zero padding gallery numbers in image galleries to avoid cursor jump
+	- Improvements to the behavior of auto sidebar hiding when images are expanded
+	- Updates to imgur support (less reliance on API calls)
+	- Drastically improved flickr support
+- Dashboard
+	- Added the ability to edit widgets
+	- Added "ignored" column to user tagger table
+- Account Switcher
+	- Added "delete" button to table-type options in the console
+
+Bug Fixes:
+- General
+	- A number of new preventative measures to combat subreddits trying to hide the "use subreddit stylesheet" button (thanks Krenair)
+	- Fixed comment hide persistor in Firefox
+	- Fix for the pesky userbar toggle button size getting messed up in certain situations when closed
+	- Fix for username links with non-username text bringing up wrong info
+	- Fixed a bug caused by hiding many links in rapid succession
+	- Fixed saved comments tab not showing up on locale subdomains
+	- Fixed username hider on edited comments (thanks thelinmichael)
+	- Update to remove new message count when needed (thanks dxprog)
+- Inline Image Viewers
+	- Fixed a bug with imgur links not working when they had parameters after them (e.g. ?1)
+	- Fixed an issue with the sidebar being hidden on user pages even if expanded images weren't large
+- New Comment Count
+	- Fixed module overwriting localizations on comments page
+- Never Ending Reddit
+	- Fixed a bug with module not returning users to the correct page after viewing a Reddit comments page
+	- Fixed an issue with subreddit hover popup
+- Live Comment Preview
+	- Fixes in Snuownd parser (thanks gamefreak)
+	- Fix for module not showing up on edit
+- filteReddit
+	- Fixed an issue with saving options for users moving from old versions of RES
+- User Tagger
+	- Fixed hyphenated usernames
+- Subreddit Manager
+	- Fixed a bug with < and > buttons scrolling too far sometimes
+
+changelog: v4.1.2
+
+New Features:
+- General
+	- DeviantART and Tumblr links are no longer reqritten - thanks to a huge improvement made in Firefox, this will only detrimentally affect Opera and Safari users who use "view all images" on pages full of these links...
+	- Made some huge performance improvements in Opera
+	- Direct link to users' links and comments now exist in the user hover tooltip
+
+Bugfixes:
+- General
+	- Reddit made a breaking change (moving location of saved links) making it impossible for RES users to get to saved comments - this is fixed
+	- Fixed a bug causing the "About RES" panel not to display in the console for Firefox users
+	- Fixed a few CSS issues (thanks gavin19!)
+	- A number of other minor/misc tweaks and bugfixes
+- Live Comment Preview
+	- Fixed an issue with attachment to the top level comment even when not necessary
+- Uppers and Downers Enhanced
+	- Now work on user profile past page #1
+- Never Ending Reddit
+	- Some new updates to back button detection shouold make it a little smoother
+
+changelog: v4.1.1
+
+New Features:
+- General
+	- Users now have the ability to disable +dashboard and +shortcut links in the sidebar
+	- Subscription checking is now more efficient thanks to a different Reddit API call
+- Account Switcher
+	- Menu can now be switched between snoo (the alien) and a dropdown
+	- Menu has returned to being "click to open", rather than rollover
+- Dashboard
+	- User tag list now has pagination (thanks, gamefreak!)
+- Live Comment Preview
+	- Macros now support multiple lines of text
+	- Macro rollover has been changed to click to activate to avoid accidentally opening
+- Inline Image Viewer
+	- Image galleries noew have a unique icon so you can tell it's a gallery
+	- Support for picsarus.com image host
+	- Added the option for users to disable the display of image captions in gallery view
+- Never Ending Reddit
+	- Firefox should get a greate performance improvement on long pages with many images open thanks to a new method of tracking history
+
+Bug Fixes:
+-General
+	- A small subset of people were experiencing RES-ERROR localStorage messages in Firefox, this should be fixed
+	- A different small subset of Chrome users were having RES periodically not run due to a crash in the SnuOwnd live comment preview markdown parser
+	- Fixed an issue with +dashboard / +shortcut buttons in the modqueue
+	- Fixed an issue related to deleting subreddit shortcuts
+	- Fixed a bug preventing users from subscribing to threads that had 0 comments
+	- Fixed some edge cases of displaying negative values for new user account ages
+	- A number of other minor bugfixes too tiny and/or numerous to list...
+- Inline Image Viewer
+	- A number of tweaks were made to how inline image viewer works to restore it to proper functionality
+- Style Tweaks
+	- CSS tweaks to Night Mode (spoiler tags and a few other fixes, thanks, gavin19!)
+- Never Ending Reddit
+	- Some additional bug fixes were made for back button detection (specifically to avoid thiking you've come from the back button on a page refresh)
+	- Fixed accidental triggering of module via keyboard
+- Subreddit Manager
+	- Fixed another bug relating to subreddit highlighting on the user bar
+
+changelog: v4.1
+
+New Features:
+- General
+	- Major overhaul to how and when certain parts of RES are executed - this MAY result in getting rid of the dreaded "flash of unstyled content", such as a white page before night mode kicks in, in some cases!
+	- Some efficiency improvements specific to the Firefox addon including: compiling with a new addon SDK version (biggest help), some adjustments to how storage is handled between tabs, and eliminating some code
+	- Added "fadespeed" option to user hover tooltip so that users can have it fade in/out faster (or just instantly appear)
+	- Now calling more HTTPS stuff to play nicer with addons like HTTPS Everywhere (note: compatibility is still not guaranteed)
+	- Added a way to dynamically grab known/popular bug reports and geature request for when people try to submit to Enhancement or RESIssues
+	- Added "turbo selftext" option - which will make sefltext expandos much faster after the first one you load on any given page
+	- Adjusted clickable area for selecting comments
+	- Added a new subreddit tooltip - allows easy filtering, adding of shortcuts/dashboard widgets, etc
+	- New Module: Comment hide peristor - keeps track of collapsed comments and re-collapses them when you return to a thread - thanks, umbrae!
+	- Added "source" button to inbox
+	- Adding a class of .res to the BODY tag to help moderators better style their subreddits with RES in mind
+	- Added app=res to all calls to Reddit, so that the Reddit admins can more easily measure RES's impact
+	- Added a few more URL patterns that will break out of the Reddit Toolbar since they don't play nice together
+	- Diabling "spam button" module by default due to misuse/abuse.  If enabled, button now reads "rts" so as not to conflict with newly added "spam" button from Reddit itself
+	- Made a few code changes that should allow older version of Firefox (via Greasemonkey) to still work.  I cannot actively support this with a lot of time, but a cursory test shows you should be able to run RES with FF3.6_GM now
+	- Added code to allow saving of comments even if they're from deleted users
+	- Added the ability for filteReddit and dashboard subreddits to be added even if they don't exist in Reddit's autocomplete feature
+	- Improved multireddit experience - now including +dashboard and +shortcut buttons for each reddit in the sidebar, etc
+	- Updates to Reddit API calls to maintain current location protocol (should mean less problems browsing https with pay.reddit.com)
+- Dashboard
+	- Major additions to Dashboard - you can now see all of your user tags and subscribed threads there!
+	- Added "View Images" tab
+	- Added "refresh all" function
+- User Tagger
+	- Now stores a link to the link or comment you tagged a user from by default
+	- Hover tip now works on /u/username links
+	- "Hard ignore" option in User Tagger now collapses sub comments as well
+	- Added user tagger / hover tip to flair page for moderators
+- filteReddit
+	- Added easy-access NSFW filter toggle to dropdown menu
+- Account Switcher
+	- Updated drowpdown for easier access and more UI consistency
+	- Added the ability to show current username (thanks, Lugghawk!)
+- Uppers and Downers Enhanced
+	- Completely overhauled how uppers/downders are displayed - no more JSON request required, which means it's faster!
+- Inline Image Viewer
+	- Major overhaul of inline image viewer - improved code, support for a few more sites (deviantart, imgclean, picsarus, i.qkme), etc
+- Tips and Tricks
+	- Added a checkbox to more easily disable RES Tips and Tricks
+- Never Ending Reddit
+	- Updated with "friendlier" error messaging and easier reloading
+- Comment Preview
+	- Added the ability to add custom macro buttons to comment preview toolbar
+	- No longer auto-linking subreddits since Reddit now does it itself
+	- Added "reddiquette" button to comment preview toolbar
+- Subreddit Manager
+	- Added a few more optional links to the subreddit manager: DASHBOARD, FRONT, MODQUEUE, RANDNSFW (thanks to Signe for the last 2)
+- New Comment Count
+	- Added the ability to control how long thread subscriptions last
+
+Bug Fixes:
+- General
+	- Reddit changed how karma is displayed, which made Comment Karma not show in RES - this is now fixed
+	- Reddit added a new features, "link flair" which broke RES - this is now fixed
+	- Fixed an issue for international users having problems with keyboard shortcuts blocking their extended charsets
+	- Added a MAJOR fix for Safari users who often used the back button resulting in a broken RES
+	- Fixed a bug where "view images" broke when encountering a post from an ingnored user
+	- Fix for misaligned userbar icon when not using navTop
+	Minore bug fix with commandline sorting
+	- Fixed an issue that messed up the flair dropdown for moderators in some cases
+	- Changed structure of settings dropdown menu to not block other buttons from being clicked
+	- Adjusted how Firefox handles tab communication of settings changes - should be more efficient
+	- Some fixes for user hover tooltip placement / alignment
+	- Added user hover tip to moderator box in sidebar
+	- Updated new comment count cache to be cleared more often
+	- Further "protection" of subreddit style checkbox
+	- Timezone fix for date function
+	- Added support for cmd-click of subreddit shortcuts on OSX
+- Keyboard Navigation
+	- Preventing autoload of next page when autoload is disabled
+	- Documentation updates for a few unclear keyboard commands
+	- Fixed a couple of minor issues with Never Ending Reddit
+- User Tagger
+	- Several miscellaneous bug fixes
+- Style Tweaks
+	- More tweaks to Night Mode to style some elements that were overlooked
+- Inline Image Viewer
+	- History recording should work in Firefox now that it's compiled with a newer Addon SDK version
+- Never Ending Reddit
+	- No longer relies on rewriting the current URL to keep track of what page you're on, which should alleviate ctrl-f borking out in Chrome, and also caching/history problem in Chrome
+	- Added a fix for "username hider" module not applying to multiple pages
+	- Fixed duplicate "full comments" link on user pages
+	- A lot of other minor bug fixes, UI fixes, etc - really, I've lost track...
+- Live Comment Preview
+	- Complete overhaul using new markdown engine, etc.
+- filteReddit
+	- exclusive/inclusive filters often broke other filters
+- Live Comment Preview
+	- Added option to disable keyboard shortcuts for bold/italic/strikethrough
+- Subreddit Manager
+	- Bugfix to highlighting of current subreddit
+
+changelog: v4.0.3
+
+New Features:
+- General
+	- Adjusted positioning of user detail dialog for better alignment of username
+	- Checking for existing video times before adding new ones...
+	- Added deviantart and memecrunch to inline image viewer (thanks gamefreak)
+	- Removed linkifySubreddits option, as Reddit now does this natively
+- Keyboard Navigation
+	- Now handles "continue this thread" links (thanks gavin19)
+	- Added new commandline command, srstyle, to toggle subreddit styles on and off
+- Subreddit Manager
+	- Current subreddit now highlighted on shortcut bar (thanks gavin19)
+	- Added "home" link option in subreddit manager (thanks s-quark)
+- Never Ending Reddit
+	- Added close button in case it fails and you get stuck there
+	- Added unread message count to never ending reddit floating mail indicator
+
+Bug Fixes:
+- General
+	- Fixed a XSS threat, huge thanks to I_know_HTML for reporting it anonymously and with detail
+	- Added an additional fix for hiding the sidebar on resizing images which were sometimes still getting cut off
+	- Fixed ability to save links in multireddits (thanks calaveraDeluxe)
+	- CPU usage fix for some users whose scrolling + updating localStorage was causing locks (thanks gamefreak)
+	- Added flickr.com and github.com to toolbarFix since they also seem to break the reddit toolbar
+	- Firefox XPI only: compiled using patched FF addon-sdk to get around a bug in their SDK that caused problems for the user tagger when a color was selected
+	- Set drag/resized images to only even pixel widths to get around a Firefox bug...
+	- Fixed another mail icon sprite issue
+- Never Ending Reddit
+	- Fixed a problem with Safari and cross-domain versus non-cross-domain XHR causing issues
+- Account Switcher
+	- Fixed in chrome incognito mode
+- Uppers and Downers Enhanced
+	- Fixed a bug when logged out caused by a change in reddit's html
+- betteReddit
+	- Fixed an issue where subscription notifications were obscured when pinHeader option is on
+	- Other fixes related to pinHeader (thanks s-quark)
+	- Added option to pin subreddit bar and userbar together (thanks gavin19)
+- Style Tweaks
+	- more night mode fixes (thanks gavin19)
+
+changelog: v4.0.2
+
+New features:
+- General
+	- Chrome no longer marks images as visited when in incognito mode
+	- Now allowing sorting by new/hot/top/controversial on user widgets
+
+Bug Fixes:
+- General
+	- Fixed a last minute issue with Reddit's new sprite system (changed 11/14/11) messing up mail display for showUnreadCount
+	- Fixed 404 issues with dashboard on mail and user widgets when default sort was changed
+	- Fixed a bug with commandline console and sorting from users' profile pages
+	- Fixed a bug with trying to get info of a logged in user when not logged in (reddit's HTML change broke this)
+	- Fixed an issue where toggled userbars in some browsers grew by a couple of pixels (thanks gavin19)
+- Style Tweaks
+	- A number of fixes to night mode (thanks gavin19!)
+- Never Ending Reddit
+	- Changed how Never Ending Reddit rememberspages to get around a Chrome bug that was breaking scrolling and find in page searches that caused scrolls...
+	- Fixed inconsistency on subreddit tagger, especially on subsequent never ending reddit pages
+	- Fixed a bug where never ending reddit wasn't updating the right mail icon if you had the full header pinned
+- Subreddit Tagger
+	- Fixed an opera specific bug in subreddit tagger that was placing "undefined" in link titles
+- Account Switcher
+	- Fixed an issue with menu alignment when pinUserBar was set
+- Dashboard
+	- Fixed a bug on with sorting widgets that had multireddits causing data to be corrupted
+- Live Comment Preview
+	- Fixed a bug with how h3 tags were rendered (i.e. ###text)
+- filteReddit
+	- Fixed a bug with domains / keyword radio buttons
+
+changelog: v4.0.1
+
+New features:
+- General
+	- Got rid of the (u) indicator since all browsers now auto update
+
+Bug fixes:
+- General
+	- Adjusted how the console scrim is handled to avoid a slow scrolling bug in Opera
+	- Fixed an issue where users who have youtube blocked (corporate firewall, etc) were getting error messages
+	- Opera: fixed a bug with the save options button sometimes not appearing properly
+	- Fixed navTop=off incompatibility with pin options
+- Keyboard Navigation
+	- Fixed an issue where onHdeMoveDown wasn't moving down
+	- Addressed safari/osx issue where keyboard shortcuts were being blocked
+- User Tagger
+	- Removed unnecessary defaultMark option from past instances
+	- Fixed a bug when a color was set (only affected Firefox)
+- Subreddit Manager
+	- Fixed a bug disallowing slashes in subreddit shortcuts
+- Style Tweaks
+	- Fixed some night mode issues
+- Account Switcher
+	- Opera: fixed a bug where account switcher wouldn't work in Opera - but that means not using https...
+- filteReddit
+	- Fixed a bug where filteReddit on specific subreddits was case sensitive and shouldn't have been
+- Never Ending Reddit
+	- Fixed a bug where page numbers weren't recording right with certain options set
+
+**Missing changelog v 4.0**
+**All updated changelog information is taken from redditenhancementsuite.com/whatsnew?v=4.1.5
 
 changelog: v3.4
 
@@ -19,10 +373,10 @@ New features:
 - New Comment Count
 	- New comment counts are now displayed on the comment page (just the count, you still need Reddit Gold for highlighting)
 - Comment Navigator
-	- Added two new search methods: 
+	- Added two new search methods:
 		- Friend - click through posts from friends
 		- Popular - clicks through posts in order of popularity (point total)
-	
+
 Bug fixes:
 - General (well, actually Keyboard Navigation but that's non-obvious)
 	- Fixed an issue where links with mixed-case protocols (i.e. "Http") were not opening properly in some browsers
@@ -39,7 +393,7 @@ Bug fixes:
 	- If enabled, "Commenting as" in the Live Comment Preview won't be displayed
 - Inline Image Viewer
 	- Fixed an issue where some Flickr images would show at the wrong aspect ratio before resizing
-	
+
 
 changelog: v3.3
 
@@ -58,14 +412,14 @@ New features:
 - Live Comment Preview
 	- Added "commenting as" with your logged in username to avoid confusion for frequent account switchers
 	- Added option to turn "commenting as" text off for those who don't want to see it
-	
+
 Bug fixes:
 - betteReddit
 	- Fixed some CSS annoyances on the subreddit bar for some users
 	- Fixed an issue where shortcuts with a period in them wouldn't save properly
 - Inline Image Viewer
 	- Fixed a bug where preview thumbnails sometimes got stuck open
-	
+
 
 changelog: v3.2
 
@@ -164,7 +518,7 @@ New features:
 	- Changed the way saved comments are stored in preparation for exciting new functionality... :)
 - User Tagger
 	- Changed the way user tags / vote info are stored, also in preparation for exciting new functionality!
-	
+
 Bug fixes:
 - General
 	- Better detection of localStorage failure to let the user know why RES won't work - hopefully a "graceful" failure now.
@@ -201,7 +555,7 @@ New features:
 	- Added spam link to comments page of an individual link
 - Keyboard Navigation
 	- Added the option to *not* automatically move to the next post when hitting the "hide" keyboard shortcut
-	
+
 Bug fixes:
 - Account Switcher
 	- Made a change that allows this module to run properly in Opera as a native extension.
@@ -254,7 +608,7 @@ New features:
 - Save Comments
 	- "Save" link now becomes "Unsave" when you click it.
 	- Updated style sheets for viewing saved comments, fixed some display issues
-	
+
 Bug fixes:
 - New Comments Count
 	- Fixed a bug where new counts weren't showing on certain sorting methods
@@ -266,8 +620,8 @@ Bug fixes:
 - Comment Preview / View Source
 	- Fixed a bug where you couldn't hide the source of self posts
 	- Fixed a bug where clicking "source" button multiple times displayed multiple copies of the source
-- 
-	
+-
+
 ------------------------------------------------------------------------
 
 
@@ -305,7 +659,7 @@ Bug fixes:
 	- Fixed a bug where the same comment could be saved multiple times
 - Hide Child Comments
 	- Fixed a bug that wouldn't allow child comments to be hidden if you had clicked reply
-	
+
 ------------------------------------------------------------------------
 
 changelog: v2.3
@@ -323,7 +677,7 @@ New features:
 	- Removed the "useSmallImage" option and replaced it with "imageSize" - pick any size image from imgur! Great for low bandwidth connections, and smaller screens like netbooks.
 - Live Comment Preview
 	- Surprise! Live preview of tables!
-		
+
 Bug fixes:
 - General
 	- Fixed a settings issue that was causing problems in Chrome dev builds. More a bug with Chrome in my opinion, but whatever. ;-)
@@ -366,7 +720,7 @@ Bug fixes:
 	- Fixed a situation with repeated looks of disapproval looking wrong.
 	- Fixed a problem with < and > characters not rendering right in the live preview.
 - Inline Image Viewer
-	- Fixed a bug that was excluding it from running on /user/username/submitted 
+	- Fixed a bug that was excluding it from running on /user/username/submitted
 - Style Tweaks
 	- Fixed a few more minor issues with Dark style
 
@@ -397,11 +751,11 @@ Bug fixes:
 - Style Tweaks
 	- Fixed an issue with deeper threads and reddit dark
 - filteReddit
-	- Added filtering on Never Ending Reddit loads... 
+	- Added filtering on Never Ending Reddit loads...
 - Save Comments
 	- Fixed the behavior of the 'saved' link when saving a comment
 	- Fixed some CSS as well
-	
+
 ------------------------------------------------------------------------
 
 changelog: v2.0
@@ -512,7 +866,7 @@ Bug fixes:
 - User Tagger
 	- Fixed an issue where up/downvote tracking was still happening even if colorUser was turned off.
 	- Fixed a date bug in the user info rollover
-	
+
 ------------------------------------------------------------------------
 
 

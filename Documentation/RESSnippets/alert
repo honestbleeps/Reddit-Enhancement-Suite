@@ -1,0 +1,6 @@
+var alert = function(text, callback) {
+	if (gdAlert.container == false) {
+		gdAlert.init(callback);
+	}
+	gdAlert.open(text, callback);
+}

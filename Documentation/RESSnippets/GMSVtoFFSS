@@ -1,0 +1,10 @@
+// this function copies localStorage (from the GM import script) to FF addon simplestorage...
+function GMSVtoFFSS() {
+	var console = unsafeWindow.console;
+	for (key in localStorage) {
+		RESStorage.setItem(key, localStorage[key]);
+	}
+	localStorage.setItem('copyComplete','true');
+	localStorage.removeItem('RES.lsTest');
+	RESUtils.notification('Data transfer complete. You may now uninstall the Greasemonkey script');
+}
