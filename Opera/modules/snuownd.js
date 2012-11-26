@@ -1677,7 +1677,9 @@
 			return 0;
 
 		/* removing the last space from ob and rendering */
-		out.s = out.s.trimRight();
+		var len = out.s.length;
+		while (len && out.s[len - 1] == ' ') len--;
+		out.s = out.s.slice(0, len);
 
 		return md.callbacks.linebreak(out, md.context) ? 1 : 0;
 	}
