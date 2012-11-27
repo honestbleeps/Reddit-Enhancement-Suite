@@ -19,15 +19,14 @@
  * ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
-// up to date with 7d3986e3d4f2a4ba856780d4f1b8baee29b227c6
+// up to date with commit b9168b0af0cb5cfb8de3723b6f0c461a52af9f8e
 
 /**
 @module SnuOwnd
 */
-var SnuOwnd = {};
 (function(exports){
 	function _isspace(c) {return c == ' ' || c == '\n';}
-	function isspace(c) {return /\s/.test(c);}
+	function isspace(c) {return /[\x09-\x0d ]/.test(c);}
 	function isalnum(c) { return /[A-Za-z0-9]/.test(c); }
 	function isalpha(c) { return /[A-Za-z]/.test(c); }
 	function ispunct(c) {return /[\x20-\x2f\x3a-\x40\x5b-\x60\x7b-\x7f]/.test(c); }
@@ -36,6 +35,7 @@ var SnuOwnd = {};
 		var hex_str = '0123456789ABCDEF';
 		return '%'+hex_str[(number&0xf0)>>4]+hex_str[(number&0x0f)>>0];
 	}
+
 	function escapeUTF8Char(char) {
 		var code = char.charCodeAt(0);
 		if (code < 0x80) {
@@ -59,11 +59,12 @@ var SnuOwnd = {};
 			'blockquote', 'figure', 'ol', 'fieldset',
 			'h1', 'h6', 'pre', 'script',
 			'h5', 'noscript', 'style', 'iframe',
-			'h4', 'ins', 'h3', 'h2' ];
-	  if (wordList.indexOf(str.toLowerCase()) != -1) {
-		  return str.toLowerCase();
-	  }
-	  return '';
+			'h4', 'ins', 'h3', 'h2'
+		];
+		if (wordList.indexOf(str.toLowerCase()) != -1) {
+			return str.toLowerCase();
+		}
+		return '';
 	}
 
 	function sdhtml_is_tag(tag_data, tagname) {
@@ -95,7 +96,6 @@ var SnuOwnd = {};
 		return HTML_TAG_NONE;
 	}
 
-
 	function unscape_text(out, src) {
 		var i = 0, org;
 		while (i < src.s.length) {
@@ -123,22 +123,22 @@ var SnuOwnd = {};
 	 *
 	 */
 	var HTML_ESCAPE_TABLE = [
-	7, 7, 7, 7, 7, 7, 7, 7, 7, 0, 0, 7, 7, 0, 7, 7, 
-	7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 
-	0, 0, 1, 0, 0, 0, 2, 3, 0, 0, 0, 0, 0, 0, 0, 4, 
-	0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 6, 0, 
-	0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-	0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-	0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-	0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-	0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-	0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-	0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-	0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-	0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-	0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-	0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-	0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+		7, 7, 7, 7, 7, 7, 7, 7, 7, 0, 0, 7, 7, 0, 7, 7, 
+		7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 
+		0, 0, 1, 0, 0, 0, 2, 3, 0, 0, 0, 0, 0, 0, 0, 4, 
+		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 6, 0, 
+		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 	];
 
 	var HTML_ESCAPES = ["", "&quot;", "&amp;", "&#39;", "&#47;", "&lt;", "&gt;", "" /* throw out control characters */ ];
@@ -250,12 +250,12 @@ var SnuOwnd = {};
 					 * sign. we're going with the generic escape
 					 * for now. the plus thing is more commonly seen
 					 * when building GET strings */
-/*
+				/*
 				//This was disabled
 				case ' ':
 					out.s += '+'
 					break;
-//*/
+				//*/
 
 					/* every other character goes with a %XX escaping */
 				default:
@@ -273,81 +273,81 @@ var SnuOwnd = {};
 	}
 
 
-//		function autolink_delim(uint8_t *data, size_t link_end, size_t offset, size_t size)
-		function autolink_delim(data, link_end) {
-			var cclose, copen = 0;
-			var i;
+	// function autolink_delim(uint8_t *data, size_t link_end, size_t offset, size_t size)
+	function autolink_delim(data, link_end) {
+		var cclose, copen = 0;
+		var i;
 
-			for (i = 0; i < link_end; ++i)
-				if (data[i] == '<') {
-					link_end = i;
-					break;
-				}
-
-			while (link_end > 0) {
-				if ('?!.,'.indexOf(data[link_end - 1]) != -1) link_end--;
-
-				else if (data[link_end - 1] == ';') {
-					var new_end = link_end - 2;
-
-					while (new_end > 0 && isalpha(data[new_end])) new_end--;
-
-					if (new_end < link_end - 2 && data[new_end] == '&')
-						link_end = new_end;
-					else link_end--;
-				}
-				else break;
+		for (i = 0; i < link_end; ++i)
+			if (data[i] == '<') {
+				link_end = i;
+				break;
 			}
 
-			if (link_end == 0) return 0;
+		while (link_end > 0) {
+			if ('?!.,'.indexOf(data[link_end - 1]) != -1) link_end--;
 
-			cclose = data[link_end - 1];
+			else if (data[link_end - 1] == ';') {
+				var new_end = link_end - 2;
 
-			switch (cclose) {
-				case '"':	copen = '"'; break;
-				case '\'':	copen = '\''; break;
-				case ')':	copen = '('; break;
-				case ']':	copen = '['; break;
-				case '}':	copen = '{'; break;
+				while (new_end > 0 && isalpha(data[new_end])) new_end--;
+
+				if (new_end < link_end - 2 && data[new_end] == '&')
+					link_end = new_end;
+				else link_end--;
 			}
-
-			if (copen != 0) {
-				var closing = 0;
-				var opening = 0;
-				var j = 0;
-
-				/* Try to close the final punctuation sign in this same line;
-				 * if we managed to close it outside of the URL, that means that it's
-				 * not part of the URL. If it closes inside the URL, that means it
-				 * is part of the URL.
-				 *
-				 * Examples:
-				 *
-				 *	foo http://www.pokemon.com/Pikachu_(Electric) bar
-				 *		=> http://www.pokemon.com/Pikachu_(Electric)
-				 *
-				 *	foo (http://www.pokemon.com/Pikachu_(Electric)) bar
-				 *		=> http://www.pokemon.com/Pikachu_(Electric)
-				 *
-				 *	foo http://www.pokemon.com/Pikachu_(Electric)) bar
-				 *		=> http://www.pokemon.com/Pikachu_(Electric))
-				 *
-				 *	(foo http://www.pokemon.com/Pikachu_(Electric)) bar
-				 *		=> foo http://www.pokemon.com/Pikachu_(Electric)
-				 */
-
-				while (j < link_end) {
-					if (data[j] == copen) opening++;
-					else if (data[j] == cclose) closing++;
-
-					j++;
-				}
-
-				if (closing != opening) link_end--;
-			}
-
-			return link_end;
+			else break;
 		}
+
+		if (link_end == 0) return 0;
+
+		cclose = data[link_end - 1];
+
+		switch (cclose) {
+			case '"':	copen = '"'; break;
+			case '\'':	copen = '\''; break;
+			case ')':	copen = '('; break;
+			case ']':	copen = '['; break;
+			case '}':	copen = '{'; break;
+		}
+
+		if (copen != 0) {
+			var closing = 0;
+			var opening = 0;
+			var j = 0;
+
+			/* Try to close the final punctuation sign in this same line;
+			 * if we managed to close it outside of the URL, that means that it's
+			 * not part of the URL. If it closes inside the URL, that means it
+			 * is part of the URL.
+			 *
+			 * Examples:
+			 *
+			 *	foo http://www.pokemon.com/Pikachu_(Electric) bar
+			 *		=> http://www.pokemon.com/Pikachu_(Electric)
+			 *
+			 *	foo (http://www.pokemon.com/Pikachu_(Electric)) bar
+			 *		=> http://www.pokemon.com/Pikachu_(Electric)
+			 *
+			 *	foo http://www.pokemon.com/Pikachu_(Electric)) bar
+			 *		=> http://www.pokemon.com/Pikachu_(Electric))
+			 *
+			 *	(foo http://www.pokemon.com/Pikachu_(Electric)) bar
+			 *		=> foo http://www.pokemon.com/Pikachu_(Electric)
+			 */
+
+			while (j < link_end) {
+				if (data[j] == copen) opening++;
+				else if (data[j] == cclose) closing++;
+
+				j++;
+			}
+
+			if (closing != opening) link_end--;
+		}
+
+		return link_end;
+	}
 
 	function check_domain(data, allow_short) {
 		var i, np = 0;
@@ -371,7 +371,6 @@ var SnuOwnd = {};
 			return np ? i : 0;
 		}
 	}
-
 
 	function sd_autolink_issafe(link) {
 		var valid_uris = [
@@ -421,7 +420,6 @@ var SnuOwnd = {};
 
 		return link_end;
 	}
-
 
 	function sd_autolink__subreddit(rewind_p, link, data_, offset, size) {
 		var data = data_.slice(offset);
@@ -502,7 +500,6 @@ var SnuOwnd = {};
 		return link_end;
 	}
 
-
 	function sd_autolink__email(rewind_p, link, data_, offset, size, flags) {
 		var data = data_.slice(offset);
 		var link_end, rewind;
@@ -534,7 +531,7 @@ var SnuOwnd = {};
 
 		if (link_end == 0) return 0;
 
-//		link.s += data_.slice(offset - rewind, link_end + rewind
+		// link.s += data_.slice(offset - rewind, link_end + rewind
 		link.s += data_.substr(offset - rewind, link_end + rewind);
 		rewind_p.p = rewind;
 
@@ -548,7 +545,7 @@ var SnuOwnd = {};
 		if (offset > 0 && !ispunct(data_[offset-1]) && !isspace(data_[offset-1]))
 			return 0;
 
-//		if (size < 4 || memcmp(data, "www.", strlen("www.")) != 0)
+		// if (size < 4 || memcmp(data, "www.", strlen("www.")) != 0)
 		if (size < 4 || (data.slice(0,4) != 'www.')) return 0;
 
 		link_end = check_domain(data, 0);
@@ -568,468 +565,517 @@ var SnuOwnd = {};
 		return link_end;
 	}
 
-/**
-Initialize a Callbacks object.
+	/**
+	Initialize a Callbacks object.
 
-@constructor
-@param {Object.<string, ?function>} callbacks A set of callbacks to use as the methods on this object.
-*/
-function Callbacks(callbacks) {
-	if (callbacks) {
-		for (var name in callbacks) {
-			if (name in this) this[name] = callbacks[name];
-		}
-	}
-}
-
-Callbacks.prototype = {
-/**
-Renders a code block.
-
-Syntax highlighting specific to lanugage may be performed here.
-
-@method
-@param {Buffer} out The output string buffer to append to.
-@param {Buffer} text The input text.
-@param {Buffer} language The name of the code langage.
-@param {?Object} context A renderer specific context object.
-*/
-	blockcode: null,
-/**
-Renders a blockquote.
-
-@method
-@param {Buffer} out The output string buffer to append to.
-@param {Buffer} text The input text.
-@param {?Object} context A renderer specific context object.
-*/
-	blockquote: null,
-/**
-Renders a block of HTML code.
-
-@method
-@param {Buffer} out The output string buffer to append to.
-@param {Buffer} text The input text.
-@param {?Object} context A renderer specific context object.
-*/
-	blockhtml: null,
-/**
-Renders a header.
-
-@method
-@param {Buffer} out The output string buffer to append to.
-@param {Buffer} text The input text.
-@param {Number} level The header level.
-@param {?Object} context A renderer specific context object.
-*/
-	header: null,
-/**
-Renders a horizontal rule.
-
-@method
-@param {Buffer} out The output string buffer to append to.
-@param {?Object} context A renderer specific context object.
-*/
-	hrule: null,
-/**
-Renders a list.
-<p>
-This method handles the list wrapper, which in terms of HTML would be &lt;ol&gt; or &lt;ul&gt;.
-This method is not responsible for handling list elements, all such processing should
-already have occured on text pased to the method . All that it is intended
-to do is to wrap the text parameter in anything needed.
-</p>
-
-@example
-out.s += "&lt;ul&gt;" + text.s + "&lt;/ul&gt;"
-
-
-@method
-@param {Buffer} out The output string buffer to append to.
-@param {Buffer} text The input that goes inside the list.
-@param {Number} flags A bitfield holding a portion of the render state. The only bit that this should be concerned with is MKD_LIST_ORDERED
-@param {?Object} context A renderer specific context object.
-*/
-	list: null,
-/**
-Renders a list.
-<p>
-Wraps the text in a list element.
-</p>
-
-@example
-out.s += "&lt;li&gt;" + text.s + "&lt;/li&gt;"
-
-
-@method
-@param {Buffer} out The output string buffer to append to.
-@param {Buffer} text The contents of the list element.
-@param {Number} flags A bitfield holding a portion of the render state. The only bit that this should be concerned with is MKD_LI_BLOCK.
-@param {?Object} context A renderer specific context object.
-*/
-	listitem: null,
-/**
-Renders a paragraph.
-
-@example
-
-out.s += "&lt;p&gt;" + text.s + "&lt;/p&gt;";
-
-@method
-@param {Buffer} out The output string buffer to append to.
-@param {Buffer} text The input text.
-@param {?Object} context A renderer specific context object.
-*/
-	paragraph: null,
-/**
-Renders a table.
-
-@example
-
-out.s += "<table><thead>";
-out.s += header.s;
-out.s += "</thead><tbody>";
-out.s += body.s;
-out.s += "</tbody></table>";
-
-@method
-@param {Buffer} out The output string buffer to append to.
-@param {Buffer} head The table header.
-@param {Buffer} body The table body.
-@param {?Object} context A renderer specific context object.
-*/
-	table: null,
-/**
-Renders a table row.
-
-@example
-
-out.s += "&lt;tr&gt;" + text.s + "&lt;/tr&gt;";
-
-@method
-@param {Buffer} out The output string buffer to append to.
-@param {Buffer} text The input text.
-@param {?Object} context A renderer specific context object.
-*/
-	table_row: null,
-/**
-Renders a table cell.
-
-@example
-
-out.s += "&lt;td&gt;" + text.s + "&lt;/td&gt;";
-
-@method
-@param {Buffer} out The output string buffer to append to.
-@param {Buffer} text The input text.
-@param {Number} flags A bit filed indicating a portion of the output state. Relevant bits are: MKD_TABLE_HEADER, MKD_TABLE_ALIGN_CENTER. MKD_TABLE_ALIGN_L, and MKD_TABLE_ALIGN_R.
-@param {?Object} context A renderer specific context object.
-*/
-	table_cell: null,
-/**
-Renders a link that was autodetected.
-
-@example
-
-out.s += "&lt;a href=\""+ text.s + "\"&gt;" + text.s + "&lt;/a&gt;";
-
-@method
-@param {Buffer} out The output string buffer to append to.
-@param {Buffer} text The address being linked to.
-@param {Number} type Equal to MKDA_NORMAL or MKDA_EMAIL
-@param {?Object} context A renderer specific context object.
-@returns {Boolean} Whether or not the tag was rendered.
-*/
-	autolink: null,
-/**
-Renders inline code.
-
-@method
-@param {Buffer} out The output string buffer to append to.
-@param {Buffer} text The text being wrapped.
-@param {?Object} context A renderer specific context object.
-@returns {Boolean} Whether or not the tag was rendered.
-*/
-	codespan: null,
-/**
-Renders text with double emphasis. Default is equivalent to the HTML &lt;strong&gt; tag.
-
-@method
-@param {Buffer} out The output string buffer to append to.
-@param {Buffer} text The text being wrapped.
-@param {?Object} context A renderer specific context object.
-@returns {Boolean} Whether or not the tag was rendered.
-*/
-	double_emphasis: null,
-/**
-Renders text with single emphasis. Default is equivalent to the HTML &lt;em&gt; tag.
-
-@method
-@param {Buffer} out The output string buffer to append to.
-@param {Buffer} text The text being wrapped.
-@param {?Object} context A renderer specific context object.
-@returns {Boolean} Whether or not the tag was rendered.
-*/
-	emphasis: null,
-/**
-Renders an image.
-
-@example
-
-out.s = "&lt;img src=\"" + link.s + "\" title=\"" + title.s + "\"  alt=\"" + alt.s + "\"/&gt;";"
-
-@method
-@param {Buffer} out The output string buffer to append to.
-@param {Buffer} link The address of the image.
-@param {Buffer} title Title text for the image
-@param {Buffer} alt Alt text for the image
-@param {?Object} context A renderer specific context object.
-@returns {Boolean} Whether or not the tag was rendered.
-*/
-	image: null,
-/**
-Renders line break.
-
-@example
-
-out.s += "&lt;br/&gt;";
-
-@method
-@param {Buffer} out The output string buffer to append to.
-@param {?Object} context A renderer specific context object.
-@returns {Boolean} Whether or not the tag was rendered.
-*/
-	linebreak: null,
-/**
-Renders a link.
-
-@example
-
-out.s = "&lt;a href=\"" + link.s + "\" title=\"" + title.s + "\"&gt;" + content.s + "&lt;/a&gt;";
-
-@method
-@param {Buffer} out The output string buffer to append to.
-@param {Buffer} link The link address.
-@param {Buffer} title Title text for the link.
-@param {Buffer} content Link text.
-@param {?Object} context A renderer specific context object.
-@returns {Boolean} Whether or not the tag was rendered.
-*/
-	link: null,
-/**
-Copies and potentially escapes some HTML.
-
-@method
-@param {Buffer} out The output string buffer to append to.
-@param {Buffer} text The input text.
-@param {?Object} context A renderer specific context object.
-@returns {Boolean} Whether or not the tag was rendered.
-*/
-	raw_html_tag: null,
-/**
-Renders text with triple emphasis. Default is equivalent to both the &lt;em&gt; and &lt;strong&gt; HTML tags.
-
-@method
-@param {Buffer} out The output string buffer to append to.
-@param {Buffer} text The text being wrapped.
-@param {?Object} context A renderer specific context object.
-@returns {Boolean} Whether or not the tag was rendered.
-*/
-	triple_emphasis: null,
-/**
-Renders text crossd out.
-
-@method
-@param {Buffer} out The output string buffer to append to.
-@param {Buffer} text The text being wrapped.
-@param {?Object} context A renderer specific context object.
-@returns {Boolean} Whether or not the tag was rendered.
-*/
-	strikethrough: null,
-/**
-Renders text as superscript.
-
-@method
-@param {Buffer} out The output string buffer to append to.
-@param {Buffer} text The text being wrapped.
-@param {?Object} context A renderer specific context object.
-@returns {Boolean} Whether or not the tag was rendered.
-*/
-	superscript: null,
-/**
-Escapes an HTML entity.
-
-@method
-@param {Buffer} out The output string buffer to append to.
-@param {Buffer} text The text being wrapped.
-@param {?Object} context A renderer specific context object.
-*/
-	entity: null,
-/**
-Renders plain text.
-
-@method
-@param {Buffer} out The output string buffer to append to.
-@param {Buffer} text The text being rendered.
-@param {?Object} context A renderer specific context object.
-*/
-	normal_text: null,
-/**
-Creates opening boilerplate for a table of contents.
-
-@method
-@param {Buffer} out The output string buffer to append to.
-@param {?Object} context A renderer specific context object.
-*/
-	doc_header: null,
-/**
-Creates closing boilerplate for a table of contents.
-
-@method
-@param {Buffer} out The output string buffer to append to.
-@param {?Object} context A renderer specific context object.
-*/
-	doc_footer: null
-};
-
-
-/**
-A renderer object
-
-@constructor
-@param {Callbacks} callbacks The callbacks object to use for the renderer.
-@param {?Callbacks} context Renderer specific context information.
-*/
-function Renderer(callbacks, context) {
-	this.callbacks = callbacks;
-	this.context = context;
-}
-
-/**
-Instantiates a custom Renderer object.
-
-@param {Callbacks} callbacks The callbacks object to use for the renderer.
-@param {?Callbacks} context Renderer specific context information.
-@returns {Renderer}
-*/
-function createCustomRenderer(callbacks, context) {
-	return new Renderer(callbacks, context)
-}
-exports.createCustomRenderer = createCustomRenderer;
-
-/**
-Produces a renderer object that will match Reddit's output.
-@returns {Renderer} A renderer object that will match Reddit's output.
-*/
-function getRedditRenderer() {
-	return new Renderer(getRedditCallbacks() ,{
-		nofollow: 0,
-		target: null,
-		tocData: {
-			headerCount: 0,
-			currentLevel: 0,
-			levelOffset: 0
-		},
-		flags: HTML_SKIP_HTML | HTML_SKIP_IMAGES | HTML_SAFELINK | HTML_ESCAPE | HTML_USE_XHTML,
-		/* extra callbacks */
-		//	void (*link_attributes)(struct buf *ob, const struct buf *url, void *self);
-		link_attributes: function link_attributes(out, url, options) {
-
-			if (options.nofollow) out.s += ' rel="nofollow"';
-
-			if (options.target != null) {
-				out.s += ' target="' + options.target + '"';
+	@constructor
+	@param {Object.<string, ?function>} callbacks A set of callbacks to use as the methods on this object.
+	*/
+	function Callbacks(callbacks) {
+		if (callbacks) {
+			for (var name in callbacks) {
+				if (name in this) this[name] = callbacks[name];
 			}
 		}
-	});
-}
-exports.getRedditRenderer = getRedditRenderer;
+	}
 
-/**
-Create a Callbacks object with the given callback table.
+	Callbacks.prototype = {
+		/**
+		Renders a code block.
 
-@param {Object.<string, function>} callbacks A table of callbacks to place int a callbacks object.
-@returns {Callbacks} A callbacks object holding the provided callbacks.
-*/
-function createCustomCallbacks(callbacks) {
-	return new Callbacks(callbacks);
-}
-exports.createCustomCallbacks = createCustomCallbacks;
+		Syntax highlighting specific to lanugage may be performed here.
 
-/**
-Produce a callbacks object that matches Reddit's output.
-@returns {Callbacks} A callbacks object that matches Reddit's output.
-*/
-function getRedditCallbacks(){
-	return new Callbacks({
-		blockcode: cb_blockcode,
-		blockquote: cb_blockquote,
-		blockhtml: cb_blockhtml,
-		header: cb_header,
-		hrule: cb_hrule,
-		list: cb_list,
-		listitem: cb_listitem,
-		paragraph: cb_paragraph,
-		table: cb_table,
-		table_row: cb_table_row,
-		table_cell: cb_table_cell,
-		autolink: cb_autolink,
-		codespan: cb_codespan,
-		double_emphasis: cb_double_emphasis,
-		emphasis: cb_emphasis,
-		image: cb_image,
-		linebreak: cb_linebreak,
-		link: cb_link,
-		raw_html_tag: cb_raw_html_tag,
-		triple_emphasis: cb_triple_emphasis,
-		strikethrough: cb_strikethrough,
-		superscript: cb_superscript,
-		entity: null,
-		normal_text: cb_normal_text,
-		doc_header: null,
-		doc_footer: null
-	});
-}
-exports.getRedditCallbacks = getRedditCallbacks;
-
-/**
-Produce a callbacks object for rendering a table of contents.
-@returns {Callbacks} A callbacks object for rendering a table of contents.
-*/
-function getTocCallbacks() {
-	return new Callbacks({
+		@method
+		@param {Buffer} out The output string buffer to append to.
+		@param {Buffer} text The input text.
+		@param {Buffer} language The name of the code langage.
+		@param {?Object} context A renderer specific context object.
+		*/
 		blockcode: null,
-		blockquote: null,
-		blockhtml: null,
-		header: cb_toc_header,
-		hrule: null,
-		list: null,
-		listitem: null,
-		paragraph: null,
-		table: null,
-		table_row: null,
-		table_cell: null,
-		autolink: null,
-		codespan: cb_codespan,
-		double_emphasis: cb_double_emphasis,
-		emphasis: cb_emphasis,
-		image: null,
-		linebreak: null,
-		link: cb_toc_link,
-		raw_html_tag: null,
-		triple_emphasis: cb_triple_emphasis,
-		strikethrough: cb_strikethrough,
-		superscript: cb_superscript,
-		entity: null,
-		normal_text: null,
-		doc_header: null,
-		doc_footer: cb_toc_finalize
-	});
-}
-exports.getTocCallbacks = getTocCallbacks;
+		/**
+		Renders a blockquote.
 
-/* block level callbacks - NULL skips the block */
-//	void (*blockcode)(struct buf *ob, const struct buf *text, const struct buf *lang, void *opaque);
+		@method
+		@param {Buffer} out The output string buffer to append to.
+		@param {Buffer} text The input text.
+		@param {?Object} context A renderer specific context object.
+		*/
+		blockquote: null,
+		/**
+		Renders a block of HTML code.
+
+		@method
+		@param {Buffer} out The output string buffer to append to.
+		@param {Buffer} text The input text.
+		@param {?Object} context A renderer specific context object.
+		*/
+		blockhtml: null,
+		/**
+		Renders a header.
+
+		@method
+		@param {Buffer} out The output string buffer to append to.
+		@param {Buffer} text The input text.
+		@param {Number} level The header level.
+		@param {?Object} context A renderer specific context object.
+		*/
+		header: null,
+		/**
+		Renders a horizontal rule.
+
+		@method
+		@param {Buffer} out The output string buffer to append to.
+		@param {?Object} context A renderer specific context object.
+		*/
+		hrule: null,
+		/**
+		Renders a list.
+		<p>
+		This method handles the list wrapper, which in terms of HTML would be &lt;ol&gt; or &lt;ul&gt;.
+		This method is not responsible for handling list elements, all such processing should
+		already have occured on text pased to the method . All that it is intended
+		to do is to wrap the text parameter in anything needed.
+		</p>
+
+		@example
+		out.s += "&lt;ul&gt;" + text.s + "&lt;/ul&gt;"
+
+
+		@method
+		@param {Buffer} out The output string buffer to append to.
+		@param {Buffer} text The input that goes inside the list.
+		@param {Number} flags A bitfield holding a portion of the render state. The only bit that this should be concerned with is MKD_LIST_ORDERED
+		@param {?Object} context A renderer specific context object.
+		*/
+		list: null,
+		/**
+		Renders a list.
+		<p>
+		Wraps the text in a list element.
+		</p>
+
+		@example
+		out.s += "&lt;li&gt;" + text.s + "&lt;/li&gt;"
+
+
+		@method
+		@param {Buffer} out The output string buffer to append to.
+		@param {Buffer} text The contents of the list element.
+		@param {Number} flags A bitfield holding a portion of the render state. The only bit that this should be concerned with is MKD_LI_BLOCK.
+		@param {?Object} context A renderer specific context object.
+		*/
+		listitem: null,
+		/**
+		Renders a paragraph.
+
+		@example
+
+		out.s += "&lt;p&gt;" + text.s + "&lt;/p&gt;";
+
+		@method
+		@param {Buffer} out The output string buffer to append to.
+		@param {Buffer} text The input text.
+		@param {?Object} context A renderer specific context object.
+		*/
+		paragraph: null,
+		/**
+		Renders a table.
+
+		@example
+
+		out.s += "<table><thead>";
+		out.s += header.s;
+		out.s += "</thead><tbody>";
+		out.s += body.s;
+		out.s += "</tbody></table>";
+
+		@method
+		@param {Buffer} out The output string buffer to append to.
+		@param {Buffer} head The table header.
+		@param {Buffer} body The table body.
+		@param {?Object} context A renderer specific context object.
+		*/
+		table: null,
+		/**
+		Renders a table row.
+
+		@example
+
+		out.s += "&lt;tr&gt;" + text.s + "&lt;/tr&gt;";
+
+		@method
+		@param {Buffer} out The output string buffer to append to.
+		@param {Buffer} text The input text.
+		@param {?Object} context A renderer specific context object.
+		*/
+		table_row: null,
+		/**
+		Renders a table cell.
+
+		@example
+
+		out.s += "&lt;td&gt;" + text.s + "&lt;/td&gt;";
+
+		@method
+		@param {Buffer} out The output string buffer to append to.
+		@param {Buffer} text The input text.
+		@param {Number} flags A bit filed indicating a portion of the output state. Relevant bits are: MKD_TABLE_HEADER, MKD_TABLE_ALIGN_CENTER. MKD_TABLE_ALIGN_L, and MKD_TABLE_ALIGN_R.
+		@param {?Object} context A renderer specific context object.
+		*/
+		table_cell: null,
+		/**
+		Renders a link that was autodetected.
+
+		@example
+
+		out.s += "&lt;a href=\""+ text.s + "\"&gt;" + text.s + "&lt;/a&gt;";
+
+		@method
+		@param {Buffer} out The output string buffer to append to.
+		@param {Buffer} text The address being linked to.
+		@param {Number} type Equal to MKDA_NORMAL or MKDA_EMAIL
+		@param {?Object} context A renderer specific context object.
+		@returns {Boolean} Whether or not the tag was rendered.
+		*/
+		autolink: null,
+		/**
+		Renders inline code.
+
+		@method
+		@param {Buffer} out The output string buffer to append to.
+		@param {Buffer} text The text being wrapped.
+		@param {?Object} context A renderer specific context object.
+		@returns {Boolean} Whether or not the tag was rendered.
+		*/
+		codespan: null,
+		/**
+		Renders text with double emphasis. Default is equivalent to the HTML &lt;strong&gt; tag.
+
+		@method
+		@param {Buffer} out The output string buffer to append to.
+		@param {Buffer} text The text being wrapped.
+		@param {?Object} context A renderer specific context object.
+		@returns {Boolean} Whether or not the tag was rendered.
+		*/
+		double_emphasis: null,
+		/**
+		Renders text with single emphasis. Default is equivalent to the HTML &lt;em&gt; tag.
+
+		@method
+		@param {Buffer} out The output string buffer to append to.
+		@param {Buffer} text The text being wrapped.
+		@param {?Object} context A renderer specific context object.
+		@returns {Boolean} Whether or not the tag was rendered.
+		*/
+		emphasis: null,
+		/**
+		Renders an image.
+
+		@example
+
+		out.s = "&lt;img src=\"" + link.s + "\" title=\"" + title.s + "\"  alt=\"" + alt.s + "\"/&gt;";"
+
+		@method
+		@param {Buffer} out The output string buffer to append to.
+		@param {Buffer} link The address of the image.
+		@param {Buffer} title Title text for the image
+		@param {Buffer} alt Alt text for the image
+		@param {?Object} context A renderer specific context object.
+		@returns {Boolean} Whether or not the tag was rendered.
+		*/
+		image: null,
+		/**
+		Renders line break.
+
+		@example
+
+		out.s += "&lt;br/&gt;";
+
+		@method
+		@param {Buffer} out The output string buffer to append to.
+		@param {?Object} context A renderer specific context object.
+		@returns {Boolean} Whether or not the tag was rendered.
+		*/
+		linebreak: null,
+		/**
+		Renders a link.
+
+		@example
+
+		out.s = "&lt;a href=\"" + link.s + "\" title=\"" + title.s + "\"&gt;" + content.s + "&lt;/a&gt;";
+
+		@method
+		@param {Buffer} out The output string buffer to append to.
+		@param {Buffer} link The link address.
+		@param {Buffer} title Title text for the link.
+		@param {Buffer} content Link text.
+		@param {?Object} context A renderer specific context object.
+		@returns {Boolean} Whether or not the tag was rendered.
+		*/
+		link: null,
+		/**
+		Copies and potentially escapes some HTML.
+
+		@method
+		@param {Buffer} out The output string buffer to append to.
+		@param {Buffer} text The input text.
+		@param {?Object} context A renderer specific context object.
+		@returns {Boolean} Whether or not the tag was rendered.
+		*/
+		raw_html_tag: null,
+		/**
+		Renders text with triple emphasis. Default is equivalent to both the &lt;em&gt; and &lt;strong&gt; HTML tags.
+
+		@method
+		@param {Buffer} out The output string buffer to append to.
+		@param {Buffer} text The text being wrapped.
+		@param {?Object} context A renderer specific context object.
+		@returns {Boolean} Whether or not the tag was rendered.
+		*/
+		triple_emphasis: null,
+		/**
+		Renders text crossd out.
+
+		@method
+		@param {Buffer} out The output string buffer to append to.
+		@param {Buffer} text The text being wrapped.
+		@param {?Object} context A renderer specific context object.
+		@returns {Boolean} Whether or not the tag was rendered.
+		*/
+		strikethrough: null,
+		/**
+		Renders text as superscript.
+
+		@method
+		@param {Buffer} out The output string buffer to append to.
+		@param {Buffer} text The text being wrapped.
+		@param {?Object} context A renderer specific context object.
+		@returns {Boolean} Whether or not the tag was rendered.
+		*/
+		superscript: null,
+		/**
+		Escapes an HTML entity.
+
+		@method
+		@param {Buffer} out The output string buffer to append to.
+		@param {Buffer} text The text being wrapped.
+		@param {?Object} context A renderer specific context object.
+		*/
+		entity: null,
+		/**
+		Renders plain text.
+
+		@method
+		@param {Buffer} out The output string buffer to append to.
+		@param {Buffer} text The text being rendered.
+		@param {?Object} context A renderer specific context object.
+		*/
+		normal_text: null,
+		/**
+		Creates opening boilerplate for a table of contents.
+
+		@method
+		@param {Buffer} out The output string buffer to append to.
+		@param {?Object} context A renderer specific context object.
+		*/
+		doc_header: null,
+		/**
+		Creates closing boilerplate for a table of contents.
+
+		@method
+		@param {Buffer} out The output string buffer to append to.
+		@param {?Object} context A renderer specific context object.
+		*/
+		doc_footer: null
+	};
+
+
+	/**
+	A renderer object
+
+	@constructor
+	@param {Callbacks} callbacks The callbacks object to use for the renderer.
+	@param {?Callbacks} context Renderer specific context information.
+	*/
+	function Renderer(callbacks, context) {
+		this.callbacks = callbacks;
+		this.context = context;
+	}
+
+	/**
+	Instantiates a custom Renderer object.
+
+	@param {Callbacks} callbacks The callbacks object to use for the renderer.
+	@param {?Callbacks} context Renderer specific context information.
+	@returns {Renderer}
+	*/
+	function createCustomRenderer(callbacks, context) {
+		return new Renderer(callbacks, context)
+	}
+	exports.createCustomRenderer = createCustomRenderer;
+
+	function defaultRenderState() {
+		return {
+			nofollow: 0,
+			target: null,
+			tocData: {
+				headerCount: 0,
+				currentLevel: 0,
+				levelOffset: 0
+			},
+			toc_id_prefix: null,
+			html_element_whitelist: DEFAULT_HTML_ELEMENT_WHITELIST,
+			html_attr_whitelist: DEFAULT_HTML_ATTR_WHITELIST,
+			flags: 0,
+			//(flags != undefined?flags:HTML_SKIP_HTML | HTML_SKIP_IMAGES | HTML_SAFELINK | HTML_ESCAPE | HTML_USE_XHTML),
+			/* extra callbacks */
+			//	void (*link_attributes)(struct buf *ob, const struct buf *url, void *self);
+			link_attributes: function link_attributes(out, url, options) {
+
+				if (options.nofollow) out.s += ' rel="nofollow"';
+
+				if (options.target != null) {
+					out.s += ' target="' + options.target + '"';
+				}
+			}
+		};
+	}
+	exports.defaultRenderState = defaultRenderState;
+	/**
+	Produces a renderer object that will match Reddit's output.
+	@param {?Number=} flags A bitfield containing flags specific to the reddit HTML renderer. Passing undefined, null, or null value will produce reddit exact output.
+	@returns {Renderer} A renderer object that will match Reddit's output.
+	*/
+	function getRedditRenderer(flags) {
+		var state =defaultRenderState();
+		if (flags == null) {
+			state.flags = DEFAULT_BODY_FLAGS;
+		} else {
+			state.flags = flags;
+		}
+
+		var renderer = new Renderer(getRedditCallbacks() , state);
+		if (renderer.context.flags & HTML_SKIP_IMAGES)
+			renderer.callbacks.image = null;
+
+		if (renderer.context.flags & HTML_SKIP_LINKS) {
+			renderer.callbacks.link = null;
+			renderer.callbacks.autolink = null;
+		}
+
+		if (renderer.context.flags & HTML_SKIP_HTML || renderer.context.flags & HTML_ESCAPE)
+			renderer.callbacks.blockhtml = null;
+		return renderer;
+	}
+	exports.getRedditRenderer = getRedditRenderer;
+
+	/**
+	Produces a renderer object that will match Reddit's for a table of contents.
+	@returns {Renderer} A renderer object that will match Reddit's output.
+	*/
+	function getTocRenderer() {
+		var state = defaultRenderState();
+		state.flags = HTML_TOC | HTML_SKIP_HTML;
+		var renderer = new Renderer(getTocCallbacks(), state);
+		if (renderer.context.flags & HTML_SKIP_IMAGES)
+			renderer.callbacks.image = null;
+
+		if (renderer.context.flags & HTML_SKIP_LINKS) {
+			renderer.callbacks.link = null;
+			renderer.callbacks.autolink = null;
+		}
+
+		if (renderer.context.flags & HTML_SKIP_HTML || renderer.context.flags & HTML_ESCAPE)
+			renderer.callbacks.blockhtml = null;
+		return renderer;
+	}
+	exports.getTocRenderer = getTocRenderer;
+
+	/**
+	Create a Callbacks object with the given callback table.
+
+	@param {Object.<string, function>} callbacks A table of callbacks to place int a callbacks object.
+	@returns {Callbacks} A callbacks object holding the provided callbacks.
+	*/
+	function createCustomCallbacks(callbacks) {
+		return new Callbacks(callbacks);
+	}
+	exports.createCustomCallbacks = createCustomCallbacks;
+
+	/**
+	Produce a callbacks object that matches Reddit's output.
+	@returns {Callbacks} A callbacks object that matches Reddit's output.
+	*/
+	function getRedditCallbacks(){
+		return new Callbacks({
+			blockcode: cb_blockcode,
+			blockquote: cb_blockquote,
+			blockhtml: cb_blockhtml,
+			header: cb_header,
+			hrule: cb_hrule,
+			list: cb_list,
+			listitem: cb_listitem,
+			paragraph: cb_paragraph,
+			table: cb_table,
+			table_row: cb_table_row,
+			table_cell: cb_table_cell,
+			autolink: cb_autolink,
+			codespan: cb_codespan,
+			double_emphasis: cb_double_emphasis,
+			emphasis: cb_emphasis,
+			image: cb_image,
+			linebreak: cb_linebreak,
+			link: cb_link,
+			raw_html_tag: cb_raw_html_tag,
+			triple_emphasis: cb_triple_emphasis,
+			strikethrough: cb_strikethrough,
+			superscript: cb_superscript,
+			entity: null,
+			normal_text: cb_normal_text,
+			doc_header: null,
+			doc_footer: cb_reset_toc
+		});
+	}
+	exports.getRedditCallbacks = getRedditCallbacks;
+
+	/**
+	Produce a callbacks object for rendering a table of contents.
+	@returns {Callbacks} A callbacks object for rendering a table of contents.
+	*/
+	function getTocCallbacks() {
+		return new Callbacks({
+			blockcode: null,
+			blockquote: null,
+			blockhtml: null,
+			header: cb_toc_header,
+			hrule: null,
+			list: null,
+			listitem: null,
+			paragraph: null,
+			table: null,
+			table_row: null,
+			table_cell: null,
+			autolink: null,
+			codespan: cb_codespan,
+			double_emphasis: cb_double_emphasis,
+			emphasis: cb_emphasis,
+			image: null,
+			linebreak: null,
+			link: cb_toc_link,
+			raw_html_tag: null,
+			triple_emphasis: cb_triple_emphasis,
+			strikethrough: cb_strikethrough,
+			superscript: cb_superscript,
+			entity: null,
+			normal_text: null,
+			doc_header: null,
+			doc_footer: cb_toc_finalize
+		});
+	}
+	exports.getTocCallbacks = getTocCallbacks;
+
+	/* block level callbacks - NULL skips the block */
+	// void (*blockcode)(struct buf *ob, const struct buf *text, const struct buf *lang, void *opaque);
 	function cb_blockcode(out, text, lang, options) {
 		if (out.s.length) out.s += '\n';
 
@@ -1061,14 +1107,15 @@ exports.getTocCallbacks = getTocCallbacks;
 		out.s += '</code></pre>\n';
 	}
 
-//	void (*blockquote)(struct buf *ob, const struct buf *text, void *opaque);
+	// void (*blockquote)(struct buf *ob, const struct buf *text, void *opaque);
 	function cb_blockquote(out, text, options) {
 		if (out.s.length) out.s += '\n';
 		out.s += '<blockquote>\n';
 		if (text) out.s += text.s;
 		out.s += '</blockquote>\n';
 	}
-//	void (*blockhtml)(struct buf *ob,const  struct buf *text, void *opaque);
+
+	// void (*blockhtml)(struct buf *ob,const  struct buf *text, void *opaque);
 	function cb_blockhtml(out, text, options) {
 		var org, sz;
 		if (!text) return;
@@ -1082,25 +1129,29 @@ exports.getTocCallbacks = getTocCallbacks;
 		out.s += '\n';
 	}
 
-//	header(Buffer out, Buffer text, int level, void *opaque);
+	// header(Buffer out, Buffer text, int level, void *opaque);
 	function cb_header(out, text, level, options) {
 		if (out.s.length) out.s += '\n';
-		if (options.flags & HTML_TOC)
-			out.s += '<h' + (+level) + 'id="toc_' + (options.tocData.headerCount++) + '">';
-		else
+
+		if (options.flags & HTML_TOC) {
+			out.s += '<h' + (+level) + ' id="';
+			if (options.toc_id_prefix) out.s += options.toc_id_prefix;
+			out.s += 'toc_' + (options.tocData.headerCount++) + '">';
+		} else {
 			out.s += '<h' + (+level) + '>';
+		}
 
 		if (text) out.s += text.s;
 		out.s += '</h' + (+level) + '>\n';
 	}
 
-//	void (*hrule)(struct buf *ob, void *opaque);
+	// void (*hrule)(struct buf *ob, void *opaque);
 	function cb_hrule(out, options) {
 		if (out.s.length) out.s += '\n';
 		out.s += (options.flags & HTML_USE_XHTML) ? '<hr/>\n' : '<hr>\n';
 	}
 
-//	void (*list)(struct buf *ob, const struct buf *text, int flags, void *opaque);
+	// void (*list)(struct buf *ob, const struct buf *text, int flags, void *opaque);
 	function cb_list(out, text, flags, options) {
 		if (out.s.length) out.s += '\n';
 		out.s += (flags&MKD_LIST_ORDERED?'<ol>\n':'<ul>\n');
@@ -1108,7 +1159,7 @@ exports.getTocCallbacks = getTocCallbacks;
 		out.s += (flags&MKD_LIST_ORDERED?'</ol>\n':'</ul>\n');
 	}
 
-//	void (*listitem)(struct buf *ob, const struct buf *text, int flags, void *opaque);
+	// void (*listitem)(struct buf *ob, const struct buf *text, int flags, void *opaque);
 	function cb_listitem(out, text, flags, options) {
 		out.s += '<li>';
 		if (text) {
@@ -1119,7 +1170,7 @@ exports.getTocCallbacks = getTocCallbacks;
 		out.s += '</li>\n';
 	}
 
-//	void (*paragraph)(struct buf *ob, const struct buf *text, void *opaque);
+	// void (*paragraph)(struct buf *ob, const struct buf *text, void *opaque);
 	function cb_paragraph(out, text, options) {
 		var i = 0;
 
@@ -1156,7 +1207,7 @@ exports.getTocCallbacks = getTocCallbacks;
 		out.s += '</p>\n';
 	}
 
-//	void (*table)(struct buf *ob, const struct buf *header, const struct buf *body, void *opaque);
+	// void (*table)(struct buf *ob, const struct buf *header, const struct buf *body, void *opaque);
 	function cb_table(out, header, body, options) {
 		if (out.s.length) out.s += '\n';
 		out.s += '<table><thead>\n';
@@ -1166,14 +1217,14 @@ exports.getTocCallbacks = getTocCallbacks;
 		out.s += '</tbody></table>\n';
 	}
 
-//	void (*table_row)(struct buf *ob, const struct buf *text, void *opaque);
+	// void (*table_row)(struct buf *ob, const struct buf *text, void *opaque);
 	function cb_table_row(out, text, options) {
 		out.s += '<tr>\n';
 		if (text) out.s += text.s;
 		out.s += '</tr>\n';
 	}
 
-//	void (*table_cell)(struct buf *ob, const struct buf *text, int flags, void *opaque);
+	// void (*table_cell)(struct buf *ob, const struct buf *text, int flags, void *opaque);
 	function cb_table_cell(out, text, flags, options) {
 		if (flags & MKD_TABLE_HEADER) {
 			out.s += '<th';
@@ -1206,8 +1257,8 @@ exports.getTocCallbacks = getTocCallbacks;
 		}
 	}
 
-/* span level callbacks - NULL or return 0 prints the span verbatim */
-//	int (*autolink)(struct buf *ob, const struct buf *link, enum mkd_autolink type, void *opaque);
+	/* span level callbacks - NULL or return 0 prints the span verbatim */
+	// int (*autolink)(struct buf *ob, const struct buf *link, enum mkd_autolink type, void *opaque);
 	function cb_autolink(out, link, type, options) {
 		var offset = 0;
 
@@ -1245,7 +1296,7 @@ exports.getTocCallbacks = getTocCallbacks;
 		return 1;
 	}
 
-//	int (*codespan)(struct buf *ob, const struct buf *text, void *opaque);
+	// int (*codespan)(struct buf *ob, const struct buf *text, void *opaque);
 	function cb_codespan(out, text, options) {
 		out.s += '<code>';
 		if (text) escape_html(out, text.s, false);
@@ -1253,21 +1304,21 @@ exports.getTocCallbacks = getTocCallbacks;
 		return 1;
 	}
 
-//	int (*double_emphasis)(struct buf *ob, const struct buf *text, void *opaque);
+	// int (*double_emphasis)(struct buf *ob, const struct buf *text, void *opaque);
 	function cb_double_emphasis(out, text, options) {
 		if (!text || !text.s.length) return 0;
 		out.s += '<strong>' + text.s + '</strong>';
 		return 1;
 	}
 
-//	int (*emphasis)(struct buf *ob, const struct buf *text, void *opaque);
+	// int (*emphasis)(struct buf *ob, const struct buf *text, void *opaque);
 	function cb_emphasis(out, text, options) {
 		if (!text || !text.s.length) return 0;
 		out.s += '<em>' + text.s + '</em>';
 		return 1;
 	}
 
-//	int (*image)(struct buf *ob, const struct buf *link, const struct buf *title, const struct buf *alt, void *opaque);
+	// int (*image)(struct buf *ob, const struct buf *link, const struct buf *title, const struct buf *alt, void *opaque);
 	function cb_image(out, link, title, alt, options) {
 		if (!link || !link.s.length) return 0;
 
@@ -1287,13 +1338,13 @@ exports.getTocCallbacks = getTocCallbacks;
 	}
 
 
-//	int (*linebreak)(struct buf *ob, void *opaque);
+	// int (*linebreak)(struct buf *ob, void *opaque);
 	function cb_linebreak(out, options) {
 		out.s += (options.flags&HTML_USE_XHTML?'<br/>\n':'<br>\n');
 		return 1;
 	}
 
-//	int (*link)(struct buf *ob, const struct buf *link, const struct buf *title, const struct buf *content, void *opaque);
+	// int (*link)(struct buf *ob, const struct buf *link, const struct buf *title, const struct buf *content, void *opaque);
 	function cb_link(out, link, title, content, options) {
 		if (link != null && (options.flags & HTML_SAFELINK) != 0 && !sd_autolink_issafe(link.s)) return 0;
 
@@ -1319,8 +1370,111 @@ exports.getTocCallbacks = getTocCallbacks;
 		return 1;
 	}
 
-//	int (*raw_html_tag)(struct buf *ob, const struct buf *tag, void *opaque);
+	// rndr_html_tag(struct buf *ob, const struct buf *text, void *opaque, char* tagname, char** whitelist, int tagtype)
+	//NOT A CALLBACK!
+	function rndr_html_tag(out, text, options, tagname, whitelist, tagtype) {
+	    var x, z, in_str = 0, seen_equals = 0, done, reset;
+	    var attr = new Buffer()
+	    var c;
+	    
+	    out.s += '<';
+	    
+	    var i = 1 + tagname.length;
+	    
+	    if(tagtype == HTML_TAG_CLOSE) {
+	    	out.s += '/';
+	        i += 1;
+	    }
+	    
+	    out.s += tagname;
+	    
+	    if(tagtype != HTML_TAG_CLOSE) {
+	        for(;i < text.s.length; i++) {
+	            c = text.s[i];
+	            done = 0;
+	            reset = 0;
+	            
+	            switch(c) {
+	                case '>':
+	                    if(seen_equals && !in_str) {
+	                        done = 1;
+	                        reset = 1;
+	                    } else {
+	                        reset = 1;
+	                    }
+	                    break;
+	                case '\'':
+	                case '"':
+	                    if(!in_str)
+	                        in_str = c;
+	                    else if(in_str == c)
+	                        in_str = !in_str;
+	                    break;
+	                default:
+	                    if(!in_str) {
+	                        switch(c) {
+	                            case ' ':
+	                                if(seen_equals) {
+	                                    done = 1;
+	                                    reset = 1;
+	                                } else
+	                                    reset = 1;
+	                                break;
+	                            case '=':
+	                                if(seen_equals) {
+	                                    reset = 1;
+	                                } else {
+	                                    for(z=0; z < whitelist.length; z++) {
+	                                        if(whitelist[z].length != attr.s.length)
+	                                            continue;
+	                                        for(x=0;x < attr.s.length; x++) {
+	                                            if(whitelist[z][x].toLowerCase() != attr.s[x].toLowerCase())
+	                                                break;
+	                                        }
+	                                        if(x == attr.s.length)
+	                                            seen_equals = 1;
+	                                    }
+	                                    if(!seen_equals)
+	                                        reset = 1;
+	                                }
+	                                break;
+	                        }
+	                    }
+	            }
+	            
+	            if(done) {
+	            	out.s += ' ' + attr.s;
+	            }
+	            
+	            if(reset) {
+	                seen_equals = 0;
+	                in_str = 0;
+	                attr.s = '';
+	            } else {
+	                attr.s += c;
+	            }
+	        }
+	    }
+	    
+	    // bufrelease(attr);
+	    out.s += '>';
+	}
+
+	// int (*raw_html_tag)(struct buf *ob, const struct buf *tag, void *opaque);
 	function cb_raw_html_tag(out, text, options) {
+		var whitelist = options.html_element_whitelist;
+
+	    /* Items on the whitelist ignore all other flags and just output */
+		if (((options.flags & HTML_ALLOW_ELEMENT_WHITELIST) != 0) && whitelist) {
+		    for(var i = 0; whitelist[i]; i++) {
+		        var tagtype = sdhtml_is_tag(text.s, whitelist[i]);
+		        if(tagtype != HTML_TAG_NONE) {
+		            rndr_html_tag(out, text, options, whitelist[i], options.html_attr_whitelist, tagtype);
+		            return 1;
+		        }
+		    }
+		}
+
 		/* HTML_ESCAPE overrides SKIP_HTML, SKIP_STYLE, SKIP_LINKS and SKIP_IMAGES
 		 * It doens't see if there are any valid tags, just escape all of them. */
 		if((options.flags & HTML_ESCAPE) != 0) {
@@ -1346,38 +1500,38 @@ exports.getTocCallbacks = getTocCallbacks;
 		return 1;
 	}
 
-//	int (*triple_emphasis)(struct buf *ob, const struct buf *text, void *opaque);
+	// int (*triple_emphasis)(struct buf *ob, const struct buf *text, void *opaque);
 	function cb_triple_emphasis(out, text, options) {
 		if (!text || !text.s.length) return 0;
 		out.s += '<strong><em>' + text.s + '</em></strong>';
 		return 1;
 	}
 
-//	int (*strikethrough)(struct buf *ob, const struct buf *text, void *opaque);
+	// int (*strikethrough)(struct buf *ob, const struct buf *text, void *opaque);
 	function cb_strikethrough(out, text, options) {
 		if (!text || !text.s.length) return 0;
 		out.s += '<del>' + text.s + '</del>';
 		return 1;
 	}
 
-//	int (*superscript)(struct buf *ob, const struct buf *text, void *opaque);
+	// int (*superscript)(struct buf *ob, const struct buf *text, void *opaque);
 	function cb_superscript(out, text, options) {
 		if (!text || !text.s.length) return 0;
 		out.s += '<sup>' + text.s + '</sup>';
 		return 1;
 	}
 
-/* low level callbacks - NULL copies input directly into the output */
-//	void (*entity)(struct buf *ob, const struct buf *entity, void *opaque);
-//TODO: WRITE
-//	entity: null,
+	/* low level callbacks - NULL copies input directly into the output */
+	//do not use
+	// void (*entity)(struct buf *ob, const struct buf *entity, void *opaque);
+	// function cb_entity(out, entity, options) {}
 
-//	void (*normal_text)(struct buf *ob, const struct buf *text, void *opaque);
+	// void (*normal_text)(struct buf *ob, const struct buf *text, void *opaque);
 	function cb_normal_text(out, text, options) {
 		if (text) escape_html(out, text.s, false);
 	}
 
-//toc_header(struct buf *ob, const struct buf *text, int level, void *opaque)
+	// toc_header(struct buf *ob, const struct buf *text, int level, void *opaque)
 	function cb_toc_header(out, text, level, options) {
 		/* set the level offset if this is the first header
 		 * we're parsing for the document */
@@ -1402,31 +1556,45 @@ exports.getTocCallbacks = getTocCallbacks;
 			out.s += '</li>\n<li>\n';
 		}
 
-		out.s += '<a href="#toc_' + options.tocData.headerCount++ + '">';
+		out.s += '<a href="#';
+		if (options.toc_id_prefix) out.s += options.toc_id_prefix;
+		out.s += 'toc_' + (options.tocData.headerCount++) + '">';
 		if (text) escape_html(out, text.s, false);
 		out.s += '</a>\n';
 	}
 
-//toc_link(struct buf *ob, const struct buf *link, const struct buf *title, const struct buf *content, void *opaque)
+	//toc_link(struct buf *ob, const struct buf *link, const struct buf *title, const struct buf *content, void *opaque)
 	function cb_toc_link(out, link, title, content, options) {
 		if (content && content.s) 
 			out.s += content.s;
 		return 1;
 	}
 
-//toc_finalize(struct buf *ob, void *opaque)
+
+	// reset_toc(struct buf *ob, void *opaque)
+	function cb_reset_toc(out, options) {
+		options.tocData = {
+			headerCount: 0,
+			currentLevel: 0,
+			levelOffset: 0
+		};
+	}
+
+	//toc_finalize(struct buf *ob, void *opaque)
 	function cb_toc_finalize(out, options) {
 		while (options.tocData.currentLevel > 0) {
 			out.s += '</li>\n</ul>\n';
 			options.tocData.currentLevel--;
 		}
+
+		cb_reset_toc(out, options);
 	}
 
-/* header and footer */
-// doc_header(Buffer out}, context);
-//		doc_header: null,
-//	doc_footer(Buffer out, context);
-//		doc_footer: null
+	/* header and footer */
+	// doc_header(Buffer out}, context);
+	//		doc_header: null,
+	//	doc_footer(Buffer out, context);
+	//		doc_footer: null
 
 
 	/* char_emphasis • single and double emphasis parsing */
@@ -1509,7 +1677,9 @@ exports.getTocCallbacks = getTocCallbacks;
 			return 0;
 
 		/* removing the last space from ob and rendering */
-		out.s = out.s.trimRight();
+		var len = out.s.length;
+		while (len && out.s[len - 1] == ' ') len--;
+		out.s = out.s.slice(0, len);
 
 		return md.callbacks.linebreak(out, md.context) ? 1 : 0;
 	}
@@ -1517,7 +1687,7 @@ exports.getTocCallbacks = getTocCallbacks;
 	/* char_link - '[': parsing a link or an image */
 	function char_link(out, md, data_, offset) {
 		var data = data_.slice(offset);
-		var is_img = (offset && data[offset - 1] == '!'), level;
+		var is_img = (offset && data_[offset - 1] == '!'), level;
 		var i = 1, txt_e, link_b = 0, link_e = 0, title_b = 0, title_e = 0;
 		//4 bufs
 		var content = null;
@@ -1535,8 +1705,7 @@ exports.getTocCallbacks = getTocCallbacks;
 
 		/* checking whether the correct renderer exists */
 		if ((is_img && !md.callbacks.image) || (!is_img && !md.callbacks.link))
-			return cleanup();
-
+				return cleanup();
 		/* looking for the matching closing bracket */
 		for (level = 1; i < data.length; i++) {
 			if (data[i] == '\n') text_has_nl = 1;
@@ -1738,9 +1907,9 @@ exports.getTocCallbacks = getTocCallbacks;
 		}
 
 		/* cleanup */
-//		cleanup:
-//			rndr->work_bufs[BUFFER_SPAN].size = (int)org_work_size;
-//		return ret ? i : 0;
+		// cleanup:
+		// 	rndr->work_bufs[BUFFER_SPAN].size = (int)org_work_size;
+		// return ret ? i : 0;
 		return cleanup();
 	}
 
@@ -1757,7 +1926,7 @@ exports.getTocCallbacks = getTocCallbacks;
 			if (md.callbacks.autolink && altype.p != MKDA_NOT_AUTOLINK) {
 				var u_link = new Buffer();
 				md.spanStack.push(u_link);
-				work.s = data.slice(1 , end - 2);
+				work.s = data.substr(1 , end - 2);
 				unscape_text(u_link, work);
 				ret = md.callbacks.autolink(out, u_link, altype.p, md.context);
 				md.spanStack.pop();
@@ -1913,7 +2082,6 @@ exports.getTocCallbacks = getTocCallbacks;
 		return link_len;
 	}
 
-
 	function char_superscript(out, md, data_, offset) {
 		var data = data_.slice(offset);
 		var size = data.length;
@@ -1995,7 +2163,7 @@ exports.getTocCallbacks = getTocCallbacks;
 	var MKDEXT_FENCED_CODE = (1 << 2);
 	var MKDEXT_AUTOLINK = (1 << 3);
 	var MKDEXT_STRIKETHROUGH = (1 << 4);
-//	var MKDEXT_LAX_HTML_BLOCKS = (1 << 5);
+	// var MKDEXT_LAX_HTML_BLOCKS = (1 << 5);
 	var MKDEXT_SPACE_HEADERS = (1 << 6);
 	var MKDEXT_SUPERSCRIPT = (1 << 7);
 	var MKDEXT_LAX_SPACING = (1 << 8)
@@ -2010,12 +2178,17 @@ exports.getTocCallbacks = getTocCallbacks;
 	var HTML_HARD_WRAP = (1 << 7);
 	var HTML_USE_XHTML = (1 << 8);
 	var HTML_ESCAPE = (1 << 9);
+	var HTML_ALLOW_ELEMENT_WHITELIST = (1 << 10);
 
 	var MKD_TABLE_ALIGN_L = 1;
 	var MKD_TABLE_ALIGN_R = 2;
 	var MKD_TABLE_ALIGN_CENTER = 3;
 	var MKD_TABLE_ALIGNMASK = 3;
 	var MKD_TABLE_HEADER = 4
+
+	var HTML_TAG_NONE = 0;
+	var HTML_TAG_OPEN = 1;
+	var HTML_TAG_CLOSE = 2;
 
 
 	/**
@@ -2026,10 +2199,10 @@ exports.getTocCallbacks = getTocCallbacks;
 	function Buffer(str) {
 		this.s = str || "";
 	};
-//	Buffer.prototype.toString = function toString() {
-//		return this.s;
-//	};
-//	Buffer.prototype.slice 
+	// Buffer.prototype.toString = function toString() {
+		// return this.s;
+	// };
+	// Buffer.prototype.slice 
 
 
 	/**
@@ -2044,12 +2217,12 @@ exports.getTocCallbacks = getTocCallbacks;
 		this.extensions = MKDEXT_NO_INTRA_EMPHASIS | MKDEXT_SUPERSCRIPT | MKDEXT_AUTOLINK | MKDEXT_STRIKETHROUGH | MKDEXT_TABLES;
 		var renderer = getRedditRenderer();
 		this.context = renderer.context;
+		this.callbacks = renderer.callbacks;
 		this.inLinkBody = 0;
 		this.activeChars = {};
 		this.refs = {};
+		this.nestingLimit = 16;
 	};
-	Markdown.prototype.callbacks =  getRedditCallbacks();
-	Markdown.prototype.nestingLimit = 16;
 
 
 	/* is_empty - returns the line length when it is empty, 0 otherwise */
@@ -2150,7 +2323,7 @@ exports.getTocCallbacks = getTocCallbacks;
 				syn_start++; syn_len--;
 			}
 
-//			while (syn_len > 0 && _isspace(syn_start[syn_len - 1]))
+			// while (syn_len > 0 && _isspace(syn_start[syn_len - 1]))
 			while (syn_len > 0 && _isspace(data[syn_start+syn_len - 1]))
 				syn_len--;
 
@@ -2162,7 +2335,7 @@ exports.getTocCallbacks = getTocCallbacks;
 		}
 
 		if (syntax) syntax.s = data.substr(syn_start, syn_len);
-//		syntax->size = syn;
+		// syntax->size = syn;
 
 		while (i < data.length && data[i] != '\n') {
 			if (!_isspace(data[i])) return 0;
@@ -2433,7 +2606,6 @@ exports.getTocCallbacks = getTocCallbacks;
 		return 0;
 	}
 
-
 	/* prefix_oli - returns ordered list item prefix */
 	function prefix_oli(data) {
 		var size = data.length;
@@ -2626,10 +2798,9 @@ exports.getTocCallbacks = getTocCallbacks;
 		return skip;
 	}
 
-
 	/* htmlblock_end - checking end of HTML block : </tag>[ \t]*\n[ \t*]\n */
 	/*	returns the length on match, 0 otherwise */
-//	htmlblock_end(const char *tag, size_t tag_len, struct sd_markdown *rndr, uint8_t *data, size_t size)
+	// htmlblock_end(const char *tag, size_t tag_len, struct sd_markdown *rndr, uint8_t *data, size_t size)
 	function htmlblock_end(tag, md, data) {
 		var i, w;
 
@@ -2685,7 +2856,7 @@ exports.getTocCallbacks = getTocCallbacks;
 
 				if (j) {
 					//TODO: HANDLE WORK!!!
-//					work.size = i + j;
+					// work.size = i + j;
 					work.s = data.slice(0, i + j);
 					if (do_render && md.callbacks.blockhtml)
 						md.callbacks.blockhtml(out, work, md.context);
@@ -2732,7 +2903,7 @@ exports.getTocCallbacks = getTocCallbacks;
 				if (i + 2 + tag_size >= data.length)
 					break;
 
-//				j = htmlblock_end(tag, md, data + i - 1, size - i + 1);
+				// j = htmlblock_end(tag, md, data + i - 1, size - i + 1);
 				//TODO
 				j = htmlblock_end(tag, md, data.slice(i - 1));
 
@@ -2755,12 +2926,11 @@ exports.getTocCallbacks = getTocCallbacks;
 		return i;
 	}
 
-
 	/* parse_blockquote - handles parsing of a blockquote fragment */
 	function parse_blockquote(out, md, data) {
 		var size = data.length;
 		var beg, end = 0, pre, work_size = 0;
-//		uint8_t *work_data = 0;
+		// uint8_t *work_data = 0;
 		var work_data = "";
 		var work_data_cursor = 0;
 
@@ -2784,15 +2954,15 @@ exports.getTocCallbacks = getTocCallbacks;
 			if (beg < end) { /* copy into the in-place working buffer */
 				/* bufput(work, data + beg, end - beg); */
 				//TODO:!!! FIX THIS!!!
-//				if (!work_data) work_data = data.slice(beg, end);
-//					work_data = data + beg;
+				// if (!work_data) work_data = data.slice(beg, end);
+				// 	work_data = data + beg;
 				work_data += data.slice(beg, end);
 				/*
 				if (!work_data) work_data_cursor = beg;
 				else if (beg != work_data_cursor + work_size)
 					work_data += data.slice(beg, end);
 					*/
-//					memmove(work_data + work_size, data + beg, end - beg);
+					// memmove(work_data + work_size, data + beg, end - beg);
 				work_size += end - beg;
 			}
 			beg = end;
@@ -2881,8 +3051,8 @@ exports.getTocCallbacks = getTocCallbacks;
 			if (work.size) {
 				var beg;
 				i = work.s.length;
-//				var work_size = work.s.length - 1;
-//				work.size -= 1;
+				// var work_size = work.s.length - 1;
+				// work.size -= 1;
 
 				while (work_size && data[work_size] != '\n')
 					work_size -= 1;
@@ -2917,7 +3087,6 @@ exports.getTocCallbacks = getTocCallbacks;
 		}
 
 		return end;
-
 	}
 
 	/* parse_fencedcode - handles parsing of a block-level code fragment */
@@ -3184,7 +3353,7 @@ exports.getTocCallbacks = getTocCallbacks;
 
 			while (cell_end > cell_start && _isspace(data[cell_end])) cell_end--;
 
-//			parse_inline(cell_work, rndr, data + cell_start, 1 + cell_end - cell_start);
+			// parse_inline(cell_work, rndr, data + cell_start, 1 + cell_end - cell_start);
 			parse_inline(cell_work, md, data.slice(cell_start, 1 + cell_end));
 			md.callbacks.table_cell(row_work, cell_work, columns[col] | header_flag, md.context);
 
@@ -3308,7 +3477,6 @@ exports.getTocCallbacks = getTocCallbacks;
 		md.blockStack.pop();
 		return i;
 	}
-
 
 	function parse_block(out, md, data) {
 		var beg = 0, end, i;
@@ -3550,7 +3718,7 @@ exports.getTocCallbacks = getTocCallbacks;
 		var md = new Markdown();
 		if (renderer) md.callbacks = renderer.callbacks;
 		if (nestingLimit) md.nestingLimit = nestingLimit;
-		if (renderer) md.context = context;
+		if (renderer) md.context = renderer.context;
 		if (extensions != undefined && extensions != null) md.extensions = extensions;
 
 		var cb = md.callbacks;
@@ -3579,6 +3747,14 @@ exports.getTocCallbacks = getTocCallbacks;
 		return md;
 	}
 
+	var DEFAULT_BODY_FLAGS = HTML_SKIP_HTML | HTML_SKIP_IMAGES | HTML_SAFELINK | HTML_ESCAPE | HTML_USE_XHTML;
+	var DEFAULT_WIKI_FLAGS = HTML_SKIP_HTML | HTML_SAFELINK | HTML_ALLOW_ELEMENT_WHITELIST | HTML_ESCAPE | HTML_USE_XHTML;
+	var DEFAULT_HTML_ATTR_WHITELIST = ['colspan', 'rowspan', 'cellspacing', 'cellpadding', 'scope'];
+	var DEFAULT_HTML_ELEMENT_WHITELIST =  ['tr', 'th', 'td', 'table', 'tbody', 'thead', 'tfoot', 'caption'];
+	exports.DEFAULT_HTML_ELEMENT_WHITELIST = DEFAULT_HTML_ELEMENT_WHITELIST;
+	exports.DEFAULT_HTML_ATTR_WHITELIST = DEFAULT_HTML_ATTR_WHITELIST;
+	exports.DEFAULT_BODY_FLAGS = DEFAULT_BODY_FLAGS;
+	exports.DEFAULT_WIKI_FLAGS = DEFAULT_WIKI_FLAGS;
 
 	exports.HTML_SKIP_HTML = HTML_SKIP_HTML;
 	exports.HTML_SKIP_STYLE = HTML_SKIP_STYLE;
@@ -3590,6 +3766,8 @@ exports.getTocCallbacks = getTocCallbacks;
 	exports.HTML_HARD_WRAP = HTML_HARD_WRAP;
 	exports.HTML_USE_XHTML = HTML_USE_XHTML;
 	exports.HTML_ESCAPE = HTML_ESCAPE;
+	exports.HTML_ALLOW_ELEMENT_WHITELIST = HTML_ALLOW_ELEMENT_WHITELIST;
+
 	exports.MKDEXT_NO_INTRA_EMPHASIS = MKDEXT_NO_INTRA_EMPHASIS;
 	exports.MKDEXT_TABLES = MKDEXT_TABLES;
 	exports.MKDEXT_FENCED_CODE = MKDEXT_FENCED_CODE;
@@ -3604,4 +3782,9 @@ exports.getTocCallbacks = getTocCallbacks;
 	exports.MKDA_NOT_AUTOLINK = MKDA_NOT_AUTOLINK;
 	exports.MKDA_NORMAL = MKDA_NORMAL;
 	exports.MKDA_EMAIL = MKDA_EMAIL;
-})(typeof(exports)!='undefined'?exports:SnuOwnd);
+
+	if (typeof define === 'function') {
+		define('snuownd', [], exports);
+	}
+})(typeof(exports)!=='undefined'?exports:typeof(window)!=='undefined'?window.SnuOwnd={}:{});
+
