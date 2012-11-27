@@ -156,8 +156,8 @@
 					(thisLinkURL.substring(0,1) == '/') ? thisLinkURL = 'http://www.reddit.com' + thisLinkURL : thisLinkURL = location.href + thisLinkURL;
 				}
 				// chrome.tabs.create({url: thisLinkURL});
-				var linkTab = safari.application.activeBrowserWindow.openTab(button);
-				linkTab.url = thisLinkURL;
+				// opens tab next to current, instead of at end of tab bar
+				var linkTab = safari.application.activeBrowserWindow.openTab(button, safari.application.activeBrowserWindow.tabs.indexOf(safari.application.activeBrowserWindow.activeTab)+1);
 				sendResponse({status: "success"}, msgEvent);
 				break;
 			case 'openLinkInNewTab':
