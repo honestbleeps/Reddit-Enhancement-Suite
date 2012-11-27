@@ -158,6 +158,7 @@
 				// chrome.tabs.create({url: thisLinkURL});
 				// opens tab next to current, instead of at end of tab bar
 				var linkTab = safari.application.activeBrowserWindow.openTab(button, safari.application.activeBrowserWindow.tabs.indexOf(safari.application.activeBrowserWindow.activeTab)+1);
+				linkTab.url = thisLinkURL;
 				sendResponse({status: "success"}, msgEvent);
 				break;
 			case 'openLinkInNewTab':
