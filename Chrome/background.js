@@ -90,6 +90,13 @@ XHRCache = {
 chrome.extension.onMessage.addListener(
 	function(request, sender, sendResponse) {
 		switch(request.requestType) {
+			case 'deleteCookie':
+				// Get chrome cookie handler
+				if (!chrome.cookies) {
+                    chrome.cookies = chrome.experimental.cookies;
+                }
+			    chrome.cookies.remove({'url': 'http://reddit.com', 'name': request.cname});
+			    break;
 			case 'GM_xmlhttpRequest':
 				if (request.aggressiveCache || XHRCache.forceCache) {
 					var cachedResult = XHRCache.check(request.url);
@@ -98,12 +105,11 @@ chrome.extension.onMessage.addListener(
 						return;
 					}
 				}
+                
 				var xhr = new XMLHttpRequest();
 				xhr.open(request.method, request.url, true);
 				if (request.method == "POST") {
 					xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-					// xhr.setRequestHeader("Content-length", request.data.length);
-					// xhr.setRequestHeader("Connection", "close");					
 				}
 				xhr.onreadystatechange = function(a) {
 					if (xhr.readyState == 4) {
