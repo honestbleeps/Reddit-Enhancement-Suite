@@ -7,16 +7,14 @@ var tabs = require("tabs");
 var ss = require("simple-storage");
 
 // require chrome allows us to use XPCOM objects...
-// var {Cc, Cu, Cr} = require("chrome");
-const {Cc,Ci} = require("chrome");
-// from XPCOM, use the NSIGlobalHistory2 service...
-// var historyService = Cc["@mozilla.org/browser/nav-history-service;1"].getService(Ci.nsIGlobalHistory2);
-var historyService = Cc["@mozilla.org/browser/global-history;2"].getService(Ci.nsIGlobalHistory2)
+const {Cc,Ci,Cu} = require("chrome");
+var historyService = Cc["@mozilla.org/browser/global-history;2"].getService(Ci.nsIGlobalHistory2);
+// Cookie manager for new API login
+var cookieManager = Cc["@mozilla.org/cookiemanager;1"].getService().QueryInterface(Ci.nsICookieManager2);
 
 // this function takes in a string (and optional charset, paseURI) and creates an nsURI object, which is required by historyService.addURI...
 function makeURI(aURL, aOriginCharset, aBaseURI) {  
-  var ioService = Cc["@mozilla.org/network/io-service;1"]  
-                  .getService(Ci.nsIIOService);  
+  var ioService = Cc["@mozilla.org/network/io-service;1"].getService(Ci.nsIIOService);  
   return ioService.newURI(aURL, aOriginCharset, aBaseURI);  
 } 
 
@@ -129,6 +127,9 @@ pageMod.PageMod({
 	worker.on('message', function(data) {
 		var request = data;
 		switch(request.requestType) {
+		    case 'deleteCookie':
+		         cookieManager.remove('.reddit.com', request.cname, '/', false);
+		         break;
 			case 'GM_xmlhttpRequest':
 				var responseObj = {
 					XHRID: request.XHRID,
