@@ -227,6 +227,12 @@ chrome.extension.onMessage.addListener(
 			case 'addURLToHistory':
 				chrome.history.addUrl({url: request.url});
 				break;
+			case 'hasVisited':
+				chrome.history.getVisits({url: request.url}, function(results) {
+					sendResponse({status: true, value: Boolean(results.length)});
+				});
+				return true;
+				break;
 			case 'XHRCache':
 				switch (request.operation) {
 					case 'clear':
