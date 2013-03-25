@@ -8,7 +8,7 @@ var ss = require("simple-storage");
 
 // require chrome allows us to use XPCOM objects...
 const {Cc,Ci,Cu} = require("chrome");
-var historyService = Cc["@mozilla.org/browser/global-history;2"].getService(Ci.nsIGlobalHistory2);
+var historyService = Cc["@mozilla.org/browser/history;1"].getService(Ci.mozIAsyncHistory);
 // Cookie manager for new API login
 var cookieManager = Cc["@mozilla.org/cookiemanager;1"].getService().QueryInterface(Ci.nsICookieManager2);
 
@@ -268,7 +268,13 @@ pageMod.PageMod({
 				break;
 			case 'addURLToHistory':
 				var uri = makeURI(request.url);
-				historyService.addURI(uri, false, true, null);
+				historyService.updatePlaces({
+					uri: uri,
+					visits: [{
+					  transitionType: Ci.nsINavHistoryService.TRANSITION_LINK,
+					  visitDate: Date.now() * 1000
+					}]
+				});
 				break;
 			default:
 				worker.postMessage({status: "unrecognized request type"});
