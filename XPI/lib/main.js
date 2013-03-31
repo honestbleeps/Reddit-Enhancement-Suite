@@ -112,7 +112,7 @@ pageMod.PageMod({
 	self.data.url('guiders-1.2.8.js'),
 	self.data.url('jquery.dragsort-0.4.3.min.js'),
 	self.data.url('jquery-fieldselection.min.js'),
-	self.data.url('tinycon.min.js'),
+	self.data.url('tinycon.js'),
 	self.data.url('jquery.tokeninput.js'),
 	self.data.url('snuownd.js'),
 	self.data.url('reddit_enhancement_suite.user.js')
