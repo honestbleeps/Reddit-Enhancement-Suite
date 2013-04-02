@@ -5,6 +5,8 @@ var self = require("self");
 var firefox = typeof(require);
 var tabs = require("tabs");
 var ss = require("simple-storage");
+var priv = require("private-browsing");
+var windows = require("sdk/windows").browserWindows;
 
 // require chrome allows us to use XPCOM objects...
 const {Cc,Ci,Cu} = require("chrome");
@@ -265,6 +267,11 @@ pageMod.PageMod({
 				}
 				break;
 			case 'addURLToHistory':
+				var isPrivate = priv.isPrivate(windows.activeWindow);
+				if (isPrivate) {
+					// do not add to history if in private browsing mode!
+					return false;
+				}
 				var uri = makeURI(request.url);
 				historyService.updatePlaces({
 					uri: uri,
