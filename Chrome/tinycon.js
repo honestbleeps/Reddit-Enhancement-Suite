@@ -114,7 +114,7 @@
 		var colour = colour || '#000000';
 		var src = getCurrentFavicon();
 
-		faviconImage = new Image();
+		faviconImage = document.createElement('img');
 		faviconImage.onload = function() {
 
 			// clear canvas
