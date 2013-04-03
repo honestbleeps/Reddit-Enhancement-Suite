@@ -288,6 +288,17 @@ opera.extension.addEventListener( "message", function( event ) {
 						break;
 				}
 				break;
+			case 'addURLToHistory':
+				var thisWin = opera.extension.windows.getLastFocused();
+				var priv = thisWin.private;
+				var passBack = {
+					msgType: 'addURLToHistory',
+					data: { 
+						url: request.url,
+						isPrivate: priv					}
+				}
+				event.source.postMessage(passBack);
+				break;
 			default:
 				var passBack = {
 					msgType: '',
