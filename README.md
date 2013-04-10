@@ -6,7 +6,7 @@ Hi there! Thanks for checking out RES on GitHub.  A few important notes:
 
 1. RES is licensed under GPLv3, which means you're technically free to do whatever you wish in terms of redistribution.  However, I ask out of courtesy that should you choose to release your own, separate distribution of RES, you please name it something else entirely. Unfortunately, I have run into problems in the past with people redistributing under the same name, and causing me tech support headaches.
 
-2. Related: RES is not submitted to browser extension pages like the Chrome Extension Gallery, AMO, etc, because the hope/intent is to provide simultaneous releases for all four browsers at once. This isn't possible given the variable approval times in each gallery, though. I ask that you please do not submit your own RES that isn't renamed there just to get browser syncing of extensions going - because like in #1, it has caused me issues in the past. Someone decided to submit to Chrome's gallery, then I was getting tech support requests from people who were on an old (his) version and weren't getting auto updated through my distribution channel.
+2. I ask that you please do not distribute your own binaries of RES (e.g. with bugfixes, etc).  The version numbers in RES are important references for tech support so that we can replicate bugs that users report using the same version they are, and when you distribute your own - you run the risk of polluting/confusing that.  In addition, if a user overwrites his/her extension with your distributed copy, it may not properly retain their RES settings/data depending on the developer ID used, etc.
 
 I can't stop you from doing any of this. I'm just asking out of courtesy because I already spend a great deal of time providing tech support and chasing down bugs, and it's much harder when people think I'm the support guy for a separate branch of code.
 
@@ -84,18 +84,3 @@ One thing to note is that if you switch branches this will break you hard links.
   1. Click ``Tools->Extensions->Manage Extensions``
   2. Drag the ``config.xml`` file in the ``Opera`` directory in to the extensions window and release. You should now have installed the extension. Make sure you have created the hard link to ``lib/reddit_enhancement_suite.js`` before doing this.
 
-### Building release versions of the extension ###
-
-**Chrome**
-  1. Go to ``Settings->Extensions`` and choose ``Pack extension``. Choose the ``Chrome`` folder for RES. You can also choose to sign the extension with a private key.
-  2. This will generate a ``.crx`` and ``.pem`` file for your extension that you can install by dropping the ``.crx`` file in ``Chrome``.
-
-**Firefox**
-  1. Make sure you have the addons SDK installed as described in the development section. 
-  2. In your terminal, ``cd`` to the ``XPI`` folder and run ``cfx xpi``. This should build an ``.xpi`` file that you can use to install RES.
-
-**Opera**
-  1. Opera extensions are simply zip files. So all you need to do is zip up the contents of the ``Opera`` folder, but not the folder itself. So the zip should contain everything inside the ``Opera`` folder. Rename the ``.zip`` file to have the extension ``.oex`` instead. See [here](http://dev.opera.com/articles/view/opera-extensions-hello-world/#packaging) for more information.
-
-**Safari**
-  1. Navigate to the ``Extension Builder`` panel as described in the development instructions. Assuming you have followed those instructions and installed RES, you can now choose ``build`` in the top right. This will generate a ``.safariextz`` file (signed by your certificate) that you can use to install RES.
