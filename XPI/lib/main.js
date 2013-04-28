@@ -28,6 +28,42 @@ function detachWorker(worker, workerArray) {
   }
 }
 
+// This weird method of loading stylesheets is necessary due to the following bugs:
+//
+// Bug https://bugzilla.mozilla.org/show_bug.cgi?id=830121 nor, --, ---, zer0, RESO FIXED, page_mod contentStyleFile: background property incorrect priority
+// Bug https://bugzilla.mozilla.org/show_bug.cgi?id=837494 nor, P1, ---, zer0, RESO FIXED, re-implement `contentStyle*` using the new nsIDOMWindowUtils methods
+//
+// These bugs mean that we can't override things like a declared background color with our user-loaded stylesheets without !important, and that is bad.
+//
+// As of 2013-04-27 - these bugs are still present in stable Firefox, but fixed in Nightly.  However, the fix that lives in nightly isn't slated for stable
+// release until August 2013, so we need this temp fix for now.
+//
+// TODO: go back to contentStyleFile listing in pageMod instead of this crazy way of loading stylesheets once above bugs are fixed.
+var sss = Cc["@mozilla.org/content/style-sheet-service;1"]
+                    .getService(Ci.nsIStyleSheetService);
+var ios = Cc["@mozilla.org/network/io-service;1"]
+                    .getService(Ci.nsIIOService);
+
+var uri;
+var stylesheets = ['nightmode.css','res.css','commentBoxes.css'];
+for (var i in stylesheets) {
+	uri = ios.newURI(self.data.url(stylesheets[i]), null, null);
+	if(!sss.sheetRegistered(uri, sss.USER_SHEET)) {
+		sss.loadAndRegisterSheet(uri, sss.AUTHOR_SHEET);
+	}
+}
+
+exports.onUnload = function (reason) {
+	if (reason === 'uninstall') {
+		for (var i in stylesheets) {
+			uri = ios.newURI(self.data.url(stylesheets[i]), null, null);
+			if(sss.sheetRegistered(uri, sss.USER_SHEET)) {
+				sss.unregisterSheet(uri, sss.AUTHOR_SHEET);
+			}
+		}
+	}
+};
+
 var localStorage = ss.storage;
 
 localStorage.getItem = function(key) {
@@ -119,7 +155,12 @@ pageMod.PageMod({
 	self.data.url('snuownd.js'),
 	self.data.url('reddit_enhancement_suite.user.js')
   ],
-  onAttach: function(worker) {
+/*  contentStyleFile: [
+	self.data.url('nightmode.css'),
+	self.data.url('commentBoxes.css'),
+	self.data.url('res.css')
+  ],
+*/  onAttach: function(worker) {
 	// when a tab is activated, repopulate localStorage so that changes propagate across tabs...
 
 	workers.push(worker);
