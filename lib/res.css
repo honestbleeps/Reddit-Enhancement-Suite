@@ -22,6 +22,7 @@
 	-ms-transition:top 0.5s ease-in-out;
 	-transition:top 0.5s ease-in-out;
 }
+#RESConsole .handle { cursor: move; }
 #RESConsole.slideIn {
 	visibility: visible;
 	top: 30px;
