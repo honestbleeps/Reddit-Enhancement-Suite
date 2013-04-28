@@ -1,6 +1,6 @@
 {
 	"name": "Reddit Enhancement Suite",
-	"version": "4.2.0.1",
+	"version": "4.2.0.2",
 	"manifest_version": 2,
 	"minimum_chrome_version": "20.0",
 	"description": "Reddit Enhancement Suite - a group of enhancements for browsing Reddit",
@@ -27,6 +27,11 @@
 				"jquery.tokeninput.js",
 				"snuownd.js",
 				"reddit_enhancement_suite.user.js"
+			],
+			"css": [
+				"nightmode.css",
+				"commentBoxes.css",
+				"res.css"
 			],
 			"run_at": "document_start"
 		}
