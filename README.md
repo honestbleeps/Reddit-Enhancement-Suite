@@ -24,39 +24,44 @@ steve@honestbleeps.com
 - lib/reddit\_enhancement\_suite.user.js 
 	This is the core userscript. You will need to create a set of hard links from this script under each browser specific folder. Unfortunately, Github does not maintain these hard links on committing. Note that because Safari's extension builder barfs on symlinks, you must use hard links instead.
 
-- Chrome/
-	This directory contains the following:
-		- background.html - the "background page" for RES, necessary for chrome extensions
-		- manifest.json - the project manifest
-		- icon.png, icon48.png, icon128.png - icons!
-		- jquery-1.6.4.min.js - jquery 1.6.4!
-		- reddit_enhancement_suite.user.js - a hard link to ../lib
+- Chrome/	This directory contains the following:
+  - background.html - the "background page" for RES, necessary for chrome extensions
+  - manifest.json - the project manifest
+  - icon.png, icon48.png, icon128.png - icons!
+  - jquery-1.6.4.min.js - jquery 1.6.4!
+  - reddit_enhancement_suite.user.js - a hard link to ../lib
 
-- Opera/
-	This directory contains the following:
-		- index.html - the "background page" for RES, necessary for opera extensions
-		- config.xml - Opera's equivalent of Chrome's manifest.json
-		- logo.gif - a logo gif!
-		- includes/reddit_enhancement_suite.user.js - a hard link to ../lib
 
-- RES.safariextension/
-	NOTE: This directory must have .safariextension in the name, or Safari's extension builder pukes.
-	This directory contains the following:
-		- background-safari.html - the "background page" for RES, necessary for safari extensions
-		- Info.plist - the project manifest
-		- icon.png, icon48.png, icon128.png - icons!
-		- jquery-1.6.4.min.js - jquery 1.6.4!
-		- reddit_enhancement_suite.user.js - a hard link to ../lib
+- Opera/	This directory contains the following:
+  - index.html - the "background page" for RES, necessary for opera extensions
+  - config.xml - Opera's equivalent of Chrome's manifest.json
+  - logo.gif - a logo gif!
+  - includes/reddit_enhancement_suite.user.js - a hard link to ../lib
 
-- XPI/
-	NOTE: An XPI is a Firefox addon... This is compiled using the Addon SDK.
+
+- RES.safariextension/	NOTE: This directory must have .safariextension in the name, or Safari's extension builder pukes.
 	This directory contains the following:
-		- lib/main.js - this is firefox's sort of "background page" for RES, like what chrome has, but just a JS file
-		- data/jquery-1.6.4.min.js - jquery 1.6.4!
-		- data/reddit_enhancement_suite.user.js - a hard link to ../lib
-		- doc/main.md - "documentation" file that's not currently being used.
-		- README.md - "documentation" file that's not currently being used.
-		- package.json - the project manifest for the Firefox addon
+  - background-safari.html - the "background page" for RES, necessary for safari extensions
+  - Info.plist - the project manifest
+  - icon.png, icon48.png, icon128.png - icons!
+  - jquery-1.6.4.min.js - jquery 1.6.4!
+  - reddit_enhancement_suite.user.js - a hard link to ../lib
+
+
+- XPI/	NOTE: An XPI is a Firefox addon... This is compiled using the Addon SDK.
+	This directory contains the following:
+
+  - lib/main.js - this is firefox's sort of "background page" for RES, like what chrome has, but just a JS file
+
+  - data/jquery-1.6.4.min.js - jquery 1.6.4!
+
+  - data/reddit_enhancement_suite.user.js - a hard link to ../lib
+
+  - doc/main.md - "documentation" file that's not currently being used.
+
+  - README.md - "documentation" file that's not currently being used.
+
+  - package.json - the project manifest for the Firefox addon
 
 ### Building development versions of the extension ###
 
