@@ -1,0 +1,1072 @@
+.res-nightmode body,
+.res-nightmode body>.content,
+.res-nightmode .side,
+.res-nightmode .flairselector,
+.res-nightmode .linefield,
+.res-nightmode .icon-menu a,
+.res-nightmode .side .leavemoderator,
+.res-nightmode .side .leavecontributor,
+.res-nightmode .side .titlebox,
+.res-nightmode .side .spacer .titlebox .redditname,
+.res-nightmode .side .titlebox .flairtoggle,
+.res-nightmode .side .usertext-body .md ol,
+.res-nightmode .side .usertext-body .md ol ol,
+.res-nightmode .side .usertext-body .md ol ol li,
+.res-nightmode .side blockquote
+{
+	background-color:#222;
+}
+
+.res-nightmode body
+{
+	background-image:none;
+}
+
+.res-nightmode .popup {
+	background-color: #222;
+	color: #aaa;
+}
+.res-nightmode #login_login {
+	background-color: #333;
+	color: #bbb;
+}
+
+.res-nightmode .RESNotification
+{
+	border:1px solid #ccc;
+	color:#fefefe;
+	background-color:gray;
+}
+
+.res-nightmode .RESNotificationHeader
+{
+	background:#c7c7c7;
+}
+
+.res-nightmode .RESNotificationContent,
+.res-nightmode #commentNavCloseButton:hover
+{
+	background:#eee;
+}
+
+.res-nightmode .listing-page .sitetable>div:nth-of-type(4n+1),
+.res-nightmode .messages-page .sitetable>div:nth-of-type(4n+1)
+{
+	background-color:rgba(24,24,24,.2);
+	padding-top:.5em;
+}
+
+.res-nightmode #parentComment
+{
+	background-color:#333!important;
+}
+
+.res-nightmode .entry .buttons li a
+{
+	color:rgba(221,221,221,.8);
+}
+
+.res-nightmode .comment .md p a:visited
+{
+	color:#369;
+}
+
+.res-nightmode .trophy-info .trophy-name,
+.res-nightmode .side .usertext-body .md em,
+.res-nightmode .side .usertext-body .md p
+{
+	color:#eee!important;
+}
+
+.res-nightmode .comment .md > p a:hover
+{
+	opacity:.9;
+	text-decoration:underline;
+}
+
+.res-nightmode ul.tabmenu li.selected a,
+.res-nightmode .redditname a.active
+{
+	background:#fee;
+}
+
+.res-nightmode .submit-page .submit .formtab .selected a
+{
+	background:gray;
+}
+
+.res-nightmode .sidecontentbox .content
+{
+	border-color:rgba(234,234,234,.1);
+}
+
+.res-nightmode .flair
+{
+	background-color:#bbb;
+	color:#000;
+}
+
+.res-nightmode .RESUserTagImage,
+.res-nightmode button.arrow.prev,
+.res-nightmode button.arrow.next
+{
+	opacity:.5;
+}
+
+.res-nightmode #RESMenu li.active
+{
+	background-color:#7f7f7f;
+}
+
+.res-nightmode #RESConsoleContent,
+.res-nightmode #RESMenu li
+{
+	background-color:#eee;
+}
+
+.res-nightmode #RESConsoleTopBar #RESLogo,
+.res-nightmode #progressIndicator
+{
+	opacity:.4;
+}
+
+.res-nightmode .login-form-side input
+{
+	width:auto;
+}
+
+.res-nightmode .login-form-side
+{
+	background-color:#888;
+	color:#eee;
+	padding-bottom:1px;
+}
+
+.res-nightmode #sr-header-area,
+.res-nightmode #sr-more-link,
+.res-nightmode #RESConsoleTopBar,
+.res-nightmode .moduleHeader,
+.res-nightmode .allOptionsContainer,
+.res-nightmode .optionContainer
+{
+	background-color:#ccc;
+	color:#000;
+}
+
+.res-nightmode .usertable .btn
+{
+	color:#aa9;
+	border-color:#aa9;
+}
+
+.res-nightmode .usertable tr .user .userkarma
+{
+	color:#aa9;
+}
+
+.res-nightmode .thing.spam
+{
+	background-color:rgba(250,128,114,.3);
+}
+
+.res-nightmode #userTaggerTable th,
+.res-nightmode #newCommentsTable th,
+.res-nightmode .buttons .stamp,
+.res-nightmode .RESNotification a,
+.res-nightmode .RESDashboardComponent .RESDashboardComponentHeader ul .updateTime:hover,
+.res-nightmode .big-mod-buttons .pretty-button,
+.res-nightmode .instructions .preftable th,
+.res-nightmode .instructions .pretty-form,
+.res-nightmode .commentreply .textarea,
+.res-nightmode .drop-choices a,
+.res-nightmode .remove-self .option,
+.res-nightmode .unfriend-button .option
+{
+	color:#000;
+}
+
+.res-nightmode .new-comment .usertext-body .md
+{
+	border:.1em #aaa dashed;
+}
+
+.res-nightmode .sitetable .moderator
+{
+	background-color:#282;
+}
+
+.res-nightmode .sitetable .admin
+{
+	background-color:#F01;
+}
+
+.res-nightmode .message ul
+{
+	color:#abc;
+}
+
+.res-nightmode #tab-templates a,
+.res-nightmode #tab-link_templates a
+{
+	background-color:#666660;
+	color:#ddd;
+}
+
+.res-nightmode .livePreview blockquote
+{
+	border-left:.2em solid #fff;
+}
+
+.res-nightmode .goldvertisement
+{
+	background:#dad0b3;
+}
+
+.res-nightmode #RESDashboardAddComponent,
+.res-nightmode .dashboardPane>.RESDashboardComponent
+{
+	background-color:gray;
+}
+
+.res-nightmode #RESConsole
+{
+	background-color:#ddd;
+}
+
+.res-nightmode #RESDashboard .RESDashboardComponentHeader
+{
+	background-color:silver;
+}
+
+.res-nightmode .RESDashboardComponentScrim span,
+.res-nightmode .RESDashboardComponent .RESDashboardComponentHeader ul .updateTime,
+.res-nightmode .traffic-table tr:nth-of-type(odd)
+{
+	color:#222;
+}
+
+.res-nightmode .RESDashboardComponent .RESDashboardComponentHeader ul li.active,
+.res-nightmode .RESDashboardComponent .RESDashboardComponentHeader ul li:hover
+{
+	background-color:#ccc;
+}
+
+.res-nightmode .entry .score
+{
+	color:#dde;
+}
+
+.res-nightmode .entry .tagline:first-of-type,
+.res-nightmode .entry time
+{
+	color:rgba(231,231,176,.6);
+}
+
+.res-nightmode .comment,
+.res-nightmode .sitetable .thing,
+.res-nightmode .permission-summary
+{
+	border-color:transparent!important;
+}
+
+.res-nightmode .entry .domain a
+{
+	color:#ADD8E6;
+}
+
+.res-nightmode .side .titlebox form.flairtoggle,
+.res-nightmode .trophy-area .content,
+.res-nightmode .NERPageMarker,
+.res-nightmode .side .titlebox .usertext-body ol,
+.res-nightmode .side .titlebox .usertext-body ol,
+.res-nightmode .side .titlebox .usertext-body ul
+{
+	background-color:#222;
+	color:#ddd;
+}
+
+.res-nightmode .message.message-reply.recipient>.entry .head,
+.res-nightmode .message.message-parent.recipient> .entry .head
+{
+	color:inherit;
+}
+
+.res-nightmode #header,
+.res-nightmode #header-bottom-left,
+.res-nightmode .modactions
+{
+	background:#666660!important;
+}
+
+.res-nightmode .arrow
+{
+	height:14px;
+	margin-top:0;
+	width:15px;
+}
+
+.res-nightmode .arrow.up
+{
+	background:url(http://thumbs.reddit.com/t5_2qlyl_0.png?v=zs9q49wxah08x4kpv2tu5x4nbda7kmcpgkbj) no-repeat -15px 0;
+}
+
+.res-nightmode .arrow.down
+{
+	background:url(http://thumbs.reddit.com/t5_2qlyl_0.png?v=10999ad3mtco31oaf6rrggme3t9jdztmxtg6) no-repeat -15px -14px;
+}
+
+.res-nightmode .arrow.up:hover
+{
+	background:url(http://thumbs.reddit.com/t5_2qlyl_0.png?v=9oeida688vtqjpb4k0uy93oongrzuv5j7vcj) no-repeat -30px 0;
+}
+
+.res-nightmode .arrow.down:hover
+{
+	background:url(http://thumbs.reddit.com/t5_2qlyl_0.png?v=cmsw4qrin2rivequ0x1wnmn8ltd7ke328yqs) no-repeat -30px -14px;
+}
+
+.res-nightmode .arrow.upmod
+{
+	background:url(http://thumbs.reddit.com/t5_2qlyl_0.png?v=8oarqkcswl255wrw3q1kyd74xrty50a7wr3z) no-repeat 0 0;
+}
+
+.res-nightmode .arrow.downmod
+{
+	background:url(http://thumbs.reddit.com/t5_2qlyl_0.png?v=90eauq018nf41z3vr0u249gv2q6651xyzrkh) no-repeat 0 -14px;
+}
+
+.res-nightmode .message.new>.entry
+{
+	background-color:#444;
+	border:1px solid #E9E9E9;
+	padding:6px;
+}
+
+.res-nightmode .subredditbox li a:before
+{
+	content:"#";
+}
+
+.res-nightmode .subredditbox li
+{
+	font-weight:700;
+	text-transform:lowercase;
+}
+
+.res-nightmode .dropdown.lightdrop .drop-choices
+{
+	background-color:#333;
+}
+
+.res-nightmode .dropdown.lightdrop a.choice:hover
+{
+	background-color:#111;
+}
+
+.res-nightmode .midcol
+{
+	margin-right:7px;
+}
+
+.res-nightmode .side
+{
+	color:#fff;
+	margin-left:10px;
+}
+
+.res-nightmode .sidebox,
+.res-nightmode .subredditbox,
+.res-nightmode .subreddit-info,
+.res-nightmode .raisedbox,
+.res-nightmode .login-form-side
+{
+	background-color:#393939;
+	border:2px solid #151515;
+	color:#aaa;
+	border-radius:8px;
+}
+
+.res-nightmode .login-form-side label
+{
+	color:#111;
+}
+
+.login-form-side a
+{
+	color:#fff;
+	font-size:11px;
+}
+
+.res-nightmode .login-form-side .error
+{
+	color:#600;
+}
+
+.res-nightmode .subreddit-info
+{
+	padding:10px;
+}
+
+.res-nightmode .subreddit-info .spacer a
+{
+	background-color:#222;
+	border:0 none;
+	margin-right:3px;
+}
+
+.res-nightmode .submit .spacer,
+.res-nightmode .create .spacer
+{
+	left:5px;
+}
+
+.res-nightmode .spacer>.create,
+.res-nightmode .spacer>.submit
+{
+	overflow:hidden;
+}
+
+.res-nightmode .subredditbox ul
+{
+	width:140px;
+	padding:10px 0 10px 3px;
+}
+
+.res-nightmode .subredditbox ul a:hover
+{
+	text-decoration:underline;
+}
+
+.res-nightmode .sidebox .morelink
+{
+	background:none;
+	border:0 none;
+	border-radius:6px;
+}
+
+.res-nightmode .morelink.blah
+{
+	background:none;
+	border:0 none;
+	color:#369;
+}
+
+.res-nightmode .morelink:hover
+{
+	border:0 none;
+	color:#fff;
+}
+
+.res-nightmode .sidebox .spacer,
+.res-nightmode .side .linkinfo
+{
+	background-color:#393939;
+}
+
+.res-nightmode .side .nub
+{
+	display:none;
+}
+
+.res-nightmode h1
+{
+	border-bottom:1px solid #444;
+}
+
+.res-nightmode .commentreply .buttons button
+{
+	margin-left:0;
+	margin-top:5px;
+}
+
+.res-nightmode .menuarea
+{
+	margin-right:315px;
+}
+
+.res-nightmode .permamessage
+{
+	background-image:url(http://thumbs.reddit.com/t5_2qlyl_3.png?v=uza2aq80cb2x2e90ojhdqooj1wazax4jjzfc);
+	border-color:#369;
+}
+
+.res-nightmode .commentbody.border
+{
+	background-color:#369;
+}
+
+.res-nightmode .commentreply table.help
+{
+	margin:2px;
+}
+
+.res-nightmode #newlink th
+{
+	padding-top:5px;
+	vertical-align:top;
+}
+
+.res-nightmode .pretty-form.long-text input[type=text],
+.res-nightmode .pretty-form.long-text textarea,
+.res-nightmode .pretty-form.long-text input[type=password],
+.res-nightmode .commentreply textarea
+{
+	background-color:#333;
+	border:2px solid #000;
+	color:#ccc;
+	padding:4px;
+}
+
+.res-nightmode input#title
+{
+	height:5em;
+}
+
+.res-nightmode .spam,
+.res-nightmode .reported
+{
+	background:none;
+	border:2px dotted;
+	padding:4px;
+}
+
+.res-nightmode .spam
+{
+	border-color:#FF4500;
+}
+
+.res-nightmode .reported
+{
+	border-color:#DAA520;
+}
+
+.res-nightmode .nextprev img
+{
+	opacity:.7;
+}
+
+.res-nightmode .nextprev img:hover
+{
+	opacity:.85;
+}
+
+.res-nightmode #search input[type=text]
+{
+	background-color:#222;
+	color:gray;
+}
+
+.res-nightmode #header-bottom-left .tabmenu .selected a
+{
+	padding-bottom:0;
+	border-color:transparent;
+}
+
+.res-nightmode #ad-frame
+{
+	opacity:.8;
+}
+
+.res-nightmode .comment.unread
+{
+	background-color:#4A473B;
+}
+
+.res-nightmode .raisedbox .flat-list a
+{
+	background-color:#222;
+	border-radius:2px;
+}
+
+.res-nightmode .raisedbox .flat-list a:hover
+{
+	background-color:#369;
+	color:#fff;
+}
+
+.res-nightmode .instructions
+{
+	background:#fff;
+	padding:10px;
+}
+
+.res-nightmode #siteTable .thing .title.loggedin:visited,
+.res-nightmode #siteTable .thing .title:visited,
+.res-nightmode #siteTable .thing .title.loggedin.click
+{
+	color:gray;
+}
+
+.res-nightmode .markhelp.md tr td
+{
+	background-color:#555;
+}
+
+.res-nightmode .markhelp.md tr td
+{
+	background-color:#36c;
+}
+
+.res-nightmode .mail .havemail img,
+.res-nightmode .mail .nohavemail img
+{
+	visibility:hidden;
+}
+
+.res-nightmode .havemail
+{
+	background:url(http://i.imgur.com/2Anoz.gif) no-repeat bottom left;
+}
+
+.res-nightmode .mail .nohavemail
+{
+	background:url(http://imgur.com/6WV6Il.gif) no-repeat bottom left;
+}
+
+.res-nightmode .thing .expando-button
+{
+	background-image:url(http://a.thumbs.redditmedia.com/JTs29zfSOzSMYO0B.png)!important;
+	cursor:pointer;
+}
+
+.res-nightmode .thing .expando-button.image.collapsed,
+.res-nightmode .thing .expando-button.image.collapsedExpando
+{
+	background-position:0 0;
+}
+
+.res-nightmode .thing .expando-button.image.collapsed:hover,
+.res-nightmode .thing .expando-button.image.collapsedExpando:hover
+{
+	background-position:0 -24px;
+}
+
+.res-nightmode .thing .expando-button.image.expanded,
+.res-nightmode .eb-se
+{
+	margin-bottom:5px;
+	background-position:0 -48px;
+}
+
+.res-nightmode .thing .expando-button.image.expanded:hover,
+.res-nightmode .eb-seh
+{
+	background-position:0 -72px;
+}
+
+.res-nightmode .thing .expando-button.image.gallery.collapsed,
+.res-nightmode .thing .expando-button.image.gallery.collapsedExpando
+{
+	background-position:0 -288px;
+}
+
+.res-nightmode .thing .expando-button.image.gallery.collapsed:hover,
+.res-nightmode .thing .expando-button.image.gallery.collapsedExpando:hover
+{
+	background-position:0 -312px;
+}
+
+.res-nightmode .thing .expando-button.image.gallery.expanded
+{
+	margin-bottom:5px;
+	background-position:0 -336px;
+}
+
+.res-nightmode .thing .expando-button.image.gallery.expanded:hover
+{
+	background-position:0 -360px;
+}
+
+.res-nightmode .thing .expando-button.selftext.collapsed,
+.res-nightmode .thing .expando-button.selftext.collapsedExpando
+{
+	background-position:0 -96px;
+}
+
+.res-nightmode .thing .expando-button.selftext.collapsed:hover,
+.res-nightmode .thing .expando-button.selftext.collapsedExpando:hover
+{
+	background-position:0 -120px;
+}
+
+.res-nightmode .thing .expando-button.selftext.expanded,
+.res-nightmode .eb-se
+{
+	margin-bottom:5px;
+	background-position:0 -144px;
+}
+
+.res-nightmode .thing .expando-button.selftext.expanded:hover,
+.res-nightmode .eb-seh
+{
+	background-position:0 -168px;
+}
+
+.res-nightmode .thing .expando-button.video.collapsed,
+.res-nightmode .thing .expando-button.video.collapsedExpando
+{
+	background-position:0 -192px;
+}
+
+.res-nightmode .thing .expando-button.video.collapsed:hover,
+.res-nightmode .thing .expando-button.video.collapsedExpando:hover
+{
+	background-position:0 -216px;
+}
+
+.res-nightmode .thing .expando-button.video.expanded,
+.res-nightmode .eb-se
+{
+	margin-bottom:5px;
+	background-position:0 -240px;
+}
+
+.res-nightmode .thing .expando-button.video.expanded:hover,
+.res-nightmode .eb-seh
+{
+	background-position:0 -264px;
+}
+
+.res-nightmode .RESdupeimg
+{
+	color:#eee;
+	font-size:10px;
+}
+
+.res-nightmode .RES-keyNav-activeElement,
+.res-nightmode .RES-keyNav-activeElement .md,
+.res-nightmode .res-nightmode #REScommentNavBox,
+.res-nightmode .res-nightmode #commentNavCloseButton
+{
+	background-color:#666;
+}
+
+.res-nightmode .RES-keyNav-activeElement .title.loggedin:visited,
+.res-nightmode .RES-keyNav-activeElement .title:visited
+{
+	color:#dfdfdf;
+}
+
+.res-nightmode a.link-button,
+.res-nightmode a.text-button,
+.res-nightmode .user .userkarma
+{
+	color:#444;
+}
+
+.res-nightmode .drop-choices
+{
+	background-color:#C2D2E2;
+}
+
+.res-nightmode .formtabs-content
+{
+	border-top:6px solid #222;
+}
+
+.res-nightmode #sr-autocomplete-area
+{
+	z-index:1;
+}
+
+.res-nightmode .content button
+{
+	background:#111;
+	border:2px solid #666;
+	border-radius:2px;
+	color:#ddd;
+	padding:3px 6px;
+}
+
+.res-nightmode .create-reddit
+{
+	border:none;
+}
+
+.res-nightmode .create-reddit .title
+{
+	background-color:#111;
+	color:#8AD;
+}
+
+.res-nightmode .linefield .linefield-content
+{
+	border-color:#111;
+}
+
+.res-nightmode .create-reddit #title,
+.res-nightmode .create-reddit #name.text,
+.res-nightmode .create-reddit #domain.text
+{
+	height:1.2em;
+	background-color:#666;
+	color:#ccc;
+}
+
+.res-nightmode div#RESShortcutsEditContainer,
+.res-nightmode div#RESShortcutsSort,
+.res-nightmode div#RESShortcutsRight,
+.res-nightmode div#RESShortcutsLeft,
+.res-nightmode div#RESShortcutsAdd,
+.res-nightmode div#RESShortcutsTrash
+{
+	background:#ccc;
+}
+
+.res-nightmode #BigEditor .md :not(code),
+.res-nightmode #BigEditor #BigText
+{
+	background:#666;
+	color:#ccc;
+	font-weight:400;
+}
+
+.res-nightmode #BigEditor .md blockquote
+{
+	border-left-color:#eee;
+}
+
+#BigEditor .md h1
+{
+	border-bottom:0;
+}
+
+.res-nightmode.res-commentBoxes .comments-page .comment .comment
+{
+	margin-right:0!important;
+	background-color:#222!important;
+}
+
+.res-nightmode body>.content
+{
+	padding-right:0!important;
+}
+
+.res-nightmode .linklisting .thing
+{
+	margin-bottom:10px;
+	border-color:transparent;
+}
+
+.res-nightmode .comment .child
+{
+	border-left:0 none;
+}
+
+.res-nightmode.res-continuity .comment .child
+{
+	border-left:1px dotted #555;
+}
+
+.res-nightmode .content .roundfield,
+.res-nightmode .traffic-table tr:nth-of-type(even)
+{
+	background-color:#181818;
+}
+
+.res-nightmode #authorInfoToolTip
+{
+	background-color:#666;
+	color:#ccc;
+	border-color:#888;
+}
+
+.res-nightmode .new-comment .usertext-body
+{
+	background-color:#345;
+	border:0 none;
+	margin:-1px 0;
+}
+
+.res-nightmode .new-comment .usertext-body .md p a,
+.res-nightmode code
+{
+	color:#87CEEB;
+}
+
+.res-nightmode .comment .md p a[href="/spoiler"]
+{
+	background-color:#000;
+	color:#000;
+}
+
+.res-nightmode .comment .md p a[href="/spoiler"]:hover,
+.res-nightmode .comment .md p a[href="/spoiler"]:active,
+.res-nightmode #commentNavButtons *,
+.res-nightmode .addNewWidget,
+.res-nightmode .editWidget,
+.res-nightmode .RESDashboardComponent .widgetPath,
+.res-nightmode #authorInfoToolTip .option,
+.res-nightmode .updateTime,
+.res-nightmode .toggle .option,
+.res-nightmode #search input[type=text]:focus
+{
+	color:#fff;
+}
+
+.res-nightmode .comment .md p a,
+.res-nightmode #BigEditor .markdownEditor>*
+{
+	color:#8ad;
+}
+
+.res-nightmode .side .usertext-body ol,
+.res-nightmode .side .redditname a,
+.res-nightmode .side .usertext-body .md blockquote p,
+.res-nightmode .side .redditname a,
+.res-nightmode .side h1,
+.res-nightmode .side h2,
+.res-nightmode .side h3,
+.res-nightmode .side h4,
+.res-nightmode .side h5,
+.res-nightmode .side h6
+{
+	color:#eee;
+}
+
+.res-nightmode .usertext.border .usertext-body,
+.res-nightmode .side .spacer>#search input
+{
+	background-color:#444;
+}
+
+.res-nightmode .tabmenu li a,
+.res-nightmode .login-form,
+.res-nightmode .login-form input[name*=passwd],
+.res-nightmode .login-form-side .submit,
+.res-nightmode #header-bottom-right
+{
+	background-color:#bbb;
+}
+
+.res-nightmode input[type=text],
+.res-nightmode .token-input-list-facebook
+{
+	background-color:#aaa;
+}
+
+.res-nightmode .share-button .option,
+.res-nightmode #subscribe a,
+.res-nightmode .share .option,
+.res-nightmode .tagline a,
+.res-nightmode .content a,
+.res-nightmode .footer a,
+.res-nightmode .wired a,
+.res-nightmode .side a,
+.res-nightmode .subredditbox li a,
+.res-nightmode .link .score.dislikes,
+.res-nightmode .linkcompressed .score.dislikes,
+.res-nightmode a[rel=tag],
+.res-nightmode .dsq-help,
+#authorInfoToolTip a
+{
+	color:#8AD;
+}
+
+.res-nightmode>.content>.spacer>.sitetable:before,
+.res-nightmode>.content>.sharelink~.sitetable:before,
+.res-nightmode .side .age,
+.res-nightmode .trophy-info *,
+.res-nightmode .golddvertisement,
+.res-nightmode .flair-jump .title,
+.res-nightmode #siteTable .thing .title.loggedin,
+.res-nightmode #siteTable .thing .title.loggedin.click,
+.res-nightmode #siteTable .thing .title,
+.res-nightmode .NERdupe p.title:after,
+.res-nightmode .savedComment
+{
+	color:#ddd;
+}
+
+.res-nightmode .side .spacer,
+.res-nightmode .content,
+.res-nightmode .moderator .traffic-table tr:nth-of-type(odd),
+.res-nightmode .sitetable .thing .md,
+.res-nightmode .parentComment .md,
+.res-nightmode .post-body.entry-content,
+.res-nightmode .dsq-auth-header,
+.res-nightmode .instructions .preftable th
+{
+	color:#ccc;
+}
+
+.res-nightmode .infobar,
+.res-nightmode .subreddit .usertext .md,
+.res-nightmode .RESDialogSmall h3
+{
+	background-color:#222;
+	color:#ccc;
+}
+
+.res-nightmode .rank .star,
+.res-nightmode .link .score.likes,
+.res-nightmode .linkcompressed .score.likes
+{
+	color:#FF4500;
+}
+
+.res-nightmode .linkcompressed .entry .buttons li a,
+.res-nightmode .link .usertext .md,
+.res-nightmode .thing .compressed,
+.res-nightmode organic-listing .link,
+.res-nightmode .link.promotedlink,
+.res-nightmode .link.promotedlink.promoted,
+.res-nightmode .commentreply .help tr,
+.res-nightmode .organic-listing .linkcompressed
+{
+	background:none;
+}
+
+.res-nightmode .link .usertext-body .md,
+.res-nightmode .side .linkinfo
+{
+	border-color:#666;
+}
+
+.res-nightmode .subreddit-info .label,
+.res-nightmode .sidebox .subtitle
+{
+	color:#aaa;
+}
+
+.res-nightmode form .usertext-body,
+.res-nightmode .sitetable .moderator,
+.res-nightmode .sitetable .admin,
+.res-nightmode .sitetable .submitter,
+.res-nightmode .sitetable friend,
+.res-nightmode .moderator .traffic-table tbody tr:nth-child(even),
+.res-nightmode .thing .expando-button,
+.res-nightmode .instructions,
+.res-nightmode .linefield .delete-field,
+.res-nightmode #pref-delete .delete-field,
+.res-nightmode .usertext .usertext-body .md
+{
+	background-color:transparent;
+}
+
+.res-nightmode #newlink.submit textarea,
+.res-nightmode #newlink.submit #url,
+.res-nightmode #newlink.submit #sr-autocomplete,
+.res-nightmode .usertext-edit textarea,
+.res-nightmode .RESDialogSmall
+{
+	background-color:#666;
+	color:#ccc;
+}
+
+.res-nightmode.res-commentBoxes .comments-page .comment,
+.res-nightmode.res-commentBoxes .comments-page .comment .comment .comment,
+.res-nightmode.res-commentBoxes .comments-page .comment .comment .comment .comment .comment,
+.res-nightmode.res-commentBoxes .comments-page .comment .comment .comment .comment .comment .comment .comment,
+.res-nightmode.res-commentBoxes .comments-page .comment .comment .comment .comment .comment .comment .comment .comment .comment
+{
+	background-color:rgba(24,24,24,.9)!important;
+}
+
+.res-nightmode.res-commentBoxes .comments-page .comment .comment .comment .comment,
+.res-nightmode.res-commentBoxes .comments-page .comment .comment .comment .comment .comment .comment,
+.res-nightmode.res-commentBoxes .comments-page .comment .comment .comment .comment .comment .comment .comment .comment,
+.res-nightmode.res-commentBoxes .comments-page .comment .comment .comment .comment .comment .comment .comment .comment .comment .comment
+{
+	background-color:#222!important;
+}
