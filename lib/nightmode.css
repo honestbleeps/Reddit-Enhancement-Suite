@@ -78,7 +78,7 @@
 	color:#eee!important;
 }
 
-.res-nightmode .comment .md > p a:hover
+.res-nightmode .comment .md > p a:not(.madeVisible):hover
 {
 	opacity:.9;
 	text-decoration:underline;
