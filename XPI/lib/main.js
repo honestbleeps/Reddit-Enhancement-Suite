@@ -224,41 +224,46 @@ pageMod.PageMod({
 				break;
 			case 'singleClick':
 				var button = ((request.button == 1) || (request.ctrl == 1));
+				var isPrivate = priv.isPrivate(windows.activeWindow);
+
 				// handle requests from singleClick module
 				if (request.openOrder == 'commentsfirst') {
 					// only open a second tab if the link is different...
 					if (request.linkURL != request.commentsURL) {
-						tabs.open({url: request.commentsURL, inBackground: button });
+						tabs.open({url: request.commentsURL, inBackground: button, isPrivate: isPrivate });
 					}
-					tabs.open({url: request.linkURL, inBackground: button });
+					tabs.open({url: request.linkURL, inBackground: button, isPrivate: isPrivate });
 				} else {
-					tabs.open({url: request.linkURL, inBackground: button });
+					tabs.open({url: request.linkURL, inBackground: button, isPrivate: isPrivate });
 					// only open a second tab if the link is different...
 					if (request.linkURL != request.commentsURL) {
-						tabs.open({url: request.commentsURL, inBackground: button });
+						tabs.open({url: request.commentsURL, inBackground: button, isPrivate: isPrivate });
 					}
 				}
 				worker.postMessage({status: "success"});
 				break;
 			case 'keyboardNav':
 				var button = (request.button == 1);
+				var isPrivate = priv.isPrivate(windows.activeWindow);
+
 				// handle requests from keyboardNav module
 				thisLinkURL = request.linkURL;
 				if (thisLinkURL.toLowerCase().substring(0,4) != 'http') {
 					(thisLinkURL.substring(0,1) == '/') ? thisLinkURL = 'http://www.reddit.com' + thisLinkURL : thisLinkURL = location.href + thisLinkURL;
 				}
 				// Get the selected tab so we can get the index of it.  This allows us to open our new tab as the "next" tab.
-				tabs.open({url: thisLinkURL, inBackground: button });
+				tabs.open({url: thisLinkURL, inBackground: button, isPrivate: isPrivate });
 				worker.postMessage({status: "success"});
 				break;
 			case 'openLinkInNewTab':
 				var focus = (request.focus === true);
+				var isPrivate = priv.isPrivate(windows.activeWindow);
 				thisLinkURL = request.linkURL;
 				if (thisLinkURL.toLowerCase().substring(0,4) != 'http') {
 					(thisLinkURL.substring(0,1) == '/') ? thisLinkURL = 'http://www.reddit.com' + thisLinkURL : thisLinkURL = location.href + thisLinkURL;
 				}
 				// Get the selected tab so we can get the index of it.  This allows us to open our new tab as the "next" tab.
-				tabs.open({url: thisLinkURL, inBackground: !focus });
+				tabs.open({url: thisLinkURL, inBackground: !focus, isPrivate: isPrivate });
 				worker.postMessage({status: "success"});
 				break;
 			case 'loadTweet':
