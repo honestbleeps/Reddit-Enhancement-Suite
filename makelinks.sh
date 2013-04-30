@@ -1,5 +1,3 @@
-#!/bin/sh
-
 files=("reddit_enhancement_suite.user.js" "res.css" "nightmode.css" "commentBoxes.css")
 paths=("./Chrome/" "./XPI/data/" "./Opera/includes/" "./RES.safariextension/")
 
