@@ -1,16 +1,34 @@
-files=("reddit_enhancement_suite.user.js" "res.css" "nightmode.css" "commentBoxes.css")
-paths=("./Chrome/" "./XPI/data/" "./Opera/includes/" "./RES.safariextension/")
+files=("reddit_enhancement_suite.user.js" "res.css" "nightmode.css" "commentBoxes.css" \
+	"jquery-1.6.4.min.js" "jquery-fieldselection.min.js" \
+	"jquery.dragsort-0.4.3.min.js" "jquery.tokeninput.js" \
+	"tinycon.js" "snuownd.js" "guiders-1.2.8.js")
+paths=("Chrome" "XPI/data" "Opera" "RES.safariextension")
+
 
 for i in "${files[@]}"
 do
 	for j in "${paths[@]}"
 	do
-		echo "Re-linking:" $j$i
-		if [ -f $j$i ];
+		if [ "$j" == "Opera" ];
 		then
-			rm $j$i
+			if [[ "$i" == *.user.js || "$i" == *.css ]];
+			then
+				dest="./$j/includes/"
+			else
+				dest="./$j/modules/"
+			fi
+		else
+			dest="./$j/"
+		fi
+		echo "Re-linking:" $dest$i
+		if [ -f $dest$i ];
+		then
+			rm $dest$i
 		fi
 
-		ln ./lib/$i $j
+		if [ "clean" != "$1" ];
+		then
+			ln ./lib/$i $dest
+		fi
 	done
 done
