@@ -4,7 +4,6 @@ files=("reddit_enhancement_suite.user.js" "res.css" "nightmode.css" "commentBoxe
 	"tinycon.js" "snuownd.js" "guiders-1.2.8.js")
 paths=("Chrome" "XPI/data" "Opera" "RES.safariextension")
 
-
 for i in "${files[@]}"
 do
 	for j in "${paths[@]}"
@@ -28,6 +27,7 @@ do
 
 		if [ "clean" != "$1" ];
 		then
+			mkdir -p $dest
 			ln ./lib/$i $dest
 		fi
 	done

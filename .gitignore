@@ -3,11 +3,15 @@ Chrome.pem
 XPI/reddit_res.xpi
 
 /Chrome/*.js
+/Chrome/*.css
 !/Chrome/background.js
 /RES.safariextension/*.js
+/RES.safariextension/*.css
 /Opera/includes/*.js
+/Opera/includes/*.css
 /Opera/modules/*.js
-/XPI/lib/*.js
+/XPI/data/*.js
+/XPI/data/*.css
 !/XPI/lib/main.js
 !/lib/*
 /commentBoxes.css
