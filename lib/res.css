@@ -791,16 +791,29 @@ a.RESNotificationButtonBlue {
 .RESButton:hover {
 	background-color: #DDD;
 }
-.RESCharCounter {
+/* Stuff added to force specificty */
+span.RESCharCounter[title] {
 	color: gray;
 	float: right;
-	line-height: 0px;
 	position: relative;
-	top: 12px;
-	right: 8px;
+	top: 10px;
 	font-size: 15px;
+	/* line-height broke the background */
+	margin-bottom: -50px;
+	opacity: 0.6;
+	padding: 2px;
+	border-radius: 2px;
 }
-.RESCharCounter.tooLong {
+/* this is for the forms on /r/%/about/edit */
+#sr-form .RESCharCounter {
+	right: 8px;
+}
+/* To make it easier to read */
+span.RESCharCounter:hover {
+	opacity: 1.0;
+	background-color: white;
+}
+span.RESCharCounter[title].tooLong {
 	color: red;
 }
 
@@ -863,10 +876,7 @@ body.RESScrollLock {
 	right: 38px;
 	font-family: Webdings;
 }
-#BigEditor .RESCharCounter {
-	top: 3em;
-	right: 0px;
-}
+
 button.RESBigEditorPop {
 	float: right;
 	margin: 3px 0 0 12px;
