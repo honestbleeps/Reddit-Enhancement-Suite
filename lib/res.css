@@ -855,7 +855,12 @@ body.RESScrollLock {
 	display: none;
 }
 
-button.RESBigEditorPop {
+.markdownEditor + div textarea {
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.bottom-area .RESBigEditorPop {
 	float: right;
 	margin: 3px 0 0 12px;
 	color: #333;
