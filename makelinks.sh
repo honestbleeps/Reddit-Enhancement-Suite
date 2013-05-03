@@ -1,5 +1,5 @@
 files=("reddit_enhancement_suite.user.js" "res.css" "nightmode.css" "commentBoxes.css" \
-	"jquery-2.0.0.min.js" "jquery-fieldselection.min.js" \
+	"jquery-1.9.1.min.js" "jquery-fieldselection.min.js" \
 	"jquery.dragsort-0.4.3.min.js" "jquery.tokeninput.js" \
 	"tinycon.js" "snuownd.js" "guiders-1.2.8.js")
 paths=("Chrome" "XPI/data" "Opera" "RES.safariextension")
