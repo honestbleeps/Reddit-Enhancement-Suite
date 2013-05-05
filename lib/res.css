@@ -795,24 +795,11 @@ a.RESNotificationButtonBlue {
 span.RESCharCounter[title] {
 	color: gray;
 	float: right;
-	position: relative;
-	top: 10px;
 	font-size: 15px;
-	/* line-height broke the background */
-	margin-bottom: -50px;
-	opacity: 0.6;
-	padding: 2px;
-	border-radius: 2px;
+	/* needed to keep the wiki textarea from being pushed down */
+	margin-bottom: -2px;
 }
-/* this is for the forms on /r/%/about/edit */
-#sr-form .RESCharCounter {
-	right: 8px;
-}
-/* To make it easier to read */
-span.RESCharCounter:hover {
-	opacity: 1.0;
-	background-color: white;
-}
+
 span.RESCharCounter[title].tooLong {
 	color: red;
 }
