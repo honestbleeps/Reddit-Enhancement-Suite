@@ -546,7 +546,6 @@ p.moduleListing {
 #RESConsoleVersion {
 	float: left;
 	font-size: 10px;
-	color: f0f3fc;
 	margin-left: 6px;
 	margin-top: 7px;
 }
@@ -888,7 +887,12 @@ div + #BigText {
 	font-family: Webdings;
 }
 
-button.RESBigEditorPop {
+.markdownEditor + div textarea {
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.bottom-area .RESBigEditorPop {
 	float: right;
 	margin: 3px 0 0 12px;
 	color: #333;
