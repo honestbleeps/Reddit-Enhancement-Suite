@@ -260,6 +260,7 @@
 }
 .usertext-edit .RESDialogSmall .md.RESDialogContents {
 	border: none;
+	background-color: white !important;
 }
 #RESHelp {
 	background-image: url("http://e.thumbs.redditmedia.com/r22WT2K4sio9Bvev.png");
@@ -545,6 +546,7 @@ p.moduleListing {
 #RESConsoleVersion {
 	float: left;
 	font-size: 10px;
+	color: f0f3fc;
 	margin-left: 6px;
 	margin-top: 7px;
 }
@@ -790,14 +792,16 @@ a.RESNotificationButtonBlue {
 .RESButton:hover {
 	background-color: #DDD;
 }
-h3 .RESCharCounter {
-	margin-right: 1em;
-}
-.RESCharCounter {
+/* Stuff added to force specificty */
+span.RESCharCounter[title] {
 	color: gray;
 	float: right;
+	font-size: 15px;
+	/* needed to keep the wiki textarea from being pushed down */
+	margin-bottom: -2px;
 }
-.RESCharCounter.tooLong {
+
+span.RESCharCounter[title].tooLong {
 	color: red;
 }
 
@@ -807,43 +811,68 @@ body.RESScrollLock {
 	overflow: hidden;
 }
 #BigEditor {
-	position: relative;
-	z-index: 2000;}
+	position: fixed;
+	z-index: 2000;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
 .BELeft, .BERight {
-	position: fixed !important;
+	position: absolute !important;
 	top: 0;
 	bottom: 0;
+	width: 49%;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	overflow: hidden;
 }
 #BigEditor .RESDialogContents {
-	position: fixed !important;
+	position: absolute !important;
 	top: 0;
 	bottom: 0;
 }
-.BELeft  {
+.BELeft {
 	left: 0;
-	right: 50%;
+	margin-right: 0;
 }
-.BERight  {
-	left: 50%;
+.BERight {
 	right: 0;
+	margin-left: 0;
+}
+.BERight .md {
+	max-width: none;
 }
 #BigEditor > div {
-	margin: 1em;
+	margin: 1em .5em;
 }
 .BELeft .RESDialogContents {
 	padding-bottom: 7.5em;
-	left: 0%;
-	right: 50%;
+	left: 0;
+	right: 0;
 	margin: 0em 1em 0em 1em;
 }
-.BERight .RESDialogContents {
+.BERight .RESDialogContents, .BERight .RESDialogContents.wiki-page-content {
 	overflow: auto;
 	padding: 12px;
 	margin: 4em 1em 1em 0em;
+	left: 0;
+	right: 0;
 }
 #BigText {
 	resize: none;
-	width: 100%; height: 100%;
+	width: 100%;
+	height: 105%;
+}
+div + #BigText {
+	height: 100%;
+}
+
+.BELeft .markdownEditor {
+	max-height: 45px;
+}
+.BELeft .markdownEditor:hover {
+	max-height: none;
 }
 .BEFoot button {
 	margin-top: 0.5em;
@@ -854,13 +883,12 @@ body.RESScrollLock {
 .BESideHide {
 	display: none;
 }
-
-.markdownEditor + div textarea {
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
+.RESFadeButton {
+	right: 38px;
+	font-family: Webdings;
 }
 
-.bottom-area .RESBigEditorPop {
+button.RESBigEditorPop {
 	float: right;
 	margin: 3px 0 0 12px;
 	color: #333;
@@ -877,3 +905,7 @@ button.RESBigEditorPop:hover {
 	background-color: #ddd; 
 }
 
+#autocomplete_dropdown {
+	display: inline-block;
+	z-index: 3000;
+}
