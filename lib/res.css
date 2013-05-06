@@ -904,3 +904,7 @@ button.RESBigEditorPop {
 button.RESBigEditorPop:hover {
 	background-color: #ddd; 
 }
+
+#autocomplete_dropdown {
+	display: inline-block;
+}
