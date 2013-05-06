@@ -824,6 +824,7 @@ body.RESScrollLock {
 	width: 49%;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
+	overflow: hidden;
 }
 #BigEditor .RESDialogContents {
 	position: absolute !important;
@@ -864,6 +865,12 @@ body.RESScrollLock {
 }
 .markdownEditor + #BigText {
 	height: 100%;
+}
+.BELeft .markdownEditor {
+	max-height: 45px;
+}
+.BELeft .markdownEditor:hover {
+	max-height: none;
 }
 .BEFoot button {
 	margin-top: 0.5em;
