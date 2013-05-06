@@ -863,9 +863,10 @@ body.RESScrollLock {
 	width: 100%;
 	height: 105%;
 }
-.markdownEditor + #BigText {
+div + #BigText {
 	height: 100%;
 }
+
 .BELeft .markdownEditor {
 	max-height: 45px;
 }
