@@ -1,5 +1,5 @@
 .res-nightmode body,
-.res-nightmode body>.content,
+.res-nightmode body .content,
 .res-nightmode .side,
 .res-nightmode .flairselector,
 .res-nightmode .linefield,
@@ -63,9 +63,21 @@
 	background-color:#333!important;
 }
 
-.res-nightmode .entry .buttons li a
+.res-nightmode .entry .buttons li a,
+.res-nightmode .entry .morecomments .gray,
+.res-nightmode .markdownEditor .RESCharCounter
 {
 	color:rgba(221,221,221,.8);
+}
+
+.res-nightmode #BigEditor .markdownEditor .RESMacroDropdownList a
+{
+	color:gray;
+}
+
+.res-nightmode #BigEditor .markdownEditor .RESMacroDropdownList li:hover a
+{
+	color:rgb(187,187,187);
 }
 
 .res-nightmode .comment .md p a:visited
@@ -124,6 +136,10 @@
 .res-nightmode #RESMenu li
 {
 	background-color:#eee;
+}
+
+.res-nightmode #DonateRES {
+	background: rgb(204,204,204);
 }
 
 .res-nightmode #RESConsoleTopBar #RESLogo,
@@ -302,39 +318,39 @@
 
 .res-nightmode .arrow
 {
-	height:14px;
+	height:14px!important;
 	margin-top:0;
-	width:15px;
+	width:15px!important;
 }
 
 .res-nightmode .arrow.up
 {
-	background:url(http://thumbs.reddit.com/t5_2qlyl_0.png?v=zs9q49wxah08x4kpv2tu5x4nbda7kmcpgkbj) no-repeat -15px 0;
+	background:url(http://thumbs.reddit.com/t5_2qlyl_0.png?v=zs9q49wxah08x4kpv2tu5x4nbda7kmcpgkbj) no-repeat -15px 0!important;
 }
 
 .res-nightmode .arrow.down
 {
-	background:url(http://thumbs.reddit.com/t5_2qlyl_0.png?v=10999ad3mtco31oaf6rrggme3t9jdztmxtg6) no-repeat -15px -14px;
+	background:url(http://thumbs.reddit.com/t5_2qlyl_0.png?v=10999ad3mtco31oaf6rrggme3t9jdztmxtg6) no-repeat -15px -14px!important;
 }
 
 .res-nightmode .arrow.up:hover
 {
-	background:url(http://thumbs.reddit.com/t5_2qlyl_0.png?v=9oeida688vtqjpb4k0uy93oongrzuv5j7vcj) no-repeat -30px 0;
+	background:url(http://thumbs.reddit.com/t5_2qlyl_0.png?v=9oeida688vtqjpb4k0uy93oongrzuv5j7vcj) no-repeat -30px 0!important;
 }
 
 .res-nightmode .arrow.down:hover
 {
-	background:url(http://thumbs.reddit.com/t5_2qlyl_0.png?v=cmsw4qrin2rivequ0x1wnmn8ltd7ke328yqs) no-repeat -30px -14px;
+	background:url(http://thumbs.reddit.com/t5_2qlyl_0.png?v=cmsw4qrin2rivequ0x1wnmn8ltd7ke328yqs) no-repeat -30px -14px!important;
 }
 
 .res-nightmode .arrow.upmod
 {
-	background:url(http://thumbs.reddit.com/t5_2qlyl_0.png?v=8oarqkcswl255wrw3q1kyd74xrty50a7wr3z) no-repeat 0 0;
+	background:url(http://thumbs.reddit.com/t5_2qlyl_0.png?v=8oarqkcswl255wrw3q1kyd74xrty50a7wr3z) no-repeat 0 0!important;
 }
 
 .res-nightmode .arrow.downmod
 {
-	background:url(http://thumbs.reddit.com/t5_2qlyl_0.png?v=90eauq018nf41z3vr0u249gv2q6651xyzrkh) no-repeat 0 -14px;
+	background:url(http://thumbs.reddit.com/t5_2qlyl_0.png?v=90eauq018nf41z3vr0u249gv2q6651xyzrkh) no-repeat 0 -14px!important;
 }
 
 .res-nightmode .message.new>.entry
@@ -772,7 +788,8 @@
 	z-index:1;
 }
 
-.res-nightmode .content button
+.res-nightmode .content button,
+.res-nightmode #REScommentSubToggle
 {
 	background:#111;
 	border:2px solid #666;
@@ -907,12 +924,6 @@
 	color:#fff;
 }
 
-.res-nightmode .comment .md p a,
-.res-nightmode #BigEditor .markdownEditor>*
-{
-	color:#8ad;
-}
-
 .res-nightmode .side .usertext-body ol,
 .res-nightmode .side .redditname a,
 .res-nightmode .side .usertext-body .md blockquote p,
@@ -952,7 +963,7 @@
 .res-nightmode #subscribe a,
 .res-nightmode .share .option,
 .res-nightmode .tagline a,
-.res-nightmode .content a,
+.res-nightmode .tagline .head .author,
 .res-nightmode .footer a,
 .res-nightmode .wired a,
 .res-nightmode .side a,
@@ -961,9 +972,25 @@
 .res-nightmode .linkcompressed .score.dislikes,
 .res-nightmode a[rel=tag],
 .res-nightmode .dsq-help,
-#authorInfoToolTip a
+.res-nightmode #authorInfoToolTip h3 a,
+.res-nightmode .RES-keyNav-activeElement .tagline a,
+.res-nightmode .RES-keyNav-activeElement .md,
+.res-nightmode .help-toggle .option,
+.res-nightmode .morecomments a,
+.res-nightmode .reddiquette,
+.res-nightmode .parent .author,
+.res-nightmode .parent .subreddit,
+.res-nightmode .comment .md p a
 {
-	color:#8AD;
+	color:rgba(20,150,220,.8);
+}
+
+.res-nightmode .RES-keyNav-activeElement .md a {
+	color:#8ad;
+}
+
+.res-nightmode .RES-keyNav-activeElement .md a:visited {
+	color:#369
 }
 
 .res-nightmode>.content>.spacer>.sitetable:before,
@@ -989,7 +1016,9 @@
 .res-nightmode .parentComment .md,
 .res-nightmode .post-body.entry-content,
 .res-nightmode .dsq-auth-header,
-.res-nightmode .instructions .preftable th
+.res-nightmode .instructions .preftable th,
+.res-nightmode #BigEditor .markdownEditor a,
+.res-nightmode #BigEditor .markdownEditor .RESMacroDropdownTitle
 {
 	color:#ccc;
 }
@@ -1053,6 +1082,7 @@
 .res-nightmode #newlink.submit #url,
 .res-nightmode #newlink.submit #sr-autocomplete,
 .res-nightmode .usertext-edit textarea,
+.res-nightmode .usertext-edit .RESDialogSmall .md.RESDialogContents,
 .res-nightmode .RESDialogSmall
 {
 	background-color:#666;
@@ -1074,4 +1104,40 @@
 .res-nightmode.res-commentBoxes .comments-page .comment .comment .comment .comment .comment .comment .comment .comment .comment .comment
 {
 	background-color:#222!important;
+}
+
+.res-nightmode.res-commentHoverBorder .comments-page .comment:hover {
+	border-color: #555!important;
+}
+
+.res-nightmode .RESDropdownList,
+.res-nightmode #RESSearchMenuItem,
+.res-nightmode #RESPrefsDropdown
+{
+	border-color: gray;
+}
+
+.res-nightmode .RESDropdownList li, .res-nightmode .RESDropdownList li a{
+	background: #444;
+	color: gray;
+}
+
+.res-nightmode .RESDropdownList li {
+	border-bottom-color: gray;
+}
+
+.res-nightmode .RESDropdownList li:hover, .res-nightmode .RESDropdownList li:hover a {
+	background-color: #555;
+	color: #bbb;
+}
+
+.res-nightmode button.RESBigEditorPop:hover,
+.res-nightmode .usertext-buttons button:hover,
+.res-nightmode #REScommentSubToggle:hover
+{
+	background-color: rgb(102,102,102);
+}
+
+.res-nightmode button.RESBigEditorPop {
+	background: #191919 url(data:image/png;base64,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) no-repeat 4px 50%;
 }
