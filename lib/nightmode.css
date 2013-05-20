@@ -1000,7 +1000,6 @@
 .res-nightmode .golddvertisement,
 .res-nightmode .flair-jump .title,
 .res-nightmode #siteTable .thing .title.loggedin,
-.res-nightmode #siteTable .thing .title.loggedin.click,
 .res-nightmode #siteTable .thing .title,
 .res-nightmode .NERdupe p.title:after,
 .res-nightmode .savedComment,
@@ -1085,7 +1084,7 @@
 .res-nightmode .usertext-edit .RESDialogSmall .md.RESDialogContents,
 .res-nightmode .RESDialogSmall
 {
-	background-color:#666;
+	background-color:#666 !important;
 	color:#ccc;
 }
 
@@ -1133,7 +1132,9 @@
 
 .res-nightmode button.RESBigEditorPop:hover,
 .res-nightmode .usertext-buttons button:hover,
-.res-nightmode #REScommentSubToggle:hover
+.res-nightmode #REScommentSubToggle:hover,
+.res-nightmode .save-button .btn:hover,
+.res-nightmode #delete-img:hover
 {
 	background-color: rgb(102,102,102);
 }
