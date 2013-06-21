@@ -918,10 +918,13 @@
 .res-nightmode .RESDashboardComponent .widgetPath,
 .res-nightmode #authorInfoToolTip .option,
 .res-nightmode .updateTime,
-.res-nightmode .toggle .option,
-.res-nightmode #search input[type=text]:focus
+.res-nightmode .toggle .option
 {
 	color:#fff;
+}
+
+.res-nightmode #search input[type=text]:focus {
+	color:#fff!important;
 }
 
 .res-nightmode .side .usertext-body ol,
@@ -985,12 +988,12 @@
 	color:rgba(20,150,220,.8);
 }
 
-.res-nightmode .RES-keyNav-activeElement .md a {
+.res-nightmode .RES-keyNav-activeElement .usertext .md a {
 	color:#8ad;
 }
 
-.res-nightmode .RES-keyNav-activeElement .md a:visited {
-	color:#369
+.res-nightmode .RES-keyNav-activeElement .usertext .md a:visited {
+	color:rgb(51,137,208);
 }
 
 .res-nightmode>.content>.spacer>.sitetable:before,
