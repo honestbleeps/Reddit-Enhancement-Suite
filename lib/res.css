@@ -709,11 +709,12 @@ p.moduleListing {
 }
 .RESNotificationHeader {
 	padding-left: 10px;
-	padding-right: 10px;
+	padding-right: 50px;
 	background-color: #f0f3fc;
 	border-bottom: #c7c7c7;
 	height: 38px;
 }
+.RESNotificationHeader .gearIcon { float: right; }
 .RESNotificationHeader h3 {
 	padding-top: 12px;
 	font-size: 15px;
