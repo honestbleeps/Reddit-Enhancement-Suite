@@ -1,4 +1,4 @@
-For general documentation, see the RES Wiki (http://redditenhancementsuite.com:8080/wiki/index.php?title=Main\_Page), at least until the new documentation is finished.
+For general documentation, see the RES Wiki (http://redditenhancementsuite.com:8080/wiki/), at least until the new documentation is finished.
 
 ### FIRST, a note ###
 
