@@ -984,3 +984,6 @@ button.RESBigEditorPop:hover {
 .RESImage.RESImageError:after {
 	content:"Loading of image " attr(src) " failed. Click to view directly";
 }
+.usertext iframe {
+	border: none;
+}
