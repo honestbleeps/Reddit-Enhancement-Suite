@@ -520,6 +520,11 @@ p.moduleListing {
 .optionContainer .optionsTable input[type=text], .optionContainer .optionsTable input[type=password] {
 	margin-left: 0;
 }
+.optionContainer .RESConsoleButton {
+	float: left;
+	position: relative;
+	top: -6px;
+}
 .optionsTable th, .optionsTable td {
 	padding-bottom: 7px;
 }
@@ -528,6 +533,9 @@ p.moduleListing {
 }
 .optionDescription {
 	margin-left: 255px;
+}
+#fetchWalletAddress + .optionDescription {
+	margin-left: 355px;
 }
 .optionDescription.textInput {
 	margin-left: 340px;
