@@ -1,8 +1,3 @@
-.res-commentBoxes #parentComment { 
-	border: 1px solid #666; background-color:#fff;
-	padding: 4px; width: auto;
-	position: absolute
-}
 
 .res-commentBoxes.res-commentBoxes-rounded .comment {
 	border-radius:3px !important;
@@ -57,4 +52,4 @@
 	padding-right:0!important;
 }
 
-.res-commentBoxes.res-commentHoverBorder .comment:hover {border: 1px solid #99AAEE !important; }
+.res-commentBoxes.res-commentHoverBorder .content .comment:hover {border: 1px solid #99AAEE !important; }
