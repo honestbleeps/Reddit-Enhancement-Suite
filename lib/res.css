@@ -928,6 +928,9 @@ button.RESBigEditorPop:hover {
 
 
 /* Image Viewer */
+.thing.comment .parent .expando-button {
+	padding: 0;
+}
 .expando-button.image {
 	vertical-align: top !important;
 	float: left;
