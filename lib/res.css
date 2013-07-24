@@ -995,3 +995,37 @@ button.RESBigEditorPop:hover {
 .usertext iframe {
 	border: none;
 }
+
+/* modules['showParent'] - show parent hover */
+.RESHoverHighlight { background-color: lightblue; }
+.res-parents-down .RESHoverHighlight { cursor: se-resize; }
+.res-parents-up .RESHoverHighlight { cursor: ne-resize; }
+#parentCommentContainer {
+	border: 1px solid #666;
+	background-color:#fff;
+	padding: 4px;
+	width: auto;
+	position: absolute;
+	z-index: 99999;
+}
+.res-parents-up #parentCommentContainer { bottom: 0px; }
+#parentCommentWrapper {
+	position: absolute;
+	left: 10px;
+	right: 10px;
+}
+.parentArrow {
+	text-align: center;
+	margin-top: -5px
+}
+.res-parents-down .parentArrow::before, .res-parents-down .parentArrow::after {
+	padding: 1ex;
+	content: "\\02b07";
+}
+.res-parents-up .parentArrow::before, .res-parents-up .parentArrow::after {
+	padding: 1ex;
+	content: "\\02b06";
+}
+a.bylink.parentlink {
+	float: right; 
+}
