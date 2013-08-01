@@ -1,0 +1,64 @@
+{
+	"name": "Reddit Enhancement Suite",
+	"version": "4.3.0",
+	"manifest_version": 2,
+	"minimum_chrome_version": "20.0",
+	"description": "Reddit Enhancement Suite - a group of enhancements for browsing Reddit",
+	"background": {
+		"scripts": ["background.js"]
+	},
+	"homepage_url": "http://redditenhancementsuite.com",
+	"content_scripts": [
+		{
+			"matches": [
+				"http://reddit.honestbleeps.com/*",
+				"http://redditenhancementsuite.com/*",
+				"http://reddit.com/*",
+				"https://reddit.com/*",
+				"http://*.reddit.com/*",
+				"https://*.reddit.com/*"
+			],
+			"js": [
+				"jquery-1.9.1.min.js",
+				"guiders-1.2.8.js",
+				"jquery.dragsort-0.4.3.min.js",
+				"jquery-fieldselection.min.js",
+				"tinycon.js",
+				"jquery.tokeninput.js",
+				"snuownd.js",
+				"reddit_enhancement_suite.user.js"
+			],
+			"css": [
+				"nightmode.css",
+				"commentBoxes.css",
+				"res.css"
+			],
+			"run_at": "document_start"
+		}
+	],
+	"icons": {
+		"48": "icon48.png",
+		"128": "icon128.png" 
+	},
+	"permissions": [
+		"tabs",
+		"http://redditenhancementsuite.com/",
+		"http://reddit.honestbleeps.com/",
+		"http://reddit.com/*",
+		"https://reddit.com/*",
+		"http://*.reddit.com/*",
+		"https://*.reddit.com/*",
+		"http://redditgifts.com/*",
+		"http://api.twitter.com/*",
+		"http://api.imgur.com/*",
+		"http://min.us/api/*",
+		"http://*.flickr.com/photos/*",
+		"http://img.photobucket.com/*",
+		"http://imgclean.com/*",
+		"http://gdata.youtube.com/*",
+		"http://backend.deviantart.com/oembed?url=*",
+		"http://api.tumblr.com/v2/blog/*/posts?api_key=*&id=*",
+		"https://mediacru.sh/*",
+		"http://noembed.com/embed?url=*"
+	]
+}
