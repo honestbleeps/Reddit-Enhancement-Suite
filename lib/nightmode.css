@@ -981,7 +981,6 @@
 .res-nightmode a[rel=tag],
 .res-nightmode .dsq-help,
 .res-nightmode #authorInfoToolTip h3 a,
-.res-nightmode .RES-keyNav-activeElement .tagline a,
 .res-nightmode .RES-keyNav-activeElement .md,
 .res-nightmode .help-toggle .option,
 .res-nightmode .morecomments a,
@@ -993,8 +992,14 @@
 	color:rgba(20,150,220,.8);
 }
 
-.res-nightmode .RES-keyNav-activeElement .usertext .md a {
+.res-nightmode .RES-keyNav-activeElement .usertext .md a,
+.res-nightmode .RES-keyNav-activeElement .tagline a,
+.res-nightmode .RES-keyNav-activeElement .parent-link {
 	color:#8ad;
+}
+
+.res-nightmode .RES-keyNav-activeElement .tagline {
+	color:#bbb;
 }
 
 .res-nightmode .RES-keyNav-activeElement .usertext .md a:visited {
@@ -1113,7 +1118,7 @@
 	background-color:#222!important;
 }
 
-.res-nightmode.res-commentHoverBorder .comments-page .comment:hover {
+.res-nightmode.res-commentBoxes.res-commentHoverBorder .comments-page .comment:hover {
 	border-color: #555!important;
 }
 
