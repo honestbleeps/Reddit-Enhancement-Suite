@@ -1159,6 +1159,14 @@
 	opacity: .7;
 }
 
+.res-nightmode .searchfacets {
+	background: #ccc;
+}
+
+.res-nightmode .searchfacets .title {
+	color: #222;
+}
+
 /* multireddits official */
 html.res-nightmode body.with-listing-chooser .listing-chooser,
 html.res-nightmode body.with-listing-chooser .grippy {
