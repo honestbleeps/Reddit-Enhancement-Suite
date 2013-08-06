@@ -247,6 +247,15 @@
 						break;
 				}
 				break;
+			case 'addURLToHistory':
+				var passBack = {
+						url: request.url
+					}
+				if (! safari.application.privateBrowsing.enabled) {
+					console.log('not private');
+					sendResponse(passBack, msgEvent);
+				}
+				break;
 			default:
 				sendResponse({status: "unrecognized request type"}, msgEvent);
 		}
