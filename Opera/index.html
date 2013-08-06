@@ -295,7 +295,8 @@ opera.extension.addEventListener( "message", function( event ) {
 					msgType: 'addURLToHistory',
 					data: { 
 						url: request.url,
-						isPrivate: priv					}
+						isPrivate: priv
+					}
 				}
 				event.source.postMessage(passBack);
 				break;
