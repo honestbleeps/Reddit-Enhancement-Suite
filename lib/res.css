@@ -929,8 +929,14 @@ button.RESBigEditorPop:hover {
 
 
 /* Image Viewer */
-.commentarea .thing .usertext-body .expando-button {
+.commentarea .thing .usertext-body .expando-button, .listing-page .thing .usertext-body .expando-button {
 	padding: 0;
+}
+.usertext-body .md .expando-button.video {
+	float: none;
+	display: inline-block;
+	vertical-align: bottom;
+	margin-left: 5px;
 }
 .expando-button.image {
 	vertical-align: top !important;
