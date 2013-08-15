@@ -12,7 +12,8 @@
 .res-nightmode .side .usertext-body .md ol,
 .res-nightmode .side .usertext-body .md ol ol,
 .res-nightmode .side .usertext-body .md ol ol li,
-.res-nightmode .side blockquote
+.res-nightmode .side blockquote,
+.res-nightmode .modactionlisting table *
 {
 	background-color:#222;
 }
@@ -198,7 +199,8 @@
 .res-nightmode .commentreply .textarea,
 .res-nightmode .drop-choices a,
 .res-nightmode .remove-self .option,
-.res-nightmode .unfriend-button .option
+.res-nightmode .unfriend-button .option,
+.res-nightmode #progressIndicator p
 {
 	color:#000;
 }
@@ -315,8 +317,7 @@
 }
 
 .res-nightmode #header,
-.res-nightmode #header-bottom-left,
-.res-nightmode .modactions
+.res-nightmode #header-bottom-left
 {
 	background:#666660!important;
 }
@@ -477,7 +478,10 @@
 .res-nightmode .morelink:hover
 {
 	border:0 none;
-	color:#fff;
+}
+
+.res-nightmode .morelink:hover a {
+	color: #ddd;
 }
 
 .res-nightmode .sidebox .spacer,
@@ -1070,7 +1074,10 @@
 }
 
 .res-nightmode .subreddit-info .label,
-.res-nightmode .sidebox .subtitle
+.res-nightmode .sidebox .subtitle,
+.res-nightmode .modactionlisting .description,
+.res-nightmode .modactionlisting .timestamp time, 
+.res-nightmode .modactionlisting .timestamp
 {
 	color:#aaa;
 }
@@ -1170,6 +1177,11 @@
 
 .res-nightmode .searchfacets .title {
 	color: #222;
+}
+
+.res-nightmode .modactionlisting + #progressIndicator {
+	width: auto;
+	margin: 20px 310px 0 0;
 }
 
 /* multireddits official */
