@@ -152,7 +152,7 @@ pageMod.PageMod({
 	self.data.url('jquery-fieldselection.min.js'),
 	self.data.url('tinycon.js'),
 	self.data.url('jquery.tokeninput.js'),
-	self.data.url('snuownd.js'),
+	self.data.url('emsnudown.js'),
 	self.data.url('reddit_enhancement_suite.user.js')
   ],
 /*  contentStyleFile: [
