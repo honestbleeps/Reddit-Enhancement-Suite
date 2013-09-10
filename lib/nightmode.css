@@ -888,6 +888,7 @@
 }
 
 .res-nightmode .content .roundfield,
+.res-nightmode .content.submit .roundfield,
 .res-nightmode .traffic-table tr:nth-of-type(even)
 {
 	background-color:#181818;
@@ -927,7 +928,8 @@
 .res-nightmode .RESDashboardComponent .widgetPath,
 .res-nightmode #authorInfoToolTip .option,
 .res-nightmode .updateTime,
-.res-nightmode .toggle .option
+.res-nightmode .toggle .option,
+.res-nightmode #RESSubmitOptions ~ div a
 {
 	color:#fff;
 }
