@@ -1041,3 +1041,11 @@ button.RESBigEditorPop:hover {
 a.bylink.parentlink {
 	float: right; 
 }
+
+/* Handle multireddit bar on savedComments page */
+.with-listing-chooser #savedLinksList {
+	margin-left: 120px;
+}
+.listing-chooser-collapsed #savedLinksList {
+	margin-left: 8px;
+}

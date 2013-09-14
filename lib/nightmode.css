@@ -81,7 +81,8 @@
 	color:rgb(187,187,187);
 }
 
-.res-nightmode .comment .md p a:visited
+.res-nightmode .comment .md p a:visited,
+.res-nightmode .new-comment .usertext-body .md p a:visited
 {
 	color:#369;
 }
@@ -239,7 +240,7 @@
 
 .res-nightmode .livePreview .md a,
 .res-nightmode #BigEditor #BigPreview a {
-	color: #00bfff;
+	color: #00bfff !important;
 }
 
 .res-nightmode .goldvertisement
