@@ -132,7 +132,7 @@ pageMod.PageMod({
 		});
 		worker.on('message', function(data) {
 			var request = data;
-			switch(request.requestType) {
+			switch (request.requestType) {
 				case 'deleteCookie':
 					cookieManager.remove('.reddit.com', request.cname, '/', false);
 					break;
