@@ -1,7 +1,7 @@
 files=("reddit_enhancement_suite.user.js" "res.css" "nightmode.css" "commentBoxes.css" \
 	"jquery-1.9.1.min.js" "jquery-fieldselection.min.js" \
 	"jquery.dragsort-0.6.js" "jquery.tokeninput.js" \
-	"tinycon.js" "snuownd.js" "guiders-1.2.8.js")
+	"tinycon.js" "emsnudown.js" "guiders-1.2.8.js")
 paths=("Chrome" "XPI/data" "Opera" "OperaBlink" "RES.safariextension")
 
 for i in "${files[@]}"
