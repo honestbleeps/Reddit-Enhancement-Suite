@@ -242,6 +242,15 @@ pageMod.PageMod({
 				}
 				worker.postMessage({status: "success"});
 				break;
+			case 'mainLinkConfigure':
+				var isBackground = request.isBackground;
+				var isPrivate = priv.isPrivate(windows.activeWindow);
+
+				// handle requests from mainLinkConfigure module
+				tabs.open({url: request.linkURL, inBackground: isBackground, isPrivate: isPrivate });
+
+				worker.postMessage({status: "success"});
+				break;
 			case 'keyboardNav':
 				var button = (request.button == 1);
 				var isPrivate = priv.isPrivate(windows.activeWindow);
