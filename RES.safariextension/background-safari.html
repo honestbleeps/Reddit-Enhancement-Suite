@@ -148,6 +148,15 @@
 				}
 				sendResponse({status: "success"}, msgEvent);
 				break;
+			case 'mainLinkConfigure':
+				(request.isBackground) ? focus = 'background' : focus = 'foreground';
+
+				// handle requests from mainLinkConfigure module
+				var linkTab = safari.application.activeBrowserWindow.openTab(focus);
+				linkTab.url = request.linkURL;
+
+				sendResponse({status: "success"}, msgEvent);
+				break;
 			case 'keyboardNav':
 				(request.button == 1) ? button = 'background' : button = 'foreground';
 				// handle requests from keyboardNav module
