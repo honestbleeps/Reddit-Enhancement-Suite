@@ -504,7 +504,8 @@ p.moduleListing {
 	width: 650px;
 	margin-top: 20px;
 }
-.optionContainer label {
+.optionContainer > label {
+	/* Only target row labels, not labels for specific inputs */
 	float: left;
 	width: 175px;
 }
