@@ -148,10 +148,10 @@
 				}
 				sendResponse({status: "success"}, msgEvent);
 				break;
-			case 'mainLinkConfigure':
+			case 'entryTitleAction':
 				(request.isBackground) ? focus = 'background' : focus = 'foreground';
 
-				// handle requests from mainLinkConfigure module
+				// handle requests from entryTitleAction module
 				var linkTab = safari.application.activeBrowserWindow.openTab(focus);
 				linkTab.url = request.linkURL;
 

@@ -163,14 +163,14 @@ opera.extension.addEventListener( "message", function( event ) {
 				}
 				event.source.postMessage(passBack);
 				break;
-			case 'mainLinkConfigure':
+			case 'entryTitleAction':
 				var focus = !(request.isBackground);
 
-				// handle requests from mainLinkConfigure module
+				// handle requests from entryTitleAction module
 				opera.extension.tabs.create({url: request.linkURL, focused: focus});
 
 				var passBack = {
-					msgType: 'mainLinkConfigure',
+					msgType: 'entryTitleAction',
 					data: { status: 'success' }
 				}
 				event.source.postMessage(passBack);

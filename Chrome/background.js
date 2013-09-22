@@ -144,11 +144,11 @@ chrome.extension.onMessage.addListener(
 				}
 				sendResponse({status: "success"});
 				break;
-			case 'mainLinkConfigure':
+			case 'entryTitleAction':
 				var focus = !(request.isBackground);
 				// Get the selected tab so we can get the index of it.  This allows us to open our new tab as the "next" tab.
 				var newIndex = sender.tab.index+1;
-				// handle requests from mainLinkConfigure module
+				// handle requests from entryTitleAction module
 				chrome.tabs.create({url: request.linkURL, selected: focus, index: newIndex, openerTabId: sender.tab.id});
 				sendResponse({status: "success"});
 				break;

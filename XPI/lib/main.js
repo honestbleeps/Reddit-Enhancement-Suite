@@ -242,11 +242,11 @@ pageMod.PageMod({
 				}
 				worker.postMessage({status: "success"});
 				break;
-			case 'mainLinkConfigure':
+			case 'entryTitleAction':
 				var isBackground = request.isBackground;
 				var isPrivate = priv.isPrivate(windows.activeWindow);
 
-				// handle requests from mainLinkConfigure module
+				// handle requests from entryTitleAction module
 				tabs.open({url: request.linkURL, inBackground: isBackground, isPrivate: isPrivate });
 
 				worker.postMessage({status: "success"});
