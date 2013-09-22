@@ -61,7 +61,7 @@ XHRCache = {
 		var now = new Date();
 		var bottom = [];
 		for (var key in this.entries) {
-//				if (this.entries[key].hits == 1) {
+//				if (this.entries[key].hits === 1) {
 //					delete this.entries[key];
 //					this.count--;
 //					continue;
@@ -89,7 +89,7 @@ XHRCache = {
 
 chrome.extension.onMessage.addListener(
 	function(request, sender, sendResponse) {
-		switch(request.requestType) {
+		switch (request.requestType) {
 			case 'deleteCookie':
 				// Get chrome cookie handler
 				if (!chrome.cookies) {
@@ -107,16 +107,16 @@ chrome.extension.onMessage.addListener(
 				}
 				var xhr = new XMLHttpRequest();
 				xhr.open(request.method, request.url, true);
-				if (request.method == "POST") {
+				if (request.method === "POST") {
 					xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 				}
 				xhr.onreadystatechange = function(a) {
-					if (xhr.readyState == 4) {
-						//Only store `status` and `responseText` fields
+					if (xhr.readyState === 4) {
+						// Only store `status` and `responseText` fields
 						var response = {status: xhr.status, responseText: xhr.responseText};
 						sendResponse(response);
-						//Only cache on HTTP OK and non empty body
-						if ((request.aggressiveCache || XHRCache.forceCache) && (xhr.status == 200 && xhr.responseText)) {
+						// Only cache on HTTP OK and non empty body
+						if ((request.aggressiveCache || XHRCache.forceCache) && (xhr.status === 200 && xhr.responseText)) {
 							XHRCache.add(request.url, response);
 						}
 					}
@@ -125,34 +125,34 @@ chrome.extension.onMessage.addListener(
 				return true;
 				break;
 			case 'singleClick':
-				var button = !((request.button == 1) || (request.ctrl == 1));
+				var button = (request.button !== 1) || (request.ctrl !== 1);
 				// Get the selected tab so we can get the index of it.  This allows us to open our new tab as the "next" tab.
-				var newIndex = sender.tab.index+1;
+				var newIndex = sender.tab.index + 1;
 				// handle requests from singleClick module
-				if (request.openOrder == 'commentsfirst') {
+				if (request.openOrder === 'commentsfirst') {
 					// only open a second tab if the link is different...
-					if (request.linkURL != request.commentsURL) {
+					if (request.linkURL !== request.commentsURL) {
 						chrome.tabs.create({url: request.commentsURL, selected: button, index: newIndex, openerTabId: sender.tab.id});
 					}
 					chrome.tabs.create({url: request.linkURL, selected: button, index: newIndex+1, openerTabId: sender.tab.id});
 				} else {
 					chrome.tabs.create({url: request.linkURL, selected: button, index: newIndex, openerTabId: sender.tab.id});
 					// only open a second tab if the link is different...
-					if (request.linkURL != request.commentsURL) {
+					if (request.linkURL !== request.commentsURL) {
 						chrome.tabs.create({url: request.commentsURL, selected: button, index: newIndex+1, openerTabId: sender.tab.id});
 					}
 				}
 				sendResponse({status: "success"});
 				break;
 			case 'keyboardNav':
-				var button = !(request.button == 1);
+				var button = (request.button !== 1);
 				// handle requests from keyboardNav module
 				thisLinkURL = request.linkURL;
-				if (thisLinkURL.toLowerCase().substring(0,4) != 'http') {
-					(thisLinkURL.substring(0,1) == '/') ? thisLinkURL = 'http://www.reddit.com' + thisLinkURL : thisLinkURL = location.href + thisLinkURL;
+				if (thisLinkURL.toLowerCase().substring(0, 4) !== 'http') {
+					thisLinkURL = (thisLinkURL.substring(0, 1) === '/') ? 'http://www.reddit.com' + thisLinkURL : location.href + thisLinkURL;
 				}
 				// Get the selected tab so we can get the index of it.  This allows us to open our new tab as the "next" tab.
-				var newIndex = sender.tab.index+1;
+				var newIndex = sender.tab.index + 1;
 				chrome.tabs.create({url: thisLinkURL, selected: button, index: newIndex, openerTabId: sender.tab.id});
 				sendResponse({status: "success"});
 				break;
@@ -160,11 +160,11 @@ chrome.extension.onMessage.addListener(
 				var focus = (request.focus === true);
 				// handle requests from keyboardNav module
 				thisLinkURL = request.linkURL;
-				if (thisLinkURL.toLowerCase().substring(0,4) != 'http') {
-					(thisLinkURL.substring(0,1) == '/') ? thisLinkURL = 'http://www.reddit.com' + thisLinkURL : thisLinkURL = location.href + thisLinkURL;
+				if (thisLinkURL.toLowerCase().substring(0, 4) !== 'http') {
+					thisLinkURL = (thisLinkURL.substring(0, 1) === '/') ? 'http://www.reddit.com' + thisLinkURL : location.href + thisLinkURL;
 				}
 				// Get the selected tab so we can get the index of it.  This allows us to open our new tab as the "next" tab.
-				var newIndex = sender.tab.index+1;
+				var newIndex = sender.tab.index + 1;
 				chrome.tabs.create({url: thisLinkURL, selected: focus, index: newIndex, openerTabId: sender.tab.id});
 				sendResponse({status: "success"});
 				break;
@@ -172,7 +172,7 @@ chrome.extension.onMessage.addListener(
 				var xhr = new XMLHttpRequest();
 				xhr.open("GET", request.url, true);
 				xhr.onreadystatechange = function() {
-					if (xhr.readyState == 4) {
+					if (xhr.readyState === 4) {
 						// JSON.parse does not evaluate the attacker's scripts.
 						var resp = JSON.parse(xhr.responseText);
 						sendResponse(resp);
@@ -185,7 +185,7 @@ chrome.extension.onMessage.addListener(
 				var xhr = new XMLHttpRequest();
 				xhr.open("GET", request.url, true);
 				xhr.onreadystatechange = function() {
-					if (xhr.readyState == 4) {
+					if (xhr.readyState === 4) {
 						// JSON.parse does not evaluate the attacker's scripts.
 						var resp = JSON.parse(xhr.responseText);
 						sendResponse(resp);
@@ -201,7 +201,7 @@ chrome.extension.onMessage.addListener(
 				for (var key in request.data) {
 					localStorage.setItem(key,request.data[key]);
 				}
-				localStorage.setItem('importedFromForeground',true);
+				localStorage.setItem('importedFromForeground', true);
 				sendResponse(localStorage);
 				break;
 			case 'localStorage':
@@ -219,7 +219,7 @@ chrome.extension.onMessage.addListener(
 						var thisTabID = sender.tab.id;
 						chrome.tabs.query({}, function(tabs){
 							for (var i = 0; i < tabs.length; i++) {
-								if (thisTabID != tabs[i].id) {
+								if (thisTabID !== tabs[i].id) {
 									chrome.tabs.sendMessage(tabs[i].id, { requestType: "localStorage", itemName: request.itemName, itemValue: request.itemValue });
 								}
 							}
