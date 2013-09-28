@@ -87,7 +87,7 @@ XHRCache = {
 	}
 };
 
-chrome.extension.onMessage.addListener(
+chrome.runtime.onMessage.addListener(
 	function(request, sender, sendResponse) {
 		switch (request.requestType) {
 			case 'deleteCookie':
