@@ -202,7 +202,13 @@
 				xhr.send();
 				break;
 			case 'getLocalStorage':
-				sendResponse(localStorage, msgEvent);
+				var ls = {};
+				for (var i = 0, len=localStorage.length; i < len; i++){
+					if (localStorage.key(i)) {
+						ls[localStorage.key(i)] = localStorage.getItem(localStorage.key(i));
+					}
+				}
+				sendResponse(ls, msgEvent);
 				break;
 			case 'saveLocalStorage':
 				for (var key in request.data) {
