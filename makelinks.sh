@@ -1,3 +1,5 @@
+#!/bin/bash
+
 files=("reddit_enhancement_suite.user.js" "res.css" "nightmode.css" "commentBoxes.css" \
 	"jquery-1.9.1.min.js" "jquery-fieldselection.min.js" \
 	"jquery.dragsort-0.6.js" "jquery.tokeninput.js" \
