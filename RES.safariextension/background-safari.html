@@ -267,7 +267,13 @@
 		}
 	};
 	function sendResponse(data, event) {
-		event.target.page.dispatchMessage(event.name, data);
+		if (!event.target.page) {
+			setTimeout(function() {
+				sendResponse(data, event);
+			}, 20);
+		} else {
+			event.target.page.dispatchMessage(event.name, data);
+		}
 	}
 	safari.application.addEventListener("message", respondToMessage, false);
 
