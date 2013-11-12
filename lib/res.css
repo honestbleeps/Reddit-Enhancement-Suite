@@ -934,6 +934,10 @@ button.RESBigEditorPop:hover {
 .commentarea .thing .usertext-body .expando-button, .listing-page .thing .expando-button {
 	padding: 0;
 }
+.profile-page .comment .parent .expando-button {
+	display: inline-block;
+	float: none;
+}
 .usertext-body .md .expando-button {
 	float: none;
 	display: inline-block;
