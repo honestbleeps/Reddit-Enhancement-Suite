@@ -368,6 +368,27 @@
 .clear {
 	clear: both;
 }
+#goModePanel {
+	display: none;
+	position:fixed;
+	top: 50%;
+	left: 50%;
+	width: 250px;
+	margin-left: -125px;
+	margin-top: -140px;
+	z-index: 1000;
+}
+#goModePanel table {
+	width: 100%;
+}
+#goModePanel table td {
+	padding: 4px 2px;
+	border: none;
+}
+#goModePanel table td.arrow {
+	padding: 4px 12px;
+	border: none;
+}
 #keyCodeModal {
 	display: none;
 	width: 200px;
