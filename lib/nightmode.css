@@ -5,7 +5,7 @@
 .res-nightmode .linefield,
 .res-nightmode .icon-menu a,
 .res-nightmode .side .leavemoderator,
-.res-nightmode .side .leavecontributor,
+.res-nightmode .side .leavecontributor-button,
 .res-nightmode .side .titlebox,
 .res-nightmode .side .spacer .titlebox .redditname,
 .res-nightmode .side .titlebox .flairtoggle,
@@ -265,7 +265,8 @@
 }
 
 .res-nightmode .RESDashboardComponentScrim span,
-.res-nightmode .RESDashboardComponent .RESDashboardComponentHeader ul .updateTime
+.res-nightmode .RESDashboardComponent .RESDashboardComponentHeader ul .updateTime,
+.res-nightmode .remove-self .option
 {
 	color:#222;
 }
