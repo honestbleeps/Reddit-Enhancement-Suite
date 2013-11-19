@@ -36,6 +36,9 @@
 			"run_at": "document_start"
 		}
 	],
+	"web_accessible_resources": [
+		"jquery.min.map"
+	],
 	"icons": {
 		"48": "icon48.png",
 		"128": "icon128.png" 
