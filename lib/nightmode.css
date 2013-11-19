@@ -5,7 +5,7 @@
 .res-nightmode .linefield,
 .res-nightmode .icon-menu a,
 .res-nightmode .side .leavemoderator,
-.res-nightmode .side .leavecontributor,
+.res-nightmode .side .leavecontributor-button,
 .res-nightmode .side .titlebox,
 .res-nightmode .side .spacer .titlebox .redditname,
 .res-nightmode .side .titlebox .flairtoggle,
@@ -269,7 +269,7 @@
 
 .res-nightmode .RESDashboardComponentScrim span,
 .res-nightmode .RESDashboardComponent .RESDashboardComponentHeader ul .updateTime,
-.res-nightmode .traffic-table tr:nth-of-type(odd)
+.res-nightmode .remove-self .option
 {
 	color:#222;
 }
@@ -1033,7 +1033,7 @@
 
 .res-nightmode .side .spacer,
 .res-nightmode .content,
-.res-nightmode .moderator .traffic-table tr:nth-of-type(odd),
+.res-nightmode .traffic-tables .traffic-table tr,
 .res-nightmode .sitetable .thing .md,
 .res-nightmode .parentComment .md,
 .res-nightmode .post-body.entry-content,
