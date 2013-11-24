@@ -53,7 +53,7 @@ steve@honestbleeps.com
 - XPI/	NOTE: An XPI is a Firefox addon... This is compiled using the Addon SDK.
 	This directory contains the following:
 
-  - lib/main.js - this is firefox's sort of "background page" for RES, like what chrome has, but just a JS file
+  - lib/main.js - this is Firefox's sort of "background page" for RES, like what Chrome has, but just a JS file
 
   - data/jquery-1.6.4.min.js - jquery 1.6.4!
 
@@ -67,7 +67,7 @@ steve@honestbleeps.com
 
 ### Building development versions of the extension ###
 
-One thing to note is that if you switch branches this will break you hard links. Therefore, you must create them when checking out new pieces of code.
+One thing to note is that if you switch branches this will break your hard links. Therefore, you must create them when checking out new pieces of code.
 
 **Chrome**
   1. Go to ``Settings->Extensions`` and tick the ``Developer Mode`` checkbox
