@@ -23,10 +23,10 @@
 *.log
 *.scc
 
-IE/[Dd]ebug/
-IE/[Rr]elease/
-IE/[Bb]in/
-IE/[Oo]bj/
+/IE/[Dd]ebug/
+/IE/[Rr]elease/
+/IE/[Bb]in/
+/IE/[Oo]bj/
 
 # User-specific files
 *.suo
@@ -34,7 +34,7 @@ IE/[Oo]bj/
 *.sln.docstates
 
 # Visual C++ cache files
-IE/ipch/
+/IE/ipch/
 *.aps
 *.ncb
 *.opensdf
@@ -43,22 +43,21 @@ IE/ipch/
 
 ## General
 Chrome.pem
-XPI/reddit_res.xpi
+/XPI/reddit_res.xpi
 
-Chrome/*.js
-Chrome/*.css
-!Chrome/background.js
-OperaBlink/*.js
-OperaBlink/*.css
-!OperaBlink/background.js
-RES.safariextension/*.js
-RES.safariextension/*.css
-Opera/includes/*.js
-Opera/includes/*.css
-Opera/modules/*.js
-XPI/data/*.js
-XPI/data/*.css
-!XPI/lib/main.js
+/Chrome/*.js
+/Chrome/*.css
+!/Chrome/background.js
+/OperaBlink/*.js
+/OperaBlink/*.css
+!/OperaBlink/background.js
+/RES.safariextension/*.js
+/RES.safariextension/*.css
+/Opera/includes/*.js
+/Opera/includes/*.css
+/Opera/modules/*.js
+/XPI/data/
+!/XPI/lib/main.js
 !/lib/*
 /commentBoxes.css
 /nightmode.css
