@@ -89,6 +89,7 @@ XHRCache = {
 
 chrome.runtime.onMessage.addListener(
 	function(request, sender, sendResponse) {
+		var xhr, button, newIndex;
 		switch (request.requestType) {
 			case 'deleteCookie':
 				// Get chrome cookie handler
@@ -105,7 +106,7 @@ chrome.runtime.onMessage.addListener(
 						return;
 					}
 				}
-				var xhr = new XMLHttpRequest();
+				xhr = new XMLHttpRequest();
 				xhr.open(request.method, request.url, true);
 				if (request.method === "POST") {
 					xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -125,9 +126,9 @@ chrome.runtime.onMessage.addListener(
 				return true;
 				break;
 			case 'singleClick':
-				var button = (request.button !== 1) && (request.ctrl !== 1);
+				button = (request.button !== 1) && (request.ctrl !== 1);
 				// Get the selected tab so we can get the index of it.  This allows us to open our new tab as the "next" tab.
-				var newIndex = sender.tab.index + 1;
+				newIndex = sender.tab.index + 1;
 				// handle requests from singleClick module
 				if (request.openOrder === 'commentsfirst') {
 					// only open a second tab if the link is different...
@@ -145,14 +146,14 @@ chrome.runtime.onMessage.addListener(
 				sendResponse({status: "success"});
 				break;
 			case 'keyboardNav':
-				var button = (request.button !== 1);
+				button = (request.button !== 1);
 				// handle requests from keyboardNav module
 				thisLinkURL = request.linkURL;
 				if (thisLinkURL.toLowerCase().substring(0, 4) !== 'http') {
 					thisLinkURL = (thisLinkURL.substring(0, 1) === '/') ? 'http://www.reddit.com' + thisLinkURL : location.href + thisLinkURL;
 				}
 				// Get the selected tab so we can get the index of it.  This allows us to open our new tab as the "next" tab.
-				var newIndex = sender.tab.index + 1;
+				newIndex = sender.tab.index + 1;
 				chrome.tabs.create({url: thisLinkURL, selected: button, index: newIndex, openerTabId: sender.tab.id});
 				sendResponse({status: "success"});
 				break;
@@ -164,12 +165,12 @@ chrome.runtime.onMessage.addListener(
 					thisLinkURL = (thisLinkURL.substring(0, 1) === '/') ? 'http://www.reddit.com' + thisLinkURL : location.href + thisLinkURL;
 				}
 				// Get the selected tab so we can get the index of it.  This allows us to open our new tab as the "next" tab.
-				var newIndex = sender.tab.index + 1;
+				newIndex = sender.tab.index + 1;
 				chrome.tabs.create({url: thisLinkURL, selected: focus, index: newIndex, openerTabId: sender.tab.id});
 				sendResponse({status: "success"});
 				break;
 			case 'compareVersion':
-				var xhr = new XMLHttpRequest();
+				xhr = new XMLHttpRequest();
 				xhr.open("GET", request.url, true);
 				xhr.onreadystatechange = function() {
 					if (xhr.readyState === 4) {
@@ -182,7 +183,7 @@ chrome.runtime.onMessage.addListener(
 				return true;
 				break;
 			case 'loadTweet':
-				var xhr = new XMLHttpRequest();
+				xhr = new XMLHttpRequest();
 				xhr.open("GET", request.url, true);
 				xhr.onreadystatechange = function() {
 					if (xhr.readyState === 4) {
