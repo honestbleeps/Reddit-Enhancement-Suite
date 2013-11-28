@@ -60,7 +60,7 @@ XHRCache = {
 			return;
 		} else {
 //			console.log("add");
-			this.entries[key] = {data: value, timestamp: new Date(), hits: 1};
+			this.entries[key] = {data: value, timestamp: Date.now(), hits: 1};
 			this.count++;
 		}
 		if (this.count > this.capacity) {
@@ -68,7 +68,7 @@ XHRCache = {
 		}
 	},
 	prune: function() {
-		var now = new Date();
+		var now = Date.now();
 		var bottom = [];
 		for (var key in this.entries) {
 //			if (this.entries[key].hits === 1) {
