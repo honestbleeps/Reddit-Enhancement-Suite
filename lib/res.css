@@ -1077,6 +1077,7 @@ a.bylink.parentlink {
     width: 30px;
     border-radius: 50%;
     box-shadow: inset 0 0 5px 1px #222;
+    -moz-animation: RESThrobber 1400ms 400ms infinite linear;
     -webkit-animation: RESThrobber 1400ms 400ms infinite linear;
     animation: RESThrobber 1400ms 400ms infinite linear;
 }
@@ -1086,11 +1087,13 @@ a.bylink.parentlink {
 
 .RESThrobber:before {
     left: -115%;
+    -moz-animation-delay: 200ms;
     -webkit-animation-delay: 200ms;
     animation-delay: 200ms;
 }
 .RESThrobber:after {
     left: 115%;
+    -moz-animation-delay: 600ms;
     -webkit-animation-delay: 600ms;
     animation-delay: 600ms;
 }
