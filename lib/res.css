@@ -1068,6 +1068,49 @@ a.bylink.parentlink {
 	float: right; 
 }
 
+.RESThrobber, .RESThrobber:before, .RESThrobber:after {
+	font-size: 0;
+    position: relative;
+    display: inline-block;
+    background: #ccf;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    box-shadow: inset 0 0 5px 1px #222;
+    -moz-animation: RESThrobber 1400ms 400ms infinite linear;
+    -webkit-animation: RESThrobber 1400ms 400ms infinite linear;
+    animation: RESThrobber 1400ms 400ms infinite linear;
+}
+.RESThrobber {
+	margin: 0 35px -7.5px;
+}
+
+.RESThrobber:before {
+    left: -115%;
+    -moz-animation-delay: 200ms;
+    -webkit-animation-delay: 200ms;
+    animation-delay: 200ms;
+}
+.RESThrobber:after {
+    left: 115%;
+    -moz-animation-delay: 600ms;
+    -webkit-animation-delay: 600ms;
+    animation-delay: 600ms;
+}
+.RESThrobber:before, .RESThrobber:after {
+    content: '';
+    position: absolute;
+    top: 0;
+}
+@-webkit-keyframes RESThrobber {
+    30% { background: transparent; }
+    70% { background: transparent; }
+}
+@keyframes RESThrobber {
+    30% { background: transparent; }
+    70% { background: transparent; }
+}
+
 /* Handle multireddit bar on savedComments page */
 .with-listing-chooser #savedLinksList {
 	margin-left: 120px;
