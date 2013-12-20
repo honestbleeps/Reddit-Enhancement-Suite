@@ -1253,3 +1253,8 @@ html.res-nightmode .multi-details .add-sr .add {
 html.res-nightmode .multi-details .subreddits .remove-sr {
 	background-position: -3px -15px;
 }
+
+/* Neutral background colour for tags in nightmode */
+.res-nightmode .hasTag[style*="background-color: transparent"] {
+    background-color: #666 !important;
+}
