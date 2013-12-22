@@ -621,12 +621,13 @@
 	padding:10px;
 }
 
-.res-nightmode #siteTable .thing .title.loggedin:visited,
-.res-nightmode #siteTable .thing .title:visited,
-.res-nightmode #siteTable .thing .title.loggedin.click,
-.res-nightmode .organic-listing .thing .title:visited
+.res-nightmode #siteTable .visited.link .title.loggedin,
+.res-nightmode #siteTable .link .title.loggedin:visited,
+.res-nightmode #siteTable .link .title:visited,
+.res-nightmode #siteTable .link .title.loggedin.click,
+.res-nightmode .organic-listing .link .title:visited
 {
-	color:gray;
+    color:gray;
 }
 
 .res-nightmode .markhelp.md tr td
