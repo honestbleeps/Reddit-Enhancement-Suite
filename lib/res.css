@@ -1074,6 +1074,10 @@ a.bylink.parentlink {
 	float: right; 
 }
 
+.noCtrlF:before {
+	content: attr(data-text); 
+}
+
 .RESThrobber, .RESThrobber:before, .RESThrobber:after {
 	font-size: 0;
     position: relative;
