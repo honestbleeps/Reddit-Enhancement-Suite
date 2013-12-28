@@ -958,6 +958,9 @@ button.RESBigEditorPop:hover {
 
 
 /* Image Viewer */
+img {
+	image-orientation: from-image;
+}
 .commentarea .thing .usertext-body .expando-button, .listing-page .thing .expando-button {
 	padding: 0;
 }
