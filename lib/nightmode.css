@@ -252,13 +252,42 @@
     background: #666;
 }
 
-.res-nightmode.wiki-page-faq .md.wiki h1,
-.res-nightmode.wiki-page-faq .md.wiki h2,
-.res-nightmode.wiki-page-faq .md.wiki h3,
-.res-nightmode.wiki-page-faq .md.wiki h4,
-.res-nightmode.wiki-page-faq .md.wiki h5,
-.res-nightmode.wiki-page-faq .md.wiki h6 {
-    color: #666;
+.res-nightmode.wiki-page .wiki-page-content .md.wiki h1,
+.res-nightmode.wiki-page .wiki-page-content .md.wiki h2,
+.res-nightmode.wiki-page .wiki-page-content .md.wiki h3,
+.res-nightmode.wiki-page .wiki-page-content .md.wiki h4,
+.res-nightmode.wiki-page .wiki-page-content .md.wiki h5,
+.res-nightmode.wiki-page .wiki-page-content .md.wiki h6 {
+    color: #ddd;
+}
+
+.res-nightmode .moderator.remove-self .option {
+    color: #222;
+}
+
+.res-nightmode .spam.thing .author,
+.res-nightmode .spam.thing .subreddit,
+.res-nightmode .spam.thing.comment .md a {
+    color: rgb(20, 190, 250);
+}
+
+.res-nightmode.moderator .linefield .title {
+    background: transparent;
+    color: rgba(20, 150, 220, 0.8);
+}
+
+.res-nightmode .message .subject .correspondent {
+    background: #ccc;
+    color: rgb(20, 150, 220);
+}
+
+.res-nightmode.moderator .linefield,
+.res-nightmode.moderator .footer-parent .footer {
+    background: #191919;
+}
+
+.res-nightmode.wiki-page .wiki-page-content .md.wiki>.toc ul {
+    background-color: #222;
 }
 
 .res-nightmode #RESDashboardAddComponent,
