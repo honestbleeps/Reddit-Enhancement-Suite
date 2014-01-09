@@ -52,7 +52,7 @@ XHRCache = {
 			return;
 		} else {
 //			console.count("add");
-			this.entries[key] = {data: value, timestamp: new Date(), hits: 1};
+			this.entries[key] = {data: value, timestamp: Date.now(), hits: 1};
 			this.count++;
 		}
 		if (this.count > this.capacity) {
@@ -60,7 +60,7 @@ XHRCache = {
 		}
 	},
 	prune: function() {
-		var now = new Date();
+		var now = Date.now();
 		var bottom = [];
 		for (var key in this.entries) {
 //			if (this.entries[key].hits === 1) {
@@ -91,7 +91,8 @@ XHRCache = {
 
 opera.extension.addEventListener( "message", function( event ) {
 	// get JSON data (from event.data) using the same format used for chrome/safari extensions
-	var request = JSON.parse(event.data);
+	var request = JSON.parse(event.data),
+		xhr, passBack, button, ls;
 	if ((typeof request !== 'undefined') && (typeof request.requestType !== 'undefined')) {
 		switch (request.requestType) {
 			case 'GM_xmlhttpRequest':
@@ -106,7 +107,7 @@ opera.extension.addEventListener( "message", function( event ) {
 						return;
 					}
 				}
-				var xhr = new XMLHttpRequest();
+				xhr = new XMLHttpRequest();
 				if (typeof request.data === 'undefined') {
 					request.data = '';
 				}
@@ -131,7 +132,7 @@ opera.extension.addEventListener( "message", function( event ) {
 						if ((request.aggressiveCache || XHRCache.forceCache) && (xhr.status === 200 && xhr.responseText)) {
 							XHRCache.add(request.url, resp);
 						}
-						var passBack = {
+						passBack = {
 							msgType: 'GM_xmlhttpRequest',
 							XHRID: request.XHRID,
 							data: resp
@@ -142,7 +143,7 @@ opera.extension.addEventListener( "message", function( event ) {
 				xhr.send(request.data);
 				break;
 			case 'singleClick':
-				var button = (request.button !== 1) && (request.ctrl !== 1);
+				button = (request.button !== 1) && (request.ctrl !== 1);
 				// handle requests from singleClick module
 				if (request.openOrder === 'commentsfirst') {
 					// only open a second tab if the link is different...
@@ -157,21 +158,21 @@ opera.extension.addEventListener( "message", function( event ) {
 						opera.extension.tabs.create({url: request.commentsURL, focused: button});
 					}
 				}
-				var passBack = {
+				passBack = {
 					msgType: 'singleClick',
 					data: { status: 'success' }
 				};
 				event.source.postMessage(passBack);
 				break;
 			case 'keyboardNav':
-				var button = (request.button !== 1);
+				button = (request.button !== 1);
 				// handle requests from keyboardNav module
 				thisLinkURL = request.linkURL;
 				if (thisLinkURL.toLowerCase().substring(0, 4) !== 'http') {
 					thisLinkURL = (thisLinkURL.substring(0, 1) === '/') ? 'http://www.reddit.com' + thisLinkURL : location.href + thisLinkURL;
 				}
 				opera.extension.tabs.create({url: thisLinkURL, focused: button});
-				var passBack = {
+				passBack = {
 					msgType: 'keyboardNav',
 					data: { status: 'success' }
 				};
@@ -184,20 +185,20 @@ opera.extension.addEventListener( "message", function( event ) {
 					thisLinkURL = (thisLinkURL.substring(0, 1) === '/') ? 'http://www.reddit.com' + thisLinkURL : location.href + thisLinkURL;
 				}
 				opera.extension.tabs.create({url: thisLinkURL, focused: focus});
-				var passBack = {
+				passBack = {
 					msgType: 'openLinkInNewTab',
 					data: { status: 'success' }
 				};
 				event.source.postMessage(passBack);
 				break;
 			case 'compareVersion':
-				var xhr = new XMLHttpRequest();
+				xhr = new XMLHttpRequest();
 				xhr.open("GET", request.url, true);
 				xhr.onreadystatechange = function() {
 					if (xhr.readyState === 4) {
 						var resp = JSON.parse(xhr.responseText);
 						if (request.forceUpdate) resp.forceUpdate = request.forceUpdate;
-						var passBack = {
+						passBack = {
 							msgType: 'compareVersion',
 							data: resp
 						};
@@ -207,12 +208,12 @@ opera.extension.addEventListener( "message", function( event ) {
 				xhr.send();
 				break;
 			case 'loadTweet':
-				var xhr = new XMLHttpRequest();
+				xhr = new XMLHttpRequest();
 				xhr.open("GET", request.url, true);
 				xhr.onreadystatechange = function() {
 					if (xhr.readyState === 4) {
 						var resp = JSON.parse(xhr.responseText);
-						var passBack = {
+						passBack = {
 							msgType: 'loadTweet',
 							data: resp
 						};
@@ -222,13 +223,13 @@ opera.extension.addEventListener( "message", function( event ) {
 				xhr.send();
 				break;
 			case 'getLocalStorage':
-				var ls = {};
+				ls = {};
 				for (var i = 0, len=localStorage.length; i < len; i++){
 					if (localStorage.key(i)) {
 						ls[localStorage.key(i)] = localStorage.getItem(localStorage.key(i));
 					}
 				}
-				var passBack = {
+				passBack = {
 					msgType: 'getLocalStorage',
 					data: ls
 				};
@@ -239,13 +240,13 @@ opera.extension.addEventListener( "message", function( event ) {
 					localStorage.setItem(key,request.data[key]);
 				}
 				localStorage.setItem('importedFromForeground',true);
-				var ls = {};
+				ls = {};
 				for (var i = 0, len=localStorage.length; i < len; i++){
 					if (localStorage.key(i)) {
 						ls[localStorage.key(i)] = localStorage.getItem(localStorage.key(i));
 					}
 				}
-				var passBack = {
+				passBack = {
 					msgType: 'saveLocalStorage',
 					data: ls
 				};
@@ -254,7 +255,7 @@ opera.extension.addEventListener( "message", function( event ) {
 			case 'localStorage':
 				switch (request.operation) {
 					case 'getItem':
-						var passBack = {
+						passBack = {
 							msgType: 'localStorage',
 							data: localStorage.getItem(request.itemName)
 						};
@@ -262,7 +263,7 @@ opera.extension.addEventListener( "message", function( event ) {
 						break;
 					case 'removeItem':
 						localStorage.removeItem(request.itemName);
-						var passBack = {
+						passBack = {
 							msgType: 'localStorage',
 							data: true
 						};
@@ -270,7 +271,7 @@ opera.extension.addEventListener( "message", function( event ) {
 						break;
 					case 'setItem':
 						localStorage.setItem(request.itemName, request.itemValue);
-						var passBack = {
+						passBack = {
 							msgType: 'localStorage',
 							data: true
 						};
@@ -289,7 +290,7 @@ opera.extension.addEventListener( "message", function( event ) {
 			case 'addURLToHistory':
 				var thisWin = opera.extension.windows.getLastFocused();
 				var priv = thisWin.private;
-				var passBack = {
+				passBack = {
 					msgType: 'addURLToHistory',
 					data: { 
 						url: request.url,
@@ -299,7 +300,7 @@ opera.extension.addEventListener( "message", function( event ) {
 				event.source.postMessage(passBack);
 				break;
 			default:
-				var passBack = {
+				passBack = {
 					msgType: '',
 					data: { status: 'unrecognized request type' }
 				};
