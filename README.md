@@ -97,12 +97,12 @@ If you prefer RES can also be built using [grunt](http://gruntjs.com/). In order
 
 If you have never used grunt before:
 
-1. run `npm install -g grunt-cli` to install the grunt task runner.
+1. Run `npm install -g grunt-cli` to install the grunt task runner.
 2. Navigate to the RES directory in a console and run `npm install` to install all other dependencies.
 
 Once done you can build the extension by running `grunt`. 
 
-For developing, run grunt followed by the name of the browser you wish to develop on. For example `grunt chrome` for Chrome or `grunt firefox` for Firefox. Once run grunt will start a watch task which will instantly reflect any changes made in the /lib directory over to the extensions folder. 
+For developing, run grunt followed by the name of the browser you wish to develop on. For example `grunt chrome` for Chrome or `grunt firefox` for Firefox. Once run grunt will start a watch task which will instantly reflect any changes made in the /lib directory over to the given browser's extension folder. You will need to stop and start grunt if you add any additional files.
 
-To load the extension in to your browser see the "Building development versions of the extension" documentation above. You will need to stop and start grunt if you add any additional files.
+To load the extension in to your browser see the "Building development versions of the extension" documentation above. 
 
