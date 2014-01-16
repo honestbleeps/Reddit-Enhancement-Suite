@@ -32,6 +32,7 @@
 				"alert.js",
 				"storage.js",
 				"konami.js",
+				"hogan-2.0.0.js",
 				"mediacrush.js",
 				"reddit_enhancement_suite.user.js",
 				"modules/betteReddit.js",
@@ -77,6 +78,9 @@
 			],
 			"run_at": "document_start"
 		}
+	],
+	"web_accessible_resources": [
+		"templates.html"
 	],
 	"icons": {
 		"48": "icon48.png",
