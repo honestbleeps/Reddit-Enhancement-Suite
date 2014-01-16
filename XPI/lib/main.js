@@ -124,7 +124,9 @@ pageMod.PageMod({
 	contentStyleFile: [
 		self.data.url('nightmode.css'),
 		self.data.url('commentBoxes.css'),
-		self.data.url('res.css')
+		self.data.url('res.css'),
+		self.data.url('guiders.css'),
+		self.data.url('tokenize.css')
 	],
 	onAttach: function(worker) {
 		// when a tab is activated, repopulate localStorage so that changes propagate across tabs...
