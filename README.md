@@ -91,3 +91,18 @@ One thing to note is that if you switch branches this will break your hard links
   1. Click ``Tools->Extensions->Manage Extensions``
   2. Drag the ``config.xml`` file in the ``Opera`` directory in to the extensions window and release. You should now have installed the extension. Make sure you have created the hard link to ``lib/reddit_enhancement_suite.js`` before doing this.
 
+### Using grunt instead of hard links ###
+
+If you prefer RES can also be built using [grunt](http://gruntjs.com/). In order to use grunt you will need to have [node.js](http://nodejs.org/) installed on your system.
+
+If you have never used grunt before:
+
+1. run `npm install -g grunt-cli` to install the grunt task runner.
+2. Navigate to the RES directory in a console and run `npm install` to install all other dependencies.
+
+Once done you can build the extension by running `grunt`. 
+
+For developing, run grunt followed by the name of the browser you wish to develop on. For example `grunt chrome` for Chrome or `grunt firefox` for Firefox. Once run grunt will start a watch task which will instantly reflect any changes made in the /lib directory over to the extensions folder. 
+
+To load the extension in to your browser see the "Building development versions of the extension" documentation above. You will need to stop and start grunt if you add any additional files.
+
