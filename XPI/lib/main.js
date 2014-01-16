@@ -119,7 +119,15 @@ pageMod.PageMod({
 		self.data.url('tinycon.js'),
 		self.data.url('jquery.tokeninput.js'),
 		self.data.url('snuownd.js'),
-		self.data.url('reddit_enhancement_suite.user.js')
+		self.data.url('utils.js'),
+		self.data.url('browsersupport.js'),
+		self.data.url('console.js'),
+		self.data.url('alert.js'),
+		self.data.url('storage.js'),
+		self.data.url('konami.js'),
+		self.data.url('mediacrush.js'),
+		self.data.url('reddit_enhancement_suite.user.js'),
+		self.data.url('init.js')
 	],
 	contentStyleFile: [
 		self.data.url('nightmode.css'),
