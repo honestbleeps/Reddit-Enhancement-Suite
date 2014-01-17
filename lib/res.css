@@ -1141,3 +1141,38 @@ a.bylink.parentlink {
 	margin-right: 3px;
 	top: 3px;
 }
+
+#alert_message { 
+	display: none;
+	opacity: 0.0;
+	background-color: #EFEFEF;
+	border: 1px solid black;
+	color: black;
+	font-size: 12px;
+	padding: 20px;
+	padding-left: 40px;
+	padding-right: 40px;
+	position: fixed!important;
+	width: 400px;
+	z-index: 1000000201;
+	text-align: left;
+}
+#alert_message input {
+	border: 1px solid black;
+	font-weight: bold;
+	font-size: 10px;
+	padding: 6px;
+	padding-left: 9px;
+	padding-right: 9px;
+	float: left; 
+	background-color: #DFDFDF;
+	cursor: pointer;
+	margin-right:10px;
+}
+#alert_message div {
+	margin-bottom: 20px;
+}
+#alert_message_background { 
+	position: fixed; top: 0; left: 0; bottom: 0; right: 0;
+	background-color: rgba(51, 51, 51,0.95); z-index: 100000200;
+};
