@@ -9,12 +9,14 @@ let tabs = require("tabs");
 let ss = require("simple-storage");
 let priv = require("private-browsing");
 let windows = require("sdk/windows").browserWindows;
+var ioFile = require("sdk/io/file");
 
 // require chrome allows us to use XPCOM objects...
-const {Cc,Ci,Cu} = require("chrome");
+const {Cc,Ci,Cu,components} = require("chrome");
 let historyService = Cc["@mozilla.org/browser/history;1"].getService(Ci.mozIAsyncHistory);
 // Cookie manager for new API login
 let cookieManager = Cc["@mozilla.org/cookiemanager;1"].getService().QueryInterface(Ci.nsICookieManager2);
+components.utils.import("resource://gre/modules/NetUtil.jsm");
 
 // this function takes in a string (and optional charset, paseURI) and creates an nsURI object, which is required by historyService.addURI...
 function makeURI(aURL, aOriginCharset, aBaseURI) {
@@ -126,6 +128,7 @@ pageMod.PageMod({
 		self.data.url('storage.js'),
 		self.data.url('konami.js'),
 		self.data.url('mediacrush.js'),
+		self.data.url('hogan-2.0.0.js'),
 		self.data.url('reddit_enhancement_suite.user.js'),
 		self.data.url('modules/betteReddit.js'),
 		self.data.url('modules/userTagger.js'),
@@ -159,6 +162,7 @@ pageMod.PageMod({
 		self.data.url('modules/commentHidePersistor.js'),
 		self.data.url('modules/bitcointip.js'),
 		self.data.url('modules/troubleshooter.js'),
+		self.data.url('modules/tests.js'),
 		self.data.url('init.js')
 	],
 	contentStyleFile: [
@@ -178,6 +182,10 @@ pageMod.PageMod({
 			let request = data,
 				button, isPrivate;
 			switch (request.requestType) {
+				case 'readResource':
+					var data = self.data.load(request.filename);
+					worker.postMessage({ name: "readResource", data: data, transaction: request.transaction });
+					break;
 				case 'deleteCookie':
 					cookieManager.remove('.reddit.com', request.cname, '/', false);
 					break;
