@@ -76,7 +76,7 @@ One thing to note is that if you switch branches this will break your hard links
 
 **Firefox**
   1. Download the addon SDK from [here](https://ftp.mozilla.org/pub/mozilla.org/labs/jetpack/jetpack-sdk-latest.zip).
-  2. Start a terminal and source the python script so that you can run the ``cfx`` commands. In Unix this is usually ``. bin/activate`` or ``source bin/activate`` and in Windows this usually involves running ``Scripts/activate.bat``.
+  2. Start a terminal and source the python script so that you can run the ``cfx`` commands. In Unix this is usually ``. bin/activate`` or ``source bin/activate`` and in Windows this usually involves running ``Scripts/activate.bat``. If your python is python 3, run ``virtualenv --python=pyhton2 .`` and try again.
   3. In the terminal, ``cd`` to the ``XPI`` folder and run the command ``cfx run``, which should launch a new Firefox browser using a temporary profile with only RES installed. Make sure you have create the hard link to ``lib/reddit_enhancement_suite.js`` before doing this.
 
 **Safari (assumes Mac)**

@@ -9,12 +9,14 @@ let tabs = require("tabs");
 let ss = require("simple-storage");
 let priv = require("private-browsing");
 let windows = require("sdk/windows").browserWindows;
+var ioFile = require("sdk/io/file");
 
 // require chrome allows us to use XPCOM objects...
-const {Cc,Ci,Cu} = require("chrome");
+const {Cc,Ci,Cu,components} = require("chrome");
 let historyService = Cc["@mozilla.org/browser/history;1"].getService(Ci.mozIAsyncHistory);
 // Cookie manager for new API login
 let cookieManager = Cc["@mozilla.org/cookiemanager;1"].getService().QueryInterface(Ci.nsICookieManager2);
+components.utils.import("resource://gre/modules/NetUtil.jsm");
 
 // this function takes in a string (and optional charset, paseURI) and creates an nsURI object, which is required by historyService.addURI...
 function makeURI(aURL, aOriginCharset, aBaseURI) {
@@ -179,6 +181,10 @@ pageMod.PageMod({
 			let request = data,
 				button, isPrivate;
 			switch (request.requestType) {
+				case 'readResource':
+					var data = self.data.load(request.filename);
+					worker.postMessage({ name: "readResource", data: data, transaction: request.transaction });
+					break;
 				case 'deleteCookie':
 					cookieManager.remove('.reddit.com', request.cname, '/', false);
 					break;
