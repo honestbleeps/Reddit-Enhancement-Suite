@@ -133,6 +133,7 @@ pageMod.PageMod({
 		self.data.url('modules/betteReddit.js'),
 		self.data.url('modules/userTagger.js'),
 		self.data.url('modules/keyboardNav.js'),
+		self.data.url('modules/commandLine.js'),
 		self.data.url('modules/hover.js'),
 		self.data.url('modules/subredditTagger.js'),
 		self.data.url('modules/uppersAndDowners.js'),
