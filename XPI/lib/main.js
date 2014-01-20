@@ -126,6 +126,7 @@ pageMod.PageMod({
 		self.data.url('console.js'),
 		self.data.url('alert.js'),
 		self.data.url('storage.js'),
+		self.data.url('template.js'),
 		self.data.url('konami.js'),
 		self.data.url('mediacrush.js'),
 		self.data.url('hogan-2.0.0.js'),
