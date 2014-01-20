@@ -25,6 +25,7 @@ do
 				else
 					if [ "$dir" == "lib/modules" ]
 					then
+						echo $dir
 						dest="./$j/modules/"
 					else
 						dest="./$j/"
