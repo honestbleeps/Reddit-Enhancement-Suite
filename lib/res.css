@@ -1175,4 +1175,34 @@ a.bylink.parentlink {
 #alert_message_background { 
 	position: fixed; top: 0; left: 0; bottom: 0; right: 0;
 	background-color: rgba(51, 51, 51,0.95); z-index: 100000200;
+}
+.fitbamob-brand{
+    position: relative;
+    margin-right: 3px;
+    top: 3px;
+    display:inline !important;
+    margin-left: 20px;
+    margin-right: 10px;
+}
+.fitbamob-brand span{
+    font-family:"Batch"; /*or whatever you've decalred your font name as*/
+    font-size:12px;
+    position: relative;
+    top: -2px;
+    color: cornflowerblue;
+    margin-left: 10px;
+}
+.fitbamob{
+    position: relative;
+    top: -5px;
+    left: 10px;
+}
+.fitbamob-buttons {
+    font-family:"Batch"; /*or whatever you've decalred your font name as*/
+    font-size:12px;
+    line-height:1;
+    display:inline-block;
+    color: cornflowerblue;
+    top:0px !important;
+    margin : 10px;
 };
