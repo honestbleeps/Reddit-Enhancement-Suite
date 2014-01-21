@@ -9,12 +9,14 @@ let tabs = require("tabs");
 let ss = require("simple-storage");
 let priv = require("private-browsing");
 let windows = require("sdk/windows").browserWindows;
+var ioFile = require("sdk/io/file");
 
 // require chrome allows us to use XPCOM objects...
-const {Cc,Ci,Cu} = require("chrome");
+const {Cc,Ci,Cu,components} = require("chrome");
 let historyService = Cc["@mozilla.org/browser/history;1"].getService(Ci.mozIAsyncHistory);
 // Cookie manager for new API login
 let cookieManager = Cc["@mozilla.org/cookiemanager;1"].getService().QueryInterface(Ci.nsICookieManager2);
+components.utils.import("resource://gre/modules/NetUtil.jsm");
 
 // this function takes in a string (and optional charset, paseURI) and creates an nsURI object, which is required by historyService.addURI...
 function makeURI(aURL, aOriginCharset, aBaseURI) {
@@ -119,12 +121,60 @@ pageMod.PageMod({
 		self.data.url('tinycon.js'),
 		self.data.url('jquery.tokeninput.js'),
 		self.data.url('snuownd.js'),
-		self.data.url('reddit_enhancement_suite.user.js')
+		self.data.url('utils.js'),
+		self.data.url('browsersupport.js'),
+		self.data.url('console.js'),
+		self.data.url('alert.js'),
+		self.data.url('storage.js'),
+		self.data.url('template.js'),
+		self.data.url('konami.js'),
+		self.data.url('mediacrush.js'),
+		self.data.url('hogan-2.0.0.js'),
+		self.data.url('reddit_enhancement_suite.user.js'),
+		self.data.url('modules/betteReddit.js'),
+		self.data.url('modules/userTagger.js'),
+		self.data.url('modules/keyboardNav.js'),
+		self.data.url('modules/commandLine.js'),
+		self.data.url('modules/hover.js'),
+		self.data.url('modules/subredditTagger.js'),
+		self.data.url('modules/uppersAndDowners.js'),
+		self.data.url('modules/singleClick.js'),
+		self.data.url('modules/commentPreview.js'),
+		self.data.url('modules/commentTools.js'),
+		self.data.url('modules/usernameHider.js'),
+		self.data.url('modules/showImages.js'),
+		self.data.url('modules/showKarma.js'),
+		self.data.url('modules/hideChildComments.js'),
+		self.data.url('modules/showParent.js'),
+		self.data.url('modules/neverEndingReddit.js'),
+		self.data.url('modules/saveComments.js'),
+		self.data.url('modules/userHighlight.js'),
+		self.data.url('modules/styleTweaks.js'),
+		self.data.url('modules/accountSwitcher.js'),
+		self.data.url('modules/filteReddit.js'),
+		self.data.url('modules/newCommentCount.js'),
+		self.data.url('modules/spamButton.js'),
+		self.data.url('modules/commentNavigator.js'),
+		self.data.url('modules/subredditManager.js'),
+		self.data.url('modules/RESTips.js'),
+		self.data.url('modules/settingsNavigation.js'),
+		self.data.url('modules/dashboard.js'),
+		self.data.url('modules/notifications.js'),
+		self.data.url('modules/subredditInfo.js'),
+		self.data.url('modules/commentHidePersistor.js'),
+		self.data.url('modules/bitcointip.js'),
+		self.data.url('modules/troubleshooter.js'),
+		self.data.url('modules/tests.js'),
+		self.data.url('init.js')
 	],
 	contentStyleFile: [
 		self.data.url('nightmode.css'),
 		self.data.url('commentBoxes.css'),
-		self.data.url('res.css')
+		self.data.url('res.css'),
+		self.data.url('guiders.css'),
+		self.data.url('tokenize.css'),
+		self.data.url('fitbamob.css'),
+		self.data.url("batch.css")
 	],
 	onAttach: function(worker) {
 		// when a tab is activated, repopulate localStorage so that changes propagate across tabs...
@@ -136,6 +186,10 @@ pageMod.PageMod({
 			let request = data,
 				button, isPrivate;
 			switch (request.requestType) {
+				case 'readResource':
+					var data = self.data.load(request.filename);
+					worker.postMessage({ name: "readResource", data: data, transaction: request.transaction });
+					break;
 				case 'deleteCookie':
 					cookieManager.remove('.reddit.com', request.cname, '/', false);
 					break;
