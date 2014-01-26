@@ -650,32 +650,16 @@ p.moduleListing {
 	text-align: center;
 	background-color: #FFFACD;
 }
-#RESConsoleAboutPanel p {
+#RESConsoleContent p {
 	margin-bottom: 10px;
 }
-#RESConsoleAboutPanel ul {
+#RESConsoleContent ul {
 	margin-bottom: 10px;
 	margin-top: 10px;
 }
-#RESConsoleAboutPanel li {
+#RESConsoleContent li {
 	list-style-type: disc;
 	margin-left: 15px;
-}
-.aboutPanel {
-	background-color: #f0f3fc;
-	border: 1px solid #c7c7c7;
-	border-radius: 3px 3px 3px 3px;
-	padding: 10px;
-}
-.aboutPanel h3 {
-	margin-top: 0;
-	margin-bottom: 10px;
-}
-#DonateRES {
-	display: block;
-}
-#RESTeam {
-	display: none;
 }
 #AboutRESTeamImage {
 	width: 100%;
