@@ -1,15 +1,14 @@
-/*jshint esnext: true */
+/* jshint esnext: true */
+/* global require: false */
 
 // Import the APIs we need.
 let pageMod = require("page-mod");
-let Request = require('request').Request;
+let Request = require("request").Request;
 let self = require("self");
-let firefox = typeof require;
 let tabs = require("tabs");
 let ss = require("simple-storage");
 let priv = require("private-browsing");
 let windows = require("sdk/windows").browserWindows;
-let ioFile = require("sdk/io/file");
 
 // require chrome allows us to use XPCOM objects...
 const {Cc,Ci,Cu,components} = require("chrome");
@@ -48,7 +47,7 @@ localStorage.removeItem = function(key) {
 	delete ss.storage[key];
 };
 
-XHRCache = {
+let XHRCache = {
 	forceCache: false,
 	capacity: 250,
 	entries: {},
@@ -189,12 +188,12 @@ pageMod.PageMod({
 		worker.on('message', function(data) {
 			let request = data,
 				inBackground = prefs.getBoolPref('browser.tabs.loadInBackground') || true,
-				isPrivate;
+				isPrivate, thisLinkURL;
 
 			switch (request.requestType) {
 				case 'readResource':
-					let data = self.data.load(request.filename);
-					worker.postMessage({ name: 'readResource', data: data, transaction: request.transaction });
+					let fileData = self.data.load(request.filename);
+					worker.postMessage({ name: 'readResource', data: fileData, transaction: request.transaction });
 					break;
 				case 'deleteCookie':
 					cookieManager.remove('.reddit.com', request.cname, '/', false);
@@ -281,14 +280,15 @@ pageMod.PageMod({
 					worker.postMessage({status: "success"});
 					break;
 				case 'openLinkInNewTab':
-					let focus = (request.focus === true);
+					inBackground = (request.focus !== true);
 					isPrivate = priv.isPrivate(windows.activeWindow);
+
 					thisLinkURL = request.linkURL;
 					if (thisLinkURL.toLowerCase().substring(0, 4) !== 'http') {
 						thisLinkURL = (thisLinkURL.substring(0, 1) === '/') ? 'http://www.reddit.com' + thisLinkURL : location.href + thisLinkURL;
 					}
 					// Get the selected tab so we can get the index of it.  This allows us to open our new tab as the "next" tab.
-					tabs.open({url: thisLinkURL, inBackground: !focus, isPrivate: isPrivate });
+					tabs.open({url: thisLinkURL, inBackground: inBackground, isPrivate: isPrivate });
 					worker.postMessage({status: "success"});
 					break;
 				case 'loadTweet':

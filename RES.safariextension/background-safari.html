@@ -34,7 +34,9 @@
 <html>
 <head>
 	<script>
-	XHRCache = {
+	/* global safari: false */
+
+	var XHRCache = {
 		forceCache: false,
 		capacity: 250,
 		entries: {},
