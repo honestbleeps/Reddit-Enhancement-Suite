@@ -1,22 +1,25 @@
-/*jshint esnext: true */
+/* jshint esnext: true */
+/* global require: false */
 
 // Import the APIs we need.
 let pageMod = require("page-mod");
-let Request = require('request').Request;
+let Request = require("request").Request;
 let self = require("self");
-let firefox = typeof require;
 let tabs = require("tabs");
 let ss = require("simple-storage");
 let priv = require("private-browsing");
 let windows = require("sdk/windows").browserWindows;
-var ioFile = require("sdk/io/file");
 
 // require chrome allows us to use XPCOM objects...
 const {Cc,Ci,Cu,components} = require("chrome");
 let historyService = Cc["@mozilla.org/browser/history;1"].getService(Ci.mozIAsyncHistory);
+
 // Cookie manager for new API login
 let cookieManager = Cc["@mozilla.org/cookiemanager;1"].getService().QueryInterface(Ci.nsICookieManager2);
 components.utils.import("resource://gre/modules/NetUtil.jsm");
+
+// Preferences
+let prefs = Cc["@mozilla.org/preferences-service;1"].getService(Ci.nsIPrefBranch);
 
 // this function takes in a string (and optional charset, paseURI) and creates an nsURI object, which is required by historyService.addURI...
 function makeURI(aURL, aOriginCharset, aBaseURI) {
@@ -44,7 +47,7 @@ localStorage.removeItem = function(key) {
 	delete ss.storage[key];
 };
 
-XHRCache = {
+let XHRCache = {
 	forceCache: false,
 	capacity: 250,
 	entries: {},
@@ -184,11 +187,13 @@ pageMod.PageMod({
 		});
 		worker.on('message', function(data) {
 			let request = data,
-				button, isPrivate;
+				inBackground = prefs.getBoolPref('browser.tabs.loadInBackground') || true,
+				isPrivate, thisLinkURL;
+
 			switch (request.requestType) {
 				case 'readResource':
-					var data = self.data.load(request.filename);
-					worker.postMessage({ name: "readResource", data: data, transaction: request.transaction });
+					let fileData = self.data.load(request.filename);
+					worker.postMessage({ name: 'readResource', data: fileData, transaction: request.transaction });
 					break;
 				case 'deleteCookie':
 					cookieManager.remove('.reddit.com', request.cname, '/', false);
@@ -243,27 +248,26 @@ pageMod.PageMod({
 
 					break;
 				case 'singleClick':
-					button = ((request.button === 1) || (request.ctrl === 1));
+					inBackground = ((request.button === 1) || (request.ctrl === 1));
 					isPrivate = priv.isPrivate(windows.activeWindow);
 
 					// handle requests from singleClick module
 					if (request.openOrder === 'commentsfirst') {
 						// only open a second tab if the link is different...
 						if (request.linkURL !== request.commentsURL) {
-							tabs.open({url: request.commentsURL, inBackground: button, isPrivate: isPrivate });
+							tabs.open({url: request.commentsURL, inBackground: inBackground, isPrivate: isPrivate });
 						}
-						tabs.open({url: request.linkURL, inBackground: button, isPrivate: isPrivate });
+						tabs.open({url: request.linkURL, inBackground: inBackground, isPrivate: isPrivate });
 					} else {
-						tabs.open({url: request.linkURL, inBackground: button, isPrivate: isPrivate });
+						tabs.open({url: request.linkURL, inBackground: inBackground, isPrivate: isPrivate });
 						// only open a second tab if the link is different...
 						if (request.linkURL !== request.commentsURL) {
-							tabs.open({url: request.commentsURL, inBackground: button, isPrivate: isPrivate });
+							tabs.open({url: request.commentsURL, inBackground: inBackground, isPrivate: isPrivate });
 						}
 					}
 					worker.postMessage({status: "success"});
 					break;
 				case 'keyboardNav':
-					button = (request.button === 1);
 					isPrivate = priv.isPrivate(windows.activeWindow);
 
 					// handle requests from keyboardNav module
@@ -272,18 +276,19 @@ pageMod.PageMod({
 						thisLinkURL = (thisLinkURL.substring(0, 1) === '/') ? 'http://www.reddit.com' + thisLinkURL : location.href + thisLinkURL;
 					}
 					// Get the selected tab so we can get the index of it.  This allows us to open our new tab as the "next" tab.
-					tabs.open({url: thisLinkURL, inBackground: button, isPrivate: isPrivate });
+					tabs.open({url: thisLinkURL, inBackground: inBackground, isPrivate: isPrivate });
 					worker.postMessage({status: "success"});
 					break;
 				case 'openLinkInNewTab':
-					let focus = (request.focus === true);
+					inBackground = (request.focus !== true);
 					isPrivate = priv.isPrivate(windows.activeWindow);
+
 					thisLinkURL = request.linkURL;
 					if (thisLinkURL.toLowerCase().substring(0, 4) !== 'http') {
 						thisLinkURL = (thisLinkURL.substring(0, 1) === '/') ? 'http://www.reddit.com' + thisLinkURL : location.href + thisLinkURL;
 					}
 					// Get the selected tab so we can get the index of it.  This allows us to open our new tab as the "next" tab.
-					tabs.open({url: thisLinkURL, inBackground: !focus, isPrivate: isPrivate });
+					tabs.open({url: thisLinkURL, inBackground: inBackground, isPrivate: isPrivate });
 					worker.postMessage({status: "success"});
 					break;
 				case 'loadTweet':

@@ -5,6 +5,13 @@
     display:inline !important;
     margin-left: 20px;
     margin-right: 10px;
+    cursor: pointer;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 .fitbamob-brand span{
     font-family:"Batch"; /*or whatever you've decalred your font name as*/
@@ -27,4 +34,11 @@
     color: cornflowerblue;
     top:0px !important;
     margin : 10px;
+    cursor: pointer;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 };
