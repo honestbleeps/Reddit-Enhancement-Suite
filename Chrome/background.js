@@ -30,7 +30,9 @@
 
 */
 
-XHRCache = {
+/* global chrome: false */
+
+var XHRCache = {
 	forceCache: false,
 	capacity: 250,
 	entries: {},
@@ -89,7 +91,7 @@ XHRCache = {
 
 chrome.runtime.onMessage.addListener(
 	function(request, sender, sendResponse) {
-		var xhr, button, newIndex;
+		var xhr, button, newIndex, thisLinkURL;
 		switch (request.requestType) {
 			case 'deleteCookie':
 				// Get chrome cookie handler
@@ -111,7 +113,7 @@ chrome.runtime.onMessage.addListener(
 				if (request.method === "POST") {
 					xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 				}
-				xhr.onreadystatechange = function(a) {
+				xhr.onreadystatechange = function() {
 					if (xhr.readyState === 4) {
 						// Only store `status` and `responseText` fields
 						var response = {status: xhr.status, responseText: xhr.responseText};

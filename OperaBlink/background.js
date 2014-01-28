@@ -30,7 +30,9 @@
 
 */
 
-XHRCache = {
+/* global chrome: false */
+
+var XHRCache = {
 	forceCache: false,
 	capacity: 250,
 	entries: {},
@@ -89,7 +91,7 @@ XHRCache = {
 
 chrome.runtime.onMessage.addListener(
 	function(request, sender, sendResponse) {
-		var xhr, button, newIndex;
+		var xhr, button, newIndex, thisLinkURL;
 		switch (request.requestType) {
 			case 'deleteCookie':
 				// Get chrome cookie handler
