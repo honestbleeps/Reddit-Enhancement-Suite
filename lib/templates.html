@@ -102,18 +102,18 @@
 
 		<!--VideoUI-->
 		<!--Adapted from MediaCrush video player-->
-		<div id="VideoUI">
+		<script id="VideoUI" type="application/x-template">
 			<div class="player video">
-				<video {#autoplay}autoplay="true"{/autoplay} {#loop}loop="true"{/loop} preload>
-					{#sources}
-					<source src="{{ source }}" type="{{ type }}">
-					{/sources}
+				<video {{#autoplay}}autoplay="true"{{/autoplay}} {{#loop}}loop="true"{{/loop}} preload>
+					{{#sources}}
+					<source src="{{ source }}" {{#type}}type="{{ type }}"{{/type}}>
+					{{/sources}}
 				</video>
-				<a class="start {#autoplay}hidden{/autoplay}" href="#">
+				<a class="start {{#autoplay}}hidden{{/autoplay}}" href="#">
 					<span class="icon">&#xF16B;</span>
 				</a>
-				<div class="controls {#mute}muted{/mute}">
-					<a href="#" class="icon play-pause {#autoplay}pause{/autoplay}{^autoplay}play{/autoplay}"></a>
+				<div class="controls {{#muted}}muted{{/muted}}">
+					<a href="#" class="icon play-pause {{#autoplay}}pause{{/autoplay}}{{^autoplay}}play{{/autoplay}}"></a>
 					<div class="seek">
 						<div class="background"></div>
 						<div class="loading progress"></div>
@@ -122,9 +122,9 @@
 						<div class="clickable"></div>
 					</div>
 					<div class="right">
-						{^mute}
+						{{^muted}}
 						<span class="toggleable volume">
-							<a href="#" class="icon" data-icon="&#xF03B;"></a>
+							<a href="#" class="icon">&#xF03B;</a>
 							<div>
 								<span>
 									<span class="background"></span>
@@ -133,7 +133,7 @@
 								</span>
 							</div>
 						</span>
-						{/mute}
+						{{/muted}}
 						<a href="#" class="icon fullscreen"></a>
 						<span class="toggleable settings">
 							<span class="icon">&#xF04E;</span>
@@ -146,18 +146,18 @@
 								</div>
 								<div class="highlight">
 									<a href="#" class="loop">
-										<span class="text">Loop {#loop}ON{/loop}{^loop}OFF{/loop}</span><span class="icon loop {#loop}disabled{/loop}">&#xF0B2;</span>
+										<span class="text">Loop {{#loop}}ON{{/loop}}{{^loop}}OFF{{/loop}}</span><span class="icon loop {{#loop}}disabled{{/loop}}">&#xF0B2;</span>
 									</a>
 								</div>
-								{#download}
+								{{#download}}
 								<div class="highlight"><a href="{{download}}" class="download">Download<span class="icon">&#xF0BD;</span></a></div>
-								{/download}
+								{{/download}}
 							</div>
 						</span>
 					</div>
 				</div>
 			</div>
-		</div>
+		</script>
 		<!--/VideoUI-->
 	</body>
 </html>
