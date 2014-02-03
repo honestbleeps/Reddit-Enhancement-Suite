@@ -83,7 +83,9 @@
 
 			<p><strong>Note:</strong> Reddit Enhancement Suite will check, at most once a day, to see if a new version is available.  No data about you is sent to me nor is it stored.</p>
 		</div>
-
+		<div id="teamRESPanel">
+			<p>Steve Sobel (<a target="_blank" href="http://www.reddit.com/user/honestbleeps/">honestbleeps</a>) is the primary developer of RES.  Beyond that, there are a number of people who have contributed code, design and/or great ideas to RES.  To read more about the RES team, visit <a target="_blank" href="http://redditenhancementsuite.com/about.html">the RES website.</a></p>
+		</div>
 		<div id="searchRESPanel">
 			<div id="SearchRES-results-container">
 				<h4>Results for: <span id="SearchRES-query"></span></h4>
@@ -103,17 +105,17 @@
 		<!--VideoUI-->
 		<!--Adapted from MediaCrush video player-->
 		<script id="VideoUI" type="application/x-template">
-			<div class="player video">
+			<div class="res-player video">
 				<video {{#autoplay}}autoplay="true"{{/autoplay}} {{#loop}}loop="true"{{/loop}} preload>
 					{{#sources}}
 					<source src="{{ source }}" {{#type}}type="{{ type }}"{{/type}}>
 					{{/sources}}
 				</video>
 				<a class="start {{#autoplay}}hidden{{/autoplay}}" href="#">
-					<span class="icon">&#xF16B;</span>
+					<span class="res-icon">&#xF16B;</span>
 				</a>
 				<div class="controls {{#muted}}muted{{/muted}}">
-					<a href="#" class="icon play-pause {{#autoplay}}pause{{/autoplay}}{{^autoplay}}play{{/autoplay}}"></a>
+					<a href="#" class="res-icon play-pause {{#autoplay}}pause{{/autoplay}}{{^autoplay}}play{{/autoplay}}"></a>
 					<div class="seek">
 						<div class="background"></div>
 						<div class="loading progress"></div>
@@ -124,7 +126,7 @@
 					<div class="right">
 						{{^muted}}
 						<span class="toggleable volume">
-							<a href="#" class="icon">&#xF03B;</a>
+							<a href="#" class="res-icon">&#xF03B;</a>
 							<div>
 								<span>
 									<span class="background"></span>
@@ -134,9 +136,9 @@
 							</div>
 						</span>
 						{{/muted}}
-						<a href="#" class="icon fullscreen"></a>
+						<a href="#" class="res-icon fullscreen"></a>
 						<span class="toggleable settings">
-							<span class="icon">&#xF04E;</span>
+							<span class="res-icon">&#xF04E;</span>
 							<div>
 								<div class="playback-speed">
 									<div class="header">Playback Speed</div>
@@ -146,11 +148,11 @@
 								</div>
 								<div class="highlight">
 									<a href="#" class="loop">
-										<span class="text">Loop {{#loop}}ON{{/loop}}{{^loop}}OFF{{/loop}}</span><span class="icon loop {{#loop}}disabled{{/loop}}">&#xF0B2;</span>
+										<span class="text">Loop {{#loop}}ON{{/loop}}{{^loop}}OFF{{/loop}}</span><span class="res-icon loop {{#loop}}disabled{{/loop}}">&#xF0B2;</span>
 									</a>
 								</div>
 								{{#download}}
-								<div class="highlight"><a href="{{download}}" class="download">Download<span class="icon">&#xF0BD;</span></a></div>
+								<div class="highlight"><a href="{{download}}" class="download">Download<span class="res-icon">&#xF0BD;</span></a></div>
 								{{/download}}
 							</div>
 						</span>

@@ -1218,7 +1218,8 @@ a.bylink.parentlink {
 }
 #alert_message_background { 
 	position: fixed; top: 0; left: 0; bottom: 0; right: 0;
-	background-color: rgba(51, 51, 51,0.90); z-index: 100000200;
+	background-color: rgba(51, 51, 51,0.95);
+	z-index: 100000200;
 }
 .res-left {
 	float: left;
@@ -1528,3 +1529,5 @@ a.bylink.parentlink {
 		.player.fullscreen, .player.fullscreen video { max-width: none; }
 		.icon{font-family:"Batch";line-height:1;display:inline-block;font-size:16px;font-weight:normal}.icon.icon-32{font-size:32px}.icon.icon-64{font-size:64px}.icon.icon-128{font-size:128px}
 >>>>>>> Add MediaCrush video player UI
+=======
+>>>>>>> Drop fitbamob.css, increase selector specificity, create players.css

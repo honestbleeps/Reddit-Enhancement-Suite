@@ -218,9 +218,9 @@ pageMod.PageMod({
 		self.data.url('nightmode.css'),
 		self.data.url('commentBoxes.css'),
 		self.data.url('res.css'),
+		self.data.url('players.css'),
 		self.data.url('guiders.css'),
 		self.data.url('tokenize.css'),
-		self.data.url('fitbamob.css'),
 		self.data.url("batch.css")
 	],
 	onAttach: function(worker) {
