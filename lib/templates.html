@@ -164,5 +164,26 @@
 			</div>
 		</script>
 		<!--/VideoUI-->
+		<!--GfycatUI-->
+		<script id="GfycatUI" type="application/x-template">
+			<div class="res-player video gfycatR">
+				<a class="madeVisible" href="{{ directurl }}" target="_blank">
+				<video autoplay loop muted preload title="Drag to Resize" class="gfyRVid" >
+					{{#sources}}
+					<source src="{{ source }}" {{#type}}type="{{ type }}"{{/type}} class="{{ class }}">
+					{{/sources}}
+				</video>
+				</a>
+				<div style="height: 35px;" class="ctrlContainer">
+					<div style="width: 90px; height: 25px; float: right; padding: 5px; display: none;" class="ctrlBox">
+						<img src="{{ placeholder }}"  class="gfyRCtrlFaster" style="float: right; margin-right: 5px; width: 14px; height: 12px; background:url('{{ controlimg }}') -20px 0; border: none;"/>
+						<img src="{{ placeholder }}"  class="gfyRCtrlSlower" style="float: right; margin-right: 5px; width: 14px; height: 12px; background:url('{{ controlimg }}') -165px 0; border: none;"/>
+						<img src="{{ placeholder }}"  class="gfyRCtrlReverse" style="float: right; margin-right: 5px; width: 14px; height: 12px; background:url('{{ controlimg }}') -46px 0; border: none;"/>					
+						<img src="{{ placeholder }}"  class="gfyRCtrlPause" style="float: right; margin-right: 5px; width: 12px; height: 12px; background:url('{{ controlimg }}') -95px 0; border: none;"/>
+					</div>
+				</div>
+			</div>
+		</script>
+		<!--/GfycatUI-->
 	</body>
 </html>
