@@ -1,0 +1,43 @@
+modules['mobileRedirect'] = {
+	moduleID: 'mobileRedirect',
+	moduleName: 'mobileRedirect',
+	category: 'Filters',
+	options: {
+		// any configurable options you have go here...
+		// options must have a type and a value.. 
+		// valid types are: text, boolean (if boolean, value must be true or false)
+		// for example:
+		// defaultMessage: {
+		// 	type: 'text',
+		// 	value: 'this is default text',
+		// 	description: 'explanation of what this option is for'
+		// },
+		// doSpecialStuff: {
+		// 	type: 'boolean',
+		// 	value: false,
+		// 	description: 'explanation of what this option is for'
+		// }
+	},
+	description: 'Have mobile sites redirect to their desktop version. No more loading of mobile sites and having to manually go to the desktop version of the page!',
+	isEnabled: function() {
+		return RESConsole.getModulePrefs(this.moduleID);
+	},
+	include: [
+		/^https?:\/\/([a-z]+)\.reddit\.com\/user\/[-\w\.]+/i,
+		/^https?:\/\/([a-z]+)\.reddit\.com\/message\/comments\/[-\w\.]+/i
+	],
+	isMatchURL: function() {
+		return RESUtils.isMatchURL(this.moduleID);
+	},
+	go: function() {
+		if ((this.isEnabled()) && (this.isMatchURL())) {
+			//if mobile version of page, redirect to desktop version
+			if(window.location.host.match(/^m\./)){
+			     var a = document.createElement("a");
+			     a.href = window.location;
+			     a.host = a.host.replace(/^m\./, '');
+			     window.location = a.href;
+			}
+		}
+	}
+};
