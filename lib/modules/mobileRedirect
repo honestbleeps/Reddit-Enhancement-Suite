@@ -19,10 +19,10 @@ modules['mobileRedirect'] = {
 	go: function() {
 		if ((this.isEnabled()) && (this.isMatchURL())) {
 			//if mobile version of page, redirect to desktop version
-			if(window.location.host.match(/^m\./)){
+			if(window.location.host.match(/^[mi]\./)){
 			     var a = document.createElement("a");
 			     a.href = window.location;
-			     a.host = a.host.replace(/^m\./, '');
+			     a.host = a.host.replace(/^[mi]\./, '');
 			     window.location = a.href;
 			}
 		}
