@@ -54,7 +54,6 @@ NOTE: This directory must have .safariextension in the name, or Safari's extensi
   - background-safari.html - the "background page" for RES, necessary for safari extensions
   - Info.plist - the project manifest
   - icon.png, icon48.png, icon128.png - icons!
-  - jquery-1.6.4.min.js - jquery 1.6.4!
 
 ##### Firefox files (XPI)
 NOTE: An XPI is a Firefox add-on... This is compiled using the Add-on SDK.
