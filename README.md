@@ -1,8 +1,10 @@
 # RES - Reddit Enhancement Suite
 
-RES is suite of modules to enhance your Reddit browsing experience. For general documentation, see the [RES Wiki](http://redditenhancementsuite.com:8080/wiki/)
+RES is suite of modules to enhance your Reddit browsing experience. 
 
-## Note
+For general RES documentation, see the [Reddit Enhancement Suite Wiki](http://redditenhancementsuite.com:8080/wiki/)
+
+### Introduction
 
 Hi there! Thanks for checking out RES on GitHub.  A few important notes:
 
@@ -21,7 +23,7 @@ steve@honestbleeps.com
 
 In order to build the extension the files from lib must be replicated (either via hard-links or grunt) in to the relevant browser directory.
 
-#### Top level files & folders
+##### Top level files & folders
 
 - README.md - (YOU ARE HERE - unless you're on GitHub browsing)
 - changelog.txt - self explanatory
@@ -33,20 +35,20 @@ In order to build the extension the files from lib must be replicated (either vi
 - RES.safariextension/  - Safari specific RES files
 - XPI/ - Firefox Specific RES files
 
-#### Chrome files
+##### Chrome files
 
   - background.js - the "background page" for RES, necessary for chrome extensions
   - manifest.json - the project manifest
   - icon.png, icon48.png, icon128.png - icons!
   - jquery-1.10.2.min.map - Chrome moans if this file doesn't exist
 
-#### Opera files
+##### Opera files
 
   - index.html - the "background page" for RES, necessary for opera extensions
   - config.xml - Opera's equivalent of Chrome's manifest.json
   - logo.gif - a logo gif!
 
-#### RES.safariextension
+##### RES.safariextension
 NOTE: This directory must have .safariextension in the name, or Safari's extension builder pukes.
 
   - background-safari.html - the "background page" for RES, necessary for safari extensions
@@ -54,7 +56,7 @@ NOTE: This directory must have .safariextension in the name, or Safari's extensi
   - icon.png, icon48.png, icon128.png - icons!
   - jquery-1.6.4.min.js - jquery 1.6.4!
 
-#### Firefox files (XPI)
+##### Firefox files (XPI)
 NOTE: An XPI is a Firefox add-on... This is compiled using the Add-on SDK.
 
   - lib/main.js - this is Firefox's sort of "background page" for RES, like what Chrome has, but just a JS file
@@ -62,31 +64,31 @@ NOTE: An XPI is a Firefox add-on... This is compiled using the Add-on SDK.
   - README.md - "documentation" file that's not currently being used.
   - package.json - the project manifest for the Firefox add-on
 
-#### OperaBlink
+##### OperaBlink
 
   - background.js - the "background page" for RES, necessary for chrome extensions
   - manifest.json - the project manifest
   - icon.png, icon48.png, icon128.png - icons!
 
-### Building development versions of the extension ###
+## Building development versions of the extension
 
 In order to build a development version of RES, first run `makelinks.sh` to generate hardlinks in to lib from the browser specific folders. NOTE: switching branch's will break hardlinks, so you will need to rerun `makelinks.sh` whenever you checkout new code. 
 
 An alternative grunt build script is also provided, see "Using grunt instead of hard links" for more details.
 
-#### Building in Chrome
+##### Building in Chrome
 
   1. Go to `Menu->Tools->Extensions` and tick the `Developer Mode` checkbox
   2. Choose `Load unpacked extension` and point it to the `Chrome` folder.  Make sure you only have one RES version running at a time.
   3. Any time you make changes to the script you must go back to the `Menu->Tools->Extensions` page and ``Reload`` the extension.
 
-#### Building in Firefox
+##### Building in Firefox
 
   1. Download the addon SDK from [here](https://ftp.mozilla.org/pub/mozilla.org/labs/jetpack/jetpack-sdk-latest.zip).
   2. Start a terminal and source the python script so that you can run the ``cfx`` commands. In Unix this is usually ``. bin/activate`` or ``source bin/activate`` and in Windows this usually involves running ``Scripts/activate.bat``. If your python is python 3, run ``virtualenv --python=pyhton2 .`` and try again.
   3. In the terminal, ``cd`` to the ``XPI`` folder and run the command ``cfx run``, which should launch a new Firefox browser using a temporary profile with only RES installed. 
 
-#### Building in Safari (assumes Mac)**
+##### Building in Safari (assumes Mac)**
 
   1. Open the ``Preferences`` by going to ``Safari->Preferences`` or pressing ``⌘,``, then go to ``Advanced`` and check the checkbox for ``Show develop menu in menu bar``. 
   2. Navigate to ``Develop->Show Extension Builder`` to open the extensions menu. Add a new extension by pressing the ``+`` in the bottom left and choosing ``Add extension``.
@@ -95,13 +97,13 @@ An alternative grunt build script is also provided, see "Using grunt instead of 
   5. You then need to visit the [Safari Developer Program](https://developer.apple.com/programs/safari/) site and sign up for a FREE account.
   6. You can then visit your member page and use the certificate utility to create a new Safari Developer Certificate. Follow the instructions to install the certificate. If you have an error involving it being signed by an unknown authority, then doubleclick the certificate and under the ``Trust`` setting choose ``Always Trust``. You should then be able to install the extension from the ``Extension Builder`` menu.
 
-#### Building in Opera
+##### Building in Opera
   1. Click ``Tools->Extensions->Manage Extensions``
   2. Drag the ``config.xml`` file in the ``Opera`` directory in to the extensions window and release. You should now have installed the extension. 
 
 The above steps will fail if the `makelinks.sh` or grunt build scripts have not been run before hand. Please ensure you only have one copy of RES running at a time.
 
-### Using grunt instead of hard links ###
+### Using grunt instead of hard links
 
 If you prefer RES can also be built using [grunt](http://gruntjs.com/). In order to use grunt you will need to have [node.js](http://nodejs.org/) installed on your system.
 
