@@ -28,7 +28,7 @@ In order to build the extension the files from lib must be replicated (either vi
 - `README.md` - (YOU ARE HERE - unless you're on GitHub browsing)
 - `changelog.txt` - self explanatory
 - `makelinks.sh` - Script to generate hard-links
--` Gruntfile.js`, `package.json` - Used for alternative build scripts
+- `Gruntfile.js`, `package.json` - Used for alternative build scripts
 - `lib/` - Core RES code
 - `lib/modules/` - RES Module's
 - `Chrome/` - Chrome Specific RES files
@@ -41,37 +41,37 @@ In order to build the extension the files from lib must be replicated (either vi
 
 ##### Chrome files
 
-  - background.js - the "background page" for RES, necessary for chrome extensions
-  - manifest.json - the project manifest
-  - icon.png, icon48.png, icon128.png - icons!
-  - jquery-1.10.2.min.map - Chrome moans if this file doesn't exist
+  - `background.js` - the "background page" for RES, necessary for chrome extensions
+  - `manifest.json` - the project manifest
+  - `icon.png`, `icon48.png`, `icon128.png` - icons!
+  - `jquery-1.10.2.min.map` - Chrome moans if this file doesn't exist
 
 ##### Opera files
 
-  - index.html - the "background page" for RES, necessary for opera extensions
-  - config.xml - Opera's equivalent of Chrome's manifest.json
-  - logo.gif - a logo gif!
+  - `index.html` - the "background page" for RES, necessary for opera extensions
+  - `config.xml` - Opera's equivalent of Chrome's manifest.json
+  - `logo.gif` - a logo gif!
 
 ##### Safari files (RES.safariextension)
 NOTE: This directory must have .safariextension in the name, or Safari's extension builder pukes.
 
-  - background-safari.html - the "background page" for RES, necessary for safari extensions
-  - Info.plist - the project manifest
-  - icon.png, icon48.png, icon128.png - icons!
+  - `background-safari.html` - the "background page" for RES, necessary for safari extensions
+  - `Info.plist` - the project manifest
+  - `icon.png`, `icon48.png`, `icon128.png` - icons!
 
 ##### Firefox files (XPI)
 NOTE: An XPI is a Firefox add-on... This is compiled using the Add-on SDK.
 
-  - lib/main.js - this is Firefox's sort of "background page" for RES, like what Chrome has, but just a JS file
-  - doc/main.md - "documentation" file that's not currently being used.
-  - README.md - "documentation" file that's not currently being used.
-  - package.json - the project manifest for the Firefox add-on
+  - `lib/main.js` - this is Firefox's sort of "background page" for RES, like what Chrome has, but just a JS file
+  - `doc/main.md` - "documentation" file that's not currently being used.
+  - `README.md` - "documentation" file that's not currently being used.
+  - `package.json` - the project manifest for the Firefox add-on
 
 ##### OperaBlink files
 
-  - background.js - the "background page" for RES, necessary for chrome extensions
-  - manifest.json - the project manifest
-  - icon.png, icon48.png, icon128.png - icons!
+  - `background.js` - the "background page" for RES, necessary for chrome extensions
+  - `manifest.json` - the project manifest
+  - `icon.png`, `icon48.png`, `icon128.png` - icons!
 
 ## Building development versions of the extension
 
