@@ -1223,3 +1223,29 @@ html.res-nightmode .multi-details .subreddits .remove-sr {
 .res-nightmode #about-gold footer > p {
     color: #222;
 }
+
+/* Live pages */
+.res-nightmode .liveupdate-listing table tr:hover th time {
+    color: #eee;
+}
+.res-nightmode aside.sidebar #discussions li {
+    background: #222;
+}
+.res-nightmode .sidebar .md {
+    color: #ccc;
+}
+.res-nightmode .sidebar h1,
+.res-nightmode .sidebar h2,
+.res-nightmode .sidebar h3,
+.res-nightmode .sidebar h4,
+.res-nightmode .sidebar h5,
+.res-nightmode .sidebar h6 {
+    color: #ddd;
+}
+.res-nightmode .liveupdate-listing table tr.separator td {
+    background-color: transparent;
+}
+.res-nightmode .liveupdate-listing table tr.separator time {
+    background: #666;
+    color: #fff;
+}
