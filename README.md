@@ -25,19 +25,19 @@ In order to build the extension the files from lib must be replicated (either vi
 
 ##### Top level files & folders
 
-- README.md - (YOU ARE HERE - unless you're on GitHub browsing)
-- changelog.txt - self explanatory
-- makelinks.sh - Script to generate hard-links
-- Gruntfile.js, package.json - Used for alternative build scripts
-- lib/ - Core RES code
-- lib/modules - RES Module's
-- Chrome/ - Chrome Specific RES files
-- Opera/ - Opera specific RES files
-- OperaBlink/ - Opera Blink (new Opera) specific RES files
-- RES.safariextension/  - Safari specific RES files
-- XPI/ - Firefox Specific RES files
-- IE/ - Internet explorer specific files
-- tests/ - RES tests
+- `README.md` - (YOU ARE HERE - unless you're on GitHub browsing)
+- `changelog.txt` - self explanatory
+- `makelinks.sh` - Script to generate hard-links
+-` Gruntfile.js`, `package.json` - Used for alternative build scripts
+- `lib/` - Core RES code
+- `lib/modules/` - RES Module's
+- `Chrome/` - Chrome Specific RES files
+- `Opera/` - Opera specific RES files
+- `OperaBlink/` - Opera Blink (new Opera) specific RES files
+- `RES.safariextension/`  - Safari specific RES files
+- `XPI/` - Firefox Specific RES files
+- `IE/` - Internet explorer specific files
+- `tests/` - RES tests
 
 ##### Chrome files
 
