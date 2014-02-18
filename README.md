@@ -27,6 +27,9 @@ In order to build the extension the files from lib must be replicated (either vi
 
 - README.md - (YOU ARE HERE - unless you're on GitHub browsing)
 - changelog.txt - self explanatory
+- makelinks.sh - Script to generate hard-links
+- Gruntfile.js, package.json - Used for alternative build scripts
+
 - lib/ - Core RES code
 - lib/modules - RES Module's
 - Chrome/ - Chrome Specific RES files
@@ -34,6 +37,8 @@ In order to build the extension the files from lib must be replicated (either vi
 - OperaBlink/ - Opera Blink (new Opera) specific RES files
 - RES.safariextension/  - Safari specific RES files
 - XPI/ - Firefox Specific RES files
+- IE/ - Internet explorer specific files
+- tests/ - RES tests
 
 ##### Chrome files
 
@@ -48,7 +53,7 @@ In order to build the extension the files from lib must be replicated (either vi
   - config.xml - Opera's equivalent of Chrome's manifest.json
   - logo.gif - a logo gif!
 
-##### RES.safariextension
+##### Safari files (RES.safariextension)
 NOTE: This directory must have .safariextension in the name, or Safari's extension builder pukes.
 
   - background-safari.html - the "background page" for RES, necessary for safari extensions
@@ -63,7 +68,7 @@ NOTE: An XPI is a Firefox add-on... This is compiled using the Add-on SDK.
   - README.md - "documentation" file that's not currently being used.
   - package.json - the project manifest for the Firefox add-on
 
-##### OperaBlink
+##### OperaBlink files
 
   - background.js - the "background page" for RES, necessary for chrome extensions
   - manifest.json - the project manifest
@@ -94,7 +99,7 @@ An alternative grunt build script is also provided, see "Using grunt instead of 
   3. Navigate to the ``RES.safariextension`` folder for RES and select it. 
   4. It will likely say you cannot install it because no Safari development certificate exists. You will need to visit the [Safari Dev Center](https://developer.apple.com/devcenter/safari/index.action) and create an account (right hand side).
   5. You then need to visit the [Safari Developer Program](https://developer.apple.com/programs/safari/) site and sign up for a FREE account.
-  6. You can then visit your member page and use the certificate utility to create a new Safari Developer Certificate. Follow the instructions to install the certificate. If you have an error involving it being signed by an unknown authority, then doubleclick the certificate and under the ``Trust`` setting choose ``Always Trust``. You should then be able to install the extension from the ``Extension Builder`` menu.
+  6. You can then visit your member page and use the certificate utility to create a new Safari Developer Certificate. Follow the instructions to install the certificate. If you have an error involving it being signed by an unknown authority, then double click the certificate and under the ``Trust`` setting choose ``Always Trust``. You should then be able to install the extension from the ``Extension Builder`` menu.
 
 ##### Building in Opera
   1. Click ``Tools->Extensions->Manage Extensions``
