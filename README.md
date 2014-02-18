@@ -29,8 +29,6 @@ In order to build the extension the files from lib must be replicated (either vi
 - changelog.txt - self explanatory
 - makelinks.sh - Script to generate hard-links
 - Gruntfile.js, package.json - Used for alternative build scripts
-
-
 - lib/ - Core RES code
 - lib/modules - RES Module's
 - Chrome/ - Chrome Specific RES files
