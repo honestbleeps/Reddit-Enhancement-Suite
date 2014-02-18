@@ -2,7 +2,7 @@
 
 RES is suite of modules to enhance your Reddit browsing experience. 
 
-For general RES documentation, see the [Reddit Enhancement Suite Wiki](http://redditenhancementsuite.com:8080/wiki/)
+For general documentation, see the [Reddit Enhancement Suite Wiki](http://redditenhancementsuite.com:8080/wiki/).
 
 ### Introduction
 
@@ -88,7 +88,7 @@ An alternative grunt build script is also provided, see "Using grunt instead of 
   2. Start a terminal and source the python script so that you can run the ``cfx`` commands. In Unix this is usually ``. bin/activate`` or ``source bin/activate`` and in Windows this usually involves running ``Scripts/activate.bat``. If your python is python 3, run ``virtualenv --python=pyhton2 .`` and try again.
   3. In the terminal, ``cd`` to the ``XPI`` folder and run the command ``cfx run``, which should launch a new Firefox browser using a temporary profile with only RES installed. 
 
-##### Building in Safari (assumes Mac)**
+##### Building in Safari (assumes Mac)
 
   1. Open the ``Preferences`` by going to ``Safari->Preferences`` or pressing ``⌘,``, then go to ``Advanced`` and check the checkbox for ``Show develop menu in menu bar``. 
   2. Navigate to ``Develop->Show Extension Builder`` to open the extensions menu. Add a new extension by pressing the ``+`` in the bottom left and choosing ``Add extension``.
