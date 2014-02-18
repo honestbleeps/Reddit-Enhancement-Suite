@@ -1,22 +1,9 @@
 modules['mobileRedirect'] = {
 	moduleID: 'mobileRedirect',
 	moduleName: 'mobileRedirect',
-	category: 'Filters',
+	category: 'UI',
 	options: {
-		// any configurable options you have go here...
-		// options must have a type and a value.. 
-		// valid types are: text, boolean (if boolean, value must be true or false)
-		// for example:
-		// defaultMessage: {
-		// 	type: 'text',
-		// 	value: 'this is default text',
-		// 	description: 'explanation of what this option is for'
-		// },
-		// doSpecialStuff: {
-		// 	type: 'boolean',
-		// 	value: false,
-		// 	description: 'explanation of what this option is for'
-		// }
+	
 	},
 	description: 'Have mobile sites redirect to their desktop version. No more loading of mobile sites and having to manually go to the desktop version of the page!',
 	isEnabled: function() {
