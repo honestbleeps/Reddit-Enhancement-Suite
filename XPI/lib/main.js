@@ -175,6 +175,7 @@ pageMod.PageMod({
 		self.data.url('konami.js'),
 		self.data.url('mediacrush.js'),
 		self.data.url('gfycat.js'),
+		self.data.url('sjcl.js'),
 		self.data.url('hogan-2.0.0.js'),
 		self.data.url('reddit_enhancement_suite.user.js'),
 		self.data.url('modules/betteReddit.js'),
