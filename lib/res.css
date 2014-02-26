@@ -1218,5 +1218,18 @@ a.bylink.parentlink {
 }
 #alert_message_background { 
 	position: fixed; top: 0; left: 0; bottom: 0; right: 0;
-	background-color: rgba(51, 51, 51,0.95); z-index: 100000200;
-};
+	background-color: rgba(51, 51, 51,0.90); z-index: 100000200;
+}
+.batch-icon {
+    font-family:"Batch";
+    font-size:16px;
+    line-height:1;
+    display:inline-block;
+    cursor: pointer;
+}
+.batch-icon-right {
+	float:right;
+}
+.batch-icon:before {
+    content:attr(data-icon);
+}
