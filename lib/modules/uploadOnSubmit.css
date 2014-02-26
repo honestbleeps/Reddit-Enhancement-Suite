@@ -1,0 +1,76 @@
+.upload-on-submit #url-field {
+	position: relative;
+}
+
+.upload-on-submit #url-field .upload, .upload-on-submit #url-field .status {
+	font-size: 10pt;
+	color: #888;
+	position: absolute;
+	bottom: 13px;
+	left: 10px;
+}
+
+.upload-on-submit .hidden {
+	display: none !important;
+}
+
+.upload-on-submit #url-field .progress-wrapper {
+	width: 500px;
+	height: 8px;
+	position: absolute;
+	top: 54px;
+	left: 10px;
+	overflow: hidden;
+}
+
+.upload-on-submit #url-field .progress-wrapper .progress {
+	display: block;
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 8px;
+}
+
+.upload-on-submit #url-field .progress {
+    -webkit-animation: progressbar 1s linear infinite;
+    animation: progressbar 1s linear infinite;
+    background-color: #149bdf;
+    background-image: -moz-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+    background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+    background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+    background-size: 40px 40px;
+}
+
+.upload-on-submit #url-field .progress.progress-stalled {
+	background-image: none;
+}
+
+.upload-on-submit #url-field .progress.progress-grey {
+	background-color: #888;
+}
+
+.upload-on-submit #url-field .progress.progress-green {
+	background-color: #5eb95e;
+}
+
+.upload-on-submit #url-field .progress.progress-red {
+	background-color: #ff0000;
+}
+
+@-webkit-keyframes progressbar {
+    from {
+        background-position: 0px 0px;
+    }
+    to {
+        background-position: 39px 0px;
+    }
+}
+
+@keyframes progressbar {
+    from {
+        background-position: 0px 0px;
+    }
+    to {
+        background-position: 39px 0px;
+    }
+}
