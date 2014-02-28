@@ -174,6 +174,7 @@ pageMod.PageMod({
 		self.data.url('template.js'),
 		self.data.url('konami.js'),
 		self.data.url('mediacrush.js'),
+		self.data.url('gfycat.js'),
 		self.data.url('hogan-2.0.0.js'),
 		self.data.url('reddit_enhancement_suite.user.js'),
 		self.data.url('modules/betteReddit.js'),
@@ -218,9 +219,9 @@ pageMod.PageMod({
 		self.data.url('nightmode.css'),
 		self.data.url('commentBoxes.css'),
 		self.data.url('res.css'),
+		self.data.url('players.css'),
 		self.data.url('guiders.css'),
 		self.data.url('tokenize.css'),
-		self.data.url('fitbamob.css'),
 		self.data.url("batch.css")
 	],
 	onAttach: function(worker) {

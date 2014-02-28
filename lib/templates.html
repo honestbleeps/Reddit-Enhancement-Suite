@@ -83,7 +83,9 @@
 
 			<p><strong>Note:</strong> Reddit Enhancement Suite will check, at most once a day, to see if a new version is available.  No data about you is sent to me nor is it stored.</p>
 		</div>
-
+		<div id="teamRESPanel">
+			<p>Steve Sobel (<a target="_blank" href="http://www.reddit.com/user/honestbleeps/">honestbleeps</a>) is the primary developer of RES.  Beyond that, there are a number of people who have contributed code, design and/or great ideas to RES.  To read more about the RES team, visit <a target="_blank" href="http://redditenhancementsuite.com/about.html">the RES website.</a></p>
+		</div>
 		<div id="searchRESPanel">
 			<div id="SearchRES-results-container">
 				<h4>Results for: <span id="SearchRES-query"></span></h4>
@@ -99,5 +101,89 @@
 			</div>
 		</div>
 		<!-- /RESConsole -->
+
+		<!--VideoUI-->
+		<!--Adapted from MediaCrush video player-->
+		<script id="VideoUI" type="application/x-template">
+			<div class="res-player video {{ brand.name }}">
+				<video {{#autoplay}}autoplay="true"{{/autoplay}} {{#loop}}loop="true"{{/loop}} preload>
+					{{#sources}}
+					<source src="{{ source }}" {{#type}}type="{{ type }}"{{/type}}>
+					{{/sources}}
+				</video>
+				{{#brand}}
+				<a class="brand" href="{{ brand.url }}" target="_blank"><img src="{{ brand.img }}" width="16" height="16" /> {{ brand.name }}</a>
+				{{/brand}}
+				<a class="start {{#autoplay}}hidden{{/autoplay}}" href="#">
+					<span class="res-icon">&#xF16B;</span>
+				</a>
+				<div class="controls {{#muted}}muted{{/muted}}">
+					<a href="#" class="res-icon play-pause {{#autoplay}}pause{{/autoplay}}{{^autoplay}}play{{/autoplay}}"></a>
+					<div class="seek">
+						<div class="background"></div>
+						<div class="loading progress"></div>
+						<div class="hidden loaded"></div>
+						<div class="hidden played"></div>
+						<div class="clickable"></div>
+					</div>
+					<div class="right">
+						{{^muted}}
+						<span class="toggleable volume">
+							<a href="#" class="res-icon">&#xF03B;</a>
+							<div>
+								<span>
+									<span class="background"></span>
+									<span class="amount"></span>
+									<span class="clickable"></span>
+								</span>
+							</div>
+						</span>
+						{{/muted}}
+						<a href="#" class="res-icon fullscreen"></a>
+						<span class="toggleable settings">
+							<span class="res-icon">&#xF04E;</span>
+							<div>
+								<div class="playback-speed">
+									<div class="header">Playback Speed</div>
+									<div class="speeds">
+										<a href="#" data-speed="0.5">50%</a><a href="#" data-speed="1" class="selected">100%</a><a href="#" data-speed="1.5">150%</a>
+									</div>
+								</div>
+								<div class="highlight">
+									<a href="#" class="loop">
+										<span class="text">Loop {{#loop}}ON{{/loop}}{{^loop}}OFF{{/loop}}</span><span class="res-icon loop {{#loop}}disabled{{/loop}}">&#xF0B2;</span>
+									</a>
+								</div>
+								{{#download}}
+								<div class="highlight"><a href="{{download}}" class="download">Download<span class="res-icon">&#xF0BD;</span></a></div>
+								{{/download}}
+							</div>
+						</span>
+					</div>
+				</div>
+			</div>
+		</script>
+		<!--/VideoUI-->
+		<!--GfycatUI-->
+		<script id="GfycatUI" type="application/x-template">
+			<div class="res-player video gfycatR">
+				<a class="madeVisible" href="{{ directurl }}" target="_blank">
+				<video autoplay loop muted preload title="Drag to Resize" class="gfyRVid" >
+					{{#sources}}
+					<source src="{{ source }}" {{#type}}type="{{ type }}"{{/type}} class="{{ class }}">
+					{{/sources}}
+				</video>
+				</a>
+				<div style="height: 35px;" class="ctrlContainer">
+					<div style="width: 90px; height: 25px; float: right; padding: 5px; display: none;" class="ctrlBox">
+						<img src="{{ placeholder }}"  class="gfyRCtrlFaster" style="float: right; margin-right: 5px; width: 14px; height: 12px; background:url('{{ controlimg }}') -20px 0; border: none;"/>
+						<img src="{{ placeholder }}"  class="gfyRCtrlSlower" style="float: right; margin-right: 5px; width: 14px; height: 12px; background:url('{{ controlimg }}') -165px 0; border: none;"/>
+						<img src="{{ placeholder }}"  class="gfyRCtrlReverse" style="float: right; margin-right: 5px; width: 14px; height: 12px; background:url('{{ controlimg }}') -46px 0; border: none;"/>					
+						<img src="{{ placeholder }}"  class="gfyRCtrlPause" style="float: right; margin-right: 5px; width: 12px; height: 12px; background:url('{{ controlimg }}') -95px 0; border: none;"/>
+					</div>
+				</div>
+			</div>
+		</script>
+		<!--/GfycatUI-->
 	</body>
 </html>
