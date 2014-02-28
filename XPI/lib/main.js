@@ -18,7 +18,8 @@ let historyService = Cc["@mozilla.org/browser/history;1"].getService(Ci.mozIAsyn
 let localStorage = {};
 let file = require("sdk/io/file")
 let ss = (function() {
-    var filename = (function() {
+	var timeout = null;
+	var filename = (function() {
 		let storeFile = Cc["@mozilla.org/file/directory_service;1"].
 			getService(Ci.nsIProperties).
 			get("ProfD", Ci.nsIFile);
@@ -29,7 +30,7 @@ let ss = (function() {
 		storeFile.append("store.json");
 		return storeFile.path;
 	})();
-	this.save = function() {
+	var really_save = function() {
 		let stream = file.open(filename, "w");
 		try {
 			stream.writeAsync(JSON.stringify(localStorage), function writeAsync(err) {
@@ -41,6 +42,12 @@ let ss = (function() {
 			// writeAsync closes the stream after it's done, so only close on error.
 			stream.close();
 		}
+	};
+	this.save = function() {
+	    if (timeout !== null) {
+		clearTimeout(timeout);
+	    }
+	    timeout = setTimeout(really_save, 3000);
 	};
 	let str = file.read(filename);
 	localStorage = JSON.parse(str);
