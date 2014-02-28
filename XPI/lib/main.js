@@ -6,13 +6,55 @@ let pageMod = require("page-mod");
 let Request = require("request").Request;
 let self = require("self");
 let tabs = require("tabs");
-let ss = require("simple-storage");
+//let ss = require("simple-storage"); // Temporarily disabled
+let timer = require("timer");
 let priv = require("private-browsing");
 let windows = require("sdk/windows").browserWindows;
 
 // require chrome allows us to use XPCOM objects...
 const {Cc,Ci,Cu,components} = require("chrome");
 let historyService = Cc["@mozilla.org/browser/history;1"].getService(Ci.mozIAsyncHistory);
+
+// Temporary workaround for ss being broken (https://github.com/honestbleeps/Reddit-Enhancement-Suite/issues/797)
+let localStorage = {};
+let file = require("sdk/io/file")
+let ss = (function() {
+	var timeout = null;
+	var filename = (function() {
+		let storeFile = Cc["@mozilla.org/file/directory_service;1"].
+			getService(Ci.nsIProperties).
+			get("ProfD", Ci.nsIFile);
+		storeFile.append("jetpack");
+		storeFile.append(self.id);
+		storeFile.append("simple-storage");
+		file.mkpath(storeFile.path);
+		storeFile.append("store.json");
+		return storeFile.path;
+	})();
+	var really_save = function() {
+		let stream = file.open(filename, "w");
+		try {
+			stream.writeAsync(JSON.stringify(localStorage), function writeAsync(err) {
+				if (err)
+					console.error("Error writing simple storage file: " + filename);
+			}.bind(this));
+		}
+		catch (err) {
+			// writeAsync closes the stream after it's done, so only close on error.
+			stream.close();
+		}
+	};
+	this.save = function() {
+	    if (timeout !== null) {
+			timer.clearTimeout(timeout);
+	    }
+	    timeout = timer.setTimeout(really_save, 3000);
+	};
+	let str = file.read(filename);
+	localStorage = JSON.parse(str);
+	return this;
+})();
+// End temporary workaround
 
 // Cookie manager for new API login
 let cookieManager = Cc["@mozilla.org/cookiemanager;1"].getService().QueryInterface(Ci.nsICookieManager2);
@@ -35,16 +77,16 @@ function detachWorker(worker, workerArray) {
 	}
 }
 
-let localStorage = ss.storage;
-
 localStorage.getItem = function(key) {
-	return ss.storage[key];
+	return localStorage[key];
 };
 localStorage.setItem = function(key, value) {
-	ss.storage[key] = value;
+	localStorage[key] = value;
+	ss.save();
 };
 localStorage.removeItem = function(key) {
-	delete ss.storage[key];
+	delete localStorage[key];
+	ss.save();
 };
 
 let XHRCache = {
