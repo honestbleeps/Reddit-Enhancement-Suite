@@ -1604,7 +1604,8 @@ modules['showImages'] = {
 				var href = elem.href.toLowerCase();
 				var hotLink = false;
 				if(href.match(/(giant|fat|zippy)*.gif/g))
-				        hotLink = true;
+ +				        hotLink = true;
+
 				var siteMod = modules['showImages'].siteModules['gfycat'];
 				var apiURL = 'http://gfycat.com/cajax/get/' + groups[1];
 
@@ -2938,4 +2939,5 @@ modules['showImages'] = {
 		},
 	}
 };
+
 
