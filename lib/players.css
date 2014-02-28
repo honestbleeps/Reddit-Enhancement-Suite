@@ -294,3 +294,14 @@
 		.res-player { position: relative; display: inline-block; width: auto; max-width: 100%; }
 		.res-player video { max-width: 100%; }
 		.res-player.fullscreen, .res-player.fullscreen video { max-width: none; }
+
+
+	.res-lightweight-player-controls {
+		cursor: default;
+		float: right;
+		font-size: 12px;
+		margin-right: 5px;
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		user-select: none;
+	}
