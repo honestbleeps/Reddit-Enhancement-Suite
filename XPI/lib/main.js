@@ -7,6 +7,7 @@ let Request = require("request").Request;
 let self = require("self");
 let tabs = require("tabs");
 //let ss = require("simple-storage"); // Temporarily disabled
+let timer = require("timer");
 let priv = require("private-browsing");
 let windows = require("sdk/windows").browserWindows;
 
@@ -31,6 +32,7 @@ let ss = (function() {
 		return storeFile.path;
 	})();
 	var really_save = function() {
+		console.log('really save');
 		let stream = file.open(filename, "w");
 		try {
 			stream.writeAsync(JSON.stringify(localStorage), function writeAsync(err) {
@@ -44,10 +46,11 @@ let ss = (function() {
 		}
 	};
 	this.save = function() {
+		console.log('save');
 	    if (timeout !== null) {
-		clearTimeout(timeout);
+			timer.clearTimeout(timeout);
 	    }
-	    timeout = setTimeout(really_save, 3000);
+	    timeout = timer.setTimeout(really_save, 3000);
 	};
 	let str = file.read(filename);
 	localStorage = JSON.parse(str);
