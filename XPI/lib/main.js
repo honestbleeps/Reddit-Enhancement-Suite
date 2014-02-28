@@ -32,7 +32,6 @@ let ss = (function() {
 		return storeFile.path;
 	})();
 	var really_save = function() {
-		console.log('really save');
 		let stream = file.open(filename, "w");
 		try {
 			stream.writeAsync(JSON.stringify(localStorage), function writeAsync(err) {
@@ -46,7 +45,6 @@ let ss = (function() {
 		}
 	};
 	this.save = function() {
-		console.log('save');
 	    if (timeout !== null) {
 			timer.clearTimeout(timeout);
 	    }
