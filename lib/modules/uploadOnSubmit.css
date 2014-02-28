@@ -74,3 +74,22 @@
         background-position: 39px 0px;
     }
 }
+
+#RES-host-selection .roundfield-content p {
+    font-size: 10pt;
+    margin: 0;
+}
+
+#RES-host-selection .host {
+    position: relative;
+    padding: 3px;
+    padding-left: 55px;
+    height: 50px;
+    margin: 5px 0;
+}
+
+#RES-host-selection img.host-brand {
+    position: absolute;
+    left: 5px;
+    top: 10px;
+}
