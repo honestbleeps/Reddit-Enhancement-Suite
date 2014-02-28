@@ -1604,7 +1604,8 @@ modules['showImages'] = {
 				var href = elem.href.toLowerCase();
 				var hotLink = false;
 				if(href.match(/(giant|fat|zippy)*.gif/g))
-				        hotLink = true;
+ +				        hotLink = true;
+
 				var siteMod = modules['showImages'].siteModules['gfycat'];
 				var apiURL = 'http://gfycat.com/cajax/get/' + groups[1];
 
@@ -1696,17 +1697,6 @@ modules['showImages'] = {
 					generate: generate,
 					media: info
 				};
-				sources = [];
-				sources[0] = {
-					'file': info.webmUrl,
-					'type': 'video/webm'
-				};
-				sources[1] = {
-					'file': info.mp4Url,
-					'type': 'video/mp4'
-				};
-				elem.type = 'VIDEO';
-				$(elem).data('sources', sources);
 
 				if (RESUtils.pageType() === 'linklist') {
 					$(elem).closest('.thing').find('.thumbnail').attr('href', elem.href);
@@ -2949,4 +2939,5 @@ modules['showImages'] = {
 		},
 	}
 };
+
 
