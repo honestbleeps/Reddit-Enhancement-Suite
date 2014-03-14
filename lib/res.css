@@ -650,32 +650,16 @@ p.moduleListing {
 	text-align: center;
 	background-color: #FFFACD;
 }
-#RESConsoleAboutPanel p {
+#RESConsoleContent p {
 	margin-bottom: 10px;
 }
-#RESConsoleAboutPanel ul {
+#RESConsoleContent ul {
 	margin-bottom: 10px;
 	margin-top: 10px;
 }
-#RESConsoleAboutPanel li {
+#RESConsoleContent li {
 	list-style-type: disc;
 	margin-left: 15px;
-}
-.aboutPanel {
-	background-color: #f0f3fc;
-	border: 1px solid #c7c7c7;
-	border-radius: 3px 3px 3px 3px;
-	padding: 10px;
-}
-.aboutPanel h3 {
-	margin-top: 0;
-	margin-bottom: 10px;
-}
-#DonateRES {
-	display: block;
-}
-#RESTeam {
-	display: none;
 }
 #AboutRESTeamImage {
 	width: 100%;
@@ -686,11 +670,71 @@ p.moduleListing {
 	display: block;
 	margin: auto;
 }
-#AboutRES {
+#SearchRES-results-container {
 	display: none;
 }
-#SearchRES {
+#SearchRES-results-container + #SearchRES-boilerplate { margin-top: 1em; border-top: 1px black solid; padding-top: 1em; }
+#SearchRES-results-container h4 {
+	margin-top: 1.5em;
+}
+#SearchRES-results-container li {
+	list-style-type: none;
+	border-bottom: 1px dashed #ccc;
+	cursor: pointer;
+	margin-left: 0px;
+	padding-left: 10px;
+	padding-top: 24px;
+	padding-bottom: 24px;
+}
+#SearchRES-results-container li:hover {
+	background-color: #FAFAFF;
+}
+.SearchRES-result-title {
+	margin-bottom: 12px;
+	font-weight: bold;
+	color: #666;
+}
+.SearchRES-breadcrumb {
+	font-weight: normal;
+	color: #888;
+}
+.SearchRES-result-copybutton {
+	float: right;
+	opacity: 0.4;
+	padding: 10px;
+	width: 26px;
+	height: 22px;
+	background: no-repeat center center;
+	background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAWCAYAAADeiIy1AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA+5pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOmRjPSJodHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyIgeG1wTU06T3JpZ2luYWxEb2N1bWVudElEPSJ1dWlkOjY1RTYzOTA2ODZDRjExREJBNkUyRDg4N0NFQUNCNDA3IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkUwRjM3M0QxMDY5NTExRTI5OUZEQTZGODg4RDc1ODdCIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkUwRjM3M0QwMDY5NTExRTI5OUZEQTZGODg4RDc1ODdCIiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCBDUzYgKE1hY2ludG9zaCkiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDowMTgwMTE3NDA3MjA2ODExODA4M0ZFMkJBM0M1RUU2NSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDowNjgwMTE3NDA3MjA2ODExODA4M0U3NkRBMDNEMDVDMSIvPiA8ZGM6dGl0bGU+IDxyZGY6QWx0PiA8cmRmOmxpIHhtbDpsYW5nPSJ4LWRlZmF1bHQiPmdseXBoaWNvbnM8L3JkZjpsaT4gPC9yZGY6QWx0PiA8L2RjOnRpdGxlPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pn00ay4AAAEISURBVHjavJWBDYQgDEXhcgMwwm2gIzgCIzjCjeAIjsAIN8KN4Ai6wW3AtTm4EChYkdjkm2javLa2IKy1olZgL9CD5XsShI8PSF8B8pqvAqEWUJ8FYemglQhEmfg/gA0uhvLHVo5EUtmAf3ZgCoNB74xvLkEVgnwlJtOep8vSVihM9veRAKiDFdhCK/VdECal9JBONLSkIhzVBpWUW4cT1giSDEMMmqP+GjdxA2OPiuMdgxb3bQozOr2wBMhSGTFAppQYBZoqDtWR4ZuA1MFromf60gt7AKZyp0oo6UD4ImuWEJYbB6Dbi28BYsXfQJsLMBUQH7Nx/HWDU4B3le9cfCWtHAjqK8AAypyhqqqagq4AAAAASUVORK5CYII=");
 	display: none;
+}
+#SearchRES-results li:hover .SearchRES-result-copybutton { display: block; }
+#SearchRES-input-submit {
+	margin-left: 8px;
+}
+#SearchRES-input {
+	width: 200px;
+	height: 22px;
+	font-size: 14px;
+}
+#SearchRES-input-container {
+	float: left;
+	margin-left: 3em;
+	margin-top: 7px;
+}
+#RESSearchMenuItem {
+	display: block;
+	float: right;
+	margin: 7px;
+	width: 21px;height: 21px;
+	border: 1px #c9def2 solid;
+	border-radius: 3px;
+	background: transparent center center no-repeat;
+	background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAEJGlDQ1BJQ0MgUHJvZmlsZQAAOBGFVd9v21QUPolvUqQWPyBYR4eKxa9VU1u5GxqtxgZJk6XtShal6dgqJOQ6N4mpGwfb6baqT3uBNwb8AUDZAw9IPCENBmJ72fbAtElThyqqSUh76MQPISbtBVXhu3ZiJ1PEXPX6yznfOec7517bRD1fabWaGVWIlquunc8klZOnFpSeTYrSs9RLA9Sr6U4tkcvNEi7BFffO6+EdigjL7ZHu/k72I796i9zRiSJPwG4VHX0Z+AxRzNRrtksUvwf7+Gm3BtzzHPDTNgQCqwKXfZwSeNHHJz1OIT8JjtAq6xWtCLwGPLzYZi+3YV8DGMiT4VVuG7oiZpGzrZJhcs/hL49xtzH/Dy6bdfTsXYNY+5yluWO4D4neK/ZUvok/17X0HPBLsF+vuUlhfwX4j/rSfAJ4H1H0qZJ9dN7nR19frRTeBt4Fe9FwpwtN+2p1MXscGLHR9SXrmMgjONd1ZxKzpBeA71b4tNhj6JGoyFNp4GHgwUp9qplfmnFW5oTdy7NamcwCI49kv6fN5IAHgD+0rbyoBc3SOjczohbyS1drbq6pQdqumllRC/0ymTtej8gpbbuVwpQfyw66dqEZyxZKxtHpJn+tZnpnEdrYBbueF9qQn93S7HQGGHnYP7w6L+YGHNtd1FJitqPAR+hERCNOFi1i1alKO6RQnjKUxL1GNjwlMsiEhcPLYTEiT9ISbN15OY/jx4SMshe9LaJRpTvHr3C/ybFYP1PZAfwfYrPsMBtnE6SwN9ib7AhLwTrBDgUKcm06FSrTfSj187xPdVQWOk5Q8vxAfSiIUc7Z7xr6zY/+hpqwSyv0I0/QMTRb7RMgBxNodTfSPqdraz/sDjzKBrv4zu2+a2t0/HHzjd2Lbcc2sG7GtsL42K+xLfxtUgI7YHqKlqHK8HbCCXgjHT1cAdMlDetv4FnQ2lLasaOl6vmB0CMmwT/IPszSueHQqv6i/qluqF+oF9TfO2qEGTumJH0qfSv9KH0nfS/9TIp0Wboi/SRdlb6RLgU5u++9nyXYe69fYRPdil1o1WufNSdTTsp75BfllPy8/LI8G7AUuV8ek6fkvfDsCfbNDP0dvRh0CrNqTbV7LfEEGDQPJQadBtfGVMWEq3QWWdufk6ZSNsjG2PQjp3ZcnOWWing6noonSInvi0/Ex+IzAreevPhe+CawpgP1/pMTMDo64G0sTCXIM+KdOnFWRfQKdJvQzV1+Bt8OokmrdtY2yhVX2a+qrykJfMq4Ml3VR4cVzTQVz+UoNne4vcKLoyS+gyKO6EHe+75Fdt0Mbe5bRIf/wjvrVmhbqBN97RD1vxrahvBOfOYzoosH9bq94uejSOQGkVM6sN/7HelL4t10t9F4gPdVzydEOx83Gv+uNxo7XyL/FtFl8z9ZAHF4bBsrEwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAONJREFUOBGlkz0KwkAQRo2ICt5IsBE9gI1dwAOk8AqCgufQPo2CYGlhIVh4Aj2ClYVg4hvdCclmI8gOPHbn78vsLgnSNK35WN2nWXq9BRoVEwyIj6ANO4ghgbLJHVjM8BM4wwGesIYm2LU1O9ClSCwCzfXZi8gkF9NcSWBB0dVRGBPbOOLOSww4qJA38d3vbanqEabEA5Mbsj4gNH42vvgFxxTIJYpd4AgvcbAVdKDQ8/lKflaz12ds4e+hBxFsIYQ7fM1W/OHPyYktIZuiagLVt9cxgRucNPGvgPZlq/e/4C3wBoAXSrzY2Qd2AAAAAElFTkSuQmCC');
+}
+li:hover > #RESSearchMenuItem {
+	border-color: #369;
+	background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAEJGlDQ1BJQ0MgUHJvZmlsZQAAOBGFVd9v21QUPolvUqQWPyBYR4eKxa9VU1u5GxqtxgZJk6XtShal6dgqJOQ6N4mpGwfb6baqT3uBNwb8AUDZAw9IPCENBmJ72fbAtElThyqqSUh76MQPISbtBVXhu3ZiJ1PEXPX6yznfOec7517bRD1fabWaGVWIlquunc8klZOnFpSeTYrSs9RLA9Sr6U4tkcvNEi7BFffO6+EdigjL7ZHu/k72I796i9zRiSJPwG4VHX0Z+AxRzNRrtksUvwf7+Gm3BtzzHPDTNgQCqwKXfZwSeNHHJz1OIT8JjtAq6xWtCLwGPLzYZi+3YV8DGMiT4VVuG7oiZpGzrZJhcs/hL49xtzH/Dy6bdfTsXYNY+5yluWO4D4neK/ZUvok/17X0HPBLsF+vuUlhfwX4j/rSfAJ4H1H0qZJ9dN7nR19frRTeBt4Fe9FwpwtN+2p1MXscGLHR9SXrmMgjONd1ZxKzpBeA71b4tNhj6JGoyFNp4GHgwUp9qplfmnFW5oTdy7NamcwCI49kv6fN5IAHgD+0rbyoBc3SOjczohbyS1drbq6pQdqumllRC/0ymTtej8gpbbuVwpQfyw66dqEZyxZKxtHpJn+tZnpnEdrYBbueF9qQn93S7HQGGHnYP7w6L+YGHNtd1FJitqPAR+hERCNOFi1i1alKO6RQnjKUxL1GNjwlMsiEhcPLYTEiT9ISbN15OY/jx4SMshe9LaJRpTvHr3C/ybFYP1PZAfwfYrPsMBtnE6SwN9ib7AhLwTrBDgUKcm06FSrTfSj187xPdVQWOk5Q8vxAfSiIUc7Z7xr6zY/+hpqwSyv0I0/QMTRb7RMgBxNodTfSPqdraz/sDjzKBrv4zu2+a2t0/HHzjd2Lbcc2sG7GtsL42K+xLfxtUgI7YHqKlqHK8HbCCXgjHT1cAdMlDetv4FnQ2lLasaOl6vmB0CMmwT/IPszSueHQqv6i/qluqF+oF9TfO2qEGTumJH0qfSv9KH0nfS/9TIp0Wboi/SRdlb6RLgU5u++9nyXYe69fYRPdil1o1WufNSdTTsp75BfllPy8/LI8G7AUuV8ek6fkvfDsCfbNDP0dvRh0CrNqTbV7LfEEGDQPJQadBtfGVMWEq3QWWdufk6ZSNsjG2PQjp3ZcnOWWing6noonSInvi0/Ex+IzAreevPhe+CawpgP1/pMTMDo64G0sTCXIM+KdOnFWRfQKdJvQzV1+Bt8OokmrdtY2yhVX2a+qrykJfMq4Ml3VR4cVzTQVz+UoNne4vcKLoyS+gyKO6EHe+75Fdt0Mbe5bRIf/wjvrVmhbqBN97RD1vxrahvBOfOYzoosH9bq94uejSOQGkVM6sN/7HelL4t10t9F4gPdVzydEOx83Gv+uNxo7XyL/FtFl8z9ZAHF4bBsrEwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAPBJREFUOBGlkTEKAjEQRTciIth4HkvRA9jYCR7AwisICvZiZ6X9NlvYW1gIFp5AT2Eh6PpGMjLuBkUy8JmZ5P+fZOLyPE9iohIjFm20QTV0A+dch/UeqIMtSHnqg1wOmYEFjAkQ8hHswA1sQM3ytC6KWxBlqqM3IUna9GIy1DWbiwYziGdLkJpIQVZclz40REbgnKhMSB/+b+sKSZ8wpnb+9C71FQwsV+uPJ3iBDFFOO4E9uPt+TW6oUHPJwJvINy7BCvTBAohpBpoqfnFt861GOPUmc8vTd7L3O5it3OaCwUHZfxmoyObQN9r9n3W0wRPmWv0jZnGemgAAAABJRU5ErkJggg==');
 }
 .outdated {
 	float: right;
@@ -1174,5 +1218,313 @@ a.bylink.parentlink {
 }
 #alert_message_background { 
 	position: fixed; top: 0; left: 0; bottom: 0; right: 0;
-	background-color: rgba(51, 51, 51,0.95); z-index: 100000200;
-};
+	background-color: rgba(51, 51, 51,0.95);
+	z-index: 100000200;
+}
+.res-left {
+	float: left;
+}
+.res-right {
+	float: right;
+}
+.res-icon {
+	font-family: "Batch";
+	line-height: 1;
+	display: inline-block;
+	font-size: 16px;
+	font-weight: normal;
+}
+.res-icon.res-icon-32 {
+	font-size: 32px;
+}
+.res-icon.res-icon-64 {
+	font-size: 64px;
+}
+.res-icon.res-icon-128 {
+	font-size: 128px;
+}
+.res-icon[data-icon]::before {
+	content: attr(data-icon);
+}
+/* Compiled SCSS from MediaCrush - https://github.com/MediaCrush/MediaCrush */
+.player {
+  position: relative; }
+  .player.fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0; }
+    .player.fullscreen video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      max-width: none;
+      width: 100%; }
+  .player video.idle {
+    cursor: none; }
+    .player a {
+      outline-style: none; }
+      .player .start {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        display: block; }
+        .player .start span {
+          font-size: 128px;
+          font-weight: normal;
+          display: block;
+          width: 128px;
+          height: 128px;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          margin-left: -64px;
+          margin-top: -64px;
+          color: #fff;
+          text-shadow: 2px 2px 5px #000; }
+  .player .controls {
+    opacity: 0;
+    transition: opacity linear 0.2s;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 22px;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 2px; }
+    .player .controls.idle {
+      opacity: 0 !important; }
+      .player .controls.fixed {
+        opacity: 1 !important; }
+        .player .controls > * {
+          display: inline-block; }
+          .player .controls a {
+            color: #fff; }
+            .player .controls.muted .seek {
+              right: 55px; }
+              .player .controls .seek {
+                position: absolute;
+                left: 27px;
+                right: 77px;
+                top: 0;
+                bottom: 0; }
+                .player .controls .seek div {
+                  position: absolute;
+                  top: 11px;
+                  left: 0;
+                  height: 4px; }
+                  .player .controls .seek div.progress {
+                    width: 100%; }
+                    .player .controls .seek div.loaded {
+                      background: #08c;
+                      height: 2px;
+                      top: 13px;
+                      width: 0;
+                      max-width: 100%; }
+                      .player .controls .seek div.played {
+                        background: #fff;
+                        width: 0;
+                        position: relative; }
+                        .player .controls .seek div.played::after {
+                          position: absolute;
+                          right: -3px;
+                          top: -6px;
+                          display: block;
+                          width: 3px;
+                          height: 15px;
+                          background: #fff;
+                          content: ''; }
+                  .player .controls .seek div.background {
+                    background: rgba(50, 50, 50, 0.5);
+                    width: 100%; }
+                    .player .controls .seek div.clickable {
+                      top: 5px;
+                      left: 0;
+                      right: 0;
+                      bottom: 5px;
+                      height: auto;
+                      cursor: pointer; }
+    .player .controls .icon {
+      color: #fff;
+      font-size: 21px;
+      width: 21px;
+      height: 21px;
+      font-weight: normal;
+      line-height: 21px;
+      cursor: pointer; }
+      .player .controls .icon.play::before {
+        content: '\F16B'; }
+        .player .controls .icon.pause::before {
+          content: '\F16C'; }
+          .player .controls .icon.fullscreen {
+            font-size: 18px;
+            position: relative;
+            }
+            .player .controls .icon.fullscreen::before {
+              content: '\F0A4'; }
+              .player .controls .icon.fullscreen.disabled::before {
+                color: #fff;
+                content: '\F0A6'; }
+      .player .controls .icon.disabled {
+        color: #aaa; }
+    .player .controls .right {
+      float: right; }
+      .player .controls .toggleable {
+        position: relative; }
+		.player .controls .toggleable .icon {
+			position: relative;
+			top: -2px;
+			padding-top: 2px; }
+        .player .controls .toggleable.settings > div {
+          width: 120px;
+          right: auto;
+          left: -97px; }
+          .player .controls .toggleable.volume.muted > div {
+            display: none; }
+            .player .controls .toggleable.volume > div {
+              position: absolute;
+              width: 25px;
+              height: 100px; }
+              .player .controls .toggleable.volume > div > span {
+                position: absolute;
+                left: 10px;
+                bottom: 7px;
+                top: 7px;
+                width: 5px; }
+                .player .controls .toggleable.volume > div > span > span {
+                  position: absolute;
+                  left: 0;
+                  bottom: 0;
+                  width: 100%; }
+                  .player .controls .toggleable.volume > div > span > span.background {
+                    background: rgba(0, 0, 0, 0.5);
+                    height: 100%; }
+                    .player .controls .toggleable.volume > div > span > span.amount {
+                      background: #08c;
+                      height: 100%; }
+                      .player .controls .toggleable.volume > div > span > span.amount::after {
+                        content: '';
+                        position: absolute;
+                        top: 0;
+                        left: -3px;
+                        width: 11px;
+                        height: 2px;
+                        background: #fff;
+                        display: block; }
+                  .player .controls .toggleable.volume > div > span > span.clickable {
+                    top: 0;
+                    left: -5px;
+                    width: 20px;
+                    bottom: 0;
+                    cursor: pointer; }
+        .player .controls .toggleable > div {
+          opacity: 0;
+          pointer-events: none;
+          background: rgba(0, 0, 0, 0.6);
+          position: absolute;
+          right: 2px;
+          bottom: 26px;
+          font-size: 10pt;
+          text-align: right; }
+          .player .controls .toggleable > div div {
+            color: #fff; }
+            .player .controls .toggleable > div div.playback-speed {
+              text-align: left; }
+              .player .controls .toggleable > div div.playback-speed .header {
+                padding-left: 2px;
+                margin-bottom: 2px; }
+                .player .controls .toggleable > div div.playback-speed .speeds a {
+                  display: inline-block;
+                  width: 30%;
+                  padding: 2px;
+                  text-align: center; }
+                  .player .controls .toggleable > div div.playback-speed .speeds a.selected,
+                  .player .controls .toggleable > div div.playback-speed .speeds a.selected:hover {
+                    background: #fff;
+                    color: #000; }
+                    .player .controls .toggleable > div div.playback-speed .speeds a:hover {
+                      background: rgba(50, 50, 50, 0.5); }
+            .player .controls .toggleable > div div.highlight:hover {
+              background: rgba(50, 50, 50, 0.5); }
+              .player .controls .toggleable > div div a .icon {
+                position: relative;
+                font-size: 16px;
+                top: 1px;
+                padding: 3px; }
+        .player .controls .toggleable:hover div {
+          opacity: 1;
+          pointer-events: auto; }
+  .player:hover .controls {
+    opacity: 1; }
+
+.player.audio {
+  min-width: 500px;
+  min-height: 25px; }
+  .player.audio .toggleable.volume > div {
+    position: absolute;
+    width: 100px;
+    height: 26px;
+    right: 0;
+    bottom: 0; }
+    .player.audio .toggleable.volume > div > span {
+      left: 7px;
+      right: 7px;
+      height: 5px;
+      top: 10px;
+      width: auto; }
+      .player.audio .toggleable.volume > div > span > span {
+        left: 0;
+        bottom: 0;
+        width: 100%; }
+        .player.audio .toggleable.volume > div > span > span.background {
+          width: 100%; }
+          .player.audio .toggleable.volume > div > span > span.amount {
+            width: 100%; }
+            .player.audio .toggleable.volume > div > span > span.amount::after {
+              right: 0;
+              top: -3px;
+              left: auto;
+              width: 2px;
+              height: 11px; }
+        .player.audio .toggleable.volume > div > span > span.clickable {
+          width: 100%;
+          left: 0;
+          top: -10px;
+          bottom: -10px; }
+  .player.audio .toggleable.settings > div {
+    right: 2px;
+    bottom: 0;
+    left: auto;
+    height: 26px;
+    width: 420px;
+    text-align: right; }
+    .player.audio .toggleable.settings > div div {
+      display: inline-block;
+      height: 100%; }
+      .player.audio .toggleable.settings > div div.playback-speed .speeds a {
+        width: 35px; }
+        .player.audio .toggleable.settings > div div.playback-speed .speeds a.selected,
+        .player.audio .toggleable.settings > div div.playback-speed .speeds a.selected:hover {
+          background: #fff;
+          color: #000;
+          position: relative;
+          height: 22px;
+          top: -1px; }
+          .player.audio .toggleable.settings > div div.playback-speed .speeds a:hover {
+            background: black; }
+      .player.audio .toggleable.settings > div div.highlight a {
+        padding: 0 2px; }
+        .player.audio .toggleable.settings > div div.highlight a .icon {
+          padding: 0 3px; }
+      .player.audio .toggleable.settings > div div.highlight:hover {
+        background: black; }
+		.player .hidden { display: none; }
+		.player { position: relative; display: inline-block; width: auto; max-width: 100%; }
+		.player video { max-width: 100%; }
+		.player.fullscreen, .player.fullscreen video { max-width: none; }
+		.icon{font-family:"Batch";line-height:1;display:inline-block;font-size:16px;font-weight:normal}.icon.icon-32{font-size:32px}.icon.icon-64{font-size:64px}.icon.icon-128{font-size:128px}

@@ -32,7 +32,9 @@
 
 */
 
-XHRCache = {
+/* global opera: false */
+
+var XHRCache = {
 	forceCache: false,
 	capacity: 250,
 	entries: {},
@@ -92,7 +94,7 @@ XHRCache = {
 opera.extension.addEventListener( "message", function( event ) {
 	// get JSON data (from event.data) using the same format used for chrome/safari extensions
 	var request = JSON.parse(event.data),
-		xhr, passBack, button, ls;
+		xhr, passBack, button, ls, thisLinkURL;
 	if ((typeof request !== 'undefined') && (typeof request.requestType !== 'undefined')) {
 		switch (request.requestType) {
 			case 'GM_xmlhttpRequest':

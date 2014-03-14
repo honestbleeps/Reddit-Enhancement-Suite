@@ -1,22 +1,67 @@
-/*jshint esnext: true */
+/* jshint esnext: true */
+/* global require: false */
 
 // Import the APIs we need.
 let pageMod = require("page-mod");
-let Request = require('request').Request;
+let Request = require("request").Request;
 let self = require("self");
-let firefox = typeof require;
 let tabs = require("tabs");
-let ss = require("simple-storage");
+//let ss = require("simple-storage"); // Temporarily disabled
+let timer = require("timer");
 let priv = require("private-browsing");
 let windows = require("sdk/windows").browserWindows;
-var ioFile = require("sdk/io/file");
 
 // require chrome allows us to use XPCOM objects...
 const {Cc,Ci,Cu,components} = require("chrome");
 let historyService = Cc["@mozilla.org/browser/history;1"].getService(Ci.mozIAsyncHistory);
+
+// Temporary workaround for ss being broken (https://github.com/honestbleeps/Reddit-Enhancement-Suite/issues/797)
+let localStorage = {};
+let file = require("sdk/io/file")
+let ss = (function() {
+	var timeout = null;
+	var filename = (function() {
+		let storeFile = Cc["@mozilla.org/file/directory_service;1"].
+			getService(Ci.nsIProperties).
+			get("ProfD", Ci.nsIFile);
+		storeFile.append("jetpack");
+		storeFile.append(self.id);
+		storeFile.append("simple-storage");
+		file.mkpath(storeFile.path);
+		storeFile.append("store.json");
+		return storeFile.path;
+	})();
+	var really_save = function() {
+		let stream = file.open(filename, "w");
+		try {
+			stream.writeAsync(JSON.stringify(localStorage), function writeAsync(err) {
+				if (err)
+					console.error("Error writing simple storage file: " + filename);
+			}.bind(this));
+		}
+		catch (err) {
+			// writeAsync closes the stream after it's done, so only close on error.
+			stream.close();
+		}
+	};
+	this.save = function() {
+	    if (timeout !== null) {
+			timer.clearTimeout(timeout);
+	    }
+	    timeout = timer.setTimeout(really_save, 3000);
+	};
+	let str = file.read(filename);
+	localStorage = JSON.parse(str);
+	return this;
+})();
+// End temporary workaround
+
 // Cookie manager for new API login
 let cookieManager = Cc["@mozilla.org/cookiemanager;1"].getService().QueryInterface(Ci.nsICookieManager2);
 components.utils.import("resource://gre/modules/NetUtil.jsm");
+
+// Preferences
+let prefs = Cc["@mozilla.org/preferences-service;1"].getService(Ci.nsIPrefBranch);
 
 // this function takes in a string (and optional charset, paseURI) and creates an nsURI object, which is required by historyService.addURI...
 function makeURI(aURL, aOriginCharset, aBaseURI) {
@@ -32,19 +77,19 @@ function detachWorker(worker, workerArray) {
 	}
 }
 
-let localStorage = ss.storage;
-
 localStorage.getItem = function(key) {
-	return ss.storage[key];
+	return localStorage[key];
 };
 localStorage.setItem = function(key, value) {
-	ss.storage[key] = value;
+	localStorage[key] = value;
+	ss.save();
 };
 localStorage.removeItem = function(key) {
-	delete ss.storage[key];
+	delete localStorage[key];
+	ss.save();
 };
 
-XHRCache = {
+let XHRCache = {
 	forceCache: false,
 	capacity: 250,
 	entries: {},
@@ -126,19 +171,24 @@ pageMod.PageMod({
 		self.data.url('console.js'),
 		self.data.url('alert.js'),
 		self.data.url('storage.js'),
+		self.data.url('template.js'),
 		self.data.url('konami.js'),
 		self.data.url('mediacrush.js'),
+		self.data.url('gfycat.js'),
 		self.data.url('hogan-2.0.0.js'),
 		self.data.url('reddit_enhancement_suite.user.js'),
 		self.data.url('modules/betteReddit.js'),
 		self.data.url('modules/userTagger.js'),
 		self.data.url('modules/keyboardNav.js'),
+		self.data.url('modules/commandLine.js'),
+		self.data.url('modules/about.js'),
 		self.data.url('modules/hover.js'),
 		self.data.url('modules/subredditTagger.js'),
 		self.data.url('modules/uppersAndDowners.js'),
 		self.data.url('modules/singleClick.js'),
 		self.data.url('modules/commentPreview.js'),
 		self.data.url('modules/commentTools.js'),
+		self.data.url('modules/sortCommentsTemporarily.js'),
 		self.data.url('modules/usernameHider.js'),
 		self.data.url('modules/showImages.js'),
 		self.data.url('modules/showKarma.js'),
@@ -169,8 +219,10 @@ pageMod.PageMod({
 		self.data.url('nightmode.css'),
 		self.data.url('commentBoxes.css'),
 		self.data.url('res.css'),
+		self.data.url('players.css'),
 		self.data.url('guiders.css'),
-		self.data.url('tokenize.css')
+		self.data.url('tokenize.css'),
+		self.data.url("batch.css")
 	],
 	onAttach: function(worker) {
 		// when a tab is activated, repopulate localStorage so that changes propagate across tabs...
@@ -180,11 +232,13 @@ pageMod.PageMod({
 		});
 		worker.on('message', function(data) {
 			let request = data,
-				button, isPrivate;
+				inBackground = prefs.getBoolPref('browser.tabs.loadInBackground') || true,
+				isPrivate, thisLinkURL;
+
 			switch (request.requestType) {
 				case 'readResource':
-					var data = self.data.load(request.filename);
-					worker.postMessage({ name: "readResource", data: data, transaction: request.transaction });
+					let fileData = self.data.load(request.filename);
+					worker.postMessage({ name: 'readResource', data: fileData, transaction: request.transaction });
 					break;
 				case 'deleteCookie':
 					cookieManager.remove('.reddit.com', request.cname, '/', false);
@@ -239,27 +293,26 @@ pageMod.PageMod({
 
 					break;
 				case 'singleClick':
-					button = ((request.button === 1) || (request.ctrl === 1));
+					inBackground = ((request.button === 1) || (request.ctrl === 1));
 					isPrivate = priv.isPrivate(windows.activeWindow);
 
 					// handle requests from singleClick module
 					if (request.openOrder === 'commentsfirst') {
 						// only open a second tab if the link is different...
 						if (request.linkURL !== request.commentsURL) {
-							tabs.open({url: request.commentsURL, inBackground: button, isPrivate: isPrivate });
+							tabs.open({url: request.commentsURL, inBackground: inBackground, isPrivate: isPrivate });
 						}
-						tabs.open({url: request.linkURL, inBackground: button, isPrivate: isPrivate });
+						tabs.open({url: request.linkURL, inBackground: inBackground, isPrivate: isPrivate });
 					} else {
-						tabs.open({url: request.linkURL, inBackground: button, isPrivate: isPrivate });
+						tabs.open({url: request.linkURL, inBackground: inBackground, isPrivate: isPrivate });
 						// only open a second tab if the link is different...
 						if (request.linkURL !== request.commentsURL) {
-							tabs.open({url: request.commentsURL, inBackground: button, isPrivate: isPrivate });
+							tabs.open({url: request.commentsURL, inBackground: inBackground, isPrivate: isPrivate });
 						}
 					}
 					worker.postMessage({status: "success"});
 					break;
 				case 'keyboardNav':
-					button = (request.button === 1);
 					isPrivate = priv.isPrivate(windows.activeWindow);
 
 					// handle requests from keyboardNav module
@@ -268,18 +321,19 @@ pageMod.PageMod({
 						thisLinkURL = (thisLinkURL.substring(0, 1) === '/') ? 'http://www.reddit.com' + thisLinkURL : location.href + thisLinkURL;
 					}
 					// Get the selected tab so we can get the index of it.  This allows us to open our new tab as the "next" tab.
-					tabs.open({url: thisLinkURL, inBackground: button, isPrivate: isPrivate });
+					tabs.open({url: thisLinkURL, inBackground: inBackground, isPrivate: isPrivate });
 					worker.postMessage({status: "success"});
 					break;
 				case 'openLinkInNewTab':
-					let focus = (request.focus === true);
+					inBackground = (request.focus !== true);
 					isPrivate = priv.isPrivate(windows.activeWindow);
+
 					thisLinkURL = request.linkURL;
 					if (thisLinkURL.toLowerCase().substring(0, 4) !== 'http') {
 						thisLinkURL = (thisLinkURL.substring(0, 1) === '/') ? 'http://www.reddit.com' + thisLinkURL : location.href + thisLinkURL;
 					}
 					// Get the selected tab so we can get the index of it.  This allows us to open our new tab as the "next" tab.
-					tabs.open({url: thisLinkURL, inBackground: !focus, isPrivate: isPrivate });
+					tabs.open({url: thisLinkURL, inBackground: inBackground, isPrivate: isPrivate });
 					worker.postMessage({status: "success"});
 					break;
 				case 'loadTweet':
