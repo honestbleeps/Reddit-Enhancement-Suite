@@ -1246,6 +1246,9 @@ a.bylink.parentlink {
 .res-icon[data-icon]::before {
 	content: attr(data-icon);
 }
+.md .usertext-body img {
+	display: inherit;
+}
 /* Compiled SCSS from MediaCrush - https://github.com/MediaCrush/MediaCrush */
 .player {
   position: relative; }
