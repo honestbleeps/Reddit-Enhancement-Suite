@@ -161,7 +161,7 @@ module.exports = function(grunt) {
 
 
 	// Build all with "grunt"
-	grunt.registerTask('default', ['copy']);
+	grunt.registerTask('default', [ 'manifests', 'copy']);
 
 	// Setup for devlopment with "grunt chrome" or "grunt firefox" (enables watch task)
 	grunt.registerTask('chrome', ['copy:chrome', 'watch:chrome']);
