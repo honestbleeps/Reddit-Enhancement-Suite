@@ -107,7 +107,8 @@ module.exports = function(grunt) {
 
 	function formatFileListings(name, options) {
 		options = options || {};
-		options.prefix = options.prefix || '"';
+		options.prefix = options.prefix || '\t\t\t\t"';
+		options.prefixFirstLine = options.prefixFirstLine || '\t\t\t\t"';
 		options.postfix = options.postfix || '",';
 		options.postfixLastLine = options.postfixLastLine || '"';
 
@@ -116,7 +117,10 @@ module.exports = function(grunt) {
 		var lines = contents.split("\n");
 
 		var formatted = lines.map(function(line, index, array) {
-			return options.prefix + line + (index < array.length - 1 ? options.postfix : options.postfixLastLine);
+			return  ""
+				+ (index > 0 ? options.prefix  : options.prefixFirstLine)
+				+ line
+				+ (index < array.length - 1 ? options.postfix : options.postfixLastLine);
 		});
 
 		var result = formatted.join("\n");
