@@ -46,21 +46,21 @@ module.exports = function(grunt) {
 		replace: {
 			chrome: {
 				src: "manifests/Chrome/manifest.json",
-				dest: "Chrome/manifest.json",
+				dest: "temp/manifests/Chrome/",
 				replacements: replacements()
 			},
 			operablink: {
 				src: "manifests/OperaBlink/manifest.json",
-				dest: "OperaBlink/manifest.json",
+				dest: "temp/manifests/OperaBlink/",
 				replacements: replacements()
 			},
 			safari: {
 				src: "manifests/RES.safariextension/Info.plist",
-				dest: "RES.safariextension/Info.plist",
+				dest: "temp/manifests/RES.safariextension/",
 				replacements: replacements(formatFileListingsForSafari)
 			}, firefox: {
 				src: "manifests/XPI/package.json",
-				dest: "XPI/package.json",
+				dest: "temp/manifests/XPI/",
 				replacements: replacements()
 			}
 		},
