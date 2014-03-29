@@ -30,7 +30,6 @@ do
 						dest="./$j/"
 					fi
 				fi
-				echo "Re-linking:" $dest$file
 				if [ -f $dest$file ];
 				then
 					rm $dest$file
@@ -38,8 +37,11 @@ do
 
 				if [ "clean" != "$1" ];
 				then
+					echo "Re-linking:" $dest$file
 					mkdir -p $dest
 					ln ./$i $dest
+				else
+					echo "Cleaned:" $dest$file
 				fi
 			fi
 		done
