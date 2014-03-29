@@ -28,23 +28,17 @@ module.exports = function(grunt) {
 			},
 			js: {
 				files: {
-					"temp/ls/js.txt": [
-						["vendors/base", "vendors", "core", "app", "", "modules"].map(function(dir) { return "lib/" + dir + "{,*/,**/}*." + "js"; })
-					]
+					"temp/ls/js.txt": resourceFiles("js")
 				}
 			},
 			css: {
 				files: {
-					"temp/ls/css.txt": [
-						["vendors", "core", "app", "", "modules"].map(function(dir) { return "lib/" + dir + "{,*/,**/}*." + "css"; })
-					]
+					"temp/ls/css.txt": resourceFiles("css")
 				}
 			},
 			resources: {
 				files: {
-					"temp/ls/resources.txt": [
-						["vendors", "core", "app", "", "modules"].map(function(dir) { return "lib/" + dir + "{,*/,**/}*." + "{html,png,map}" })
-					]
+					"temp/ls/resources.txt": resourceFiles("resources", "{html,png,map}")
 				}
 			}
 		},
@@ -104,6 +98,24 @@ module.exports = function(grunt) {
 			}
 		}
 	});
+
+	function resourceFiles(group, extension) {
+		extension = extension || group;
+		var libdirs = ["vendors/base", "vendors", "core", "app", "", "modules"];
+		var allpaths = [];
+		libdirs.forEach(function(dir) {
+			var paths = [];
+			if (package.files[group] && package.files[group][dir]) {
+				paths = package.files[group][dir].map(function(filename) { return "lib/" + dir + "/" + filename; });
+			} else {
+				paths = [ "lib/" + dir + "/{,*/,**/}*." + extension ];
+			}
+
+			allpaths = allpaths.concat(paths);
+		});
+
+		return allpaths;
+	}
 
 	function replacements(formatOptions) {
 		var replacements = [ {
