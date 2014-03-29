@@ -2,11 +2,16 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-listfiles');
+	grunt.loadNpmTasks('grunt-text-replace');
+
+	var buildify = require('buildify');
 
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
 
-		// Generate manifests
+		// Populate manifests
+
+
 		// Create resource listings for manifests
 		listfiles: {
 			options: {
@@ -43,6 +48,28 @@ module.exports = function(grunt) {
 			}
 		},
 
+		replace: {
+			chrome: {
+				src: "manifests/Chrome/manifest.json",
+				dest: "Chrome/manifest.json",
+				replacements: [ {
+					from: "// js",
+					to: function(match) {
+						return formatFileListings("js");
+					}
+				}, {
+					from: "// css",
+					to: function(match) {
+						return formatFileListings("css");
+					}
+				}, {
+					from: "// resources",
+					to: function(match) {
+						return formatFileListings("resources");
+					}
+				} ]
+			}
+		},
 
 
 		// Move CSS & JS
@@ -78,6 +105,27 @@ module.exports = function(grunt) {
 		}
 	});
 
+	function formatFileListings(name, options) {
+		options = options || {};
+		options.prefix = options.prefix || '"';
+		options.postfix = options.postfix || '",';
+		options.postfixLastLine = options.postfixLastLine || '"';
+
+		var filename = "temp/ls/" + name + ".txt";
+		var contents = buildify().load(filename).getContent();
+		var lines = contents.split("\n");
+
+		var formatted = lines.map(function(line, index, array) {
+			return options.prefix + line + (index < array.length - 1 ? options.postfix : options.postfixLastLine);
+		});
+
+		var result = formatted.join("\n");
+		return result;
+	}
+
+
+
+
 	// Build all with "grunt"
 	grunt.registerTask('default', ['copy']);
 
@@ -89,4 +137,5 @@ module.exports = function(grunt) {
 
 	// Generate manifests
 
+	grunt.registerTask('manifests', ['listfiles', 'replace'])
 };
