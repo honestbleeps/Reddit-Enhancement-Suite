@@ -47,21 +47,21 @@ module.exports = function(grunt) {
 			chrome: {
 				src: "manifests/Chrome/manifest.json",
 				dest: "temp/manifests/Chrome/",
-				replacements: replacements()
+				replacements: manifestReplacements()
 			},
 			operablink: {
 				src: "manifests/OperaBlink/manifest.json",
 				dest: "temp/manifests/OperaBlink/",
-				replacements: replacements()
+				replacements: manifestReplacements()
 			},
 			safari: {
 				src: "manifests/RES.safariextension/Info.plist",
 				dest: "temp/manifests/RES.safariextension/",
-				replacements: replacements(formatFileListingsForSafari)
+				replacements:  manifestReplacements(formatFileListingsForSafari)
 			}, firefox: {
 				src: "manifests/XPI/package.json",
 				dest: "temp/manifests/XPI/",
-				replacements: replacements()
+				replacements: manifestReplacements()
 			}
 		},
 
@@ -133,7 +133,7 @@ module.exports = function(grunt) {
 		return allpaths;
 	}
 
-	function replacements(formatOptions) {
+	function manifestReplacements(formatOptions) {
 		var replacements = [ {
 				from: "/* version */",
 				to: package.version
