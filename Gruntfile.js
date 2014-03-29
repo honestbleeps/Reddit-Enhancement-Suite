@@ -28,21 +28,21 @@ module.exports = function(grunt) {
 			js: {
 				files: {
 					"temp/ls/js.txt": [
-						"lib/{,*/,**/}*.js",
+						["vendors", "core", "app", "modules"].map(function(dir) { return "lib/" + dir + "{,*/,**/}*." + "js"; })
 					]
 				}
 			},
 			css: {
 				files: {
 					"temp/ls/css.txt": [
-						"lib/{,*/,**/}*.css",
+						["vendors", "core", "app", "modules"].map(function(dir) { return "lib/" + dir + "{,*/,**/}*." + "css"; })
 					]
 				}
 			},
 			resources: {
 				files: {
 					"temp/ls/resources.txt": [
-						"lib/{,*/,**/}*.{html,png,map}"
+						["vendors", "core", "app", "modules"].map(function(dir) { return "lib/" + dir + "{,*/,**/}*." + "{html,png,map}" })
 					]
 				}
 			}
