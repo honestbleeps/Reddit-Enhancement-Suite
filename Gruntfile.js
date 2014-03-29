@@ -29,21 +29,21 @@ module.exports = function(grunt) {
 			js: {
 				files: {
 					"temp/ls/js.txt": [
-						["vendors/base", "vendors", "core", "app", "modules"].map(function(dir) { return "lib/" + dir + "{,*/,**/}*." + "js"; })
+						["vendors/base", "vendors", "core", "app", "", "modules"].map(function(dir) { return "lib/" + dir + "{,*/,**/}*." + "js"; })
 					]
 				}
 			},
 			css: {
 				files: {
 					"temp/ls/css.txt": [
-						["vendors", "core", "app", "modules"].map(function(dir) { return "lib/" + dir + "{,*/,**/}*." + "css"; })
+						["vendors", "core", "app", "", "modules"].map(function(dir) { return "lib/" + dir + "{,*/,**/}*." + "css"; })
 					]
 				}
 			},
 			resources: {
 				files: {
 					"temp/ls/resources.txt": [
-						["vendors", "core", "app", "modules"].map(function(dir) { return "lib/" + dir + "{,*/,**/}*." + "{html,png,map}" })
+						["vendors", "core", "app", "", "modules"].map(function(dir) { return "lib/" + dir + "{,*/,**/}*." + "{html,png,map}" })
 					]
 				}
 			}
