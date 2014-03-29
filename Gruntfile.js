@@ -1,9 +1,49 @@
 module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-contrib-copy');
+	grunt.loadNpmTasks('grunt-listfiles');
 
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
+
+		// Generate manifests
+		// Create resource listings for manifests
+		listfiles: {
+			options: {
+				banner: '',
+				footer: '',
+				prefix: '',
+				postfix: '',
+				postfixLastLine: '',
+				replacements: [{
+					pattern: /^lib\/(.*)$/,
+					replacement: '$1'
+				}]
+			},
+			js: {
+				files: {
+					"temp/ls/js.txt": [
+						"lib/{,*/,**/}*.js",
+					]
+				}
+			},
+			css: {
+				files: {
+					"temp/ls/css.txt": [
+						"lib/{,*/,**/}*.css",
+					]
+				}
+			},
+			resources: {
+				files: {
+					"temp/ls/resources.txt": [
+						"lib/{,*/,**/}*.{html,png,map}"
+					]
+				}
+			}
+		},
+
+
 
 		// Move CSS & JS
 		copy: {
@@ -46,4 +86,7 @@ module.exports = function(grunt) {
 	grunt.registerTask('operablink', ['copy:operablink', 'watch:operablink']);
 	grunt.registerTask('safari', ['copy:safari', 'watch:safari']);
 	grunt.registerTask('firefox', ['copy:firefox', 'watch:firefox']);
+
+	// Generate manifests
+
 };
