@@ -12,5 +12,20 @@
 	},
 	"license": "GPL3",
 	"gitHead": "",
-	"readmeFilename": "README.md"
+	"readmeFilename": "README.md",
+	"files": {
+		"js": {
+			"core": [
+				"browsersupport.js",
+				"misc.js",
+				"utils.js",
+				"storage.js",
+				"module.js",
+				"template.js",
+				"alert.js",
+				"console.js",
+				"init.js"
+			]
+		}
+	}
 }
