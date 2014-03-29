@@ -131,7 +131,7 @@ module.exports = function(grunt) {
 	function formatFileListings(name, options) {
 		options = options || {};
 		options.prefix = options.prefix || '\t\t\t\t"';
-		options.prefixFirstLine = options.prefixFirstLine || '\t\t\t\t"';
+		options.prefixFirstLine = options.prefixFirstLine || '"';
 		options.postfix = options.postfix || '",';
 		options.postfixLastLine = options.postfixLastLine || '"';
 
