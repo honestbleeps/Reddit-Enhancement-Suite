@@ -84,7 +84,7 @@ module.exports = function(grunt) {
 				files: [{ expand: true, cwd: 'lib/', src: ['**'], dest: 'RES.safariextension/'}]
 			},
 			firefox: {
-				files: [{ expand: true, cwd: 'lib/', src: ['**'], dest: 'XPI/'}]
+				files: [{ expand: true, cwd: 'lib/', src: ['**'], dest: 'XPI/data/'}]
 			}
 		},
 
