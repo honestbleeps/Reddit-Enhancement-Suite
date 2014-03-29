@@ -5,9 +5,10 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-text-replace');
 
 	var buildify = require('buildify');
+	var package = grunt.file.readJSON('package.json');
 
 	grunt.initConfig({
-		pkg: grunt.file.readJSON('package.json'),
+		pkg: package,
 
 		// Populate manifests
 
@@ -53,6 +54,11 @@ module.exports = function(grunt) {
 				src: "manifests/Chrome/manifest.json",
 				dest: "Chrome/manifest.json",
 				replacements: [ {
+					from: "/* version */",
+					to: package.version
+				}, {
+					from: "/* name */",
+					to: package.name
 					from: "// js",
 					to: function(match) {
 						return formatFileListings("js");
