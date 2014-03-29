@@ -28,7 +28,7 @@ module.exports = function(grunt) {
 			js: {
 				files: {
 					"temp/ls/js.txt": [
-						["vendors", "core", "app", "modules"].map(function(dir) { return "lib/" + dir + "{,*/,**/}*." + "js"; })
+						["vendors/base", "vendors", "core", "app", "modules"].map(function(dir) { return "lib/" + dir + "{,*/,**/}*." + "js"; })
 					]
 				}
 			},
