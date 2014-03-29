@@ -53,27 +53,21 @@ module.exports = function(grunt) {
 			chrome: {
 				src: "manifests/Chrome/manifest.json",
 				dest: "Chrome/manifest.json",
-				replacements: [ {
-					from: "/* version */",
-					to: package.version
-				}, {
-					from: "/* name */",
-					to: package.name
-					from: "// js",
-					to: function(match) {
-						return formatFileListings("js");
-					}
-				}, {
-					from: "// css",
-					to: function(match) {
-						return formatFileListings("css");
-					}
-				}, {
-					from: "// resources",
-					to: function(match) {
-						return formatFileListings("resources");
-					}
-				} ]
+				replacements: replacements()
+			},
+			operablink: {
+				src: "manifests/OperaBlink/manifest.json",
+				dest: "OperaBlink/manifest.json",
+				replacements: replacements()
+			},
+			safari: {
+				src: "manifests/RES.safariextension/Info.plist",
+				dest: "RES.safariextension/Info.plist",
+				replacements: replacements(formatFileListingsForSafari)
+			}, firefox: {
+				src: "manifests/XPI/package.json",
+				dest: "XPI/package.json",
+				replacements: replacements()
 			}
 		},
 
@@ -111,6 +105,29 @@ module.exports = function(grunt) {
 		}
 	});
 
+	function replacements(formatOptions) {
+		var replacements = [ {
+				from: "/* version */",
+				to: package.version
+			}, {
+				from: "/* name */",
+				to: package.name
+			}];
+		replacements = replacements.concat(
+			"js css resources".split(' ').map(function(name) {
+					return  {
+						from: "/* " + name + " */",
+						to: function(match) {
+							return formatFileListings(name, formatOptions);
+						}
+					};
+				})
+			);
+
+		return replacements;
+	}
+
+
 	function formatFileListings(name, options) {
 		options = options || {};
 		options.prefix = options.prefix || '\t\t\t\t"';
@@ -132,6 +149,13 @@ module.exports = function(grunt) {
 		var result = formatted.join("\n");
 		return result;
 	}
+
+	var formatFileListingsForSafari = {
+		prefix: '\t\t\t\t<string>',
+		prefixFirstLine: '<string>',
+		postfix: '</string>',
+		prefixLastLine: '</string>',
+	};
 
 
 
