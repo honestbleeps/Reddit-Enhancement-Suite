@@ -1,8 +1,7 @@
-<!DOCTYPE html>
-<html><body>
+
 <div class="res-player video gfycatR">
 	<a class="madeVisible" href="{{ directurl }}" target="_blank">
-	<video autoplay loop muted preload title="Drag to Resize" class="gfyRVid" poster="{{ poster }}"">
+	<video autoplay loop muted preload title="Drag to Resize" class="gfyRVid" poster="{{ poster }}">
 		{{#sources}}
 		<source src="{{ source }}" {{#type}}type="{{ type }}"{{/type}} class="{{ class }}">
 		{{/sources}}
@@ -17,4 +16,3 @@
 		</div>
 	</div>
 </div>
-</body></html>
