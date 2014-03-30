@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html><body>
+<div class="res-player video gfycatR">
+	<a class="madeVisible" href="{{ directurl }}" target="_blank">
+	<video autoplay loop muted preload title="Drag to Resize" class="gfyRVid" poster="{{ poster }}"">
+		{{#sources}}
+		<source src="{{ source }}" {{#type}}type="{{ type }}"{{/type}} class="{{ class }}">
+		{{/sources}}
+	</video>
+	</a>
+	<div style="height: 35px;" class="ctrlContainer">
+		<div style="width: 90px; height: 25px; float: right; padding: 5px; display: none;" class="ctrlBox">
+			<div  class="res-icon res-lightweight-player-controls gfyRCtrlFaster" >&#xf14c;</div>
+			<div  class="res-icon res-lightweight-player-controls gfyRCtrlSlower" >&#xf14d;</div>
+			<div  class="res-icon res-lightweight-player-controls gfyRCtrlReverse" style="margin-right: 6px;">&#xf169;</div>
+			<div  class="res-icon res-lightweight-player-controls gfyRCtrlPause" style="marginright: 4px;">&#xf16c;</div>
+		</div>
+	</div>
+</div>
+</body></html>
