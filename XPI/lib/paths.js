@@ -21,8 +21,10 @@ define(function(require, exports, module) {
 				"core/console.js",
 				"core/init.js",
 				"app/reddit_enhancement_suite.user.js",
-				"modules/RESPro.js",
+				"modules/styleTweaks.js",
+				"modules/filteReddit.js",
 				"modules/RESTips.js",
+				"modules/RESPro.js",
 				"modules/about.js",
 				"modules/accountSwitcher.js",
 				"modules/betteReddit.js",
@@ -33,7 +35,6 @@ define(function(require, exports, module) {
 				"modules/commentPreview.js",
 				"modules/commentTools.js",
 				"modules/dashboard.js",
-				"modules/filteReddit.js",
 				"modules/hideChildComments.js",
 				"modules/hover.js",
 				"modules/keyboardNav.js",
@@ -50,7 +51,6 @@ define(function(require, exports, module) {
 				"modules/snoonet.js",
 				"modules/sortCommentsTemporarily.js",
 				"modules/spamButton.js",
-				"modules/styleTweaks.js",
 				"modules/subredditInfo.js",
 				"modules/subredditManager.js",
 				"modules/subredditTagger.js",
@@ -72,14 +72,6 @@ define(function(require, exports, module) {
 	];
 
 	exports.resources = [
-	"vendors/base/jquery-1.10.2.min.map",
-				"templates/GfycatUI.html",
-				"templates/VideoUI.html",
-				"templates/aboutRESPanel.html",
-				"templates/commandLine.html",
-				"templates/contributeRESPanel.html",
-				"templates/searchRESPanel.html",
-				"templates/teamRESPanel.html",
-				"templates/test.html"
+	"vendors/base/jquery-1.10.2.min.map"
 	]
 });
