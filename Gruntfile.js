@@ -57,7 +57,7 @@ module.exports = function(grunt) {
 			safari: {
 				src: "manifests/RES.safariextension/*",
 				dest: "temp/manifests/RES.safariextension/",
-				replacements:  manifestReplacements(formatFileListingsForSafari)
+				replacements:  manifestReplacements(formatFileListingsForSafari())
 			}, firefox: {
 				src: "manifests/XPI/*",
 				dest: "temp/manifests/XPI/",
@@ -184,12 +184,12 @@ module.exports = function(grunt) {
 		return result;
 	}
 
-	var formatFileListingsForSafari = {
+	function formatFileListingsForSafari() { return {
 		prefix: '\t\t\t\t<string>',
 		prefixFirstLine: '<string>',
 		postfix: '</string>',
-		prefixLastLine: '</string>',
-	};
+		postfixLastLine: '</string>',
+	} };
 
 
 
