@@ -86,12 +86,12 @@ An alternative grunt build script is also provided; see "Using grunt instead of 
 ##### Building in Firefox
 
   1. [Download the Add-on SDK](https://ftp.mozilla.org/pub/mozilla.org/labs/jetpack/jetpack-sdk-latest.zip).
-  2. Start a terminal and source the python script so that you can run the ``cfx`` commands. In Unix this is usually ``. bin/activate`` or ``source bin/activate`` and in Windows this usually involves running ``Scripts/activate.bat``. If your python is python 3, run ``virtualenv --python=pyhton2 .`` and try again.
+  2. Start a terminal and source the Python script so that you can run the ``cfx`` commands. In Unix this is usually ``. bin/activate`` or ``source bin/activate`` and in Windows this usually involves running ``bin/activate.bat``. If you are not using Python 2, run ``virtualenv --python=python2 .`` and try again.
   3. In the terminal, ``cd`` to the ``XPI`` folder and run the command ``cfx run``, which should launch a new Firefox browser using a temporary profile with only RES installed.
 
 ##### Building in Safari (assumes Mac)
 
-  1. Open the ``Preferences`` by going to ``Safari->Preferences`` or pressing ``⌘,``, then go to ``Advanced`` and check the checkbox for ``Show develop menu in menu bar``.
+  1. Open the ``Preferences`` by going to ``Safari->Preferences`` or pressing ``⌘``, then go to ``Advanced`` and check the checkbox for ``Show develop menu in menu bar``.
   2. Navigate to ``Develop->Show Extension Builder`` to open the extensions menu. Add a new extension by pressing the ``+`` in the bottom left and choosing ``Add extension``.
   3. Navigate to the ``RES.safariextension`` folder for RES and select it.
   4. It will likely say you cannot install it because no Safari development certificate exists. You will need to visit the [Safari Dev Center](https://developer.apple.com/devcenter/safari/index.action) and create an account (right hand side).
