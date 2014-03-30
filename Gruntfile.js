@@ -76,7 +76,7 @@ module.exports = function(grunt) {
 				]
 			},
 			operablink: {
-				fires: [
+				files: [
 					{ expand: true, cwd: 'OperaBlink/', src: ['**'], dest: 'temp/ext/OperaBlink/'},
 					{ expand: true, cwd: 'lib/', src: ['**'], dest: 'temp/ext/OperaBlink/'},
 					{ expand: true, cwd: 'temp/manifests/OperaBlink/', src: ['**'], dest: 'temp/ext/OperaBlink/'}
