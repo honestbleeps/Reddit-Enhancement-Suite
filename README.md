@@ -1,8 +1,8 @@
-# RES - Reddit Enhancement Suite
+# Reddit Enhancement Suite
 
-RES is a suite of modules to enhance your Reddit browsing experience.
+Reddit Enhancement Suite (RES) is a suite of modules that enhance your Reddit browsing experience.
 
-For general documentation, see the [Reddit Enhancement Suite Wiki](http://redditenhancementsuite.com:8080/wiki/).
+For general documentation, visit the [Reddit Enhancement Suite Wiki](http://redditenhancementsuite.com:8080/wiki/).
 
 ### Introduction
 
