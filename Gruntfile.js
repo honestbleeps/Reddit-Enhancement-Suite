@@ -46,22 +46,28 @@ module.exports = (function() {
 
 			replace: {
 				chrome: {
-					src: "manifests/Chrome/*",
+					src: "manifests/Chrome/{*.*,**/*.*}",
 					dest: "temp/manifests/Chrome/",
 					replacements: manifestReplacements()
 				},
 				operablink: {
-					src: "manifests/OperaBlink/*",
+					src: [ "manifests/OperaBlink/{*.*,**/*.*}" ],
 					dest: "temp/manifests/OperaBlink/",
 					replacements: manifestReplacements()
 				},
 				safari: {
-					src: "manifests/RES.safariextension/*",
+					src: [ "manifests/RES.safariextension/{*.*,**/*.*}" ],
 					dest: "temp/manifests/RES.safariextension/",
 					replacements:  manifestReplacements(formatFileListingsForSafari())
-				}, firefox: {
-					src: "manifests/XPI/*",
+				},
+				firefox: {
+					src: [ "manifests/XPI/*.*" ],
 					dest: "temp/manifests/XPI/",
+					replacements: manifestReplacements()
+				},
+				firefox2: {
+					src: [ "manifests/XPI/lib/*.*" ],
+					dest: "temp/manifests/XPI/lib/",
 					replacements: manifestReplacements()
 				}
 			},
@@ -97,10 +103,8 @@ module.exports = (function() {
 					files: [
 						{ expand: true, cwd: 'XPI/', src: ['**'], dest: 'temp/ext/XPI/'},
 						{ expand: true, cwd: 'lib/', src: ['**'], dest: 'temp/ext/XPI/data/'},
-						{ expand: true, cwd: 'temp/manifests/XPI/', src: ['package.json'], dest: 'temp/ext/XPI/'},
-						{ expand: true, cwd: 'temp/manifests/XPI/', src: ['package.json'], dest: 'XPI/'},
-						{ expand: true, cwd: 'temp/manifests/XPI/', src: ['paths.js'], dest: 'temp/ext/XPI/lib/'},
-						{ expand: true, cwd: 'temp/manifests/XPI/', src: ['paths.js'], dest: 'XPI/lib/'},
+						{ expand: true, cwd: 'temp/manifests/XPI/', src: ['**'], dest: 'temp/ext/XPI/'},
+						{ expand: true, cwd: 'temp/manifests/XPI/', src: ['**'], dest: 'XPI/'},
 					]
 				}
 			},
