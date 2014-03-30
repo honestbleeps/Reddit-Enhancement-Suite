@@ -1,125 +1,142 @@
-module.exports = function(grunt) {
-	grunt.loadNpmTasks('grunt-contrib-watch');
-	grunt.loadNpmTasks('grunt-contrib-copy');
-	grunt.loadNpmTasks('grunt-listfiles');
-	grunt.loadNpmTasks('grunt-text-replace');
+module.exports = (function() {
+	return doGrunt;
 
-	var buildify = require('buildify');
-	var package = grunt.file.readJSON('package.json');
+	var package, buildify
+	function doGrunt(grunt) {
+		grunt.loadNpmTasks('grunt-contrib-watch');
+		grunt.loadNpmTasks('grunt-contrib-copy');
+		grunt.loadNpmTasks('grunt-listfiles');
+		grunt.loadNpmTasks('grunt-text-replace');
 
-	grunt.initConfig({
-		pkg: package,
+		buildify = require('buildify');
+		package = grunt.file.readJSON('package.json');
 
-		// Populate manifests
+		grunt.initConfig({
+			pkg: package,
 
-
-		// Create resource listings for manifests
-		listfiles: {
-			options: {
-				banner: '',
-				footer: '',
-				prefix: '',
-				postfix: '',
-				postfixLastLine: '',
-				replacements: [{
-					pattern: /^lib\/(.*)$/,
-					replacement: '$1'
-				}]
-			},
-			js: {
-				files: {
-					"temp/ls/js.txt": resourceFiles("js")
+			// Populate manifests
+			listfiles: {
+				options: {
+					banner: '',
+					footer: '',
+					prefix: '',
+					postfix: '',
+					postfixLastLine: '',
+					replacements: [{
+						pattern: /^lib\/(.*)$/,
+						replacement: '$1'
+					}]
+				},
+				js: {
+					files: {
+						"temp/ls/js.txt": resourceFiles("js")
+					}
+				},
+				css: {
+					files: {
+						"temp/ls/css.txt": resourceFiles("css")
+					}
+				},
+				resources: {
+					files: {
+						"temp/ls/resources.txt": resourceFiles("resources", "{html,png,map}")
+					}
 				}
 			},
-			css: {
-				files: {
-					"temp/ls/css.txt": resourceFiles("css")
+
+			replace: {
+				chrome: {
+					src: "manifests/Chrome/*",
+					dest: "temp/manifests/Chrome/",
+					replacements: manifestReplacements()
+				},
+				operablink: {
+					src: "manifests/OperaBlink/*",
+					dest: "temp/manifests/OperaBlink/",
+					replacements: manifestReplacements()
+				},
+				safari: {
+					src: "manifests/RES.safariextension/*",
+					dest: "temp/manifests/RES.safariextension/",
+					replacements:  manifestReplacements(formatFileListingsForSafari())
+				}, firefox: {
+					src: "manifests/XPI/*",
+					dest: "temp/manifests/XPI/",
+					replacements: manifestReplacements()
 				}
 			},
-			resources: {
-				files: {
-					"temp/ls/resources.txt": resourceFiles("resources", "{html,png,map}")
+
+
+			// Move CSS & JS
+			copy: {
+				chrome: {
+					files: [
+						{ expand: true, cwd: 'Chrome/', src: ['**'], dest: 'temp/ext/Chrome/'},
+						{ expand: true, cwd: 'lib/', src: ['**'], dest: 'temp/ext/Chrome/'},
+						{ expand: true, cwd: 'temp/manifests/Chrome/', src: ['**'], dest: 'temp/ext/Chrome/'},
+						{ expand: true, cwd: 'temp/manifests/Chrome/', src: ['**'], dest: 'Chrome'}
+					]
+				},
+				operablink: {
+					files: [
+						{ expand: true, cwd: 'OperaBlink/', src: ['**'], dest: 'temp/ext/OperaBlink/'},
+						{ expand: true, cwd: 'lib/', src: ['**'], dest: 'temp/ext/OperaBlink/'},
+						{ expand: true, cwd: 'temp/manifests/OperaBlink/', src: ['**'], dest: 'temp/ext/OperaBlink/'},
+						{ expand: true, cwd: 'temp/manifests/OperaBlink/', src: ['**'], dest: 'OperaBlink/'}
+					]
+				},
+				safari: {
+					files: [
+						{ expand: true, cwd: 'RES.safariextension/', src: ['**'], dest: 'temp/ext/RES.safariextension/'},
+						{ expand: true, cwd: 'lib/', src: ['**'], dest: 'temp/ext/RES.safariextension/'},
+						{ expand: true, cwd: 'temp/manifests/RES.safariextension/', src: ['**'], dest: 'temp/ext/RES.safariextension/'},
+						{ expand: true, cwd: 'temp/manifests/RES.safariextension/', src: ['**'], dest: 'RES.safariextension/'}
+					]
+				},
+				firefox: {
+					files: [
+						{ expand: true, cwd: 'XPI/', src: ['**'], dest: 'temp/ext/XPI/'},
+						{ expand: true, cwd: 'lib/', src: ['**'], dest: 'temp/ext/XPI/data/'},
+						{ expand: true, cwd: 'temp/manifests/XPI/', src: ['package.json'], dest: 'temp/ext/XPI/'},
+						{ expand: true, cwd: 'temp/manifests/XPI/', src: ['package.json'], dest: 'XPI/'},
+						{ expand: true, cwd: 'temp/manifests/XPI/', src: ['paths.js'], dest: 'temp/ext/XPI/lib/'},
+						{ expand: true, cwd: 'temp/manifests/XPI/', src: ['paths.js'], dest: 'XPI/lib/'},
+					]
+				}
+			},
+
+			// Watch for changes
+			watch: {
+				chrome: {
+					files: ['lib/*', 'lib/*/*'], tasks: ['copy:chrome']
+				},
+				operablink: {
+					files: ['lib/*', 'lib/*/*'], tasks: ['copy:operablink']
+				},
+				safari: {
+					files: ['lib/*', 'lib/*/*'], tasks: ['copy:safari']
+				},
+				firefox: {
+					files: ['lib/*', 'lib/*/*'], tasks: ['copy:firefox']
 				}
 			}
-		},
-
-		replace: {
-			chrome: {
-				src: "manifests/Chrome/*",
-				dest: "temp/manifests/Chrome/",
-				replacements: manifestReplacements()
-			},
-			operablink: {
-				src: "manifests/OperaBlink/*",
-				dest: "temp/manifests/OperaBlink/",
-				replacements: manifestReplacements()
-			},
-			safari: {
-				src: "manifests/RES.safariextension/*",
-				dest: "temp/manifests/RES.safariextension/",
-				replacements:  manifestReplacements(formatFileListingsForSafari())
-			}, firefox: {
-				src: "manifests/XPI/*",
-				dest: "temp/manifests/XPI/",
-				replacements: manifestReplacements()
-			}
-		},
+		});
 
 
-		// Move CSS & JS
-		copy: {
-			chrome: {
-				files: [
-					{ expand: true, cwd: 'Chrome/', src: ['**'], dest: 'temp/ext/Chrome/'},
-					{ expand: true, cwd: 'lib/', src: ['**'], dest: 'temp/ext/Chrome/'},
-					{ expand: true, cwd: 'temp/manifests/Chrome/', src: ['**'], dest: 'temp/ext/Chrome/'},
-					{ expand: true, cwd: 'temp/manifests/Chrome/', src: ['**'], dest: 'Chrome'}
-				]
-			},
-			operablink: {
-				files: [
-					{ expand: true, cwd: 'OperaBlink/', src: ['**'], dest: 'temp/ext/OperaBlink/'},
-					{ expand: true, cwd: 'lib/', src: ['**'], dest: 'temp/ext/OperaBlink/'},
-					{ expand: true, cwd: 'temp/manifests/OperaBlink/', src: ['**'], dest: 'temp/ext/OperaBlink/'},
-					{ expand: true, cwd: 'temp/manifests/OperaBlink/', src: ['**'], dest: 'OperaBlink/'}
-				]
-			},
-			safari: {
-				files: [
-					{ expand: true, cwd: 'RES.safariextension/', src: ['**'], dest: 'temp/ext/RES.safariextension/'},
-					{ expand: true, cwd: 'lib/', src: ['**'], dest: 'temp/ext/RES.safariextension/'},
-					{ expand: true, cwd: 'temp/manifests/RES.safariextension/', src: ['**'], dest: 'temp/ext/RES.safariextension/'},
-					{ expand: true, cwd: 'temp/manifests/RES.safariextension/', src: ['**'], dest: 'RES.safariextension/'}
-				]
-			},
-			firefox: {
-				files: [
-					{ expand: true, cwd: 'XPI/', src: ['**'], dest: 'temp/ext/XPI/'},
-					{ expand: true, cwd: 'lib/', src: ['**'], dest: 'temp/ext/XPI/data/'},
-					{ expand: true, cwd: 'temp/manifests/XPI/', src: ['package.json'], dest: 'temp/ext/XPI/'},
-					{ expand: true, cwd: 'temp/manifests/XPI/', src: ['package.json'], dest: 'XPI/'},
-					{ expand: true, cwd: 'temp/manifests/XPI/', src: ['paths.js'], dest: 'temp/ext/XPI/lib/'},
-					{ expand: true, cwd: 'temp/manifests/XPI/', src: ['paths.js'], dest: 'XPI/lib/'},
-				]
-			}
-		},
+		// Build all with "grunt"
+		grunt.registerTask('default', [ 'manifests', 'copy']);
 
-		// Watch for changes
-		watch: {
-			chrome: {
-				files: ['lib/*', 'lib/*/*'], tasks: ['copy:chrome']
-			},
-			operablink: {
-				files: ['lib/*', 'lib/*/*'], tasks: ['copy:operablink']
-			},
-			safari: {
-				files: ['lib/*', 'lib/*/*'], tasks: ['copy:safari']
-			},
-			firefox: {
-				files: ['lib/*', 'lib/*/*'], tasks: ['copy:firefox']
-			}
-		}
-	});
+		// Setup for devlopment with "grunt chrome" or "grunt firefox" (enables watch task)
+		grunt.registerTask('chrome', ['copy:chrome', 'watch:chrome']);
+		grunt.registerTask('operablink', ['copy:operablink', 'watch:operablink']);
+		grunt.registerTask('safari', ['copy:safari', 'watch:safari']);
+		grunt.registerTask('firefox', ['copy:firefox', 'watch:firefox']);
+
+		// Generate manifests
+
+		grunt.registerTask('manifests', ['listfiles', 'replace'])
+	}
+
 
 	function resourceFiles(group, extension) {
 		extension = extension || group;
@@ -194,16 +211,4 @@ module.exports = function(grunt) {
 
 
 
-	// Build all with "grunt"
-	grunt.registerTask('default', [ 'manifests', 'copy']);
-
-	// Setup for devlopment with "grunt chrome" or "grunt firefox" (enables watch task)
-	grunt.registerTask('chrome', ['copy:chrome', 'watch:chrome']);
-	grunt.registerTask('operablink', ['copy:operablink', 'watch:operablink']);
-	grunt.registerTask('safari', ['copy:safari', 'watch:safari']);
-	grunt.registerTask('firefox', ['copy:firefox', 'watch:firefox']);
-
-	// Generate manifests
-
-	grunt.registerTask('manifests', ['listfiles', 'replace'])
-};
+})();
