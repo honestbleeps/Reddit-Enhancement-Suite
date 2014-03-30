@@ -50,8 +50,13 @@ let ss = (function() {
 	    }
 	    timeout = timer.setTimeout(really_save, 3000);
 	};
-	let str = file.read(filename);
-	localStorage = JSON.parse(str);
+	let str = "";
+	try {
+		str = file.read(filename);
+	} catch (e) {
+		console.warn("Error loading simple storage file: " + e);
+	}
+	localStorage = str ? JSON.parse(str) : false;
 	return this;
 })();
 // End temporary workaround
