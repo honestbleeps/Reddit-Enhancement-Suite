@@ -3,13 +3,13 @@
 
 let paths = require("./paths");
 // Import the APIs we need.
-let pageMod = require("page-mod");
-let Request = require("request").Request;
-let self = require("self");
-let tabs = require("tabs");
-//let ss = require("simple-storage"); // Temporarily disabled
-let timer = require("timer");
-let priv = require("private-browsing");
+let pageMod = require("sdk/page-mod");
+let Request = require("sdk/request").Request;
+let self = require("sdk/self");
+let tabs = require("sdk/tabs");
+//let ss = require("sdk/simple-storage"); // Temporarily disabled
+let timer = require("sdk/timers");
+let priv = require("sdk/private-browsing");
 let windows = require("sdk/windows").browserWindows;
 
 // require chrome allows us to use XPCOM objects...
