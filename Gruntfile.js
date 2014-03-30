@@ -29,17 +29,17 @@ module.exports = (function() {
 				},
 				js: {
 					files: {
-						"temp/ls/js.txt": resourceFiles("js")
+						"temp/ls/js.txt": allResourceFiles()["js"]
 					}
 				},
 				css: {
 					files: {
-						"temp/ls/css.txt": resourceFiles("css")
+						"temp/ls/css.txt": allResourceFiles()["css"]
 					}
 				},
 				resources: {
 					files: {
-						"temp/ls/resources.txt": resourceFiles("resources", "{html,png,map}")
+						"temp/ls/resources.txt": allResourceFiles()["resources"]
 					}
 				}
 			},
@@ -137,6 +137,18 @@ module.exports = (function() {
 		grunt.registerTask('manifests', ['listfiles', 'replace'])
 	}
 
+
+	var _allResourceFiles;
+	function allResourceFiles() {
+		if (!_allResourceFiles) {
+			_allResourceFiles = {};
+			_allResourceFiles["js"] = resourceFiles("js");
+			_allResourceFiles["css"] = resourceFiles("css");
+			_allResourceFiles["resources"] = resourceFiles("resources", "{html,png,map}");
+		}
+
+		return _allResourceFiles;
+	}
 
 	function resourceFiles(group, extension) {
 		extension = extension || group;
