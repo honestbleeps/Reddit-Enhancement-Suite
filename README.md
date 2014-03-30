@@ -25,51 +25,51 @@ In order to build the extension, the files from `lib/` must be replicated (eithe
 
 ##### Top level files & folders
 
-- `README.md` - YOU ARE HERE, unless you're browing on GitHub
-- `changelog.txt` - self explanatory
-- `makelinks.sh` - script to generate hard links
-- `Gruntfile.js`, `package.json` - used for alternative build scripts
-- `lib/` - core RES code
-- `lib/modules/` - RES modules
-- `Chrome/` - Chrome-specific RES files
-- `Opera/` - Opera-specific RES files
-- `OperaBlink/` - Opera Blink (new Opera)-specific RES files
-- `RES.safariextension/` - Safari-specific RES files
-- `XPI/` - Firefox-specific RES files
-- `IE/` - Internet Explorer-specific files
-- `tests/` - RES tests, currently unused
+  - `README.md` – YOU ARE HERE, unless you're browing on GitHub
+  - `changelog.txt` – self-explanatory
+  - `makelinks.sh` – script to generate hard links
+  - `Gruntfile.js`, `package.json` – used for alternative build scripts
+  - `lib/` – core RES code
+  - `lib/modules/` – RES modules
+  - `Chrome/` – Chrome-specific RES files
+  - `Opera/` – Opera-specific RES files
+  - `OperaBlink/` – Opera Blink (new Opera)-specific RES files
+  - `RES.safariextension/` – Safari-specific RES files
+  - `XPI/` – Firefox-specific RES files
+  - `IE/` – Internet Explorer-specific files
+  - `tests/` – RES tests, currently unused
 
 ##### Chrome files
 
-  - `background.js` - the "background page" for RES, necessary for chrome extensions
-  - `manifest.json` - the project manifest
-  - `icon.png`, `icon48.png`, `icon128.png` - icons!
-  - `jquery-1.10.2.min.map` - Chrome moans if this file doesn't exist
+  - `background.js` – the "background page" for RES, necessary for chrome extensions
+  - `manifest.json` – the project manifest
+  - `icon.png`, `icon48.png`, `icon128.png` – icons!
+  - `jquery-1.10.2.min.map` – Chrome moans if this file doesn't exist
 
 ##### Opera files
 
-  - `index.html` - the "background page" for RES, necessary for opera extensions
-  - `config.xml` - Opera's equivalent of Chrome's `manifest.json`
-  - `logo.gif` - a logo gif!
+  - `index.html` – the "background page" for RES, necessary for opera extensions
+  - `config.xml` – Opera's equivalent of Chrome's `manifest.json`
+  - `logo.gif` – a logo gif!
 
 ##### Safari files (RES.safariextension)
 NOTE: This directory must have `.safariextension` in the name, or Safari's extension builder pukes.
 
-  - `background-safari.html` - the "background page" for RES, necessary for safari extensions
-  - `Info.plist` - the project manifest
-  - `icon.png`, `icon48.png`, `icon128.png` - icons!
+  - `background-safari.html` – the "background page" for RES, necessary for safari extensions
+  - `Info.plist` – the project manifest
+  - `icon.png`, `icon48.png`, `icon128.png` – icons!
 
 ##### Firefox files (XPI)
 NOTE: An XPI is a Firefox add-on, which is compiled using the [Add-on SDK](https://developer.mozilla.org/en-US/Add-ons/SDK).
 
-  - `lib/main.js` - this is Firefox's sort of "background page" for RES, like what Chrome has, but just a JS file
-  - `package.json` - the project manifest for the Firefox add-on
+  - `lib/main.js` – this is Firefox's sort of "background page" for RES, like what Chrome has, but just a JS file
+  - `package.json` – the project manifest for the Firefox add-on
 
 ##### OperaBlink files
 
-  - `background.js` - the "background page" for RES, necessary for chrome extensions
-  - `manifest.json` - the project manifest
-  - `icon.png`, `icon48.png`, `icon128.png` - icons!
+  - `background.js` – the "background page" for RES, necessary for chrome extensions
+  - `manifest.json` – the project manifest
+  - `icon.png`, `icon48.png`, `icon128.png` – icons!
 
 ## Building development versions of the extension
 
