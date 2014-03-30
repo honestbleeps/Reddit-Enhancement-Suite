@@ -47,34 +47,10 @@
 Chrome.pem
 /XPI/reddit_res.xpi
 
-/Chrome/*.js
-/Chrome/modules/*.js
-/Chrome/*.css
-/Chrome/*.html
 !/Chrome/background.js
-/OperaBlink/*.js
-/OperaBlink/*.html
-/OperaBlink/modules/*.js
-/OperaBlink/*.css
 !/OperaBlink/background.js
-/RES.safariextension/*.js
-/RES.safariextension/modules/*.js
-/RES.safariextension/*.css
-/RES.safariextension/*.html
-/Opera/includes/*.js
-/Opera/includes/modules/*.js
-/Opera/includes/*.css
-/Opera/includes/*.html
-/Opera/modules/*.js
-/Opera/modules/*.html
-/XPI/data/
 !/XPI/lib/main.js
 !/lib/*
-/commentBoxes.css
-/nightmode.css
-/res.css
-/guiders.css
-/tokenize.css
 
 ## OS X
 .DS_Store
