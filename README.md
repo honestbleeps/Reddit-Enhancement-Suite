@@ -81,27 +81,27 @@ An alternative grunt build script is also provided; see "Using grunt instead of 
 
   1. Go to `Menu->Tools->Extensions` and tick the `Developer Mode` checkbox
   2. Choose `Load unpacked extension` and point it to the `Chrome` folder. Make sure you only have one RES version running at a time.
-  3. Any time you make changes to the script, you must go back to the `Menu->Tools->Extensions` page and ``Reload`` the extension.
+  3. Any time you make changes to the script, you must go back to the `Menu->Tools->Extensions` page and `Reload` the extension.
 
 ##### Building in Firefox
 
   1. [Download the Add-on SDK](https://ftp.mozilla.org/pub/mozilla.org/labs/jetpack/jetpack-sdk-latest.zip).
-  2. Start a terminal and source the Python script so that you can run the ``cfx`` commands. In Unix this is usually ``. bin/activate`` or ``source bin/activate`` and in Windows this usually involves running ``bin/activate.bat``. If you are not using Python 2, run ``virtualenv --python=python2 .`` and try again.
-  3. In the terminal, ``cd`` to the ``XPI`` folder and run the command ``cfx run``, which should launch a new Firefox browser using a temporary profile with only RES installed.
+  2. Start a terminal and source the Python script so that you can run the `cfx` commands. In Unix this is usually `. bin/activate` or `source bin/activate` and in Windows this usually involves running `bin/activate.bat`. If you are not using Python 2, run `virtualenv --python=python2 .` and try again.
+  3. In the terminal, `cd` to the `XPI` folder and run the command `cfx run`, which should launch a new Firefox browser using a temporary profile with only RES installed.
 
 ##### Building in Safari (assumes Mac)
 
-  1. Open the ``Preferences`` by going to ``Safari->Preferences`` or pressing ``⌘``, then go to ``Advanced`` and check the checkbox for ``Show develop menu in menu bar``.
-  2. Navigate to ``Develop->Show Extension Builder`` to open the extensions menu. Add a new extension by pressing the ``+`` in the bottom left and choosing ``Add extension``.
-  3. Navigate to the ``RES.safariextension`` folder for RES and select it.
+  1. Open the `Preferences` by going to `Safari->Preferences` or pressing `⌘`, then go to `Advanced` and check the checkbox for `Show develop menu in menu bar`.
+  2. Navigate to `Develop->Show Extension Builder` to open the extensions menu. Add a new extension by pressing the `+` in the bottom left and choosing `Add extension`.
+  3. Navigate to the `RES.safariextension` folder for RES and select it.
   4. It will likely say you cannot install it because no Safari development certificate exists. You will need to visit the [Safari Dev Center](https://developer.apple.com/devcenter/safari/index.action) and create an account (right hand side).
   5. You then need to visit the [Safari Developer Program](https://developer.apple.com/programs/safari/) site and sign up for a FREE account.
-  6. You can then visit your member page and use the certificate utility to create a new Safari Developer Certificate. Follow the instructions to install the certificate. If you have an error involving it being signed by an unknown authority, then double click the certificate and under the ``Trust`` setting choose ``Always Trust``. You should then be able to install the extension from the ``Extension Builder`` menu.
+  6. You can then visit your member page and use the certificate utility to create a new Safari Developer Certificate. Follow the instructions to install the certificate. If you have an error involving it being signed by an unknown authority, then double click the certificate and under the `Trust` setting choose `Always Trust`. You should then be able to install the extension from the `Extension Builder` menu.
 
 ##### Building in Opera
 
-  1. Click ``Tools->Extensions->Manage Extensions``
-  2. Drag the ``config.xml`` file in the ``Opera`` directory in to the extensions window and release. You should now have installed the extension.
+  1. Click `Tools->Extensions->Manage Extensions`
+  2. Drag the `config.xml` file in the `Opera` directory in to the extensions window and release. You should now have installed the extension.
 
 The above steps will fail if the `makelinks.sh` or grunt build scripts have not been run before hand. Please ensure you only have one copy of RES running at a time.
 
