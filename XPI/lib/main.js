@@ -1,6 +1,7 @@
 /* jshint esnext: true */
 /* global require: false */
 
+let paths = require("./paths");
 // Import the APIs we need.
 let pageMod = require("page-mod");
 let Request = require("request").Request;
@@ -163,71 +164,8 @@ tabs.on('activate', function(tab) {
 pageMod.PageMod({
 	include: ["*.reddit.com"],
 	contentScriptWhen: 'start',
-	contentScriptFile: [
-		self.data.url('jquery-1.10.2.min.js'),
-		self.data.url('guiders-1.2.8.js'),
-		self.data.url('jquery.dragsort-0.6.js'),
-		self.data.url('jquery-fieldselection.min.js'),
-		self.data.url('tinycon.js'),
-		self.data.url('jquery.tokeninput.js'),
-		self.data.url('snuownd.js'),
-		self.data.url('utils.js'),
-		self.data.url('browsersupport.js'),
-		self.data.url('console.js'),
-		self.data.url('alert.js'),
-		self.data.url('storage.js'),
-		self.data.url('template.js'),
-		self.data.url('konami.js'),
-		self.data.url('mediacrush.js'),
-		self.data.url('gfycat.js'),
-		self.data.url('hogan-2.0.0.js'),
-		self.data.url('reddit_enhancement_suite.user.js'),
-		self.data.url('modules/betteReddit.js'),
-		self.data.url('modules/userTagger.js'),
-		self.data.url('modules/keyboardNav.js'),
-		self.data.url('modules/commandLine.js'),
-		self.data.url('modules/about.js'),
-		self.data.url('modules/hover.js'),
-		self.data.url('modules/subredditTagger.js'),
-		self.data.url('modules/uppersAndDowners.js'),
-		self.data.url('modules/singleClick.js'),
-		self.data.url('modules/commentPreview.js'),
-		self.data.url('modules/commentTools.js'),
-		self.data.url('modules/sortCommentsTemporarily.js'),
-		self.data.url('modules/usernameHider.js'),
-		self.data.url('modules/showImages.js'),
-		self.data.url('modules/showKarma.js'),
-		self.data.url('modules/hideChildComments.js'),
-		self.data.url('modules/showParent.js'),
-		self.data.url('modules/neverEndingReddit.js'),
-		self.data.url('modules/saveComments.js'),
-		self.data.url('modules/userHighlight.js'),
-		self.data.url('modules/styleTweaks.js'),
-		self.data.url('modules/accountSwitcher.js'),
-		self.data.url('modules/filteReddit.js'),
-		self.data.url('modules/newCommentCount.js'),
-		self.data.url('modules/spamButton.js'),
-		self.data.url('modules/commentNavigator.js'),
-		self.data.url('modules/subredditManager.js'),
-		self.data.url('modules/RESTips.js'),
-		self.data.url('modules/settingsNavigation.js'),
-		self.data.url('modules/dashboard.js'),
-		self.data.url('modules/notifications.js'),
-		self.data.url('modules/subredditInfo.js'),
-		self.data.url('modules/commentHidePersistor.js'),
-		self.data.url('modules/bitcointip.js'),
-		self.data.url('modules/troubleshooter.js'),
-		self.data.url('init.js')
-	],
-	contentStyleFile: [
-		self.data.url('nightmode.css'),
-		self.data.url('commentBoxes.css'),
-		self.data.url('res.css'),
-		self.data.url('players.css'),
-		self.data.url('guiders.css'),
-		self.data.url('tokenize.css'),
-		self.data.url("batch.css")
-	],
+	contentScriptFile: paths.js.forEach(function(path) { return self.data.url(path); }),
+	contentStyleFile: paths.css.forEach(function(path) { return self.data.url(path); }),
 	onAttach: function(worker) {
 		// when a tab is activated, repopulate localStorage so that changes propagate across tabs...
 		workers.push(worker);
