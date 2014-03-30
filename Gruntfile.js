@@ -72,28 +72,32 @@ module.exports = function(grunt) {
 				files: [
 					{ expand: true, cwd: 'Chrome/', src: ['**'], dest: 'temp/ext/Chrome/'},
 					{ expand: true, cwd: 'lib/', src: ['**'], dest: 'temp/ext/Chrome/'},
-					{ expand: true, cwd: 'temp/manifests/Chrome/', src: ['**'], dest: 'temp/ext/Chrome/'}
+					{ expand: true, cwd: 'temp/manifests/Chrome/', src: ['**'], dest: 'temp/ext/Chrome/'},
+					{ expand: true, cwd: 'temp/manifests/Chrome/', src: ['**'], dest: 'Chrome'}
 				]
 			},
 			operablink: {
 				files: [
 					{ expand: true, cwd: 'OperaBlink/', src: ['**'], dest: 'temp/ext/OperaBlink/'},
 					{ expand: true, cwd: 'lib/', src: ['**'], dest: 'temp/ext/OperaBlink/'},
-					{ expand: true, cwd: 'temp/manifests/OperaBlink/', src: ['**'], dest: 'temp/ext/OperaBlink/'}
+					{ expand: true, cwd: 'temp/manifests/OperaBlink/', src: ['**'], dest: 'temp/ext/OperaBlink/'},
+					{ expand: true, cwd: 'temp/manifests/OperaBlink/', src: ['**'], dest: 'OperaBlink/'}
 				]
 			},
 			safari: {
 				files: [
 					{ expand: true, cwd: 'RES.safariextension/', src: ['**'], dest: 'temp/ext/RES.safariextension/'},
 					{ expand: true, cwd: 'lib/', src: ['**'], dest: 'temp/ext/RES.safariextension/'},
-					{ expand: true, cwd: 'temp/manifests/RES.safariextension/', src: ['**'], dest: 'temp/ext/RES.safariextension/'}
+					{ expand: true, cwd: 'temp/manifests/RES.safariextension/', src: ['**'], dest: 'temp/ext/RES.safariextension/'},
+					{ expand: true, cwd: 'temp/manifests/RES.safariextension/', src: ['**'], dest: 'RES.safariextension/'}
 				]
 			},
 			firefox: {
 				files: [
 					{ expand: true, cwd: 'XPI/', src: ['**'], dest: 'temp/ext/XPI/'},
 					{ expand: true, cwd: 'lib/', src: ['**'], dest: 'temp/ext/XPI/data/'},
-					{ expand: true, cwd: 'temp/manifests/XPI/data/', src: ['**'], dest: 'temp/ext/XPI/data/'}
+					{ expand: true, cwd: 'temp/manifests/XPI/', src: ['**'], dest: 'temp/ext/XPI/'},
+					{ expand: true, cwd: 'temp/manifests/XPI/', src: ['**'], dest: 'XPI/'}
 				]
 			}
 		},
