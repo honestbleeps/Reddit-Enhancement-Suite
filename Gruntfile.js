@@ -96,8 +96,10 @@ module.exports = function(grunt) {
 				files: [
 					{ expand: true, cwd: 'XPI/', src: ['**'], dest: 'temp/ext/XPI/'},
 					{ expand: true, cwd: 'lib/', src: ['**'], dest: 'temp/ext/XPI/data/'},
-					{ expand: true, cwd: 'temp/manifests/XPI/', src: ['**'], dest: 'temp/ext/XPI/'},
-					{ expand: true, cwd: 'temp/manifests/XPI/', src: ['**'], dest: 'XPI/'}
+					{ expand: true, cwd: 'temp/manifests/XPI/', src: ['package.json'], dest: 'temp/ext/XPI/'},
+					{ expand: true, cwd: 'temp/manifests/XPI/', src: ['package.json'], dest: 'XPI/'},
+					{ expand: true, cwd: 'temp/manifests/XPI/', src: ['paths.js'], dest: 'temp/ext/XPI/lib/'},
+					{ expand: true, cwd: 'temp/manifests/XPI/', src: ['paths.js'], dest: 'XPI/lib/'},
 				]
 			}
 		},
