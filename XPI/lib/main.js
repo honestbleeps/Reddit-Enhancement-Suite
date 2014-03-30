@@ -57,6 +57,9 @@ let ss = (function() {
 	} catch (e) {
 		console.warn("Error loading simple storage file: " + e);
 	}
+	if (!str) {
+		console.warn("No storage to load!");
+	}
 	localStorage = str ? JSON.parse(str) : {};
 	return this;
 })();
