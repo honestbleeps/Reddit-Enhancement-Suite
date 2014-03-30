@@ -160,12 +160,11 @@ tabs.on('activate', function(tab) {
 	}
 });
 
-
 pageMod.PageMod({
 	include: ["*.reddit.com"],
 	contentScriptWhen: 'start',
-	contentScriptFile: paths.js.forEach(function(path) { return self.data.url(path); }),
-	contentStyleFile: paths.css.forEach(function(path) { return self.data.url(path); }),
+	contentScriptFile: paths.js.map(function(path) { return self.data.url(path); }),
+	contentStyleFile: paths.css.map(function(path) { return self.data.url(path); }),
 	onAttach: function(worker) {
 		// when a tab is activated, repopulate localStorage so that changes propagate across tabs...
 		workers.push(worker);
