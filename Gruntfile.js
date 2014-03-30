@@ -157,10 +157,14 @@ module.exports = (function() {
 		libdirs.forEach(function(dir) {
 			var paths = [];
 			if (package.files[group] && package.files[group][dir]) {
-				paths = package.files[group][dir].map(function(filename) { return "lib/" + dir + "/" + filename; });
-			} else {
-				paths = [ "lib/" + dir + "/{,*/,**/}*." + extension ];
+				package.files[group][dir].forEach(function(filename) {
+					var path = "lib/" + ( dir ? dir + "/" : "") + filename;
+					paths.push(path);
+				});
 			}
+
+			var wildcards = "lib/" + (dir ? dir + "/{,*/,**/}" : "") + "*." + extension;
+			paths.push(wildcards);
 
 			allpaths = allpaths.concat(paths);
 		});
