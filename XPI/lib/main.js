@@ -170,6 +170,7 @@ pageMod.PageMod({
 		self.data.url('jquery-fieldselection.min.js'),
 		self.data.url('tinycon.js'),
 		self.data.url('jquery.tokeninput.js'),
+		self.data.url('HTMLPasteurizer.js'),
 		self.data.url('snuownd.js'),
 		self.data.url('utils.js'),
 		self.data.url('browsersupport.js'),
