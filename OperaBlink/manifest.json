@@ -11,8 +11,6 @@
 	"content_scripts": [
 		{
 			"matches": [
-				"http://reddit.honestbleeps.com/*",
-				"http://redditenhancementsuite.com/*",
 				"http://reddit.com/*",
 				"https://reddit.com/*",
 				"http://*.reddit.com/*",
