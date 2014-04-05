@@ -10,6 +10,9 @@ module.exports = function(grunt) {
 			chrome: {
 				files: [{ expand: true, cwd: 'lib/', src: ['**'], dest: 'Chrome/'}]
 			},
+			opera: {
+				files: [{ expand: true, cwd: 'lib/', src: ['**'], dest: 'Opera/'}]
+			},
 			operablink: {
 				files: [{ expand: true, cwd: 'lib/', src: ['**'], dest: 'OperaBlink/'}]
 			},
@@ -26,6 +29,9 @@ module.exports = function(grunt) {
 			chrome: {
 				files: ['lib/*', 'lib/*/*'], tasks: ['copy:chrome']
 			},
+			opera: {
+				files: ['lib/*', 'lib/*/*'], tasks: ['copy:opera']
+			},
 			operablink: {
 				files: ['lib/*', 'lib/*/*'], tasks: ['copy:operablink']
 			},
@@ -41,8 +47,9 @@ module.exports = function(grunt) {
 	// Build all with "grunt"
 	grunt.registerTask('default', ['copy']);
 
-	// Setup for devlopment with "grunt chrome" or "grunt firefox" (enables watch task)
+	// Setup for development with "grunt chrome" or "grunt firefox" (enables watch task)
 	grunt.registerTask('chrome', ['copy:chrome', 'watch:chrome']);
+	grunt.registerTask('opera', ['copy:opera', 'watch:opera']);
 	grunt.registerTask('operablink', ['copy:operablink', 'watch:operablink']);
 	grunt.registerTask('safari', ['copy:safari', 'watch:safari']);
 	grunt.registerTask('firefox', ['copy:firefox', 'watch:firefox']);
