@@ -42,8 +42,10 @@
 *.cachefile
 
 ## General
+/node_modules
 Chrome.pem
 /XPI/reddit_res.xpi
+/deprecated
 
 /Chrome/*.js
 /Chrome/modules/*.js
