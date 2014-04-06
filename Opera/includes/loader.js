@@ -25,7 +25,10 @@ window.addEventListener('DOMContentLoaded', function() {
 	var files = [
 		'reddit_enhancement_suite.user.js',
 
+		'opera-save-jquery.js',
 		'jquery-1.10.2.min.js',
+		'opera-restore-jquery.js',
+
 		'jquery-fieldselection.min.js',
 		'jquery.dragsort-0.6.js',
 		'jquery.tokeninput.js',

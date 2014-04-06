@@ -1,0 +1,1 @@
+var redditJq = window.jQuery;
