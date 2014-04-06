@@ -1,6 +1,7 @@
 module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-contrib-copy');
+	grunt.loadNpmTasks('grunt-contrib-qunit');
 
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
@@ -41,6 +42,11 @@ module.exports = function(grunt) {
 			firefox: {
 				files: ['lib/*', 'lib/*/*'], tasks: ['copy:firefox']
 			}
+		},
+
+		// Run QUnit tests
+		qunit: {
+			all: ['tests/qunit/tests.html']
 		}
 	});
 
@@ -53,4 +59,6 @@ module.exports = function(grunt) {
 	grunt.registerTask('operablink', ['copy:operablink', 'watch:operablink']);
 	grunt.registerTask('safari', ['copy:safari', 'watch:safari']);
 	grunt.registerTask('firefox', ['copy:firefox', 'watch:firefox']);
+
+	grunt.registerTask('test', ['qunit:all']);
 };
