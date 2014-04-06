@@ -89,38 +89,41 @@ window.addEventListener('DOMContentLoaded', function() {
 		'init.js',
 	];
 
-	var all = '';
 	var context = {opera:opera};
 
-	function loadNext() {
-		if (!files.length)
+	function run(all) {
+		function f()
 		{
-			function f()
+			with (window)
+			with (context)
 			{
-				with (window)
-				with (context)
-				{
-					eval(all);
+				eval(all);
 
-					if (loadEventFired)
-						RESInitReadyCheck();
-				}
+				if (loadEventFired)
+					RESInitReadyCheck();
 			}
-			f.call(context);
-
-			return;
 		}
-		var fn = files.shift();
 
+		f.call(context);
+	}
+
+	var data = new Array(files.length);
+	var loaded = 0;
+
+	function loadFile(i) {
+		var fn = files[i];
 		var f = opera.extension.getFile('/' + fn);
 		var fr = new FileReader();
 		fr.onload = function() {
-			all += fr.result;
-			loadNext();
+			data[i] = fr.result;
+			loaded++;
+			if (loaded == files.length) {
+				run(data.join(';'));
+			}
 		}
 		fr.readAsText(f);
 	}
 
-	loadNext();
+	for (var i=0; i<files.length; i++)
+		loadFile(i);
 });
-
