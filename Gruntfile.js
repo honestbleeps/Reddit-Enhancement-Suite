@@ -2,6 +2,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-contrib-qunit');
+	grunt.loadNpmTasks('grunt-contrib-nodeunit');
 
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
@@ -47,11 +48,19 @@ module.exports = function(grunt) {
 		// Run QUnit tests
 		qunit: {
 			all: ['tests/qunit/tests.html']
+		},
+
+		// Run NodeUnit tests
+		nodeunit: {
+			all: ['tests/selenium/all.js']
 		}
 	});
 
 	// Build all with "grunt"
 	grunt.registerTask('default', ['copy']);
+
+	// Run tests
+	grunt.registerTask('test', ['qunit:all', 'nodeunit:all']);
 
 	// Setup for development with "grunt chrome" or "grunt firefox" (enables watch task)
 	grunt.registerTask('chrome', ['copy:chrome', 'watch:chrome']);
@@ -59,6 +68,4 @@ module.exports = function(grunt) {
 	grunt.registerTask('operablink', ['copy:operablink', 'watch:operablink']);
 	grunt.registerTask('safari', ['copy:safari', 'watch:safari']);
 	grunt.registerTask('firefox', ['copy:firefox', 'watch:firefox']);
-
-	grunt.registerTask('test', ['qunit:all']);
 };
