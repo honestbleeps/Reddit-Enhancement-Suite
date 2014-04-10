@@ -1,6 +1,14 @@
+var resJq = window.jQuery;
+
 window.$.noConflict();
-$ = window.jQuery;
-jQuery = window.jQuery;
-// now, return the window.$ / window.jQuery back to its original state.
-window.$ = redditJq;
-window.jQuery = redditJq;
+
+       $ =        jQuery = resJq;
+window.$ = window.jQuery = redditJq;
+
+/*
+console.log('Reddit jQuery version was:\n' + redditJq.fn.jquery);
+console.log('RES    jQuery version was:\n' + resJq   .fn.jquery);
+
+console.log('Window jQuery version is :\n' + window.$.fn.jquery);
+console.log('Local  jQuery version is :\n' +        $.fn.jquery);
+*/

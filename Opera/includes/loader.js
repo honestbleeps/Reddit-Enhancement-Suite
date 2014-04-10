@@ -23,6 +23,8 @@ window.addEventListener('load', function() {
 
 window.addEventListener('DOMContentLoaded', function() {
 	var files = [
+		'opera-header.js',
+
 		'reddit_enhancement_suite.user.js',
 
 		'opera-save-jquery.js',
@@ -87,26 +89,21 @@ window.addEventListener('DOMContentLoaded', function() {
 		'modules/userTagger.js',
 
 		'init.js',
+
+		'opera-footer.js'
 	];
 
 	var context = {opera:opera};
 
 	function run(all) {
-		function f()
-		{
-			with (window)
-			with (context)
-			{
-				eval(all);
-
-				if (loadEventFired)
-					RESInitReadyCheck();
-			}
+		function f() {
+			eval(all);
 		}
 
 		f.call(context);
 	}
 
+	// Load all files asynchronously
 	var data = new Array(files.length);
 	var loaded = 0;
 

@@ -57,6 +57,12 @@ exports.testDriver = function(test, driver) {
 
 	waitFor(By.css('iframe.media-embed'));
 
+	// Test Imgur expandos
+
+	waitFor(By.css('.expando-button.image')).click();
+
+	waitFor(By.css('img.RESImage.loaded'));
+
 	// All done, execute queued tasks and exit
 
 	driver.quit().then(function() {
