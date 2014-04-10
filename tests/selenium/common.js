@@ -45,23 +45,29 @@ exports.testDriver = function(test, driver) {
 
 	// Test text expandos
 
-	waitFor(By.css('.expando-button.selftext')).click();
+	waitFor(By.css('.id-t3_22b7pn .expando-button.selftext')).click();
 
-	waitFor(By.css('.usertext-body')).getText().then(function(s) {
+	waitFor(By.css('.id-t3_22b7pn .usertext-body')).getText().then(function(s) {
 		test.equal(s, 'This is the text contents');
 	});
 
 	// Test YouTube expandos
 
-	waitFor(By.css('.expando-button.video')).click();
+	waitFor(By.css('.id-t3_22b7mv .expando-button.video')).click();
 
-	waitFor(By.css('iframe.media-embed'));
+	waitFor(By.css('.id-t3_22b7mv iframe.media-embed'));
 
 	// Test Imgur expandos
 
-	waitFor(By.css('.expando-button.image')).click();
+	waitFor(By.css('.id-t3_22nbmu .expando-button.image')).click();
 
-	waitFor(By.css('img.RESImage.loaded'));
+	waitFor(By.css('.id-t3_22nbmu img.RESImage.loaded'));
+
+	// Test Imgur album expandos
+
+	waitFor(By.css('.id-t3_22njzk .expando-button.image.gallery')).click();
+
+	waitFor(By.css('.id-t3_22njzk img.RESImage.loaded'));
 
 	// All done, execute queued tasks and exit
 
