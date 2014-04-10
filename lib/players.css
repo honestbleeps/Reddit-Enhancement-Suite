@@ -8,10 +8,12 @@
   font-weight: bold;
   opacity: 0;
   transition: opacity linear 0.2s;
+  padding-left: 20px;
 }
 .res-player .brand img {
-  position: relative;
-  top: 3px;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 .res-player {
   position: relative; }
@@ -294,3 +296,14 @@
 		.res-player { position: relative; display: inline-block; width: auto; max-width: 100%; }
 		.res-player video { max-width: 100%; }
 		.res-player.fullscreen, .res-player.fullscreen video { max-width: none; }
+
+
+	.res-lightweight-player-controls {
+		cursor: default;
+		float: right;
+		font-size: 12px;
+		margin-right: 5px;
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		user-select: none;
+	}

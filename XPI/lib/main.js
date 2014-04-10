@@ -2,13 +2,13 @@
 /* global require: false */
 
 // Import the APIs we need.
-let pageMod = require("page-mod");
-let Request = require("request").Request;
-let self = require("self");
-let tabs = require("tabs");
+let pageMod = require("sdk/page-mod");
+let Request = require("sdk/request").Request;
+let self = require("sdk/self");
+let tabs = require("sdk/tabs");
 //let ss = require("simple-storage"); // Temporarily disabled
-let timer = require("timer");
-let priv = require("private-browsing");
+let timer = require("sdk/timers");
+let priv = require("sdk/private-browsing");
 let windows = require("sdk/windows").browserWindows;
 
 // require chrome allows us to use XPCOM objects...
@@ -50,8 +50,13 @@ let ss = (function() {
 	    }
 	    timeout = timer.setTimeout(really_save, 3000);
 	};
-	let str = file.read(filename);
-	localStorage = JSON.parse(str);
+	let str = "";
+	try {
+		str = file.read(filename);
+	} catch (e) {
+		console.warn("Error loading simple storage file: " + e);
+	}
+	localStorage = str ? JSON.parse(str) : {};
 	return this;
 })();
 // End temporary workaround
@@ -165,6 +170,7 @@ pageMod.PageMod({
 		self.data.url('jquery-fieldselection.min.js'),
 		self.data.url('tinycon.js'),
 		self.data.url('jquery.tokeninput.js'),
+		self.data.url('HTMLPasteurizer.js'),
 		self.data.url('snuownd.js'),
 		self.data.url('utils.js'),
 		self.data.url('browsersupport.js'),
@@ -212,7 +218,6 @@ pageMod.PageMod({
 		self.data.url('modules/commentHidePersistor.js'),
 		self.data.url('modules/bitcointip.js'),
 		self.data.url('modules/troubleshooter.js'),
-		self.data.url('modules/tests.js'),
 		self.data.url('init.js')
 	],
 	contentStyleFile: [

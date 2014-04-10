@@ -1,6 +1,6 @@
 {
 	"name": "Reddit Enhancement Suite",
-	"version": "4.3.1.2",
+	"version": "4.3.2.1",
 	"manifest_version": 2,
 	"minimum_chrome_version": "26.0",
 	"description": "Reddit Enhancement Suite - a group of enhancements for browsing Reddit",
@@ -11,8 +11,6 @@
 	"content_scripts": [
 		{
 			"matches": [
-				"http://reddit.honestbleeps.com/*",
-				"http://redditenhancementsuite.com/*",
 				"http://reddit.com/*",
 				"https://reddit.com/*",
 				"http://*.reddit.com/*",
@@ -25,6 +23,7 @@
 				"jquery-fieldselection.min.js",
 				"tinycon.js",
 				"jquery.tokeninput.js",
+				"HTMLPasteurizer.js",
 				"snuownd.js",
 				"utils.js",
 				"browsersupport.js",
@@ -72,7 +71,6 @@
 				"modules/commentHidePersistor.js",
 				"modules/bitcointip.js",
 				"modules/troubleshooter.js",
-				"modules/tests.js",
 				"init.js"
 			],
 			"css": [
