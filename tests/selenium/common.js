@@ -69,6 +69,13 @@ exports.testDriver = function(test, driver) {
 
 	waitFor(By.css('.id-t3_22njzk img.RESImage.loaded'));
 
+	// Test opening and closing the console
+
+	driver.findElement(By.id('RESSettingsButton')).click();
+	waitFor(By.id('SettingsConsole')).click();
+	waitFor(By.id('RESConsoleConfigPanel'));
+	waitFor(By.id('RESClose')).click();
+
 	// All done, execute queued tasks and exit
 
 	driver.quit().then(function() {
