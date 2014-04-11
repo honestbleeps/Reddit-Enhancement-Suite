@@ -69,6 +69,12 @@ exports.testDriver = function(test, driver) {
 
 	waitFor(By.css('.id-t3_22njzk img.RESImage.loaded'));
 
+	// Test MediaCrush expandos
+
+	waitFor(By.css('.id-t3_22ren4 .expando-button.video')).click();
+
+	waitFor(By.css('.id-t3_22ren4 .res-player.video.MediaCrush'));
+
 	// Test opening and closing the console
 
 	driver.findElement(By.id('RESSettingsButton')).click();
