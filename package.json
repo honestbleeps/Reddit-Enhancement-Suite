@@ -1,6 +1,10 @@
 {
 	"name": "RES",
 	"version": "4.3.2",
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/honestbleeps/Reddit-Enhancement-Suite.git"
+	},
 	"devDependencies": {
 		"grunt-cli": "~0.1.5",
 		"grunt-contrib-watch": "~0.4.3",
