@@ -73,7 +73,7 @@ NOTE: An XPI is a Firefox add-on, which is compiled using the [Add-on SDK](https
 
 ## Building development versions of the extension
 
-In order to build a development version of RES, run `makelinks.sh` to generate hard links into `lib/` from the browser-specific folders. NOTE: switching branches will break hard links, so you will need to rerun `makelinks.sh` whenever you check out new code.
+In order to build a development version of RES, run `makelinks.sh` to generate hard links into `lib/` from the browser-specific folders. (This is [necessary on Chrome](https://code.google.com/p/chromium/issues/detail?id=27185).) NOTE: switching branches will break hard links, so you will need to rerun `makelinks.sh` whenever you check out new code.
 
 An alternative grunt build script is also provided; see "Using grunt instead of hard links" for more details.
 
