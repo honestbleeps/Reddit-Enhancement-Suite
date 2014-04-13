@@ -20,23 +20,28 @@ let localStorage = {};
 let file = require("sdk/io/file")
 let ss = (function() {
 	var timeout = null;
-	var filename = (function() {
-		let storeFile = Cc["@mozilla.org/file/directory_service;1"].
-			getService(Ci.nsIProperties).
-			get("ProfD", Ci.nsIFile);
-		storeFile.append("jetpack");
-		storeFile.append(self.id);
-		storeFile.append("simple-storage");
-		file.mkpath(storeFile.path);
-		storeFile.append("store.json");
-		return storeFile.path;
-	})();
+
+	let storeFile = Cc["@mozilla.org/file/directory_service;1"].
+		getService(Ci.nsIProperties).
+		get("ProfD", Ci.nsIFile);
+	storeFile.append("jetpack");
+	storeFile.append(self.id);
+	storeFile.append("simple-storage");
+	file.mkpath(storeFile.path);
+	let tempFile = storeFile.clone();
+	storeFile.append("store.json");
+	tempFile.append("store.json.tmp");
+
 	var really_save = function() {
-		let stream = file.open(filename, "w");
+		let stream = file.open(tempFile.path, "w");
 		try {
 			stream.writeAsync(JSON.stringify(localStorage), function writeAsync(err) {
-				if (err)
-					console.error("Error writing simple storage file: " + filename);
+				if (err) {
+					console.error("Error writing simple storage file: " + tempFile.path);
+				} else {
+					let tempFileClone = tempFile.clone();
+					tempFileClone.moveTo(null, storeFile.leafName);
+				}
 			}.bind(this));
 		}
 		catch (err) {
@@ -52,7 +57,7 @@ let ss = (function() {
 	};
 	let str = "";
 	try {
-		str = file.read(filename);
+		str = file.read(storeFile.path);
 	} catch (e) {
 		console.warn("Error loading simple storage file: " + e);
 	}
