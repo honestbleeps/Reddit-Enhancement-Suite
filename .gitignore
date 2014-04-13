@@ -61,12 +61,11 @@ Chrome.pem
 /RES.safariextension/modules/*.js
 /RES.safariextension/*.css
 /RES.safariextension/*.html
-/Opera/includes/*.js
-/Opera/includes/modules/*.js
-/Opera/includes/*.css
-/Opera/includes/*.html
+/Opera/*.js
+!/Opera/opera-*.js
+/Opera/*.css
+/Opera/templates.html
 /Opera/modules/*.js
-/Opera/modules/*.html
 /XPI/data/
 !/XPI/lib/main.js
 !/lib/*
@@ -75,6 +74,9 @@ Chrome.pem
 /res.css
 /guiders.css
 /tokenize.css
+
+/tests/selenium/opera-profile/
+/tests/selenium/opera-profile-clean/
 
 ## OS X
 .DS_Store

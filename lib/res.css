@@ -1,4 +1,4 @@
-#RESConsole {
+#RESConsoleContainer {
 	visibility: hidden;
 	color: #000;
 	font-size: 12px;
@@ -22,13 +22,13 @@
 	-ms-transition:top 0.5s ease-in-out;
 	-transition:top 0.5s ease-in-out;
 }
-#RESConsole em { font-style: italic; }
-#RESConsole .handle { cursor: move; }
-#RESConsole.slideIn {
+#RESConsoleContainer em { font-style: italic; }
+#RESConsoleContainer .handle { cursor: move; }
+#RESConsoleContainer.slideIn {
 	visibility: visible;
 	top: 30px;
 }
-#RESConsole.slideOut {
+#RESConsoleContainer.slideOut {
 	visibility: visible;
 	top: -100%;
 }
@@ -465,7 +465,7 @@ p.moduleListing {
 	float: left;
 	margin-right: 15px;
 }
-#RESConsole .toggleButton {
+#RESConsoleContainer .toggleButton {
 	margin-left: 10px;
 }
 .toggleButton input[type=checkbox] {
