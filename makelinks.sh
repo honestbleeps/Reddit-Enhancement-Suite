@@ -14,21 +14,11 @@ do
 			then
 				file=$(basename $i)
 				dir=$(dirname $i)
-				if [ "$j" == "Opera" ];
+				if [ "$dir" == "lib/modules" ]
 				then
-					if [[ "$i" == *.user.js || "$i" == *.css ]];
-					then
-						dest="./$j/includes/"
-					else
-						dest="./$j/modules/"
-					fi
+					dest="./$j/modules/"
 				else
-					if [ "$dir" == "lib/modules" ]
-					then
-						dest="./$j/modules/"
-					else
-						dest="./$j/"
-					fi
+					dest="./$j/"
 				fi
 				echo "Re-linking:" $dest$file
 				if [ -f $dest$file ];

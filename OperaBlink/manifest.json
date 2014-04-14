@@ -1,6 +1,6 @@
 {
 	"name": "Reddit Enhancement Suite",
-	"version": "4.3.1.2",
+	"version": "4.3.2.1",
 	"manifest_version": 2,
 	"minimum_chrome_version": "26.0",
 	"description": "Reddit Enhancement Suite - a group of enhancements for browsing Reddit",
@@ -11,8 +11,6 @@
 	"content_scripts": [
 		{
 			"matches": [
-				"http://reddit.honestbleeps.com/*",
-				"http://redditenhancementsuite.com/*",
 				"http://reddit.com/*",
 				"https://reddit.com/*",
 				"http://*.reddit.com/*",
@@ -25,6 +23,7 @@
 				"jquery-fieldselection.min.js",
 				"tinycon.js",
 				"jquery.tokeninput.js",
+				"HTMLPasteurizer.js",
 				"snuownd.js",
 				"utils.js",
 				"browsersupport.js",
@@ -35,6 +34,7 @@
 				"konami.js",
 				"hogan-2.0.0.js",
 				"mediacrush.js",
+				"gfycat.js",
 				"reddit_enhancement_suite.user.js",
 				"modules/betteReddit.js",
 				"modules/userTagger.js",
@@ -47,6 +47,7 @@
 				"modules/singleClick.js",
 				"modules/commentPreview.js",
 				"modules/commentTools.js",
+				"modules/sortCommentsTemporarily.js",
 				"modules/usernameHider.js",
 				"modules/showImages.js",
 				"modules/showKarma.js",
@@ -70,16 +71,16 @@
 				"modules/commentHidePersistor.js",
 				"modules/bitcointip.js",
 				"modules/troubleshooter.js",
-				"modules/tests.js",
+				"modules/localDate.js",
 				"init.js"
 			],
 			"css": [
 				"nightmode.css",
 				"commentBoxes.css",
 				"res.css",
+				"players.css",
 				"guiders.css",
 				"tokenize.css",
-				"fitbamob.css",
 				"batch.css"
 			],
 			"run_at": "document_start"

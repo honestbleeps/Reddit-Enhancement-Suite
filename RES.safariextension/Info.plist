@@ -5,7 +5,7 @@
 	<key>Author</key>
 	<string>Steve Sobel</string>
 	<key>Builder Version</key>
-	<string>8537.73.11</string>
+	<string>9537.75.14</string>
 	<key>CFBundleDisplayName</key>
 	<string>Reddit Enhancement Suite</string>
 	<key>CFBundleIdentifier</key>
@@ -13,9 +13,9 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleShortVersionString</key>
-	<string>4.3.1.2</string>
+	<string>4.3.2.1</string>
 	<key>CFBundleVersion</key>
-	<string>4.3.1.2</string>
+	<string>4.3.2.1</string>
 	<key>Chrome</key>
 	<dict>
 		<key>Database Quota</key>
@@ -35,6 +35,7 @@
 				<string>jquery-fieldselection.min.js</string>
 				<string>tinycon.js</string>
 				<string>jquery.tokeninput.js</string>
+				<string>HTMLPasteurizer.js</string>
 				<string>snuownd.js</string>
 				<string>hogan-2.0.0.js</string>
 				<string>utils.js</string>
@@ -45,18 +46,20 @@
 				<string>template.js</string>
 				<string>konami.js</string>
 				<string>mediacrush.js</string>
+				<string>gfycat.js</string>
 				<string>reddit_enhancement_suite.user.js</string>
 				<string>modules/betteReddit.js</string>
 				<string>modules/userTagger.js</string>
 				<string>modules/keyboardNav.js</string>
 				<string>modules/commandLine.js</string>
-				<string>modules/search.js</string>
+				<string>modules/about.js</string>
 				<string>modules/hover.js</string>
 				<string>modules/subredditTagger.js</string>
 				<string>modules/uppersAndDowners.js</string>
 				<string>modules/singleClick.js</string>
 				<string>modules/commentPreview.js</string>
 				<string>modules/commentTools.js</string>
+				<string>modules/sortCommentsTemporarily.js</string>
 				<string>modules/usernameHider.js</string>
 				<string>modules/showImages.js</string>
 				<string>modules/showKarma.js</string>
@@ -80,6 +83,7 @@
 				<string>modules/commentHidePersistor.js</string>
 				<string>modules/bitcointip.js</string>
 				<string>modules/troubleshooter.js</string>
+				<string>modules/localDate.js</string>
 				<string>init.js</string>
 				<string>modules/tests.js</string>
 			</array>
