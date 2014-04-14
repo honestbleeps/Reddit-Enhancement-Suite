@@ -324,6 +324,7 @@ pageMod.PageMod({
 					worker.postMessage({status: "success"});
 					break;
 				case 'keyboardNav':
+					inBackground = (request.button === 1)
 					isPrivate = priv.isPrivate(windows.activeWindow);
 
 					// handle requests from keyboardNav module
