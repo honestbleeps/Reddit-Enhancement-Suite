@@ -69,6 +69,8 @@ safari.self.addEventListener("message", safariMessageHandler, false);
 
 
 if (typeof GM_xmlhttpRequest === 'undefined') {
+	// TODO: move this into BrowserStrategy
+
 	GM_xmlhttpRequest = function(obj) {
 		obj.requestType = 'GM_xmlhttpRequest';
 		// Since Safari doesn't provide legitimate callbacks, I have to store the onload function here in the main
@@ -131,4 +133,11 @@ if (typeof GM_xmlhttpRequest === 'undefined') {
 }
 
 
+BrowserStrategy['sanitizeJSON'] = function(data) {
+	if (data.substring(0, 2) === 's{') {
+		data = data.substring(1, data.length);
+	}
+
+	return data;
+};
 
