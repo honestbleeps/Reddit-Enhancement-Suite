@@ -162,3 +162,13 @@ BrowserStrategy['storageSetup'] = function(thisJSON) {
 	// we've got firefox jetpack, get localStorage from background process
 	self.postMessage(thisJSON);
 }
+
+BrowserStrategy['RESInitReadyCheck'] = function() {
+	// firefox addon sdk... we've included jQuery...
+	// also, for efficiency, we're going to try using unsafeWindow for "less secure" (but we're not going 2 ways here, so that's OK) but faster DOM node access...
+	document = unsafeWindow.document;
+	window = unsafeWindow;
+	if (typeof $ !== 'function') {
+		console.log('Uh oh, something has gone wrong loading jQuery...');
+	}
+};
