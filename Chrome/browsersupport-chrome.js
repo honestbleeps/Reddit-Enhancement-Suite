@@ -105,3 +105,42 @@ if (typeof GM_xmlhttpRequest === 'undefined') {
 		};
 	}
 }
+
+
+BrowserStrategy['storageSetup'] = function() {
+	RESLoadResourceAsText = function(filename, callback) {
+		var xhr = new XMLHttpRequest();
+		xhr.onload = function() {
+			if (callback) {
+				callback(this.responseText);
+			}
+		};
+		var id = chrome.i18n.getMessage("@@extension_id");
+		xhr.open('GET', 'chrome-extension://' + id + '/' + filename);
+		xhr.send();
+	};
+
+	// we've got chrome, get a copy of the background page's localStorage first, so don't init until after.
+	chrome.runtime.sendMessage(thisJSON, function(response) {
+		// Does RESStorage have actual data in it?  If it doesn't, they're a legacy user, we need to copy
+		// old school localStorage from the foreground page to the background page to keep their settings...
+		if (!response || typeof response.importedFromForeground === 'undefined') {
+			// it doesn't exist.. copy it over...
+			var ls = {};
+			for (var i = 0, len = localStorage.length; i < len; i++) {
+				if (localStorage.key(i)) {
+					ls[localStorage.key(i)] = localStorage.getItem(localStorage.key(i));
+				}
+			}
+			var thisJSON = {
+				requestType: 'saveLocalStorage',
+				data: ls
+			};
+			chrome.runtime.sendMessage(thisJSON, function(response) {
+				setUpRESStorage(response);
+			});
+		} else {
+			setUpRESStorage(response);
+		}
+	});
+};
