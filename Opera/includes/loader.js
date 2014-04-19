@@ -38,6 +38,7 @@ window.addEventListener('DOMContentLoaded', function() {
 
 		'alert.js',
 		'browsersupport.js',
+		'browsersupport-opera.js',
 		'console.js',
 		'gfycat.js',
 		'guiders-1.2.8.js',
