@@ -172,3 +172,8 @@ BrowserStrategy['RESInitReadyCheck'] = function() {
 		console.log('Uh oh, something has gone wrong loading jQuery...');
 	}
 };
+
+
+BrowserStrategy['sendMessage'] = function(thisJSON) {
+	self.postMessage(thisJSON);
+};

@@ -483,3 +483,8 @@ BrowserStrategy['RESInitReadyCheck'] = function(RESInit) {
 		RESInit();
 	}
 };
+
+
+BrowserStrategy['sendMessage'] = function(thisJSON) {
+	opera.extension.postMessage(JSON.stringify(thisJSON));
+};

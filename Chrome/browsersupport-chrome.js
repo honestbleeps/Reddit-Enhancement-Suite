@@ -144,3 +144,8 @@ BrowserStrategy['storageSetup'] = function() {
 		}
 	});
 };
+
+
+BrowserStrategy['sendMessage'] = function(thisJSON) {
+	chrome.runtime.sendMessage(thisJSON);
+};
