@@ -492,3 +492,11 @@ BrowserStrategy['sendMessage'] = function(thisJSON) {
 BrowserStrategy['getOutlineProperty'] = function() {
 	return 'border';
 };
+
+BrowserStrategy['openNewWindow'] = function (thisHREF) {
+	var thisJSON = {
+		requestType: 'keyboardNav',
+		linkURL: thisHREF
+	};
+	opera.extension.postMessage(JSON.stringify(thisJSON));
+};

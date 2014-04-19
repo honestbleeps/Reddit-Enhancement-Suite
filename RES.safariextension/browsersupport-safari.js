@@ -188,3 +188,11 @@ BrowserStrategy['sendMessage'] = function(thisJSON) {
 	safari.self.tab.dispatchMessage(thisJSON.requestType, thisJSON);
 };
 
+
+BrowserStrategy['openInNewWindow'] = function (thisHREF) {
+	var thisJSON = {
+		requestType: 'keyboardNav',
+		linkURL: thisHREF
+	};
+	safari.self.tab.dispatchMessage("keyboardNav", thisJSON);
+};

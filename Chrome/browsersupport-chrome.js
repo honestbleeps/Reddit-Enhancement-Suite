@@ -149,3 +149,12 @@ BrowserStrategy['storageSetup'] = function() {
 BrowserStrategy['sendMessage'] = function(thisJSON) {
 	chrome.runtime.sendMessage(thisJSON);
 };
+
+
+BrowserStrategy['openInNewWindow'] = function(thisHREF) {
+	var thisJSON = {
+		requestType: 'keyboardNav',
+		linkURL: thisHREF
+	};
+	chrome.runtime.sendMessage(thisJSON);
+};
