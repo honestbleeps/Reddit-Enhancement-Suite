@@ -1,3 +1,4 @@
+// OperaBlink loads browsersupport-chrome first, then browsersupport-operablink.js for overrides
 
 // listen for messages from chrome background page
 if (BrowserDetect.isChrome()) {
