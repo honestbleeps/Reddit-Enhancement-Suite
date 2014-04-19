@@ -488,3 +488,7 @@ BrowserStrategy['RESInitReadyCheck'] = function(RESInit) {
 BrowserStrategy['sendMessage'] = function(thisJSON) {
 	opera.extension.postMessage(JSON.stringify(thisJSON));
 };
+
+BrowserStrategy['getOutlineProperty'] = function() {
+	return 'border';
+};
