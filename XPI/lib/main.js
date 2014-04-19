@@ -179,6 +179,7 @@ pageMod.PageMod({
 		self.data.url('snuownd.js'),
 		self.data.url('utils.js'),
 		self.data.url('browsersupport.js'),
+		self.data.url('browsersupport-firefox.js'),
 		self.data.url('console.js'),
 		self.data.url('alert.js'),
 		self.data.url('storage.js'),
