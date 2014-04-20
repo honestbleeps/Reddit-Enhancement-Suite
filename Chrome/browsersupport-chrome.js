@@ -107,7 +107,7 @@ if (typeof GM_xmlhttpRequest === 'undefined') {
 }
 
 
-BrowserStrategy['storageSetup'] = function() {
+BrowserStrategy['storageSetup'] = function(thisJSON) {
 	RESLoadResourceAsText = function(filename, callback) {
 		var xhr = new XMLHttpRequest();
 		xhr.onload = function() {
