@@ -129,7 +129,7 @@ if (typeof GM_xmlhttpRequest === 'undefined') {
 }
 
 
-BrowserStrategy['localStorageTest'] = function()
+BrowserStrategy['localStorageTest'] = function() {
 	// if this is a firefox addon, check for the old lsTest to see if they used to use the Greasemonkey script...
 	// if so, present them with a notification explaining that they should download a new script so they can
 	// copy their old settings...
@@ -161,7 +161,7 @@ BrowserStrategy['storageSetup'] = function(thisJSON) {
 	};
 	// we've got firefox jetpack, get localStorage from background process
 	self.postMessage(thisJSON);
-}
+};
 
 BrowserStrategy['RESInitReadyCheck'] = function() {
 	// firefox addon sdk... we've included jQuery...
