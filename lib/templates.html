@@ -166,14 +166,17 @@
 		<!--/VideoUI-->
 		<!--GfycatUI-->
 		<script id="GfycatUI" type="application/x-template">
-			<div class="res-player video gfycatR">
+			<div class="res-player video gfycatR {{#gfygur}}gfygur{{/gfygur}}">
+{{#control}}<div class='gfyCtrl'><span class="RESGalleryControls"><a class="previous noKeyNav"></a><span class="RESGalleryLabel">1 of 1</span><a class="next noKeyNav"></a></span></div>{{/control}}			
 				<a class="madeVisible" href="{{ directurl }}" target="_blank">
 				<video autoplay loop muted preload title="Drag to Resize" class="gfyRVid" poster="{{ poster }}"">
 					{{#sources}}
 					<source src="{{ source }}" {{#type}}type="{{ type }}"{{/type}} class="{{ class }}">
 					{{/sources}}
 				</video>
+
 				</a>
+				{{#album}}<div class='gfy-data' data-url="{{source}}""></div>{{/album}}
 				<div style="height: 35px;" class="ctrlContainer">
 					<div style="width: 90px; height: 25px; float: right; padding: 5px; display: none;" class="ctrlBox">
 						<div  class="res-icon res-lightweight-player-controls gfyRCtrlFaster" >&#xf14c;</div>
