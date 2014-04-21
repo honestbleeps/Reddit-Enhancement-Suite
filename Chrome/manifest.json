@@ -37,6 +37,7 @@
 				"hogan-2.0.0.js",
 				"mediacrush.js",
 				"gfycat.js",
+				"gfygur.js",
 				"reddit_enhancement_suite.user.js",
 				"modules/betteReddit.js",
 				"modules/userTagger.js",
@@ -114,6 +115,7 @@
 		"http://backend.deviantart.com/oembed?url=*",
 		"http://api.tumblr.com/v2/blog/*/posts?api_key=*&id=*",
 		"https://mediacru.sh/*",
+		"http://gfycat.com/cajax/get/*",
 		"http://noembed.com/embed?url=*"
 	],
 	"optional_permissions": [
