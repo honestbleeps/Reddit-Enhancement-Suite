@@ -46,7 +46,7 @@ function safariMessageHandler(msgEvent) {
 			break;
 		case 'addURLToHistory':
 			var url = msgEvent.message.url;
-			modules['showImages'].imageTrackFrame.contentWindow.location.replace(url);
+			BrowserStrategy._addURLToHistoryViaForeground(url);
 			break;
 		case 'localStorage':
 			RESStorage.setItem(msgEvent.message.itemName, msgEvent.message.itemValue, true);
@@ -196,3 +196,7 @@ BrowserStrategy['openInNewWindow'] = function (thisHREF) {
 	};
 	safari.self.tab.dispatchMessage("keyboardNav", thisJSON);
 };
+
+
+BrowserStrategy['addURLToHistory'] = BrowserStrategy._addURLToHistory;
+

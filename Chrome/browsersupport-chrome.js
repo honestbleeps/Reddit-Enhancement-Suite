@@ -154,3 +154,15 @@ BrowserStrategy['openInNewWindow'] = function(thisHREF) {
 	};
 	chrome.runtime.sendMessage(thisJSON);
 };
+
+BrowserStrategy['addURLToHistory'] = (function() {
+	var original = BrowserStrategy.addURLToHistory;
+
+	return function(url) {
+		if (chrome.extension.inIncognitoContext) {
+			return;
+		}
+
+		original(url);
+	}
+})();

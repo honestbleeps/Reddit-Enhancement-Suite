@@ -68,7 +68,7 @@ function operaMessageHandler(msgEvent) {
 		case 'addURLToHistory':
 			var url = eventData.url;
 			if (!eventData.isPrivate) {
-				modules['showImages'].imageTrackFrame.contentWindow.location.replace(url);
+				BrowserStrategy._addURLToHistoryViaForeground(url);
 			}
 			break;
 		default:
@@ -500,3 +500,7 @@ BrowserStrategy['openNewWindow'] = function (thisHREF) {
 	};
 	opera.extension.postMessage(JSON.stringify(thisJSON));
 };
+
+BrowserStrategy['addURLToHistory'] = BrowserStrategy._addURLToHistory;
+
+
