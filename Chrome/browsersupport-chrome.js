@@ -166,3 +166,11 @@ BrowserStrategy['addURLToHistory'] = (function() {
 		original(url);
 	}
 })();
+
+BrowserStrategy['supportsThirdPartyCookies'] = function() {
+	if (chrome.extension.inIncognitoContext) {
+		return false;
+	}
+
+	return true;
+}
