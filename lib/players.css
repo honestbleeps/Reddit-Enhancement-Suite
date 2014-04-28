@@ -8,10 +8,12 @@
   font-weight: bold;
   opacity: 0;
   transition: opacity linear 0.2s;
+  padding-left: 20px;
 }
 .res-player .brand img {
-  position: relative;
-  top: 3px;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 .res-player {
   position: relative; }

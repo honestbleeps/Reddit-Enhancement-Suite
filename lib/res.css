@@ -1,4 +1,4 @@
-#RESConsole {
+#RESConsoleContainer {
 	visibility: hidden;
 	color: #000;
 	font-size: 12px;
@@ -22,15 +22,15 @@
 	-ms-transition:top 0.5s ease-in-out;
 	-transition:top 0.5s ease-in-out;
 }
-#RESConsole em { font-style: italic; }
-#RESConsole .handle { cursor: move; }
-#RESConsole.slideIn {
+#RESConsoleContainer em { font-style: italic; }
+#RESConsoleContainer .handle { cursor: move; }
+#RESConsoleContainer.slideIn {
 	visibility: visible;
 	top: 30px;
 }
-#RESConsole.slideOut {
+#RESConsoleContainer.slideOut {
 	visibility: visible;
-	top: -1500px;
+	top: -100%;
 }
 #modalOverlay {
 	display: none;
@@ -394,7 +394,7 @@
 	width: 200px;
 	height: 40px;
 	position: absolute;
-	z-index: 1000;
+	z-index: 200000000;
 	background-color: #FFF;
 	padding: 4px;
 	border: 2px solid #CCC;
@@ -465,7 +465,7 @@ p.moduleListing {
 	float: left;
 	margin-right: 15px;
 }
-#RESConsole .toggleButton {
+#RESConsoleContainer .toggleButton {
 	margin-left: 10px;
 }
 .toggleButton input[type=checkbox] {
@@ -574,7 +574,7 @@ p.moduleListing {
 	margin-top: 12px;
 	margin-bottom: 12px;
 }
-#RESConsoleVersion {
+#RESConsoleVersionDisplay {
 	float: left;
 	font-size: 10px;
 	margin-left: 6px;
@@ -1245,6 +1245,9 @@ a.bylink.parentlink {
 }
 .res-icon[data-icon]::before {
 	content: attr(data-icon);
+}
+.md .usertext-body img {
+	display: inherit;
 }
 /* Compiled SCSS from MediaCrush - https://github.com/MediaCrush/MediaCrush */
 .player {

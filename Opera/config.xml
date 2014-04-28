@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<widget xmlns="http://www.w3.org/ns/widgets" version="4.3.1.1" id="extensions:res-extension">
+<widget xmlns="http://www.w3.org/ns/widgets" version="4.3.2.1" id="extensions:res-extension">
 	<name>Reddit Enhancement Suite</name>
 	<description>RES provides several addons to enhance your browsing experience - each of which is configurable. You can enable/disable any of the modules, and most of them have their own options that can also be personalized.</description>
-  <update-description href="http://redditenhancementsuite.com/update-opera.php?v=4.3.1.1"/>
+  <update-description href="http://redditenhancementsuite.com/update-opera.php?v=4.3.2.1"/>
   <author href="http://www.honestbleeps.com/">Steve Sobel</author>
   <access origin="http://reddit.com" subdomains="true" />
   <access origin="https://ssl.reddit.com" />
@@ -20,5 +20,6 @@
   <access origin="http://api.tumblr.com" />
   <access origin="http://noembed.com" />
   <access origin="https://mediacru.sh" />
+  <access origin="http://gfycat.com" />
   <icon src="logo.gif" />
 </widget>

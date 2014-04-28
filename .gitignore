@@ -45,6 +45,7 @@
 /node_modules
 Chrome.pem
 /XPI/reddit_res.xpi
+/deprecated
 
 /Chrome/*.js
 /Chrome/modules/*.js
@@ -60,13 +61,13 @@ Chrome.pem
 /RES.safariextension/modules/*.js
 /RES.safariextension/*.css
 /RES.safariextension/*.html
-/Opera/includes/*.js
-/Opera/includes/modules/*.js
-/Opera/includes/*.css
-/Opera/includes/*.html
-/Opera/modules/*.js
-/Opera/modules/*.html
-/XPI/data/
+/Opera/*.js
+!/Opera/opera-*.js
+/Opera/*.css
+!Opera/includes/*
+/Opera/templates.html
+/Opera/modules/*
+/XPI/data/*
 !/XPI/lib/main.js
 !/lib/*
 /commentBoxes.css
@@ -74,6 +75,11 @@ Chrome.pem
 /res.css
 /guiders.css
 /tokenize.css
+!**/browsersupport-*.js
+!browsersupport-*.js
+
+/tests/selenium/opera-profile/
+/tests/selenium/opera-profile-clean/
 
 ## OS X
 .DS_Store

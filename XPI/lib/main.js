@@ -2,13 +2,13 @@
 /* global require: false */
 
 // Import the APIs we need.
-let pageMod = require("page-mod");
-let Request = require("request").Request;
-let self = require("self");
-let tabs = require("tabs");
+let pageMod = require("sdk/page-mod");
+let Request = require("sdk/request").Request;
+let self = require("sdk/self");
+let tabs = require("sdk/tabs");
 //let ss = require("simple-storage"); // Temporarily disabled
-let timer = require("timer");
-let priv = require("private-browsing");
+let timer = require("sdk/timers");
+let priv = require("sdk/private-browsing");
 let windows = require("sdk/windows").browserWindows;
 
 // require chrome allows us to use XPCOM objects...
@@ -20,23 +20,28 @@ let localStorage = {};
 let file = require("sdk/io/file")
 let ss = (function() {
 	var timeout = null;
-	var filename = (function() {
-		let storeFile = Cc["@mozilla.org/file/directory_service;1"].
-			getService(Ci.nsIProperties).
-			get("ProfD", Ci.nsIFile);
-		storeFile.append("jetpack");
-		storeFile.append(self.id);
-		storeFile.append("simple-storage");
-		file.mkpath(storeFile.path);
-		storeFile.append("store.json");
-		return storeFile.path;
-	})();
+
+	let storeFile = Cc["@mozilla.org/file/directory_service;1"].
+		getService(Ci.nsIProperties).
+		get("ProfD", Ci.nsIFile);
+	storeFile.append("jetpack");
+	storeFile.append(self.id);
+	storeFile.append("simple-storage");
+	file.mkpath(storeFile.path);
+	let tempFile = storeFile.clone();
+	storeFile.append("store.json");
+	tempFile.append("store.json.tmp");
+
 	var really_save = function() {
-		let stream = file.open(filename, "w");
+		let stream = file.open(tempFile.path, "w");
 		try {
 			stream.writeAsync(JSON.stringify(localStorage), function writeAsync(err) {
-				if (err)
-					console.error("Error writing simple storage file: " + filename);
+				if (err) {
+					console.error("Error writing simple storage file: " + tempFile.path);
+				} else {
+					let tempFileClone = tempFile.clone();
+					tempFileClone.moveTo(null, storeFile.leafName);
+				}
 			}.bind(this));
 		}
 		catch (err) {
@@ -50,8 +55,13 @@ let ss = (function() {
 	    }
 	    timeout = timer.setTimeout(really_save, 3000);
 	};
-	let str = file.read(filename);
-	localStorage = JSON.parse(str);
+	let str = "";
+	try {
+		str = file.read(storeFile.path);
+	} catch (e) {
+		console.warn("Error loading simple storage file: " + e);
+	}
+	localStorage = str ? JSON.parse(str) : {};
 	return this;
 })();
 // End temporary workaround
@@ -165,9 +175,11 @@ pageMod.PageMod({
 		self.data.url('jquery-fieldselection.min.js'),
 		self.data.url('tinycon.js'),
 		self.data.url('jquery.tokeninput.js'),
+		self.data.url('HTMLPasteurizer.js'),
 		self.data.url('snuownd.js'),
 		self.data.url('utils.js'),
 		self.data.url('browsersupport.js'),
+		self.data.url('browsersupport-firefox.js'),
 		self.data.url('console.js'),
 		self.data.url('alert.js'),
 		self.data.url('storage.js'),
@@ -212,7 +224,7 @@ pageMod.PageMod({
 		self.data.url('modules/commentHidePersistor.js'),
 		self.data.url('modules/bitcointip.js'),
 		self.data.url('modules/troubleshooter.js'),
-		self.data.url('modules/tests.js'),
+		self.data.url('modules/localDate.js'),
 		self.data.url('init.js')
 	],
 	contentStyleFile: [
@@ -313,6 +325,7 @@ pageMod.PageMod({
 					worker.postMessage({status: "success"});
 					break;
 				case 'keyboardNav':
+					inBackground = (request.button === 1)
 					isPrivate = priv.isPrivate(windows.activeWindow);
 
 					// handle requests from keyboardNav module

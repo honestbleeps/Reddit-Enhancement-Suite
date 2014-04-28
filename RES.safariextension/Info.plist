@@ -5,7 +5,7 @@
 	<key>Author</key>
 	<string>Steve Sobel</string>
 	<key>Builder Version</key>
-	<string>8537.73.11</string>
+	<string>9537.75.14</string>
 	<key>CFBundleDisplayName</key>
 	<string>Reddit Enhancement Suite</string>
 	<key>CFBundleIdentifier</key>
@@ -13,9 +13,9 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleShortVersionString</key>
-	<string>4.3.1.2</string>
+	<string>4.3.2.1</string>
 	<key>CFBundleVersion</key>
-	<string>4.3.1.2</string>
+	<string>4.3.2.1</string>
 	<key>Chrome</key>
 	<dict>
 		<key>Database Quota</key>
@@ -35,10 +35,12 @@
 				<string>jquery-fieldselection.min.js</string>
 				<string>tinycon.js</string>
 				<string>jquery.tokeninput.js</string>
+				<string>HTMLPasteurizer.js</string>
 				<string>snuownd.js</string>
 				<string>hogan-2.0.0.js</string>
 				<string>utils.js</string>
 				<string>browsersupport.js</string>
+				<string>browsersupport-safari.js</string>
 				<string>console.js</string>
 				<string>alert.js</string>
 				<string>storage.js</string>
@@ -82,8 +84,8 @@
 				<string>modules/commentHidePersistor.js</string>
 				<string>modules/bitcointip.js</string>
 				<string>modules/troubleshooter.js</string>
+				<string>modules/localDate.js</string>
 				<string>init.js</string>
-				<string>modules/tests.js</string>
 			</array>
 		</dict>
 	</dict>
