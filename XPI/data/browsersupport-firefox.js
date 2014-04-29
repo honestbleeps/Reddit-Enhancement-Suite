@@ -21,26 +21,6 @@ self.on('message', function(msgEvent) {
 			thisExpando.style.display = 'block';
 			thisExpando.classList.add('twitterLoaded');
 			break;
-			// for now, commenting out the old way of handling tweets as AMO will not approve.
-			/*
-			var tweet = msgEvent.response;
-			var thisExpando = modules['styleTweaks'].tweetExpando;
-			thisExpando.innerHTML = '';
-			// the iframe is to sandbox this remote javascript from accessing reddit's javascript, etc.
-			// this is done this way as requested by the AMO review team.
-			var sandboxFrame = document.createElement('iframe');
-			var seamless = document.createAttribute('seamless');
-			sandboxFrame.setAttribute('sandbox','allow-scripts allow-same-origin');
-			sandboxFrame.setAttributeNode(seamless);
-			sandboxFrame.setAttribute('style','border: none;');
-			sandboxFrame.setAttribute('width','480');
-			sandboxFrame.setAttribute('height','260');
-			sandboxFrame.setAttribute('src','data:text/html,<html><head><base href="https://platform.twitter.com"></head><body>'+encodeURIComponent(tweet.html)+"</body></html>");
-			$(thisExpando).append(sandboxFrame);
-			// $(thisExpando).html(tweet.html);
-			thisExpando.style.display = 'block';
-			thisExpando.classList.add('twitterLoaded');
-			*/
 		case 'getLocalStorage':
 			// Does RESStorage have actual data in it?  If it doesn't, they're a legacy user, we need to copy
 			// old school localStorage from the foreground page to the background page to keep their settings...
