@@ -1,0 +1,30 @@
+modules['mobileRedirect'] = {
+	moduleID: 'mobileRedirect',
+	moduleName: 'mobileRedirect',
+	category: 'UI',
+	options: {
+	
+	},
+	description: 'Have mobile sites redirect to their desktop version. No more loading of mobile sites and having to manually go to the desktop version of the page!',
+	isEnabled: function() {
+		return RESConsole.getModulePrefs(this.moduleID);
+	},
+	include: [
+		/^https?:\/\/([a-z]+)\.reddit\.com\/user\/[-\w\.]+/i,
+		/^https?:\/\/([a-z]+)\.reddit\.com\/message\/comments\/[-\w\.]+/i
+	],
+	isMatchURL: function() {
+		return RESUtils.isMatchURL(this.moduleID);
+	},
+	go: function() {
+		if ((this.isEnabled()) && (this.isMatchURL())) {
+			//if mobile version of page, redirect to desktop version
+			if(window.location.host.match(/^[mi]\./)){
+			     var a = document.createElement("a");
+			     a.href = window.location;
+			     a.host = a.host.replace(/^[mi]\./, '');
+			     window.location = a.href;
+			}
+		}
+	}
+};
