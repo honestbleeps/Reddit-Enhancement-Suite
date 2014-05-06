@@ -83,6 +83,7 @@ window.addEventListener('DOMContentLoaded', function() {
 		'modules/subredditManager.js',
 		'modules/subredditTagger.js',
 		'modules/troubleshooter.js',
+		'modules/backupAndRestore.js',
 		'modules/uppersAndDowners.js',
 		'modules/userHighlight.js',
 		'modules/usernameHider.js',
