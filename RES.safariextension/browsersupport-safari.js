@@ -67,70 +67,67 @@ safari.self.addEventListener("message", safariMessageHandler, false);
 
 
 
+// TODO: move this into BrowserStrategy
+GM_xmlhttpRequest = function(obj) {
+	obj.requestType = 'GM_xmlhttpRequest';
+	// Since Safari doesn't provide legitimate callbacks, I have to store the onload function here in the main
+	// userscript in a queue (see xhrQueue), wait for data to come back from the background page, then call the onload.
 
-if (typeof GM_xmlhttpRequest === 'undefined') {
-	// TODO: move this into BrowserStrategy
+	// oy vey... another problem. When Safari sends xmlhttpRequests from the background page, it loses the cookies etc that it'd have
+	// had from the foreground page... so we need to write a bit of a hack here, and call different functions based on whether or
+	// not the request is cross domain... For same-domain requests, we'll call from the foreground...
+	var crossDomain = (obj.url.indexOf(location.hostname) === -1);
 
-	GM_xmlhttpRequest = function(obj) {
-		obj.requestType = 'GM_xmlhttpRequest';
-		// Since Safari doesn't provide legitimate callbacks, I have to store the onload function here in the main
-		// userscript in a queue (see xhrQueue), wait for data to come back from the background page, then call the onload.
+	if ((typeof obj.onload !== 'undefined') && (crossDomain)) {
+		obj.XHRID = xhrQueue.count;
+		xhrQueue.onloads[xhrQueue.count] = obj.onload;
 
-		// oy vey... another problem. When Safari sends xmlhttpRequests from the background page, it loses the cookies etc that it'd have
-		// had from the foreground page... so we need to write a bit of a hack here, and call different functions based on whether or
-		// not the request is cross domain... For same-domain requests, we'll call from the foreground...
-		var crossDomain = (obj.url.indexOf(location.hostname) === -1);
+		// are you ready for a disgusting Safari hack due to stupid behavior added in 6.1 and 7?
+		obj = JSON.parse(JSON.stringify(obj));
+		// I hope you put on a bib for that. Safari won't let you pass a javascript object to the background page anymore.
 
-		if ((typeof obj.onload !== 'undefined') && (crossDomain)) {
-			obj.XHRID = xhrQueue.count;
-			xhrQueue.onloads[xhrQueue.count] = obj.onload;
-
-			// are you ready for a disgusting Safari hack due to stupid behavior added in 6.1 and 7?
-			obj = JSON.parse(JSON.stringify(obj));
-			// I hope you put on a bib for that. Safari won't let you pass a javascript object to the background page anymore.
-
-			safari.self.tab.dispatchMessage("GM_xmlhttpRequest", obj);
-			xhrQueue.count++;
-		} else {
-			var request = new XMLHttpRequest();
-			request.onreadystatechange = function() {
-				if (obj.onreadystatechange) {
-					obj.onreadystatechange(request);
-				}
-				if (request.readyState === 4 && obj.onload) {
-					obj.onload(request);
-				}
-			};
-			request.onerror = function() {
-				if (obj.onerror) {
-					obj.onerror(request);
-				}
-			};
-			try {
-				request.open(obj.method, obj.url, true);
-			} catch (e) {
-				if (obj.onerror) {
-					obj.onerror({
-						readyState: 4,
-						responseHeaders: '',
-						responseText: '',
-						responseXML: '',
-						status: 403,
-						statusText: 'Forbidden'
-					});
-				}
-				return;
+		safari.self.tab.dispatchMessage("GM_xmlhttpRequest", obj);
+		xhrQueue.count++;
+	} else {
+		var request = new XMLHttpRequest();
+		request.onreadystatechange = function() {
+			if (obj.onreadystatechange) {
+				obj.onreadystatechange(request);
 			}
-			if (obj.headers) {
-				for (var name in obj.headers) {
-					request.setRequestHeader(name, obj.headers[name]);
-				}
+			if (request.readyState === 4 && obj.onload) {
+				obj.onload(request);
 			}
-			request.send(obj.data);
-			return request;
+		};
+		request.onerror = function() {
+			if (obj.onerror) {
+				obj.onerror(request);
+			}
+		};
+		try {
+			request.open(obj.method, obj.url, true);
+		} catch (e) {
+			if (obj.onerror) {
+				obj.onerror({
+					readyState: 4,
+					responseHeaders: '',
+					responseText: '',
+					responseXML: '',
+					status: 403,
+					statusText: 'Forbidden'
+				});
+			}
+			return;
 		}
-	};
-}
+
+		if (obj.headers) {
+			for (var name in obj.headers) {
+				request.setRequestHeader(name, obj.headers[name]);
+			}
+		}
+		request.send(obj.data);
+		return request;
+	}
+};
 
 
 BrowserStrategy.sanitizeJSON = function(data) {

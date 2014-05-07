@@ -75,6 +75,12 @@ exports.testDriver = function(test, driver) {
 
 	waitFor(By.css('.id-t3_22ren4 .res-player.video.MediaCrush'));
 
+	// Test GfyCat expandos
+
+	waitFor(By.css('.id-t3_23pm2n .expando-button.video')).click();
+
+	waitFor(By.css('.id-t3_23pm2n .res-player.video.gfycatR'));
+
 	// Test opening and closing the console
 
 	driver.findElement(By.id('RESSettingsButton')).click();
