@@ -1,6 +1,6 @@
 // OperaBlink loads browsersupport-chrome first, then browsersupport-operablink.js for overrides
 
-BrowserStrategy['storageSetup'] = function (thisJSON) {
+BrowserStrategy.storageSetup = function (thisJSON) {
 	// I freaking hate having to use different code that won't run in other browsers to log debugs, so I'm overriding console.log with opera.postError here
 	// so I don't have to litter my code with different statements for different browsers when debugging.
 	RESLoadResourceAsText = function(filename, callback) {

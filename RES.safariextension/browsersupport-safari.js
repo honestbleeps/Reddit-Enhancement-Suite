@@ -133,7 +133,7 @@ if (typeof GM_xmlhttpRequest === 'undefined') {
 }
 
 
-BrowserStrategy['sanitizeJSON'] = function(data) {
+BrowserStrategy.sanitizeJSON = function(data) {
 	if (data.substring(0, 2) === 's{') {
 		data = data.substring(1, data.length);
 	}
@@ -142,7 +142,7 @@ BrowserStrategy['sanitizeJSON'] = function(data) {
 };
 
 
-BrowserStrategy['storageSetup'] = function(thisJSON) {
+BrowserStrategy.storageSetup = function(thisJSON) {
 	var setupInterval;
 	RESLoadResourceAsText = function(filename, callback) {
 		var url = safari.extension.baseURI + filename;
@@ -184,12 +184,12 @@ BrowserStrategy['storageSetup'] = function(thisJSON) {
 }
 
 
-BrowserStrategy['sendMessage'] = function(thisJSON) {
+BrowserStrategy.sendMessage = function(thisJSON) {
 	safari.self.tab.dispatchMessage(thisJSON.requestType, thisJSON);
 };
 
 
-BrowserStrategy['openInNewWindow'] = function (thisHREF) {
+BrowserStrategy.openInNewWindow = function (thisHREF) {
 	var thisJSON = {
 		requestType: 'keyboardNav',
 		linkURL: thisHREF
@@ -198,7 +198,7 @@ BrowserStrategy['openInNewWindow'] = function (thisHREF) {
 };
 
 
-BrowserStrategy['addURLToHistory'] = BrowserStrategy._addURLToHistory;
+BrowserStrategy.addURLToHistory = BrowserStrategy._addURLToHistory;
 
-BrowserStrategy['supportsThirdPartyCookies'] = function() { return false; };
+BrowserStrategy.supportsThirdPartyCookies = function() { return false; };
 

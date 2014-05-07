@@ -103,7 +103,7 @@ if (typeof GM_xmlhttpRequest === 'undefined') {
 }
 
 
-BrowserStrategy['storageSetup'] = function(thisJSON) {
+BrowserStrategy.storageSetup = function(thisJSON) {
 	RESLoadResourceAsText = function(filename, callback) {
 		var xhr = new XMLHttpRequest();
 		xhr.onload = function() {
@@ -142,12 +142,12 @@ BrowserStrategy['storageSetup'] = function(thisJSON) {
 }
 
 
-BrowserStrategy['sendMessage'] = function(thisJSON) {
+BrowserStrategy.sendMessage = function(thisJSON) {
 	chrome.runtime.sendMessage(thisJSON);
 };
 
 
-BrowserStrategy['openInNewWindow'] = function(thisHREF) {
+BrowserStrategy.openInNewWindow = function(thisHREF) {
 	var thisJSON = {
 		requestType: 'keyboardNav',
 		linkURL: thisHREF
@@ -155,7 +155,7 @@ BrowserStrategy['openInNewWindow'] = function(thisHREF) {
 	chrome.runtime.sendMessage(thisJSON);
 };
 
-BrowserStrategy['addURLToHistory'] = (function() {
+BrowserStrategy.addURLToHistory = (function() {
 	var original = BrowserStrategy.addURLToHistory;
 
 	return function(url) {
@@ -167,7 +167,7 @@ BrowserStrategy['addURLToHistory'] = (function() {
 	}
 })();
 
-BrowserStrategy['supportsThirdPartyCookies'] = function() {
+BrowserStrategy.supportsThirdPartyCookies = function() {
 	if (chrome.extension.inIncognitoContext) {
 		return false;
 	}

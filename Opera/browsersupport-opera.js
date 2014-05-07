@@ -143,7 +143,7 @@ function operaForcedUpdateCallback(obj) {
 }
 
 
-BrowserStrategy['storageSetup'] = function(thisJSON) {
+BrowserStrategy.storageSetup = function(thisJSON) {
 	RESLoadResourceAsText = function(filename, callback) {
 		var f = opera.extension.getFile('/' + filename);
 		var fr = new FileReader();
@@ -158,7 +158,7 @@ BrowserStrategy['storageSetup'] = function(thisJSON) {
 	opera.extension.postMessage(JSON.stringify(thisJSON));
 };
 
-BrowserStrategy['RESInitReadyCheck'] = function(RESInit) {
+BrowserStrategy.RESInitReadyCheck = function(RESInit) {
 	// require.js-like modular injected scripts, code via:
 	// http://my.opera.com/BS-Harou/blog/2012/08/08/modular-injcted-scripts-in-extensions
 	// Note: This code requires Opera 12.50 to run!
@@ -485,15 +485,15 @@ BrowserStrategy['RESInitReadyCheck'] = function(RESInit) {
 };
 
 
-BrowserStrategy['sendMessage'] = function(thisJSON) {
+BrowserStrategy.sendMessage = function(thisJSON) {
 	opera.extension.postMessage(JSON.stringify(thisJSON));
 };
 
-BrowserStrategy['getOutlineProperty'] = function() {
+BrowserStrategy.getOutlineProperty = function() {
 	return 'border';
 };
 
-BrowserStrategy['openNewWindow'] = function (thisHREF) {
+BrowserStrategy.openNewWindow = function (thisHREF) {
 	var thisJSON = {
 		requestType: 'keyboardNav',
 		linkURL: thisHREF
@@ -501,6 +501,6 @@ BrowserStrategy['openNewWindow'] = function (thisHREF) {
 	opera.extension.postMessage(JSON.stringify(thisJSON));
 };
 
-BrowserStrategy['addURLToHistory'] = BrowserStrategy._addURLToHistory;
+BrowserStrategy.addURLToHistory = BrowserStrategy._addURLToHistory;
 
-BrowserStrategy['supportsThirdPartyCookies'] = function() { return false; };
+BrowserStrategy.supportsThirdPartyCookies = function() { return false; };
