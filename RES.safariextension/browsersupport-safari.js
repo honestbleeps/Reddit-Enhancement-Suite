@@ -46,7 +46,7 @@ function safariMessageHandler(msgEvent) {
 			break;
 		case 'addURLToHistory':
 			var url = msgEvent.message.url;
-			modules['showImages'].imageTrackFrame.contentWindow.location.replace(url);
+			BrowserStrategy._addURLToHistoryViaForeground(url);
 			break;
 		case 'localStorage':
 			RESStorage.setItem(msgEvent.message.itemName, msgEvent.message.itemValue, true);
@@ -67,7 +67,7 @@ safari.self.addEventListener("message", safariMessageHandler, false);
 
 
 
-
+// TODO: move this into BrowserStrategy
 GM_xmlhttpRequest = function(obj) {
 	obj.requestType = 'GM_xmlhttpRequest';
 	// Since Safari doesn't provide legitimate callbacks, I have to store the onload function here in the main
@@ -118,6 +118,7 @@ GM_xmlhttpRequest = function(obj) {
 			}
 			return;
 		}
+
 		if (obj.headers) {
 			for (var name in obj.headers) {
 				request.setRequestHeader(name, obj.headers[name]);
@@ -127,4 +128,74 @@ GM_xmlhttpRequest = function(obj) {
 		return request;
 	}
 };
+
+
+BrowserStrategy.sanitizeJSON = function(data) {
+	if (data.substring(0, 2) === 's{') {
+		data = data.substring(1, data.length);
+	}
+
+	return data;
+};
+
+
+BrowserStrategy.storageSetup = function(thisJSON) {
+	var setupInterval;
+	RESLoadResourceAsText = function(filename, callback) {
+		var url = safari.extension.baseURI + filename;
+
+		GM_xmlhttpRequest({
+			method: 'GET',
+			url: url,
+			onload: function (response) {
+				callback(response.responseText);
+			}
+		});
+	};
+
+	// we've got safari, get localStorage from background process
+	var setupCallback = function() {
+		if (!document.head) {
+			return;
+		}
+		clearInterval(setupInterval);
+		safari.self.tab.dispatchMessage(thisJSON.requestType, thisJSON);
+		// since safari's built in extension stylesheets are treated as user stylesheets,
+		// we can't inject them that way.  That makes them "user stylesheets" which would make
+		// them require !important everywhere - we don't want that, so we'll inject this way instead.
+		var loadCSS = function(filename) {
+			var linkTag = document.createElement('link');
+			linkTag.setAttribute('rel', 'stylesheet');
+			linkTag.href = safari.extension.baseURI + filename;
+			document.head.appendChild(linkTag);
+		};
+
+		// include CSS files, then load scripts.
+		var cssFiles = ['res.css', 'guiders.css', 'tokenize.css', 'commentBoxes.css', 'nightmode.css','players.css','batch.css'];
+		for (var i in cssFiles) {
+			loadCSS(cssFiles[i]);
+		}
+	};
+	setupInterval = setInterval(setupCallback, 200);
+	setupCallback();
+}
+
+
+BrowserStrategy.sendMessage = function(thisJSON) {
+	safari.self.tab.dispatchMessage(thisJSON.requestType, thisJSON);
+};
+
+
+BrowserStrategy.openInNewWindow = function (thisHREF) {
+	var thisJSON = {
+		requestType: 'keyboardNav',
+		linkURL: thisHREF
+	};
+	safari.self.tab.dispatchMessage("keyboardNav", thisJSON);
+};
+
+
+BrowserStrategy.addURLToHistory = BrowserStrategy._addURLToHistory;
+
+BrowserStrategy.supportsThirdPartyCookies = function() { return false; };
 
