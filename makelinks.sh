@@ -34,3 +34,6 @@ do
 			fi
 		done
 done
+
+rm "OperaBlink/browsersupport-chrome.js"
+ln "Chrome/browsersupport-chrome.js" "OperaBlink/browsersupport-chrome.js"
