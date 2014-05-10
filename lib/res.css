@@ -966,6 +966,7 @@ div + #BigText {
 	display: none;
 }
 .RESFadeButton {
+	pointer-events: auto;
 	right: 38px;
 	font-family: Webdings;
 }
