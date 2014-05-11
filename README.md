@@ -36,7 +36,6 @@ In order to build the extension, the files from `lib/` must be replicated (eithe
   - `OperaBlink/` – Opera Blink (new Opera)-specific RES files
   - `RES.safariextension/` – Safari-specific RES files
   - `XPI/` – Firefox-specific RES files
-  - `IE/` – Internet Explorer-specific files
   - `tests/` – RES tests, currently unused
 
 ##### Chrome files
