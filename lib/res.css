@@ -776,7 +776,11 @@ li:hover > #RESSearchMenuItem {
 .RESNotificationContent {
 	overflow: auto;
 	padding: 10px;
+	padding-bottom: 0;
 	color: #999;
+}
+.RESNotificationFooter {
+	padding: 10px;
 }
 .RESNotificationContent h2 {
 	color: #000;
@@ -789,10 +793,10 @@ li:hover > #RESSearchMenuItem {
 	border-bottom: #c7c7c7;
 	height: 38px;
 }
-.RESNotificationHeader .RESNotificationToggle {
-	float: right; 
-	margin-right: 0.5em;
-	font-size: small;
+
+.RESNotification .RESNotificationToggle {
+	margin-top: 0.5em;
+	font-size: smaller;
 	font-weight: normal;
 }
 .RESNotificationHeader .gearIcon { float: right; }
