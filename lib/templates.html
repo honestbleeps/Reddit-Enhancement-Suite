@@ -106,7 +106,7 @@
 		<!--Adapted from MediaCrush video player-->
 		<script id="VideoUI" type="application/x-template">
 			<div class="res-player video {{ brand.name }}">
-				<video {{#autoplay}}autoplay="true"{{/autoplay}} {{#loop}}loop="true"{{/loop}} preload>
+				<video {{#autoplay}}autoplay="true"{{/autoplay}} {{#loop}}loop="true"{{/loop}} {{#poster}}poster="{{ poster }}"{{/poster}} preload>
 					{{#sources}}
 					<source src="{{ source }}" {{#type}}type="{{ type }}"{{/type}}>
 					{{/sources}}
