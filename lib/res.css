@@ -443,6 +443,13 @@ p.moduleListing {
 	clear: both;
 	width: auto;
 }
+#RESConfigPanelOptions a.demo {
+	float:right;
+	opacity:0.6;
+}
+#RESConfigPanelOptions a.demo:hover {
+	opacity:1;
+}
 .moduleToggle, .toggleButton {
 	float: left;
 	width: 60px;
