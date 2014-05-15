@@ -38,7 +38,10 @@ do
 	done
 done
 
-rm "OperaBlink/browsersupport-chrome.js"
+if [ -f "OperaBlink/browsersupport-chrome.js" ]
+then
+	rm "OperaBlink/browsersupport-chrome.js"
+fi
 
 if [ "clean" != "$1" ]
 then
