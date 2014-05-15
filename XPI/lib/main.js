@@ -17,7 +17,7 @@ let historyService = Cc["@mozilla.org/browser/history;1"].getService(Ci.mozIAsyn
 
 // Temporary workaround for ss being broken (https://github.com/honestbleeps/Reddit-Enhancement-Suite/issues/797)
 let localStorage = {};
-let file = require("sdk/io/file")
+let file = require("sdk/io/file");
 let ss = (function() {
 	var timeout = null;
 
@@ -32,7 +32,7 @@ let ss = (function() {
 	storeFile.append("store.json");
 	tempFile.append("store.json.tmp");
 
-	var really_save = function() {
+	let really_save = function() {
 		let stream = file.open(tempFile.path, "w");
 		try {
 			stream.writeAsync(JSON.stringify(localStorage), function writeAsync(err) {
@@ -50,10 +50,10 @@ let ss = (function() {
 		}
 	};
 	this.save = function() {
-	    if (timeout !== null) {
+		if (timeout !== null) {
 			timer.clearTimeout(timeout);
-	    }
-	    timeout = timer.setTimeout(really_save, 3000);
+		}
+		timeout = timer.setTimeout(really_save, 3000);
 	};
 	let str = "";
 	try {
