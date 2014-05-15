@@ -6,65 +6,17 @@ let pageMod = require("sdk/page-mod");
 let Request = require("sdk/request").Request;
 let self = require("sdk/self");
 let tabs = require("sdk/tabs");
-//let ss = require("simple-storage"); // Temporarily disabled
+let ss = require("sdk/simple-storage"); // Temporarily disabled
 let timer = require("sdk/timers");
 let priv = require("sdk/private-browsing");
 let windows = require("sdk/windows").browserWindows;
+
+let localStorage = ss.storage;
 
 // require chrome allows us to use XPCOM objects...
 const {Cc,Ci,Cu,components} = require("chrome");
 let historyService = Cc["@mozilla.org/browser/history;1"].getService(Ci.mozIAsyncHistory);
 
-// Temporary workaround for ss being broken (https://github.com/honestbleeps/Reddit-Enhancement-Suite/issues/797)
-let localStorage = {};
-let file = require("sdk/io/file")
-let ss = (function() {
-	var timeout = null;
-
-	let storeFile = Cc["@mozilla.org/file/directory_service;1"].
-		getService(Ci.nsIProperties).
-		get("ProfD", Ci.nsIFile);
-	storeFile.append("jetpack");
-	storeFile.append(self.id);
-	storeFile.append("simple-storage");
-	file.mkpath(storeFile.path);
-	let tempFile = storeFile.clone();
-	storeFile.append("store.json");
-	tempFile.append("store.json.tmp");
-
-	var really_save = function() {
-		let stream = file.open(tempFile.path, "w");
-		try {
-			stream.writeAsync(JSON.stringify(localStorage), function writeAsync(err) {
-				if (err) {
-					console.error("Error writing simple storage file: " + tempFile.path);
-				} else {
-					let tempFileClone = tempFile.clone();
-					tempFileClone.moveTo(null, storeFile.leafName);
-				}
-			}.bind(this));
-		}
-		catch (err) {
-			// writeAsync closes the stream after it's done, so only close on error.
-			stream.close();
-		}
-	};
-	this.save = function() {
-	    if (timeout !== null) {
-			timer.clearTimeout(timeout);
-	    }
-	    timeout = timer.setTimeout(really_save, 3000);
-	};
-	let str = "";
-	try {
-		str = file.read(storeFile.path);
-	} catch (e) {
-		console.warn("Error loading simple storage file: " + e);
-	}
-	localStorage = str ? JSON.parse(str) : {};
-	return this;
-})();
-// End temporary workaround
 
 // Cookie manager for new API login
 let cookieManager = Cc["@mozilla.org/cookiemanager;1"].getService().QueryInterface(Ci.nsICookieManager2);
@@ -88,15 +40,13 @@ function detachWorker(worker, workerArray) {
 }
 
 localStorage.getItem = function(key) {
-	return localStorage[key];
+	return ss.storage[key];
 };
 localStorage.setItem = function(key, value) {
-	localStorage[key] = value;
-	ss.save();
+	ss.storage[key] = value;
 };
 localStorage.removeItem = function(key) {
-	delete localStorage[key];
-	ss.save();
+	delete ss.storage[key];
 };
 
 let XHRCache = {
