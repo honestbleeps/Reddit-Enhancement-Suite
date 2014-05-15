@@ -36,4 +36,7 @@ do
 done
 
 rm "OperaBlink/browsersupport-chrome.js"
-ln "Chrome/browsersupport-chrome.js" "OperaBlink/browsersupport-chrome.js"
+if [ "clean" != "$1" ];
+then
+	ln "Chrome/browsersupport-chrome.js" "OperaBlink/browsersupport-chrome.js"
+fi
