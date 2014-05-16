@@ -1230,6 +1230,10 @@ a.bylink.parentlink {
 	background-color: rgba(51, 51, 51,0.95);
 	z-index: 100000200;
 }
+#alert_message input.button-right {
+	float: right;
+}
+
 .res-left {
 	float: left;
 }
