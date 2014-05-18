@@ -1265,6 +1265,9 @@ a.bylink.parentlink {
 .highlightedAltAccount {
 	font-weight: bold;
 }
+#show_stylesheets:target + label {
+	background-color: lightblue;
+}
 /* Compiled SCSS from MediaCrush - https://github.com/MediaCrush/MediaCrush */
 .player {
   position: relative; }
