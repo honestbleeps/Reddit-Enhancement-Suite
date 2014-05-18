@@ -1,0 +1,8 @@
+## {{header}}
+
+
+| \# | Change | Author
+| ---| ------ | ------
+{{#issues}}{{#closed_by_issue}}
+| [#{{number}}]({{html_url}}) | {{title}} | @{{user.login }}
+{{/closed_by_issue}}| [#{{number}}]({{html_url}}) | {{title}} |  {{#if closed_by_issue}} fixed by {{closed_by_issue.number}} {{else}} @{{user.login}} {{/if}}{{/issues}}
