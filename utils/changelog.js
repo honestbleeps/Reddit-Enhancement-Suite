@@ -33,6 +33,8 @@ var baseOptions = {
 	template: 'changelog.hbs',
 	events: 'events.json',
 	since: lastVersionDate
+	label_fixed: 'Closed-Fixed',
+	label_wontfix: 'Closed-WontFix',
 };
 baseOptions = extend(baseOptions, credentials);
 
