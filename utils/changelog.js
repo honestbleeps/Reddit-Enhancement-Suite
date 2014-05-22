@@ -32,9 +32,9 @@ var baseOptions = {
 	repo: 'Reddit-Enhancement-Suite',
 	template: 'changelog.hbs',
 	events: 'events.json',
-	since: lastVersionDate
 	label_fixed: 'Closed-Fixed',
 	label_wontfix: 'Closed-WontFix',
+	since: lastVersionDate,
 };
 baseOptions = extend(baseOptions, credentials);
 
