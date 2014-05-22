@@ -31,7 +31,10 @@ var baseOptions = {
 	owner: 'honestbleeps',
 	repo: 'Reddit-Enhancement-Suite',
 	template: 'changelog.hbs',
-	since: lastVersionDate
+	events: 'events.json',
+	label_fixed: 'Closed-Fixed',
+	label_wontfix: 'Closed-WontFix',
+	since: lastVersionDate,
 };
 baseOptions = extend(baseOptions, credentials);
 
