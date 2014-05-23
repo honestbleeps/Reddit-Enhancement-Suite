@@ -8,6 +8,7 @@
 		"scripts": ["background.js"]
 	},
 	"homepage_url": "http://redditenhancementsuite.com",
+	"options_page": "options.html",
 	"content_scripts": [
 		{
 			"matches": [
@@ -60,6 +61,7 @@
 				"modules/saveComments.js",
 				"modules/userHighlight.js",
 				"modules/styleTweaks.js",
+				"modules/userbarHider.js",
 				"modules/accountSwitcher.js",
 				"modules/filteReddit.js",
 				"modules/newCommentCount.js",
@@ -76,6 +78,7 @@
 				"modules/troubleshooter.js",
 				"modules/backupAndRestore.js",
 				"modules/localDate.js",
+				"modules/context.js",
 				"init.js"
 			],
 			"css": [

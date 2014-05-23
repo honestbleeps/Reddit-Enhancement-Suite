@@ -36,7 +36,6 @@ In order to build the extension, the files from `lib/` must be replicated (eithe
   - `OperaBlink/` – Opera Blink (new Opera)-specific RES files
   - `RES.safariextension/` – Safari-specific RES files
   - `XPI/` – Firefox-specific RES files
-  - `IE/` – Internet Explorer-specific files
   - `tests/` – RES tests, currently unused
 
 ##### Chrome files
@@ -75,7 +74,7 @@ NOTE: An XPI is a Firefox add-on, which is compiled using the [Add-on SDK](https
 
 In order to build a development version of RES, run `makelinks.sh` to generate hard links into `lib/` from the browser-specific folders. (This is [necessary on Chrome](https://code.google.com/p/chromium/issues/detail?id=27185).) NOTE: switching branches will break hard links, so you will need to rerun `makelinks.sh` whenever you check out new code.
 
-An alternative grunt build script is also provided; see "Using grunt instead of hard links" for more details.
+An alternative grunt build script is also provided; see ["Using grunt instead of hard links"](#using-grunt-instead-of-hard-links) for more details.
 
 ##### Building in Chrome
 
