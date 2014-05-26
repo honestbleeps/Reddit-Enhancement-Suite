@@ -198,4 +198,3 @@ BrowserStrategy.openInNewWindow = function (thisHREF) {
 BrowserStrategy.addURLToHistory = BrowserStrategy._addURLToHistory;
 
 BrowserStrategy.supportsThirdPartyCookies = function() { return false; };
-
