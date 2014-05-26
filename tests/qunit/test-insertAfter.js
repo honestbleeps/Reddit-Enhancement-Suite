@@ -10,11 +10,11 @@ test("insertAfter: Inserts a DOM element after a reference element and before th
 	expect(7);
 	var $fixture = $( "#qunit-fixture" ); 
 
-	referenceNode = document.createElement("div");
+	var referenceNode = document.createElement("div");
 	referenceNode.id = "referenceNode";
-	referenceNode_sibling = document.createElement("div");
+	var referenceNode_sibling = document.createElement("div");
 	referenceNode_sibling.id = "referenceNode_sibling";
-	newNode = document.createElement("div");
+	var newNode = document.createElement("div");
 	newNode.id = "newNode";
 
 	var fix = document.getElementById("qunit-fixture");
@@ -37,9 +37,9 @@ test("insertAfter: Can insert a DOM element after a reference element even if re
 	expect(5);
 	var $fixture = $( "#qunit-fixture" );
 
-	referenceNode = document.createElement("div");
+	var referenceNode = document.createElement("div");
 	referenceNode.id = "referenceNode";
-	newNode = document.createElement("div");
+	var newNode = document.createElement("div");
 	newNode.id = "newNode";
 
 	var fix = document.getElementById("qunit-fixture");
@@ -59,9 +59,9 @@ test("insertAfter: Cannot insert a DOM element if reference element has no paren
 	expect(3);
 	var $fixture = $( "#qunit-fixture" );
 
-	referenceNode = document.createElement("div");
+	var referenceNode = document.createElement("div");
 	referenceNode.id = "referenceNode";
-	newNode = document.createElement("div");
+	var newNode = document.createElement("div");
 	newNode.id = "newNode";
 
 	equal(document.getElementById("newNode"), null);
@@ -76,8 +76,8 @@ test("insertAfter: Cannot insert a DOM element if reference element is undefined
 	expect(4);
 	var $fixture = $( "#qunit-fixture" );
 
-	referenceNode = null;
-	newNode = document.createElement("div");
+	var referenceNode = null;
+	var newNode = document.createElement("div");
 	newNode.id = "newNode";
 
 	equal(document.getElementById("newNode"), null);
