@@ -15,12 +15,6 @@
 // @downloadURL   http://redditenhancementsuite.com/latest/reddit_enhancement_suite.user.js
 // ==/UserScript==
 
-var loadEventFired = false;
-
-window.addEventListener('load', function() {
-	loadEventFired = true;
-});
-
 window.addEventListener('DOMContentLoaded', function() {
 	var files = [
 		'opera-header.js',
