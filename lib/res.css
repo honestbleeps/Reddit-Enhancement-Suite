@@ -448,6 +448,9 @@ p.moduleListing {
 	width: 60px;
 	height: 20px;
 	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
 }
 .moduleHeader {
 	border: 1px solid #c7c7c7;
