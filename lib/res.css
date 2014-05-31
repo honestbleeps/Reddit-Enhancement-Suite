@@ -235,6 +235,9 @@
 	margin-right: 15px;
 	color: #868686;
 }
+#RESConsoleContent.advdisabled .optionContainer.advanced {
+	display: none;
+}
 .RESDialogSmall {
 	background-color: #fff;
 	border: 1px solid #c7c7c7;
