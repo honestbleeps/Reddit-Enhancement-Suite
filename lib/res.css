@@ -686,7 +686,16 @@ p.moduleListing {
 }
 #SearchRES-results-hidden {
 	display: none;
-	font-style:italic;
+	font-style: italic;
+}
+#SearchRES-results-hidden  {
+	display: none;
+}
+.advanced-options-disabled #SearchRES-results-hidden.advancedResults {
+	display: inline;
+}
+#RESConsoleContent.advanced-options-disabled .SearchRES-result-item.advanced {
+	display: none;
 }
 #SearchRES-results-container + #SearchRES-boilerplate { margin-top: 1em; border-top: 1px black solid; padding-top: 1em; }
 #SearchRES-results-container h4 {
@@ -708,6 +717,9 @@ p.moduleListing {
 	margin-bottom: 12px;
 	font-weight: bold;
 	color: #666;
+}
+.advanced .SearchRES-result-title {
+	font-style: italic;
 }
 .SearchRES-breadcrumb {
 	font-weight: normal;
