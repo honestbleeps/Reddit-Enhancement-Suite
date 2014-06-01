@@ -684,6 +684,10 @@ p.moduleListing {
 #SearchRES-results-container {
 	display: none;
 }
+#SearchRES-results-hidden {
+	display: none;
+	font-style:italic;
+}
 #SearchRES-results-container + #SearchRES-boilerplate { margin-top: 1em; border-top: 1px black solid; padding-top: 1em; }
 #SearchRES-results-container h4 {
 	margin-top: 1.5em;
