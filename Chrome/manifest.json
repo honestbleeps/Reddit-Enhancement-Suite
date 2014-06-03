@@ -12,7 +12,6 @@
 	"content_scripts": [
 		{
 			"matches": [
-				"http://reddit.honestbleeps.com/*",
 				"http://redditenhancementsuite.com/*",
 				"http://reddit.com/*",
 				"https://reddit.com/*",
@@ -105,7 +104,6 @@
 		"tabs",
 		"history",
 		"http://redditenhancementsuite.com/",
-		"http://reddit.honestbleeps.com/",
 		"http://reddit.com/*",
 		"https://reddit.com/*",
 		"http://*.reddit.com/*",
@@ -114,10 +112,8 @@
 		"http://min.us/api/*",
 		"http://*.flickr.com/photos/*",
 		"http://img.photobucket.com/*",
-		"http://imgclean.com/*",
 		"http://backend.deviantart.com/oembed?url=*",
 		"http://api.tumblr.com/v2/blog/*/posts?api_key=*&id=*",
-		"https://mediacru.sh/*",
 		"http://noembed.com/embed?url=*"
 	],
 	"optional_permissions": [
