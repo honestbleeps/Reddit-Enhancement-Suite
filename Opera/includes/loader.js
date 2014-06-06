@@ -55,6 +55,7 @@ window.addEventListener('DOMContentLoaded', function() {
 		'modules/commentPreview.js',
 		'modules/commentTools.js',
 		'modules/context.js',
+		'modules/noParticipation.js',
 		'modules/dashboard.js',
 		'modules/filteReddit.js',
 		'modules/hideChildComments.js',
