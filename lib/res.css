@@ -538,6 +538,13 @@ p.moduleListing {
 	float: left;
 	width: 140px;
 }
+.optionContainer input[type=color] {
+	margin-left: 10px;
+	margin-top: -3px;
+	float: left;
+	width: 56px;
+	height: 20px;
+}
 .optionContainer input[type=checkbox] {
 	margin-left: 10px;
 	margin-top: 0;
