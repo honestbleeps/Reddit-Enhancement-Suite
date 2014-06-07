@@ -41,6 +41,7 @@ window.addEventListener('DOMContentLoaded', function() {
 		'konami.js',
 		'mediacrush.js',
 		'snuownd.js',
+		'migrate.js',
 		'storage.js',
 		'template.js',
 		'tinycon.js',
@@ -84,7 +85,6 @@ window.addEventListener('DOMContentLoaded', function() {
 		'modules/userbarHider.js',
 		'modules/usernameHider.js',
 		
-		'migrate.js',
 		'init.js',
 
 		'opera-footer.js'
