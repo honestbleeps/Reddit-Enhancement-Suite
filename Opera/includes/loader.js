@@ -67,6 +67,7 @@ window.addEventListener('DOMContentLoaded', function() {
 		'modules/notifications.js',
 		'modules/RESTips.js',
 		'modules/saveComments.js',
+		'modules/searchHelper.js',
 		'modules/settingsNavigation.js',
 		'modules/showImages.js',
 		'modules/showKarma.js',
