@@ -61,6 +61,7 @@ window.addEventListener('DOMContentLoaded', function() {
 		'modules/hover.js',
 		'modules/keyboardNav.js',
 		'modules/localDate.js',
+		'modules/logoLink.js',
 		'modules/neverEndingReddit.js',
 		'modules/newCommentCount.js',
 		'modules/notifications.js',
