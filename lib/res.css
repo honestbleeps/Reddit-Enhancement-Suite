@@ -302,19 +302,23 @@
 }
 #RESConsoleContent {
 	clear: both;
-	padding: 6px;
+	padding: 6px 6px 20px 6px;
 	position: absolute;
 	top: 100px;
 	left: 0;
 	right: 0;
 	bottom: 0;
 	border-top: 1px solid #DDD;
-	overflow: auto;
+}
+#RESConsoleConfigPanel {
+	height: 100%;
 }
 #RESConfigPanelOptions, #RESAboutDetails {
 	margin-top: 15px;
 	display: block;
 	margin-left: 220px;
+	height: 100%;
+	overflow: auto;
 }
 #allOptionsContainer {
 	position: relative;
@@ -339,8 +343,8 @@
 	width: 195px;
 	padding-right: 15px;
 	border-right: 1px solid #dedede;
-	height: auto;
-	position: fixed;
+	height: 100%;
+	overflow: auto;
 }
 .moduleButton {
 	font-size: 12px;
