@@ -803,6 +803,13 @@ li:hover > #RESSearchMenuItem {
 	color: #000;
 	margin-bottom: 10px;
 }
+.RESNotificationContent p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+.RESNotificationContent strong {
+	font-weight: bolder;
+}
 .RESNotificationHeader {
 	padding-left: 10px;
 	padding-right: 50px;
