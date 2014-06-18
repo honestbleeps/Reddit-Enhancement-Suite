@@ -257,7 +257,7 @@
 	padding-top: 12px;
 }
 .RESDialogSmall .RESDialogContents, .usertext-edit .RESDialogSmall .md.RESDialogContents {
-	padding: 56px 12px 12px 12px; 
+	padding: 56px 12px 12px 12px;
 }
 .usertext-edit .RESDialogSmall .md.RESDialogContents {
 	border: none;
@@ -847,6 +847,16 @@ a.RESNotificationButtonBlue {
 	border-radius: 3px;
 	background-color: #107ac4;
 }
+.RES-spoiler {
+	font-style: italics;
+	cursor: help;
+}
+.RES-spoiler-contents { display: none; }
+.RES-spoiler:hover + .RES-spoiler-contents,
+.RES-spoiler:active + .RES-spoiler-contents
+.RES-spoiler-contents:active,
+.RES-spoiler-contents:hover { display: inline-block; }
+
 #baconBit {
 	position: fixed;
 	width: 32px;
@@ -1018,7 +1028,7 @@ div + #BigText {
 	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAYAAABWdVznAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA/ppVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOmRjPSJodHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyIgeG1wTU06T3JpZ2luYWxEb2N1bWVudElEPSJ1dWlkOjY1RTYzOTA2ODZDRjExREJBNkUyRDg4N0NFQUNCNDA3IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjRGQkU3MTYwRkVBMjExRTFCNkYwODQ2MzkzQkU0QzU4IiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjRGQkU3MTVGRkVBMjExRTFCNkYwODQ2MzkzQkU0QzU4IiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIElsbHVzdHJhdG9yIENTNiAoTWFjaW50b3NoKSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjAxODAxMTc0MDcyMDY4MTE4MDgzRUZFRDQ2NDFEODMyIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjAyODAxMTc0MDcyMDY4MTE4MDgzRTdGNDQzQTE0MUI2Ii8+IDxkYzp0aXRsZT4gPHJkZjpBbHQ+IDxyZGY6bGkgeG1sOmxhbmc9IngtZGVmYXVsdCI+Z2x5cGhpY29uc19oYWxmbGluZ3M8L3JkZjpsaT4gPC9yZGY6QWx0PiA8L2RjOnRpdGxlPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PsexWb8AAACvSURBVHjalFGBDcIgEHxYwAG0naFuwCbtBjIKbgCbsIHO0LhAJ8B788SHGpNecsA9z8M9ZhjOhb5I6/palKZxvERMc9WWWgTao4n1BzIqTqo6r3N/IIFXcANPoH7SIrFNchKVUj6ElwkMVat44L2qDQ9HYOkgrDYI7rrEMd0Ig/dFaV0Wg3f8ha/JmG5i2oHeyqc8VDeiuiCq7nHO3HtwqP6sQtbun2n/w2cTewswAPjfRfYSqgHwAAAAAElFTkSuQmCC);
 }
 button.RESBigEditorPop:hover {
-	background-color: #ddd; 
+	background-color: #ddd;
 }
 .wiki-page .RESBigEditorPop {
 	margin: 6px 20px 0 0;
@@ -1057,7 +1067,7 @@ img {
 	display: inline-block;
 	background-image: url('https://s3.amazonaws.com/e.thumbs.redditmedia.com/r22WT2K4sio9Bvev.png');
 	margin-right: 6px;
-	cursor: pointer; 
+	cursor: pointer;
 	padding: 0;
 }
 .expando-button.image.commentImg {
@@ -1066,7 +1076,7 @@ img {
 }
 .expando-button.image.collapsedExpando {
 	padding: 0;
-	background-position: 0 0; 
+	background-position: 0 0;
 }
 .expando-button.image.collapsedExpando:hover {background-position: 0 -24px; }
 .expando-button.image.expanded {background-position: 0 -48px; }
@@ -1147,11 +1157,11 @@ img {
 	content: "↑";
 }
 a.bylink.parentlink {
-	float: right; 
+	float: right;
 }
 
 .noCtrlF:before {
-	content: attr(data-text); 
+	content: attr(data-text);
 }
 
 .RESThrobber, .RESThrobber:before, .RESThrobber:after {
@@ -1215,7 +1225,7 @@ a.bylink.parentlink {
 	top: 3px;
 }
 
-#alert_message { 
+#alert_message {
 	display: none;
 	opacity: 0.0;
 	background-color: #EFEFEF;
@@ -1238,7 +1248,7 @@ a.bylink.parentlink {
 	padding: 6px;
 	padding-left: 9px;
 	padding-right: 9px;
-	float: left; 
+	float: left;
 	background-color: #DFDFDF;
 	cursor: pointer;
 	margin-right:10px;
@@ -1246,7 +1256,7 @@ a.bylink.parentlink {
 #alert_message div {
 	margin-bottom: 20px;
 }
-#alert_message_background { 
+#alert_message_background {
 	position: fixed; top: 0; left: 0; bottom: 0; right: 0;
 	background-color: rgba(51, 51, 51,0.95);
 	z-index: 100000200;
