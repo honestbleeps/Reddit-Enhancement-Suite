@@ -41,10 +41,11 @@ window.addEventListener('DOMContentLoaded', function() {
 		'konami.js',
 		'mediacrush.js',
 		'snuownd.js',
+		'migrate.js',
 		'storage.js',
 		'template.js',
 		'tinycon.js',
-
+		
 		'modules/about.js',
 		'modules/accountSwitcher.js',
 		'modules/betteReddit.js',
@@ -68,7 +69,7 @@ window.addEventListener('DOMContentLoaded', function() {
 		'modules/notifications.js',
 		'modules/RESTips.js',
 		'modules/saveComments.js',
-		'modules/searchHelper.js',
+		"modules/searchHelper.js",
 		'modules/settingsNavigation.js',
 		'modules/showImages.js',
 		'modules/showKarma.js',
@@ -86,7 +87,7 @@ window.addEventListener('DOMContentLoaded', function() {
 		'modules/userTagger.js',
 		'modules/userbarHider.js',
 		'modules/usernameHider.js',
-
+		
 		'init.js',
 
 		'opera-footer.js'
