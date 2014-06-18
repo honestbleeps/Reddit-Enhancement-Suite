@@ -132,6 +132,7 @@ pageMod.PageMod({
 		self.data.url('browsersupport-firefox.js'),
 		self.data.url('console.js'),
 		self.data.url('alert.js'),
+		self.data.url('migrate.js'),
 		self.data.url('storage.js'),
 		self.data.url('template.js'),
 		self.data.url('konami.js'),
