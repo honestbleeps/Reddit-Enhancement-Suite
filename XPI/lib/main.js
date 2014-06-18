@@ -178,7 +178,9 @@ pageMod.PageMod({
 		self.data.url('modules/troubleshooter.js'),
 		self.data.url('modules/localDate.js'),
 		self.data.url('modules/context.js'),
+		self.data.url('modules/noParticipation.js'),
 		self.data.url('modules/searchHelper.js'),
+		self.data.url('modules/logoLink.js'),
 		self.data.url('init.js')
 	],
 	contentStyleFile: [
