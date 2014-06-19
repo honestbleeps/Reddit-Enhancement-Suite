@@ -848,7 +848,8 @@ a.RESNotificationButtonBlue {
 	background-color: #107ac4;
 }
 .RES-spoiler {
-	font-style: italics;
+	font-style: italic;
+	text-decoration: dotted underline;
 	cursor: help;
 }
 .RES-spoiler-contents { display: none; }
