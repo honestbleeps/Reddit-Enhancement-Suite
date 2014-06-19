@@ -160,6 +160,7 @@ pageMod.PageMod({
 		self.data.url('modules/saveComments.js'),
 		self.data.url('modules/userHighlight.js'),
 		self.data.url('modules/styleTweaks.js'),
+		self.data.url('modules/nightMode.js'),
 		self.data.url('modules/userbarHider.js'),
 		self.data.url('modules/accountSwitcher.js'),
 		self.data.url('modules/filteReddit.js'),

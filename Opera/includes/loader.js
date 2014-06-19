@@ -66,6 +66,7 @@ window.addEventListener('DOMContentLoaded', function() {
 		'modules/logoLink.js',
 		'modules/neverEndingReddit.js',
 		'modules/newCommentCount.js',
+		'modules/nightMode.js',
 		'modules/notifications.js',
 		'modules/RESTips.js',
 		'modules/saveComments.js',
