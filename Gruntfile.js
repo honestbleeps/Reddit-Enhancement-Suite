@@ -16,32 +16,40 @@ module.exports = function(grunt) {
 				files: [{ expand: true, cwd: 'lib/', src: ['**'], dest: 'Opera/'}]
 			},
 			operablink: {
-				files: [{ expand: true, cwd: 'lib/', src: ['**'], dest: 'OperaBlink/'}]
+				files: [
+					{ expand: true, cwd: 'lib/', src: ['**'], dest: 'OperaBlink/'},
+					{ expand: true, cwd: 'Chrome/', src: ['browsersupport-chrome.js'], dest: 'OperaBlink/'}
+				]
 			},
 			safari: {
 				files: [{ expand: true, cwd: 'lib/', src: ['**'], dest: 'RES.safariextension/'}]
 			},
 			firefox: {
-				files: [{ expand: true, cwd: 'lib/', src: ['**'], dest: 'XPI/'}]
+				files: [{ expand: true, cwd: 'lib/', src: ['**'], dest: 'XPI/data/'}]
 			}
 		},
 
 		// Watch for changes
 		watch: {
 			chrome: {
-				files: ['lib/*', 'lib/*/*'], tasks: ['copy:chrome']
+				files: ['lib/*', 'lib/*/*'],
+				tasks: ['copy:chrome']
 			},
 			opera: {
-				files: ['lib/*', 'lib/*/*'], tasks: ['copy:opera']
+				files: ['lib/*', 'lib/*/*'],
+				tasks: ['copy:opera']
 			},
 			operablink: {
-				files: ['lib/*', 'lib/*/*'], tasks: ['copy:operablink']
+				files: ['lib/*', 'lib/*/*', 'Chrome/browsersupport-chrome.js'],
+				tasks: ['copy:operablink']
 			},
 			safari: {
-				files: ['lib/*', 'lib/*/*'], tasks: ['copy:safari']
+				files: ['lib/*', 'lib/*/*'],
+				tasks: ['copy:safari']
 			},
 			firefox: {
-				files: ['lib/*', 'lib/*/*'], tasks: ['copy:firefox']
+				files: ['lib/*', 'lib/*/*'],
+				tasks: ['copy:firefox']
 			}
 		},
 

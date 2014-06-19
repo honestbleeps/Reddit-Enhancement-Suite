@@ -15,12 +15,6 @@
 // @downloadURL   http://redditenhancementsuite.com/latest/reddit_enhancement_suite.user.js
 // ==/UserScript==
 
-var loadEventFired = false;
-
-window.addEventListener('load', function() {
-	loadEventFired = true;
-});
-
 window.addEventListener('DOMContentLoaded', function() {
 	var files = [
 		'opera-header.js',
@@ -38,6 +32,7 @@ window.addEventListener('DOMContentLoaded', function() {
 
 		'alert.js',
 		'browsersupport.js',
+		'browsersupport-opera.js',
 		'console.js',
 		'gfycat.js',
 		'guiders-1.2.8.js',
@@ -46,10 +41,11 @@ window.addEventListener('DOMContentLoaded', function() {
 		'konami.js',
 		'mediacrush.js',
 		'snuownd.js',
+		'migrate.js',
 		'storage.js',
 		'template.js',
 		'tinycon.js',
-
+		
 		'modules/about.js',
 		'modules/accountSwitcher.js',
 		'modules/betteReddit.js',
@@ -59,22 +55,26 @@ window.addEventListener('DOMContentLoaded', function() {
 		'modules/commentNavigator.js',
 		'modules/commentPreview.js',
 		'modules/commentTools.js',
+		'modules/context.js',
+		'modules/noParticipation.js',
 		'modules/dashboard.js',
 		'modules/filteReddit.js',
 		'modules/hideChildComments.js',
 		'modules/hover.js',
 		'modules/keyboardNav.js',
+		'modules/localDate.js',
+		'modules/logoLink.js',
 		'modules/neverEndingReddit.js',
 		'modules/newCommentCount.js',
 		'modules/notifications.js',
 		'modules/RESTips.js',
 		'modules/saveComments.js',
+		"modules/searchHelper.js",
 		'modules/settingsNavigation.js',
 		'modules/showImages.js',
 		'modules/showKarma.js',
 		'modules/showParent.js',
 		'modules/singleClick.js',
-		'modules/snoonet.js',
 		'modules/sortCommentsTemporarily.js',
 		'modules/spamButton.js',
 		'modules/styleTweaks.js',
@@ -84,9 +84,10 @@ window.addEventListener('DOMContentLoaded', function() {
 		'modules/troubleshooter.js',
 		'modules/uppersAndDowners.js',
 		'modules/userHighlight.js',
-		'modules/usernameHider.js',
 		'modules/userTagger.js',
-
+		'modules/userbarHider.js',
+		'modules/usernameHider.js',
+		
 		'init.js',
 
 		'opera-footer.js'

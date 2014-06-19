@@ -8,7 +8,7 @@ For general documentation, visit the [Reddit Enhancement Suite Wiki](http://redd
 
 Hi there! Thanks for checking out RES on GitHub. A few important notes:
 
-1. RES is licensed under GPLv3, which means you're technically free to do whatever you wish in terms of redistribution. However, I ask out of courtesy that should you choose to release your own, separate distribution of RES, you please name it something else entirely. Unfortunately, I have run into problems in the past with people redistributing under the same name, and causing me tech support headaches.
+1. RES is licensed under GPLv3, which means you're technically free to do whatever you wish in terms of redistribution as long as you maintain GPLv3 licensing. However, I ask out of courtesy that should you choose to release your own, separate distribution of RES, you please name it something else entirely. Unfortunately, I have run into problems in the past with people redistributing under the same name, and causing me tech support headaches.
 
 2. I ask that you please do not distribute your own binaries of RES (e.g. with bugfixes, etc). The version numbers in RES are important references for tech support so that we can replicate bugs that users report using the same version they are, and when you distribute your own - you run the risk of polluting/confusing that. In addition, if a user overwrites his/her extension with your distributed copy, it may not properly retain their RES settings/data depending on the developer ID used, etc.
 
@@ -18,6 +18,23 @@ Thanks!
 
 Steve Sobel
 steve@honestbleeps.com
+
+## Contributor guidelines
+
+Thinking about contributing to RES?  Awesome!  We just ask that you follow a few simple guidelines:
+
+1) RES has grown quite large, so we do have to pick and choose what features we should add. Code bloat is always a concern, and RES is already rather hefty.  If you're unsure if your feature would appeal to a wide audience, please post about it on /r/Enhancement or contact @honestbleeps directly to ask.
+
+2) There are a few features we have made a conscious choice not to add to RES, so make sure whatever you'd like to contribute [isn't on that list](http://www.reddit.com/r/Enhancement/wiki/rejectedfeaturerequests)
+
+3) It would be greatly appreciated if you could stick to a few style guidelines.  Some of these guidelines are NOT (yet!) strictly followed by RES because it originally started as an amalgamation of code from so many different sources. That said, we do hope to clean it up in due time...  Some guidelines:
+
+  - please use tabs for indentation
+  - please use spaces in your if statements, e.g. if (foo === bar), not if(foo===bar)
+  - please comment your code!
+  - please, when possible, place var declarations all together at the top of a function
+  - please consider installing a tool like JSHint or JSLint that will help enforce good Javascript best practices!
+
 
 ## Project structure
 
@@ -36,7 +53,6 @@ In order to build the extension, the files from `lib/` must be replicated (eithe
   - `OperaBlink/` – Opera Blink (new Opera)-specific RES files
   - `RES.safariextension/` – Safari-specific RES files
   - `XPI/` – Firefox-specific RES files
-  - `IE/` – Internet Explorer-specific files
   - `tests/` – RES tests, currently unused
 
 ##### Chrome files
@@ -75,7 +91,7 @@ NOTE: An XPI is a Firefox add-on, which is compiled using the [Add-on SDK](https
 
 In order to build a development version of RES, run `makelinks.sh` to generate hard links into `lib/` from the browser-specific folders. (This is [necessary on Chrome](https://code.google.com/p/chromium/issues/detail?id=27185).) NOTE: switching branches will break hard links, so you will need to rerun `makelinks.sh` whenever you check out new code.
 
-An alternative grunt build script is also provided; see "Using grunt instead of hard links" for more details.
+An alternative grunt build script is also provided; see ["Using grunt instead of hard links"](#using-grunt-instead-of-hard-links) for more details.
 
 ##### Building in Chrome
 

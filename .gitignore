@@ -64,9 +64,10 @@ Chrome.pem
 /Opera/*.js
 !/Opera/opera-*.js
 /Opera/*.css
+!Opera/includes/*
 /Opera/templates.html
-/Opera/modules/*.js
-/XPI/data/
+/Opera/modules/*
+/XPI/data/*
 !/XPI/lib/main.js
 !/lib/*
 /commentBoxes.css
@@ -74,6 +75,9 @@ Chrome.pem
 /res.css
 /guiders.css
 /tokenize.css
+!**/browsersupport-*.js
+!browsersupport-*.js
+/OperaBlink/browsersupport-chrome.js
 
 /tests/selenium/opera-profile/
 /tests/selenium/opera-profile-clean/

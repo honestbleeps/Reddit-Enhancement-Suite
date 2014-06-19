@@ -9,10 +9,12 @@ ul.token-input-list-facebook {
 	min-height:1px;
 	z-index:1010;
 	background-color:#fff;
-	list-style-type:none;
 	float:left;
 	margin:0 12px 0 0;
 	padding:0;
+}
+.token-input-list-facebook li {
+	list-style-type: none !important;
 }
 
 .optionsTable ul.token-input-list-facebook {

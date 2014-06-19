@@ -40,8 +40,10 @@
 				<string>hogan-2.0.0.js</string>
 				<string>utils.js</string>
 				<string>browsersupport.js</string>
+				<string>browsersupport-safari.js</string>
 				<string>console.js</string>
 				<string>alert.js</string>
+				<string>migrate.js</string>
 				<string>storage.js</string>
 				<string>template.js</string>
 				<string>konami.js</string>
@@ -69,6 +71,7 @@
 				<string>modules/saveComments.js</string>
 				<string>modules/userHighlight.js</string>
 				<string>modules/styleTweaks.js</string>
+				<string>modules/userbarHider.js</string>
 				<string>modules/accountSwitcher.js</string>
 				<string>modules/filteReddit.js</string>
 				<string>modules/newCommentCount.js</string>
@@ -84,8 +87,11 @@
 				<string>modules/bitcointip.js</string>
 				<string>modules/troubleshooter.js</string>
 				<string>modules/localDate.js</string>
+				<string>modules/context.js</string>
+				<string>modules/noParticipation.js</string>
+				<string>modules/searchHelper.js</string>
+				<string>modules/logoLink.js</string>
 				<string>init.js</string>
-				<string>modules/tests.js</string>
 			</array>
 		</dict>
 	</dict>
@@ -102,19 +108,16 @@
 				<string>reddit.com</string>
 				<string>*.reddit.com</string>
 				<string>redditgifts.com</string>
-				<string>reddit.honestbleeps.com</string>
 				<string>api.twitter.com</string>
 				<string>api.imgur.com</string>
 				<string>min.us</string>
 				<string>*.flickr.com</string>
-				<string>imgclean.com</string>
 				<string>img.photobucket.com</string>
 				<string>gdata.youtube.com</string>
 				<string>redditenhancementsuite.com</string>
 				<string>backend.deviantart.com</string>
 				<string>api.tumblr.com</string>
 				<string>noembed.com</string>
-				<string>mediacru.sh</string>
 			</array>
 			<key>Include Secure Pages</key>
 			<true/>

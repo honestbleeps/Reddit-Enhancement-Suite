@@ -209,6 +209,16 @@
 	border-left: .2em solid #fff;
 }
 
+.res-nightmode .markdownEditor .btn:not(.btn-macro) {
+	border-color: #333;
+	background-color: #777;
+}
+.res-nightmode .RESDropdownList.RESMacroDropdownList a:hover, .res-nightmode .RESDropdownList.RESMacroDropdownList li:hover {
+	background-color: #777;
+	color: #aaa;
+}
+
+
 .res-nightmode .livePreview .md a,
 .res-nightmode #BigEditor #BigPreview a {
 	color: #00bfff !important;
@@ -348,11 +358,6 @@
 	color: inherit;
 }
 
-.res-nightmode #header,
-.res-nightmode #header-bottom-left {
-	background: #666660!important;
-}
-
 .res-nightmode .arrow {
 	height: 14px!important;
 	margin-top: 0;
@@ -430,7 +435,7 @@
 	color: #111;
 }
 
-.login-form-side a {
+.res-nightmode .login-form-side a {
 	color: #fff;
 	font-size: 11px;
 }
