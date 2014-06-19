@@ -132,6 +132,7 @@ pageMod.PageMod({
 		self.data.url('browsersupport-firefox.js'),
 		self.data.url('console.js'),
 		self.data.url('alert.js'),
+		self.data.url('migrate.js'),
 		self.data.url('storage.js'),
 		self.data.url('template.js'),
 		self.data.url('konami.js'),
@@ -177,6 +178,9 @@ pageMod.PageMod({
 		self.data.url('modules/troubleshooter.js'),
 		self.data.url('modules/localDate.js'),
 		self.data.url('modules/context.js'),
+		self.data.url('modules/noParticipation.js'),
+		self.data.url('modules/searchHelper.js'),
+		self.data.url('modules/logoLink.js'),
 		self.data.url('init.js')
 	],
 	contentStyleFile: [

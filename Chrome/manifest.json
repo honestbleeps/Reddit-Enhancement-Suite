@@ -12,7 +12,6 @@
 	"content_scripts": [
 		{
 			"matches": [
-				"http://reddit.honestbleeps.com/*",
 				"http://redditenhancementsuite.com/*",
 				"http://reddit.com/*",
 				"https://reddit.com/*",
@@ -33,6 +32,7 @@
 				"browsersupport-chrome.js",
 				"console.js",
 				"alert.js",
+				"migrate.js",
 				"storage.js",
 				"template.js",
 				"konami.js",
@@ -78,6 +78,9 @@
 				"modules/troubleshooter.js",
 				"modules/localDate.js",
 				"modules/context.js",
+				"modules/noParticipation.js",
+				"modules/searchHelper.js",
+				"modules/logoLink.js",
 				"init.js"
 			],
 			"css": [
@@ -105,7 +108,6 @@
 		"tabs",
 		"history",
 		"http://redditenhancementsuite.com/",
-		"http://reddit.honestbleeps.com/",
 		"http://reddit.com/*",
 		"https://reddit.com/*",
 		"http://*.reddit.com/*",
@@ -114,10 +116,8 @@
 		"http://min.us/api/*",
 		"http://*.flickr.com/photos/*",
 		"http://img.photobucket.com/*",
-		"http://imgclean.com/*",
 		"http://backend.deviantart.com/oembed?url=*",
 		"http://api.tumblr.com/v2/blog/*/posts?api_key=*&id=*",
-		"https://mediacru.sh/*",
 		"http://noembed.com/embed?url=*"
 	],
 	"optional_permissions": [
