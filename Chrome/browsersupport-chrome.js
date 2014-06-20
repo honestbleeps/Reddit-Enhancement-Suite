@@ -155,6 +155,14 @@ BrowserStrategy.openInNewWindow = function(thisHREF) {
 	chrome.runtime.sendMessage(thisJSON);
 };
 
+BrowserStrategy.openLinkInNewTab = function(thisHREF) {
+	var thisJSON = {
+		requestType: 'openLinkInNewTab',
+		linkURL: thisHREF
+	};
+	chrome.runtime.sendMessage(thisJSON);
+};
+
 BrowserStrategy.addURLToHistory = (function() {
 	var original = BrowserStrategy.addURLToHistory;
 

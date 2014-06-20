@@ -501,6 +501,14 @@ BrowserStrategy.openNewWindow = function (thisHREF) {
 	opera.extension.postMessage(JSON.stringify(thisJSON));
 };
 
+BrowserStrategy.openLinkInNewTab = function (thisHREF) {
+	var thisJSON = {
+		requestType: 'openLinkInNewTab',
+		linkURL: thisHREF
+	};
+	opera.extension.postMessage(JSON.stringify(thisJSON));
+};
+
 BrowserStrategy.addURLToHistory = BrowserStrategy._addURLToHistory;
 
 BrowserStrategy.supportsThirdPartyCookies = function() { return false; };
