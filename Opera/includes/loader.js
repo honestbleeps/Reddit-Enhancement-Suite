@@ -45,7 +45,7 @@ window.addEventListener('DOMContentLoaded', function() {
 		'storage.js',
 		'template.js',
 		'tinycon.js',
-		
+
 		'modules/about.js',
 		'modules/accountSwitcher.js',
 		'modules/betteReddit.js',
@@ -82,12 +82,11 @@ window.addEventListener('DOMContentLoaded', function() {
 		'modules/subredditManager.js',
 		'modules/subredditTagger.js',
 		'modules/troubleshooter.js',
-		'modules/uppersAndDowners.js',
 		'modules/userHighlight.js',
 		'modules/userTagger.js',
 		'modules/userbarHider.js',
 		'modules/usernameHider.js',
-		
+
 		'init.js',
 
 		'opera-footer.js'

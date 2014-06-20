@@ -147,7 +147,6 @@ pageMod.PageMod({
 		self.data.url('modules/about.js'),
 		self.data.url('modules/hover.js'),
 		self.data.url('modules/subredditTagger.js'),
-		self.data.url('modules/uppersAndDowners.js'),
 		self.data.url('modules/singleClick.js'),
 		self.data.url('modules/commentPreview.js'),
 		self.data.url('modules/commentTools.js'),
