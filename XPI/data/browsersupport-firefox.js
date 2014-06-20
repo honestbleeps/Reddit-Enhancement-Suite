@@ -159,6 +159,21 @@ BrowserStrategy.RESInitReadyCheck = (function() {
 	}
 })();
 
+BrowserStrategy.openInNewWindow = function(thisHREF) {
+	var thisJSON = {
+		requestType: 'keyboardNav',
+		linkURL: thisHREF
+	};
+	self.postMessage(thisJSON);
+};
+
+BrowserStrategy.openLinkInNewTab = function(thisHREF) {
+	var thisJSON = {
+		requestType: 'openLinkInNewTab',
+		linkURL: thisHREF
+	};
+	self.postMessage(thisJSON);
+};
 
 BrowserStrategy.sendMessage = function(thisJSON) {
 	self.postMessage(thisJSON);

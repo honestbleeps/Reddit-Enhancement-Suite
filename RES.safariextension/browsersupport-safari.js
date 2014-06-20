@@ -194,6 +194,14 @@ BrowserStrategy.openInNewWindow = function (thisHREF) {
 	safari.self.tab.dispatchMessage("keyboardNav", thisJSON);
 };
 
+BrowserStrategy.openLinkInNewTab = function (thisHREF) {
+	var thisJSON = {
+		requestType: 'openLinkInNewTab',
+		linkURL: thisHREF
+	};
+	safari.self.tab.dispatchMessage("openLinkInNewTab", thisJSON);
+};
+
 
 BrowserStrategy.addURLToHistory = BrowserStrategy._addURLToHistory;
 
