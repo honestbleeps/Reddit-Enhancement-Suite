@@ -554,10 +554,12 @@ p.moduleListing {
 	float: left;
 	width: 140px;
 }
-.optionContainer input[type=color] {
+.optionContainer>input[type=color] {
 	margin-left: 10px;
 	margin-top: -3px;
 	float: left;
+}
+.optionContainer input[type=color] {
 	width: 56px;
 	height: 20px;
 }
