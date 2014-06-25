@@ -230,11 +230,17 @@
 	margin-top: 2px;
 	margin-right: 0;
 }
+#RESAdvOptions {
+	margin: 0;
+}
 #RESAdvOptionsSpan {
 	float: right;
 	margin-right: 15px;
 	margin-top: 5px;
 	color: #868686;
+}
+#RESAdvOptionsSpan label {
+	margin-left: 5px;
 }
 #RESConsoleContent.advanced-options-disabled .optionContainer.advanced {
 	display: none;
