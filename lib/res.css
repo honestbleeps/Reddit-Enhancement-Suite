@@ -239,6 +239,9 @@
 	margin-top: 5px;
 	color: #868686;
 }
+#RESAdvOptionsSpan label {
+	margin-left: 5px;
+}
 #RESConsoleContent.advanced-options-disabled .optionContainer.advanced {
 	display: none;
 }
