@@ -23,22 +23,22 @@ steve@honestbleeps.com
 
 Thinking about contributing to RES?  Awesome!  We just ask that you follow a few simple guidelines:
 
-1) RES has grown quite large, so we do have to pick and choose what features we should add. Code bloat is always a concern, and RES is already rather hefty.  If you're unsure if your feature would appeal to a wide audience, please post about it on /r/Enhancement or contact @honestbleeps directly to ask.
+1. RES has grown quite large, so we do have to pick and choose what features we should add. Code bloat is always a concern, and RES is already rather hefty.  If you're unsure if your feature would appeal to a wide audience, please post about it on /r/Enhancement or contact @honestbleeps directly to ask.
 
-2) There are a few features we have made a conscious choice not to add to RES, so make sure whatever you'd like to contribute [isn't on that list](http://www.reddit.com/r/Enhancement/wiki/rejectedfeaturerequests)
+2. There are a few features we have made a conscious choice not to add to RES, so make sure whatever you'd like to contribute [isn't on that list](http://www.reddit.com/r/Enhancement/wiki/rejectedfeaturerequests).
 
-3) It would be greatly appreciated if you could stick to a few style guidelines.  Some of these guidelines are NOT (yet!) strictly followed by RES because it originally started as an amalgamation of code from so many different sources. That said, we do hope to clean it up in due time...  Some guidelines:
+3. It would be greatly appreciated if you could stick to a few style guidelines.  Some of these guidelines are NOT (yet!) strictly followed by RES because it originally started as an amalgamation of code from so many different sources. That said, we do hope to clean it up in due time...  Some guidelines:
 
   - please use tabs for indentation
   - please use spaces in your if statements, e.g. if (foo === bar), not if(foo===bar)
   - please comment your code!
   - please, when possible, place var declarations all together at the top of a function
-  - please consider installing a tool like JSHint or JSLint that will help enforce good Javascript best practices!
+  - please consider installing a tool like JSHint or JSLint that will help enforce good JavaScript best practices!
 
 
 ## Project structure
 
-In order to build the extension, the files from `lib/` must be replicated (either via hard-links or grunt) into the relevant browser directory.
+In order to build the extension, the files from `lib/` must be replicated (either via hard-links or grunt, [see below](#using-grunt-instead-of-hard-links)) into the relevant browser directory.
 
 ##### Top level files & folders
 
@@ -57,21 +57,21 @@ In order to build the extension, the files from `lib/` must be replicated (eithe
 
 ##### Chrome files
 
-  - `background.js` – the "background page" for RES, necessary for chrome extensions
+  - `background.js` – the "background page" for RES, necessary for Chrome extensions
   - `manifest.json` – the project manifest
   - `icon.png`, `icon48.png`, `icon128.png` – icons!
   - `jquery-1.10.2.min.map` – Chrome moans if this file doesn't exist
 
 ##### Opera files
 
-  - `index.html` – the "background page" for RES, necessary for opera extensions
+  - `index.html` – the "background page" for RES, necessary for Opera extensions
   - `config.xml` – Opera's equivalent of Chrome's `manifest.json`
   - `logo.gif` – a logo gif!
 
 ##### Safari files (RES.safariextension)
 NOTE: This directory must have `.safariextension` in the name, or Safari's extension builder pukes.
 
-  - `background-safari.html` – the "background page" for RES, necessary for safari extensions
+  - `background-safari.html` – the "background page" for RES, necessary for Safari extensions
   - `Info.plist` – the project manifest
   - `icon.png`, `icon48.png`, `icon128.png` – icons!
 
@@ -83,7 +83,7 @@ NOTE: An XPI is a Firefox add-on, which is compiled using the [Add-on SDK](https
 
 ##### OperaBlink files
 
-  - `background.js` – the "background page" for RES, necessary for chrome extensions
+  - `background.js` – the "background page" for RES, necessary for Chrome extensions
   - `manifest.json` – the project manifest
   - `icon.png`, `icon48.png`, `icon128.png` – icons!
 
