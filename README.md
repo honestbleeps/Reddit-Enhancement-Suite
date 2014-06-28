@@ -21,19 +21,19 @@ steve@honestbleeps.com
 
 ## Contributor guidelines
 
-Thinking about contributing to RES?  Awesome!  We just ask that you follow a few simple guidelines:
+Thinking about contributing to RES? Awesome! We just ask that you follow a few simple guidelines:
 
-1. RES has grown quite large, so we do have to pick and choose what features we should add. Code bloat is always a concern, and RES is already rather hefty.  If you're unsure if your feature would appeal to a wide audience, please post about it on /r/Enhancement or contact @honestbleeps directly to ask.
+1. RES has grown quite large, so we do have to pick and choose what features we should add. Code bloat is always a concern, and RES is already rather hefty. If you're unsure if your feature would appeal to a wide audience, please post about it on [/r/Enhancement](http://www.reddit.com/r/Enhancement/) or [contact @honestbleeps](http://www.reddit.com/message/compose/?to=honestbleeps) directly to ask.
 
 2. There are a few features we have made a conscious choice not to add to RES, so make sure whatever you'd like to contribute [isn't on that list](http://www.reddit.com/r/Enhancement/wiki/rejectedfeaturerequests).
 
-3. It would be greatly appreciated if you could stick to a few style guidelines.  Some of these guidelines are NOT (yet!) strictly followed by RES because it originally started as an amalgamation of code from so many different sources. That said, we do hope to clean it up in due time...  Some guidelines:
+3. It would be greatly appreciated if you could stick to a few style guidelines. Some of these guidelines are NOT (yet!) strictly followed by RES because it originally started as an amalgamation of code from so many different sources. That said, we do hope to clean it up in due time...  Some guidelines:
 
   - please use tabs for indentation
-  - please use spaces in your if statements, e.g. if (foo === bar), not if(foo===bar)
+  - please use spaces in your if statements, e.g. `if (foo === bar)`, not `if(foo===bar)`
   - please comment your code!
-  - please, when possible, place var declarations all together at the top of a function
-  - please consider installing a tool like JSHint or JSLint that will help enforce good JavaScript best practices!
+  - please, when possible, place `var` declarations all together at the top of a function
+  - please consider installing a tool like [JSHint](http://www.jshint.com/) or [JSLint](http://www.jslint.com/) that will help enforce good JavaScript best practices!
 
 
 ## Project structure
