@@ -30,7 +30,7 @@ Thinking about contributing to RES? Awesome! We just ask that you follow a few s
 3. It would be greatly appreciated if you could stick to a few style guidelines. Some of these guidelines are NOT (yet!) strictly followed by RES because it originally started as an amalgamation of code from so many different sources. That said, we do hope to clean it up in due time...  Some guidelines:
 
   - please use tabs for indentation
-  - please use spaces in your if statements, e.g. `if (foo === bar)`, not `if(foo===bar)`
+  - please use spaces in your `if` statements, e.g. `if (foo === bar)`, not `if(foo===bar)`
   - please comment your code!
   - please, when possible, place `var` declarations all together at the top of a function
   - please consider installing a tool like [JSHint](http://www.jshint.com/) or [JSLint](http://www.jslint.com/) that will help enforce good JavaScript best practices!
