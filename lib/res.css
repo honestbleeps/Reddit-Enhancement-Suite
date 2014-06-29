@@ -62,7 +62,7 @@
 	width: auto;
 	height: auto;
 }
- #RESPrefsDropdown {
+#RESPrefsDropdown {
 	display: none;
 	position: absolute;
 	z-index: 1000006;
@@ -76,10 +76,9 @@
 	padding: 0;
 }
 #RESPrefsDropdown > ul > li {
-  position: relative;
+	position: relative;
 }
 #RESPrefsDropdown > ul > li > ul {
-	white-space: nowrap;
 	position: absolute;
 	right: 0;
   display: none;
