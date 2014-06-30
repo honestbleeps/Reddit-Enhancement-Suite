@@ -63,12 +63,12 @@
 	height: auto;
 }
 #RESPrefsDropdown {
-	visibility: hidden;
+	display: none;
 	position: absolute;
 	z-index: 1000006;
 }
 #RESPrefsDropdown.hover {
-	visibility: visible; /* don't use display: for this */
+	display: block;
 }
 #RESPrefsDropdown > ul {
 	list-style: none;
