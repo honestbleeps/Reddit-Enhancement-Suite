@@ -62,45 +62,16 @@
 	width: auto;
 	height: auto;
 }
-#RESPrefsDropdown {
+#RESMainGearOverlay {
+	position: absolute;
 	display: none;
-	position: absolute;
-	z-index: 1000006;
-}
-#RESPrefsDropdown.hover {
-	display: block;
-}
-#RESPrefsDropdown > ul {
-	list-style: none;
-	margin: 0;
-	padding: 0;
-}
-#RESPrefsDropdown > ul > li {
-	position: relative;
-}
-#RESPrefsDropdown > ul > li > ul {
-	position: absolute;
-	right: 0;
-  display: none;
-}
-#RESPrefsDropdown > ul > li:hover > ul,
-#RESPrefsDropdown > ul > li.hover > ul {
-  display: block;
-}
-.RESSettingsIcon {
-	display: inline-block;
-	vertical-align: middle;
-	margin-right: 5px;
-}
-body.loggedin .RESSettingsIcon {
-	margin-right: 0px;
-}
-#RESPrefsDropdown > ul > li {
-	margin: -3px -5px 3px -5px;
-	padding: 3px 5px 3px 5px;
+	width: 27px;
+	height: 24px;
+	border: 1px solid #369;
+	border-bottom: 1px solid #5f99cf;
+	background-color: #5f99cf;
 	border-radius: 3px 3px 0 0;
-	line-height: 20px;
-	background: rgb(100,150,200);
+	z-index: 10000;
 }
 .gearIcon {
 	display: inline-block;
@@ -109,11 +80,37 @@ body.loggedin .RESSettingsIcon {
 	background-image: url('https://s3.amazonaws.com/e.thumbs.redditmedia.com/r22WT2K4sio9Bvev.png');
 	background-repeat: no-repeat;
 	background-position: 0 -209px;
-	vertical-align: inherit;
 }
 .gearIcon.newNotification {
 	cursor: pointer;
 	background-position: 0px -134px;
+}
+#RESMainGearOverlay .gearIcon {
+	position: absolute;
+	top: 3px;
+	left: 6px;
+}
+#RESSettingsButton {
+	margin: auto;
+	margin-bottom: -2px;
+}
+.gearIcon.newNotification {
+	cursor: pointer;
+	background-position: 0px -134px;
+}
+#RESMainGearOverlay .gearIcon {
+	position: absolute;
+	top: 3px;
+	left: 6px;
+}
+#RESSettingsButton {
+	margin: auto;
+	margin-bottom: -2px;
+}
+#RESPrefsDropdown {
+	display: none;
+	position: absolute;
+	z-index: 100000006;
 }
 .RESDropdownList {
 	list-style-type: none;
@@ -162,6 +159,10 @@ body.loggedin .RESSettingsIcon {
 	width: 16px;
 	height: 16px;
 	background-image: url(data:image/gif;base64,R0lGODlhEAAQAOZOAP///3F6hcopAJMAAP/M//Hz9OTr8ZqksMTL1P8pAP9MDP9sFP+DIP8zAO7x8/D1/LnEz+vx+Flha+Ln7OLm61hhayk0QCo1QMfR2eDo8b/K1M/U2pqiqcfP15WcpcLK05ymsig0P2lyftnf5naBi8XJzZ6lrJGdqmBqdKissYyZpf/+/puotNzk66ayvtbc4rC7x9Xd5n+KlbG7xpiirnJ+ivDz9KKrtrvH1Ojv9ePq8HF8h2x2gvj9/yYyPmRueFxlb4eRm+71+kFLVdrb3c/X4KOnrYGMl3uGke/0+5Sgq1ZfaY6Xn/X4+f///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAEAAE4ALAAAAAAQABAAAAexgE6CggGFAYOIiAEPEREPh4lOhpOUgwEAmJmaABuQAUktMUUYGhAwLiwnKp41REYmHB5MQUcyN0iQTjsAHU05ICM4SjMQJIg8AAgFBgcvE5gUJYgiycsHDisCApjagj/VzAACBATa5AJOKOAHAAMMDOTvA05A6w7tC/kL804V9uIKAipA52QJgA82dNAQRyBBgwYJyjmRgKmHkAztHA4YAJHfEB8hLFxI0W4AACcbnQQCADs=)
+}
+#openRESPrefs {
+	display: inline-block;
+	height: 100%;
 }
 #RESConsoleHeader {
 	width: 100%;
