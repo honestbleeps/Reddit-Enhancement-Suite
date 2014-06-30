@@ -853,13 +853,16 @@
 	color: #87CEEB;
 }
 
-.res-nightmode .comment .md p a[href="/spoiler"] {
+.res-nightmode .comment .md p a[href="/spoiler"],
+.res-nightmode .comment .md p a[href="#spoiler"] {
 	background-color: #000;
 	color: #000;
 }
 
 .res-nightmode .comment .md p a[href="/spoiler"]:hover,
 .res-nightmode .comment .md p a[href="/spoiler"]:active,
+.res-nightmode .comment .md p a[href="#spoiler"]:hover,
+.res-nightmode .comment .md p a[href="#spoiler"]:active,
 .res-nightmode #commentNavButtons *,
 .res-nightmode .addNewWidget,
 .res-nightmode .editWidget,
