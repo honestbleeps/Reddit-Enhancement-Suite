@@ -32,6 +32,33 @@
 	visibility: visible;
 	top: -100%;
 }
+#RESConsoleContent #contributeContents {
+	padding-top: 15px;
+}
+#RESConsoleContent #contributeContents p {
+	margin-bottom: 20px;
+	font-size: 14px;
+}
+#RESConsoleContent #contributeContents h1 {
+	margin-top: 40px;
+}
+.RESDonateButton {
+	display: inline-block;
+	background-color: white;
+	color: orangered;
+	border-radius: 10px;
+	padding: 10px 20px;
+}
+.donateOption {
+	margin-top: 25px;
+	text-align: center;
+	float: left;
+	width: 33%;
+	height: 150px;
+}
+.donateOption:last-child {
+	margin-right: 0;
+}
 #modalOverlay {
 	display: none;
 	z-index: 999;
@@ -486,7 +513,7 @@ p.moduleListing {
 	overflow: auto;
 }
 .moduleName {
-	font-size: 16px;
+	font-size: 20px;
 	float: left;
 	margin-right: 15px;
 }
