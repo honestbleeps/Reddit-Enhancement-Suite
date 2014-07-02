@@ -119,10 +119,10 @@
 		"http://img.photobucket.com/*",
 		"http://backend.deviantart.com/oembed?url=*",
 		"http://api.tumblr.com/v2/blog/*/posts?api_key=*&id=*",
-		"http://noembed.com/embed?url=*",
-		"http://pastebin.com/raw?i=*"
+		"http://noembed.com/embed?url=*"
 	],
 	"optional_permissions": [
-		"https://api.twitter.com/*"
+		"https://api.twitter.com/*",
+		"http://pastebin.com/raw.php?i=*"
 	]
 }
