@@ -39,6 +39,10 @@ chrome.runtime.onMessage.addListener(
 					permissionQueue.onloads[request.callbackID](true);
 				}
 				break;
+			case 'subredditStyle':
+				var toggle = !modules['styleTweaks'].styleToggleCheckbox.checked;
+				modules['styleTweaks'].toggleSubredditStyle(toggle, RESUtils.currentSubreddit());
+				break;
 			default:
 				// sendResponse({status: "unrecognized request type"});
 				break;
