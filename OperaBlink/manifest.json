@@ -8,7 +8,6 @@
 		"scripts": ["background.js"]
 	},
 	"homepage_url": "http://redditenhancementsuite.com",
-	"options_page": "options.html",
 	"content_scripts": [
 		{
 			"matches": [
@@ -102,6 +101,13 @@
 	"icons": {
 		"48": "icon48.png",
 		"128": "icon128.png"
+	},
+	"page_action": {
+		"default_icon": {
+			"19": "images/css-on-small.png",
+			"38": "images/css-on.png"
+		},
+		"default_title": "Subreddit Style On"
 	},
 	"permissions": [
 		"cookies",
