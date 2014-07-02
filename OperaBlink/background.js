@@ -128,7 +128,7 @@ chrome.runtime.onMessage.addListener(
 				return true;
 				break;
 			case 'singleClick':
-				button = (request.button !== 1) || (request.ctrl !== 1);
+				button = (request.button !== 1) && (request.ctrl !== 1);
 				// Get the selected tab so we can get the index of it.  This allows us to open our new tab as the "next" tab.
 				newIndex = sender.tab.index + 1;
 				// handle requests from singleClick module
