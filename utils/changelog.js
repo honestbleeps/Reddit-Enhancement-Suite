@@ -1,5 +1,6 @@
 #!/usr/bin/env node
-var lastVersionDate = '2014-04-03'; // 4.3.2.1
+// var lastVersionDate = '2014-04-03'; // 4.3.2.1
+var lastVersionDate = '2014-07-02'; // 4.5.0.1
 
 /*
 

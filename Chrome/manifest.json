@@ -1,6 +1,6 @@
 {
 	"name": "Reddit Enhancement Suite",
-	"version": "4.3.2.1",
+	"version": "4.5.0.1",
 	"manifest_version": 2,
 	"minimum_chrome_version": "26.0",
 	"description": "Reddit Enhancement Suite - a group of enhancements for browsing Reddit",
@@ -103,6 +103,13 @@
 	"icons": {
 		"48": "icon48.png",
 		"128": "icon128.png"
+	},
+	"page_action": {
+		"default_icon": {
+			"19": "images/css-on-small.png",
+			"38": "images/css-on.png"
+		},
+		"default_title": "Subreddit Style On"
 	},
 	"permissions": [
 		"cookies",
