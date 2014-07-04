@@ -90,12 +90,18 @@
 	height: auto;
 }
 #RESPrefsDropdown {
-	display: none;
+	visibility: hidden;
 	position: absolute;
 	z-index: 1000006;
 }
+body.pinHeader-userbar #RESPrefsDropdown,
+body.pinHeader-userbar #RESPrefsDropdown,
+body.pinHeader-header #RESPrefsDropdown,
+body.pinHeader-subanduser #RESPrefsDropdown {
+	position: fixed;
+}
 #RESPrefsDropdown.hover {
-	display: block;
+	visibility: visible; /* don't use display for this */
 }
 #RESPrefsDropdown > ul {
 	list-style: none;
