@@ -89,6 +89,16 @@ var XHRCache = {
 	}
 };
 
+
+var handlePageActionClick = function(event) {
+	chrome.tabs.sendMessage(event.id, { requestType: 'subredditStyle', action: 'toggle'  }, function(response) {
+		// we don't really need to do anything here.
+		console.log(response);
+	});
+}
+
+chrome.pageAction.onClicked.addListener(handlePageActionClick);
+
 chrome.runtime.onMessage.addListener(
 	function(request, sender, sendResponse) {
 		var xhr, button, newIndex, thisLinkURL;
@@ -245,12 +255,6 @@ chrome.runtime.onMessage.addListener(
 					case 'show':
 						// we intentionally fall through after this to stateChange
 						chrome.pageAction.show(sender.tab.id);
-						chrome.pageAction.onClicked.addListener(function() {
-							chrome.tabs.sendMessage(sender.tab.id, { requestType: 'subredditStyle', action: 'toggle'  }, function(response) {
-								// we don't really need to do anything here.
-								console.log(response);
-							});
-						});
 					case 'stateChange':
 						if (request.visible) {
 							chrome.pageAction.setIcon({
