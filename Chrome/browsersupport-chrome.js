@@ -6,7 +6,7 @@
 permissionQueue = {
 	count: 0,
 	onloads: []
-}
+};
 
 
 chrome.runtime.onMessage.addListener(
@@ -143,7 +143,7 @@ BrowserStrategy.storageSetup = function(thisJSON) {
 			setUpRESStorage(response);
 		}
 	});
-}
+};
 
 
 BrowserStrategy.sendMessage = function(thisJSON) {
@@ -176,7 +176,7 @@ BrowserStrategy.addURLToHistory = (function() {
 		}
 
 		original(url);
-	}
+	};
 })();
 
 BrowserStrategy.supportsThirdPartyCookies = function() {
@@ -185,4 +185,4 @@ BrowserStrategy.supportsThirdPartyCookies = function() {
 	}
 
 	return true;
-}
+};
