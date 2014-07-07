@@ -31,6 +31,7 @@ Thinking about contributing to RES? Awesome! We just ask that you follow a few s
 
   - please use tabs for indentation
   - please use spaces in your `if` statements, e.g. `if (foo === bar)`, not `if(foo===bar)`
+  - please use single quotes `'` and not double quotes `"` for strings
   - please comment your code!
   - please, when possible, place `var` declarations all together at the top of a function
   - please consider installing a tool like [JSHint](http://www.jshint.com/) or [JSLint](http://www.jslint.com/) that will help enforce good JavaScript best practices!
