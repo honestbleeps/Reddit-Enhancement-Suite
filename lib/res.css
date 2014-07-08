@@ -644,10 +644,10 @@ p.moduleListing {
 }
 #moduleOptionsSave {
 	display: none;
-	position: fixed;
+	position: absolute;
 	z-index: 1100;
-	top: 98px;
-	right: 4%;
+	top: -35px;
+	right: 10px;
 	cursor: pointer;
 	padding: 3px 5px;
 	font-size: 12px;
@@ -695,9 +695,9 @@ p.moduleListing {
 }
 #moduleOptionsSaveStatus {
 	display: none;
-	position: fixed;
-	top: 98px;
-	right: 160px;
+	position: absolute;
+	top: -35px;
+	right: 100px;
 	width: 180px;
 	padding: 5px;
 	text-align: center;
