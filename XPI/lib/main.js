@@ -119,7 +119,7 @@ pageMod.PageMod({
 	include: ["*.reddit.com"],
 	contentScriptWhen: 'start',
 	contentScriptFile: [
-		self.data.url('jquery-1.10.2.min.js'),
+		self.data.url('jquery-1.11.1.min.js'),
 		self.data.url('guiders-1.2.8.js'),
 		self.data.url('jquery.dragsort-0.6.js'),
 		self.data.url('jquery-fieldselection.min.js'),
