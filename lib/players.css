@@ -294,7 +294,6 @@
         background: black; }
 		.res-player .hidden { display: none; }
 		.res-player { position: relative; display: inline-block; width: auto; max-width: 100%; }
-		.res-player video { max-width: 100%; }
 		.res-player.fullscreen, .res-player.fullscreen video { max-width: none; }
 
 
