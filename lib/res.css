@@ -500,7 +500,6 @@ p.moduleListing {
 	cursor: pointer;
 	-webkit-user-select: none;
 	-moz-user-select: none;
-	user-select: none;
 }
 .moduleHeader {
 	border: 1px solid #c7c7c7;
@@ -1134,6 +1133,8 @@ img {
 	margin-right: 6px;
 	cursor: pointer;
 	padding: 0;
+	-webkit-user-select: none;
+	-moz-user-select: none;
 }
 .expando-button.image.commentImg {
 	float: none;
@@ -1164,7 +1165,6 @@ img {
 .RESGalleryControls .previous { background-position: 0 -352px; }
 .RESGalleryControls .next { background-position: 16px -352px; }
 .RESGalleryControls .next,.RESGalleryControls .previous {
-	user-select: none;
 	-webkit-user-select: none;
 	-moz-user-select: none;
 }
