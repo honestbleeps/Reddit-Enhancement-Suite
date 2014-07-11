@@ -123,7 +123,7 @@ pageMod.PageMod({
 		self.data.url('guiders-1.2.8.js'),
 		self.data.url('jquery.dragsort-0.6.js'),
 		self.data.url('jquery-fieldselection.min.js'),
-		self.data.url('tinycon.js'),
+		self.data.url('favico.js'),
 		self.data.url('jquery.tokeninput.js'),
 		self.data.url('HTMLPasteurizer.js'),
 		self.data.url('snuownd.js'),
