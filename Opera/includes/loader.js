@@ -34,6 +34,7 @@ window.addEventListener('DOMContentLoaded', function() {
 		'browsersupport.js',
 		'browsersupport-opera.js',
 		'console.js',
+		'favico.js',
 		'gfycat.js',
 		'guiders-1.2.8.js',
 		'hogan-2.0.0.js',
@@ -44,7 +45,6 @@ window.addEventListener('DOMContentLoaded', function() {
 		'migrate.js',
 		'storage.js',
 		'template.js',
-		'tinycon.js',
 
 		'modules/about.js',
 		'modules/accountSwitcher.js',
