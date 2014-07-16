@@ -82,6 +82,7 @@ window.addEventListener('DOMContentLoaded', function() {
 		'modules/subredditInfo.js',
 		'modules/subredditManager.js',
 		'modules/subredditTagger.js',
+		'modules/tableTools.js',
 		'modules/troubleshooter.js',
 		'modules/userHighlight.js',
 		'modules/userTagger.js',
