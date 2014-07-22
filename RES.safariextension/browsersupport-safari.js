@@ -178,7 +178,7 @@ BrowserStrategy.storageSetup = function(thisJSON) {
 	};
 	setupInterval = setInterval(setupCallback, 200);
 	setupCallback();
-}
+};
 
 
 BrowserStrategy.sendMessage = function(thisJSON) {
