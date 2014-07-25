@@ -1064,8 +1064,8 @@
 	border-color: gray;
 }
 
-.res-nightmode .RESDropdownList li, .res-nightmode .RESDropdownList li a{
-	background: #444;
+.res-nightmode #RESPrefsDropdown > ul > li, .res-nightmode .RESDropdownList li, .res-nightmode .RESDropdownList li a{
+	background-color: #444;
 	color: gray;
 }
 
