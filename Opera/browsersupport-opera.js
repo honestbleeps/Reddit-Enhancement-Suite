@@ -179,7 +179,7 @@ BrowserStrategy.RESInitReadyCheck = function(RESInit) {
 		};
 
 		// include CSS files, then load scripts.
-		var cssFiles = ['res.css', 'guiders.css', 'tokenize.css', 'commentBoxes.css', 'nightmode.css','players.css','batch.css'];
+		var cssFiles = ['res.css', 'vendor/guiders.css', 'vendor/tokenize.css', 'commentBoxes.css', 'nightmode.css', 'vendor/players.css', 'batch.css'];
 		for (var i in cssFiles) {
 			loadCSS(cssFiles[i]);
 		}
