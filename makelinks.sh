@@ -2,7 +2,8 @@
 
 libfiles=("lib/"*)
 modulefiles=("lib/modules/"*)
-files=("${libfiles[@]}" "${modulefiles[@]}")
+vendorfiles=("lib/vendor/"*)
+files=("${libfiles[@]}" "${modulefiles[@]}" "${vendorfiles[@]}")
 
 paths=("Chrome" "XPI/data" "Opera" "OperaBlink" "RES.safariextension")
 
@@ -18,6 +19,9 @@ do
 			if [ "$dir" == "lib/modules" ]
 			then
 				dest="./$j/modules/"
+			elif [ "$dir" == "lib/vendor" ]
+			then
+				dest="./$j/vendor/"
 			else
 				dest="./$j/"
 			fi
