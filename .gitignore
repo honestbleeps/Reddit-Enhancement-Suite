@@ -49,16 +49,19 @@ Chrome.pem
 
 /Chrome/*.js
 /Chrome/modules/*.js
+/Chrome/vendor/
 /Chrome/*.css
 /Chrome/*.html
 !/Chrome/background.js
 /OperaBlink/*.js
 /OperaBlink/*.html
 /OperaBlink/modules/*.js
+/OperaBlink/vendor/
 /OperaBlink/*.css
 !/OperaBlink/background.js
 /RES.safariextension/*.js
 /RES.safariextension/modules/*.js
+/RES.safariextension/vendor/
 /RES.safariextension/*.css
 /RES.safariextension/*.html
 /Opera/*.js
@@ -67,6 +70,7 @@ Chrome.pem
 !Opera/includes/*
 /Opera/templates.html
 /Opera/modules/*
+/Opera/vendor/
 /XPI/data/*
 !/XPI/lib/main.js
 !/lib/*
