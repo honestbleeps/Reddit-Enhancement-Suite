@@ -1,13 +1,16 @@
 /* jshint esnext: true */
 /* global require: false */
 
+// suppress annoying strict warnings that cfx overrides and turns on
+// comment this line out for releases.
+// require("sdk/preferences/service").set("javascript.options.strict", false);
+
 // Import the APIs we need.
 let pageMod = require("sdk/page-mod");
 let Request = require("sdk/request").Request;
 let self = require("sdk/self");
 let tabs = require("sdk/tabs");
 let ss = require("sdk/simple-storage");
-let timer = require("sdk/timers");
 let priv = require("sdk/private-browsing");
 let windows = require("sdk/windows").browserWindows;
 
