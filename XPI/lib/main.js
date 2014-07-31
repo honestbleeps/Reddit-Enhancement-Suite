@@ -178,6 +178,7 @@ pageMod.PageMod({
 		self.data.url('modules/subredditInfo.js'),
 		self.data.url('modules/commentHidePersistor.js'),
 		self.data.url('modules/bitcointip.js'),
+		self.data.url('modules/dogecointip.js'),
 		self.data.url('modules/troubleshooter.js'),
 		self.data.url('modules/localDate.js'),
 		self.data.url('modules/context.js'),
