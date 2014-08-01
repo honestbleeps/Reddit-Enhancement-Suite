@@ -171,7 +171,7 @@ BrowserStrategy.storageSetup = function(thisJSON) {
 		};
 
 		// include CSS files, then load scripts.
-		var cssFiles = ['core/res.css', 'vendor/guiders.css', 'vendor/tokenize.css', 'core/commentBoxes.css', 'core/nightmode.css', 'vendor/players.css', 'core/batch.css'];
+		var cssFiles = ['core/res.css', 'vendor/guiders.css', 'vendor/tokenize.css', 'modules/commentBoxes.css', 'modules/nightmode.css', 'vendor/players.css', 'core/batch.css'];
 		for (var i in cssFiles) {
 			loadCSS(cssFiles[i]);
 		}

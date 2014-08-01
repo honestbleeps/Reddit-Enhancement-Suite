@@ -188,8 +188,8 @@ pageMod.PageMod({
 		self.data.url('core/init.js')
 	],
 	contentStyleFile: [
-		self.data.url('core/nightmode.css'),
-		self.data.url('core/commentBoxes.css'),
+		self.data.url('modules/nightmode.css'),
+		self.data.url('modules/commentBoxes.css'),
 		self.data.url('core/res.css'),
 		self.data.url('vendor/players.css'),
 		self.data.url('vendor/guiders.css'),
