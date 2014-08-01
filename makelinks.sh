@@ -1,9 +1,10 @@
 #!/bin/bash
 
 libfiles=("lib/"*)
+corefiles=("lib/core/"*)
 modulefiles=("lib/modules/"*)
 vendorfiles=("lib/vendor/"*)
-files=("${libfiles[@]}" "${modulefiles[@]}" "${vendorfiles[@]}")
+files=("${libfiles[@]}" "${corefiles[@]}" "${modulefiles[@]}" "${vendorfiles[@]}")
 
 paths=("Chrome" "XPI/data" "Opera" "OperaBlink" "RES.safariextension")
 
@@ -16,7 +17,10 @@ do
 			file=$(basename $i)
 			dir=$(dirname $i)
 
-			if [ "$dir" == "lib/modules" ]
+			if [ "$dir" == "lib/core" ]
+			then
+				dest="./$j/core/"
+			elif [ "$dir" == "lib/modules" ]
 			then
 				dest="./$j/modules/"
 			elif [ "$dir" == "lib/vendor" ]
