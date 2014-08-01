@@ -130,14 +130,14 @@ pageMod.PageMod({
 		self.data.url('vendor/jquery.tokeninput.js'),
 		self.data.url('vendor/HTMLPasteurizer.js'),
 		self.data.url('vendor/snuownd.js'),
-		self.data.url('utils.js'),
+		self.data.url('core/utils.js'),
 		self.data.url('browsersupport.js'),
 		self.data.url('browsersupport-firefox.js'),
-		self.data.url('console.js'),
-		self.data.url('alert.js'),
-		self.data.url('migrate.js'),
-		self.data.url('storage.js'),
-		self.data.url('template.js'),
+		self.data.url('core/console.js'),
+		self.data.url('core/alert.js'),
+		self.data.url('core/migrate.js'),
+		self.data.url('core/storage.js'),
+		self.data.url('core/template.js'),
 		self.data.url('vendor/konami.js'),
 		self.data.url('vendor/mediacrush.js'),
 		self.data.url('vendor/gfycat.js'),
@@ -185,16 +185,16 @@ pageMod.PageMod({
 		self.data.url('modules/searchHelper.js'),
 		self.data.url('modules/logoLink.js'),
 		self.data.url('modules/voteEnhancements.js'),
-		self.data.url('init.js')
+		self.data.url('core/init.js')
 	],
 	contentStyleFile: [
-		self.data.url('nightmode.css'),
-		self.data.url('commentBoxes.css'),
-		self.data.url('res.css'),
+		self.data.url('modules/nightmode.css'),
+		self.data.url('modules/commentBoxes.css'),
+		self.data.url('core/res.css'),
 		self.data.url('vendor/players.css'),
 		self.data.url('vendor/guiders.css'),
 		self.data.url('vendor/tokenize.css'),
-		self.data.url("batch.css")
+		self.data.url("core/batch.css")
 	],
 	onAttach: function(worker) {
 		// when a tab is activated, repopulate localStorage so that changes propagate across tabs...

@@ -28,12 +28,12 @@ window.addEventListener('DOMContentLoaded', function() {
 		'opera-restore-jquery.js',
 
 		'vendor/jquery-fieldselection.min.js',
-		'utils.js',
+		'core/utils.js',
 
-		'alert.js',
+		'core/alert.js',
 		'browsersupport.js',
 		'browsersupport-opera.js',
-		'console.js',
+		'core/console.js',
 		'vendor/favico.js',
 		'vendor/gfycat.js',
 		'vendor/guiders-1.2.8.js',
@@ -42,9 +42,9 @@ window.addEventListener('DOMContentLoaded', function() {
 		'vendor/konami.js',
 		'vendor/mediacrush.js',
 		'vendor/snuownd.js',
-		'migrate.js',
-		'storage.js',
-		'template.js',
+		'core/migrate.js',
+		'core/storage.js',
+		'core/template.js',
 
 		'modules/about.js',
 		'modules/accountSwitcher.js',
@@ -89,7 +89,7 @@ window.addEventListener('DOMContentLoaded', function() {
 		'modules/usernameHider.js',
 		'modules/voteEnhancements.js',
 
-		'init.js',
+		'core/init.js',
 
 		'opera-footer.js'
 	];
