@@ -38,14 +38,14 @@
 				<string>vendor/HTMLPasteurizer.js</string>
 				<string>vendor/snuownd.js</string>
 				<string>vendor/hogan-2.0.0.js</string>
-				<string>utils.js</string>
+				<string>core/utils.js</string>
 				<string>browsersupport.js</string>
 				<string>browsersupport-safari.js</string>
-				<string>console.js</string>
-				<string>alert.js</string>
-				<string>migrate.js</string>
-				<string>storage.js</string>
-				<string>template.js</string>
+				<string>core/console.js</string>
+				<string>core/alert.js</string>
+				<string>core/migrate.js</string>
+				<string>core/storage.js</string>
+				<string>core/template.js</string>
 				<string>vendor/konami.js</string>
 				<string>vendor/mediacrush.js</string>
 				<string>vendor/gfycat.js</string>
@@ -92,7 +92,7 @@
 				<string>modules/searchHelper.js</string>
 				<string>modules/logoLink.js</string>
 				<string>modules/voteEnhancements.js</string>
-				<string>init.js</string>
+				<string>core/init.js</string>
 			</array>
 		</dict>
 	</dict>

@@ -26,14 +26,14 @@
 				"vendor/jquery.tokeninput.js",
 				"vendor/HTMLPasteurizer.js",
 				"vendor/snuownd.js",
-				"utils.js",
+				"core/utils.js",
 				"browsersupport.js",
 				"browsersupport-chrome.js",
-				"console.js",
-				"alert.js",
-				"migrate.js",
-				"storage.js",
-				"template.js",
+				"core/console.js",
+				"core/alert.js",
+				"core/migrate.js",
+				"core/storage.js",
+				"core/template.js",
 				"vendor/konami.js",
 				"vendor/hogan-2.0.0.js",
 				"vendor/mediacrush.js",
@@ -81,22 +81,22 @@
 				"modules/searchHelper.js",
 				"modules/logoLink.js",
 				"modules/voteEnhancements.js",
-				"init.js"
+				"core/init.js"
 			],
 			"css": [
-				"nightmode.css",
-				"commentBoxes.css",
-				"res.css",
+				"core/nightmode.css",
+				"core/commentBoxes.css",
+				"core/res.css",
 				"vendor/players.css",
 				"vendor/guiders.css",
 				"vendor/tokenize.css",
-				"batch.css"
+				"core/batch.css"
 			],
 			"run_at": "document_start"
 		}
 	],
 	"web_accessible_resources": [
-		"templates.html"
+		"core/templates.html"
 	],
 	"icons": {
 		"48": "icon48.png",
