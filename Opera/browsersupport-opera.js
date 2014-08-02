@@ -1,4 +1,3 @@
-
 // This is the message handler for Opera - the background page calls this function with return data...
 
 function operaMessageHandler(msgEvent) {
@@ -77,61 +76,58 @@ function operaMessageHandler(msgEvent) {
 	}
 }
 
-if (typeof GM_xmlhttpRequest === 'undefined') {
-	if (BrowserDetect.isOpera()) {
-		GM_xmlhttpRequest = function(obj) {
-			obj.requestType = 'GM_xmlhttpRequest';
-			// Turns out, Opera works this way too, but I'll forgive them since their extensions are so young and they're awesome people...
 
-			// oy vey... cross domain same issue with Opera.
-			var crossDomain = (obj.url.indexOf(location.hostname) === -1);
+var GM_xmlhttpRequest = function(obj) {
+	obj.requestType = 'GM_xmlhttpRequest';
+	// Turns out, Opera works this way too, but I'll forgive them since their extensions are so young and they're awesome people...
 
-			if ((typeof obj.onload !== 'undefined') && (crossDomain)) {
-				obj.XHRID = xhrQueue.count;
-				xhrQueue.onloads[xhrQueue.count] = obj.onload;
-				opera.extension.postMessage(JSON.stringify(obj));
-				xhrQueue.count++;
-			} else {
-				var request = new XMLHttpRequest();
-				request.onreadystatechange = function() {
-					if (obj.onreadystatechange) {
-						obj.onreadystatechange(request);
-					}
-					if (request.readyState === 4 && obj.onload) {
-						obj.onload(request);
-					}
-				};
-				request.onerror = function() {
-					if (obj.onerror) {
-						obj.onerror(request);
-					}
-				};
-				try {
-					request.open(obj.method, obj.url, true);
-				} catch (e) {
-					if (obj.onerror) {
-						obj.onerror({
-							readyState: 4,
-							responseHeaders: '',
-							responseText: '',
-							responseXML: '',
-							status: 403,
-							statusText: 'Forbidden'
-						});
-					}
-					return;
-				}
-				if (obj.headers) {
-					for (var name in obj.headers) {
-						request.setRequestHeader(name, obj.headers[name]);
-					}
-				}
-				request.send(obj.data);
-				return request;
+	// oy vey... cross domain same issue with Opera.
+	var crossDomain = (obj.url.indexOf(location.hostname) === -1);
+
+	if ((typeof obj.onload !== 'undefined') && (crossDomain)) {
+		obj.XHRID = xhrQueue.count;
+		xhrQueue.onloads[xhrQueue.count] = obj.onload;
+		opera.extension.postMessage(JSON.stringify(obj));
+		xhrQueue.count++;
+	} else {
+		var request = new XMLHttpRequest();
+		request.onreadystatechange = function() {
+			if (obj.onreadystatechange) {
+				obj.onreadystatechange(request);
+			}
+			if (request.readyState === 4 && obj.onload) {
+				obj.onload(request);
 			}
 		};
+		request.onerror = function() {
+			if (obj.onerror) {
+				obj.onerror(request);
+			}
+		};
+		try {
+			request.open(obj.method, obj.url, true);
+		} catch (e) {
+			if (obj.onerror) {
+				obj.onerror({
+					readyState: 4,
+					responseHeaders: '',
+					responseText: '',
+					responseXML: '',
+					status: 403,
+					statusText: 'Forbidden'
+				});
+			}
+			return;
+		}
+		if (obj.headers) {
+			for (var name in obj.headers) {
+				request.setRequestHeader(name, obj.headers[name]);
+			}
+		}
+		request.send(obj.data);
+		return request;
 	}
-}
+};
 
 
 function operaUpdateCallback(obj) {

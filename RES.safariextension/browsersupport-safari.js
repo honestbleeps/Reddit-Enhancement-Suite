@@ -58,17 +58,14 @@ function safariMessageHandler(msgEvent) {
 }
 
 
-
-
 // Safari has a ridiculous bug that causes it to lose access to safari.self.tab if you click the back button.
 // this stupid one liner fixes that.
 window.onunload = function() {};
 safari.self.addEventListener("message", safariMessageHandler, false);
 
 
-
 // TODO: move this into BrowserStrategy
-GM_xmlhttpRequest = function(obj) {
+var GM_xmlhttpRequest = function(obj) {
 	obj.requestType = 'GM_xmlhttpRequest';
 	// Since Safari doesn't provide legitimate callbacks, I have to store the onload function here in the main
 	// userscript in a queue (see xhrQueue), wait for data to come back from the background page, then call the onload.
