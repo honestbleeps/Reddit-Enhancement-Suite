@@ -215,7 +215,7 @@ pageMod.PageMod({
 				case 'deleteCookie':
 					cookieManager.remove('.reddit.com', request.cname, '/', false);
 					break;
-				case 'GM_xmlhttpRequest':
+				case 'ajax':
 					let responseObj = {
 						XHRID: request.XHRID,
 						name: request.requestType

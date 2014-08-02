@@ -2,7 +2,7 @@
 
 function safariMessageHandler(msgEvent) {
 	switch (msgEvent.name) {
-		case 'GM_xmlhttpRequest':
+		case 'ajax':
 			// Fire the appropriate onload function for this xmlhttprequest.
 			xhrQueue.onloads[msgEvent.message.XHRID](msgEvent.message);
 			break;
@@ -64,9 +64,8 @@ window.onunload = function() {};
 safari.self.addEventListener("message", safariMessageHandler, false);
 
 
-// TODO: move this into BrowserStrategy
-var GM_xmlhttpRequest = function(obj) {
-	obj.requestType = 'GM_xmlhttpRequest';
+BrowserStrategy.ajax = function(obj) {
+	obj.requestType = 'ajax';
 	// Since Safari doesn't provide legitimate callbacks, I have to store the onload function here in the main
 	// userscript in a queue (see xhrQueue), wait for data to come back from the background page, then call the onload.
 
@@ -83,7 +82,7 @@ var GM_xmlhttpRequest = function(obj) {
 		obj = JSON.parse(JSON.stringify(obj));
 		// I hope you put on a bib for that. Safari won't let you pass a javascript object to the background page anymore.
 
-		safari.self.tab.dispatchMessage("GM_xmlhttpRequest", obj);
+		safari.self.tab.dispatchMessage("ajax", obj);
 		xhrQueue.count++;
 	} else {
 		var request = new XMLHttpRequest();
@@ -141,7 +140,7 @@ BrowserStrategy.storageSetup = function(thisJSON) {
 	RESLoadResourceAsText = function(filename, callback) {
 		var url = safari.extension.baseURI + filename;
 
-		GM_xmlhttpRequest({
+		BrowserStrategy.ajax({
 			method: 'GET',
 			url: url,
 			onload: function (response) {

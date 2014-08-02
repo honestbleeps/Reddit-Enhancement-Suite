@@ -3,7 +3,7 @@
 function operaMessageHandler(msgEvent) {
 	var eventData = msgEvent.data;
 	switch (eventData.msgType) {
-		case 'GM_xmlhttpRequest':
+		case 'ajax':
 			// Fire the appropriate onload function for this xmlhttprequest.
 			xhrQueue.onloads[eventData.XHRID](eventData.data);
 			break;
@@ -77,8 +77,8 @@ function operaMessageHandler(msgEvent) {
 }
 
 
-var GM_xmlhttpRequest = function(obj) {
-	obj.requestType = 'GM_xmlhttpRequest';
+BrowserStrategy.ajax = function(obj) {
+	obj.requestType = 'ajax';
 	// Turns out, Opera works this way too, but I'll forgive them since their extensions are so young and they're awesome people...
 
 	// oy vey... cross domain same issue with Opera.

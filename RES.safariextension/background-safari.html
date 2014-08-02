@@ -98,7 +98,7 @@
 			xhr, button, linkTab;
 		request.requestType = msgEvent.name;
 		switch (request.requestType) {
-			case 'GM_xmlhttpRequest':
+			case 'ajax':
 				if (request.aggressiveCache || XHRCache.forceCache) {
 					var cachedResult = XHRCache.check(request.url);
 					if (cachedResult) {

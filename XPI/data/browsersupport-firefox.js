@@ -5,7 +5,7 @@ self.on('message', function(msgEvent) {
 			window.RESLoadCallbacks[msgEvent.transaction](msgEvent.data);
 			delete window.RESLoadCallbacks[msgEvent.transaction];
 			break;
-		case 'GM_xmlhttpRequest':
+		case 'ajax':
 			// Fire the appropriate onload function for this xmlhttprequest.
 			xhrQueue.onloads[msgEvent.XHRID](msgEvent.response);
 			break;
@@ -51,11 +51,11 @@ self.on('message', function(msgEvent) {
 });
 
 
-var GM_xmlhttpRequest = function(obj) {
+BrowserStrategy.ajax = function(obj) {
 	var crossDomain = (obj.url.indexOf(location.hostname) === -1);
 
 	if ((typeof obj.onload !== 'undefined') && (crossDomain)) {
-		obj.requestType = 'GM_xmlhttpRequest';
+		obj.requestType = 'ajax';
 		// okay, firefox's jetpack addon does this same stuff... le sigh..
 		if (typeof obj.onload !== 'undefined') {
 			obj.XHRID = xhrQueue.count;

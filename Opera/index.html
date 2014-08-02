@@ -97,12 +97,12 @@ opera.extension.addEventListener( "message", function( event ) {
 		xhr, passBack, button, ls, thisLinkURL;
 	if ((typeof request !== 'undefined') && (typeof request.requestType !== 'undefined')) {
 		switch (request.requestType) {
-			case 'GM_xmlhttpRequest':
+			case 'ajax':
 				if (request.aggressiveCache || XHRCache.forceCache) {
 					var cachedResult = XHRCache.check(request.url);
 					if (cachedResult) {
 						event.source.postMessage({
-							msgType: 'GM_xmlhttpRequest',
+							msgType: 'ajax',
 							XHRID: request.XHRID,
 							data: cachedResult
 						});
@@ -135,7 +135,7 @@ opera.extension.addEventListener( "message", function( event ) {
 							XHRCache.add(request.url, resp);
 						}
 						passBack = {
-							msgType: 'GM_xmlhttpRequest',
+							msgType: 'ajax',
 							XHRID: request.XHRID,
 							data: resp
 						};

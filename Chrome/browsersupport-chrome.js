@@ -51,11 +51,11 @@ chrome.runtime.onMessage.addListener(
 );
 
 
-var GM_xmlhttpRequest = function(obj) {
+BrowserStrategy.ajax = function(obj) {
 	var crossDomain = (obj.url.indexOf(location.hostname) === -1);
 
 	if ((typeof obj.onload !== 'undefined') && (crossDomain)) {
-		obj.requestType = 'GM_xmlhttpRequest';
+		obj.requestType = 'ajax';
 		if (typeof obj.onload !== 'undefined') {
 			chrome.runtime.sendMessage(obj, function(response) {
 				obj.onload(response);
