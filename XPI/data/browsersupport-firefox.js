@@ -5,7 +5,7 @@ self.on('message', function(msgEvent) {
 			window.RESLoadCallbacks[msgEvent.transaction](msgEvent.data);
 			delete window.RESLoadCallbacks[msgEvent.transaction];
 			break;
-		case 'GM_xmlhttpRequest':
+		case 'ajax':
 			// Fire the appropriate onload function for this xmlhttprequest.
 			xhrQueue.onloads[msgEvent.XHRID](msgEvent.response);
 			break;
@@ -51,62 +51,57 @@ self.on('message', function(msgEvent) {
 });
 
 
+BrowserStrategy.ajax = function(obj) {
+	var crossDomain = (obj.url.indexOf(location.hostname) === -1);
 
-// GM_xmlhttpRequest for non-GM browsers
-if (typeof GM_xmlhttpRequest === 'undefined') {
-	// we must be in a Firefox / jetpack addon...
-	GM_xmlhttpRequest = function(obj) {
-		var crossDomain = (obj.url.indexOf(location.hostname) === -1);
-
-		if ((typeof obj.onload !== 'undefined') && (crossDomain)) {
-			obj.requestType = 'GM_xmlhttpRequest';
-			// okay, firefox's jetpack addon does this same stuff... le sigh..
-			if (typeof obj.onload !== 'undefined') {
-				obj.XHRID = xhrQueue.count;
-				xhrQueue.onloads[xhrQueue.count] = obj.onload;
-				self.postMessage(obj);
-				xhrQueue.count++;
-			}
-		} else {
-			var request = new XMLHttpRequest();
-			request.onreadystatechange = function() {
-				if (obj.onreadystatechange) {
-					obj.onreadystatechange(request);
-				}
-				if (request.readyState === 4 && obj.onload) {
-					obj.onload(request);
-				}
-			};
-			request.onerror = function() {
-				if (obj.onerror) {
-					obj.onerror(request);
-				}
-			};
-			try {
-				request.open(obj.method, obj.url, true);
-			} catch (e) {
-				if (obj.onerror) {
-					obj.onerror({
-						readyState: 4,
-						responseHeaders: '',
-						responseText: '',
-						responseXML: '',
-						status: 403,
-						statusText: 'Forbidden'
-					});
-				}
-				return;
-			}
-			if (obj.headers) {
-				for (var name in obj.headers) {
-					request.setRequestHeader(name, obj.headers[name]);
-				}
-			}
-			request.send(obj.data);
-			return request;
+	if ((typeof obj.onload !== 'undefined') && (crossDomain)) {
+		obj.requestType = 'ajax';
+		// okay, firefox's jetpack addon does this same stuff... le sigh..
+		if (typeof obj.onload !== 'undefined') {
+			obj.XHRID = xhrQueue.count;
+			xhrQueue.onloads[xhrQueue.count] = obj.onload;
+			self.postMessage(obj);
+			xhrQueue.count++;
 		}
-	};
-}
+	} else {
+		var request = new XMLHttpRequest();
+		request.onreadystatechange = function() {
+			if (obj.onreadystatechange) {
+				obj.onreadystatechange(request);
+			}
+			if (request.readyState === 4 && obj.onload) {
+				obj.onload(request);
+			}
+		};
+		request.onerror = function() {
+			if (obj.onerror) {
+				obj.onerror(request);
+			}
+		};
+		try {
+			request.open(obj.method, obj.url, true);
+		} catch (e) {
+			if (obj.onerror) {
+				obj.onerror({
+					readyState: 4,
+					responseHeaders: '',
+					responseText: '',
+					responseXML: '',
+					status: 403,
+					statusText: 'Forbidden'
+				});
+			}
+			return;
+		}
+		if (obj.headers) {
+			for (var name in obj.headers) {
+				request.setRequestHeader(name, obj.headers[name]);
+			}
+		}
+		request.send(obj.data);
+		return request;
+	}
+};
 
 
 BrowserStrategy.localStorageTest = function() {

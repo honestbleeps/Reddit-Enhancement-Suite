@@ -109,7 +109,7 @@ chrome.runtime.onMessage.addListener(
                 }
 				chrome.cookies.remove({'url': 'http://reddit.com', 'name': request.cname});
 				break;
-			case 'GM_xmlhttpRequest':
+			case 'ajax':
 				if (request.aggressiveCache || XHRCache.forceCache) {
 					var cachedResult = XHRCache.check(request.url);
 					if (cachedResult) {

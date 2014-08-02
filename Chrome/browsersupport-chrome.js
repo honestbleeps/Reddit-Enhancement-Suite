@@ -3,7 +3,7 @@
 
 // we need a queue of permission callback functions because of
 // multiple async requests now needed... it's yucky and sad. Thanks, Chrome. :(
-permissionQueue = {
+var permissionQueue = {
 	count: 0,
 	onloads: []
 };
@@ -51,60 +51,55 @@ chrome.runtime.onMessage.addListener(
 );
 
 
+BrowserStrategy.ajax = function(obj) {
+	var crossDomain = (obj.url.indexOf(location.hostname) === -1);
 
-
-// GM_xmlhttpRequest for non-GM browsers
-if (typeof GM_xmlhttpRequest === 'undefined') {
-	GM_xmlhttpRequest = function(obj) {
-		var crossDomain = (obj.url.indexOf(location.hostname) === -1);
-
-		if ((typeof obj.onload !== 'undefined') && (crossDomain)) {
-			obj.requestType = 'GM_xmlhttpRequest';
-			if (typeof obj.onload !== 'undefined') {
-				chrome.runtime.sendMessage(obj, function(response) {
-					obj.onload(response);
+	if ((typeof obj.onload !== 'undefined') && (crossDomain)) {
+		obj.requestType = 'ajax';
+		if (typeof obj.onload !== 'undefined') {
+			chrome.runtime.sendMessage(obj, function(response) {
+				obj.onload(response);
+			});
+		}
+	} else {
+		var request = new XMLHttpRequest();
+		request.onreadystatechange = function() {
+			if (obj.onreadystatechange) {
+				obj.onreadystatechange(request);
+			}
+			if (request.readyState === 4 && obj.onload) {
+				obj.onload(request);
+			}
+		};
+		request.onerror = function() {
+			if (obj.onerror) {
+				obj.onerror(request);
+			}
+		};
+		try {
+			request.open(obj.method, obj.url, true);
+		} catch (e) {
+			if (obj.onerror) {
+				obj.onerror({
+					readyState: 4,
+					responseHeaders: '',
+					responseText: '',
+					responseXML: '',
+					status: 403,
+					statusText: 'Forbidden'
 				});
 			}
-		} else {
-			var request = new XMLHttpRequest();
-			request.onreadystatechange = function() {
-				if (obj.onreadystatechange) {
-					obj.onreadystatechange(request);
-				}
-				if (request.readyState === 4 && obj.onload) {
-					obj.onload(request);
-				}
-			};
-			request.onerror = function() {
-				if (obj.onerror) {
-					obj.onerror(request);
-				}
-			};
-			try {
-				request.open(obj.method, obj.url, true);
-			} catch (e) {
-				if (obj.onerror) {
-					obj.onerror({
-						readyState: 4,
-						responseHeaders: '',
-						responseText: '',
-						responseXML: '',
-						status: 403,
-						statusText: 'Forbidden'
-					});
-				}
-				return;
-			}
-			if (obj.headers) {
-				for (var name in obj.headers) {
-					request.setRequestHeader(name, obj.headers[name]);
-				}
-			}
-			request.send(obj.data);
-			return request;
+			return;
 		}
-	};
-}
+		if (obj.headers) {
+			for (var name in obj.headers) {
+				request.setRequestHeader(name, obj.headers[name]);
+			}
+		}
+		request.send(obj.data);
+		return request;
+	}
+};
 
 
 BrowserStrategy.storageSetup = function(thisJSON) {
