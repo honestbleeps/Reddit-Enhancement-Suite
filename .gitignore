@@ -43,10 +43,14 @@
 
 ## General
 /node_modules
-Chrome.pem
-/XPI/reddit_res.xpi
 /deprecated
 
+# Browser extensions
+*.crx
+*.pem
+*.xpi
+
+# Copied files
 /Chrome/*.js
 !/Chrome/background.js
 /Chrome/core/*
