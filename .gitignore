@@ -1,46 +1,3 @@
-## Visual Studio
-*_i.c
-*_p.c
-*.ilk
-*.meta
-*.obj
-*.pch
-*.pdb
-*.pgc
-*.pgd
-*.rsp
-*.sbr
-*.tlb
-*.tli
-*.tlh
-*.tmp
-*.tmp_proj
-*.log
-*.vspscc
-*.vssscc
-.builds
-*.pidb
-*.log
-*.scc
-
-/IE/[Dd]ebug/
-/IE/[Rr]elease/
-/IE/[Bb]in/
-/IE/[Oo]bj/
-
-# User-specific files
-*.suo
-*.user
-*.sln.docstates
-
-# Visual C++ cache files
-/IE/ipch/
-*.aps
-*.ncb
-*.opensdf
-*.sdf
-*.cachefile
-
 ## General
 /node_modules
 /deprecated
@@ -104,3 +61,46 @@ Desktop.ini
 
 # Recycle Bin used on file shares
 $RECYCLE.BIN/
+
+## Visual Studio
+*_i.c
+*_p.c
+*.ilk
+*.meta
+*.obj
+*.pch
+*.pdb
+*.pgc
+*.pgd
+*.rsp
+*.sbr
+*.tlb
+*.tli
+*.tlh
+*.tmp
+*.tmp_proj
+*.log
+*.vspscc
+*.vssscc
+.builds
+*.pidb
+*.log
+*.scc
+
+/IE/[Dd]ebug/
+/IE/[Rr]elease/
+/IE/[Bb]in/
+/IE/[Oo]bj/
+
+# User-specific files
+*.suo
+*.user
+*.sln.docstates
+
+# Visual C++ cache files
+/IE/ipch/
+*.aps
+*.ncb
+*.opensdf
+*.sdf
+*.cachefile
