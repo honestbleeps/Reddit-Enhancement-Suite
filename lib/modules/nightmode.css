@@ -745,8 +745,9 @@
 	color: #444;
 }
 
-.res-nightmode .drop-choices {
-	background-color: #C2D2E2;
+.res-nightmode .flairselector h2 {
+	color: #999;
+	background-color: #444;
 }
 
 .res-nightmode .formtabs-content {
@@ -1010,7 +1011,7 @@
 .res-nightmode .subreddit-info .label,
 .res-nightmode .sidebox .subtitle,
 .res-nightmode .modactionlisting .description,
-.res-nightmode .modactionlisting .timestamp time, 
+.res-nightmode .modactionlisting .timestamp time,
 .res-nightmode .modactionlisting .timestamp {
 	color: #aaa;
 }
