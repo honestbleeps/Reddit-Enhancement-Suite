@@ -1437,7 +1437,66 @@ a spinner with a static ring and no overlay.*/
     transform: rotate(360deg);
   }
 }
+#url-field .progress-wrapper {
+	width: 500px;
+	height: 8px;
+	position: absolute;
+	top: 54px;
+	left: 10px;
+	overflow: hidden;
+}
 
+#url-field .progress-wrapper .progress {
+	display: block;
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 8px;
+}
+
+#url-field .progress {
+    -webkit-animation: progressbar 1s linear infinite;
+    animation: progressbar 1s linear infinite;
+    background-color: #149bdf;
+    background-image: -moz-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+    background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+    background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+    background-size: 40px 40px;
+}
+
+#url-field .progress.progress-stalled {
+	background-image: none;
+}
+
+#url-field .progress.progress-grey {
+	background-color: #888;
+}
+
+#url-field .progress.progress-green {
+	background-color: #5eb95e;
+}
+
+#url-field .progress.progress-red {
+	background-color: #ff0000;
+}
+
+@-webkit-keyframes progressbar {
+    from {
+        background-position: 0px 0px;
+    }
+    to {
+        background-position: 39px 0px;
+    }
+}
+
+@keyframes progressbar {
+    from {
+        background-position: 0px 0px;
+    }
+    to {
+        background-position: 39px 0px;
+    }
+}
 
 /* Compiled SCSS from MediaCrush - https://github.com/MediaCrush/MediaCrush */
 .player {

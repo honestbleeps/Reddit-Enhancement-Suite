@@ -3,8 +3,9 @@
 libfiles=("lib/"*)
 corefiles=("lib/core/"*)
 modulefiles=("lib/modules/"*)
+hostsfiles=("lib/modules/hosts/"*)
 vendorfiles=("lib/vendor/"*)
-files=("${libfiles[@]}" "${corefiles[@]}" "${modulefiles[@]}" "${vendorfiles[@]}")
+files=("${libfiles[@]}" "${corefiles[@]}" "${modulefiles[@]}" "${vendorfiles[@]}" "${hostsfiles[@]}")
 
 paths=("Chrome" "XPI/data" "Opera" "OperaBlink" "RES.safariextension")
 
@@ -23,6 +24,9 @@ do
 			elif [ "$dir" == "lib/modules" ]
 			then
 				dest="./$j/modules/"
+			elif [ "$dir" == "lib/modules/hosts" ]
+			then
+				dest="./$j/modules/hosts/"
 			elif [ "$dir" == "lib/vendor" ]
 			then
 				dest="./$j/vendor/"
