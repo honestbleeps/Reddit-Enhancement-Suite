@@ -89,6 +89,9 @@ window.addEventListener('DOMContentLoaded', function() {
 		'modules/usernameHider.js',
 		'modules/voteEnhancements.js',
 
+		'modules/upload.js',
+		'modules/hosts/mediacrush.js',
+
 		'core/init.js',
 
 		'opera-footer.js'

@@ -185,6 +185,8 @@ pageMod.PageMod({
 		self.data.url('modules/searchHelper.js'),
 		self.data.url('modules/logoLink.js'),
 		self.data.url('modules/voteEnhancements.js'),
+		self.data.url('modules/upload.js'),
+		self.data.url('modules/hosts/mediacrush.js'),
 		self.data.url('core/init.js')
 	],
 	contentStyleFile: [
