@@ -13,6 +13,7 @@ let tabs = require("sdk/tabs");
 let ss = require("sdk/simple-storage");
 let priv = require("sdk/private-browsing");
 let windows = require("sdk/windows").browserWindows;
+let viewFor = require("sdk/view/core").viewFor;
 
 let localStorage = ss.storage;
 
@@ -117,6 +118,15 @@ tabs.on('activate', function(tab) {
 	}
 });
 
+function openTab(options) {
+	let nsWindow = viewFor(tabs.activeTab.window);
+	if ('TreeStyleTabService' in nsWindow) {
+		let nsTab = viewFor(tabs.activeTab);
+		nsWindow.TreeStyleTabService.readyToOpenChildTab(nsTab);
+	}
+
+	tabs.open(options);
+}
 
 pageMod.PageMod({
 	include: ["*.reddit.com"],
@@ -272,14 +282,14 @@ pageMod.PageMod({
 					if (request.openOrder === 'commentsfirst') {
 						// only open a second tab if the link is different...
 						if (request.linkURL !== request.commentsURL) {
-							tabs.open({url: request.commentsURL, inBackground: inBackground, isPrivate: isPrivate });
+							openTab({url: request.commentsURL, inBackground: inBackground, isPrivate: isPrivate });
 						}
-						tabs.open({url: request.linkURL, inBackground: inBackground, isPrivate: isPrivate });
+						openTab({url: request.linkURL, inBackground: inBackground, isPrivate: isPrivate });
 					} else {
-						tabs.open({url: request.linkURL, inBackground: inBackground, isPrivate: isPrivate });
+						openTab({url: request.linkURL, inBackground: inBackground, isPrivate: isPrivate });
 						// only open a second tab if the link is different...
 						if (request.linkURL !== request.commentsURL) {
-							tabs.open({url: request.commentsURL, inBackground: inBackground, isPrivate: isPrivate });
+							openTab({url: request.commentsURL, inBackground: inBackground, isPrivate: isPrivate });
 						}
 					}
 					worker.postMessage({status: "success"});
@@ -294,7 +304,7 @@ pageMod.PageMod({
 						thisLinkURL = (thisLinkURL.substring(0, 1) === '/') ? 'http://www.reddit.com' + thisLinkURL : location.href + thisLinkURL;
 					}
 					// Get the selected tab so we can get the index of it.  This allows us to open our new tab as the "next" tab.
-					tabs.open({url: thisLinkURL, inBackground: inBackground, isPrivate: isPrivate });
+					openTab({url: thisLinkURL, inBackground: inBackground, isPrivate: isPrivate });
 					worker.postMessage({status: "success"});
 					break;
 				case 'openLinkInNewTab':
@@ -306,7 +316,7 @@ pageMod.PageMod({
 						thisLinkURL = (thisLinkURL.substring(0, 1) === '/') ? 'http://www.reddit.com' + thisLinkURL : location.href + thisLinkURL;
 					}
 					// Get the selected tab so we can get the index of it.  This allows us to open our new tab as the "next" tab.
-					tabs.open({url: thisLinkURL, inBackground: inBackground, isPrivate: isPrivate });
+					openTab({url: thisLinkURL, inBackground: inBackground, isPrivate: isPrivate });
 					worker.postMessage({status: "success"});
 					break;
 				case 'loadTweet':
