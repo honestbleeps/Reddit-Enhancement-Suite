@@ -47,8 +47,10 @@ In order to build the extension, the files from `lib/` must be replicated (eithe
   - `changelog.txt` – self-explanatory
   - `makelinks.sh` – script to generate hard links
   - `Gruntfile.js`, `package.json` – used for alternative build scripts
-  - `lib/` – core RES code
+  - `lib/` – all RES code
+  - `lib/core/` – core RES code
   - `lib/modules/` – RES modules
+  - `lib/vendor/` – RES vendor libraries
   - `Chrome/` – Chrome-specific RES files
   - `Opera/` – Opera-specific RES files
   - `OperaBlink/` – Opera Blink (new Opera)-specific RES files
