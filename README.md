@@ -63,7 +63,6 @@ In order to build the extension, the files from `lib/` must be replicated (eithe
   - `background.js` – the "background page" for RES, necessary for Chrome extensions
   - `manifest.json` – the project manifest
   - `icon.png`, `icon48.png`, `icon128.png` – icons!
-  - `jquery-1.10.2.min.map` – Chrome moans if this file doesn't exist
 
 ##### Opera files
 
