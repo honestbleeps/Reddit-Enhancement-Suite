@@ -88,6 +88,7 @@ window.addEventListener('DOMContentLoaded', function() {
 		'modules/userbarHider.js',
 		'modules/usernameHider.js',
 		'modules/voteEnhancements.js',
+		'modules/imageShrink.js',
 
 		'core/init.js',
 
