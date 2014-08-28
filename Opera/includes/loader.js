@@ -68,6 +68,7 @@ window.addEventListener('DOMContentLoaded', function() {
 		'modules/newCommentCount.js',
 		'modules/nightMode.js',
 		'modules/notifications.js',
+		'modules/redditProfiles.js',
 		'modules/RESTips.js',
 		'modules/saveComments.js',
 		"modules/searchHelper.js",
