@@ -2,27 +2,39 @@
 /node_modules
 /deprecated
 
-# Browser extensions
+# Browser extensions and certs
 *.crx
+*.oex
 *.pem
 *.xpi
+*.nex
+*.safariextz
+*.zip
 
 # Copied files
 /Chrome/*.js
+/Chrome/*.css
+/Chrome/templates.html
 !/Chrome/background.js
 /Chrome/core/*
 /Chrome/modules/*
 /Chrome/vendor/*
 /OperaBlink/*.js
+/OperaBlink/*.css
+/OperaBlink/templates.html
 !/OperaBlink/background.js
 /OperaBlink/core/*
 /OperaBlink/modules/*
 /OperaBlink/vendor/*
 /RES.safariextension/*.js
+/RES.safariextension/*.css
+/RES.safariextension/templates.html
 /RES.safariextension/core/*
 /RES.safariextension/modules/*
 /RES.safariextension/vendor/*
 /Opera/*.js
+/Opera/*.css
+/Opera/templates.html
 !/Opera/opera-*.js
 /Opera/core/*
 /Opera/modules/*
