@@ -76,7 +76,7 @@ window.addEventListener('DOMContentLoaded', function() {
 		'modules/showKarma.js',
 		'modules/showParent.js',
 		'modules/singleClick.js',
-		'modules/sortCommentsTemporarily.js',
+		'modules/temporaryDropdownLinks.js',
 		'modules/spamButton.js',
 		'modules/styleTweaks.js',
 		'modules/subredditInfo.js',
