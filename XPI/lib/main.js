@@ -163,6 +163,7 @@ pageMod.PageMod({
 		self.data.url('modules/singleClick.js'),
 		self.data.url('modules/commentPreview.js'),
 		self.data.url('modules/commentTools.js'),
+		self.data.url('modules/sourceSnudown.js'),
 		self.data.url('modules/sortCommentsTemporarily.js'),
 		self.data.url('modules/usernameHider.js'),
 		self.data.url('modules/showImages.js'),
