@@ -3,35 +3,35 @@
 
 // suppress annoying strict warnings that cfx overrides and turns on
 // comment this line out for releases.
-// require("sdk/preferences/service").set("javascript.options.strict", false);
+// require('sdk/preferences/service').set('javascript.options.strict', false);
 
 // Import the APIs we need.
-let pageMod = require("sdk/page-mod");
-let Request = require("sdk/request").Request;
-let self = require("sdk/self");
-let tabs = require("sdk/tabs");
-let ss = require("sdk/simple-storage");
-let priv = require("sdk/private-browsing");
-let windows = require("sdk/windows").browserWindows;
-let viewFor = require("sdk/view/core").viewFor;
+let pageMod = require('sdk/page-mod');
+let Request = require('sdk/request').Request;
+let self = require('sdk/self');
+let tabs = require('sdk/tabs');
+let ss = require('sdk/simple-storage');
+let priv = require('sdk/private-browsing');
+let windows = require('sdk/windows').browserWindows;
+let viewFor = require('sdk/view/core').viewFor;
 
 let localStorage = ss.storage;
 
 // require chrome allows us to use XPCOM objects...
-const {Cc,Ci,Cu,components} = require("chrome");
-let historyService = Cc["@mozilla.org/browser/history;1"].getService(Ci.mozIAsyncHistory);
+const {Cc,Ci,Cu,components} = require('chrome');
+let historyService = Cc['@mozilla.org/browser/history;1'].getService(Ci.mozIAsyncHistory);
 
 
 // Cookie manager for new API login
-let cookieManager = Cc["@mozilla.org/cookiemanager;1"].getService().QueryInterface(Ci.nsICookieManager2);
-components.utils.import("resource://gre/modules/NetUtil.jsm");
+let cookieManager = Cc['@mozilla.org/cookiemanager;1'].getService().QueryInterface(Ci.nsICookieManager2);
+components.utils.import('resource://gre/modules/NetUtil.jsm');
 
 // Preferences
-let prefs = Cc["@mozilla.org/preferences-service;1"].getService(Ci.nsIPrefBranch);
+let prefs = Cc['@mozilla.org/preferences-service;1'].getService(Ci.nsIPrefBranch);
 
 // this function takes in a string (and optional charset, paseURI) and creates an nsURI object, which is required by historyService.addURI...
 function makeURI(aURL, aOriginCharset, aBaseURI) {
-	let ioService = Cc["@mozilla.org/network/io-service;1"].getService(Ci.nsIIOService);
+	let ioService = Cc['@mozilla.org/network/io-service;1'].getService(Ci.nsIIOService);
 	return ioService.newURI(aURL, aOriginCharset, aBaseURI);
 }
 
@@ -60,11 +60,11 @@ let XHRCache = {
 	count: 0,
 	check: function(key) {
 		if (key in this.entries) {
-//			console.log("hit");
+//			console.log('hit');
 			this.entries[key].hits++;
 			return this.entries[key].data;
 		} else {
-//			console.log("miss");
+//			console.log('miss');
 			return null;
 		}
 	},
@@ -72,7 +72,7 @@ let XHRCache = {
 		if (key in this.entries) {
 			return;
 		} else {
-//			console.log("add");
+//			console.log('add');
 			this.entries[key] = {data: value, timestamp: Date.now(), hits: 1};
 			this.count++;
 		}
@@ -102,7 +102,7 @@ let XHRCache = {
 			delete this.entries[bottom[i].key];
 			this.count--;
 		}
-//		console.log("prune");
+//		console.log('prune');
 	},
 	clear: function() {
 		this.entries = {};
@@ -113,7 +113,7 @@ tabs.on('activate', function(tab) {
 	// find this worker...
 	for (let i in workers) {
 		if ((typeof workers[i].tab !== 'undefined') && (tab.title === workers[i].tab.title)) {
-			workers[i].postMessage({ name: "getLocalStorage", message: localStorage });
+			workers[i].postMessage({ name: 'getLocalStorage', message: localStorage });
 		}
 	}
 });
@@ -129,7 +129,7 @@ function openTab(options) {
 }
 
 pageMod.PageMod({
-	include: ["*.reddit.com"],
+	include: ['*.reddit.com'],
 	contentScriptWhen: 'start',
 	contentScriptFile: [
 		self.data.url('vendor/jquery-1.11.1.min.js'),
@@ -206,7 +206,7 @@ pageMod.PageMod({
 		self.data.url('vendor/players.css'),
 		self.data.url('vendor/guiders.css'),
 		self.data.url('vendor/tokenize.css'),
-		self.data.url("core/batch.css")
+		self.data.url('core/batch.css')
 	],
 	onAttach: function(worker) {
 		// when a tab is activated, repopulate localStorage so that changes propagate across tabs...
@@ -294,7 +294,7 @@ pageMod.PageMod({
 							openTab({url: request.commentsURL, inBackground: inBackground, isPrivate: isPrivate });
 						}
 					}
-					worker.postMessage({status: "success"});
+					worker.postMessage({status: 'success'});
 					break;
 				case 'keyboardNav':
 					inBackground = (request.button === 1);
@@ -307,7 +307,7 @@ pageMod.PageMod({
 					}
 					// Get the selected tab so we can get the index of it.  This allows us to open our new tab as the "next" tab.
 					openTab({url: thisLinkURL, inBackground: inBackground, isPrivate: isPrivate });
-					worker.postMessage({status: "success"});
+					worker.postMessage({status: 'success'});
 					break;
 				case 'openLinkInNewTab':
 					inBackground = (request.focus !== true);
@@ -319,7 +319,7 @@ pageMod.PageMod({
 					}
 					// Get the selected tab so we can get the index of it.  This allows us to open our new tab as the "next" tab.
 					openTab({url: thisLinkURL, inBackground: inBackground, isPrivate: isPrivate });
-					worker.postMessage({status: "success"});
+					worker.postMessage({status: 'success'});
 					break;
 				case 'loadTweet':
 					Request({
@@ -383,7 +383,7 @@ pageMod.PageMod({
 					});
 					break;
 				default:
-					worker.postMessage({status: "unrecognized request type"});
+					worker.postMessage({status: 'unrecognized request type'});
 					break;
 			}
 		});
