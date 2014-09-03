@@ -579,18 +579,22 @@ p.moduleListing {
 	bottom: 2px;
 	left: 50%;
 	width: 2px;
-	margin-left: -1px;
+	margin-left: -3px;
 	background: white;
 }
 
 .moduleToggle::before, .toggleButton::before {
 	border-left: 5px solid white;
 	border-right: none;
+	margin-left: -1px;
 }
 .moduleToggle.enabled::before, .toggleButton.enabled::before {
 	border-right: 5px solid white;
 	border-left: none;
 	margin-left: -5px;
+}
+.moduleToggle.enabled::after, .toggleButton.enabled::after {
+	margin-left: 0;
 }
 .optionContainer {
 	position: relative;
