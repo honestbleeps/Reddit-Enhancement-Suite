@@ -560,6 +560,37 @@ p.moduleListing {
 	background-color: #ddd;
 	color: #636363;
 }
+
+.moduleToggle, .toggleButton {
+	position: relative;
+}
+.moduleToggle::before, .toggleButton::before {
+	content: ' ';
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -5px;
+	border: 3px solid transparent;
+}
+.moduleToggle::after, .toggleButton::after {
+	content: ' ';
+	position: absolute;
+	top: -2px;
+	bottom: 2px;
+	left: 50%;
+	width: 2px;
+	margin-left: -1px;
+	background: white;
+}
+
+.moduleToggle::before, .toggleButton::before {
+	border-left: 5px solid white;
+	border-right: none;
+}
+.moduleToggle.enabled::before, .toggleButton.enabled::before {
+	border-right: 5px solid white;
+	border-left: none;
+	margin-left: -5px;
 }
 .optionContainer {
 	position: relative;
