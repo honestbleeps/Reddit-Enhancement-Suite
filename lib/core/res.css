@@ -551,10 +551,14 @@ p.moduleListing {
 .moduleToggle.enabled .toggleOn, .toggleButton.enabled .toggleOn {
 	background-color: #107ac4 ;
 	color: #fff;
+	font-weight: bolder;
 }
 .moduleToggle.enabled .toggleOff, .toggleButton.enabled .toggleOff {
 	background-color: #ddd;
 	color: #636363;
+}
+.moduleToggle:not(.enabled) .toggleOff, .toggleButton:not(.enabled) .toggleOff {
+	font-weight: bolder;
 }
 .optionContainer {
 	position: relative;
