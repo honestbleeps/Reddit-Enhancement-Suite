@@ -533,20 +533,23 @@ p.moduleListing {
 	text-align: center;
 }
 .moduleToggle .toggleOn, .toggleButton .toggleOn {
-	background-color: #ddd;
-	color: #636363;
-	border-left: 1px solid #636363;
-	border-top: 1px solid #636363;
-	border-bottom: 1px solid #636363;
+	border: 1px solid #636363;
+	border-right: 0px;
 	border-radius: 3px 0 0 3px;
 }
 .moduleToggle .toggleOff, .toggleButton .toggleOff {
+	border: 1px solid #636363;
+	border-left: 0px;
+	border-radius: 0 3px 3px 0;
+}
+.moduleToggle:not(.enabled) .toggleOn, .toggleButton:not(.enabled) .toggleOn {
+	background-color: #ddd;
+	color: #636363;
+}
+.moduleToggle:not(.enabled) .toggleOff, .toggleButton:not(.enabled) .toggleOff {
 	background-color: #d02020;
 	color: #fff;
-	border-right: 1px solid #636363;
-	border-top: 1px solid #636363;
-	border-bottom: 1px solid #636363;
-	border-radius: 0 3px 3px 0;
+	font-weight: bolder;
 }
 .moduleToggle.enabled .toggleOn, .toggleButton.enabled .toggleOn {
 	background-color: #107ac4 ;
@@ -557,8 +560,6 @@ p.moduleListing {
 	background-color: #ddd;
 	color: #636363;
 }
-.moduleToggle:not(.enabled) .toggleOff, .toggleButton:not(.enabled) .toggleOff {
-	font-weight: bolder;
 }
 .optionContainer {
 	position: relative;
