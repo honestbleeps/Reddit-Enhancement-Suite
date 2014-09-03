@@ -533,28 +533,64 @@ p.moduleListing {
 	text-align: center;
 }
 .moduleToggle .toggleOn, .toggleButton .toggleOn {
+	border: 1px solid #636363;
+	border-right: 0px;
+	border-radius: 3px 0 0 3px;
+}
+.moduleToggle .toggleOff, .toggleButton .toggleOff {
+	border: 1px solid #636363;
+	border-left: 0px;
+	border-radius: 0 3px 3px 0;
+}
+.moduleToggle:not(.enabled) .toggleOn, .toggleButton:not(.enabled) .toggleOn {
 	background-color: #ddd;
 	color: #636363;
-	border-left: 1px solid #636363;
-	border-top: 1px solid #636363;
-	border-bottom: 1px solid #636363;
-	border-radius: 3px 0 0 3px;
+}
+.moduleToggle:not(.enabled) .toggleOff, .toggleButton:not(.enabled) .toggleOff {
+	background-color: #d02020;
+	color: #fff;
+	font-weight: bolder;
 }
 .moduleToggle.enabled .toggleOn, .toggleButton.enabled .toggleOn {
 	background-color: #107ac4 ;
 	color: #fff;
+	font-weight: bolder;
 }
 .moduleToggle.enabled .toggleOff, .toggleButton.enabled .toggleOff {
 	background-color: #ddd;
 	color: #636363;
 }
-.moduleToggle .toggleOff, .toggleButton .toggleOff {
-	background-color: #d02020;
-	color: #fff;
-	border-right: 1px solid #636363;
-	border-top: 1px solid #636363;
-	border-bottom: 1px solid #636363;
-	border-radius: 0 3px 3px 0;
+
+.moduleToggle, .toggleButton {
+	position: relative;
+}
+.moduleToggle::before, .toggleButton::before {
+	content: ' ';
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -5px;
+	border: 3px solid transparent;
+}
+.moduleToggle::after, .toggleButton::after {
+	content: ' ';
+	position: absolute;
+	top: -2px;
+	bottom: 2px;
+	left: 50%;
+	width: 2px;
+	margin-left: -1px;
+	background: white;
+}
+
+.moduleToggle::before, .toggleButton::before {
+	border-left: 5px solid white;
+	border-right: none;
+}
+.moduleToggle.enabled::before, .toggleButton.enabled::before {
+	border-right: 5px solid white;
+	border-left: none;
+	margin-left: -5px;
 }
 .optionContainer {
 	position: relative;
