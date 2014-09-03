@@ -540,14 +540,6 @@ p.moduleListing {
 	border-bottom: 1px solid #636363;
 	border-radius: 3px 0 0 3px;
 }
-.moduleToggle.enabled .toggleOn, .toggleButton.enabled .toggleOn {
-	background-color: #107ac4 ;
-	color: #fff;
-}
-.moduleToggle.enabled .toggleOff, .toggleButton.enabled .toggleOff {
-	background-color: #ddd;
-	color: #636363;
-}
 .moduleToggle .toggleOff, .toggleButton .toggleOff {
 	background-color: #d02020;
 	color: #fff;
@@ -555,6 +547,14 @@ p.moduleListing {
 	border-top: 1px solid #636363;
 	border-bottom: 1px solid #636363;
 	border-radius: 0 3px 3px 0;
+}
+.moduleToggle.enabled .toggleOn, .toggleButton.enabled .toggleOn {
+	background-color: #107ac4 ;
+	color: #fff;
+}
+.moduleToggle.enabled .toggleOff, .toggleButton.enabled .toggleOff {
+	background-color: #ddd;
+	color: #636363;
 }
 .optionContainer {
 	position: relative;
