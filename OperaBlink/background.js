@@ -108,7 +108,7 @@ chrome.runtime.onMessage.addListener(
 				if (!chrome.cookies) {
 					chrome.cookies = chrome.experimental.cookies;
 				}
-				chrome.cookies.remove({'url': 'http://reddit.com', 'name': request.cname});
+				chrome.cookies.remove({'url': request.host, 'name': request.cname});
 				break;
 			case 'ajax':
 				if (request.aggressiveCache || XHRCache.forceCache) {
