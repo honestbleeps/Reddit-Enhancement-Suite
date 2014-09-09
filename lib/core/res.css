@@ -1479,6 +1479,8 @@ a spinner with a static ring and no overlay.*/
 }
 
 #RESStyleSheetTipPane {
+	display: none;
+	position: relative;
 	border: 1px solid #ddd;
 	margin-bottom: 10px;
 	width: calc(100% - 320px);
@@ -1489,10 +1491,23 @@ a spinner with a static ring and no overlay.*/
 	padding: 10px;
 	border-bottom: 1px solid #ddd;
 }
+#RESStyleSheetTipPane-header span.details {
+	margin-left: 20px;
+	font-size: 12px;
+	visibility: hidden;
+}
+#RESStyleSheetTipPane-header.minimized span.details {
+	visibility: visible;
+}
 #RESStyleSheetTipPane-contents {
+	display: none; /* hide by default */
 	padding: 10px;
 }
 
+#RESStyleSheetTipPane-contents ul {
+	list-style-type: disc;
+	list-style-position: inside;
+}
 
 /* Compiled SCSS from MediaCrush - https://github.com/MediaCrush/MediaCrush */
 .player {
