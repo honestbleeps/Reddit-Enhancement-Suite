@@ -196,6 +196,7 @@ pageMod.PageMod({
 		self.data.url('modules/logoLink.js'),
 		self.data.url('modules/voteEnhancements.js'),
 		self.data.url('modules/tableTools.js'),
+		self.data.url('modules/modHelper.js'),
 		self.data.url('core/init.js')
 	],
 	contentStyleFile: [
