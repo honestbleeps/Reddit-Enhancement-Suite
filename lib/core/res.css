@@ -1478,6 +1478,21 @@ a spinner with a static ring and no overlay.*/
   }
 }
 
+#RESStyleSheetTipPane {
+	border: 1px solid #ddd;
+	margin-bottom: 10px;
+	width: calc(100% - 320px);
+}
+#RESStyleSheetTipPane-header {
+	cursor: pointer;
+	font-size: 20px;
+	padding: 10px;
+	border-bottom: 1px solid #ddd;
+}
+#RESStyleSheetTipPane-contents {
+	padding: 10px;
+}
+
 
 /* Compiled SCSS from MediaCrush - https://github.com/MediaCrush/MediaCrush */
 .player {
