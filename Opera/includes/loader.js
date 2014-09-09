@@ -49,7 +49,6 @@ window.addEventListener('DOMContentLoaded', function() {
 		'modules/about.js',
 		'modules/accountSwitcher.js',
 		'modules/betteReddit.js',
-		'modules/bitcointip.js',
 		'modules/commandLine.js',
 		'modules/commentHidePersistor.js',
 		'modules/commentNavigator.js',
