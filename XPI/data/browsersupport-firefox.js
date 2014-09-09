@@ -43,6 +43,26 @@ self.on('message', function(msgEvent) {
 		case 'localStorage':
 			RESStorage.setItem(msgEvent.itemName, msgEvent.itemValue, true);
 			break;
+		case 'subredditStyle':
+			if (msgEvent.message === 'refreshState') {
+				var toggle = modules['styleTweaks'].styleToggleCheckbox.checked,
+					currentSubreddit = RESUtils.currentSubreddit();
+
+				if (currentSubreddit) {
+					RESUtils.sendMessage({
+						requestType: 'pageAction',
+						action: 'stateChange',
+						visible: toggle
+					});
+				}
+			} else {
+				var toggle = !modules['styleTweaks'].styleToggleCheckbox.checked,
+					currentSubreddit = RESUtils.currentSubreddit();
+				if (currentSubreddit) {
+					modules['styleTweaks'].toggleSubredditStyle(toggle, RESUtils.currentSubreddit());
+				}
+			}
+			break;
 		default:
 			// console.log('unknown event type in self.on');
 			// console.log(msgEvent.toSource());
