@@ -405,6 +405,7 @@ pageMod.PageMod({
 								});
 							} else {
 								styleSheetButton.state('tab', {
+									label: 'toggle subreddit CSS',
 									icon: {
 										'16': self.data.url('images/css-' + onoff + '-small.png'),
 										'32': self.data.url('images/css-' + onoff + '.png')
@@ -417,6 +418,7 @@ pageMod.PageMod({
 						case 'stateChange':
 							if (styleSheetButton) {
 								styleSheetButton.state('tab', {
+									label: 'toggle subreddit CSS',
 									icon: {
 										'16': self.data.url('images/css-' + onoff + '-small.png'),
 										'32': self.data.url('images/css-' + onoff + '.png')
@@ -429,12 +431,9 @@ pageMod.PageMod({
 						case 'disable':
 							if (styleSheetButton) {
 								styleSheetButton.state('tab', {
+									label: 'toggle subreddit CSS (must be on a subreddit)',
 									disabled: true,
-									checked: true,
-									icon: {
-										'16': self.data.url(''),
-										'32': self.data.url('')
-									}
+									checked: true
 								});
 							}
 							break;
