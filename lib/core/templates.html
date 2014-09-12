@@ -213,5 +213,37 @@
 			</div>
 		</script>
 		<!--/GfycatUI-->
+		<!--GiphyUI: modified from MediaCrush Player-->
+		<script id="GiphyUI" type="application/x-template">
+			<div class="res-player video giphyres">
+                <a href="{{ giphyUrl }}" target="_blank">
+				    <video autoplay loop muted preload>
+					    {{#sources}}
+					    <source src="{{ source }}" {{#type}}type="{{ type }}"{{/type}}>
+					    {{/sources}}
+				    </video>
+                </a>
+                <!--MediaCrush Controls: unused-->
+				<a class="brand" style="display:none"></a>
+				<div class="controls" style="display:none">
+					<a href="#" class="res-icon play-pause pause"></a>
+					<div class="seek">
+						<div class="background"></div>
+						<div class="loading progress"></div>
+						<div class="hidden loaded"></div>
+						<div class="hidden played"></div>
+						<div class="clickable"></div>
+					</div>
+					<div class="right">
+						<span class="toggleable settings">
+                            <a href="#" class="loop"></a>
+						</span>
+					</div>
+		        </div>
+                <!--/MediaCrush Controls-->
+			</div>
+		</script>
+		<!--/GiphyUI-->
+
 	</body>
 </html>
