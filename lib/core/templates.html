@@ -216,14 +216,14 @@
 		<!--GiphyUI: modified from MediaCrush Player-->
 		<script id="GiphyUI" type="application/x-template">
 			<div class="res-player video giphyres">
-                <a href="{{ giphyUrl }}" target="_blank">
-				    <video autoplay loop muted preload>
-					    {{#sources}}
-					    <source src="{{ source }}" {{#type}}type="{{ type }}"{{/type}}>
-					    {{/sources}}
-				    </video>
-                </a>
-                <!--MediaCrush Controls: unused-->
+				<a href="{{ giphyUrl }}" target="_blank">
+					<video autoplay loop muted preload>
+						{{#sources}}
+						<source src="{{ source }}" {{#type}}type="{{ type }}"{{/type}}>
+						{{/sources}}
+					</video>
+				</a>
+				<!--MediaCrush Controls: unused-->
 				<a class="brand" style="display:none"></a>
 				<div class="controls" style="display:none">
 					<a href="#" class="res-icon play-pause pause"></a>
@@ -236,11 +236,11 @@
 					</div>
 					<div class="right">
 						<span class="toggleable settings">
-                            <a href="#" class="loop"></a>
+							<a href="#" class="loop"></a>
 						</span>
 					</div>
-		        </div>
-                <!--/MediaCrush Controls-->
+				</div>
+				<!--/MediaCrush Controls-->
 			</div>
 		</script>
 		<!--/GiphyUI-->
