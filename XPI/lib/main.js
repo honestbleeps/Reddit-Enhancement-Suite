@@ -167,6 +167,7 @@ pageMod.PageMod({
 		self.data.url('vendor/gfycat.js'),
 		self.data.url('vendor/hogan-2.0.0.js'),
 		self.data.url('reddit_enhancement_suite.user.js'),
+		self.data.url('modules/submitIssue.js'),
 		self.data.url('modules/betteReddit.js'),
 		self.data.url('modules/userTagger.js'),
 		self.data.url('modules/keyboardNav.js'),

@@ -28,6 +28,58 @@
 			</div>
 		</div>
 
+		<!-- Submit issues wizard -->
+		<style type="text/css" id="submitWizardCSS">
+		#submittingToEnhancement { display: none; min-height: 300px; font-size: 14px; line-height: 15px; margin-top: 10px; width: 518px; position: absolute; z-index: 999; } #submittingToEnhancement ol { margin-left: 10px; margin-top: 15px; list-style-type: decimal; } #submittingToEnhancement li { margin-left: 25px; }
+		.submittingToEnhancementButton { border: 1px solid #444; border-radius: 2px; padding: 3px 6px; cursor: pointer; display: inline-block; margin-top: 12px; }
+		#RESBugReport, #RESFeatureRequest { display: none; }
+		#RESSubmitOptions .submittingToEnhancementButton { margin-top: 30px; }
+		</style>
+
+
+		<div id="submitWizard">
+			<h3>Submitting to r/Enhancement</h3>
+			<div class="RESDialogContents">
+				<div id="RESSubmitOptions">
+					What's on your mind?<br>
+					<div id="RESSubmitBug" class="submittingToEnhancementButton"title="Post a problem to /r/RESissues">
+						I'm having issues with RES or want to report a bug
+					</div><br>
+					<div id="RESSubmitFeatureRequest" class="submittingToEnhancementButton" title="Post a request to /r/Enhancement">I have an idea for a feature</div><br>
+					<div id="RESSubmitOther" class="submittingToEnhancementButton" title="Start a discussion on  /r/Enhancement">I'm not having any problems, but have a question</div>
+				</div>
+				<div id="RESBugReport">
+					You need help with RES or want to report a bug?
+					<br>
+					<ol>
+						<li>Try troubleshooting it yourself: <a href="/r/RESissues/wiki/postanissue">read how</a>.</li>
+						<li>Have you <a target="_blank" href="/r/RESissues/search?restrict_sr=on">searched /r/RESIssues</a> to see if someone else has reported it?</li>
+						<li>Check the <a target="_blank" href="/r/Enhancement/wiki/faq">RES FAQ</a> </li>
+						</li>
+						<li>
+							This might already be a known issue:
+							<ul id="RESKnownBugs"><li style="color: red;">Loading...</li></ul>
+						</li>
+					</ol>
+
+					<span id="submittingBug" class="submittingToEnhancementButton">I've checked, double-checked, and still want to post an issue</span>
+				</div>
+				<div id="RESFeatureRequest">
+					So you want to request a feature, great!  Please just consider the following, first:<br>
+					<ol>
+						<li>Have you <a target="_blank" href="/r/Enhancement/search?restrict_sr=on">searched /r/Enhancement</a> to see if someone else has requested it?</li>
+						<li>Would your idea appeal to many redditors? Personal or subreddit-specific requests usually aren't added to RES.</li>
+						<li>See if someone else has already requested this:
+							<ul id="RESKnownFeatureRequests"><li style="color: red;">Loading...</li></ul>
+						</li>
+					</ol>
+					<span id="submittingFeature" class="submittingToEnhancementButton">I still want to submit a feature request!<span>
+				</div>
+			</div>
+
+
+
+		</div>
 
 		<!-- RESConsole -->
 		<div id="contributeRESPanel">
