@@ -46,6 +46,7 @@ window.addEventListener('DOMContentLoaded', function() {
 		'core/storage.js',
 		'core/template.js',
 
+		'modules/submitIssue.js',
 		'modules/about.js',
 		'modules/accountSwitcher.js',
 		'modules/betteReddit.js',
