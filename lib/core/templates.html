@@ -128,6 +128,7 @@
 				</div>
 
 				<div class="donateOption">
+					<!-- > $10 ID: WDLLZSYL5CPF6 -->
 					<p>PayPal (least preferred, charges fees)</p>
 					<form action="https://www.paypal.com/cgi-bin/webscr" method="post"><input type="hidden" name="cmd" value="_s-xclick"><input type="hidden" name="hosted_button_id" value="S7TAR7QU39H22"><input type="image" src="data:image/gif;base64,R0lGODlhPAAmANUzAICQmUBigDNml/3TiZmqs7+/s9nUws/KuczLv2aIplBthq+zrPLlyfu5RUBunHOQqe/hxr/DvObcxhA/bN/WvyBKc7O6uZ+npoyhr4CZrJmqsk13nzBWeWaIpI+cn4CZq/7gqmB5jHCEk6aytubcxVl/o013nr/Du7O6uFl/of/pwaaytXOQqEBumv7cn/moGDNmmQAzZv/tzAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAEAADMALAAAAAA8ACYAAAb/wJlw9ioaj8ikcslUDofFxsBFrVqv2Kx2Wx00itDXQEYum8/otHqdHoCJY7Z8Tm+/iI26fi//ivmAgWRuLy6Ch3ouRYiMcyqLjZFqkJKVZZSWlZiZkZucjJ4KAaOjABCAEgmqqg8WbAYdHSQjCBEGmxQxursxHIAWMMHCMARrHwICBhgZGRibF7oKBQC7BwcA2AALMgsAF2XTABQZwRgRD8EbMggE7QQGZCnIMgYGEhKbIbrbMrsLvLpEBNB1QMYBXRMgbAjGYF0wBxGGBYsgA1mHM5s46DrlAeGBANhE6AK5T8bAGAAYpJPBgByMVg/aoSOGAJkGjC/MQAC469sB/w8AFIyEhvJfjAoyIkqE4QAeOwIlghHQgOwETjNGeQUoAOEkLwAHYyiooKuADAxLH0gwsFAiAhbIGprBRC1GiAJmyQiN4YFCXbMAFZBJEIwWgjIOmFpgQBiGjBYCTKDBdLKgmQm6KBQgG4OMRoQUyDw8YyBYCQYWEicggezD5JxlEKLxusuXjL0oySAI9uAMg8QSMaBAtuK1GWz8zBwQJQ1b3roVTsmQ0A7emQiqMjxdq0GD3LmwD51MbsnTHqIBPskwr4fshNCf2Nc5wFX9+vD2EcnPr2c/fzpFgPCfIIr8MSAghORxIB9fwLGgHm4IUUQcD7JBSBhSGFKhGSB48QvGE02EKOKISTwRBAA7" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!"><img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1"></form>
 				</div>
@@ -269,7 +270,7 @@
 		<script id="GiphyUI" type="application/x-template">
 			<div class="res-player video giphyres">
 				<a href="{{ giphyUrl }}" target="_blank">
-					<video autoplay loop muted preload>
+					<video autoplay loop muted preload class="giphyVid">
 						{{#sources}}
 						<source src="{{ source }}" {{#type}}type="{{ type }}"{{/type}}>
 						{{/sources}}
