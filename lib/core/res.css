@@ -568,33 +568,25 @@ p.moduleListing {
 	content: ' ';
 	position: absolute;
 	top: 50%;
-	left: 50%;
 	margin-top: -5px;
-	border: 3px solid transparent;
-}
-.moduleToggle::after, .toggleButton::after {
-	content: ' ';
-	position: absolute;
-	top: -2px;
-	bottom: 2px;
-	left: 50%;
-	width: 1px;
-	margin-left: -3px;
-	background: white;
+	border: 3px white solid;
+	border-top-color: transparent;
+	border-bottom-color: transparent;
+	border-radius: 5px;
+	opacity: 0.3;
 }
 
 .moduleToggle::before, .toggleButton::before {
-	border-left: 5px solid white;
-	border-right: none;
-	margin-left: -1px;
+	border-left-width: 0;
+	border-right-width: 5px;
+	left: auto;
+	right: 3px;
 }
 .moduleToggle.enabled::before, .toggleButton.enabled::before {
-	border-right: 5px solid white;
-	border-left: none;
-	margin-left: -5px;
-}
-.moduleToggle.enabled::after, .toggleButton.enabled::after {
-	margin-left: 0;
+	border-left-width: 5px;
+	border-right-width: 0;
+	left: 1px;
+	right: auto;
 }
 .optionContainer {
 	position: relative;
