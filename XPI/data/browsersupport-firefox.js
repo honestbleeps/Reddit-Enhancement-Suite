@@ -119,7 +119,9 @@ BrowserStrategy.ajax = function(obj) {
 			}
 		}
 
-                request.withCredentials = true;
+                if (obj.isLogin) {
+                    request.withCredentials = true;
+                }
 
 		request.send(obj.data);
 		return request;
