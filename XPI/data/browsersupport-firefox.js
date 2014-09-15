@@ -118,6 +118,9 @@ BrowserStrategy.ajax = function(obj) {
 				request.setRequestHeader(name, obj.headers[name]);
 			}
 		}
+
+                request.withCredentials = true;
+
 		request.send(obj.data);
 		return request;
 	}
