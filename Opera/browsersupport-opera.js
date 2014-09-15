@@ -124,6 +124,11 @@ BrowserStrategy.ajax = function(obj) {
 				request.setRequestHeader(name, obj.headers[name]);
 			}
 		}
+
+		if (obj.isLogin) {
+			request.withCredentials = true;
+		}
+
 		request.send(obj.data);
 		return request;
 	}
@@ -506,5 +511,3 @@ BrowserStrategy.openLinkInNewTab = function (thisHREF) {
 };
 
 BrowserStrategy.addURLToHistory = BrowserStrategy._addURLToHistory;
-
-BrowserStrategy.supportsThirdPartyCookies = function() { return false; };
