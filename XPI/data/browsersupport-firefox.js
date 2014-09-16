@@ -44,6 +44,9 @@ self.on('message', function(msgEvent) {
 			RESStorage.setItem(msgEvent.itemName, msgEvent.itemValue, true);
 			break;
 		case 'subredditStyle':
+			if (!modules['styleTweaks'].styleToggleCheckbox) {
+				return;
+			}
 			if (msgEvent.message === 'refreshState') {
 				var toggle = modules['styleTweaks'].styleToggleCheckbox.checked,
 					currentSubreddit = RESUtils.currentSubreddit();
