@@ -117,7 +117,7 @@ window.addEventListener('DOMContentLoaded', function() {
 		fr.onload = function() {
 			data[i] = fr.result;
 			loaded++;
-			if (loaded == files.length) {
+			if (loaded === files.length) {
 				run(data.join(';'));
 			}
 		}
