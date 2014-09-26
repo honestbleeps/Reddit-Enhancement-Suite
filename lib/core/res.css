@@ -1501,6 +1501,12 @@ a spinner with a static ring and no overlay.*/
 	list-style-position: inside;
 }
 
+/* gifyoutube player */
+.gifyoutube-source {
+	height: 15px;
+	text-align: right;
+}
+
 /* Compiled SCSS from MediaCrush - https://github.com/MediaCrush/MediaCrush */
 .player {
   position: relative; }
