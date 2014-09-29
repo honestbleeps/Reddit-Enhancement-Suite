@@ -36,6 +36,7 @@ window.addEventListener('DOMContentLoaded', function() {
 		'core/console.js',
 		'vendor/favico.js',
 		'vendor/gfycat.js',
+		'vendor/gifyoutube.js',
 		'vendor/guiders-1.2.8.js',
 		'vendor/hogan-3.0.2.js',
 		'vendor/HTMLPasteurizer.js',
