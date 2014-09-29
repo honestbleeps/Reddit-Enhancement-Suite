@@ -265,6 +265,29 @@
 			</div>
 		</script>
 		<!--/GfycatUI-->
+		<!--gifyoutubeUI-->
+		<script id="gifyoutubeUI" type="application/x-template">
+			<div class="res-player video gifyoutube">
+				<a class="madeVisible" href="{{ directurl }}" target="_blank">
+				<video autoplay loop muted preload title="Drag to Resize" class="gifyoutubeVid">
+					{{#sources}}
+					<source src="{{ source }}" {{#type}}type="{{ type }}"{{/type}} class="{{ class }}">
+					{{/sources}}
+				</video>
+				</a>
+				<div style="height: 35px;" class="ctrlContainer">
+					<div class="gifyoutube-source">
+						<a target="_blank" class="res-icon res-lightweight-player-controls gifyoutube-source-button">Watch Full Video</a>
+					</div>
+					<div class="gifyoutube-controls">
+						<div class="res-icon res-lightweight-player-controls gifyoutubeCtrlSlower" >&#xf169;</div>
+						<div class="res-icon res-lightweight-player-controls gifyoutubeCtrlPause" style="marginright: 4px;">&#xf16c;</div>
+						<div class="res-icon res-lightweight-player-controls gifyoutubeCtrlFaster" >&#xf16d;</div>
+					</div>
+				</div>
+			</div>
+		</script>
+		<!--/gifyoutubeUI-->
 		<!--GiphyUI: modified from MediaCrush Player-->
 		<script id="GiphyUI" type="application/x-template">
 			<div class="res-player video giphyres">

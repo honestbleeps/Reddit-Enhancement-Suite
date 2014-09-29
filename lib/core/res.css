@@ -1503,8 +1503,37 @@ a spinner with a static ring and no overlay.*/
 
 /* gifyoutube player */
 .gifyoutube-source {
-	height: 15px;
-	text-align: right;
+	float: left;
+}
+.res-player.gifyoutube .gifyoutube-controls .res-lightweight-player-controls, .res-player.gifyoutube .gifyoutube-source-button {
+	color: #fff;
+	font-size:16px;
+	padding: 5px 10px;
+	cursor: pointer;
+	float: none;
+	margin-right: 0;
+	margin-left: 5px;
+}
+.gifyoutubeCtrlSlower, .gifyoutubeCtrlFaster {
+	border-radius: 3px;
+	background-color: #f0ad4e;
+	border: 1px solid #eea236;
+}
+.res-player.gifyoutube .gifyoutube-source-button {
+	margin-left: 0;
+}
+.gifyoutubeCtrlPause {
+	border-radius: 3px;
+	background-color: #5cb85c;
+	border: 1px solid #4cae4c;
+}
+.gifyoutube-controls {
+	float: right;
+}
+.gifyoutube-source-button {
+	border-radius: 3px;
+	background-color: #5bc0de;
+	border: 1px solid #46b8da;
 }
 
 /* Compiled SCSS from MediaCrush - https://github.com/MediaCrush/MediaCrush */
