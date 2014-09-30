@@ -1148,7 +1148,7 @@ img {
 	vertical-align: bottom;
 	margin-left: 4px;
 }
-.expando-button.image, .expando-button.html5 {
+.expando-button.image {
 	vertical-align: top !important;
 	float: left;
 	width: 23px;
@@ -1156,7 +1156,7 @@ img {
 	max-width: 23px;
 	max-height: 23px;
 	display: inline-block;
-	background-image: url('//i.imgur.com/4kRhBP1.png'); //Need to re-upload this to reddit and change the URL
+	background-image: url('//i.imgur.com/4kRhBP1.png'); /*Need to re-upload this to reddit and change the URL*/
 	margin-right: 6px;
 	cursor: pointer;
 	padding: 0;
