@@ -1148,7 +1148,7 @@ img {
 	vertical-align: bottom;
 	margin-left: 4px;
 }
-.expando-button.image {
+.expando-button.image, .expando-button.video-muted {
 	vertical-align: top !important;
 	float: left;
 	width: 23px;
@@ -1156,7 +1156,7 @@ img {
 	max-width: 23px;
 	max-height: 23px;
 	display: inline-block;
-	background-image: url('https://s3.amazonaws.com/e.thumbs.redditmedia.com/r22WT2K4sio9Bvev.png');
+	background-image: url('//i.imgur.com/4kRhBP1.png'); /*Need to re-upload this to reddit and change the URL*/
 	margin-right: 6px;
 	cursor: pointer;
 	padding: 0;
@@ -1178,6 +1178,10 @@ img {
 .expando-button.image.gallery.collapsedExpando:hover {background-position: 0 -392px; }
 .expando-button.image.gallery.expanded {background-position: 0 -416px; }
 .expando-button.image.gallery.expanded:hover {background-position: 0 -440px; }
+.expando-button.video-muted.collapsed {background-position: 0 -464px; }
+.expando-button.video-muted.collapsed:hover {background-position: 0 -488px; }
+.expando-button.video-muted.expanded {background-position: 0 -512px; }
+.expando-button.video-muted.expanded:hover {background-position: 0 -536px; }
 
 .madeVisible { clear: left; display: block; overflow: hidden; }
 .madeVisible a { display: inline-block; overflow: hidden; }
