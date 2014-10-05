@@ -636,7 +636,7 @@
 }
 
 .res-nightmode .thing .expando-button {
-	background-image: url(https://a.thumbs.redditmedia.com/JTs29zfSOzSMYO0B.png)!important;
+	background-image: url(//i.imgur.com/yYyDEaC.png)!important;
 	cursor: pointer;
 }
 
@@ -720,6 +720,27 @@
 .res-nightmode .thing .expando-button.video.expanded:hover,
 .res-nightmode .eb-seh {
 	background-position: 0 -264px;
+}
+
+.res-nightmode .expando-button.video-muted.collapsed,
+.res-nightmode .expando-button.video-muted.collapsedExpando {
+	background-position: 0 -384px;
+}
+
+.res-nightmode .expando-button.video-muted.collapsed:hover,
+.res-nightmode .expando-button.video-muted.collapsedExpando:hover {
+	background-position: 0 -408px;
+}
+
+.res-nightmode .expando-button.video-muted.expanded,
+.res-nightmode .eb-se {
+	margin-bottom: 5px;
+	background-position: 0 -432px;
+}
+
+.res-nightmode .expando-button.video-muted.expanded:hover,
+.res-nightmode .eb-seh {
+	background-position: 0 -456px;
 }
 
 .res-nightmode .RESdupeimg {
