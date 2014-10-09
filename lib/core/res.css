@@ -1540,6 +1540,17 @@ a spinner with a static ring and no overlay.*/
 	border: 1px solid #46b8da;
 }
 
+
+/* imgur gifv player */
+.imgurgifv-brand {
+	float: left;
+}
+.imgurgifv-download {
+	float: right;
+}
+
+
+
 /* Compiled SCSS from MediaCrush - https://github.com/MediaCrush/MediaCrush */
 .player {
   position: relative; }
