@@ -288,6 +288,27 @@
 			</div>
 		</script>
 		<!--/gifyoutubeUI-->
+		<!--imgurgifvUI-->
+		<script id="imgurgifvUI" type="application/x-template">
+			<div class="res-player video imgurgifv">
+				<a class="madeVisible" href="{{ directurl }}" target="_blank">
+				<video autoplay loop muted preload title="Drag to Resize" class="imgurgifvVid">
+					{{#sources}}
+					<source src="{{ source }}" {{#type}}type="{{ type }}"{{/type}} class="{{ class }}">
+					{{/sources}}
+				</video>
+				</a>
+				<div style="height: 35px;" class="ctrlContainer">
+					<div class="imgurgifv-brand">
+						<img src="//i.imgur.com/favicon.ico">
+					</div>
+					<div class="imgurgifv-download">
+						<a href="{{ source }}">download</a>
+					</div>
+				</div>
+			</div>
+		</script>
+		<!--/gifyoutubeUI-->
 		<!--GiphyUI: modified from MediaCrush Player-->
 		<script id="GiphyUI" type="application/x-template">
 			<div class="res-player video giphyres">

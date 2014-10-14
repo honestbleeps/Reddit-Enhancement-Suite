@@ -2,7 +2,8 @@
 // var lastVersionDate = '2014-04-03'; // 4.3.2.1
 // var lastVersionDate = '2014-07-02'; // 4.5.0.1
 // var lastVersionDate = '2014-07-07'; // 4.5.0.2
-var lastVersionDate = '2014-09-13'; // 4.5.1
+// var lastVersionDate = '2014-09-13'; // 4.5.1
+var lastVersionDate = '2014-10-13'; // 4.5.2
 
 /*
 

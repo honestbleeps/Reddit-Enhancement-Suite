@@ -1,6 +1,6 @@
 {
 	"name": "Reddit Enhancement Suite",
-	"version": "4.5.1",
+	"version": "4.5.2",
 	"manifest_version": 2,
 	"minimum_chrome_version": "26.0",
 	"description": "Reddit Enhancement Suite - a group of enhancements for browsing Reddit",
@@ -39,6 +39,7 @@
 				"vendor/mediacrush.js",
 				"vendor/gfycat.js",
 				"vendor/gifyoutube.js",
+				"vendor/imgurgifv.js",
 				"reddit_enhancement_suite.user.js",
 				"modules/submitIssue.js",
 				"modules/betteReddit.js",
