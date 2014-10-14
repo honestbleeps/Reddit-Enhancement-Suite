@@ -1,25 +1,25 @@
 {
-  "name": "RES",
-  "version": "4.5.1",
-  "description": "A suite of modules that enhance your Reddit browsing experience",
-  "private": true,
-  "homepage": "http://redditenhancementsuite.com/",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/honestbleeps/Reddit-Enhancement-Suite.git"
-  },
-  "devDependencies": {
-    "grunt-cli": "~0.1.5",
-    "grunt-contrib-watch": "^0.4.4",
-    "grunt-contrib-copy": "~0.5.0",
-    "grunt-contrib-qunit": "^0.4.0",
-    "grunt-contrib-nodeunit": "^0.3.3",
-    "grunt": "~0.4.2",
-    "qunitjs": "^1.10.0",
-    "selenium-webdriver": "^2.41.0",
-    "selenium-server": "~2.38.0",
-    "wrench": "~1.5.8"
-  },
-  "license": "GPL-3.0",
-  "readmeFilename": "README.md"
+	"name": "RES",
+	"version": "4.5.2",
+	"description": "A suite of modules that enhance your Reddit browsing experience",
+	"private": true,
+	"homepage": "http://redditenhancementsuite.com/",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/honestbleeps/Reddit-Enhancement-Suite.git"
+	},
+	"devDependencies": {
+		"grunt-cli": "~0.1.5",
+		"grunt-contrib-watch": "^0.4.4",
+		"grunt-contrib-copy": "~0.5.0",
+		"grunt-contrib-qunit": "^0.4.0",
+		"grunt-contrib-nodeunit": "^0.3.3",
+		"grunt": "~0.4.2",
+		"qunitjs": "^1.10.0",
+		"selenium-webdriver": "^2.41.0",
+		"selenium-server": "~2.38.0",
+		"wrench": "~1.5.8"
+	},
+	"license": "GPL-3.0",
+	"readmeFilename": "README.md"
 }
