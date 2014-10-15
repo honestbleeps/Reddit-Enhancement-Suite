@@ -29,7 +29,7 @@ npm install --global gulp
 
 7. Run
 
-    npm install--save-dev gulp-minifycss gulp-uglify gulp-imagemin gulp-rename gulp-concat gulp-notify gulp-del gulp-bump gulp-zip
+    npm install --save-dev gulp-minify-css gulp-uglify gulp-imagemin gulp-rename gulp-concat gulp-notify del gulp-bump gulp-zip
 
 8. Move gulpfile.js into your RES directory
 
