@@ -95,7 +95,7 @@ var handlePageActionClick = function(event) {
 		// we don't really need to do anything here.
 		console.log(response);
 	});
-}
+};
 
 chrome.pageAction.onClicked.addListener(handlePageActionClick);
 
@@ -123,7 +123,7 @@ chrome.runtime.onMessage.addListener(
 				if (request.method === 'POST') {
 					xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 				}
-				xhr.onreadystatechange = function(a) {
+				xhr.onreadystatechange = function() {
 					if (xhr.readyState === 4) {
 						// Only store `status` and `responseText` fields
 						var response = {status: xhr.status, responseText: xhr.responseText};

@@ -1142,7 +1142,7 @@ img {
 	display: inline-block;
 	float: none;
 }
-.usertext-body .md .expando-button, .wiki-page .expando-button {
+.usertext-body .md .expando-button, .wiki-page .expando-button, .messages-page .expando-button {
 	float: none;
 	display: inline-block;
 	vertical-align: bottom;
@@ -1163,7 +1163,7 @@ img {
 	-webkit-user-select: none;
 	-moz-user-select: none;
 }
-.expando-button.image.commentImg {
+.expando-button.image.commentImg, .expando-button.video-muted.commentImg {
 	float: none;
 	margin-left: 4px;
 }

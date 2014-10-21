@@ -18,7 +18,7 @@ let viewFor = require('sdk/view/core').viewFor;
 let localStorage = ss.storage;
 
 
-var { ToggleButton } = require('sdk/ui/button/toggle'),
+let { ToggleButton } = require('sdk/ui/button/toggle'),
 	styleSheetButton;
 
 // require chrome allows us to use XPCOM objects...
@@ -115,7 +115,7 @@ let XHRCache = {
 };
 tabs.on('activate', function() {
 	// find this worker...
-	var worker = getActiveWorker();
+	let worker = getActiveWorker();
 	if (worker) {
 		worker.postMessage({ name: 'getLocalStorage', message: localStorage });
 		worker.postMessage({ name: 'subredditStyle', message: 'refreshState' });
@@ -123,7 +123,7 @@ tabs.on('activate', function() {
 });
 
 function getActiveWorker() {
-	var tab = tabs.activeTab;
+	let tab = tabs.activeTab;
 	for (let i in workers) {
 		if ((typeof workers[i].tab !== 'undefined') && (tab.title === workers[i].tab.title)) {
 			return workers[i];
@@ -385,7 +385,7 @@ pageMod.PageMod({
 					}
 					break;
 				case 'pageAction':
-					var onoff = request.visible ? 'on' : 'off';
+					let onoff = request.visible ? 'on' : 'off';
 					switch (request.action) {
 						case 'show':
 							if (!styleSheetButton) {
@@ -399,7 +399,7 @@ pageMod.PageMod({
 										'32': self.data.url('images/css-' + onoff + '.png')
 									},
 									onChange: function(state) {
-										var worker = getActiveWorker();
+										let worker = getActiveWorker();
 										worker.postMessage({
 											name: 'subredditStyle',
 											toggle: state.checked
