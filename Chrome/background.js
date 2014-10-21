@@ -94,7 +94,7 @@ var handlePageActionClick = function(event) {
 		// we don't really need to do anything here.
 		console.log(response);
 	});
-}
+};
 
 chrome.pageAction.onClicked.addListener(handlePageActionClick);
 
