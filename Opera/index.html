@@ -141,7 +141,7 @@ opera.extension.addEventListener( 'message', function( event ) {
 						};
 						event.source.postMessage(passBack);
 					}
-				}
+				};
 				xhr.send(request.data);
 				break;
 			case 'singleClick':
@@ -206,7 +206,7 @@ opera.extension.addEventListener( 'message', function( event ) {
 						};
 						event.source.postMessage(passBack);
 					}
-				}
+				};
 				xhr.send();
 				break;
 			case 'loadTweet':
@@ -221,7 +221,7 @@ opera.extension.addEventListener( 'message', function( event ) {
 						};
 						event.source.postMessage(passBack);
 					}
-				}
+				};
 				xhr.send();
 				break;
 			case 'getLocalStorage':
@@ -243,7 +243,7 @@ opera.extension.addEventListener( 'message', function( event ) {
 				}
 				localStorage.setItem('importedFromForeground',true);
 				ls = {};
-				for (var i = 0, len=localStorage.length; i < len; i++){
+				for (var i = 0, len = localStorage.length; i < len; i++){
 					if (localStorage.key(i)) {
 						ls[localStorage.key(i)] = localStorage.getItem(localStorage.key(i));
 					}
