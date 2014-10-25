@@ -791,14 +791,17 @@ p.moduleListing {
 #SearchRES-results-container li:hover {
 	background-color: #FAFAFF;
 }
-.SearchRES-result-title {
+.SearchRES-result-header {
 	margin-bottom: 12px;
-	font-weight: bold;
 	color: #666;
+}
+.SearchRES-result-title {
+	font-weight: bold;
 }
 .advanced .SearchRES-result-title {
 	font-style: italic;
 }
+.SearchRES-result-title, .SearchRES-breadcrumb { display: block; }
 .SearchRES-breadcrumb {
 	font-weight: normal;
 	color: #888;
