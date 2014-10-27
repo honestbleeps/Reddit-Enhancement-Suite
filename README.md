@@ -138,4 +138,4 @@ Once done, you can build the extension by running `grunt`.
 
 For developing, run `grunt` followed by the name of the browser you wish to develop on, such as `grunt chrome` for Chrome or `grunt firefox` for Firefox. Once run, grunt will start a watch task which will instantly copy any changes made in the `lib/` directory over to the given browser's extension folder. You will need to stop and start grunt if you add any additional files.
 
-To load the extension into your browser, see the "Building development versions of the extension" section above.
+To load the extension into your browser, see the ["Building development versions of the extension" section](#building-development-versions-of-the-extension) above.
