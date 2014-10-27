@@ -45,7 +45,7 @@ In order to build the extension, the files from `lib/` must be replicated (eithe
 
 ##### Top level files & folders
 
-  - `README.md` – YOU ARE HERE, unless you're browing on GitHub
+  - `README.md` – YOU ARE HERE, unless you're browsing on GitHub
   - `changelog.txt` – self-explanatory
   - `makelinks.sh` – script to generate hard links
   - `Gruntfile.js`, `package.json` – used for alternative build scripts
@@ -87,7 +87,7 @@ NOTE: An XPI is a Firefox add-on, which is compiled using the [Add-on SDK](https
 
 ##### OperaBlink files
 
-  - `background.js` – the "background page" for RES, necessary for Chrome extensions
+  - `background.js` – the "background page" for RES, necessary for Opera extensions
   - `manifest.json` – the project manifest
   - `icon.png`, `icon48.png`, `icon128.png` – icons!
 
