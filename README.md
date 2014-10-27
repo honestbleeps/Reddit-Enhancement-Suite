@@ -45,7 +45,7 @@ In order to build the extension, the files from `lib/` must be replicated (eithe
 
 ##### Top level files & folders
 
-  - `README.md` – YOU ARE HERE, unless you're browing on GitHub
+  - `README.md` – YOU ARE HERE, unless you're browsing on GitHub
   - `changelog.txt` – self-explanatory
   - `makelinks.sh` – script to generate hard links
   - `Gruntfile.js`, `package.json` – used for alternative build scripts
