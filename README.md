@@ -87,7 +87,7 @@ NOTE: An XPI is a Firefox add-on, which is compiled using the [Add-on SDK](https
 
 ##### OperaBlink files
 
-  - `background.js` – the "background page" for RES, necessary for Chrome extensions
+  - `background.js` – the "background page" for RES, necessary for Opera extensions
   - `manifest.json` – the project manifest
   - `icon.png`, `icon48.png`, `icon128.png` – icons!
 
