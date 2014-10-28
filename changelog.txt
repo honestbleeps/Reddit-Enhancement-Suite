@@ -1,4 +1,434 @@
-changelog 4.2.0
+changelog v4.5.2
+
+- New features
+
+	- new expando button image for "html5 gif" (silent videos) / gifv (thanks @erikdesjardins)
+	- imgur gifv support; load gifv instead of gif (thanks @honestbleeps)
+	- gifyoutube support (thanks @honestbleeps)
+	- show gfycat on "view all images" (if silent) (thanks @honestbleeps)
+	- added /r/random keyboard shortcut (g,alt+y) (thanks @kwakie, @andytuba)
+	- for large albums, use the prev/next "slideshow" view even if loadAllInAlbum is enabled (thanks @andytuba)
+	- added "Reddit Classic" orangered/periwinkle comment score coloring (thanks @erikdesjardins)
+	
+- Bug fixes
+
+	- show save-RES button on comments which are initially collapsed (thanks @andytuba)
+	- better support for /r/subreddit/comments listings, particularly vote colors (Thanks @honestbleeps)
+	- better support for reddit.com/comments/12345 comments page (no subreddit) (thanks @honestbleeps)
+	- better support for reddit's upcoming native functionality for "full comments" and "unread messages" (thanks @honestbleeps)
+	- only use https imgur if using https reddit (thanks @honestbleeps)
+	- SSL support for account switcher (thanks @calvinli)
+	- fixed neverendingreddit pause button across pageloads (thanks @honestbleeps)
+	- opera12 bugfix to keep usertagger (and other modules) from breaking (thanks @andytuba)
+	- added a delay to the subreddit shortcut edit/delete button dropdown (thanks @andytuba)
+	- fixed Never-Ending Reddit not loading p2+ if betteReddit was disabled but showUnreadFavicon was enabled
+	- always show Comment Navigator when navigating comments, instead of breaking when using keyboard shortcuts when Comment Nav is closed (thanks @andytuba)
+	- fixed "comment navigator" not jumping to the next comment consistently when pinHeader is enabled (@thanks honestbleeps)
+	- allow shift-click on subreddit shortcuts (thanks @mc10)
+	- support subreddit shortcuts like sub1/about/messages+sub2/new (thanks @andytuba)
+	- fix labeling imgur gifs as .gif to fix convertGifToGfycat and other similar extensions (thanks @honestbleeps)
+	- tweaked NP message for subreddit subscribers (thanks @andytuba)
+	- tweaked /r/RESissues+Enhancement/submit text for readability (thanks @mc10 and @andytuba)
+	- improve post rank number size/truncating (thanks @calvinli @andytuba)
+	- fixed subreddit stylesheets not re-appearing when using https reddit (thanks @honestbleeps)
+	- nightmode css cleanup (thanks @erikdesjardins, @gavin19)
+	- fix centering on "loading image" throbber (thanks /u/andrey_shipilov / @tezro)
+	- removed opaque backgrounds on nightmode arrows (thanks @erikdesjardins)
+	- revert "last edited" to relative time after mouse off (thanks @andytuba)
+	- janitoring (thanks @erikdesjardins, @mc10, @darkstar21)
+	- ... and as always, various code cleanup and other minor fixes / performance enhancements.
+
+---------------------------------------
+
+changelog v4.5.1
+
+- New features
+
+	- Added full HTTPS support now that reddit supports it
+	- Switched out a lot of RES image resources to use HTTPS now that it's fully supported
+	- Added HTTPS support for imgur and some other image hosts -- note: not all image hosts support it, you will sometimes see "mixed content" warnings because of this.
+	- Changed default behavior of post / comment score highlighting (turned off)
+	- Handy-dandy edit/delete buttons on subreddit shortcuts (thanks @andytuba)
+	- Added an option to hide formatting tools on comment preview (bold, italic, etc) (thanks @andytuba)
+	- Updated on/off toggles to be more colorblind friendly (thanks @andytuba)
+	- Comment navigator now tracks scroll position and updates as you move through the page
+	- Keyboard navigation commands added for comment navigator (N to toggle, shift-up/down to navigate)
+	- Updates to redditbooru support (thanks @dxprog)
+	- Apply filters to multireddits (thanks @Dashed)
+	- Expandos for 500px.org (thanks @Melraidin)
+	- Sort tables in posts, comments, sidebar, wiki by clicking on headers (thanks @danny)
+	- Improve night mode appearance of markdown editor (thanks @githue)
+	- Added loading spinner for image galleries for a better UX when changing images
+	- Added compatibility with Tree Style Tabs extension for Firefox (thanks @CyberShadow)
+	- UX tweaks to RES options search results (thanks @githue)
+	- Comment Tool options to hide formatting tools (thanks @andytuba)
+	- Make settings console openable from NP module (thanks @andytuba)
+	- Changed how autoplay works for MediaCrush videos (thanks @SirCmpwn)
+	- Removed bitcointip module as the bitcointip service is retired
+	- Added a tips/tricks box to subreddit style editing page for moderators to help guide them toward help dealing with styling for RES
+	- Add support for Giphy.com (thanks @alexchung)
+	- Added a subreddit style toggle box to the toolbar for Firefox - now present in Chrome, Firefox and Opera - no more suffering from pesky moderators who hide it!
+
+- Bug fixes
+
+	- MediaCrush and gfycat expandos fixed
+	- MediaCrush elements no longer open when "view images" is clicked as they may be video
+	- Fixed navigate by IAmA, broken by a reddit change
+	- Fixed navigate by popular feature of comment navigator, also broken by a reddit change (thanks @andytuba)
+	- Fixed a bug where converted gfycat images would overlap content
+	- Fix comma-separated imgur "album" links (thanks @isstabb)
+	- Fix tumblr and other remote text posts that contain iframes
+	- RES command line console fixed in Firefox
+	- More reliable CSS toggle in toolbar (Chrome and Opera 15+ only)
+	- Restore original text when mouse leaves timestamps
+	- Fix occasionally broken whitelisting of subreddit stylesheets in night mode
+	- Auto-sort vote score user coloration
+	- Mark gifs as visited with showImages convertGifsToGfycat option enabled (thanks @wT-)
+	- Fixed a bug where the 'save' button on a dashboard widget got scrolled off screen when creating a very large widget
+	- fixed a subreddit tagger case sensitivity bug where some subs would not get tagged (thanks @gavin19)
+	- Fixed a bug where expanded images would cover the user tagger form
+	- Fixed a bug that caused multiple 'source' buttons to be rendered
+	- Fixed the background color of the flair selector in night mode
+	- Fixed reddit's all new report form for night mode (thanks @gavin19)
+	- Fixed an issue with private messages from ignored users (thanks @andytuba)
+	- Show all RES options by default (thanks @mc10)
+	- Fix convertGifToGfycat causing duplicate images when users click twice (during loading) (thanks @SirCmpwn)
+	- Some CSS fixes for media shown on wiki pages
+	- Add the ability to upvote/downvote without toggle behavior (shift-A / shift-Z) (thanks @andytuba)
+	- ... and as always, various code cleanup and other minor fixes / performance enhancements.
+
+-------------------------
+
+changelog v4.5.0.2
+
+- New features
+
+	- NOTE: we've changed the default setting for moving images to use ctrl-arrow keys rather than shift and arrow keys to avoid a common conflict for users (thanks in part to @squarific)
+	- Updated the "No Participation" module based on feedback from moderators of various subs (thanks @andytuba)
+	- Added an option to turn off the CSS icon in the address bar (allows you to toggle subreddit styles)
+	- Added a bit more helpful guidance to users reporting bugs
+	- Various code cleanup and triage (thanks @mc10)
+	
+- Bug fixes
+
+	- Got rid of protectRESElements option that was causing content to disappear for users with zoom on
+	- Fixed an issue with conserveMemory option causing page shift when scrolling past large images - if you turned this off, we recommend you re-enable it!
+	- Fixes to gfycat module
+	- Stop GIFs from resetting to first frame on mouse scroll
+	- Fix to giflike (thanks @mtsgrd)
+	- Add some more foolproof error checking to avoid problems with bad data in filteReddit
+	- Fix "disable animations" causing problems for some users (thanks @andytuba)
+	- Fix "sort comments temporaily" (thankns @matheod)
+
+------------------------
+
+changelog v4.5.0.1
+
+	- Fixed a couple of issues with night mode coloring
+	- Fixed a few issues with "use subreddit stylesheet" for some users
+	- Various other small / emergency bug fixes
+
+
+--------------------------
+
+changelog v4.5.0
+
+- New features
+
+	- Massive memory reduction (optional) for "View Images" users with Never Ending Reddit
+	- Preloading of albums is now off by default to save memory/bandwidth - you can turn this back on in the inline image viewer preferences if you wish
+	- Support for several new image and video hosts
+	- Support for native HTML5 audio and video formats (thanks @sgtfrankieboy)
+	- Fancy new comment editor buttons for visual goodness
+	- Add the ability to move images with shift-drag or arrow keys (thanks @gablank)
+	- Added support for Photobucket (thanks @mpalermo)
+	- Expand YouTube links in comments (work by @patricksnape, @thybag, improvements by @honestbleeps)
+	- Added "No Participation" module to help remind redditors to be better citizens when visiting via meta-links (thanks @andytuba)
+	- Added the "vote enhancement" module that provides a number of options for coloring/highlighting and enhancing vote information (thanks @matheod)
+	- Added "m" keyboard shortcut to modmail (g, m in "go mode")
+	- Automatically toggle night mode based on time (thanks @mc10)
+	- Subreddit sidebar search: add sort/time range dropdowns (thanks @andytuba)
+	- Console now uses nicer color inputs (thanks @matheod)
+	- Option to have the reddit logo link to /r/all (thanks @matheod)
+	- Option to disable CSS3 animations (thanks @andytuba)
+	- Option to navigate by Gilded with Comment Navigator (thanks @matheod)
+	- Settings console now has advanced options hidden for a simplified view (thanks @matheod)
+	- User tag now displayed next to "commenting as" nickname. (thanks @matheod)
+	- Add a link on user profile to see posts of the user from the subreddit we come from (thanks @matheod)
+	- Add modmail option to dashboard (thanks @matheod)
+	- Visually distinguish "source" textarea from "edit" (thanks @matheod)
+	- Added commandline command for "me" or "me/X" to navigate to your profile quickly (thanks @matheod)
+	- Added "Context" module that allows easy breakout to full context from deeply linked comments (thanks @matheod)
+	- Add "show full link flair" option that forces full link flair to be displayed instead of cut off (thanks @matheod)
+	- Show time until hidden scores will be revealed on hover (thanks @matheod)
+	- Added option to navigate by highlighted user - hover the username to highlight, then use comment navigator (thanks @matheod)
+	- Add a Table button to easily create and edit table in commentTools (thanks @matheod)
+	- Add a search widget on dashboard (thanks @matheod)
+	- Option to uncheck "send replies [to this submission] to my inbox" (thanks @m-xbutterfly)
+	- User tag link is now clickable (thanks @matheod)
+	- Highlight "commenting as" when posting from an alt account (thanks @matheod)
+	- Console now shows default value of options on hover for easy reference (thanks @matheod)
+	- ... and loads of other minor fixes here and there ...
+	
+-Bug fixes
+
+	- Fixed broken subreddit filters
+	- Allow clearing of keybindings with backspace (thanks @matheod)
+	- Various fixes to video autoplay related stuff (thanks @thybag, help / updates from @honestbleeps)
+	- Comment Navigator - changing categories repeatedly breaks navigator	(fixed
+	- Fixed an issue with broken imgur links loading a wrong/different image
+	- Fixed a problem with mediaBrowseMode behaving poorly when "view images" is clicked
+	- When expanding multiple video / audio expandos only the first one should now autoplay
+	- Fixed an issue with audio ads playing in the background via imgur (was only a bug in Safari)
+	- Fixed videos autoplaying on saved links/comments pages
+	- Fixed toolbarfix functionality to remove the reddit toolbar from sites that break it
+	- fix launching user tagger from command line	(thanks @andytuba)
+	- various useful triage (thanks @bronzle)
+	- Subreddit manager once again shows [+shortcut] button on reddit.com/reddits
+	- "source" button should not be the first button on post buttons list
+	- ... and DOZENS of others ...
+
+
+-------------------------
+
+changelog v4.3.2
+
+- New features
+
+	- New "Media Browse Mode" for Keyboard Navigation - if the current expando is open, hitting j or k will close it and open the next one automatically!
+	- HTML5 videos (MediaCrush, gfycat, fitbamob) can be clicked+dragged to resize
+	- HTML5 videos now have a prettier UI (thanks @MediaCrush, @joey5755 / gfycat)
+	- Option to always allow subreddit styles in night mode (thanks @andytuba)
+	- Giflike inline image support (thanks @mtsgrd)
+	- Imgflip inline image support (thanks @dylanwenzlau)
+	- 	- Inline YouTube (in comments too!), Vimeo, Soundbutt, and MemeDad support (thanks @thybag)
+	- Improved colored username support (thanks @andytuba)
+	- Show view count on YouTube links (off by default) (thanks @markekraus)
+	- Change "sort by" in comments just for the current page (thanks @andytuba)
+	
+-Bug fixes
+
+	- Fixes several bugs in MediaCrush support (thanks @MediaCrush)
+	- Don't run RES on mobile/compact pages (thanks @andytuba)
+	- Fix instragram support in night mode (thanks @gavin19)
+	- Fixes to Reddit over https (thanks @andrewachen)
+	- Pause MediaCrush expandos when closed (thanks @MediaCrush)
+	- Fix Twitter expandos (thanks @honestbleeps)
+	- Fix subreddit bar failing to load for shadowbanned users (thanks @sircmpwn)
+	- Improved HTML rendering for showImages (thanks @largenocream)
+	- Loads of other, smaller fixes...
+	
+- Other
+
+	- Of interest to developers - RES has been split into many files for better organization, etc. More workflow improvements are on the way!
+
+------------------------
+
+changelog v4.3.1.2
+
+-New features
+
+	- Added "go mode" to avoid accidental navigation to pages (this can be turned off if you don't care for it) - now, hit "g" than "f", for example, to go to the front page.
+
+-Bug fixes
+
+	- Fix to positioning of source button (thanks @mc10)
+	- Fix to width of rank column (thanks @gavin19)
+	- Fix for appearance of organic ad spots in night mode
+	- Fixed an issue where your own top level comments weren't counted in the new comment counter
+	- Fix to inline imageviewer feature that auto expands images in selfText - albums now work!
+	- Various fixes to night mode (thanks @gavin19)
+	- Various housekeeping and code cleanup (thanks @mc10)
+	- Fix to allowNSFW feature (thanks @andytuba)
+	- Fix to NSFW CSS if module is disabled (thanks @andytuba)
+	- Fixed mediacru.sh support to obey maxWidth/maxHeight settings
+	- Fix for account switcher in Chrome incognito
+	- Fix for Chrome storing image viewer images in history even in incognito
+	- Fix to drag/sort on /r/Dashboard (thanks @sircmpwn)
+	- mediacru.sh support updates (thanks @sircmpwn)
+	- Fix to clickFocus restricting to a smaller area
+	- Fix to night mode on traffic pages (thanks @gavin19)
+
+----------------
+
+changelog v4.3.1.1
+
+-Bug fixes
+
+	- Fixed an issue affecting many buttons (view source, flair selection, etc)
+	- Fixed an issue with keyboard navigation parent buttons (thanks @gavin19)
+	- Fixed an issue with j key navigation on dashboard
+	- Fixed character counter on big editor
+	- For now, snoonet module is disabled - stay tuned for an exciting new development soon, though!
+
+
+-------------------
+
+changelog v4.3.1
+
+- New features
+
+	- Updated Twitter expando functionality to use Chrome's optional permissions because of a change on twitter's end from http to https
+	- Added the ability to individually enable/disable image hosts (thanks @dxprog)
+	- Added the option to choose between imgur album types (RES-style, or reddit's new built in one)
+	- Added soundbutt to the list of domains that toolbarFix fixes
+	- Removed Vine from the inline image viewer since Reddit added native support
+	- Clicking labels now selects radio buttons (thanks @ericsubach)
+	- Update to Tinycon to support Retina (thanks @ggPeti)
+	- ESC key will now dismiss tips dialogs (thanks @mc10)
+	- Updates to Never Ending Reddit to better handle future changes on reddit's side (thanks @andytuba)
+	- Added subredditInfo hover to subreddit links in comments (thanks @gavin19)
+	- Added an option to ditch the "view images" tab but still use image viewer (thanks @theinternetftw)
+	- Fixed voting on parent hovers (thanks @mc10)
+	
+-Bug fixes
+
+	- Fixes for Safari 6.1 and 7 (thanks @phriedrich)
+	- Fixed an issue with passwords with certain characters failing (thanks @aidanhs)
+	- Fixed fadeDelay in subredditInfo popup (thanks, @gavin19)
+	- Fixed inability to unsave already-saved links (thanks, @mc10)
+	- Fixed an issue where clicking expanded images wouldn't open them in a new tab
+	- Fixed an issue where certain dashboard widgets would fail to hide the scrim after loading
+	- Fix to imgur.com/gallery links bringing up the wrong image due to a change at imgur
+	- Lots of code cleanup / organization (HUGE thanks to @mc10 for a ton of housekeeping, also thanks as always to @andytuba, @gavin19)
+	- Fix for subreddit info popup not working on Never Ending Reddit pages (thanks @andytuba)
+	- Fix steam domain detection (thanks @themichaellai)
+	- Fixed an issue with CSS causing problems on other sites in Firefox (NetVibes, Yahoo Mail)
+	- Fixed a few issues with mediacru.sh support (thanks @sircmpwn)
+	- Updated chrome API use (replaced deprecated calls) (thanks @chizu)
+	- Fixed a bug that could stop RES from functioning with the userbar collapsed
+	- All sorts of other small, misc bug fixes, thanks to any/all of the above who contributed...
+
+---------------------------
+
+changelog v4.3.0.4
+
+-New features
+
+	- added subscribe button to subreddit hover popup
+	- added m.imgur.com support
+	
+-Bug fixes
+
+	- various fixes for Firefox 23+
+	- fixed a flickr expando issue
+	- CSS fix for hidden userbar toggle
+	- fixed an issue with hyphens in usernames
+	- fixed an issue with +shortcut button not appearing at /subreddits (formerly /reddits)
+	- various code cleanup / housekeeping (thanks @mc10!)
+	- Yet more Opera 12.* specific tweaks to regain functionality in Opera
+
+------------------------------
+
+changelog v4.3.0.3
+
+-New features
+
+	- added keyboard shortcuts to increase/decrease image size (- and =, with shift for fine-tuning)
+	- added support for gfycat.com
+	- enhancements and fixes to macro dropdown - thanks @andytuba
+	- hovering over a gallery expando now shows the # of images - thanks @andytuba
+	- subreddit hovers now also work in comment links
+	- added new username coloring features to the userHighlight module - thanks @andytuba
+	- updated bitcointip module - thanks @skeeto
+	- now showing +shortcut button on reddit.com/reddits - thanks @mc10
+	- background overlay for big editor for easier reading - thanks @Zren
+	- better preloading of images from galleries (reduces memory usage) - thanks @MikeRogers0
+	- various additional night mode fixes/tweaks - thanks @gavin19
+	
+-Bug fixes
+
+	- fix for broken colorBlindFriendly option
+	- fix for broken "night mode whitelist" - clicking "use subreddit style" while using night mode on subs that aren't yet specified as night mode friendly should now stick upon page reloads
+	- various additional night mode CSS tweaks/improvements
+	- additional CSS fix for expando buttons on comments page
+	- various Opera 12.* specific tweaks to regain functionality in Opera
+	- settings console search also returns module names - thanks @andytuba
+	- dropbox links no longer tagged as users - thanks @gavin19
+	- various username hider fixes - thanks @gavin19
+	- never ending reddit was reloading if you refreshed even if you were only on the first page (#page=1)
+	- a great deal of housekeeping niceties thanks to @mc10
+
+
+-------------------------------
+
+changelog v4.3.0.1
+
+-Bug fixes
+
+	- fix for broken colorBlindFriendly option
+	- fix for broken "night mode whitelist" - clicking "use subreddit style" while using night mode on subs that aren't yet specified as night mode friendly should now stick upon page reloads
+	- various additional night mode CSS tweaks/improvements
+	- additional CSS fix for expando buttons on comments page
+
+--------------------------------
+
+changelog v4.3.0
+
+-New features
+
+	- support for 3 new image hosts: mediacru.sh, memegen.com and makeameme.org
+	- support for vine videos
+	- "Show parent comment" shows the whole thread (as much as is visible)
+	- Moderators can add custom "filter by title" tabs to subreddit
+	- Moderators can specify whether or not their subreddit is "night mode compatible" (RES will disable the stylesheet in subreddits that don't do this)
+	- Keyboard console support for navigating to multi-reddits
+	- Keyboard console support for toggling nsfw filter
+	- Keyboard console command to go to user profile
+	- Opera 15+ support (with caveats: there are known issues with Account Switcher, adding image links to history, etc - Opera hasn't entirely replicated Chrome here so some things will need work)
+	- Post filter notification
+	- Option to disable image captions on expando
+	- Comment tools, big editor, live preview broken into separate modules
+	- Custom keyboard shortcuts for macros when editing post/comments
+	- /u/username autocompletion when editing post/comments
+	- Custom categories for macros with separate dropdown menus
+	- Notifications sometimes include links into settings
+	- Never-Ending Reddit more user-friendly when paused
+	- User info popup's "give gold" link opens "gild comment" box on comment page
+	- Superscript comment editor tool improved
+	- Re-order rows in settings console tables with drag-and-drop
+	- "My subreddits" dropdown loads quicker (and caches properly)
+	- clicking outside of the "My Subreddits" dropdown now closes it
+	- Pink user tag color
+
+-Bug fixes
+
+	- Significant updates to Never Ending Reddit's feature that attempts you to scroll you back where you were upon return from the back button. It's never going to be perfect (for crazy technical reasons), but in my testing thus far, this has worked pretty well.
+	- Settings console subreddit autocomplete dropdown visible again
+	- account switcher works for passwords containing +
+	- "limit search to subreddit" works in multi-reddits
+	- hiding posts works in multi-subreddits
+	- image gallery expandos don't show the wrong caption if the image lacks a caption
+	- tumblr expando in comments toggles properly instead of opening several times
+	- flickr expando improvements
+	- Comment "show source" loading/toggling fixed
+	- Excessive saves to localStorage less excessive (how often, not how much)
+	- Night mode CSS tidied up, added multireddit support
+	- "hide child comments" works when "gift gold" is open
+	- Keyboard navigation's 'go to link' only observes real links
+	- Username hider doesn't break mod pages
+	- Private mode respected in Firefox
+	- Upvote/downvote count fixed on /r/subreddit/comments page
+	- fixed broken memegen support, livememe support
+	- fix for broken selftext toggles
+	- fix for wrong-sized tumblr and other buttons on certain pages
+	- all sorts of other small bugs/quirks
+	
+------------------------------------------------
+
+changelog v4.2.0.1
+
+-Bug fixes
+
+	- Temporarily removed bitcointip module due to server load issues
+	- Tweaks to night mode
+	- added back option for users to have border on keyhighlight
+	- Fixed a bug where "use subreddit stylesheet" option showed up in places it shouldn't.
+
+
+------------------------------------------------
+
+changelog v4.2.0
 
 -New features
 
