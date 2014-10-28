@@ -142,7 +142,7 @@ To load the extension into your browser, see the ["Building development versions
 
 ### Using Gulp for building RES
 
-RES can also be built with gulp, an advanced build manager that can do much more than grunt, and much easier.
+RES can also be built with gulp, an advanced build manager similar to grunt
 
 You will need [node.js](http://node.js.org) installed on your system
 
@@ -156,7 +156,7 @@ Usage:
 
     gulp
 
-by itself will build all current browser versions of RES and will place them into a new folder called dist. This will also clear out the dist folder if it already exists
+by itself will build all current browser versions of RES and will place them into a new folder called dist. If the dist directory already exists, it will clear out anything inside it.
 
     gulp clean
 
