@@ -340,6 +340,27 @@
 			</div>
 		</script>
 		<!--/GiphyUI-->
+		<!--Twitch-->
+		<script id="TwitchUI" type="application/x-template">
+			<div class="res-player video flash twitch">
+				<object id='clip_embed_player_flash'
+					type='application/x-shockwave-flash'
+					data='//www-cdn.jtvnw.net/swflibs/TwitchPlayer.swf'
+					bgcolor='#000000'
+					height='{{ height }}'
+					width='{{ width }}'>
+					<param name='movie'
+						value='//www-cdn.jtvnw.net/swflibs/TwitchPlayer.swf' />
+					<param name='allowNetworking'
+						value='internal' />
+					<param name='allowFullScreen'
+						value='true' />
+					<param name='flashvars'
+						value='channel={{ channel }}&auto_play={{ autoplay }}&chapter_id={{ chapter }}' />
+				</object>
+			</div>
+		</script>
+		<!--/Twitch-->
 
 
 		<div id="searchResultOptionHtml" type="application/x-template">
