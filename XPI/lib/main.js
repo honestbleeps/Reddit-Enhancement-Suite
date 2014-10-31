@@ -233,7 +233,7 @@ pageMod.PageMod({
 		});
 		worker.on('message', function(data) {
 			let request = data,
-				inBackground = prefs.getBoolPref('browser.tabs.loadInBackground') || true,
+				inBackground = prefs.getBoolPref('browser.tabs.loadInBackground'),
 				isPrivate, thisLinkURL;
 
 			switch (request.requestType) {
@@ -314,7 +314,6 @@ pageMod.PageMod({
 					worker.postMessage({status: 'success'});
 					break;
 				case 'keyboardNav':
-					inBackground = (request.button === 1);
 					isPrivate = priv.isPrivate(windows.activeWindow);
 
 					// handle requests from keyboardNav module
