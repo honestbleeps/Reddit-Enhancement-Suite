@@ -45,7 +45,7 @@ In order to build the extension, the files from `lib/` must be replicated (eithe
 
 ##### Top level files & folders
 
-  - `README.md` – YOU ARE HERE, unless you're browing on GitHub
+  - `README.md` – YOU ARE HERE, unless you're browsing on GitHub
   - `changelog.txt` – self-explanatory
   - `makelinks.sh` – script to generate hard links
   - `Gruntfile.js`, `package.json` – used for alternative build scripts
@@ -87,7 +87,7 @@ NOTE: An XPI is a Firefox add-on, which is compiled using the [Add-on SDK](https
 
 ##### OperaBlink files
 
-  - `background.js` – the "background page" for RES, necessary for Chrome extensions
+  - `background.js` – the "background page" for RES, necessary for Opera extensions
   - `manifest.json` – the project manifest
   - `icon.png`, `icon48.png`, `icon128.png` – icons!
 
@@ -138,4 +138,4 @@ Once done, you can build the extension by running `grunt`.
 
 For developing, run `grunt` followed by the name of the browser you wish to develop on, such as `grunt chrome` for Chrome or `grunt firefox` for Firefox. Once run, grunt will start a watch task which will instantly copy any changes made in the `lib/` directory over to the given browser's extension folder. You will need to stop and start grunt if you add any additional files.
 
-To load the extension into your browser, see the "Building development versions of the extension" section above.
+To load the extension into your browser, see the ["Building development versions of the extension" section](#building-development-versions-of-the-extension) above.
