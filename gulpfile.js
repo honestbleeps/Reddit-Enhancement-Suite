@@ -19,428 +19,428 @@ gulp.task('default', ['clean'], function() {
 
 //Browser task runs subtasks
 
-gulp.task('chrome', ['chromecss', 'chromejs', 'chromeimg', 'chromemove']);
+gulp.task('chrome', ['chrome-css', 'chrome-js', 'chrome-img', 'chrome-move']);
 
-gulp.task('safari', ['safaricss', 'safarijs', 'safariimg', 'safarimove']);
+gulp.task('safari', ['safari-css', 'safari-js', 'safari-img', 'safari-move']);
 
-gulp.task('firefox', ['firefoxcss', 'firefoxjs', 'firefoximg', 'firefoxmove']);
+gulp.task('firefox', ['firefox-css', 'firefox-js', 'firefox-img', 'firefox-move']);
 
-gulp.task('oblink', ['oblinkcss', 'oblinkjs', 'oblinkimg', 'oblinkmove']);
+gulp.task('oblink', ['oblink-css', 'oblink-js', 'oblink-img', 'oblink-move']);
 
-gulp.task('opera', ['operacss', 'operajs', 'operaimg', 'operamove']);
+gulp.task('opera', ['opera-css', 'opera-js', 'opera-img', 'opera-move']);
 
 //Chrome subtasks. They run subsubtasks
 
-gulp.task('chromemove', ['chromemove1', 'chromemove2', 'chromemove3', 'chromemove4']);
+gulp.task('chrome-move', ['chrome-move-1', 'chrome-move-2', 'chrome-move-3', 'chrome-move-4']);
 
-gulp.task('chromecss', ['modulecsschrome', 'corecsschrome', 'vendorcsschrome']);
+gulp.task('chrome-css', ['module-css-chrome', 'core-css-chrome', 'vendor-css-chrome']);
 
-gulp.task('chromejs', ['libjschrome', 'chromejschrome', 'vendorjschrome', 'corejschrome', 'modulesjschrome']);
+gulp.task('chrome-js', ['lib-js-chrome', 'chrome-js-chrome', 'vendor-js-chrome', 'core-js-chrome', 'modules-js-chrome']);
 
-gulp.task('chromeimg', ['rootimageschrome', 'imagesimageschrome']);
+gulp.task('chrome-img', ['root-images-chrome', 'images-images-chrome']);
 
 //Safari subtasks
 
-gulp.task('safaricss', ['modulecsssafari', 'corecsssafari', 'vendorcsssafari']);
+gulp.task('safari-css', ['module-css-safari', 'core-css-safari', 'vendor-css-safari']);
 
-gulp.task('safarijs', ['libjssafari', 'safarijssafari', 'vendorjssafari', 'corejssafari', 'modulesjssafari']);
+gulp.task('safari-js', ['lib-js-safari', 'safari-js-safari', 'vendor-js-safari', 'core-js-safari', 'modules-js-safari']);
 
-gulp.task('safariimg', ['rootimagessafari']);
+gulp.task('safari-img', ['root-images-safari']);
 
-gulp.task('safarimove', ['safarimove1', 'safarimove2', 'safarimove3', 'safarimove4']);
+gulp.task('safari-move', ['safari-move-1', 'safari-move-2', 'safari-move-3', 'safari-move-4']);
 
 //Firefox subtasks
 
-gulp.task('firefoxcss', ['modulecssfirefox', 'corecssfirefox', 'vendorcssfirefox']);
+gulp.task('firefox-css', ['module-css-firefox', 'core-css-firefox', 'vendor-css-firefox']);
 
-gulp.task('firefoxjs', ['modulesjsfirefox', 'corejsfirefox', 'vendorjsfirefox', 'datajsfirefox', 'libjsfirefox2', 'libjsfirefox']);
+gulp.task('firefox-js', ['modules-js-firefox', 'core-js-firefox', 'vendor-js-firefox', 'data-js-firefox', 'lib-js-firefox-2', 'lib-js-firefox']);
 
-gulp.task('firefoximg', ['rootimagesfirefox']);
+gulp.task('firefox-img', ['root-images-firefox']);
 
-gulp.task('firefoxmove', ['firefoxmove1', 'firefoxmove2']);
+gulp.task('firefox-move', ['firefox-move-1', 'firefox-move-2']);
 
 //OperaBlink subtasks
 
-gulp.task('oblinkcss', ['modulecssoblink', 'corecssoblink', 'vendorcssoblink']);
+gulp.task('oblink-css', ['module-css-oblink', 'core-css-oblink', 'vendor-css-oblink']);
 
-gulp.task('oblinkjs', ['libjsoblink', 'vendorjsoblink', 'corejsoblink', 'modulesjsoblink', 'oblinkjsoblink']);
+gulp.task('oblink-js', ['lib-js-oblink', 'vendor-js-oblink', 'core-js-oblink', 'modules-js-oblink', 'oblink-js-oblink']);
 
-gulp.task('oblinkimg', ['rootimagesoblink', 'imagesimagesoblink']);
+gulp.task('oblink-img', ['root-images-oblink', 'images-images-oblink']);
 
-gulp.task('oblinkmove', ['oblinkmove1', 'oblinkmove2', 'oblinkmove3']);
+gulp.task('oblink-move', ['oblink-move-1', 'oblink-move-2', 'oblink-move-3']);
 
 //Opera subtasks
 
-gulp.task('operacss', ['modulecssopera', 'corecssopera', 'vendorcssopera']);
+gulp.task('opera-css', ['module-css-opera', 'core-css-opera', 'vendor-css-opera']);
 
-gulp.task('operajs', ['libjsopera', 'vendorjsopera', 'corejsopera', 'modulesjsopera', 'operajsopera', 'includesjsopera']);
+gulp.task('opera-js', ['lib-js-opera', 'vendor-js-opera', 'core-js-opera', 'modules-js-opera', 'opera-js-opera', 'includes-js-opera']);
 
-gulp.task('operaimg', ['rootimagesopera']);
+gulp.task('opera-img', ['root-images-opera']);
 
-gulp.task('operamove', ['operamove1', 'operamove2', 'operamove3', 'operamove4']);
+gulp.task('opera-move', ['opera-move-1', 'opera-move-2', 'opera-move-3', 'opera-move-4']);
 
 //This kills the CPU
 
-gulp.task('zipall', ['chromezip', 'safarizip', 'firefoxzip', 'oblinkzip', 'operazip']);
+gulp.task('zipall', ['chrome-zip', 'safari-zip', 'firefox-zip', 'oblink-zip', 'opera-zip']);
 
 //Chrome Low-Level Tasks
 
-gulp.task('modulecsschrome', function() {
+gulp.task('module-css-chrome', function() {
 	return gulp.src('lib/modules/*.css')
    	 	.pipe(minifycss())
    		.pipe(gulp.dest('dist/chrome/modules'))
 });
 
-gulp.task('corecsschrome', function() {
+gulp.task('core-css-chrome', function() {
 	return gulp.src('lib/core/*.css')
    	 	.pipe(minifycss())
    		.pipe(gulp.dest('dist/chrome/core'))
 });
 
-gulp.task('vendorcsschrome', function() {
+gulp.task('vendor-css-chrome', function() {
 	return gulp.src('lib/vendor/*.css')
    	 	.pipe(minifycss())
    		.pipe(gulp.dest('dist/chrome/vendor'))
 });
 
-gulp.task('libjschrome', function() {
+gulp.task('lib-js-chrome', function() {
 	return gulp.src('lib/*.js')
 		.pipe(gulp.dest('dist/chrome'))
 });
 
-gulp.task('chromejschrome', function() { //loltaskname
+gulp.task('chrome-js-chrome', function() { //loltaskname
 	return gulp.src('Chrome/*.js')
 		.pipe(gulp.dest('dist/chrome'))
 });
 
-gulp.task('vendorjschrome', function() {
+gulp.task('vendor-js-chrome', function() {
 	return gulp.src('lib/vendor/*.js')
 		.pipe(gulp.dest('dist/chrome/vendor'))
 });
 
-gulp.task('corejschrome', function() {
+gulp.task('core-js-chrome', function() {
 	return gulp.src('lib/core/*.js')
 		.pipe(gulp.dest('dist/chrome/core'))
 });
 
-gulp.task('modulesjschrome', function() {
+gulp.task('modules-js-chrome', function() {
 	return gulp.src('lib/modules/*.js')
 		.pipe(gulp.dest('dist/chrome/modules'))
 });
 
-gulp.task('rootimageschrome', function() {
+gulp.task('root-images-chrome', function() {
   return gulp.src('Chrome/*.png')
     .pipe(imagemin({ optimizationLevel: 5, progressive: true, interlaced: true }))
     .pipe(gulp.dest('dist/chrome'))
 });
 
-gulp.task('imagesimageschrome', function() { //yo dog
+gulp.task('images-images-chrome', function() { //yo dog
   return gulp.src('Chrome/images/*.png')
     .pipe(imagemin({ optimizationLevel: 5, progressive: true, interlaced: true }))
     .pipe(gulp.dest('dist/chrome/images'))
 });
 
-gulp.task('chromemove1', function() { //move other stuff that doesn't fit elsewhere
+gulp.task('chrome-move-1', function() { //move other stuff that doesn't fit elsewhere
 	return gulp.src('lib/core/*.html')
 		.pipe(gulp.dest('dist/chrome/core'))
 });
 
-gulp.task('chromemove2', function() { 
+gulp.task('chrome-move-2', function() { 
 	return gulp.src('Chrome/*.html')
 		.pipe(gulp.dest('dist/chrome'))
 });
 
-gulp.task('chromemove3', function() { 
+gulp.task('chrome-move-3', function() { 
 	return gulp.src('package.json')
 		.pipe(gulp.dest('dist/chrome'))
 });
 
-gulp.task('chromemove4', function() { 
+gulp.task('chrome-move-4', function() { 
 	return gulp.src('Chrome/manifest.json')
 		.pipe(gulp.dest('dist/chrome'))
 });
 
 // Safari Low-Level Tasks
 
-gulp.task('modulecsssafari', function() {
+gulp.task('module-css-safari', function() {
 	return gulp.src('lib/modules/*.css')
    	 	.pipe(minifycss())
    		.pipe(gulp.dest('dist/safari/modules'))
 });
 
-gulp.task('corecsssafari', function() {
+gulp.task('core-css-safari', function() {
 	return gulp.src('lib/core/*.css')
    	 	.pipe(minifycss())
    		.pipe(gulp.dest('dist/safari/core'))
 });
 
-gulp.task('vendorcsssafari', function() {
+gulp.task('vendor-css-safari', function() {
 	return gulp.src('lib/vendor/*.css')
    	 	.pipe(minifycss())
    		.pipe(gulp.dest('dist/safari/vendor'))
 });
 
-gulp.task('libjssafari', function() {
+gulp.task('lib-js-safari', function() {
 	return gulp.src('lib/*.js')
 		.pipe(gulp.dest('dist/safari'))
 });
 
-gulp.task('safarijssafari', function() {
+gulp.task('safari-js-safari', function() {
 	return gulp.src('RES.safariextension/*.js')
 		.pipe(gulp.dest('dist/safari'))
 });
 
-gulp.task('vendorjssafari', function() {
+gulp.task('vendor-js-safari', function() {
 	return gulp.src('lib/vendor/*.js')
 		.pipe(gulp.dest('dist/safari/vendor'))
 });
 
-gulp.task('corejssafari', function() {
+gulp.task('core-js-safari', function() {
 	return gulp.src('lib/core/*.js')
 		.pipe(gulp.dest('dist/safari/core'))
 });
 
-gulp.task('modulesjssafari', function() {
+gulp.task('modules-js-safari', function() {
 	return gulp.src('lib/modules/*.js')
 		.pipe(gulp.dest('dist/safari/modules'))
 });
 
-gulp.task('rootimagessafari', function() {
+gulp.task('root-images-safari', function() {
   return gulp.src('RES.safariextension/*.png')
     .pipe(imagemin({ optimizationLevel: 5, progressive: true, interlaced: true }))
     .pipe(gulp.dest('dist/safari'))
 });
 
-gulp.task('safarimove1', function() { //move other stuff that doesn't fit elsewhere
+gulp.task('safari-move-1', function() { //move other stuff that doesn't fit elsewhere
 	return gulp.src('lib/core/*.html')
 		.pipe(gulp.dest('dist/safari/core'))
 });
 
-gulp.task('safarimove2', function() { 
+gulp.task('safari-move-2', function() { 
 	return gulp.src('RES.safariextension/*.html')
 		.pipe(gulp.dest('dist/safari'))
 });
 
-gulp.task('safarimove3', function() { 
+gulp.task('safari-move-3', function() { 
 	return gulp.src('package.json')
 		.pipe(gulp.dest('dist/safari'))
 });
 
-gulp.task('safarimove4', function() { 
+gulp.task('safari-move-4', function() { 
 	return gulp.src('RES.safariextension/info.plist')
 		.pipe(gulp.dest('dist/safari'))
 });
 
 //Firefox Low-Level Tasks
 
-gulp.task('modulecssfirefox', function() {
+gulp.task('module-css-firefox', function() {
 	return gulp.src('lib/modules/*.css')
    	 	.pipe(minifycss())
    		.pipe(gulp.dest('dist/firefox/modules'))
 });
 
-gulp.task('corecssfirefox', function() {
+gulp.task('core-css-firefox', function() {
 	return gulp.src('lib/core/*.css')
    	 	.pipe(minifycss())
    		.pipe(gulp.dest('dist/firefox/core'))
 });
 
-gulp.task('vendorcssfirefox', function() {
+gulp.task('vendor-css-firefox', function() {
 	return gulp.src('lib/vendor/*.css')
    	 	.pipe(minifycss())
    		.pipe(gulp.dest('dist/firefox/vendor'))
 });
 
-gulp.task('libjsfirefox', function() {
+gulp.task('lib-js-firefox', function() {
 	return gulp.src('lib/*.js')
 		.pipe(gulp.dest('dist/firefox'))
 });
 
-gulp.task('libjsfirefox2', function() {
+gulp.task('lib-js-firefox-2', function() {
 	return gulp.src('XPI/lib/*.js')
 		.pipe(gulp.dest('dist/firefox/lib'))
 });
 
-gulp.task('datajsfirefox', function() {
+gulp.task('data-js-firefox', function() {
 	return gulp.src('XPI/data/*.js')
 		.pipe(gulp.dest('dist/firefox/data'))
 });
 
-gulp.task('vendorjsfirefox', function() {
+gulp.task('vendor-js-firefox', function() {
 	return gulp.src('lib/vendor/*.js')
 		.pipe(gulp.dest('dist/firefox/vendor'))
 });
 
-gulp.task('corejsfirefox', function() {
+gulp.task('core-js-firefox', function() {
 	return gulp.src('lib/core/*.js')
 		.pipe(gulp.dest('dist/firefox/core'))
 });
 
-gulp.task('modulesjsfirefox', function() {
+gulp.task('modules-js-firefox', function() {
 	return gulp.src('lib/modules/*.js')
 		.pipe(gulp.dest('dist/firefox/modules'))
 });
 
-gulp.task('rootimagesfirefox', function() {
+gulp.task('root-images-firefox', function() {
   return gulp.src('*.png')
     .pipe(imagemin({ optimizationLevel: 5, progressive: true, interlaced: true }))
     .pipe(gulp.dest('dist/firefox'))
 });
 
-gulp.task('firefoxmove1', function() { //move other stuff that doesn't fit elsewhere
+gulp.task('firefox-move-1', function() { //move other stuff that doesn't fit elsewhere
 	return gulp.src('lib/core/*.html')
 		.pipe(gulp.dest('dist/firefox/core'))
 });
 
-gulp.task('firefoxmove2', function() { 
+gulp.task('firefox-move-2', function() { 
 	return gulp.src('XPI/package.json')
 		.pipe(gulp.dest('dist/firefox'))
 });
 
 //OperaBlink Low-Level Tasks
 
-gulp.task('modulecssoblink', function() {
+gulp.task('module-css-oblink', function() {
 	return gulp.src('lib/modules/*.css')
    	 	.pipe(minifycss())
    		.pipe(gulp.dest('dist/oblink/modules'))
 });
 
-gulp.task('corecssoblink', function() {
+gulp.task('core-css-oblink', function() {
 	return gulp.src('lib/core/*.css')
    	 	.pipe(minifycss())
    		.pipe(gulp.dest('dist/oblink/core'))
 });
 
-gulp.task('vendorcssoblink', function() {
+gulp.task('vendor-css-oblink', function() {
 	return gulp.src('lib/vendor/*.css')
    	 	.pipe(minifycss())
    		.pipe(gulp.dest('dist/oblink/vendor'))
 });
 
-gulp.task('libjsoblink', function() {
+gulp.task('lib-js-oblink', function() {
 	return gulp.src('lib/*.js')
 		.pipe(gulp.dest('dist/oblink'))
 });
 
-gulp.task('vendorjsoblink', function() {
+gulp.task('vendor-js-oblink', function() {
 	return gulp.src('lib/vendor/*.js')
 		.pipe(gulp.dest('dist/oblink/vendor'))
 });
 
-gulp.task('corejsoblink', function() {
+gulp.task('core-js-oblink', function() {
 	return gulp.src('lib/core/*.js')
 		.pipe(gulp.dest('dist/oblink/core'))
 });
 
-gulp.task('modulesjsoblink', function() {
+gulp.task('modules-js-oblink', function() {
 	return gulp.src('lib/modules/*.js')
 		.pipe(gulp.dest('dist/oblink/modules'))
 });
 
-gulp.task('oblinkjsoblink', function() {
+gulp.task('oblink-js-oblink', function() {
 	return gulp.src('OperaBlink/*.js')
 		.pipe(gulp.dest('dist/oblink'))
 });
 
-gulp.task('rootimagesoblink', function() {
+gulp.task('root-images-oblink', function() {
   return gulp.src('OperaBlink/*.png')
     .pipe(imagemin({ optimizationLevel: 5, progressive: true, interlaced: true }))
     .pipe(gulp.dest('dist/oblink'))
 });
 
-gulp.task('imagesimagesoblink', function() { 
+gulp.task('images-images-oblink', function() { 
   return gulp.src('OperaBlink/images/*.png')
     .pipe(imagemin({ optimizationLevel: 5, progressive: true, interlaced: true }))
     .pipe(gulp.dest('dist/oblink/images'))
 });
 
-gulp.task('oblinkmove1', function() { //move other stuff that doesn't fit elsewhere
+gulp.task('oblink-move-1', function() { //move other stuff that doesn't fit elsewhere
 	return gulp.src('lib/core/*.html')
 		.pipe(gulp.dest('dist/oblink/core'))
 });
 
-gulp.task('oblinkmove2', function() {
+gulp.task('oblink-move-2', function() {
 	return gulp.src('OperaBlink/*.json')
 		.pipe(gulp.dest('dist/oblink'))
 });
 
-gulp.task('oblinkmove3', function() { 
+gulp.task('oblink-move-3', function() { 
 	return gulp.src('package.json')
 		.pipe(gulp.dest('dist/oblink'))
 });
 
 //Opera Low-Level Tasks (Old)
 
-gulp.task('modulecssopera', function() {
+gulp.task('module-css-opera', function() {
 	return gulp.src('lib/modules/*.css')
    	 	.pipe(minifycss())
    		.pipe(gulp.dest('dist/opera/modules'))
 });
 
-gulp.task('corecssopera', function() {
+gulp.task('core-css-opera', function() {
 	return gulp.src('lib/core/*.css')
    	 	.pipe(minifycss())
    		.pipe(gulp.dest('dist/opera/core'))
 });
 
-gulp.task('vendorcssopera', function() {
+gulp.task('vendor-css-opera', function() {
 	return gulp.src('lib/vendor/*.css')
    	 	.pipe(minifycss())
    		.pipe(gulp.dest('dist/opera/vendor'))
 });
 
-gulp.task('libjsopera', function() {
+gulp.task('lib-js-opera', function() {
 	return gulp.src('lib/*.js')
 		.pipe(gulp.dest('dist/opera'))
 });
 
-gulp.task('vendorjsopera', function() {
+gulp.task('vendor-js-opera', function() {
 	return gulp.src('lib/vendor/*.js')
 		.pipe(gulp.dest('dist/opera/vendor'))
 });
 
-gulp.task('corejsopera', function() {
+gulp.task('core-js-opera', function() {
 	return gulp.src('lib/core/*.js')
 		.pipe(gulp.dest('dist/opera/core'))
 });
 
-gulp.task('modulesjsopera', function() {
+gulp.task('modules-js-opera', function() {
 	return gulp.src('lib/modules/*.js')
 		.pipe(gulp.dest('dist/opera/modules'))
 });
 
-gulp.task('operajsopera', function() {
+gulp.task('opera-js-opera', function() {
 	return gulp.src('Opera/*.js')
 		.pipe(gulp.dest('dist/opera'))
 });
 
-gulp.task('includesjsopera', function() {
+gulp.task('includes-js-opera', function() {
 	return gulp.src('Opera/includes/*.js')
 		.pipe(gulp.dest('dist/opera/includes'))
 });
 
-gulp.task('rootimagesopera', function() {
+gulp.task('root-images-opera', function() {
   return gulp.src('OperaBlink/*.gif')
     .pipe(imagemin({ optimizationLevel: 5, progressive: true, interlaced: true }))
     .pipe(gulp.dest('dist/opera'))
 });
 
-gulp.task('operamove1', function() { //move other stuff that doesn't fit elsewhere
+gulp.task('opera-move-1', function() { //move other stuff that doesn't fit elsewhere
 	return gulp.src('lib/core/*.html')
 		.pipe(gulp.dest('dist/opera/core'))
 });
 
-gulp.task('operamove2', function() {
+gulp.task('opera-move-2', function() {
 	return gulp.src('Opera/*.html')
 		.pipe(gulp.dest('dist/opera'))
 });
 
-gulp.task('operamove3', function() {
+gulp.task('opera-move-3', function() {
 	return gulp.src('Opera/*.xml')
 		.pipe(gulp.dest('dist/opera'))
 });
 
-gulp.task('operamove4', function() {
+gulp.task('opera-move-4', function() {
 	return gulp.src('package.json')
 		.pipe(gulp.dest('dist/opera'))
 });
@@ -448,31 +448,31 @@ gulp.task('operamove4', function() {
 
 //Zip Tasks
 
-gulp.task('chromezip', function() {
+gulp.task('chrome-zip', function() {
 	return gulp.src('dist/chrome/**/*')
 		.pipe(zip('chrome.zip'))
 		.pipe(gulp.dest('../../../var/www/html/res/dl'))
 });
 
-gulp.task('safarizip', function() {
+gulp.task('safari-zip', function() {
 	return gulp.src('dist/safari/**/*')
 		.pipe(zip('safari.safariextension.zip'))
 		.pipe(gulp.dest('../../../var/www/html/res/dl'))
 });
 
-gulp.task('firefoxzip', function() {
+gulp.task('firefox-zip', function() {
 	return gulp.src('dist/firefox/**/*')
 		.pipe(zip('firefox.zip'))
 		.pipe(gulp.dest('../../../var/www/html/res/dl'))
 });
 
-gulp.task('oblinkzip', function() {
+gulp.task('oblink-zip', function() {
 	return gulp.src('dist/oblink/**/*')
 		.pipe(zip('operablink.zip'))
 		.pipe(gulp.dest('../../../var/www/html/res/dl'))
 });
 
-gulp.task('operazip', function() {
+gulp.task('opera-zip', function() {
 	return gulp.src('dist/opera/**/*')
 		.pipe(zip('opera.zip'))
 		.pipe(gulp.dest('../../../var/www/html/res/dl'))
