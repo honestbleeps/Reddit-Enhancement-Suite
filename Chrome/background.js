@@ -108,6 +108,7 @@ chrome.runtime.onMessage.addListener(
 					chrome.cookies = chrome.experimental.cookies;
 				}
 				chrome.cookies.remove({'url': request.host, 'name': request.cname});
+				sendResponse({removedCookie: request.cname});
 				break;
 			case 'ajax':
 				if (request.aggressiveCache || XHRCache.forceCache) {
