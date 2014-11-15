@@ -92,6 +92,7 @@ window.addEventListener('DOMContentLoaded', function() {
 		'modules/usernameHider.js',
 		'modules/voteEnhancements.js',
 		'modules/modhelper.js',
+		'modules/quickMessage.js',
 
 		'core/init.js',
 
