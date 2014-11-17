@@ -928,7 +928,8 @@
 
 .res-nightmode input[type=text],
 .res-nightmode .token-input-list-facebook,
-.res-nightmode #quickMessage textarea {
+.res-nightmode #quickMessage textarea,
+.res-nightmode #quickMessage select {
 	background-color: #aaa;
 }
 
