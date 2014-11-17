@@ -182,6 +182,39 @@
 		</div>
 		<!-- /RESConsole -->
 
+		<!-- Quick Message Dialog -->
+		<style type="text/css" id="quickMessageCSS">
+			#quickMessage { display: none; position: fixed; top: 0; bottom: 0; left: 0; right: 0; background-color: rgba(0, 0, 0, 0.74902); z-index: 2000; }
+			#quickMessageDialog { position: fixed; top: 20%; left: 25%; width: 50%; z-index: 100001 }
+			#quickMessageDialog label { margin-top: 5px; clear: both; float: left; }
+			#quickMessageDialog input[type=text], #quickMessageDialog select, #quickMessageDialog textarea { margin-top: 5px; width: calc(100% - 70px); float: right; border: 1px solid #c7c7c7; border-radius: 3px; margin-bottom: 6px; }
+			#quickMessageDialog textarea { resize: vertical; min-height: 100px; }
+			#quickMessageDialog input[type=button] { cursor: pointer; position: absolute; right: 16px; bottom: 16px; padding: 3px 5px; font-size: 12px; color: #fff; border: 1px solid #636363; border-radius: 3px; background-color: #5cc410; }
+			#quickMessageDialog .clear { margin-bottom: 10px; }
+		</style>
+		<div id="quickMessage">
+			<div id="quickMessageDialog" class="RESDialogSmall">
+				<h3>Send Message</h3>
+				<div id="quickMessageDialogContents" class="RESDialogContents clear">
+					<form name="quickMessageDialogForm" action="">
+						<label for="quickMessageDialogFrom">From</label>
+						<select id="quickMessageDialogFrom"></select>
+						<label for="quickMessageDialogTo">To</label>
+						<input type="text" id="quickMessageDialogTo" value=""/>
+						<label for="quickMessageDialogSubject">Subject</label>
+						<input type="text" id="quickMessageDialogSubject" value=""/>
+						<label for="quickMessageDialogBody">Body</label>
+						<textarea id="quickMessageDialogBody"></textarea>
+						<div id="quickMessageDialogClose" class="RESCloseButton">×</div>
+						<div class="clear"></div>
+						<a href="/message/compose" class="fullMessageForm blueButton">open full message form</a>
+						<input type="button" id="quickMessageDialogSend" value="✓ send message"/>
+					</form>
+				</div>
+			</div>
+		</div>
+		<!-- /Quick Message Dialog -->
+
 		<!--VideoUI-->
 		<!--Adapted from MediaCrush video player-->
 		<script id="VideoUI" type="application/x-template">
