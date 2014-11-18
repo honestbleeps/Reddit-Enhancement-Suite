@@ -24,7 +24,7 @@ try {
 	credentials = require('../../github-credentials.json');
 } catch(e) {
 	/*
-	console.warn("Could not load credentials");
+	console.warn('Could not load credentials');
 	console.warn(e);
 	process.exit(1);
 	*/

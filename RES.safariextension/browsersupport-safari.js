@@ -61,7 +61,7 @@ function safariMessageHandler(msgEvent) {
 // Safari has a ridiculous bug that causes it to lose access to safari.self.tab if you click the back button.
 // this stupid one liner fixes that.
 window.onunload = function() {};
-safari.self.addEventListener("message", safariMessageHandler, false);
+safari.self.addEventListener('message', safariMessageHandler, false);
 
 
 BrowserStrategy.ajax = function(obj) {
@@ -82,7 +82,7 @@ BrowserStrategy.ajax = function(obj) {
 		obj = JSON.parse(JSON.stringify(obj));
 		// I hope you put on a bib for that. Safari won't let you pass a javascript object to the background page anymore.
 
-		safari.self.tab.dispatchMessage("ajax", obj);
+		safari.self.tab.dispatchMessage('ajax', obj);
 		xhrQueue.count++;
 	} else {
 		var request = new XMLHttpRequest();
@@ -187,7 +187,7 @@ BrowserStrategy.openInNewWindow = function (thisHREF) {
 		requestType: 'keyboardNav',
 		linkURL: thisHREF
 	};
-	safari.self.tab.dispatchMessage("keyboardNav", thisJSON);
+	safari.self.tab.dispatchMessage('keyboardNav', thisJSON);
 };
 
 BrowserStrategy.openLinkInNewTab = function (thisHREF) {
@@ -195,7 +195,7 @@ BrowserStrategy.openLinkInNewTab = function (thisHREF) {
 		requestType: 'openLinkInNewTab',
 		linkURL: thisHREF
 	};
-	safari.self.tab.dispatchMessage("openLinkInNewTab", thisJSON);
+	safari.self.tab.dispatchMessage('openLinkInNewTab', thisJSON);
 };
 
 
