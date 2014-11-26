@@ -1248,6 +1248,22 @@ html.res-nightmode .multi-details .subreddits .remove-sr {
 	background-image: url(https://a.thumbs.redditmedia.com/xxM_X1OL6Lt4I4GC9F1SbNIcbeoZPXOmPIo6P1slaP4.png)
 }
 
+/* Profile page server info */
+
+.res-nightmode .server-seconds {
+background-color: #73797F;
+border-color: #2E4962;
+color: #D3D4D7;
+}
+
+.res-nightmode .server-seconds em {
+color: #ECECEC;
+}
+
+.res-nightmode .server-seconds-public.bottom {
+color: #D3D4D7;
+}
+
 /* Gold page */
 .res-nightmode .letter-body p,
 .res-nightmode #gold-letter h1,
