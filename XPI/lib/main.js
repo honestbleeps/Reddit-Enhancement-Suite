@@ -244,6 +244,7 @@ pageMod.PageMod({
 					break;
 				case 'deleteCookie':
 					cookieManager.remove('.reddit.com', request.cname, '/', false);
+					worker.postMessage({removedCookie: request.cname});
 					break;
 				case 'ajax':
 					let responseObj = {
