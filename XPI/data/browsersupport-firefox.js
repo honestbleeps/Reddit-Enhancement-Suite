@@ -201,3 +201,23 @@ BrowserStrategy.openLinkInNewTab = function(thisHREF) {
 BrowserStrategy.sendMessage = function(thisJSON) {
 	self.postMessage(thisJSON);
 };
+
+BrowserStrategy.deleteCookie = function(cookieName) {
+	var deferred = new $.Deferred();
+
+	var requestJSON = {
+		requestType: 'deleteCookie',
+		host: location.protocol + '//' + location.host,
+		cname: cookieName
+	};
+	
+	self.on('message', function receiveMessage(message) {
+		if (message && message.removedCookie && message.removedCookie === cookieName) {
+			self.removeListener('message', receiveMessage)
+			deferred.resolve(cookieName);
+		});
+	}
+	self.postMessage(requestJSON);
+
+	return deferred;
+};

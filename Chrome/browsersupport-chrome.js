@@ -145,6 +145,21 @@ BrowserStrategy.sendMessage = function(thisJSON) {
 	chrome.runtime.sendMessage(thisJSON);
 };
 
+BrowserStrategy.deleteCookie = function(cookieName) {
+	var deferred = new $.Deferred();
+
+	var requestJSON = {
+		requestType: 'deleteCookie',
+		host: location.protocol + '//' + location.host,
+		cname: cookieName
+	};
+	chrome.runtime.sendMessage(requestJSON, function(response) {
+		deferred.resolve(cookieName);
+	});
+
+	return deferred;
+};
+
 
 BrowserStrategy.openInNewWindow = function(thisHREF) {
 	var thisJSON = {
