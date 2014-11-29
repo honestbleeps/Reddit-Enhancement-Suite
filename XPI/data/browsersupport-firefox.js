@@ -216,7 +216,7 @@ BrowserStrategy.deleteCookie = function(cookieName) {
 			self.removeListener('message', receiveMessage);
 			deferred.resolve(cookieName);
 		}
-	}
+	});
 	self.postMessage(requestJSON);
 
 	return deferred;
