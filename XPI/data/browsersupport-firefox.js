@@ -213,9 +213,9 @@ BrowserStrategy.deleteCookie = function(cookieName) {
 	
 	self.on('message', function receiveMessage(message) {
 		if (message && message.removedCookie && message.removedCookie === cookieName) {
-			self.removeListener('message', receiveMessage)
+			self.removeListener('message', receiveMessage);
 			deferred.resolve(cookieName);
-		});
+		}
 	}
 	self.postMessage(requestJSON);
 
