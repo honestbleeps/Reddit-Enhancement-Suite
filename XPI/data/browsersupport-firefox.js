@@ -43,6 +43,29 @@ self.on('message', function(msgEvent) {
 		case 'localStorage':
 			RESStorage.setItem(msgEvent.itemName, msgEvent.itemValue, true);
 			break;
+		case 'subredditStyle':
+			if (!modules['styleTweaks'].styleToggleCheckbox) {
+				return;
+			}
+			if (msgEvent.message === 'refreshState') {
+				var toggle = modules['styleTweaks'].styleToggleCheckbox.checked,
+					currentSubreddit = RESUtils.currentSubreddit();
+
+				if (currentSubreddit) {
+					RESUtils.sendMessage({
+						requestType: 'pageAction',
+						action: 'stateChange',
+						visible: toggle
+					});
+				}
+			} else {
+				var toggle = !modules['styleTweaks'].styleToggleCheckbox.checked,
+					currentSubreddit = RESUtils.currentSubreddit();
+				if (currentSubreddit) {
+					modules['styleTweaks'].toggleSubredditStyle(toggle, RESUtils.currentSubreddit());
+				}
+			}
+			break;
 		default:
 			// console.log('unknown event type in self.on');
 			// console.log(msgEvent.toSource());
@@ -98,6 +121,11 @@ BrowserStrategy.ajax = function(obj) {
 				request.setRequestHeader(name, obj.headers[name]);
 			}
 		}
+
+		if (obj.isLogin) {
+			request.withCredentials = true;
+		}
+
 		request.send(obj.data);
 		return request;
 	}
@@ -172,4 +200,24 @@ BrowserStrategy.openLinkInNewTab = function(thisHREF) {
 
 BrowserStrategy.sendMessage = function(thisJSON) {
 	self.postMessage(thisJSON);
+};
+
+BrowserStrategy.deleteCookie = function(cookieName) {
+	var deferred = new $.Deferred();
+
+	var requestJSON = {
+		requestType: 'deleteCookie',
+		host: location.protocol + '//' + location.host,
+		cname: cookieName
+	};
+	
+	self.on('message', function receiveMessage(message) {
+		if (message && message.removedCookie && message.removedCookie === cookieName) {
+			self.removeListener('message', receiveMessage);
+			deferred.resolve(cookieName);
+		}
+	});
+	self.postMessage(requestJSON);
+
+	return deferred;
 };

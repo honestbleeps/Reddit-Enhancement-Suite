@@ -36,8 +36,10 @@ window.addEventListener('DOMContentLoaded', function() {
 		'core/console.js',
 		'vendor/favico.js',
 		'vendor/gfycat.js',
+		'vendor/gifyoutube.js',
+		'vendor/imgurgifv.js',
 		'vendor/guiders-1.2.8.js',
-		'vendor/hogan-2.0.0.js',
+		'vendor/hogan-3.0.2.js',
 		'vendor/HTMLPasteurizer.js',
 		'vendor/konami.js',
 		'vendor/mediacrush.js',
@@ -46,10 +48,10 @@ window.addEventListener('DOMContentLoaded', function() {
 		'core/storage.js',
 		'core/template.js',
 
+		'modules/submitIssue.js',
 		'modules/about.js',
 		'modules/accountSwitcher.js',
 		'modules/betteReddit.js',
-		'modules/bitcointip.js',
 		'modules/commandLine.js',
 		'modules/commentHidePersistor.js',
 		'modules/commentNavigator.js',
@@ -70,7 +72,7 @@ window.addEventListener('DOMContentLoaded', function() {
 		'modules/notifications.js',
 		'modules/RESTips.js',
 		'modules/saveComments.js',
-		"modules/searchHelper.js",
+		'modules/searchHelper.js',
 		'modules/settingsNavigation.js',
 		'modules/showImages.js',
 		'modules/showKarma.js',
@@ -82,12 +84,15 @@ window.addEventListener('DOMContentLoaded', function() {
 		'modules/subredditInfo.js',
 		'modules/subredditManager.js',
 		'modules/subredditTagger.js',
+		'modules/tableTools.js',
 		'modules/troubleshooter.js',
 		'modules/userHighlight.js',
 		'modules/userTagger.js',
 		'modules/userbarHider.js',
 		'modules/usernameHider.js',
 		'modules/voteEnhancements.js',
+		'modules/modhelper.js',
+		'modules/quickMessage.js',
 
 		'modules/upload.js',
 		'modules/hosts/mediacrush.js',
@@ -118,7 +123,7 @@ window.addEventListener('DOMContentLoaded', function() {
 		fr.onload = function() {
 			data[i] = fr.result;
 			loaded++;
-			if (loaded == files.length) {
+			if (loaded === files.length) {
 				run(data.join(';'));
 			}
 		}

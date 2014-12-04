@@ -2,7 +2,7 @@
 
 Reddit Enhancement Suite (RES) is a suite of modules that enhance your Reddit browsing experience.
 
-For general documentation, visit the [Reddit Enhancement Suite Wiki](http://redditenhancementsuite.com:8080/wiki/).
+For general documentation, visit the [Reddit Enhancement Suite Wiki](https://www.reddit.com/r/Enhancement/wiki/index).
 
 ## Introduction
 
@@ -36,6 +36,8 @@ Thinking about contributing to RES? Awesome! We just ask that you follow a few s
   - please, when possible, place `var` declarations all together at the top of a function
   - please consider installing a tool like [JSHint](http://www.jshint.com/) or [JSLint](http://www.jslint.com/) that will help enforce good JavaScript best practices!
 
+4. If you decide to add support for another media hosting site to RES, please be sure that they support [CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). This way, the sites do not need to be added as additional permissions, which has caused [headaches in the past](https://www.reddit.com/r/Enhancement/comments/1jskcm/announcement_chrome_users_did_your_res_turn_off/).
+
 
 ## Project structure
 
@@ -43,12 +45,14 @@ In order to build the extension, the files from `lib/` must be replicated (eithe
 
 ##### Top level files & folders
 
-  - `README.md` – YOU ARE HERE, unless you're browing on GitHub
+  - `README.md` – YOU ARE HERE, unless you're browsing on GitHub
   - `changelog.txt` – self-explanatory
   - `makelinks.sh` – script to generate hard links
   - `Gruntfile.js`, `package.json` – used for alternative build scripts
-  - `lib/` – core RES code
+  - `lib/` – all RES code
+  - `lib/core/` – core RES code
   - `lib/modules/` – RES modules
+  - `lib/vendor/` – RES vendor libraries
   - `Chrome/` – Chrome-specific RES files
   - `Opera/` – Opera-specific RES files
   - `OperaBlink/` – Opera Blink (new Opera)-specific RES files
@@ -61,7 +65,6 @@ In order to build the extension, the files from `lib/` must be replicated (eithe
   - `background.js` – the "background page" for RES, necessary for Chrome extensions
   - `manifest.json` – the project manifest
   - `icon.png`, `icon48.png`, `icon128.png` – icons!
-  - `jquery-1.10.2.min.map` – Chrome moans if this file doesn't exist
 
 ##### Opera files
 
@@ -84,7 +87,7 @@ NOTE: An XPI is a Firefox add-on, which is compiled using the [Add-on SDK](https
 
 ##### OperaBlink files
 
-  - `background.js` – the "background page" for RES, necessary for Chrome extensions
+  - `background.js` – the "background page" for RES, necessary for Opera extensions
   - `manifest.json` – the project manifest
   - `icon.png`, `icon48.png`, `icon128.png` – icons!
 
@@ -135,4 +138,4 @@ Once done, you can build the extension by running `grunt`.
 
 For developing, run `grunt` followed by the name of the browser you wish to develop on, such as `grunt chrome` for Chrome or `grunt firefox` for Firefox. Once run, grunt will start a watch task which will instantly copy any changes made in the `lib/` directory over to the given browser's extension folder. You will need to stop and start grunt if you add any additional files.
 
-To load the extension into your browser, see the "Building development versions of the extension" section above.
+To load the extension into your browser, see the ["Building development versions of the extension" section](#building-development-versions-of-the-extension) above.

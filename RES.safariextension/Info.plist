@@ -5,7 +5,7 @@
 	<key>Author</key>
 	<string>Steve Sobel</string>
 	<key>Builder Version</key>
-	<string>9537.77.4</string>
+	<string>9537.78.2</string>
 	<key>CFBundleDisplayName</key>
 	<string>Reddit Enhancement Suite</string>
 	<key>CFBundleIdentifier</key>
@@ -13,9 +13,9 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleShortVersionString</key>
-	<string>4.5.0.2</string>
+	<string>4.5.2</string>
 	<key>CFBundleVersion</key>
-	<string>4.5.0.2</string>
+	<string>4.5.2</string>
 	<key>Chrome</key>
 	<dict>
 		<key>Database Quota</key>
@@ -37,7 +37,7 @@
 				<string>vendor/jquery.tokeninput.js</string>
 				<string>vendor/HTMLPasteurizer.js</string>
 				<string>vendor/snuownd.js</string>
-				<string>vendor/hogan-2.0.0.js</string>
+				<string>vendor/hogan-3.0.2.js</string>
 				<string>core/utils.js</string>
 				<string>browsersupport.js</string>
 				<string>browsersupport-safari.js</string>
@@ -49,7 +49,10 @@
 				<string>vendor/konami.js</string>
 				<string>vendor/mediacrush.js</string>
 				<string>vendor/gfycat.js</string>
+				<string>vendor/gifyoutube.js</string>
+				<string>vendor/imgurgifv.js</string>
 				<string>reddit_enhancement_suite.user.js</string>
+				<string>modules/submitIssue.js</string>
 				<string>modules/betteReddit.js</string>
 				<string>modules/userTagger.js</string>
 				<string>modules/keyboardNav.js</string>
@@ -60,6 +63,7 @@
 				<string>modules/singleClick.js</string>
 				<string>modules/commentPreview.js</string>
 				<string>modules/commentTools.js</string>
+				<string>modules/sourceSnudown.js</string>
 				<string>modules/sortCommentsTemporarily.js</string>
 				<string>modules/usernameHider.js</string>
 				<string>modules/showImages.js</string>
@@ -84,7 +88,6 @@
 				<string>modules/notifications.js</string>
 				<string>modules/subredditInfo.js</string>
 				<string>modules/commentHidePersistor.js</string>
-				<string>modules/bitcointip.js</string>
 				<string>modules/troubleshooter.js</string>
 				<string>modules/localDate.js</string>
 				<string>modules/context.js</string>
@@ -94,6 +97,9 @@
 				<string>modules/voteEnhancements.js</string>
 				<string>modules/upload.js</string>
 				<string>modules/hosts/mediacrush.js</string>
+				<string>modules/tableTools.js</string>
+				<string>modules/modhelper.js</string>
+				<string>modules/quickMessage.js</string>
 				<string>core/init.js</string>
 			</array>
 		</dict>
@@ -110,7 +116,6 @@
 			<array>
 				<string>reddit.com</string>
 				<string>*.reddit.com</string>
-				<string>redditgifts.com</string>
 				<string>api.twitter.com</string>
 				<string>api.imgur.com</string>
 				<string>min.us</string>

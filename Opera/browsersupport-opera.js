@@ -124,6 +124,11 @@ BrowserStrategy.ajax = function(obj) {
 				request.setRequestHeader(name, obj.headers[name]);
 			}
 		}
+
+		if (obj.isLogin) {
+			request.withCredentials = true;
+		}
+
 		request.send(obj.data);
 		return request;
 	}
@@ -149,7 +154,7 @@ BrowserStrategy.storageSetup = function(thisJSON) {
 		fr.readAsText(f);
 	};
 
-	opera.extension.addEventListener("message", operaMessageHandler, false);
+	opera.extension.addEventListener('message', operaMessageHandler, false);
 	// We're already loaded, call the handler immediately
 	opera.extension.postMessage(JSON.stringify(thisJSON));
 };
@@ -166,7 +171,7 @@ BrowserStrategy.RESInitReadyCheck = function(RESInit) {
 				var fr = new FileReader();
 				fr.onload = function() {
 					// Load the library
-					var styleTag = document.createElement("style");
+					var styleTag = document.createElement('style');
 					styleTag.textContent = fr.result;
 					document.body.appendChild(styleTag);
 				};
@@ -506,5 +511,3 @@ BrowserStrategy.openLinkInNewTab = function (thisHREF) {
 };
 
 BrowserStrategy.addURLToHistory = BrowserStrategy._addURLToHistory;
-
-BrowserStrategy.supportsThirdPartyCookies = function() { return false; };

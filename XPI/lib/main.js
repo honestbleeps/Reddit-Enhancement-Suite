@@ -3,34 +3,39 @@
 
 // suppress annoying strict warnings that cfx overrides and turns on
 // comment this line out for releases.
-// require("sdk/preferences/service").set("javascript.options.strict", false);
+// require('sdk/preferences/service').set('javascript.options.strict', false);
 
 // Import the APIs we need.
-let pageMod = require("sdk/page-mod");
-let Request = require("sdk/request").Request;
-let self = require("sdk/self");
-let tabs = require("sdk/tabs");
-let ss = require("sdk/simple-storage");
-let priv = require("sdk/private-browsing");
-let windows = require("sdk/windows").browserWindows;
+let pageMod = require('sdk/page-mod');
+let Request = require('sdk/request').Request;
+let self = require('sdk/self');
+let tabs = require('sdk/tabs');
+let ss = require('sdk/simple-storage');
+let priv = require('sdk/private-browsing');
+let windows = require('sdk/windows').browserWindows;
+let viewFor = require('sdk/view/core').viewFor;
 
 let localStorage = ss.storage;
 
+
+let { ToggleButton } = require('sdk/ui/button/toggle'),
+	styleSheetButton;
+
 // require chrome allows us to use XPCOM objects...
-const {Cc,Ci,Cu,components} = require("chrome");
-let historyService = Cc["@mozilla.org/browser/history;1"].getService(Ci.mozIAsyncHistory);
+const {Cc,Ci,Cu,components} = require('chrome');
+let historyService = Cc['@mozilla.org/browser/history;1'].getService(Ci.mozIAsyncHistory);
 
 
 // Cookie manager for new API login
-let cookieManager = Cc["@mozilla.org/cookiemanager;1"].getService().QueryInterface(Ci.nsICookieManager2);
-components.utils.import("resource://gre/modules/NetUtil.jsm");
+let cookieManager = Cc['@mozilla.org/cookiemanager;1'].getService().QueryInterface(Ci.nsICookieManager2);
+components.utils.import('resource://gre/modules/NetUtil.jsm');
 
 // Preferences
-let prefs = Cc["@mozilla.org/preferences-service;1"].getService(Ci.nsIPrefBranch);
+let prefs = Cc['@mozilla.org/preferences-service;1'].getService(Ci.nsIPrefBranch);
 
 // this function takes in a string (and optional charset, paseURI) and creates an nsURI object, which is required by historyService.addURI...
 function makeURI(aURL, aOriginCharset, aBaseURI) {
-	let ioService = Cc["@mozilla.org/network/io-service;1"].getService(Ci.nsIIOService);
+	let ioService = Cc['@mozilla.org/network/io-service;1'].getService(Ci.nsIIOService);
 	return ioService.newURI(aURL, aOriginCharset, aBaseURI);
 }
 
@@ -59,11 +64,11 @@ let XHRCache = {
 	count: 0,
 	check: function(key) {
 		if (key in this.entries) {
-//			console.log("hit");
+//			console.log('hit');
 			this.entries[key].hits++;
 			return this.entries[key].data;
 		} else {
-//			console.log("miss");
+//			console.log('miss');
 			return null;
 		}
 	},
@@ -71,7 +76,7 @@ let XHRCache = {
 		if (key in this.entries) {
 			return;
 		} else {
-//			console.log("add");
+//			console.log('add');
 			this.entries[key] = {data: value, timestamp: Date.now(), hits: 1};
 			this.count++;
 		}
@@ -101,25 +106,44 @@ let XHRCache = {
 			delete this.entries[bottom[i].key];
 			this.count--;
 		}
-//		console.log("prune");
+//		console.log('prune');
 	},
 	clear: function() {
 		this.entries = {};
 		this.count = 0;
 	}
 };
-tabs.on('activate', function(tab) {
+tabs.on('activate', function() {
 	// find this worker...
-	for (let i in workers) {
-		if ((typeof workers[i].tab !== 'undefined') && (tab.title === workers[i].tab.title)) {
-			workers[i].postMessage({ name: "getLocalStorage", message: localStorage });
-		}
+	let worker = getActiveWorker();
+	if (worker) {
+		worker.postMessage({ name: 'getLocalStorage', message: localStorage });
+		worker.postMessage({ name: 'subredditStyle', message: 'refreshState' });
 	}
 });
 
+function getActiveWorker() {
+	let tab = tabs.activeTab;
+	for (let i in workers) {
+		if ((typeof workers[i].tab !== 'undefined') && (tab.title === workers[i].tab.title)) {
+			return workers[i];
+		}
+	}
+	return null;
+}
+
+function openTab(options) {
+	let nsWindow = viewFor(tabs.activeTab.window);
+	if ('TreeStyleTabService' in nsWindow) {
+		let nsTab = viewFor(tabs.activeTab);
+		nsWindow.TreeStyleTabService.readyToOpenChildTab(nsTab);
+	}
+
+	tabs.open(options);
+}
 
 pageMod.PageMod({
-	include: ["*.reddit.com"],
+	include: ['*.reddit.com'],
 	contentScriptWhen: 'start',
 	contentScriptFile: [
 		self.data.url('vendor/jquery-1.11.1.min.js'),
@@ -141,8 +165,11 @@ pageMod.PageMod({
 		self.data.url('vendor/konami.js'),
 		self.data.url('vendor/mediacrush.js'),
 		self.data.url('vendor/gfycat.js'),
-		self.data.url('vendor/hogan-2.0.0.js'),
+		self.data.url('vendor/gifyoutube.js'),
+		self.data.url('vendor/imgurgifv.js'),
+		self.data.url('vendor/hogan-3.0.2.js'),
 		self.data.url('reddit_enhancement_suite.user.js'),
+		self.data.url('modules/submitIssue.js'),
 		self.data.url('modules/betteReddit.js'),
 		self.data.url('modules/userTagger.js'),
 		self.data.url('modules/keyboardNav.js'),
@@ -153,6 +180,7 @@ pageMod.PageMod({
 		self.data.url('modules/singleClick.js'),
 		self.data.url('modules/commentPreview.js'),
 		self.data.url('modules/commentTools.js'),
+		self.data.url('modules/sourceSnudown.js'),
 		self.data.url('modules/sortCommentsTemporarily.js'),
 		self.data.url('modules/usernameHider.js'),
 		self.data.url('modules/showImages.js'),
@@ -177,7 +205,6 @@ pageMod.PageMod({
 		self.data.url('modules/notifications.js'),
 		self.data.url('modules/subredditInfo.js'),
 		self.data.url('modules/commentHidePersistor.js'),
-		self.data.url('modules/bitcointip.js'),
 		self.data.url('modules/troubleshooter.js'),
 		self.data.url('modules/localDate.js'),
 		self.data.url('modules/context.js'),
@@ -187,6 +214,9 @@ pageMod.PageMod({
 		self.data.url('modules/voteEnhancements.js'),
 		self.data.url('modules/upload.js'),
 		self.data.url('modules/hosts/mediacrush.js'),
+		self.data.url('modules/tableTools.js'),
+		self.data.url('modules/modhelper.js'),
+		self.data.url('modules/quickMessage.js'),
 		self.data.url('core/init.js')
 	],
 	contentStyleFile: [
@@ -196,7 +226,7 @@ pageMod.PageMod({
 		self.data.url('vendor/players.css'),
 		self.data.url('vendor/guiders.css'),
 		self.data.url('vendor/tokenize.css'),
-		self.data.url("core/batch.css")
+		self.data.url('core/batch.css')
 	],
 	onAttach: function(worker) {
 		// when a tab is activated, repopulate localStorage so that changes propagate across tabs...
@@ -216,6 +246,7 @@ pageMod.PageMod({
 					break;
 				case 'deleteCookie':
 					cookieManager.remove('.reddit.com', request.cname, '/', false);
+					worker.postMessage({removedCookie: request.cname});
 					break;
 				case 'ajax':
 					let responseObj = {
@@ -274,17 +305,17 @@ pageMod.PageMod({
 					if (request.openOrder === 'commentsfirst') {
 						// only open a second tab if the link is different...
 						if (request.linkURL !== request.commentsURL) {
-							tabs.open({url: request.commentsURL, inBackground: inBackground, isPrivate: isPrivate });
+							openTab({url: request.commentsURL, inBackground: inBackground, isPrivate: isPrivate });
 						}
-						tabs.open({url: request.linkURL, inBackground: inBackground, isPrivate: isPrivate });
+						openTab({url: request.linkURL, inBackground: inBackground, isPrivate: isPrivate });
 					} else {
-						tabs.open({url: request.linkURL, inBackground: inBackground, isPrivate: isPrivate });
+						openTab({url: request.linkURL, inBackground: inBackground, isPrivate: isPrivate });
 						// only open a second tab if the link is different...
 						if (request.linkURL !== request.commentsURL) {
-							tabs.open({url: request.commentsURL, inBackground: inBackground, isPrivate: isPrivate });
+							openTab({url: request.commentsURL, inBackground: inBackground, isPrivate: isPrivate });
 						}
 					}
-					worker.postMessage({status: "success"});
+					worker.postMessage({status: 'success'});
 					break;
 				case 'keyboardNav':
 					inBackground = (request.button === 1);
@@ -296,8 +327,8 @@ pageMod.PageMod({
 						thisLinkURL = (thisLinkURL.substring(0, 1) === '/') ? 'http://www.reddit.com' + thisLinkURL : location.href + thisLinkURL;
 					}
 					// Get the selected tab so we can get the index of it.  This allows us to open our new tab as the "next" tab.
-					tabs.open({url: thisLinkURL, inBackground: inBackground, isPrivate: isPrivate });
-					worker.postMessage({status: "success"});
+					openTab({url: thisLinkURL, inBackground: inBackground, isPrivate: isPrivate });
+					worker.postMessage({status: 'success'});
 					break;
 				case 'openLinkInNewTab':
 					inBackground = (request.focus !== true);
@@ -308,8 +339,8 @@ pageMod.PageMod({
 						thisLinkURL = (thisLinkURL.substring(0, 1) === '/') ? 'http://www.reddit.com' + thisLinkURL : location.href + thisLinkURL;
 					}
 					// Get the selected tab so we can get the index of it.  This allows us to open our new tab as the "next" tab.
-					tabs.open({url: thisLinkURL, inBackground: inBackground, isPrivate: isPrivate });
-					worker.postMessage({status: "success"});
+					openTab({url: thisLinkURL, inBackground: inBackground, isPrivate: isPrivate });
+					worker.postMessage({status: 'success'});
 					break;
 				case 'loadTweet':
 					Request({
@@ -357,6 +388,69 @@ pageMod.PageMod({
 							break;
 					}
 					break;
+				case 'pageAction':
+					let onoff = request.visible ? 'on' : 'off';
+					switch (request.action) {
+						case 'show':
+							if (!styleSheetButton) {
+								styleSheetButton = ToggleButton({
+									id: 'res-styletoggle',
+									label: 'toggle subreddit CSS',
+									disabled: false,
+									checked: request.visible,
+									icon: {
+										'16': self.data.url('images/css-' + onoff + '-small.png'),
+										'32': self.data.url('images/css-' + onoff + '.png')
+									},
+									onChange: function(state) {
+										let worker = getActiveWorker();
+										worker.postMessage({
+											name: 'subredditStyle',
+											toggle: state.checked
+										});
+									}
+								});
+							} else {
+								styleSheetButton.state('tab', {
+									label: 'toggle subreddit CSS',
+									icon: {
+										'16': self.data.url('images/css-' + onoff + '-small.png'),
+										'32': self.data.url('images/css-' + onoff + '.png')
+									},
+									disabled: false,
+									checked: request.visible
+								});
+							}
+							break;
+						case 'stateChange':
+							if (styleSheetButton) {
+								styleSheetButton.state('tab', {
+									label: 'toggle subreddit CSS',
+									icon: {
+										'16': self.data.url('images/css-' + onoff + '-small.png'),
+										'32': self.data.url('images/css-' + onoff + '.png')
+									},
+									disabled: false,
+									checked: request.visible
+								});
+							}
+							break;
+						case 'disable':
+							if (styleSheetButton) {
+								styleSheetButton.state('tab', {
+									label: 'toggle subreddit CSS (must be on a subreddit)',
+									disabled: true,
+									checked: true
+								});
+							}
+							break;
+						case 'hide':
+							if (styleSheetButton) {
+								styleSheetButton.destroy();
+							}
+							break;
+					}
+					break;
 				case 'addURLToHistory':
 					isPrivate = priv.isPrivate(windows.activeWindow);
 					if (isPrivate) {
@@ -373,7 +467,7 @@ pageMod.PageMod({
 					});
 					break;
 				default:
-					worker.postMessage({status: "unrecognized request type"});
+					worker.postMessage({status: 'unrecognized request type'});
 					break;
 			}
 		});

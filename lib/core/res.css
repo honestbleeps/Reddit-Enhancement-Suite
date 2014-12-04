@@ -105,7 +105,7 @@ body.res-console-open {
 	display: inline-block;
 	width: 15px;
 	height: 15px;
-	background-image: url('https://s3.amazonaws.com/e.thumbs.redditmedia.com/r22WT2K4sio9Bvev.png');
+	background-image: url('https://s3.amazonaws.com/b.thumbs.redditmedia.com/tBwwK20XXxtpgudWx1L7bDXla-iotv-JA0jgA0Y-FVs.png');
 	background-repeat: no-repeat;
 	background-position: 0 -209px;
 }
@@ -180,13 +180,13 @@ body.res-console-open {
 	height: 22px;
 	background-repeat: no-repeat;
 	background-position: 2px 2px;
-	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAY5JREFUeNpi/P//PwM1ABMDlcDAGHTgwAFxigy6d+8e0507d+p+/PixaseOHf1kGfTw4UPON2/edL9//77R0NDQ7unTp2pbtmzZSpJBp0+fFgZSE7W0tIrevXvHcObMGQYFBQWvs2fPftq+fft6ogwCKlY4d+7cPKBhqX///mXQ0NBgAHqP4erVqyDpX/z8/F0EDQJqNj558uRsOTk5v8+fPzOsX7+eAZTeVFVVGV69etXi4uLSYWVldRxZDyN6ggS6xBZoSLuKioo1yJCXL18yPH78mIGdnZ1BVFQ0w8LCYqOxsfELvGF06tQp9pUrV3rp6elZf/jwgeH58+cMwMBl+PTpEyjQq3R0dFZiMwTDRRMmTFADuuLKr1+/WAUEBMAu+fnzJ8ig7MzMzLk2NjY/iUpHgoKCrmlpaawgNsglnJycDGxsbJHR0dEz8BkCAizInG3btglJSUkxaGtrM+zfvx8UsF5LlizZTkyiRfFaenr6/2vXrlXKyMj8/vfv33VgeG0jNvswDt9iBCDAAGGFwZtPlqrJAAAAAElFTkSuQmCC)
+	background-image: url(https://s3.amazonaws.com/b.thumbs.redditmedia.com/G6qEldT8FQ1NadPj3VnmGR1AWJd9ljDwj7bjVEdB8YI.png)
 }
 .optionsTable .deleteButton {
 	cursor: pointer;
 	width: 16px;
 	height: 16px;
-	background-image: url(data:image/gif;base64,R0lGODlhEAAQAOZOAP///3F6hcopAJMAAP/M//Hz9OTr8ZqksMTL1P8pAP9MDP9sFP+DIP8zAO7x8/D1/LnEz+vx+Flha+Ln7OLm61hhayk0QCo1QMfR2eDo8b/K1M/U2pqiqcfP15WcpcLK05ymsig0P2lyftnf5naBi8XJzZ6lrJGdqmBqdKissYyZpf/+/puotNzk66ayvtbc4rC7x9Xd5n+KlbG7xpiirnJ+ivDz9KKrtrvH1Ojv9ePq8HF8h2x2gvj9/yYyPmRueFxlb4eRm+71+kFLVdrb3c/X4KOnrYGMl3uGke/0+5Sgq1ZfaY6Xn/X4+f///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAEAAE4ALAAAAAAQABAAAAexgE6CggGFAYOIiAEPEREPh4lOhpOUgwEAmJmaABuQAUktMUUYGhAwLiwnKp41REYmHB5MQUcyN0iQTjsAHU05ICM4SjMQJIg8AAgFBgcvE5gUJYgiycsHDisCApjagj/VzAACBATa5AJOKOAHAAMMDOTvA05A6w7tC/kL804V9uIKAipA52QJgA82dNAQRyBBgwYJyjmRgKmHkAztHA4YAJHfEB8hLFxI0W4AACcbnQQCADs=)
+	background-image: url(https://s3.amazonaws.com/b.thumbs.redditmedia.com/BX1peOJ_hUyN59dMoPxxAhfiQzYls_UK5Y7OQG3vJWc.png)
 }
 #openRESPrefs {
 	display: inline-block;
@@ -258,16 +258,16 @@ body.res-console-open {
 	margin-top: 2px;
 	margin-right: 0;
 }
-#RESAdvOptions {
+#RESAllOptions {
 	margin: 0;
 }
-#RESAdvOptionsSpan {
+#RESAllOptionsSpan {
 	float: right;
 	margin-right: 15px;
 	margin-top: 5px;
 	color: #868686;
 }
-#RESAdvOptionsSpan label {
+#RESAllOptionsSpan label {
 	margin-left: 5px;
 }
 #RESConsoleContent.advanced-options-disabled .optionContainer.advanced {
@@ -309,7 +309,7 @@ body.res-console-open {
 	background-color: white !important;
 }
 #RESHelp {
-	background-image: url("https://s3.amazonaws.com/e.thumbs.redditmedia.com/r22WT2K4sio9Bvev.png");
+	background-image: url("https://s3.amazonaws.com/b.thumbs.redditmedia.com/tBwwK20XXxtpgudWx1L7bDXla-iotv-JA0jgA0Y-FVs.png");
 	background-position: -16px -120px;
 	margin-right: 8px;
 	width: 16px;
@@ -533,28 +533,60 @@ p.moduleListing {
 	text-align: center;
 }
 .moduleToggle .toggleOn, .toggleButton .toggleOn {
+	border: 1px solid #636363;
+	border-right: 0px;
+	border-radius: 3px 0 0 3px;
+}
+.moduleToggle .toggleOff, .toggleButton .toggleOff {
+	border: 1px solid #636363;
+	border-left: 0px;
+	border-radius: 0 3px 3px 0;
+}
+.moduleToggle:not(.enabled) .toggleOn, .toggleButton:not(.enabled) .toggleOn {
 	background-color: #ddd;
 	color: #636363;
-	border-left: 1px solid #636363;
-	border-top: 1px solid #636363;
-	border-bottom: 1px solid #636363;
-	border-radius: 3px 0 0 3px;
+}
+.moduleToggle:not(.enabled) .toggleOff, .toggleButton:not(.enabled) .toggleOff {
+	background-color: #d02020;
+	color: #fff;
+	font-weight: bolder;
 }
 .moduleToggle.enabled .toggleOn, .toggleButton.enabled .toggleOn {
 	background-color: #107ac4 ;
 	color: #fff;
+	font-weight: bolder;
 }
 .moduleToggle.enabled .toggleOff, .toggleButton.enabled .toggleOff {
 	background-color: #ddd;
 	color: #636363;
 }
-.moduleToggle .toggleOff, .toggleButton .toggleOff {
-	background-color: #d02020;
-	color: #fff;
-	border-right: 1px solid #636363;
-	border-top: 1px solid #636363;
-	border-bottom: 1px solid #636363;
-	border-radius: 0 3px 3px 0;
+
+.moduleToggle, .toggleButton {
+	position: relative;
+}
+.moduleToggle::before, .toggleButton::before {
+	content: ' ';
+	position: absolute;
+	top: 50%;
+	margin-top: -5px;
+	border: 3px white solid;
+	border-top-color: transparent;
+	border-bottom-color: transparent;
+	border-radius: 5px;
+	opacity: 0.3;
+}
+
+.moduleToggle::before, .toggleButton::before {
+	border-left-width: 0;
+	border-right-width: 5px;
+	left: auto;
+	right: 3px;
+}
+.moduleToggle.enabled::before, .toggleButton.enabled::before {
+	border-left-width: 5px;
+	border-right-width: 0;
+	left: 1px;
+	right: auto;
 }
 .optionContainer {
 	position: relative;
@@ -759,14 +791,17 @@ p.moduleListing {
 #SearchRES-results-container li:hover {
 	background-color: #FAFAFF;
 }
-.SearchRES-result-title {
+.SearchRES-result-header {
 	margin-bottom: 12px;
-	font-weight: bold;
 	color: #666;
+}
+.SearchRES-result-title {
+	font-weight: bold;
 }
 .advanced .SearchRES-result-title {
 	font-style: italic;
 }
+.SearchRES-result-title, .SearchRES-breadcrumb { display: block; }
 .SearchRES-breadcrumb {
 	font-weight: normal;
 	color: #888;
@@ -778,7 +813,7 @@ p.moduleListing {
 	width: 26px;
 	height: 22px;
 	background: no-repeat center center;
-	background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAWCAYAAADeiIy1AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA+5pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOmRjPSJodHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyIgeG1wTU06T3JpZ2luYWxEb2N1bWVudElEPSJ1dWlkOjY1RTYzOTA2ODZDRjExREJBNkUyRDg4N0NFQUNCNDA3IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkUwRjM3M0QxMDY5NTExRTI5OUZEQTZGODg4RDc1ODdCIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkUwRjM3M0QwMDY5NTExRTI5OUZEQTZGODg4RDc1ODdCIiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCBDUzYgKE1hY2ludG9zaCkiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDowMTgwMTE3NDA3MjA2ODExODA4M0ZFMkJBM0M1RUU2NSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDowNjgwMTE3NDA3MjA2ODExODA4M0U3NkRBMDNEMDVDMSIvPiA8ZGM6dGl0bGU+IDxyZGY6QWx0PiA8cmRmOmxpIHhtbDpsYW5nPSJ4LWRlZmF1bHQiPmdseXBoaWNvbnM8L3JkZjpsaT4gPC9yZGY6QWx0PiA8L2RjOnRpdGxlPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pn00ay4AAAEISURBVHjavJWBDYQgDEXhcgMwwm2gIzgCIzjCjeAIjsAIN8KN4Ai6wW3AtTm4EChYkdjkm2javLa2IKy1olZgL9CD5XsShI8PSF8B8pqvAqEWUJ8FYemglQhEmfg/gA0uhvLHVo5EUtmAf3ZgCoNB74xvLkEVgnwlJtOep8vSVihM9veRAKiDFdhCK/VdECal9JBONLSkIhzVBpWUW4cT1giSDEMMmqP+GjdxA2OPiuMdgxb3bQozOr2wBMhSGTFAppQYBZoqDtWR4ZuA1MFromf60gt7AKZyp0oo6UD4ImuWEJYbB6Dbi28BYsXfQJsLMBUQH7Nx/HWDU4B3le9cfCWtHAjqK8AAypyhqqqagq4AAAAASUVORK5CYII=");
+	background-image: url(https://s3.amazonaws.com/b.thumbs.redditmedia.com/bQYQXsuPzDmLh8iW7Nnfhq0zBczl5V6ek9Oi17rZ9mE.png);
 	display: none;
 }
 #SearchRES-results li:hover .SearchRES-result-copybutton { display: block; }
@@ -803,11 +838,11 @@ p.moduleListing {
 	border: 1px #c9def2 solid;
 	border-radius: 3px;
 	background: transparent center center no-repeat;
-	background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAEJGlDQ1BJQ0MgUHJvZmlsZQAAOBGFVd9v21QUPolvUqQWPyBYR4eKxa9VU1u5GxqtxgZJk6XtShal6dgqJOQ6N4mpGwfb6baqT3uBNwb8AUDZAw9IPCENBmJ72fbAtElThyqqSUh76MQPISbtBVXhu3ZiJ1PEXPX6yznfOec7517bRD1fabWaGVWIlquunc8klZOnFpSeTYrSs9RLA9Sr6U4tkcvNEi7BFffO6+EdigjL7ZHu/k72I796i9zRiSJPwG4VHX0Z+AxRzNRrtksUvwf7+Gm3BtzzHPDTNgQCqwKXfZwSeNHHJz1OIT8JjtAq6xWtCLwGPLzYZi+3YV8DGMiT4VVuG7oiZpGzrZJhcs/hL49xtzH/Dy6bdfTsXYNY+5yluWO4D4neK/ZUvok/17X0HPBLsF+vuUlhfwX4j/rSfAJ4H1H0qZJ9dN7nR19frRTeBt4Fe9FwpwtN+2p1MXscGLHR9SXrmMgjONd1ZxKzpBeA71b4tNhj6JGoyFNp4GHgwUp9qplfmnFW5oTdy7NamcwCI49kv6fN5IAHgD+0rbyoBc3SOjczohbyS1drbq6pQdqumllRC/0ymTtej8gpbbuVwpQfyw66dqEZyxZKxtHpJn+tZnpnEdrYBbueF9qQn93S7HQGGHnYP7w6L+YGHNtd1FJitqPAR+hERCNOFi1i1alKO6RQnjKUxL1GNjwlMsiEhcPLYTEiT9ISbN15OY/jx4SMshe9LaJRpTvHr3C/ybFYP1PZAfwfYrPsMBtnE6SwN9ib7AhLwTrBDgUKcm06FSrTfSj187xPdVQWOk5Q8vxAfSiIUc7Z7xr6zY/+hpqwSyv0I0/QMTRb7RMgBxNodTfSPqdraz/sDjzKBrv4zu2+a2t0/HHzjd2Lbcc2sG7GtsL42K+xLfxtUgI7YHqKlqHK8HbCCXgjHT1cAdMlDetv4FnQ2lLasaOl6vmB0CMmwT/IPszSueHQqv6i/qluqF+oF9TfO2qEGTumJH0qfSv9KH0nfS/9TIp0Wboi/SRdlb6RLgU5u++9nyXYe69fYRPdil1o1WufNSdTTsp75BfllPy8/LI8G7AUuV8ek6fkvfDsCfbNDP0dvRh0CrNqTbV7LfEEGDQPJQadBtfGVMWEq3QWWdufk6ZSNsjG2PQjp3ZcnOWWing6noonSInvi0/Ex+IzAreevPhe+CawpgP1/pMTMDo64G0sTCXIM+KdOnFWRfQKdJvQzV1+Bt8OokmrdtY2yhVX2a+qrykJfMq4Ml3VR4cVzTQVz+UoNne4vcKLoyS+gyKO6EHe+75Fdt0Mbe5bRIf/wjvrVmhbqBN97RD1vxrahvBOfOYzoosH9bq94uejSOQGkVM6sN/7HelL4t10t9F4gPdVzydEOx83Gv+uNxo7XyL/FtFl8z9ZAHF4bBsrEwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAONJREFUOBGlkz0KwkAQRo2ICt5IsBE9gI1dwAOk8AqCgufQPo2CYGlhIVh4Aj2ClYVg4hvdCclmI8gOPHbn78vsLgnSNK35WN2nWXq9BRoVEwyIj6ANO4ghgbLJHVjM8BM4wwGesIYm2LU1O9ClSCwCzfXZi8gkF9NcSWBB0dVRGBPbOOLOSww4qJA38d3vbanqEabEA5Mbsj4gNH42vvgFxxTIJYpd4AgvcbAVdKDQ8/lKflaz12ds4e+hBxFsIYQ7fM1W/OHPyYktIZuiagLVt9cxgRucNPGvgPZlq/e/4C3wBoAXSrzY2Qd2AAAAAElFTkSuQmCC');
+	background-image: url(https://s3.amazonaws.com/b.thumbs.redditmedia.com/ekcPwlhwTePc_MTv7mbS3lUnYJdH6lZlG77OfcBwXGA.png);
 }
 li:hover > #RESSearchMenuItem {
 	border-color: #369;
-	background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAEJGlDQ1BJQ0MgUHJvZmlsZQAAOBGFVd9v21QUPolvUqQWPyBYR4eKxa9VU1u5GxqtxgZJk6XtShal6dgqJOQ6N4mpGwfb6baqT3uBNwb8AUDZAw9IPCENBmJ72fbAtElThyqqSUh76MQPISbtBVXhu3ZiJ1PEXPX6yznfOec7517bRD1fabWaGVWIlquunc8klZOnFpSeTYrSs9RLA9Sr6U4tkcvNEi7BFffO6+EdigjL7ZHu/k72I796i9zRiSJPwG4VHX0Z+AxRzNRrtksUvwf7+Gm3BtzzHPDTNgQCqwKXfZwSeNHHJz1OIT8JjtAq6xWtCLwGPLzYZi+3YV8DGMiT4VVuG7oiZpGzrZJhcs/hL49xtzH/Dy6bdfTsXYNY+5yluWO4D4neK/ZUvok/17X0HPBLsF+vuUlhfwX4j/rSfAJ4H1H0qZJ9dN7nR19frRTeBt4Fe9FwpwtN+2p1MXscGLHR9SXrmMgjONd1ZxKzpBeA71b4tNhj6JGoyFNp4GHgwUp9qplfmnFW5oTdy7NamcwCI49kv6fN5IAHgD+0rbyoBc3SOjczohbyS1drbq6pQdqumllRC/0ymTtej8gpbbuVwpQfyw66dqEZyxZKxtHpJn+tZnpnEdrYBbueF9qQn93S7HQGGHnYP7w6L+YGHNtd1FJitqPAR+hERCNOFi1i1alKO6RQnjKUxL1GNjwlMsiEhcPLYTEiT9ISbN15OY/jx4SMshe9LaJRpTvHr3C/ybFYP1PZAfwfYrPsMBtnE6SwN9ib7AhLwTrBDgUKcm06FSrTfSj187xPdVQWOk5Q8vxAfSiIUc7Z7xr6zY/+hpqwSyv0I0/QMTRb7RMgBxNodTfSPqdraz/sDjzKBrv4zu2+a2t0/HHzjd2Lbcc2sG7GtsL42K+xLfxtUgI7YHqKlqHK8HbCCXgjHT1cAdMlDetv4FnQ2lLasaOl6vmB0CMmwT/IPszSueHQqv6i/qluqF+oF9TfO2qEGTumJH0qfSv9KH0nfS/9TIp0Wboi/SRdlb6RLgU5u++9nyXYe69fYRPdil1o1WufNSdTTsp75BfllPy8/LI8G7AUuV8ek6fkvfDsCfbNDP0dvRh0CrNqTbV7LfEEGDQPJQadBtfGVMWEq3QWWdufk6ZSNsjG2PQjp3ZcnOWWing6noonSInvi0/Ex+IzAreevPhe+CawpgP1/pMTMDo64G0sTCXIM+KdOnFWRfQKdJvQzV1+Bt8OokmrdtY2yhVX2a+qrykJfMq4Ml3VR4cVzTQVz+UoNne4vcKLoyS+gyKO6EHe+75Fdt0Mbe5bRIf/wjvrVmhbqBN97RD1vxrahvBOfOYzoosH9bq94uejSOQGkVM6sN/7HelL4t10t9F4gPdVzydEOx83Gv+uNxo7XyL/FtFl8z9ZAHF4bBsrEwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAPBJREFUOBGlkTEKAjEQRTciIth4HkvRA9jYCR7AwisICvZiZ6X9NlvYW1gIFp5AT2Eh6PpGMjLuBkUy8JmZ5P+fZOLyPE9iohIjFm20QTV0A+dch/UeqIMtSHnqg1wOmYEFjAkQ8hHswA1sQM3ytC6KWxBlqqM3IUna9GIy1DWbiwYziGdLkJpIQVZclz40REbgnKhMSB/+b+sKSZ8wpnb+9C71FQwsV+uPJ3iBDFFOO4E9uPt+TW6oUHPJwJvINy7BCvTBAohpBpoqfnFt861GOPUmc8vTd7L3O5it3OaCwUHZfxmoyObQN9r9n3W0wRPmWv0jZnGemgAAAABJRU5ErkJggg==');
+	background-image: url(https://s3.amazonaws.com/b.thumbs.redditmedia.com/ekcPwlhwTePc_MTv7mbS3lUnYJdH6lZlG77OfcBwXGA.png);
 }
 #RESSearchMenuItem:hover {
 	background-color: #C8DBEC;
@@ -921,7 +956,7 @@ a.RESNotificationButtonBlue {
 	position: fixed;
 	width: 32px;
 	height: 32px;
-	background-image: url("http://thumbs.reddit.com/t5_2s10b_6.png");
+	background-image: url(https://s3.amazonaws.com/f.thumbs.redditmedia.com/OvX59a7-5YkWrwLw.png);
 	top: -5%;
 	left: -5%;
 	z-index: 999999;
@@ -1084,7 +1119,7 @@ body.RESScrollLock {
 	padding: 5px 3px;
 	background-repeat: no-repeat;
 	background-position: 4px 50%;
-	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAYAAABWdVznAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA/ppVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOmRjPSJodHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyIgeG1wTU06T3JpZ2luYWxEb2N1bWVudElEPSJ1dWlkOjY1RTYzOTA2ODZDRjExREJBNkUyRDg4N0NFQUNCNDA3IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjRGQkU3MTYwRkVBMjExRTFCNkYwODQ2MzkzQkU0QzU4IiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjRGQkU3MTVGRkVBMjExRTFCNkYwODQ2MzkzQkU0QzU4IiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIElsbHVzdHJhdG9yIENTNiAoTWFjaW50b3NoKSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjAxODAxMTc0MDcyMDY4MTE4MDgzRUZFRDQ2NDFEODMyIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjAyODAxMTc0MDcyMDY4MTE4MDgzRTdGNDQzQTE0MUI2Ii8+IDxkYzp0aXRsZT4gPHJkZjpBbHQ+IDxyZGY6bGkgeG1sOmxhbmc9IngtZGVmYXVsdCI+Z2x5cGhpY29uc19oYWxmbGluZ3M8L3JkZjpsaT4gPC9yZGY6QWx0PiA8L2RjOnRpdGxlPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PsexWb8AAACvSURBVHjalFGBDcIgEHxYwAG0naFuwCbtBjIKbgCbsIHO0LhAJ8B788SHGpNecsA9z8M9ZhjOhb5I6/palKZxvERMc9WWWgTao4n1BzIqTqo6r3N/IIFXcANPoH7SIrFNchKVUj6ElwkMVat44L2qDQ9HYOkgrDYI7rrEMd0Ig/dFaV0Wg3f8ha/JmG5i2oHeyqc8VDeiuiCq7nHO3HtwqP6sQtbun2n/w2cTewswAPjfRfYSqgHwAAAAAElFTkSuQmCC);
+	background-image: url(https://b.thumbs.redditmedia.com/KGwj6faDlmPlGvWMZf2i9gn9CpnY__eZlqhdyU8b9gQ.png);
 }
 button.RESBigEditorPop:hover {
 	background-color: #ddd;
@@ -1110,13 +1145,13 @@ img {
 	display: inline-block;
 	float: none;
 }
-.usertext-body .md .expando-button {
+.usertext-body .md .expando-button, .wiki-page .expando-button, .messages-page .expando-button {
 	float: none;
 	display: inline-block;
 	vertical-align: bottom;
 	margin-left: 4px;
 }
-.expando-button.image {
+.expando-button.image, .expando-button.video-muted {
 	vertical-align: top !important;
 	float: left;
 	width: 23px;
@@ -1124,14 +1159,14 @@ img {
 	max-width: 23px;
 	max-height: 23px;
 	display: inline-block;
-	background-image: url('https://s3.amazonaws.com/e.thumbs.redditmedia.com/r22WT2K4sio9Bvev.png');
+	background-image: url('https://s3.amazonaws.com/b.thumbs.redditmedia.com/tBwwK20XXxtpgudWx1L7bDXla-iotv-JA0jgA0Y-FVs.png');
 	margin-right: 6px;
 	cursor: pointer;
 	padding: 0;
 	-webkit-user-select: none;
 	-moz-user-select: none;
 }
-.expando-button.image.commentImg {
+.expando-button.image.commentImg, .expando-button.video-muted.commentImg {
 	float: none;
 	margin-left: 4px;
 }
@@ -1146,6 +1181,10 @@ img {
 .expando-button.image.gallery.collapsedExpando:hover {background-position: 0 -392px; }
 .expando-button.image.gallery.expanded {background-position: 0 -416px; }
 .expando-button.image.gallery.expanded:hover {background-position: 0 -440px; }
+.expando-button.video-muted.collapsed {background-position: 0 -464px; }
+.expando-button.video-muted.collapsed:hover {background-position: 0 -488px; }
+.expando-button.video-muted.expanded {background-position: 0 -512px; }
+.expando-button.video-muted.expanded:hover {background-position: 0 -536px; }
 
 .madeVisible { clear: left; display: block; overflow: hidden; }
 .madeVisible a { display: inline-block; overflow: hidden; }
@@ -1155,7 +1194,7 @@ img {
 .RESdupeimg { color: #000; font-size: 10px;  }
 .RESClear { clear: both; margin-bottom: 10px;  }
 
-.RESGalleryControls a { cursor: pointer; display: inline-block; background-image: url("https://s3.amazonaws.com/e.thumbs.redditmedia.com/r22WT2K4sio9Bvev.png"); width: 16px; height: 16px; margin: 5px; }
+.RESGalleryControls .next, .RESGalleryControls .previous { cursor: pointer; display: inline-block; background-image: url("https://s3.amazonaws.com/b.thumbs.redditmedia.com/tBwwK20XXxtpgudWx1L7bDXla-iotv-JA0jgA0Y-FVs.png"); width: 16px; height: 16px; margin: 5px; }
 .RESGalleryControls span { position: relative; top: -9px; }
 .RESGalleryControls .previous { background-position: 0 -352px; }
 .RESGalleryControls .next { background-position: 16px -352px; }
@@ -1396,7 +1435,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   position: absolute;
   top: 50%;
   left: 50%;
-  margin: -20px 0 0 -20px;
+  margin: -24px 0 0 -24px;
   -webkit-transition: all .75s ease 0s;
   transition: all .75s ease 0s;
   border-radius: 100%;
@@ -1496,6 +1535,81 @@ a spinner with a static ring and no overlay.*/
     to {
         background-position: 39px 0px;
     }
+}
+
+#RESStyleSheetTipPane {
+	display: none;
+	position: relative;
+	border: 1px solid #ddd;
+	margin-bottom: 10px;
+	width: calc(100% - 320px);
+}
+#RESStyleSheetTipPane-header {
+	cursor: pointer;
+	font-size: 20px;
+	padding: 10px;
+	border-bottom: 1px solid #ddd;
+}
+#RESStyleSheetTipPane-header span.details {
+	margin-left: 20px;
+	font-size: 12px;
+	visibility: hidden;
+}
+#RESStyleSheetTipPane-header.minimized span.details {
+	visibility: visible;
+}
+#RESStyleSheetTipPane-contents {
+	display: none; /* hide by default */
+	padding: 10px;
+}
+
+#RESStyleSheetTipPane-contents ul {
+	list-style-type: disc;
+	list-style-position: inside;
+}
+
+/* gifyoutube player */
+.gifyoutube-source {
+	float: left;
+}
+.res-player.gifyoutube .gifyoutube-controls .res-lightweight-player-controls, .res-player.gifyoutube .gifyoutube-source-button {
+	color: #fff;
+	font-size:16px;
+	padding: 5px 10px;
+	cursor: pointer;
+	float: none;
+	margin-right: 0;
+	margin-left: 5px;
+}
+.gifyoutubeCtrlSlower, .gifyoutubeCtrlFaster {
+	border-radius: 3px;
+	background-color: #f0ad4e;
+	border: 1px solid #eea236;
+}
+.res-player.gifyoutube .gifyoutube-source-button {
+	margin-left: 0;
+}
+.gifyoutubeCtrlPause {
+	border-radius: 3px;
+	background-color: #5cb85c;
+	border: 1px solid #4cae4c;
+}
+.gifyoutube-controls {
+	float: right;
+}
+.gifyoutube-source-button {
+	border-radius: 3px;
+	background-color: #5bc0de;
+	border: 1px solid #46b8da;
+}
+
+
+/* imgur gifv player */
+.imgurgifv-brand {
+	float: left;
+}
+.imgurgifv-download {
+	float: right;
 }
 
 /* Compiled SCSS from MediaCrush - https://github.com/MediaCrush/MediaCrush */

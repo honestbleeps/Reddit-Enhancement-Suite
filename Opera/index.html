@@ -3,18 +3,18 @@
 /*
 
 	RES is released under the GPL. However, I do ask a favor (obviously I don't/can't require it, I ask out of courtesy):
-	
+
 	Because RES auto updates and is hosted from a central server, I humbly request that if you intend to distribute your own
 	modified Reddit Enhancement Suite, you name it something else and make it very clear to your users that it's your own
 	branch and isn't related to mine.
-	
-	RES is updated very frequently, and I get lots of tech support questions/requests from people on outdated versions. If 
-	you're distributing RES via your own means, those recipients won't always be on the latest and greatest, which makes 
-	it harder for me to debug things and understand (at least with browsers that auto-update) whether or not people are on 
+
+	RES is updated very frequently, and I get lots of tech support questions/requests from people on outdated versions. If
+	you're distributing RES via your own means, those recipients won't always be on the latest and greatest, which makes
+	it harder for me to debug things and understand (at least with browsers that auto-update) whether or not people are on
 	a current version of RES.
-	
+
 	I can't legally hold you to any of this - I'm just asking out of courtesy.
-	
+
 	Thanks, I appreciate your consideration.  Without further ado, the all-important GPL Statement:
 
     This program is free software: you can redistribute it and/or modify
@@ -41,11 +41,11 @@ var XHRCache = {
 	count: 0,
 	check: function(key) {
 		if (key in this.entries) {
-//			console.count("hit");
+//			console.count('hit');
 			this.entries[key].hits++;
 			return this.entries[key].data;
 		} else {
-//			console.count("miss");
+//			console.count('miss');
 			return null;
 		}
 	},
@@ -53,7 +53,7 @@ var XHRCache = {
 		if (key in this.entries) {
 			return;
 		} else {
-//			console.count("add");
+//			console.count('add');
 			this.entries[key] = {data: value, timestamp: Date.now(), hits: 1};
 			this.count++;
 		}
@@ -83,7 +83,7 @@ var XHRCache = {
 			delete this.entries[bottom[i].key];
 			this.count--;
 		}
-//		console.count("prune");
+//		console.count('prune');
 	},
 	clear: function() {
 		this.entries = {};
@@ -91,7 +91,7 @@ var XHRCache = {
 	}
 };
 
-opera.extension.addEventListener( "message", function( event ) {
+opera.extension.addEventListener( 'message', function( event ) {
 	// get JSON data (from event.data) using the same format used for chrome/safari extensions
 	var request = JSON.parse(event.data),
 		xhr, passBack, button, ls, thisLinkURL;
@@ -114,10 +114,10 @@ opera.extension.addEventListener( "message", function( event ) {
 					request.data = '';
 				}
 				xhr.open(request.method, request.url, true);
-				if (request.method === "POST") {
-					xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-					xhr.setRequestHeader("Content-length", request.data.length);
-					xhr.setRequestHeader("Connection", "close");					
+				if (request.method === 'POST') {
+					xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+					xhr.setRequestHeader('Content-length', request.data.length);
+					xhr.setRequestHeader('Connection', 'close');
 				}
 				xhr.onreadystatechange = function() {
 					if (xhr.readyState === 4) {
@@ -141,7 +141,7 @@ opera.extension.addEventListener( "message", function( event ) {
 						};
 						event.source.postMessage(passBack);
 					}
-				}
+				};
 				xhr.send(request.data);
 				break;
 			case 'singleClick':
@@ -195,7 +195,7 @@ opera.extension.addEventListener( "message", function( event ) {
 				break;
 			case 'compareVersion':
 				xhr = new XMLHttpRequest();
-				xhr.open("GET", request.url, true);
+				xhr.open('GET', request.url, true);
 				xhr.onreadystatechange = function() {
 					if (xhr.readyState === 4) {
 						var resp = JSON.parse(xhr.responseText);
@@ -206,12 +206,12 @@ opera.extension.addEventListener( "message", function( event ) {
 						};
 						event.source.postMessage(passBack);
 					}
-				}
+				};
 				xhr.send();
 				break;
 			case 'loadTweet':
 				xhr = new XMLHttpRequest();
-				xhr.open("GET", request.url, true);
+				xhr.open('GET', request.url, true);
 				xhr.onreadystatechange = function() {
 					if (xhr.readyState === 4) {
 						var resp = JSON.parse(xhr.responseText);
@@ -221,7 +221,7 @@ opera.extension.addEventListener( "message", function( event ) {
 						};
 						event.source.postMessage(passBack);
 					}
-				}
+				};
 				xhr.send();
 				break;
 			case 'getLocalStorage':
@@ -243,7 +243,7 @@ opera.extension.addEventListener( "message", function( event ) {
 				}
 				localStorage.setItem('importedFromForeground',true);
 				ls = {};
-				for (var i = 0, len=localStorage.length; i < len; i++){
+				for (var i = 0, len = localStorage.length; i < len; i++){
 					if (localStorage.key(i)) {
 						ls[localStorage.key(i)] = localStorage.getItem(localStorage.key(i));
 					}
@@ -294,7 +294,7 @@ opera.extension.addEventListener( "message", function( event ) {
 				var priv = thisWin.private;
 				passBack = {
 					msgType: 'addURLToHistory',
-					data: { 
+					data: {
 						url: request.url,
 						isPrivate: priv
 					}

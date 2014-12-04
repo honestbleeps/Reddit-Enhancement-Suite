@@ -33,7 +33,10 @@ chrome.runtime.onMessage.addListener(
 				// TODO: maybe add a type here? right now only reason is for twitter expandos so text is hard coded, etc.
 				// result will just be true/false here. if false, permission was rejected.
 				if (!request.result) {
-					modules['notifications'].showNotification("You clicked 'Deny'. RES needs permission to access the Twitter API at "+request.data.origins[0]+" for twitter expandos to show twitter posts in-line. Be assured RES does not access any of your information on twitter.com - it only accesses the API.", 10);
+					modules['notifications'].showNotification('You clicked "Deny". RES needs permission to access the Twitter API at ' +
+						request.data.origins[0] + ' for twitter expandos to show twitter posts in-line. ' +
+						'Be assured RES does not access any of your information on twitter.com - it only accesses the API.',
+						10);
 					permissionQueue.onloads[request.callbackID](false);
 				} else {
 					permissionQueue.onloads[request.callbackID](true);
@@ -44,7 +47,7 @@ chrome.runtime.onMessage.addListener(
 				modules['styleTweaks'].toggleSubredditStyle(toggle, RESUtils.currentSubreddit());
 				break;
 			default:
-				// sendResponse({status: "unrecognized request type"});
+				// sendResponse({status: 'unrecognized request type'});
 				break;
 		}
 	}
@@ -110,7 +113,7 @@ BrowserStrategy.storageSetup = function(thisJSON) {
 				callback(this.responseText);
 			}
 		};
-		var id = chrome.i18n.getMessage("@@extension_id");
+		var id = chrome.i18n.getMessage('@@extension_id');
 		xhr.open('GET', 'chrome-extension://' + id + '/' + filename);
 		xhr.send();
 	};
@@ -145,6 +148,21 @@ BrowserStrategy.sendMessage = function(thisJSON) {
 	chrome.runtime.sendMessage(thisJSON);
 };
 
+BrowserStrategy.deleteCookie = function(cookieName) {
+	var deferred = new $.Deferred();
+
+	var requestJSON = {
+		requestType: 'deleteCookie',
+		host: location.protocol + '//' + location.host,
+		cname: cookieName
+	};
+	chrome.runtime.sendMessage(requestJSON, function(response) {
+		deferred.resolve(cookieName);
+	});
+
+	return deferred;
+};
+
 
 BrowserStrategy.openInNewWindow = function(thisHREF) {
 	var thisJSON = {
@@ -173,11 +191,3 @@ BrowserStrategy.addURLToHistory = (function() {
 		original(url);
 	};
 })();
-
-BrowserStrategy.supportsThirdPartyCookies = function() {
-	if (chrome.extension.inIncognitoContext) {
-		return false;
-	}
-
-	return true;
-};

@@ -28,6 +28,57 @@
 			</div>
 		</div>
 
+		<!-- Submit issues wizard -->
+		<style type="text/css" id="submitWizardCSS">
+		#submittingToEnhancement { display: none; min-height: 300px; font-size: 14px; line-height: 15px; margin-top: 10px; width: 518px; position: absolute; z-index: 999; } #submittingToEnhancement ol { margin-left: 10px; margin-top: 15px; list-style-type: decimal; } #submittingToEnhancement li { margin-left: 25px; }
+		.submittingToEnhancementButton { border: 1px solid #444; border-radius: 2px; padding: 3px 6px; cursor: pointer; display: inline-block; margin-top: 12px; }
+		#RESBugReport, #RESFeatureRequest { display: none; }
+		#RESSubmitOptions .submittingToEnhancementButton { margin-top: 30px; }
+		</style>
+
+
+		<div id="submitWizard">
+			<h3>Let's talk about Reddit Enhancement Suite</h3>
+			<div class="RESDialogContents">
+				<div id="RESSubmitOptions">
+					What's on your mind?<br>
+					<div id="RESSubmitBug" class="submittingToEnhancementButton" title="Post a problem to /r/RESissues">
+						I'm having issues or found a bug
+					</div><br>
+					<div id="RESSubmitFeatureRequest" class="submittingToEnhancementButton" title="Post a request to /r/Enhancement">I have an idea for a feature</div><br>
+					<div id="RESSubmitOther" class="submittingToEnhancementButton" title="Start a discussion on  /r/Enhancement">I'm not having any problems, but have a question</div>
+				</div>
+				<div id="RESBugReport">
+					Do you need help with RES or want to report a bug?
+					<br>
+					<ol>
+						<li>Try <a href="/r/RESissues/wiki/postanissue">troubleshooting it yourself</a>.</li>
+						<li>Have you <a target="_blank" href="/r/RESissues/search?restrict_sr=on">searched /r/RESIssues</a> to see if someone else has reported it?</li>
+						<li>Check the <a target="_blank" href="/r/Enhancement/wiki/faq">RES FAQ</a> </li>
+						<li>
+							This might already be a known issue:
+							<ul id="RESKnownBugs"><li style="color: red;">Loading...</li></ul>
+						</li>
+					</ol>
+
+					<span id="submittingBug" class="submittingToEnhancementButton">I've checked, double-checked, and still want to post an issue.</span>
+				</div>
+				<div id="RESFeatureRequest">
+					So you want to request a feature. Great! Please just consider the following first:<br>
+					<ol>
+						<li>Have you <a target="_blank" href="/r/Enhancement/search?restrict_sr=on">searched /r/Enhancement</a> to see if someone else has requested it?</li>
+						<li>Would your idea appeal to many redditors? Personal or subreddit-specific requests usually aren't added to RES.</li>
+						<li>See if someone else has already requested this:
+							<ul id="RESKnownFeatureRequests"><li style="color: red;">Loading...</li></ul>
+						</li>
+					</ol>
+					<span id="submittingFeature" class="submittingToEnhancementButton">I still want to submit a feature request!</span>
+				</div>
+			</div>
+
+
+
+		</div>
 
 		<!-- RESConsole -->
 		<div id="contributeRESPanel">
@@ -76,12 +127,13 @@
 				</div>
 
 				<div class="donateOption">
+					<!-- > $10 ID: WDLLZSYL5CPF6 -->
 					<p>PayPal (least preferred, charges fees)</p>
 					<form action="https://www.paypal.com/cgi-bin/webscr" method="post"><input type="hidden" name="cmd" value="_s-xclick"><input type="hidden" name="hosted_button_id" value="S7TAR7QU39H22"><input type="image" src="data:image/gif;base64,R0lGODlhPAAmANUzAICQmUBigDNml/3TiZmqs7+/s9nUws/KuczLv2aIplBthq+zrPLlyfu5RUBunHOQqe/hxr/DvObcxhA/bN/WvyBKc7O6uZ+npoyhr4CZrJmqsk13nzBWeWaIpI+cn4CZq/7gqmB5jHCEk6aytubcxVl/o013nr/Du7O6uFl/of/pwaaytXOQqEBumv7cn/moGDNmmQAzZv/tzAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAEAADMALAAAAAA8ACYAAAb/wJlw9ioaj8ikcslUDofFxsBFrVqv2Kx2Wx00itDXQEYum8/otHqdHoCJY7Z8Tm+/iI26fi//ivmAgWRuLy6Ch3ouRYiMcyqLjZFqkJKVZZSWlZiZkZucjJ4KAaOjABCAEgmqqg8WbAYdHSQjCBEGmxQxursxHIAWMMHCMARrHwICBhgZGRibF7oKBQC7BwcA2AALMgsAF2XTABQZwRgRD8EbMggE7QQGZCnIMgYGEhKbIbrbMrsLvLpEBNB1QMYBXRMgbAjGYF0wBxGGBYsgA1mHM5s46DrlAeGBANhE6AK5T8bAGAAYpJPBgByMVg/aoSOGAJkGjC/MQAC469sB/w8AFIyEhvJfjAoyIkqE4QAeOwIlghHQgOwETjNGeQUoAOEkLwAHYyiooKuADAxLH0gwsFAiAhbIGprBRC1GiAJmyQiN4YFCXbMAFZBJEIwWgjIOmFpgQBiGjBYCTKDBdLKgmQm6KBQgG4OMRoQUyDw8YyBYCQYWEicggezD5JxlEKLxusuXjL0oySAI9uAMg8QSMaBAtuK1GWz8zBwQJQ1b3roVTsmQ0A7emQiqMjxdq0GD3LmwD51MbsnTHqIBPskwr4fshNCf2Nc5wFX9+vD2EcnPr2c/fzpFgPCfIIr8MSAghORxIB9fwLGgHm4IUUQcD7JBSBhSGFKhGSB48QvGE02EKOKISTwRBAA7" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!"><img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1"></form>
 				</div>
 
 				<div class="donateOption">
-					<p>Flattr, GitTip and other options are also available:</p>
+					<p>Flattr, Gratipay and other options are also available:</p>
 
 					<a target="_blank" class="RESDonateButton" href="http://redditenhancementsuite.com/contribute.html">DONATE - THE ULTIMATE UPVOTE</a>
 				</div>
@@ -129,6 +181,39 @@
 			</div>
 		</div>
 		<!-- /RESConsole -->
+
+		<!-- Quick Message Dialog -->
+		<style type="text/css" id="quickMessageCSS">
+			#quickMessage { display: none; position: fixed; top: 0; bottom: 0; left: 0; right: 0; background-color: rgba(0, 0, 0, 0.74902); z-index: 2000; }
+			#quickMessageDialog { position: fixed; top: 20%; left: 25%; width: 50%; z-index: 100001 }
+			#quickMessageDialog label { margin-top: 5px; clear: both; float: left; }
+			#quickMessageDialog input[type=text], #quickMessageDialog select, #quickMessageDialog textarea { margin-top: 5px; width: calc(100% - 70px); float: right; border: 1px solid #c7c7c7; border-radius: 3px; margin-bottom: 6px; }
+			#quickMessageDialog textarea { resize: vertical; min-height: 100px; }
+			#quickMessageDialog input[type=button] { cursor: pointer; position: absolute; right: 16px; bottom: 16px; padding: 3px 5px; font-size: 12px; color: #fff; border: 1px solid #636363; border-radius: 3px; background-color: #5cc410; }
+			#quickMessageDialog .clear { margin-bottom: 10px; }
+		</style>
+		<div id="quickMessage">
+			<div id="quickMessageDialog" class="RESDialogSmall">
+				<h3>Send Message</h3>
+				<div id="quickMessageDialogContents" class="RESDialogContents clear">
+					<form name="quickMessageDialogForm" action="">
+						<label for="quickMessageDialogFrom">From</label>
+						<select id="quickMessageDialogFrom"></select>
+						<label for="quickMessageDialogTo">To</label>
+						<input type="text" id="quickMessageDialogTo" value=""/>
+						<label for="quickMessageDialogSubject">Subject</label>
+						<input type="text" id="quickMessageDialogSubject" value=""/>
+						<label for="quickMessageDialogBody">Body</label>
+						<textarea id="quickMessageDialogBody"></textarea>
+						<div id="quickMessageDialogClose" class="RESCloseButton">×</div>
+						<div class="clear"></div>
+						<input type="button" id="quickMessageDialogSend" value="✓ send message"/>
+						<a href="/message/compose" class="fullMessageForm blueButton">open full message form</a>
+					</form>
+				</div>
+			</div>
+		</div>
+		<!-- /Quick Message Dialog -->
 
 		<!--VideoUI-->
 		<!--Adapted from MediaCrush video player-->
@@ -213,5 +298,104 @@
 			</div>
 		</script>
 		<!--/GfycatUI-->
+		<!--gifyoutubeUI-->
+		<script id="gifyoutubeUI" type="application/x-template">
+			<div class="res-player video gifyoutube">
+				<a class="madeVisible" href="{{ directurl }}" target="_blank">
+				<video autoplay loop muted preload title="Drag to Resize" class="gifyoutubeVid">
+					{{#sources}}
+					<source src="{{ source }}" {{#type}}type="{{ type }}"{{/type}} class="{{ class }}">
+					{{/sources}}
+				</video>
+				</a>
+				<div style="height: 35px;" class="ctrlContainer">
+					<div class="gifyoutube-source">
+						<a target="_blank" class="res-icon res-lightweight-player-controls gifyoutube-source-button">Watch Full Video</a>
+					</div>
+					<div class="gifyoutube-controls">
+						<div class="res-icon res-lightweight-player-controls gifyoutubeCtrlSlower" >&#xf169;</div>
+						<div class="res-icon res-lightweight-player-controls gifyoutubeCtrlPause" style="marginright: 4px;">&#xf16c;</div>
+						<div class="res-icon res-lightweight-player-controls gifyoutubeCtrlFaster" >&#xf16d;</div>
+					</div>
+				</div>
+			</div>
+		</script>
+		<!--/gifyoutubeUI-->
+		<!--imgurgifvUI-->
+		<script id="imgurgifvUI" type="application/x-template">
+			<div class="res-player video imgurgifv">
+				<a class="madeVisible" href="{{ directurl }}" target="_blank">
+				<video autoplay loop muted preload title="Drag to Resize" class="imgurgifvVid">
+					{{#sources}}
+					<source src="{{ source }}" {{#type}}type="{{ type }}"{{/type}} class="{{ class }}">
+					{{/sources}}
+				</video>
+				</a>
+				<div style="height: 35px;" class="ctrlContainer">
+					<div class="imgurgifv-brand">
+						<img src="//i.imgur.com/favicon.ico">
+					</div>
+					<div class="imgurgifv-download">
+						<a href="{{ downloadurl }}">download</a>
+					</div>
+				</div>
+			</div>
+		</script>
+		<!--/imgurgifvUI-->
+		<!--GiphyUI: modified from MediaCrush Player-->
+		<script id="GiphyUI" type="application/x-template">
+			<div class="res-player video giphyres">
+				<a href="{{ giphyUrl }}" target="_blank">
+					<video autoplay loop muted preload class="giphyVid">
+						{{#sources}}
+						<source src="{{ source }}" {{#type}}type="{{ type }}"{{/type}}>
+						{{/sources}}
+					</video>
+				</a>
+				<!--MediaCrush Controls: unused-->
+				<a class="brand" style="display:none"></a>
+				<div class="controls" style="display:none">
+					<a href="#" class="res-icon play-pause pause"></a>
+					<div class="seek">
+						<div class="background"></div>
+						<div class="loading progress"></div>
+						<div class="hidden loaded"></div>
+						<div class="hidden played"></div>
+						<div class="clickable"></div>
+					</div>
+					<div class="right">
+						<span class="toggleable settings">
+							<a href="#" class="loop"></a>
+						</span>
+					</div>
+				</div>
+				<!--/MediaCrush Controls-->
+			</div>
+		</script>
+		<!--/GiphyUI-->
+
+
+		<div id="searchResultOptionHtml" type="application/x-template">
+			<div class="SearchRES-result-header">
+				<span class="SearchRES-result-title">{{title}}</span>
+				<span class="SearchRES-breadcrumb">RES settings console
+					&gt; {{category}}
+					&gt; {{moduleName}} ({{moduleID}})
+					{{#optionKey}} &gt; {{optionKey}}{{/optionKey}}
+				</span>
+			</div>
+			<div class="SearchRES-result-description">
+				{{description}}
+			</div>
+		</div>
+
+
+		<pre id="optionLinkSnudown" type="application/x-template">
+**[{{title}}]({{url}})**
+-- [](#gear)
+[RES settings console]({{settingsUrl}}) > {{category}} > [{{moduleName}}]({{moduleUrl}} "{{moduleID}}") {{#optionKey}} > [{{optionKey}}]({{optionUrl}}){{/optionKey}}
+
+{{description}}
+		</script>
 	</body>
 </html>
