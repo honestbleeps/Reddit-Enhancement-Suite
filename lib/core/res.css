@@ -1494,13 +1494,13 @@ a spinner with a static ring and no overlay.*/
 }
 
 #url-field .progress {
-    -webkit-animation: progressbar 1s linear infinite;
-    animation: progressbar 1s linear infinite;
-    background-color: #149bdf;
-    background-image: -moz-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
-    background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
-    background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
-    background-size: 40px 40px;
+	-webkit-animation: progressbar 1s linear infinite;
+	animation: progressbar 1s linear infinite;
+	background-color: #149bdf;
+	background-image: -moz-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+	background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+	background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+	background-size: 40px 40px;
 }
 
 #url-field .progress.progress-stalled {
@@ -1520,21 +1520,21 @@ a spinner with a static ring and no overlay.*/
 }
 
 @-webkit-keyframes progressbar {
-    from {
-        background-position: 0px 0px;
-    }
-    to {
-        background-position: 39px 0px;
-    }
+	from {
+		background-position: 0px 0px;
+	}
+	to {
+		background-position: 39px 0px;
+	}
 }
 
 @keyframes progressbar {
-    from {
-        background-position: 0px 0px;
-    }
-    to {
-        background-position: 39px 0px;
-    }
+	from {
+		background-position: 0px 0px;
+	}
+	to {
+		background-position: 39px 0px;
+	}
 }
 
 #RESStyleSheetTipPane {
