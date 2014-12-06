@@ -640,6 +640,9 @@ p.moduleListing {
 	position: relative;
 	top: -6px;
 }
+.optionContainer .enum img {
+	max-width: 16px;
+}
 .optionsTable th, .optionsTable td {
 	padding-bottom: 7px;
 }
