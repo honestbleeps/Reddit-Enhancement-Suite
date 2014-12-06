@@ -142,15 +142,15 @@ To load the extension into your browser, see the ["Building development versions
 
 ### Using Gulp for building RES
 
-RES can also be built with gulp, an advanced build manager similar to grunt
+RES can also be built with [gulp](http://gulpjs.com/), an advanced build manager similar to grunt.
 
-You will need [node.js](http://node.js.org) installed on your system
+You will need [node.js](http://node.js.org) installed on your system.
 
-First time use: (You will need root priviliges)
+First time use:
 
-1. Run 'npm install -g gulp'
-2. Navigate to your RES folder
-3. Run 'npm install gulp-minify-css gulp-uglify gulp-imagemin gulp-rename gulp-concat gulp-notify del gulp-bump gulp-zip' (Without Quotes)
+1. Run `npm install -g gulp`.
+2. Navigate to your RES folder.
+3. Run `npm install gulp-minify-css gulp-uglify gulp-imagemin gulp-rename gulp-concat gulp-notify del gulp-bump gulp-zip`
 
 Usage:
 
@@ -165,5 +165,3 @@ cleans out the 'dist' directory
     gulp <browsername>
 
 Where <browsername> is either: chrome, firefox, safari, opera, oblink. This will build just one version of RES, based on what you enter. Run 'gulp clean' before running the above.
-
-
