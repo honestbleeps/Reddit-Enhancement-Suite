@@ -10,13 +10,9 @@ let pageMod = require('sdk/page-mod');
 let Request = require('sdk/request').Request;
 let self = require('sdk/self');
 let tabs = require('sdk/tabs');
-let ss = require('sdk/simple-storage');
 let priv = require('sdk/private-browsing');
 let windows = require('sdk/windows').browserWindows;
 let viewFor = require('sdk/view/core').viewFor;
-
-let localStorage = ss.storage;
-
 
 let { ToggleButton } = require('sdk/ui/button/toggle'),
 	styleSheetButton;
@@ -47,15 +43,101 @@ function detachWorker(worker, workerArray) {
 	}
 }
 
-localStorage.getItem = function(key) {
-	return ss.storage[key];
-};
-localStorage.setItem = function(key, value) {
-	ss.storage[key] = value;
-};
-localStorage.removeItem = function(key) {
-	delete ss.storage[key];
-};
+let localStorage = {};
+(function(module) {
+	let debug = false;
+
+	let schema = {
+		tables: {
+			"storage": "key   TEXT PRIMARY KEY, \
+                		value    TEXT"
+    	}
+    };
+
+	let connection, initialized;
+
+	module.load = function() {
+		init();
+	};
+
+
+	module.getItem = function(key) {
+		let value = '',
+			result,
+			statement = connection.createStatement("SELECT value FROM storage WHERE key = :key");
+
+		statement.params["key"] = key;
+		result = statement.executeStep();
+		if (result) {
+			value = statement.row["value"];
+		}
+
+		if (debug) console.log("storage.getItem: " + key + " => " + value);
+		return value;
+	}
+
+	module.setItem = function(key, value) {
+		let statement = connection.createStatement("INSERT OR REPLACE INTO storage (key, value) values (:key, :value);");
+		statement.params["key"] = key;
+		statement.params["value"] = value;
+		statement.executeStep();
+
+
+		if (debug) console.log("storage.setItem: " + key + " <= " + value);
+	}
+
+	module.removeItem = function(key) {
+		let statement = connection.createStatement("DELETE FROM storage WHERE key = :key");
+		statement.params["key"] = key;
+		statement.executeStep();
+	}
+
+
+  	function init() {
+	    let dirService = Cc["@mozilla.org/file/directory_service;1"].
+	      getService(Ci.nsIProperties),
+	      dbService,
+	      dbFile,
+	      dbConnection;
+
+	    dbFile = dirService.get("ProfD", Ci.nsIFile);
+	    dbFile.append("res.sqlite");
+
+	    dbService = Cc["@mozilla.org/storage/service;1"].getService(Ci.mozIStorageService);
+
+	    if (!dbFile.exists()) {
+	      	dbConnection = create(dbService, dbFile);
+	  	  	module._simpleStorage.migrate(dbConnection);
+	    } else {
+			dbConnection = dbService.openDatabase(dbFile);
+	    }
+
+	    connection = dbConnection;
+  	}
+
+  function create(dbService, dbFile) {
+		let connection = dbService.openDatabase(dbFile);
+		createTables(connection);
+		return connection;
+  }
+
+  function createTables(dbConnection) {
+    for (let name in schema	.tables) {
+    	let table = schema.tables[name];
+		dbConnection.createTable(name, table);
+	 }
+  }
+})(localStorage);
+
+(function(module) {
+	let ss = require('sdk/simple-storage');
+
+	module.migrate = function(dbConnection) {
+		console.warn("simple-storage migration to sqlite not yet implemented");
+	};
+})(localStorage._simpleStorage = {});
+
+localStorage.load();
 
 let XHRCache = {
 	forceCache: false,
