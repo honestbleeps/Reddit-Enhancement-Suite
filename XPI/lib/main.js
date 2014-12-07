@@ -61,7 +61,7 @@ let localStorage = {};
 	};
 
 
-	module.getItem = function(key) {
+	module.getItem = function getItem(key) {
 		let value = '',
 			result,
 			statement = connection.createStatement("SELECT value FROM storage WHERE key = :key");
@@ -76,7 +76,7 @@ let localStorage = {};
 		return value;
 	}
 
-	module.setItem = function(key, value) {
+	module.setItem = function setItem(key, value) {
 		let statement = connection.createStatement("INSERT OR REPLACE INTO storage (key, value) values (:key, :value);");
 		statement.params["key"] = key;
 		statement.params["value"] = value;
@@ -86,7 +86,7 @@ let localStorage = {};
 		if (debug) console.log("storage.setItem: " + key + " <= " + value);
 	}
 
-	module.removeItem = function(key) {
+	module.removeItem = function removeItem(key) {
 		let statement = connection.createStatement("DELETE FROM storage WHERE key = :key");
 		statement.params["key"] = key;
 		statement.executeStep();
