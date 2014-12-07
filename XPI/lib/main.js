@@ -76,6 +76,21 @@ let localStorage = {};
 		return value;
 	}
 
+	module.setItems = function setItems(values) {
+		if (Object.getOwnPropertyNames(values).length === 0) return;
+
+		let key, value;
+
+
+		connection.beginTransaction();
+		for (key in values) {
+			value = values[key];
+			module.setItem(key, value);
+		}
+		connection.commitransaction();
+
+	};
+
 	module.setItem = function setItem(key, value) {
 		let statement = connection.createStatement("INSERT OR REPLACE INTO storage (key, value) values (:key, :value);");
 		statement.params["key"] = key;
