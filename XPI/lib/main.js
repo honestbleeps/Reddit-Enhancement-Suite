@@ -101,7 +101,7 @@ let localStorage = {};
 			value = values[key];
 			module.setItem(key, value);
 		}
-		connection.commitransaction();
+		connection.commitTransaction();
 
 	};
 
