@@ -109,48 +109,33 @@ let localStorage = {};
 
 
   	function init() {
-	    let dirService = Cc["@mozilla.org/file/directory_service;1"].
-	      getService(Ci.nsIProperties),
-	      dbService,
-	      dbFile,
-	      dbConnection;
+		let dirService, dbService, dbFile, newDbFile; // not connection!
+		dirService = Cc["@mozilla.org/file/directory_service;1"].getService(Ci.nsIProperties);
+		dbService = Cc["@mozilla.org/storage/service;1"].getService(Ci.mozIStorageService);
+		dbFile = dirService.get("ProfD", Ci.nsIFile); dbFile.append("res.sqlite");
+		newDbFile = !dbFile.exists();
 
-	    dbFile = dirService.get("ProfD", Ci.nsIFile);
-	    dbFile.append("res.sqlite");
+		connection = dbService.openDatabase(dbFile);
 
-	    dbService = Cc["@mozilla.org/storage/service;1"].getService(Ci.mozIStorageService);
-
-	    if (!dbFile.exists()) {
-	      	dbConnection = create(dbService, dbFile);
-	  	  	module._simpleStorage.migrate(dbConnection);
-	    } else {
-			dbConnection = dbService.openDatabase(dbFile);
+	    if (newDbFile) {
+	    	createTables();
+	  	  	migrateSimpleStorage();
 	    }
-
-	    connection = dbConnection;
   	}
 
-  function create(dbService, dbFile) {
-		let connection = dbService.openDatabase(dbFile);
-		createTables(connection);
-		return connection;
-  }
-
-  function createTables(dbConnection) {
-    for (let name in schema	.tables) {
+  function createTables() {
+    for (let name in schema.tables) {
     	let table = schema.tables[name];
-		dbConnection.createTable(name, table);
+		connection.createTable(name, table);
 	 }
   }
+
+  function migrateSimpleStorage() {
+		let ss = require('sdk/simple-storage');
+		module.setItems(ss.storage);
+	}
+
 })(localStorage);
-
-(function(module) {
-	let ss = require('sdk/simple-storage');
-
-	module.migrate = function(dbConnection) {
-		console.warn("simple-storage migration to sqlite not yet implemented");
-	};
-})(localStorage._simpleStorage = {});
 
 localStorage.load();
 
