@@ -1,4 +1,4 @@
-//Please Read README.md or gulpreadme.md to understand what is going on!
+'use strict';
 
 var gulp = require('gulp'),
     minifycss = require('gulp-minify-css'),
@@ -129,15 +129,15 @@ gulp.task('modules-js-chrome', function() {
 });
 
 gulp.task('root-images-chrome', function() {
-  return gulp.src('Chrome/*.png')
-    .pipe(imagemin({ optimizationLevel: 5, progressive: true, interlaced: true }))
-    .pipe(gulp.dest('dist/chrome'))
+	return gulp.src('Chrome/*.png')
+		.pipe(imagemin({ optimizationLevel: 5, progressive: true, interlaced: true }))
+		.pipe(gulp.dest('dist/chrome'))
 });
 
 gulp.task('images-images-chrome', function() { //yo dog
-  return gulp.src('Chrome/images/*.png')
-    .pipe(imagemin({ optimizationLevel: 5, progressive: true, interlaced: true }))
-    .pipe(gulp.dest('dist/chrome/images'))
+	return gulp.src('Chrome/images/*.png')
+		.pipe(imagemin({ optimizationLevel: 5, progressive: true, interlaced: true }))
+		.pipe(gulp.dest('dist/chrome/images'))
 });
 
 gulp.task('chrome-move-1', function() { //move other stuff that doesn't fit elsewhere
@@ -206,9 +206,9 @@ gulp.task('modules-js-safari', function() {
 });
 
 gulp.task('root-images-safari', function() {
-  return gulp.src('RES.safariextension/*.png')
-    .pipe(imagemin({ optimizationLevel: 5, progressive: true, interlaced: true }))
-    .pipe(gulp.dest('dist/safari'))
+	return gulp.src('RES.safariextension/*.png')
+		.pipe(imagemin({ optimizationLevel: 5, progressive: true, interlaced: true }))
+		.pipe(gulp.dest('dist/safari'))
 });
 
 gulp.task('safari-move-1', function() { //move other stuff that doesn't fit elsewhere
@@ -282,9 +282,9 @@ gulp.task('modules-js-firefox', function() {
 });
 
 gulp.task('root-images-firefox', function() {
-  return gulp.src('*.png')
-    .pipe(imagemin({ optimizationLevel: 5, progressive: true, interlaced: true }))
-    .pipe(gulp.dest('dist/firefox'))
+	return gulp.src('*.png')
+		.pipe(imagemin({ optimizationLevel: 5, progressive: true, interlaced: true }))
+		.pipe(gulp.dest('dist/firefox'))
 });
 
 gulp.task('firefox-move-1', function() { //move other stuff that doesn't fit elsewhere
@@ -343,15 +343,15 @@ gulp.task('oblink-js-oblink', function() {
 });
 
 gulp.task('root-images-oblink', function() {
-  return gulp.src('OperaBlink/*.png')
-    .pipe(imagemin({ optimizationLevel: 5, progressive: true, interlaced: true }))
-    .pipe(gulp.dest('dist/oblink'))
+	return gulp.src('OperaBlink/*.png')
+		.pipe(imagemin({ optimizationLevel: 5, progressive: true, interlaced: true }))
+		.pipe(gulp.dest('dist/oblink'))
 });
 
 gulp.task('images-images-oblink', function() { 
-  return gulp.src('OperaBlink/images/*.png')
-    .pipe(imagemin({ optimizationLevel: 5, progressive: true, interlaced: true }))
-    .pipe(gulp.dest('dist/oblink/images'))
+	return gulp.src('OperaBlink/images/*.png')
+		.pipe(imagemin({ optimizationLevel: 5, progressive: true, interlaced: true }))
+		.pipe(gulp.dest('dist/oblink/images'))
 });
 
 gulp.task('oblink-move-1', function() { //move other stuff that doesn't fit elsewhere
@@ -420,9 +420,9 @@ gulp.task('includes-js-opera', function() {
 });
 
 gulp.task('root-images-opera', function() {
-  return gulp.src('OperaBlink/*.gif')
-    .pipe(imagemin({ optimizationLevel: 5, progressive: true, interlaced: true }))
-    .pipe(gulp.dest('dist/opera'))
+	return gulp.src('OperaBlink/*.gif')
+		.pipe(imagemin({ optimizationLevel: 5, progressive: true, interlaced: true }))
+		.pipe(gulp.dest('dist/opera'))
 });
 
 gulp.task('opera-move-1', function() { //move other stuff that doesn't fit elsewhere
