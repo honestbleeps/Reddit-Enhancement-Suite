@@ -60,6 +60,20 @@ let localStorage = {};
 		init();
 	};
 
+	module.getItems = function getItems() {
+		let values = {},
+			key, value,
+			statement = connection.createStatement("SELECT key, value FROM storage");
+
+		while (statement.executeStep()) {
+			key = statement.row["key"];
+			value = statement.row["value"];
+			values[key] = value;
+		}
+
+		if (debug) console.log("storage.getItems: " + Object.getOwnPropertyNames(values).length);
+		return values;
+	}
 
 	module.getItem = function getItem(key) {
 		let value = '',
@@ -199,7 +213,7 @@ tabs.on('activate', function() {
 	// find this worker...
 	let worker = getActiveWorker();
 	if (worker) {
-		worker.postMessage({ name: 'getLocalStorage', message: localStorage });
+		worker.postMessage({ name: 'getLocalStorage', message: localStorage.getItems() });
 		worker.postMessage({ name: 'subredditStyle', message: 'refreshState' });
 	}
 });
@@ -438,14 +452,14 @@ pageMod.PageMod({
 					}).get();
 					break;
 				case 'getLocalStorage':
-					worker.postMessage({ name: 'getLocalStorage', message: localStorage });
+					worker.postMessage({ name: 'getLocalStorage', message: localStorage.getItems() });
 					break;
 				case 'saveLocalStorage':
 					for (let key in request.data) {
 						localStorage.setItem(key,request.data[key]);
 					}
 					localStorage.setItem('importedFromForeground', true);
-					worker.postMessage({ name: 'saveLocalStorage', message: localStorage });
+					worker.postMessage({ name: 'saveLocalStorage', message: localStorage.getItems() });
 					break;
 				case 'localStorage':
 					switch (request.operation) {
