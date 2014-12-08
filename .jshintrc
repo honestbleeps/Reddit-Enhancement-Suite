@@ -7,5 +7,35 @@
 	"sub": true,
 	"browser": true,
 	"devel": true,
-	"jquery": true
+	"jquery": true,
+	"globals": {
+		"Favico": false,
+		"guiders": false,
+		"Hogan": false,
+		"Pasteurizer": false,
+		"SnuOwnd": false,
+
+		"RESUtils": true,
+		"modules": true,
+		"BrowserStrategy": true,
+		"RESdoBeforeLoad": true,
+		"RESInit": true,
+		"xhrQueue": true,
+		"RESConsole": true,
+		"RESStorage": true,
+		"setUpRESStorage": true,
+		"RESLoadResourceAsText": true,
+		"RESRunOnce": true,
+		"RESInitReadyCheck": true,
+		"RESdoAfterLoad": true,
+		"safeJSON": true,
+		"RESVersion": true,
+		"RESdefaultModuleID": true,
+		"escapeHTML": true,
+		"addModule": true,
+		"perfTest": true,
+		"RESTemplates": true,
+		"BrowserDetect": true,
+		"RESOptionsMigrate": true
+	}
 }
