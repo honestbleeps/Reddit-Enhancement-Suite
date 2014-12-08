@@ -271,12 +271,13 @@
 	background: #666;
 }
 
-.res-nightmode.wiki-page .wiki-page-content .md.wiki h1,
-.res-nightmode.wiki-page .wiki-page-content .md.wiki h2,
-.res-nightmode.wiki-page .wiki-page-content .md.wiki h3,
-.res-nightmode.wiki-page .wiki-page-content .md.wiki h4,
-.res-nightmode.wiki-page .wiki-page-content .md.wiki h5,
-.res-nightmode.wiki-page .wiki-page-content .md.wiki h6 {
+.res-nightmode .wiki-page-content .md.wiki h1,
+.res-nightmode .wiki-page-content .md.wiki h2,
+.res-nightmode .wiki-page-content .md.wiki h3,
+.res-nightmode .wiki-page-content .md.wiki h4,
+.res-nightmode .wiki-page-content .md.wiki h5,
+.res-nightmode .wiki-page-content .md.wiki h6,
+.res-nightmode .wiki-page-content .md.wiki p {
 	color: #ddd;
 }
 
