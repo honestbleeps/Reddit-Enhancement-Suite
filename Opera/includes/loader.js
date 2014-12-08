@@ -44,6 +44,7 @@ window.addEventListener('DOMContentLoaded', function() {
 		'vendor/konami.js',
 		'vendor/mediacrush.js',
 		'vendor/snuownd.js',
+		'vendor/bloomfilter.js',
 		'core/migrate.js',
 		'core/storage.js',
 		'core/template.js',
