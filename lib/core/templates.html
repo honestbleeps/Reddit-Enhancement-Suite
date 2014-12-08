@@ -390,12 +390,22 @@
 		</div>
 
 
+		<div id="contextToggleMenu" type="application/x-template">
+			<li title="{{ description }}">
+				{{ displayName }}
+				<div class="toggleButton {{#enabled}}enabled{{/enabled}}">
+					<span class="toggleOn">on</span>
+					<span class="toggleOff">off</span>
+				</div>
+			</li>
+		</div>
+
 		<pre id="optionLinkSnudown" type="application/x-template">
 **[{{title}}]({{url}})**
 -- [](#gear)
 [RES settings console]({{settingsUrl}}) > {{category}} > [{{moduleName}}]({{moduleUrl}} "{{moduleID}}") {{#optionKey}} > [{{optionKey}}]({{optionUrl}}){{/optionKey}}
 
 {{description}}
-		</script>
+		</pre>
 	</body>
 </html>
