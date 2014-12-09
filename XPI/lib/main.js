@@ -106,8 +106,8 @@ function RESSQLiteStorage() {
 
 		let schema = {
 			tables: {
-				"storage": "key   TEXT PRIMARY KEY, \
-	                		value    TEXT"
+				'storage': 'key   TEXT PRIMARY KEY, \
+	                		value    TEXT'
 	    	}
 	    };
 
@@ -132,30 +132,30 @@ function RESSQLiteStorage() {
 		function getItems() {
 			let values = {},
 				key, value,
-				statement = connection.createStatement("SELECT key, value FROM storage");
+				statement = connection.createStatement('SELECT key, value FROM storage');
 
 			while (statement.executeStep()) {
-				key = statement.row["key"];
-				value = statement.row["value"];
+				key = statement.row['key'];
+				value = statement.row['value'];
 				values[key] = value;
 			}
 
-			if (debug) console.log("storage.getItems: " + Object.getOwnPropertyNames(values).length);
+			if (debug) console.log('storage.getItems: ' + Object.getOwnPropertyNames(values).length);
 			return values;
 		}
 
 		function getItem(key) {
 			let value = '',
 				result,
-				statement = connection.createStatement("SELECT value FROM storage WHERE key = :key");
+				statement = connection.createStatement('SELECT value FROM storage WHERE key = :key');
 
-			statement.params["key"] = key;
+			statement.params['key'] = key;
 			result = statement.executeStep();
 			if (result) {
-				value = statement.row["value"];
+				value = statement.row['value'];
 			}
 
-			if (debug) console.log("storage.getItem: " + key + " => " + value);
+			if (debug) console.log('storage.getItem: ' + key + ' => ' + value);
 			return value;
 		}
 
@@ -175,28 +175,28 @@ function RESSQLiteStorage() {
 		};
 
 		function setItem(key, value) {
-			let statement = connection.createStatement("INSERT OR REPLACE INTO storage (key, value) values (:key, :value);");
-			statement.params["key"] = key;
-			statement.params["value"] = value;
+			let statement = connection.createStatement('INSERT OR REPLACE INTO storage (key, value) values (:key, :value);');
+			statement.params['key'] = key;
+			statement.params['value'] = value;
 			statement.executeStep();
 
 
-			if (debug) console.log("storage.setItem: " + key + " <= " + value);
+			if (debug) console.log('storage.setItem: ' + key + ' <= ' + value);
 		}
 
 
 		function removeItem(key) {
-			let statement = connection.createStatement("DELETE FROM storage WHERE key = :key");
-			statement.params["key"] = key;
+			let statement = connection.createStatement('DELETE FROM storage WHERE key = :key');
+			statement.params['key'] = key;
 			statement.executeStep();
 		}
 
 
 	  	function initializeFile() {
 			let dirService, dbService, dbFile, newDbFile; // not connection!
-			dirService = Cc["@mozilla.org/file/directory_service;1"].getService(Ci.nsIProperties);
-			dbService = Cc["@mozilla.org/storage/service;1"].getService(Ci.mozIStorageService);
-			dbFile = dirService.get("ProfD", Ci.nsIFile); dbFile.append("res.sqlite");
+			dirService = Cc['@mozilla.org/file/directory_service;1'].getService(Ci.nsIProperties);
+			dbService = Cc['@mozilla.org/storage/service;1'].getService(Ci.mozIStorageService);
+			dbFile = dirService.get('ProfD', Ci.nsIFile); dbFile.append('res.sqlite');
 			newDbFile = !dbFile.exists();
 
 			connection = dbService.openDatabase(dbFile);
@@ -495,7 +495,7 @@ pageMod.PageMod({
 					if (thisLinkURL.toLowerCase().substring(0, 4) !== 'http') {
 						thisLinkURL = (thisLinkURL.substring(0, 1) === '/') ? 'http://www.reddit.com' + thisLinkURL : location.href + thisLinkURL;
 					}
-					// Get the selected tab so we can get the index of it.  This allows us to open our new tab as the "next" tab.
+					// Get the selected tab so we can get the index of it.  This allows us to open our new tab as the 'next' tab.
 					openTab({url: thisLinkURL, inBackground: inBackground, isPrivate: isPrivate });
 					worker.postMessage({status: 'success'});
 					break;
@@ -507,7 +507,7 @@ pageMod.PageMod({
 					if (thisLinkURL.toLowerCase().substring(0, 4) !== 'http') {
 						thisLinkURL = (thisLinkURL.substring(0, 1) === '/') ? 'http://www.reddit.com' + thisLinkURL : location.href + thisLinkURL;
 					}
-					// Get the selected tab so we can get the index of it.  This allows us to open our new tab as the "next" tab.
+					// Get the selected tab so we can get the index of it.  This allows us to open our new tab as the 'next' tab.
 					openTab({url: thisLinkURL, inBackground: inBackground, isPrivate: isPrivate });
 					worker.postMessage({status: 'success'});
 					break;
