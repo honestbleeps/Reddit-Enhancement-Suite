@@ -43,115 +43,190 @@ function detachWorker(worker, workerArray) {
 	}
 }
 
-let localStorage = {};
-(function(module) {
-	let debug = false;
+let localStorage, sqliteStorage, simpleStorage;
+localStorage = sqliteStorage = new RESSQLiteStorage();
 
-	let schema = {
-		tables: {
-			"storage": "key   TEXT PRIMARY KEY, \
-                		value    TEXT"
-    	}
-    };
+if (sqliteStorage.load()) {
+	// sqlite contains data, so update backup storage
+	let simpleStorage = mew RESSimpleStorage();
+	let backup = sqliteStorage.getItems();
+	simpleStorage.addItems(backup);
+} else {
+	// sqlite empty, so populate from legacy storage
+	let simpleStorage = new RESSimpleStorage();
+	let backup = simpleStorage.getItems();
+	sqliteStorage.addItems(backup);
+}
 
-	let connection, initialized;
+function RESStorage() {
+	let module = this instanceof RESSQLiteStorage ? this : {}
+	init(module);
+	return module;
 
-	module.load = function() {
-		init();
-	};
+	function init(module) {
+		let storage = {};
+		module._storage = storage;
+	}
+}
 
-	module.getItems = function getItems() {
-		let values = {},
-			key, value,
-			statement = connection.createStatement("SELECT key, value FROM storage");
+RESStorage.prototype.getItems = function() {
+	var values = {};
+	for (var key in keys) {
+		if (!keys.hasOwnProperty(key)) continue;
+		values[key] = storage[key];
+	}
 
-		while (statement.executeStep()) {
-			key = statement.row["key"];
-			value = statement.row["value"];
-			values[key] = value;
+};
+
+RESStorage.prototype.getItem = function(key) {
+	return this._storage[key];
+};
+
+RESStorage.prototype.setItems = function (values) {
+	for (var key in values) {
+		if (!keys.hasOwnProperty(key)) continue;
+		this._storage[key] = values[key];
+	}
+};
+RESStorage.prototype.setItem = function(key, value) {
+	this._storage[key] = value;
+}
+RESStorage.prototype.removeItem = function(key) {
+	delete this._storage[key];
+};
+
+RESSQLiteStorage.prototype = new RESStorage();
+function RESSQLiteStorage() {
+	let module = this instanceof RESSQLiteStorage ? this : {}
+	init(module);
+	return module;
+
+	function init(module) {
+		let debug = false;
+
+		let schema = {
+			tables: {
+				"storage": "key   TEXT PRIMARY KEY, \
+	                		value    TEXT"
+	    	}
+	    };
+
+		let connection, initialized;
+
+		module.load = function() {
+			if (initialized) return;
+
+			var newFile = initializeFile();
+
+			initialized = true;
+			return newFile;
 		}
 
-		if (debug) console.log("storage.getItems: " + Object.getOwnPropertyNames(values).length);
-		return values;
-	}
+		module.getItems = getItems;
+		module.getItem = getItem;
+		module.setItems = setItems;
+		module.setItem = setItem;
+		module.removeItem = removeItem;
 
-	module.getItem = function getItem(key) {
-		let value = '',
-			result,
-			statement = connection.createStatement("SELECT value FROM storage WHERE key = :key");
 
-		statement.params["key"] = key;
-		result = statement.executeStep();
-		if (result) {
-			value = statement.row["value"];
+		function getItems() {
+			let values = {},
+				key, value,
+				statement = connection.createStatement("SELECT key, value FROM storage");
+
+			while (statement.executeStep()) {
+				key = statement.row["key"];
+				value = statement.row["value"];
+				values[key] = value;
+			}
+
+			if (debug) console.log("storage.getItems: " + Object.getOwnPropertyNames(values).length);
+			return values;
 		}
 
-		if (debug) console.log("storage.getItem: " + key + " => " + value);
-		return value;
-	}
+		function getItem(key) {
+			let value = '',
+				result,
+				statement = connection.createStatement("SELECT value FROM storage WHERE key = :key");
 
-	module.setItems = function setItems(values) {
-		if (Object.getOwnPropertyNames(values).length === 0) return;
+			statement.params["key"] = key;
+			result = statement.executeStep();
+			if (result) {
+				value = statement.row["value"];
+			}
 
-		let key, value;
-
-
-		connection.beginTransaction();
-		for (key in values) {
-			value = values[key];
-			module.setItem(key, value);
+			if (debug) console.log("storage.getItem: " + key + " => " + value);
+			return value;
 		}
-		connection.commitTransaction();
 
-	};
+		function setItems(values) {
+			if (Object.getOwnPropertyNames(values).length === 0) return;
 
-	module.setItem = function setItem(key, value) {
-		let statement = connection.createStatement("INSERT OR REPLACE INTO storage (key, value) values (:key, :value);");
-		statement.params["key"] = key;
-		statement.params["value"] = value;
-		statement.executeStep();
+			let key, value;
 
 
-		if (debug) console.log("storage.setItem: " + key + " <= " + value);
+			connection.beginTransaction();
+			for (key in values) {
+				value = values[key];
+				module.setItem(key, value);
+			}
+			connection.commitTransaction();
+
+		};
+
+		function setItem(key, value) {
+			let statement = connection.createStatement("INSERT OR REPLACE INTO storage (key, value) values (:key, :value);");
+			statement.params["key"] = key;
+			statement.params["value"] = value;
+			statement.executeStep();
+
+
+			if (debug) console.log("storage.setItem: " + key + " <= " + value);
+		}
+
+
+		function removeItem(key) {
+			let statement = connection.createStatement("DELETE FROM storage WHERE key = :key");
+			statement.params["key"] = key;
+			statement.executeStep();
+		}
+
+
+	  	function initializeFile() {
+			let dirService, dbService, dbFile, newDbFile; // not connection!
+			dirService = Cc["@mozilla.org/file/directory_service;1"].getService(Ci.nsIProperties);
+			dbService = Cc["@mozilla.org/storage/service;1"].getService(Ci.mozIStorageService);
+			dbFile = dirService.get("ProfD", Ci.nsIFile); dbFile.append("res.sqlite");
+			newDbFile = !dbFile.exists();
+
+			connection = dbService.openDatabase(dbFile);
+
+			if (newDbFile) {
+		    	createTables();
+		    }
+	  	}
+
+	  function createTables() {
+	    for (let name in schema.tables) {
+	    	let table = schema.tables[name];
+			connection.createTable(name, table);
+		 }
+	  }
+
 	}
+}
 
-	module.removeItem = function removeItem(key) {
-		let statement = connection.createStatement("DELETE FROM storage WHERE key = :key");
-		statement.params["key"] = key;
-		statement.executeStep();
+
+RESSimpleStorage.prototype = new RESStorage();
+function RESSimpleStorage() {
+	let module = this instanceof RESSimpleStorage ? this : {}
+	init(module);
+	return module;
+
+	function init(module) {
+		module._storage = require('sdk/simple-storage');
 	}
-
-
-  	function init() {
-		let dirService, dbService, dbFile, newDbFile; // not connection!
-		dirService = Cc["@mozilla.org/file/directory_service;1"].getService(Ci.nsIProperties);
-		dbService = Cc["@mozilla.org/storage/service;1"].getService(Ci.mozIStorageService);
-		dbFile = dirService.get("ProfD", Ci.nsIFile); dbFile.append("res.sqlite");
-		newDbFile = !dbFile.exists();
-
-		connection = dbService.openDatabase(dbFile);
-
-	    if (newDbFile) {
-	    	createTables();
-	  	  	migrateSimpleStorage();
-	    }
-  	}
-
-  function createTables() {
-    for (let name in schema.tables) {
-    	let table = schema.tables[name];
-		connection.createTable(name, table);
-	 }
-  }
-
-  function migrateSimpleStorage() {
-		let ss = require('sdk/simple-storage');
-		module.setItems(ss.storage);
-	}
-
-})(localStorage);
-
-localStorage.load();
+}
 
 let XHRCache = {
 	forceCache: false,
