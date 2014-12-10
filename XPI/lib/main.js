@@ -43,23 +43,9 @@ function detachWorker(worker, workerArray) {
 	}
 }
 
-let localStorage, sqliteStorage, simpleStorage;
-localStorage = sqliteStorage = new RESSQLiteStorage();
-
-if (sqliteStorage.load()) {
-	// sqlite contains data, so update backup storage
-	let simpleStorage = mew RESSimpleStorage();
-	let backup = sqliteStorage.getItems();
-	simpleStorage.addItems(backup);
-} else {
-	// sqlite empty, so populate from legacy storage
-	let simpleStorage = new RESSimpleStorage();
-	let backup = simpleStorage.getItems();
-	sqliteStorage.addItems(backup);
-}
-
 function RESStorage() {
-	let module = this instanceof RESSQLiteStorage ? this : {}
+	if (!this instanceof RESStorage) return new RESStorage();
+	let module = this;
 	init(module);
 	return module;
 
@@ -71,9 +57,9 @@ function RESStorage() {
 
 RESStorage.prototype.getItems = function() {
 	var values = {};
-	for (var key in keys) {
-		if (!keys.hasOwnProperty(key)) continue;
-		values[key] = storage[key];
+	for (var key in this._storage) {
+		if (!this._storage.hasOwnProperty(key)) continue;
+		values[key] = this._storage[key];
 	}
 
 };
@@ -84,7 +70,7 @@ RESStorage.prototype.getItem = function(key) {
 
 RESStorage.prototype.setItems = function (values) {
 	for (var key in values) {
-		if (!keys.hasOwnProperty(key)) continue;
+		if (!values.hasOwnProperty(key)) continue;
 		this._storage[key] = values[key];
 	}
 };
@@ -97,7 +83,8 @@ RESStorage.prototype.removeItem = function(key) {
 
 RESSQLiteStorage.prototype = new RESStorage();
 function RESSQLiteStorage() {
-	let module = this instanceof RESSQLiteStorage ? this : {}
+	if (!this instanceof RESSQLiteStorage) return new RESSQLiteStorage();
+	let module = this;
 	init(module);
 	return module;
 
@@ -160,7 +147,7 @@ function RESSQLiteStorage() {
 		}
 
 		function setItems(values) {
-			if (Object.getOwnPropertyNames(values).length === 0) return;
+			if (!(values && Object.getOwnPropertyNames(values).length)) return;
 
 			let key, value;
 
@@ -219,14 +206,35 @@ function RESSQLiteStorage() {
 
 RESSimpleStorage.prototype = new RESStorage();
 function RESSimpleStorage() {
-	let module = this instanceof RESSimpleStorage ? this : {}
+	if (!this instanceof RESSimpleStorage) return new RESSimpleStorage();
+	let module = this;
 	init(module);
 	return module;
 
 	function init(module) {
-		module._storage = require('sdk/simple-storage');
+		module._storage = require('sdk/simple-storage').storage;
 	}
 }
+
+
+
+let localStorage, sqliteStorage;
+localStorage = sqliteStorage = new RESSQLiteStorage();
+
+
+if (sqliteStorage.load()) {
+	// sqlite contains data, so update backup storage
+	let simpleStorage = new RESSimpleStorage();
+	let backup = sqliteStorage.getItems();
+	simpleStorage.setItems(backup);
+} else {
+	// sqlite empty, so populate from legacy storage
+	let simpleStorage = new RESSimpleStorage();
+	let backup = simpleStorage.getItems();
+	sqliteStorage.setItems(backup);
+}
+
+
 
 let XHRCache = {
 	forceCache: false,
