@@ -150,7 +150,7 @@ BrowserStrategy.storageSetup = function(thisJSON) {
 		var fr = new FileReader();
 		fr.onload = function() {
 			callback(fr.result);
-		}
+		};
 		fr.readAsText(f);
 	};
 

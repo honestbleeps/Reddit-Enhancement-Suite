@@ -1,3 +1,4 @@
+/* global safari */
 // This is the message handler for Safari - the background page calls this function with return data...
 
 function safariMessageHandler(msgEvent) {

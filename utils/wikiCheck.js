@@ -1,7 +1,7 @@
 /*
-How to use me ?
+How to use me?
 	Move me into the lib/modules/ folder. Add me to the manifest of your browser.
-	Then go on About RES -> wikiCheck and push the button !
+	Then go on About RES -> wikiCheck and push the button!
 	This will check the wiki and list all undocumented options.
 */
 modules['wikiCheck'] = {
@@ -46,21 +46,21 @@ modules['wikiCheck'] = {
 						});
 						fetchedPages++;
 						console.log(fetchedPages + '/' + wikiPages.length);
-						if(fetchedPages === wikiPages.length) {
+						if (fetchedPages === wikiPages.length) {
 							modules['wikiCheck'].fetchOptions(optionsList);
 							console.groupEnd();
 						}
-					})
-				},i*1000,wikiPages[i]);
+					});
+				}, i*1000, wikiPages[i]);
 			}
 		});
 	},
 	fetchOptions: function(optionsList) {
 		var missingOptions = [];
-		for (m in modules) {
+		for (var m in modules) {
 			if (!m.hidden) {
 				console.groupCollapsed(m);
-				for (o in modules[m].options) {
+				for (var o in modules[m].options) {
 					if (!modules[m].options[o].noconfig) {
 						if (optionsList.indexOf(o) === -1) {
 							console.warn(o);
