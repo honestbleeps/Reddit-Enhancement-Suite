@@ -1552,7 +1552,10 @@ a spinner with a static ring and no overlay.*/
 	float: right;
 }
 
-
+.md.mediacrush-md {
+	background: transparent;
+	border: none !important;
+}
 
 /* Compiled SCSS from MediaCrush - https://github.com/MediaCrush/MediaCrush */
 .player {
