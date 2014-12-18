@@ -194,7 +194,7 @@
 			#quickMessageDialog input[type=button] { cursor: pointer; position: absolute; right: 16px; bottom: 16px; padding: 3px 5px; font-size: 12px; color: #fff; border: 1px solid #636363; border-radius: 3px; background-color: #5cc410; }
 			#quickMessageDialog .clear { margin-bottom: 10px; }
 		</style>
-		<div id="quickMessage">
+		<div id="quickMessage" type="application/x-template">
 			<div id="quickMessageDialog" class="RESDialogSmall">
 				<h3>Send Message<a class="gearIcon" href="#!settings/quickMessage"></a></h3>
 				<div id="quickMessageDialogClose" class="RESCloseButton">×</div>
@@ -216,6 +216,16 @@
 			</div>
 		</div>
 		<!-- /Quick Message Dialog -->
+
+		<!-- Submit Page Repost Warning -->
+		<div id="repostWarning" type="application/x-template">
+			<div class="spacer" style="display: none">
+				<div style="display: block;" class="roundfield info-notice res-repost">
+					<p>This link was submitted to <a class="subredditLink" href="#"></a>:<span class="time"></span><a class="seeMore" href="#">(see more)</a></p>
+				</div>
+			</div>
+		</div>
+		<!-- /Submit Page Repost Warning -->
 
 		<!--VideoUI-->
 		<!--Adapted from MediaCrush video player-->
