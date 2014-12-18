@@ -210,6 +210,7 @@ pageMod.PageMod({
 		self.data.url('modules/context.js'),
 		self.data.url('modules/noParticipation.js'),
 		self.data.url('modules/searchHelper.js'),
+		self.data.url('modules/submitHelper.js'),
 		self.data.url('modules/logoLink.js'),
 		self.data.url('modules/voteEnhancements.js'),
 		self.data.url('modules/tableTools.js'),
