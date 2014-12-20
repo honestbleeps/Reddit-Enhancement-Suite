@@ -952,6 +952,15 @@ a.RESNotificationButtonBlue {
 .RES-spoiler-contents:active,
 .RES-spoiler-contents:hover { display: inline-block; }
 
+.guider dl {
+	margin-top: 0.6em;
+	margin-bottom: 0.6em;
+}
+
+.guider em {
+	font-weight: bolder;
+}
+
 #baconBit {
 	position: fixed;
 	width: 32px;
