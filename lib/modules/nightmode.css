@@ -201,7 +201,7 @@
 	color: #aaa;
 }
 .res-nightmode .goldvertisement {
-	background: #dad0b3;
+	background-color: #dad0b3;
 	opacity: .8;
 }
 .res-nightmode .goldvertisement .inner h2 {
@@ -211,8 +211,8 @@
 .res-nightmode .goldvertisement .progress .bar {
 	border-color: #fff;
 }
-.res-nightmode .gold-bubble {
-	background: #aaa;
+.res-nightmode .gold-bubble, .res-nightmode .gold-accent {
+	background-color: #aaa;
 }
 .res-nightmode .hover-bubble.anchor-top-centered:after {
 	border-bottom-color: #aaa;
