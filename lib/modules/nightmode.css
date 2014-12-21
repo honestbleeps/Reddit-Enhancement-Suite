@@ -58,12 +58,15 @@
 }
 .res-nightmode .listing-page .sitetable>div:nth-of-type(4n+1),
 .res-nightmode .messages-page .sitetable>div:nth-of-type(4n+1),
-.res-nightmode .organic-listing .thing,
-.res-nightmode .organic-listing,
 .res-nightmode .sr-interest-bar {
 	background-color: rgb(22,22,22);
 	padding-top: .5em;
 }
+.res-nightmode .organic-listing[style],
+.res-nightmode .organic-listing .thing {
+	background-color: rgb(22,22,22) !important;
+}
+
 .res-nightmode .entry .buttons li a,
 .res-nightmode .entry .morecomments .gray,
 .res-nightmode .markdownEditor .RESCharCounter {
