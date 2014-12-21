@@ -33,7 +33,9 @@
 .res-nightmode body {
 	background-image: none;
 }
-.res-nightmode .popup {
+.res-nightmode .popup,
+.res-nightmode .guider,
+.res-nightmode .guider p {
 	background-color: #222;
 	color: #aaa;
 }
@@ -1025,3 +1027,7 @@ html.res-nightmode .multi-details .subreddits .remove-sr {
 	background-color: #222;
 	color: #ddd;
 }
+
+.res-nightmode .guider {
+	background: #222;
+
