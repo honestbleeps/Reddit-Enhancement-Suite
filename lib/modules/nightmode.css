@@ -13,8 +13,11 @@
 .res-nightmode .side .usertext-body .md ol ol,
 .res-nightmode .side .usertext-body .md ol ol li,
 .res-nightmode .side blockquote,
-.res-nightmode .modactionlisting table * {
+.res-nightmode .modactionlisting table *,
+.res-nightmode .side .recommend-box .rec-item {
 	background-color: #222;
+	border-color: #777;
+}
 }
 .res-nightmode .listing-page .sitetable > div {
 	background: rgb(18,18,18);
@@ -304,6 +307,7 @@
 .res-nightmode .side .md {
 	color: #ccc;
 }
+
 .res-nightmode .flair,
 .res-nightmode .linkflairlabel {
 	background-color: #bbb;
