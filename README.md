@@ -139,3 +139,29 @@ Once done, you can build the extension by running `grunt`.
 For developing, run `grunt` followed by the name of the browser you wish to develop on, such as `grunt chrome` for Chrome or `grunt firefox` for Firefox. Once run, grunt will start a watch task which will instantly copy any changes made in the `lib/` directory over to the given browser's extension folder. You will need to stop and start grunt if you add any additional files.
 
 To load the extension into your browser, see the ["Building development versions of the extension" section](#building-development-versions-of-the-extension) above.
+
+### Using Gulp for building RES
+
+RES can also be built with [gulp](http://gulpjs.com/), an advanced build manager similar to grunt.
+
+You will need [node.js](http://node.js.org) installed on your system.
+
+First time use:
+
+1. Run `npm install -g gulp`.
+2. Navigate to your RES folder.
+3. Run `npm install gulp-minify-css gulp-uglify gulp-imagemin gulp-rename gulp-concat gulp-notify del gulp-bump gulp-zip`
+
+Usage:
+
+    gulp
+
+by itself will build all current browser versions of RES and will place them into a new folder called dist. If the dist directory already exists, it will clear out anything inside it.
+
+    gulp clean
+
+cleans out the 'dist' directory
+
+    gulp <browsername>
+
+Where <browsername> is either: chrome, firefox, safari, opera, oblink. This will build just one version of RES, based on what you enter. Run 'gulp clean' before running the above.
