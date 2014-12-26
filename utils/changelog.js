@@ -75,14 +75,12 @@ function asyncForeach(array, callback) {
 function extend() {
 	var extended = {};
 
-	for (var i = 0, length = arguments.length; i < length; i++) {
-		var source = arguments[i];
-
+	arguments.forEach(function(source) {
 		for (var key in source) {
 			if (!source.hasOwnProperty(key)) continue;
 			extended[key] = source[key];
 		}
-	}
+	});
 
 	return extended;
 }

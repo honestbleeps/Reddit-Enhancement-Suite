@@ -36,13 +36,13 @@ modules['wikiCheck'] = {
 			var wikiPages = data.data;
 			var fetchedPages = 0;
 			var optionsList = [];
-			for (var i = 0, len = wikiPages.length; i < len; i++) {
+			wikiPages.forEach(function(wikiPage, i) {
 				setTimeout(function(page) {
 					$.getJSON('http://api.reddit.com/r/Enhancement/wiki/' + page, function(data) {
 						var md = data.data.content_md;
 						var options = md.match(/######\S+/g) || [];
-						options.forEach(function(v, i) {
-							optionsList.push(v.substr(6)); // remove ######
+						options.forEach(function(option) {
+							optionsList.push(option.substr(6)); // remove ######
 						});
 						fetchedPages++;
 						console.log(fetchedPages + '/' + wikiPages.length);
@@ -51,8 +51,8 @@ modules['wikiCheck'] = {
 							console.groupEnd();
 						}
 					});
-				}, i*1000, wikiPages[i]);
-			}
+				}, i*1000, wikiPage);
+			});
 		});
 	},
 	fetchOptions: function(optionsList) {
