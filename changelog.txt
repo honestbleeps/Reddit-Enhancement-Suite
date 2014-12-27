@@ -1,6 +1,7 @@
-Changelog 4.5.3
+changelog v4.5.3
 
 - New Features and Enhancements
+
 	- "Quick Message" popup from user info popup "message" button or command line "qm" (thanks @erikdesjardins and @andytuba)
 	- regexp support in some filteReddit options (thanks @andytuba)
 	- Added an option to show an images original resolution in a tooltip to showImages module (Thanks @erikdesjardins !)
@@ -60,6 +61,7 @@ Changelog 4.5.3
 	- don't show "Use subreddit style" checkbox on top of reddit cover overlays (thanks @erikdesjardins)
 
 - Housekeeping
+
 	- Major command line refactoring (Thanks /u/andytuba)
 	- Options list subtypes infrastructure, listType: subreddit (thanks /u/andytuba)
 	- Options description proofreading (thanks /u/erikdesjardins)
