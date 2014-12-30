@@ -1,5 +1,4 @@
-// OperaBlink loads browsersupport-chrome first, then browsersupport-operablink.js for overrides
-
+/* global chrome:false */
 
 // we need a queue of permission callback functions because of
 // multiple async requests now needed... it's yucky and sad. Thanks, Chrome. :(
