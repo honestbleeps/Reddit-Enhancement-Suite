@@ -150,7 +150,7 @@ First time use:
 
 1. Run `npm install -g gulp`.
 2. Navigate to your RES folder.
-3. Run `npm install gulp-minify-css gulp-uglify gulp-imagemin gulp-rename gulp-concat gulp-notify del gulp-bump gulp-zip`
+3. Run `npm install gulp-uglify gulp-imagemin gulp-rename gulp-concat gulp-notify del gulp-bump gulp-zip`
 
 Usage:
 
