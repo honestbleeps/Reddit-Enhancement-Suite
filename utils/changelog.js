@@ -76,7 +76,7 @@ function asyncForeach(array, callback) {
 function extend() {
 	var extended = {};
 
-	arguments.forEach(function(source) {
+	$.each(arguments, function(index, source) {
 		for (var key in source) {
 			if (!source.hasOwnProperty(key)) continue;
 			extended[key] = source[key];
