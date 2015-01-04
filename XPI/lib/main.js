@@ -321,7 +321,7 @@ pageMod.PageMod({
 				   var isPrivate = priv.isPrivate(windows.activeWindow);
 
 				   // handle requests from entryTitleAction module
-				   tabs.open({url: request.linkURL, inBackground: isBackground, isPrivate: isPrivate });
+				   openTab({url: request.linkURL, inBackground: isBackground, isPrivate: isPrivate });
 
 				   worker.postMessage({status: "success"});
 				   break;
