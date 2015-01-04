@@ -178,6 +178,7 @@ pageMod.PageMod({
 		self.data.url('modules/hover.js'),
 		self.data.url('modules/subredditTagger.js'),
 		self.data.url('modules/singleClick.js'),
+		self.data.url('modules/entryTitleAction.js'),
 		self.data.url('modules/commentPreview.js'),
 		self.data.url('modules/commentTools.js'),
 		self.data.url('modules/sourceSnudown.js'),
@@ -315,6 +316,15 @@ pageMod.PageMod({
 					}
 					worker.postMessage({status: 'success'});
 					break;
+			   case 'entryTitleAction':
+				   var isBackground = request.isBackground;
+				   var isPrivate = priv.isPrivate(windows.activeWindow);
+
+				   // handle requests from entryTitleAction module
+				   tabs.open({url: request.linkURL, inBackground: isBackground, isPrivate: isPrivate });
+
+				   worker.postMessage({status: "success"});
+				   break;
 				case 'keyboardNav':
 					inBackground = (request.button === 1);
 					isPrivate = priv.isPrivate(windows.activeWindow);
