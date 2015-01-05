@@ -76,12 +76,14 @@ function asyncForeach(array, callback) {
 function extend() {
 	var extended = {};
 
-	$.each(arguments, function(index, source) {
+	for (var i = 0, length = arguments.length; i < length; i++) {
+		var source = arguments[i];
+
 		for (var key in source) {
 			if (!source.hasOwnProperty(key)) continue;
 			extended[key] = source[key];
 		}
-	});
+	}
 
 	return extended;
 }
