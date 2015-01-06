@@ -123,10 +123,11 @@ window.addEventListener('DOMContentLoaded', function() {
 			if (loaded === files.length) {
 				run(data.join(';'));
 			}
-		}
+		};
 		fr.readAsText(f);
 	}
 
-	for (var i=0; i<files.length; i++)
+	for (var i=0; i<files.length; i++) {
 		loadFile(i);
+	}
 });

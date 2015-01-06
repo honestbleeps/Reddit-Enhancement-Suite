@@ -232,13 +232,13 @@
 .res-nightmode .contact-us-page .button:hover {
 	background: #666;
 }
-.res-nightmode .wiki-page-content .md.wiki h1,
-.res-nightmode .wiki-page-content .md.wiki h2,
-.res-nightmode .wiki-page-content .md.wiki h3,
-.res-nightmode .wiki-page-content .md.wiki h4,
-.res-nightmode .wiki-page-content .md.wiki h5,
-.res-nightmode .wiki-page-content .md.wiki h6,
-.res-nightmode .wiki-page-content .md.wiki p {
+.res-nightmode .content .wiki-page-content .md.wiki h1,
+.res-nightmode .content .wiki-page-content .md.wiki h2,
+.res-nightmode .content .wiki-page-content .md.wiki h3,
+.res-nightmode .content .wiki-page-content .md.wiki h4,
+.res-nightmode .content .wiki-page-content .md.wiki h5,
+.res-nightmode .content .wiki-page-content .md.wiki h6,
+.res-nightmode .content .wiki-page-content .md.wiki p {
 	color: #ddd;
 }
 .res-nightmode .moderator.remove-self .option {
@@ -698,7 +698,8 @@
 .res-nightmode .login-form,
 .res-nightmode .login-form input[name*=passwd],
 .res-nightmode .login-form-side .submit,
-.res-nightmode #header-bottom-right {
+.res-nightmode #header-bottom-right,
+.res-nightmode #srList {
 	background-color: #bbb;
 }
 .res-nightmode input[type=text],

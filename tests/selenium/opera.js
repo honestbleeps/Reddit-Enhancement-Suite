@@ -1,3 +1,4 @@
+/* global exports, require, __dirname */
 var fs = require('fs'),
 	path = require('path'),
 	wrench = require('wrench'),

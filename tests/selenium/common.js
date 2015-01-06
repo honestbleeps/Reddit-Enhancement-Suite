@@ -1,3 +1,4 @@
+/* global exports, require, __dirname */
 var fs = require('fs'),
 	webdriver = require('selenium-webdriver'),
 	SeleniumServer = require('selenium-webdriver/remote').SeleniumServer;
