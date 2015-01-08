@@ -24,7 +24,6 @@ body.res-console-open {
 	transition: bottom 0.4s;
 }
 #RESConsoleContainer em { font-style: italic; }
-#RESConsoleContainer .handle { cursor: move; }
 #RESConsoleContainer.slideIn {
 	visibility: visible;
 	bottom: 1.5%;
@@ -182,11 +181,15 @@ body.res-console-open {
 	background-position: 2px 2px;
 	background-image: url(https://s3.amazonaws.com/b.thumbs.redditmedia.com/G6qEldT8FQ1NadPj3VnmGR1AWJd9ljDwj7bjVEdB8YI.png)
 }
-.optionsTable .deleteButton {
+.optionsTable .res-icon-button {
 	cursor: pointer;
 	width: 16px;
 	height: 16px;
-	background-image: url(https://s3.amazonaws.com/b.thumbs.redditmedia.com/BX1peOJ_hUyN59dMoPxxAhfiQzYls_UK5Y7OQG3vJWc.png)
+	margin-left: 2px;
+	margin-right: 2px;
+}
+.optionsTable .handle {
+	cursor: move;
 }
 #openRESPrefs {
 	display: inline-block;
