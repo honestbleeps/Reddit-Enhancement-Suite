@@ -150,7 +150,7 @@ BrowserStrategy.storageSetup = function(thisJSON) {
 		var fr = new FileReader();
 		fr.onload = function() {
 			callback(fr.result);
-		}
+		};
 		fr.readAsText(f);
 	};
 
@@ -259,7 +259,7 @@ BrowserStrategy.RESInitReadyCheck = function(RESInit) {
 
 					// result => path
 					require(result, function(store) {
-						var data = [].slice.call(arguments, 1); // get rid off "store" from arguments
+						var data = Array.prototype.slice.call(arguments, 1); // get rid off "store" from arguments
 						var item = store.pop();
 						item.cb(cb.apply(global, data));
 					}.bind(global, define._store));

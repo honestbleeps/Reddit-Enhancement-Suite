@@ -52,7 +52,7 @@ self.on('message', function(msgEvent) {
 					currentSubreddit = RESUtils.currentSubreddit();
 
 				if (currentSubreddit) {
-					RESUtils.sendMessage({
+					BrowserStrategy.sendMessage({
 						requestType: 'pageAction',
 						action: 'stateChange',
 						visible: toggle
@@ -210,7 +210,7 @@ BrowserStrategy.deleteCookie = function(cookieName) {
 		host: location.protocol + '//' + location.host,
 		cname: cookieName
 	};
-	
+
 	self.on('message', function receiveMessage(message) {
 		if (message && message.removedCookie && message.removedCookie === cookieName) {
 			self.removeListener('message', receiveMessage);

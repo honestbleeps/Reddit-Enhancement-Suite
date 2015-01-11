@@ -698,7 +698,8 @@
 .res-nightmode .login-form,
 .res-nightmode .login-form input[name*=passwd],
 .res-nightmode .login-form-side .submit,
-.res-nightmode #header-bottom-right {
+.res-nightmode #header-bottom-right,
+.res-nightmode #srList {
 	background-color: #bbb;
 }
 .res-nightmode input[type=text],
