@@ -84,6 +84,8 @@
 				"modules/searchHelper.js",
 				"modules/logoLink.js",
 				"modules/voteEnhancements.js",
+				"modules/upload.js",
+				"modules/hosts/mediacrush.js",
 				"modules/tableTools.js",
 				"modules/modhelper.js",
 				"modules/quickMessage.js",
@@ -102,7 +104,8 @@
 		}
 	],
 	"web_accessible_resources": [
-		"core/templates.html"
+		"core/templates.html",
+		"modules/hosts/hosts.json",
 	],
 	"icons": {
 		"48": "icon48.png",
