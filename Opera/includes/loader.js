@@ -94,6 +94,9 @@ window.addEventListener('DOMContentLoaded', function() {
 		'modules/modhelper.js',
 		'modules/quickMessage.js',
 
+		'modules/upload.js',
+		'modules/hosts/mediacrush.js',
+
 		'core/init.js',
 
 		'opera-footer.js'
