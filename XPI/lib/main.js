@@ -236,7 +236,7 @@ pageMod.PageMod({
 		});
 		worker.on('message', function(data) {
 			let request = data,
-				inBackground = prefs.getBoolPref('browser.tabs.loadInBackground') || true,
+				inBackground = prefs.getBoolPref('browser.tabs.loadInBackground'),
 				isPrivate, thisLinkURL;
 
 			switch (request.requestType) {
