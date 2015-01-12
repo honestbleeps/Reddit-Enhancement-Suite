@@ -145,14 +145,14 @@ chrome.runtime.onMessage.addListener(
 				if (request.openOrder === 'commentsfirst') {
 					// only open a second tab if the link is different...
 					if (request.linkURL !== request.commentsURL) {
-						chrome.tabs.create({url: request.commentsURL, selected: button, index: newIndex, openerTabId: sender.tab.id});
+						chrome.tabs.create({url: request.commentsURL, selected: button, index: newIndex++, openerTabId: sender.tab.id});
 					}
-					chrome.tabs.create({url: request.linkURL, selected: button, index: newIndex+1, openerTabId: sender.tab.id});
+					chrome.tabs.create({url: request.linkURL, selected: button, index: newIndex++, openerTabId: sender.tab.id});
 				} else {
-					chrome.tabs.create({url: request.linkURL, selected: button, index: newIndex, openerTabId: sender.tab.id});
+					chrome.tabs.create({url: request.linkURL, selected: button, index: newIndex++, openerTabId: sender.tab.id});
 					// only open a second tab if the link is different...
 					if (request.linkURL !== request.commentsURL) {
-						chrome.tabs.create({url: request.commentsURL, selected: button, index: newIndex+1, openerTabId: sender.tab.id});
+						chrome.tabs.create({url: request.commentsURL, selected: button, index: newIndex++, openerTabId: sender.tab.id});
 					}
 				}
 				sendResponse({status: 'success'});
