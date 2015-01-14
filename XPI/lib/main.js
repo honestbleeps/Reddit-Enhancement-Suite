@@ -169,6 +169,7 @@ pageMod.PageMod({
 		self.data.url('vendor/imgurgifv.js'),
 		self.data.url('vendor/hogan-3.0.2.js'),
 		self.data.url('reddit_enhancement_suite.user.js'),
+		self.data.url('modules/spoilerTags.js'),
 		self.data.url('modules/submitIssue.js'),
 		self.data.url('modules/betteReddit.js'),
 		self.data.url('modules/userTagger.js'),
