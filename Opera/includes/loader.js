@@ -22,7 +22,7 @@ window.addEventListener('DOMContentLoaded', function() {
 		'reddit_enhancement_suite.user.js',
 
 		'opera-save-jquery.js',
-		'vendor/jquery-1.11.1.min.js',
+		'vendor/jquery-1.11.2.min.js',
 		'vendor/jquery.dragsort-0.6.js',
 		'vendor/jquery.tokeninput.js',
 		'opera-restore-jquery.js',
