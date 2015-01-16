@@ -147,7 +147,7 @@ pageMod.PageMod({
 	contentScriptWhen: 'start',
 	contentScriptFile: [
 		self.data.url('vendor/jquery-1.11.2.min.js'),
-		self.data.url('vendor/guiders-1.2.8.js'),
+		self.data.url('vendor/guiders.js'),
 		self.data.url('vendor/jquery.sortable-0.9.12.js'),
 		self.data.url('vendor/jquery.edgescroll-0.1.js'),
 		self.data.url('vendor/jquery-fieldselection.min.js'),

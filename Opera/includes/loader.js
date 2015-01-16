@@ -39,7 +39,7 @@ window.addEventListener('DOMContentLoaded', function() {
 		'vendor/gfycat.js',
 		'vendor/gifyoutube.js',
 		'vendor/imgurgifv.js',
-		'vendor/guiders-1.2.8.js',
+		'vendor/guiders.js',
 		'vendor/hogan-3.0.2.js',
 		'vendor/HTMLPasteurizer.js',
 		'vendor/konami.js',
