@@ -1414,6 +1414,20 @@ a.bylink.parentlink {
 	background-color: lightblue;
 }
 
+/*Edgescroll plugin*/
+.edgescroll {
+	left: 0px;
+	right: 0px;
+	/*background-color: rgba(0, 0, 255, 0.5);*/
+}
+.edgescroll-top {
+	top: 0px;
+}
+.edgescroll-bottom {
+	bottom: 0px;
+}
+
+
 
 /*
 (cs)spinner.css - http://jh3y.github.io/-cs-spinner
