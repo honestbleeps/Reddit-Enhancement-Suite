@@ -610,6 +610,7 @@ p.moduleListing {
 	clear: both;
 	width: 650px;
 	margin-top: 20px;
+	margin-bottom: 10px;
 }
 .optionContainer > label {
 	/* Only target row labels, not labels for specific inputs */
@@ -1427,6 +1428,10 @@ a.bylink.parentlink {
 	bottom: 0px;
 }
 
+.RESSortPlaceholder {
+	height: 10px;
+	background-color: grey;
+}
 
 
 /*
