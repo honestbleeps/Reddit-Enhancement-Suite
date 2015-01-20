@@ -987,6 +987,18 @@ html.res-nightmode .multi-details .subreddits .remove-sr {
 .res-nightmode .about-page .abouttitle {
 	background-image: url(https://a.thumbs.redditmedia.com/xxM_X1OL6Lt4I4GC9F1SbNIcbeoZPXOmPIo6P1slaP4.png)
 }
+/* Policy pages */
+.res-nightmode .policy-page .md p {
+    color: #eee;
+}
+.res-nightmode .policy-page .md h1 a,
+.res-nightmode .policy-page .md h3 a {
+    color: #369
+}
+.res-nightmode .policy-page .md p em {
+    background-color: rgb(218, 208, 179);
+    color: #000;
+}
 /* Gold page */
 .res-nightmode .letter-body p,
 .res-nightmode #gold-letter h1,
