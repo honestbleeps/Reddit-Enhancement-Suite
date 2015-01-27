@@ -1,3 +1,5 @@
+[![Code Climate](https://codeclimate.com/github/honestbleeps/Reddit-Enhancement-Suite/badges/gpa.svg)](https://codeclimate.com/github/honestbleeps/Reddit-Enhancement-Suite)
+
 # Reddit Enhancement Suite
 
 Reddit Enhancement Suite (RES) is a suite of modules that enhance your Reddit browsing experience.
