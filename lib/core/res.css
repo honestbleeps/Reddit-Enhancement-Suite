@@ -610,6 +610,7 @@ p.moduleListing {
 	clear: both;
 	width: 650px;
 	margin-top: 20px;
+	margin-bottom: 10px;
 }
 .optionContainer > label {
 	/* Only target row labels, not labels for specific inputs */
@@ -1412,6 +1413,24 @@ a.bylink.parentlink {
 }
 #show_stylesheets:target + label {
 	background-color: lightblue;
+}
+
+/*Edgescroll plugin*/
+.edgescroll {
+	left: 0px;
+	right: 0px;
+	/*background-color: rgba(0, 0, 255, 0.5);*/
+}
+.edgescroll-top {
+	top: 0px;
+}
+.edgescroll-bottom {
+	bottom: 0px;
+}
+
+.RESSortPlaceholder {
+	height: 10px;
+	background-color: grey;
 }
 
 
