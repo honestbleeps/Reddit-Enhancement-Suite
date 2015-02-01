@@ -1126,16 +1126,12 @@ body.RESScrollLock {
 
 .content .RESBigEditorPop {
 	float: right;
-	margin: 3px 0 0 12px;
+	margin: 3px 0 0 0;
 	color: #333;
 	background-color: #fff;
 	border: 1px solid #ccc;
 	cursor: pointer;
-	text-indent: 20px;
 	padding: 5px 3px;
-	background-repeat: no-repeat;
-	background-position: 4px 50%;
-	background-image: url(https://b.thumbs.redditmedia.com/KGwj6faDlmPlGvWMZf2i9gn9CpnY__eZlqhdyU8b9gQ.png);
 }
 button.RESBigEditorPop:hover {
 	background-color: #ddd;
