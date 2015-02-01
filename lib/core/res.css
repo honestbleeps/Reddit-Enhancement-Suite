@@ -819,11 +819,15 @@ p.moduleListing {
 	padding: 10px;
 	width: 26px;
 	height: 22px;
-	background: no-repeat center center;
-	background-image: url(https://s3.amazonaws.com/b.thumbs.redditmedia.com/bQYQXsuPzDmLh8iW7Nnfhq0zBczl5V6ek9Oi17rZ9mE.png);
-	display: none;
+	visibility: hidden;
 }
-#SearchRES-results li:hover .SearchRES-result-copybutton { display: block; }
+#SearchRES-results li:hover .SearchRES-result-copybutton {
+	visibility: visible;
+}
+#SearchRES-results .SearchRES-result-copybutton:hover {
+	color: #888;
+}
+
 #SearchRES-input-submit {
 	margin-left: 8px;
 }
