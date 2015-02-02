@@ -92,6 +92,7 @@ window.addEventListener('DOMContentLoaded', function() {
 		'modules/userbarHider.js',
 		'modules/usernameHider.js',
 		'modules/voteEnhancements.js',
+		'modules/upload.js',
 		'modules/modhelper.js',
 		'modules/quickMessage.js',
 
@@ -127,9 +128,6 @@ window.addEventListener('DOMContentLoaded', function() {
 		'modules/hosts/giphy.js',
 		'modules/hosts/streamable.js',
 		'modules/hosts/raddit.js',
-
-		'modules/upload.js',
-		'modules/hosts/mediacrush.js',
 
 		'core/init.js',
 
