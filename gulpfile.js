@@ -55,8 +55,8 @@ gulp.task('zipall', ['chrome-zip', 'safari-zip', 'firefox-zip', 'oblink-zip', 'o
 // Paths
 var buildDir = 'dist';
 var chromeBuildDir = [ buildDir, 'chrome' ];
-var safariBuildDir = [ buildDir, 'safari' ];
-var firefoxBuildDir = [ buildDir, 'firefox' ];
+var safariBuildDir = [ buildDir, 'RES.safariextension' ];
+var firefoxBuildDir = [ buildDir, 'XPI' ];
 var oblinkBuildDir = [ buildDir, 'oblink' ];
 var operaBuildDir = [ buildDir, 'opera' ];
 var zipDir = '../../../var/www/html/res/dl';
