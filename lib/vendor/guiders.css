@@ -145,3 +145,18 @@
 	height: 13px;
 	width: 13px;
 }
+
+/* RES Settings */
+.guiders_content h2 {
+	margin-top: 1em;
+}
+.guiders_content td {
+	vertical-align: top;
+	line-height: 1.7em;
+}
+.guiders_content td + td {
+	padding-left: 1em;
+}
+.guider_contents td code {
+	white-space: nowrap;
+}
