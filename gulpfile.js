@@ -88,7 +88,7 @@ gulp.task('core-js-chrome', function() {
 });
 
 gulp.task('modules-js-chrome', function() {
-	return gulp.src('lib/modules/*.js')
+	return gulp.src('lib/modules/**/*.js')
 		.pipe(gulp.dest('dist/chrome/modules'));
 });
 
@@ -161,7 +161,7 @@ gulp.task('core-js-safari', function() {
 });
 
 gulp.task('modules-js-safari', function() {
-	return gulp.src('lib/modules/*.js')
+	return gulp.src('lib/modules/**/*.js')
 		.pipe(gulp.dest('dist/safari/modules'));
 });
 
@@ -233,7 +233,7 @@ gulp.task('core-js-firefox', function() {
 });
 
 gulp.task('modules-js-firefox', function() {
-	return gulp.src('lib/modules/*.js')
+	return gulp.src('lib/modules/**/*.js')
 		.pipe(gulp.dest('dist/firefox/modules'));
 });
 
@@ -285,7 +285,7 @@ gulp.task('core-js-oblink', function() {
 });
 
 gulp.task('modules-js-oblink', function() {
-	return gulp.src('lib/modules/*.js')
+	return gulp.src('lib/modules/**/*.js')
 		.pipe(gulp.dest('dist/oblink/modules'));
 });
 
@@ -353,7 +353,7 @@ gulp.task('core-js-opera', function() {
 });
 
 gulp.task('modules-js-opera', function() {
-	return gulp.src('lib/modules/*.js')
+	return gulp.src('lib/modules/**/*.js')
 		.pipe(gulp.dest('dist/opera/modules'));
 });
 
