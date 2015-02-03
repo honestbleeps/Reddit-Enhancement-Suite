@@ -443,7 +443,7 @@ gulp.task('oblink-zip', function() {
 gulp.task('opera-zip', function() {
 	return gulp.src(path(operaBuildDir, '**/*'))
 		.pipe(zip('opera.zip'))
-		.pipe(gulp.dest());
+		.pipe(gulp.dest(zipDir));
 });
 
 // Other
