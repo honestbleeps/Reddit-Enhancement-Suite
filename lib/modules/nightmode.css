@@ -653,8 +653,11 @@
 .res-nightmode .new-comment .usertext-body {
 	background-color: #345;
 }
+.res-nightmode .md code, .res-nightmode .md pre {
+	background-color: #456;
+}
 .res-nightmode .new-comment .usertext-body .md p a,
-.res-nightmode code {
+.res-nightmode code, .res-nightmode .md code {
 	color: #87CEEB;
 }
 .res-nightmode .comment .md p a[href="/spoiler"],
