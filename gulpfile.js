@@ -57,6 +57,29 @@ gulp.task('zipall', ['chrome-zip', 'safari-zip', 'firefox-zip', 'oblink-zip', 'o
 // Add new modules to browser manifests
 gulp.task('add-module', [ 'add-module-chrome', 'add-module-safari', 'add-module-firefox', 'add-module-oblink', 'add-module-opera' ]);
 
+// Watch tasks
+gulp.task('watch', [ 'watch-chrome', 'watch-safari', 'watch-firefox', 'watch-oblink', 'watch-opera' ]);
+
+gulp.task('watch-chrome', function() {
+	gulp.watch([ 'lib/**/*', 'Chrome/**/*' ], [ 'chrome' ]);
+});
+
+gulp.task('watch-safari', function() {
+	gulp.watch([ 'lib/**/*', 'RES.safariextension/**/*' ], [ 'safari' ]);
+});
+
+gulp.task('watch-firefox', function() {
+	gulp.watch([ 'lib/**/*', 'XPI/**/*' ], [ 'firefox' ]);
+});
+
+gulp.task('watch-oblink', function() {
+	gulp.watch([ 'lib/**/*', 'OperaBlink/**/*', 'Chrome/browsersupport-chrome.js' ], [ 'oblink' ]);
+});
+
+
+gulp.task('watch-opera', function() {
+	gulp.watch([ 'lib/**/*', 'Opera/**/*' ], [ 'opera' ]);
+});
 
 // Paths
 var buildDir = 'dist';
