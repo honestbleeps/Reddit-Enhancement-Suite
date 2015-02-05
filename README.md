@@ -165,3 +165,7 @@ cleans out the 'dist' directory
     gulp <browsername>
 
 Where <browsername> is either: chrome, firefox, safari, opera, oblink. This will build just one version of RES, based on what you enter. Run 'gulp clean' before running the above.
+
+    gulp add-module --file module.js
+
+adds module.js to the manifest for each browser.
