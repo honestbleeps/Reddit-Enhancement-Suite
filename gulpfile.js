@@ -2,7 +2,6 @@
 'use strict';
 
 var gulp = require('gulp'),
-	imagemin = require('gulp-imagemin'),
 	del = require('del'),
 	zip = require('gulp-zip'),
 	replace = require('gulp-replace-async'),
@@ -136,13 +135,11 @@ gulp.task('modules-js-chrome', function() {
 
 gulp.task('root-images-chrome', function() {
 	return gulp.src('Chrome/*.png')
-		.pipe(imagemin({ optimizationLevel: 5, progressive: true, interlaced: true }))
 		.pipe(gulp.dest(path.join(chromeBuildDir)));
 });
 
 gulp.task('images-images-chrome', function() {
 	return gulp.src('Chrome/images/*.png')
-		.pipe(imagemin({ optimizationLevel: 5, progressive: true, interlaced: true }))
 		.pipe(gulp.dest(path.join(chromeBuildDir, 'images')));
 });
 
@@ -213,7 +210,6 @@ gulp.task('modules-js-safari', function() {
 
 gulp.task('root-images-safari', function() {
 	return gulp.src('RES.safariextension/*.png')
-		.pipe(imagemin({ optimizationLevel: 5, progressive: true, interlaced: true }))
 		.pipe(gulp.dest(path.join(safariBuildDir)));
 });
 
@@ -289,7 +285,6 @@ gulp.task('modules-js-firefox', function() {
 
 gulp.task('root-images-firefox', function() {
 	return gulp.src('*.png')
-		.pipe(imagemin({ optimizationLevel: 5, progressive: true, interlaced: true }))
 		.pipe(gulp.dest(path.join(firefoxBuildDir)));
 });
 
@@ -350,13 +345,11 @@ gulp.task('oblink-js-oblink', function() {
 
 gulp.task('root-images-oblink', function() {
 	return gulp.src('OperaBlink/*.png')
-		.pipe(imagemin({ optimizationLevel: 5, progressive: true, interlaced: true }))
 		.pipe(gulp.dest(path.join(oblinkBuildDir)));
 });
 
 gulp.task('images-images-oblink', function() {
 	return gulp.src('OperaBlink/images/*.png')
-		.pipe(imagemin({ optimizationLevel: 5, progressive: true, interlaced: true }))
 		.pipe(gulp.dest(path.join(oblinkBuildDir, 'images')));
 });
 
@@ -427,7 +420,6 @@ gulp.task('includes-js-opera', function() {
 
 gulp.task('root-images-opera', function() {
 	return gulp.src('OperaBlink/*.gif')
-		.pipe(imagemin({ optimizationLevel: 5, progressive: true, interlaced: true }))
 		.pipe(gulp.dest(path.join(operaBuildDir)));
 });
 
