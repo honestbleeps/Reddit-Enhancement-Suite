@@ -150,7 +150,7 @@ First time use:
 
 1. Run `npm install -g gulp`.
 2. Navigate to your RES folder.
-3. Run `npm install gulp-imagemin del gulp-zip`
+3. Run `npm install` ^(If you're super-conscientious about which modules are installed, then look at gulpfile.js and `npm install` the required packages manually.)
 
 Usage:
 
