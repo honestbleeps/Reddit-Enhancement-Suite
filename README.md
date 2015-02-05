@@ -150,7 +150,7 @@ First time use:
 
 1. Run `npm install -g gulp`.
 2. Navigate to your RES folder.
-3. Run `npm install gulp-imagemin del gulp-zip`
+3. Run `npm install gulp-imagemin del gulp-zip path gulp-replace-async minimist`
 
 Usage:
 
