@@ -152,6 +152,15 @@
 				}
 				sendResponse({status: 'success'}, msgEvent);
 				break;
+			case 'entryTitleAction':
+				(request.isBackground) ? focus = 'background' : focus = 'foreground';
+
+				// handle requests from entryTitleAction module
+				var linkTab = safari.application.activeBrowserWindow.openTab(focus);
+				linkTab.url = request.linkURL;
+
+				sendResponse({status: "success"}, msgEvent);
+				break;
 			case 'keyboardNav':
 				button = (request.button === 1) ? 'background' : 'foreground';
 				// handle requests from keyboardNav module
