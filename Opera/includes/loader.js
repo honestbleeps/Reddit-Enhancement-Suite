@@ -34,7 +34,7 @@ window.addEventListener('DOMContentLoaded', function() {
 		'core/alert.js',
 		'browsersupport.js',
 		'browsersupport-opera.js',
-		'core/console.js',
+		'core/settings.js',
 		'vendor/favico.js',
 		'vendor/gfycat.js',
 		'vendor/gifyoutube.js',

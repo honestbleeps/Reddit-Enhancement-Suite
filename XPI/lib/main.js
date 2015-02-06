@@ -158,7 +158,7 @@ pageMod.PageMod({
 		self.data.url('core/utils.js'),
 		self.data.url('browsersupport.js'),
 		self.data.url('browsersupport-firefox.js'),
-		self.data.url('core/console.js'),
+		self.data.url('core/settings.js'),
 		self.data.url('core/alert.js'),
 		self.data.url('core/migrate.js'),
 		self.data.url('core/storage.js'),
