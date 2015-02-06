@@ -18,7 +18,7 @@ modules['wikiCheck'] = {
 	},
 	description: 'Check if all options are listed on the wiki.',
 	isEnabled: function() {
-		return RESSettings.getModulePrefs(this.moduleID);
+		return RESUtils.options.getModulePrefs(this.moduleID);
 	},
 	isMatchURL: function() {
 		return false;
