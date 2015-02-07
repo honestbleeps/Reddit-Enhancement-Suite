@@ -360,9 +360,9 @@ body.res-console-open {
 }
 #RESConfigPanelModulesPane {
 	float: left;
-	width: 195px;
-	padding-right: 15px;
 	border-right: 1px solid #dedede;
+	width: 15em;
+	padding-right: 10px;
 	height: 100%;
 	overflow: auto;
 }
