@@ -436,13 +436,10 @@ p.moduleListing {
 	list-style: none;
 }
 #RESConfigPanelModulesPane li h3 {
-	text-align: center;
-	/* min-width: 80px; */
-	height: 22px;
-	margin: 3px 0;
+	text-align: left;
+	margin: 0.2em 0;
 	border: 1px solid #c7c7c7;
-	border-radius: 3px;
-	padding: 6px 8px 0 8px;
+	padding: 0.3em 0.5em;
 	cursor: pointer;
 	background-color: #ddd;
 	color: #6c6c6c;
