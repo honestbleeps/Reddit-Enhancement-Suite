@@ -320,39 +320,11 @@ body.res-console-open {
 	float: right;
 	cursor: pointer;
 }
-#RESMenu {
-	position: absolute;
-	top: 60px;
-	left: 15px;
-	right: 0;
-	height: 30px;
-}
-#RESMenu li {
-	float: left;
-	text-align: center;
-	/* min-width: 80px; */
-	height: 22px;
-	margin-right: 15px;
-	border: 1px solid #c7c7c7;
-	border-radius: 3px;
-	padding: 6px 8px 0 8px;
-	cursor: pointer;
-	background-color: #ddd;
-	color: #6c6c6c;
-}
-#RESMenu li.active {
-	border-color: #000;
-	background-color: #7f7f7f;
-	color: #fff;
-}
-#RESMenu li:hover {
-	border-color: #000;
-}
 #RESConsoleContent {
 	clear: both;
 	padding: 6px 6px 20px 6px;
 	position: absolute;
-	top: 100px;
+	top: 50px;
 	left: 0;
 	right: 0;
 	bottom: 0;
@@ -386,7 +358,7 @@ body.res-console-open {
 #moduleOptionsScrim.visible {
 	display: block;
 }
-#RESConfigPanelModulesPane, #RESAboutPane {
+#RESConfigPanelModulesPane {
 	float: left;
 	width: 195px;
 	padding-right: 15px;
@@ -394,29 +366,7 @@ body.res-console-open {
 	height: 100%;
 	overflow: auto;
 }
-.moduleButton {
-	font-size: 12px;
-	color: #868686;
-	text-align: right;
-	padding-bottom: 3px;
-	padding-top: 3px;
-	margin-bottom: 12px;
-	cursor: pointer;
-	opacity: 0.5;
-}
-.moduleButton.enabled {
-	opacity: 1;
-}
-.moduleButton:hover {
-	text-decoration: underline;
-}
-.moduleButton.active, .moduleButton.active:hover {
-	opacity: 1;
-	font-weight: bold;
-}
-.RESPanel {
-	display: none;
-}
+
 .clear {
 	clear: both;
 }
@@ -481,6 +431,56 @@ p.moduleListing {
 	overflow: auto;
 	clear: both;
 	margin-bottom: 10px;
+}
+#RESConfigPanelModulesPane ul {
+	list-style: none;
+}
+#RESConfigPanelModulesPane li h3 {
+	text-align: center;
+	/* min-width: 80px; */
+	height: 22px;
+	margin: 3px 0;
+	border: 1px solid #c7c7c7;
+	border-radius: 3px;
+	padding: 6px 8px 0 8px;
+	cursor: pointer;
+	background-color: #ddd;
+	color: #6c6c6c;
+}
+#RESConfigPanelModulesPane li.active h3 {
+	border-color: #000;
+	background-color: #7f7f7f;
+	color: #fff;
+}
+#RESConfigPanelModulesPane .RESConfigPanelCategory ul {
+	height: 0;
+	overflow: hidden;
+}
+#RESConfigPanelModulesPane .RESConfigPanelCategory.active ul {
+	height: auto;
+}
+#RESMenu li h3:hover {
+	border-color: #000;
+}
+.moduleButton {
+	font-size: 12px;
+	color: #868686;
+	text-align: right;
+	padding-bottom: 3px;
+	padding-top: 3px;
+	margin-bottom: 12px;
+	cursor: pointer;
+	opacity: 0.5;
+}
+.moduleButton.enabled {
+	opacity: 1;
+}
+.moduleButton:hover {
+	text-decoration: underline;
+}
+.moduleButton.active, .moduleButton.active:hover {
+	opacity: 1;
+	font-weight: bold;
 }
 .moduleDescription {
 	float: left;
@@ -683,8 +683,8 @@ p.moduleListing {
 	display: none;
 	position: absolute;
 	z-index: 1100;
-	top: -35px;
-	right: 10px;
+	top: 30px;
+	right: 25px;
 	cursor: pointer;
 	padding: 3px 5px;
 	font-size: 12px;
@@ -749,14 +749,14 @@ p.moduleListing {
 	text-align: center;
 	background-color: #FFFACD;
 }
-#RESConsoleContent p {
+#RESConfigPanelOptions p {
 	margin-bottom: 10px;
 }
-#RESConsoleContent ul {
+#RESConfigPanelOptions ul {
 	margin-bottom: 10px;
 	margin-top: 10px;
 }
-#RESConsoleContent li {
+#RESConfigPanelOptions li {
 	list-style-type: disc;
 	margin-left: 15px;
 }
@@ -828,18 +828,24 @@ p.moduleListing {
 	color: #888;
 }
 
-#SearchRES-input-submit {
-	margin-left: 8px;
+#SearchRES-input-container  {
+	position: relative;
+	margin-bottom: 10px;
 }
 #SearchRES-input {
-	width: 200px;
-	height: 22px;
+	box-sizing: border-box;
+	width: 100%;
+	height: 26px;
 	font-size: 14px;
+	padding: 2px 25px 2px 5px;
 }
-#SearchRES-input-container {
-	float: left;
-	margin-left: 3em;
-	margin-top: 7px;
+#SearchRES-input-submit {
+	position: absolute;
+	top: 50%;
+	margin-top: -10px;
+	right: 0;
+	border: 0;
+	background: transparent;
 }
 #RESSearchMenuItem {
 	display: block;
