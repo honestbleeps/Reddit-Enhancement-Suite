@@ -446,6 +446,7 @@ p.moduleListing {
 	cursor: pointer;
 	background-color: #ddd;
 	color: #6c6c6c;
+	font-weight: normal;
 }
 #RESConfigPanelModulesPane li.active h3 {
 	border-color: #000;
@@ -453,11 +454,14 @@ p.moduleListing {
 	color: #fff;
 }
 #RESConfigPanelModulesPane .RESConfigPanelCategory ul {
-	height: 0;
+	max-height: 0;
 	overflow: hidden;
+	-webkit-transition: max-height 0.8s;
+	-moz-transition: max-height 0.8s;
+	transition: max-height 0.8s;
 }
 #RESConfigPanelModulesPane .RESConfigPanelCategory.active ul {
-	height: auto;
+	max-height: 1000px;
 }
 #RESMenu li h3:hover {
 	border-color: #000;
