@@ -359,6 +359,7 @@ body.res-console-open {
 	display: block;
 }
 #RESConfigPanelModulesPane {
+	position: relative;
 	float: left;
 	border-right: 1px solid #dedede;
 	width: 15em;
