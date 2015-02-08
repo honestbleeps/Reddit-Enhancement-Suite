@@ -1436,10 +1436,63 @@ a.bylink.parentlink {
 	bottom: 0px;
 }
 
-.RESSortPlaceholder {
-	height: 10px;
-	background-color: grey;
+
+/*
+tr looks funny with ::after
+and li looks funny with  ::before
+*/
+tr.RESSortPlaceholder::before, li.RESSortPlaceholder::after {
+	border: medium dashed grey;
+	color: grey;
+	content: 'drop here';
+	vertical-align: center;
+	text-align: center;
+	border-radius: 3px;
+	display: block;
 }
+
+.optionBuilder li {
+	list-style-type: none !important;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+}
+
+.optionBuilder li.dragged {
+	border: medium dashed grey;
+	border-radius: 3px;
+	background-color: #f0f3fc;
+}
+
+.optionBuilder input[type="text"] {
+	float: none;
+	margin-left: initial;
+	width: auto;
+}
+
+.builderControls, .builderBlock {
+	display: inline-block;
+}
+.builderControls {
+	padding: 0.1em;
+	vertical-align: top;
+}
+
+.builderMulti {
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+
+.builderMulti:empty::before {
+	border: medium dashed grey;
+	border-radius: 3px;
+	color: grey;
+	content: 'drag conditions here';
+	vertical-align: center;
+	text-align: center;
+	display: block;
+}
+
 
 
 /*
