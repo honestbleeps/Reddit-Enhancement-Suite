@@ -523,12 +523,12 @@ p.moduleListing {
 }
 .moduleToggle .toggleOn, .toggleButton .toggleOn {
 	border: 1px solid #636363;
-	border-right: 0px;
+	border-right: 0;
 	border-radius: 3px 0 0 3px;
 }
 .moduleToggle .toggleOff, .toggleButton .toggleOff {
 	border: 1px solid #636363;
-	border-left: 0px;
+	border-left: 0;
 	border-radius: 0 3px 3px 0;
 }
 .moduleToggle:not(.enabled) .toggleOn, .toggleButton:not(.enabled) .toggleOn {
@@ -779,7 +779,7 @@ p.moduleListing {
 	list-style-type: none;
 	border-bottom: 1px dashed #ccc;
 	cursor: pointer;
-	margin-left: 0px;
+	margin-left: 0;
 	padding-left: 10px;
 	padding-top: 24px;
 	padding-bottom: 24px;
@@ -1090,7 +1090,7 @@ body.RESScrollLock {
 .BERight .RESDialogContents, .BERight .RESDialogContents.wiki-page-content {
 	overflow: auto;
 	padding: 12px;
-	margin: 4em 1em 1em 0em;
+	margin: 4em 1em 1em 0;
 	left: 0;
 	right: 0;
 }
@@ -1247,7 +1247,7 @@ img {
 	position: absolute;
 	z-index: 99999;
 }
-.res-parents-up #parentCommentContainer { bottom: 0px; }
+.res-parents-up #parentCommentContainer { bottom: 0; }
 #parentCommentWrapper {
 	position: absolute;
 	left: 10px;
@@ -1412,15 +1412,15 @@ a.bylink.parentlink {
 
 /*Edgescroll plugin*/
 .edgescroll {
-	left: 0px;
-	right: 0px;
+	left: 0;
+	right: 0;
 	/*background-color: rgba(0, 0, 255, 0.5);*/
 }
 .edgescroll-top {
-	top: 0px;
+	top: 0;
 }
 .edgescroll-bottom {
-	bottom: 0px;
+	bottom: 0;
 }
 
 .RESSortPlaceholder {
@@ -1550,19 +1550,19 @@ a spinner with a static ring and no overlay.*/
 
 @-webkit-keyframes progressbar {
 	from {
-		background-position: 0px 0px;
+		background-position: 0 0;
 	}
 	to {
-		background-position: 39px 0px;
+		background-position: 39px 0;
 	}
 }
 
 @keyframes progressbar {
 	from {
-		background-position: 0px 0px;
+		background-position: 0 0;
 	}
 	to {
-		background-position: 39px 0px;
+		background-position: 39px 0;
 	}
 }
 
