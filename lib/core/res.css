@@ -1492,7 +1492,9 @@ tr.RESSortPlaceholder::before, li.RESSortPlaceholder::after {
 	text-align: center;
 	display: block;
 }
-
+.addBuilderBlock {
+	float: right;
+}
 
 
 /*
