@@ -1342,9 +1342,7 @@ a.bylink.parentlink {
 	border: 1px solid black;
 	color: black;
 	font-size: 12px;
-	padding: 20px;
-	padding-left: 40px;
-	padding-right: 40px;
+	padding: 20px 40px;
 	position: fixed!important;
 	width: 400px;
 	z-index: 1000000201;
@@ -1355,9 +1353,7 @@ a.bylink.parentlink {
 	font-family: normal x-small verdana,arial,helvetica,sans-serif;
 	font-weight: bold;
 	font-size: 10px;
-	padding: 6px;
-	padding-left: 9px;
-	padding-right: 9px;
+	padding: 6px 9px;
 	float: left;
 	background-color: #DFDFDF;
 	cursor: pointer;
@@ -1478,11 +1474,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 /* (cs)spinner ringed spinner.
 a spinner with a static ring and no overlay.*/
 .csspinner.ringed:after {
-  border-right: 4px solid #8BBDD6;
-  border-top: 4px solid #0052D6;
-  border-left: 4px solid #8BBDD6;
-  border-bottom: 4px solid #8BBDD6;
-  opacity: 1;
+	border: 4px solid #8BBDD6;
+	border-top-color: #0052D6;
+	opacity: 1;
 }
 /* (cs)spinner standard rotation animation used for duo, double-up etc. */
 @-webkit-keyframes standard {
@@ -1593,8 +1587,7 @@ a spinner with a static ring and no overlay.*/
 }
 
 #RESStyleSheetTipPane-contents ul {
-	list-style-type: disc;
-	list-style-position: inside;
+	list-style: disc inside;
 }
 
 /* gifyoutube player */
