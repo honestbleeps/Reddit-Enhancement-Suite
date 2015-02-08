@@ -981,8 +981,7 @@ a.RESNotificationButtonBlue {
 	-webkit-transition: all 2s linear;
 	-moz-transition: all 2s linear;
 	-o-transition: all 2s linear;
-	-ms-transition: all 2s linear;
-	-transition: all 2s linear;
+	transition: all 2s linear;
 }
 #baconBit.makeitrain {
 	top: 100%;
