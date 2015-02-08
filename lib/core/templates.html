@@ -81,6 +81,75 @@
 		</div>
 
 		<!-- RESConsole -->
+		<div id="settingsConsole">
+			<div id="RESConsoleContainer">
+				<div id="RESConsoleHeader">
+					<div id="RESConsoleTopBar" class="RESDialogTopBar">
+						<img id="RESLogo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAAeCAMAAABHRo19AAAACXBIWXMAAA7EAAAOxAGVKw4bAAACxFBMVEXw8/wAAAD+//8EBAQSEhIPDw/w8/v+/v4JCQkHBwcCAgKSk5W8vLz9SADz8/MtLS0iIiIcHBz/VAAYGBmRkZFkZGUkJCQVFhZiYmOZmp2QkpfQ09r9/f3n6vA5OTkvLy//TAAxMTEUFRTl5eVqa2zu8fnt7/fV19ydnqCen6Lt8Pj/TwDk5ORaWlrg4ug1NTUpKSrX19cgICDp6/J6enrFxcW1trpDQ0M7OzwnJyenp6f6TQAXFxj/WACFhojr6+uNjpBHR0cfHx+vr7GSkpJMTEwYGBg+Pj5cXF3CwsJISEj29vYQEBDe3t7+SwBmZmixsbH19fXo6OhQUFAgICJgYWXHyM3q7PTs7vW3uLvb3eKqq650dXbS09js7/aTlJY5OjmUlJeenp7r7vWWl5n8/Px4eHihoqWEhYfO0NTj5euDg4Pa3OGRkpTJy8/g4ODe4Obc3Nzv8vqjo6O1tbW3uLyrq6t1dXX5ya5/f3/5xqxZWVqKiopra2v4uJb99vLCw8fFxsouLS6Oj5Hs7OzY2t+jpKZ4eXv2tY8NDQ35WQny8vJkZGT2lWGQkJB8fHzi5OrLzNFAQUPm6O/3f0W7u7v3oXP4dTb2nXH62MX3pHb87+bn5+dWV1dvb3E0NDT4lWP3jFP4vJn2cS79+vaJioxNTU376d72f0H4Wwf2fT7759z9+fX1lmH4XAv2bSb40bheX2A6Ojr9+vj76t/9+vf76+H5XxVGRkZxcnPQ0te+vr52dnaztLfExMT2tZFYWFhSUlLV1dVwcXL52MS4uLiysrKam5rW1tZPT1CVlZWYmJiUlJRHR0ipqq0qKiqzs7P39/fq6urj4+P89fH09PT6+vo4ODjq7PNsbW4oKCh0dHTv7++3t7fk5u2IiYtFRUU3NzdPT0/Kysru7u6NjY1tbW1gYGBfX19sbGyHh4fh4eEzPXfuAAACPElEQVR4Xq3SQ9fkQBTH4bpVSdru17Zt28bYtm3btm3btm37S8yk0oteTKc7c+a3uf/Nc3JyEvT/48KF69Uhu7dk3AfaZ48PRiHgUwLdpGLdtFbecrkPOxvjuSRcmp2vaIsQt6gdLME4UtlGGs6NFW7+GIw7Qidp2BAq3KaQWg650mwC9LSs6JpRfZG03PTo32reMrmzIW3IlGaSZY/W+aCcoY/xq1SCKXAC5xAaGObkFoSmZoK3uaxqlgzL6vol3UohjIpDLWq6J4jaaNZUnsb4syMCsHU5o10q4015sZAshp2LuuCu4DSZFzJrrh0GURj3Ai8BNHrQ08TdyvZXDsDzYBD+W4OJK5bFh9nGIaRuKKTTxw5fOtJTUCtWjh3H31NQiCdOso2DiVlXSsXGDN+M6XRdnlmtmUNXYrGaLPhD3IFvoQfQrH4KkMdRsjgiK2IZXcurs4zHVvFrdSasQTaeTFu7DtPWa4yaDXSd0xh9N22mMyUVieItWwW8bfuOnbvo2r1n7779mOZ6QByHHsRChw4fsXwsz6OPsdDxE0i0kyQA20rLFIhjzuW0TVxIgpB4Z+AsBRXn1RZTdeEivXFyFbLXJTaJvmkDNJgLrly95iR3juTt9eIbyH6ucJPq2hJGQQiru63lbbriDocc6C7cu1/BgwcPH9U/4cdT9TNQIcd6/oK8fFWbg4Vev0n0I6VvkcO9A38Fq495X5T3wZkhLvAROZ6KYT59Lvvy9VvU9x8/1fW/DEygHfEbNdeCkgdk4HMAAAAASUVORK5CYII=">
+						<h1>reddit enhancement suite</h1>
+						<div id="RESConsoleVersionDisplay">v</div>
+
+						<a id="RESConsoleSubredditLink" href="/r/Enhancement" alt="The RES Subreddit">/r/Enhancement</a>
+						<span id="RESClose" class="RESCloseButton">×</span>
+
+						<label id="RESAllOptionsSpan">
+							<input id="RESAllOptions" type="checkbox">
+							<span>Show all options</span>
+						</label>
+					</div>
+				</div>
+
+				<div id="RESConsoleContent">
+					<div id="RESConfigPanelModulesPane">
+						<div id="SearchRES-input-container"></div>
+
+						<div id="RESConfigPanelModulesList"></div>
+					</div>
+					<div id="RESConfigPanelOptions">
+						<div class="moduleHeader">
+							<span class="moduleName">Module Name</span>
+							<div class="moduleToggle enabled" moduleID="moduleID">
+								<span class="toggleOn noCtrlF" data-text="on"></span>
+								<span class="toggleOff noCtrlF" data-text="off"></span>
+							</div>
+							<div id="moduleOptionsSaveStatus" class="saveStatus" style="display: none;">Options have been saved...</div>
+
+							<div class="moduleDescription"></div>
+						</div>
+						<div id="allOptionsContainer"></div>
+					</div>
+					<input id="moduleOptionsSave" type="button" value="save options">
+				</div>
+			</div>
+		</div>
+
+		<div id="settingsConsoleSearch">
+			<form id="SearchRES-input-container">
+				<input id="SearchRES-input" type="text" placeholder="search RES settings" />
+				<button id="SearchRES-input-submit" type="submit">
+					<span class="res-icon">&#xF094;</span>
+				</button>
+			</form>
+		</div>
+
+		<div id="settingsConsoleModuleSelector">
+			<ul>
+			{{#categories}}
+				<li class="RESConfigPanelCategory" data-category="{{name}}">
+					<h3 class="categoryButton" data-category="{{name}}">{{name}}</h3>
+					<ul>
+					{{#modules}}
+						<li class="moduleButton {{#isEnabled}}enabled{{/isEnabled}}" data-module="{{moduleID}}">
+							{{moduleName}}
+						</li>
+					{{/modules}}
+					</ul>
+				</li>
+			{{/categories}}
+			</ul>
+		</div>
+
+
 		<div id="contributeRESPanel">
 			<div id="contributeContents">
 				<p>RES is entirely free - as in beer, as in open source, as in everything.  If you like our work, a contribution would be greatly appreciated.</p>
@@ -146,14 +215,14 @@
 			<h3>What is RES?</h3>
 			<p>Reddit Enhancement Suite is a collection of modules that makes browsing reddit a whole lot easier.</p>
 
-			<p>Read more about what RES can do for you on the <a href="http://www.reddit.com/r/Enhancement/wiki">/r/Enhancement wiki</a> or look over the <a href="http://www.reddit.com/r/Enhancement/faq">Frequently Asked Questions</a>.
+			<p>Read more about what RES can do for you on the <a href="http://www.reddit.com/r/Enhancement/wiki">/r/Enhancement wiki</a> or look over the <a href="http://www.reddit.com/r/Enhancement/faq">Frequently Asked Questions</a>.</p>
 
 			<h3>Want to talk?</h3>
 
 			<p>If something looks broken, <a href="http://www.reddit.com/r/RESissues/search?restrict_sr=on">search in /r/RESissues</a> or <a href="http://www.reddit.com/r/RESIssues/submit">post a bug report</a>.</p>
 
 
-			<p>If you have an idea or want to chat with other RES users, <a href="http://www.reddit.com/r/Enhancement/search?restrict_sr=on">search in /r/Enhancement</a> or <a href="http://www.reddit.com/r/Enhancement/submit">submit a feature request or discussion</a>.
+			<p>If you have an idea or want to chat with other RES users, <a href="http://www.reddit.com/r/Enhancement/search?restrict_sr=on">search in /r/Enhancement</a> or <a href="http://www.reddit.com/r/Enhancement/submit">submit a feature request or discussion</a>.</p>
 
 			<p>If you'd like to contribute code to RES, check out <a href="https://github.com/honestbleeps/Reddit-Enhancement-Suite" target="_blank">RES on GitHub</a>.</p>
 
@@ -175,7 +244,7 @@
 			<div id="SearchRES-boilerplate">
 				<p>You can search for RES options by module name, option name, and description. For example, try searching for "daily trick" in one of the following ways:</p>
 				<ul>
-					<li>type <code>daily trick</code> in the search box above and click the button</li>
+					<li>type <code>daily trick</code> in the search box to the left and click the magnifying glass button</li>
 					<li>press <code>.</code> to open the RES console, type in <code>search <em>daily trick</em></code>, and press Enter</li>
 				</ul>
 			</div>
@@ -409,6 +478,6 @@
 [RES settings console]({{settingsUrl}}) > {{category}} > [{{moduleName}}]({{moduleUrl}} "{{moduleID}}") {{#optionKey}} > [{{optionKey}}]({{optionUrl}}){{/optionKey}}
 
 {{description}}
-		</script>
+		</pre>
 	</body>
 </html>
