@@ -624,6 +624,9 @@ p.moduleListing {
 	float: left;
 	width: 140px;
 }
+.optionContainer input[type=radio] {
+	margin-right: 0.3em;
+}
 .optionContainer>input[type=color] {
 	margin-left: 10px;
 	margin-top: -3px;
