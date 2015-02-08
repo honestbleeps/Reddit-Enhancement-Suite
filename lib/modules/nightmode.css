@@ -18,7 +18,6 @@
 	background-color: #222;
 	border-color: #777;
 }
-}
 .res-nightmode .listing-page .sitetable > div {
 	background: rgb(18,18,18);
 }
@@ -817,7 +816,7 @@
 .res-nightmode .sitetable .moderator,
 .res-nightmode .sitetable .admin,
 .res-nightmode .sitetable .submitter,
-.res-nightmode .sitetable friend,
+.res-nightmode .sitetable .friend,
 .res-nightmode .moderator .traffic-table tbody tr:nth-child(even),
 .res-nightmode .thing .expando-button,
 .res-nightmode .instructions,
@@ -1046,4 +1045,4 @@ html.res-nightmode .multi-details .subreddits .remove-sr {
 
 .res-nightmode .guider {
 	background: #222;
-
+}
