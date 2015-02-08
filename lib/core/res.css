@@ -1482,6 +1482,11 @@ tr.RESSortPlaceholder::before, li.RESSortPlaceholder::after {
 	margin-bottom: 1em;
 }
 
+.builderItem > .deleteButton {
+	vertical-align: top;
+	margin: 0.3em;
+}
+
 
 .builderMulti:empty::before {
 	border: medium dashed grey;
