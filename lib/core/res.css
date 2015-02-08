@@ -850,15 +850,15 @@ p.moduleListing {
 	display: block;
 	float: right;
 	margin: 7px;
-	width: 21px;height: 21px;
+	padding: 2px;
+	width: 16px;
+	height: 16px;
+	line-height: 15px;
 	border: 1px #c9def2 solid;
 	border-radius: 3px;
-	background: transparent center center no-repeat;
-	background-image: url(https://s3.amazonaws.com/b.thumbs.redditmedia.com/ekcPwlhwTePc_MTv7mbS3lUnYJdH6lZlG77OfcBwXGA.png);
 }
 li:hover > #RESSearchMenuItem {
 	border-color: #369;
-	background-image: url(https://s3.amazonaws.com/b.thumbs.redditmedia.com/ekcPwlhwTePc_MTv7mbS3lUnYJdH6lZlG77OfcBwXGA.png);
 }
 #RESSearchMenuItem:hover {
 	background-color: #C8DBEC;
