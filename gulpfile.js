@@ -263,47 +263,47 @@ gulp.task('add-module-firefox', function() {
 
 gulp.task('module-css-firefox', function() {
 	return gulp.src('lib/modules/*.css')
-		.pipe(gulp.dest(path.join(firefoxBuildDir, 'modules')));
+		.pipe(gulp.dest(path.join(firefoxBuildDir, 'data', 'modules')));
 });
 
 gulp.task('core-css-firefox', function() {
 	return gulp.src('lib/core/*.css')
-		.pipe(gulp.dest(path.join(firefoxBuildDir, 'core')));
+		.pipe(gulp.dest(path.join(firefoxBuildDir, 'data', 'core')));
 });
 
 gulp.task('vendor-css-firefox', function() {
 	return gulp.src('lib/vendor/*.css')
-		.pipe(gulp.dest(path.join(firefoxBuildDir, 'vendor')));
+		.pipe(gulp.dest(path.join(firefoxBuildDir, 'data', 'vendor')));
 });
 
 gulp.task('lib-js-firefox', function() {
 	return gulp.src('lib/*.js')
-		.pipe(gulp.dest(path.join(firefoxBuildDir)));
+		.pipe(gulp.dest(path.join(firefoxBuildDir, 'data')));
 });
 
 gulp.task('lib-js-firefox-2', function() {
-	return gulp.src('XPI/lib/*.js')
+	return gulp.src('XPI/lib/**/*')
 		.pipe(gulp.dest(path.join(firefoxBuildDir, 'lib')));
 });
 
 gulp.task('data-js-firefox', function() {
-	return gulp.src('XPI/data/*.js')
+	return gulp.src('XPI/data/**/*')
 		.pipe(gulp.dest(path.join(firefoxBuildDir, 'data')));
 });
 
 gulp.task('vendor-js-firefox', function() {
 	return gulp.src('lib/vendor/*.js')
-		.pipe(gulp.dest(path.join(firefoxBuildDir, 'vendor')));
+		.pipe(gulp.dest(path.join(firefoxBuildDir, 'data', 'vendor')));
 });
 
 gulp.task('core-js-firefox', function() {
 	return gulp.src('lib/core/*.js')
-		.pipe(gulp.dest(path.join(firefoxBuildDir, 'core')));
+		.pipe(gulp.dest(path.join(firefoxBuildDir, 'data', 'core')));
 });
 
 gulp.task('modules-js-firefox', function() {
 	return gulp.src([ 'lib/modules/**/*.js' , 'lib/modules/**/*.json' ])
-		.pipe(gulp.dest(path.join(firefoxBuildDir, 'modules')));
+		.pipe(gulp.dest(path.join(firefoxBuildDir, 'data', 'modules')));
 });
 
 gulp.task('root-images-firefox', function() {
@@ -313,7 +313,7 @@ gulp.task('root-images-firefox', function() {
 
 gulp.task('firefox-move-1', function() { // move other stuff that doesn't fit elsewhere
 	return gulp.src('lib/core/*.html')
-		.pipe(gulp.dest(path.join(firefoxBuildDir, 'core')));
+		.pipe(gulp.dest(path.join(firefoxBuildDir, 'data', 'core')));
 });
 
 gulp.task('firefox-move-2', function() {
