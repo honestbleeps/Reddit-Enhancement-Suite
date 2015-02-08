@@ -110,20 +110,7 @@ body.res-console-open {
 }
 .gearIcon.newNotification {
 	cursor: pointer;
-	background-position: 0px -134px;
-}
-#RESMainGearOverlay .gearIcon {
-	position: absolute;
-	top: 3px;
-	left: 6px;
-}
-#RESSettingsButton {
-	margin: auto;
-	margin-bottom: -2px;
-}
-.gearIcon.newNotification {
-	cursor: pointer;
-	background-position: 0px -134px;
+	background-position: 0 -134px;
 }
 #RESMainGearOverlay .gearIcon {
 	position: absolute;
