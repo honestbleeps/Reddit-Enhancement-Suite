@@ -1441,7 +1441,7 @@ a.bylink.parentlink {
 tr looks funny with ::after
 and li looks funny with  ::before
 */
-tr.RESSortPlaceholder::before, li.RESSortPlaceholder::after {
+tr.RESSortPlaceholder::before, li.RESSortPlaceholder::after, div.RESSortPlaceholder::after {
 	border: medium dashed grey;
 	color: grey;
 	content: 'drop here';
