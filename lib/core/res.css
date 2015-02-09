@@ -164,9 +164,6 @@ body.res-console-open {
 	cursor: pointer;
 	width: 24px;
 	height: 22px;
-	background-repeat: no-repeat;
-	background-position: 2px 2px;
-	background-image: url(https://s3.amazonaws.com/b.thumbs.redditmedia.com/G6qEldT8FQ1NadPj3VnmGR1AWJd9ljDwj7bjVEdB8YI.png)
 }
 .optionsTable .res-icon-button {
 	cursor: pointer;
@@ -840,15 +837,11 @@ p.moduleListing {
 	display: block;
 	float: right;
 	margin: 7px;
-	width: 21px;height: 21px;
-	border: 1px #c9def2 solid;
+	padding: 2px;
+	width: 16px;
+	height: 16px;
+	line-height: 15px;
 	border-radius: 3px;
-	background: transparent center center no-repeat;
-	background-image: url(https://s3.amazonaws.com/b.thumbs.redditmedia.com/ekcPwlhwTePc_MTv7mbS3lUnYJdH6lZlG77OfcBwXGA.png);
-}
-li:hover > #RESSearchMenuItem {
-	border-color: #369;
-	background-image: url(https://s3.amazonaws.com/b.thumbs.redditmedia.com/ekcPwlhwTePc_MTv7mbS3lUnYJdH6lZlG77OfcBwXGA.png);
 }
 #RESSearchMenuItem:hover {
 	background-color: #C8DBEC;
