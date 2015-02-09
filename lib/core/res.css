@@ -1469,6 +1469,13 @@ tr.RESSortPlaceholder::before, li.RESSortPlaceholder::after, div.RESSortPlacehol
 	width: auto;
 }
 
+.builderItem {
+	/*border: thin solid lightgrey;*/
+	border-radius: 5px;
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
 .builderControls, .builderBlock {
 	display: inline-block;
 }
@@ -1482,11 +1489,19 @@ tr.RESSortPlaceholder::before, li.RESSortPlaceholder::after, div.RESSortPlacehol
 	margin-bottom: 1em;
 }
 
-.builderItem > .deleteButton {
+.builderItem > .handle {
 	vertical-align: top;
-	margin: 0.3em;
+	font-size: 30pt;
 }
 
+.builderItemControls {
+	display: inline-block;
+	vertical-align: top;
+}
+.builderItemControls div {
+	display: block;
+	margin: 3px;
+}
 
 .builderMulti:empty::before {
 	border: medium dashed grey;
