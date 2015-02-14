@@ -29,9 +29,10 @@
 		<dict>
 			<key>Start</key>
 			<array>
-				<string>vendor/jquery-1.11.1.min.js</string>
-				<string>vendor/guiders-1.2.8.js</string>
-				<string>vendor/jquery.dragsort-0.6.js</string>
+				<string>vendor/jquery-1.11.2.min.js</string>
+				<string>vendor/guiders.js</string>
+				<string>vendor/jquery.sortable-0.9.12.js</string>
+				<string>vendor/jquery.edgescroll-0.1.js</string>
 				<string>vendor/jquery-fieldselection.min.js</string>
 				<string>vendor/favico.js</string>
 				<string>vendor/jquery.tokeninput.js</string>
@@ -41,7 +42,7 @@
 				<string>core/utils.js</string>
 				<string>browsersupport.js</string>
 				<string>browsersupport-safari.js</string>
-				<string>core/console.js</string>
+				<string>core/options.js</string>
 				<string>core/alert.js</string>
 				<string>core/migrate.js</string>
 				<string>core/storage.js</string>
@@ -57,6 +58,8 @@
 				<string>modules/userTagger.js</string>
 				<string>modules/keyboardNav.js</string>
 				<string>modules/commandLine.js</string>
+				<string>modules/settingsConsole.js</string>
+				<string>modules/menu.js</string>
 				<string>modules/about.js</string>
 				<string>modules/hover.js</string>
 				<string>modules/subredditTagger.js</string>
@@ -93,13 +96,45 @@
 				<string>modules/context.js</string>
 				<string>modules/noParticipation.js</string>
 				<string>modules/searchHelper.js</string>
+				<string>modules/submitHelper.js</string>
 				<string>modules/logoLink.js</string>
 				<string>modules/voteEnhancements.js</string>
 				<string>modules/upload.js</string>
-				<string>modules/hosts/mediacrush.js</string>
 				<string>modules/tableTools.js</string>
 				<string>modules/modhelper.js</string>
 				<string>modules/quickMessage.js</string>
+				<string>modules/hosts/imgur.js</string>
+				<string>modules/hosts/gfycat.js</string>
+				<string>modules/hosts/gifyoutube.js</string>
+				<string>modules/hosts/vidble.js</string>
+				<string>modules/hosts/fitbamob.js</string>
+				<string>modules/hosts/giflike.js</string>
+				<string>modules/hosts/ctrlv.js</string>
+				<string>modules/hosts/snag.js</string>
+				<string>modules/hosts/picshd.js</string>
+				<string>modules/hosts/minus.js</string>
+				<string>modules/hosts/fiveHundredPx.js</string>
+				<string>modules/hosts/flickr.js</string>
+				<string>modules/hosts/steampowered.js</string>
+				<string>modules/hosts/deviantart.js</string>
+				<string>modules/hosts/tumblr.js</string>
+				<string>modules/hosts/memecrunch.js</string>
+				<string>modules/hosts/imgflip.js</string>
+				<string>modules/hosts/mediacrush.js</string>
+				<string>modules/hosts/livememe.js</string>
+				<string>modules/hosts/makeameme.js</string>
+				<string>modules/hosts/memegen.js</string>
+				<string>modules/hosts/redditbooru.js</string>
+				<string>modules/hosts/youtube.js</string>
+				<string>modules/hosts/vimeo.js</string>
+				<string>modules/hosts/soundcloud.js</string>
+				<string>modules/hosts/clyp.js</string>
+				<string>modules/hosts/memedad.js</string>
+				<string>modules/hosts/ridewithgps.js</string>
+				<string>modules/hosts/photobucket.js</string>
+				<string>modules/hosts/giphy.js</string>
+				<string>modules/hosts/streamable.js</string>
+				<string>modules/hosts/raddit.js</string>
 				<string>core/init.js</string>
 			</array>
 		</dict>

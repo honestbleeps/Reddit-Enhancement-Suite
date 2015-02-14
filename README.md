@@ -23,9 +23,9 @@ steve@honestbleeps.com
 
 Thinking about contributing to RES? Awesome! We just ask that you follow a few simple guidelines:
 
-1. RES has grown quite large, so we do have to pick and choose what features we should add. Code bloat is always a concern, and RES is already rather hefty. If you're unsure if your feature would appeal to a wide audience, please post about it on [/r/Enhancement](http://www.reddit.com/r/Enhancement/) or [contact @honestbleeps](http://www.reddit.com/message/compose/?to=honestbleeps) directly to ask.
+1. RES has grown quite large, so we do have to pick and choose what features we should add. Code bloat is always a concern, and RES is already rather hefty. If you're unsure if your feature would appeal to a wide audience, please post about it on [/r/Enhancement](https://www.reddit.com/r/Enhancement/) or [contact @honestbleeps](https://www.reddit.com/message/compose/?to=honestbleeps) directly to ask.
 
-2. There are a few features we have made a conscious choice not to add to RES, so make sure whatever you'd like to contribute [isn't on that list](http://www.reddit.com/r/Enhancement/wiki/rejectedfeaturerequests).
+2. There are a few features we have made a conscious choice not to add to RES, so make sure whatever you'd like to contribute [isn't on that list](https://www.reddit.com/r/Enhancement/wiki/rejectedfeaturerequests).
 
 3. It would be greatly appreciated if you could stick to a few style guidelines. Some of these guidelines are NOT (yet!) strictly followed by RES because it originally started as an amalgamation of code from so many different sources. That said, we do hope to clean it up in due time...  Some guidelines:
 
@@ -144,13 +144,13 @@ To load the extension into your browser, see the ["Building development versions
 
 RES can also be built with [gulp](http://gulpjs.com/), an advanced build manager similar to grunt.
 
-You will need [node.js](http://node.js.org) installed on your system.
+You will need [node.js](http://nodejs.org) installed on your system.
 
 First time use:
 
 1. Run `npm install -g gulp`.
 2. Navigate to your RES folder.
-3. Run `npm install gulp-imagemin del gulp-zip`
+3. Run `npm install` ^(If you're super-conscientious about which modules are installed, then look at gulpfile.js and `npm install` the required packages manually.)
 
 Usage:
 
@@ -165,3 +165,13 @@ cleans out the 'dist' directory
     gulp <browsername>
 
 Where <browsername> is either: chrome, firefox, safari, opera, oblink. This will build just one version of RES, based on what you enter. Run 'gulp clean' before running the above.
+
+    gulp add-module --file module.js
+
+adds module.js to the manifest for each browser.
+
+    gulp watch
+    or
+    gulp watch-<browsername>
+
+copies the extension files when anything changes.
