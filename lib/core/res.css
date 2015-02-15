@@ -1463,7 +1463,8 @@ tr.RESSortPlaceholder::before, li.RESSortPlaceholder::after, div.RESSortPlacehol
 	background-color: #f0f3fc;
 }
 
-.optionBuilder input[type="text"] {
+.optionBuilder input[type="text"],
+.optionBuilder input[type="checkbox"] {
 	float: none;
 	margin-left: initial;
 	width: auto;
@@ -1515,6 +1516,33 @@ tr.RESSortPlaceholder::before, li.RESSortPlaceholder::after, div.RESSortPlacehol
 .addBuilderBlock {
 	float: right;
 }
+
+.checkset {
+	display: inline-block;
+}
+.checkset input[type="checkbox"] {
+	display: none;
+}
+
+.checkset label {
+	border: thin grey solid;
+	background-color: white;
+	padding: 2px 4px;
+}
+.checkset label:first-of-type {
+	border-top-left-radius: 6px;
+	border-bottom-left-radius: 6px;
+}
+
+.checkset label:last-of-type {
+	border-top-right-radius: 6px;
+	border-bottom-right-radius: 6px;
+}
+.checkset :checked + label {
+	background-color: darkgrey;
+	text-decoration: underline;
+}
+
 
 
 /*
