@@ -657,7 +657,7 @@
 .res-nightmode .new-comment .usertext-body {
 	background-color: #345;
 }
-.res-nightmode .md code, .res-nightmode .md pre {
+.res-nightmode .md code, .res-nightmode .usertext .md pre {
 	background-color: #456;
 }
 .res-nightmode .new-comment .usertext-body .md p a,
@@ -783,6 +783,9 @@
 .res-nightmode #BigEditor .markdownEditor a,
 .res-nightmode #BigEditor .markdownEditor .RESMacroDropdownTitle {
 	color: #ccc;
+}
+.res-nightmode .md blockquote {
+    color: #999;
 }
 .res-nightmode .subreddit .usertext .md,
 .res-nightmode .RESDialogSmall h3 {
