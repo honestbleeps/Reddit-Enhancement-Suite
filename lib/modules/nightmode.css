@@ -129,6 +129,11 @@
 .res-nightmode #header {
 	background-color: #999;
 }
+.res-nightmode #jumpToContent {
+    color: #ddd;
+    border: 1px solid;
+    padding: 0 2px;
+}
 .res-nightmode #sr-header-area,
 .res-nightmode #sr-more-link,
 .res-nightmode #RESConsoleTopBar,
@@ -652,7 +657,7 @@
 .res-nightmode .new-comment .usertext-body {
 	background-color: #345;
 }
-.res-nightmode .md code, .res-nightmode .md pre {
+.res-nightmode .md code, .res-nightmode .usertext .md pre {
 	background-color: #456;
 }
 .res-nightmode .new-comment .usertext-body .md p a,
@@ -779,11 +784,18 @@
 .res-nightmode #BigEditor .markdownEditor .RESMacroDropdownTitle {
 	color: #ccc;
 }
-.res-nightmode .infobar,
+.res-nightmode .md blockquote {
+    color: #999;
+}
 .res-nightmode .subreddit .usertext .md,
 .res-nightmode .RESDialogSmall h3 {
 	background-color: #222;
 	color: #ccc;
+}
+.res-nightmode .infobar {
+    border-color: #a48f50;
+    background: #dad0b3;
+    color: #000;
 }
 .res-nightmode .rank .star,
 .res-nightmode .link .score.likes,
