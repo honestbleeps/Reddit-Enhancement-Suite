@@ -52,7 +52,7 @@ self.on('message', function(msgEvent) {
 					currentSubreddit = RESUtils.currentSubreddit();
 
 				if (currentSubreddit) {
-					BrowserStrategy.sendMessage({
+					RESUtils.runtime.sendMessage({
 						requestType: 'pageAction',
 						action: 'stateChange',
 						visible: toggle
@@ -73,8 +73,8 @@ self.on('message', function(msgEvent) {
 	}
 });
 
-
-BrowserStrategy.ajax = function(obj) {
+RESUtils.runtime = RESUtils.runtime || {};
+RESUtils.runtime.ajax = function(obj) {
 	var crossDomain = (obj.url.indexOf(location.hostname) === -1);
 
 	if ((typeof obj.onload !== 'undefined') && (crossDomain)) {
@@ -132,7 +132,7 @@ BrowserStrategy.ajax = function(obj) {
 };
 
 
-BrowserStrategy.localStorageTest = function() {
+RESUtils.runtime.localStorageTest = function() {
 	// if this is a firefox addon, check for the old lsTest to see if they used to use the Greasemonkey script...
 	// if so, present them with a notification explaining that they should download a new script so they can
 	// copy their old settings...
@@ -154,7 +154,7 @@ BrowserStrategy.localStorageTest = function() {
 	}
 };
 
-BrowserStrategy.storageSetup = function(thisJSON) {
+RESUtils.runtime.storageSetup = function(thisJSON) {
 	var transactions = 0;
 	window.RESLoadCallbacks = [];
 	RESLoadResourceAsText = function(filename, callback) {
@@ -166,8 +166,8 @@ BrowserStrategy.storageSetup = function(thisJSON) {
 	self.postMessage(thisJSON);
 };
 
-BrowserStrategy.RESInitReadyCheck = (function() {
-	var original = BrowserStrategy.RESInitReadyCheck;
+RESUtils.runtime.RESInitReadyCheck = (function() {
+	var original = RESUtils.runtime.RESInitReadyCheck;
 
 	return function(RESInit) {
 		// firefox addon sdk... we've included jQuery...
@@ -182,7 +182,7 @@ BrowserStrategy.RESInitReadyCheck = (function() {
 	}
 })();
 
-BrowserStrategy.openInNewWindow = function(thisHREF) {
+RESUtils.runtime.openInNewWindow = function(thisHREF) {
 	var thisJSON = {
 		requestType: 'keyboardNav',
 		linkURL: thisHREF
@@ -190,7 +190,7 @@ BrowserStrategy.openInNewWindow = function(thisHREF) {
 	self.postMessage(thisJSON);
 };
 
-BrowserStrategy.openLinkInNewTab = function(thisHREF) {
+RESUtils.runtime.openLinkInNewTab = function(thisHREF) {
 	var thisJSON = {
 		requestType: 'openLinkInNewTab',
 		linkURL: thisHREF
@@ -198,11 +198,11 @@ BrowserStrategy.openLinkInNewTab = function(thisHREF) {
 	self.postMessage(thisJSON);
 };
 
-BrowserStrategy.sendMessage = function(thisJSON) {
+RESUtils.runtime.sendMessage = function(thisJSON) {
 	self.postMessage(thisJSON);
 };
 
-BrowserStrategy.deleteCookie = function(cookieName) {
+RESUtils.runtime.deleteCookie = function(cookieName) {
 	var deferred = new $.Deferred();
 
 	var requestJSON = {

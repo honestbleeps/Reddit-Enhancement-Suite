@@ -52,8 +52,8 @@ chrome.runtime.onMessage.addListener(
 	}
 );
 
-
-BrowserStrategy.ajax = function(obj) {
+RESUtils.runtime = RESUtils.runtime || {};
+RESUtils.runtime.ajax = function(obj) {
 	var crossDomain = (obj.url.indexOf(location.hostname) === -1);
 
 	if ((typeof obj.onload !== 'undefined') && (crossDomain)) {
@@ -104,7 +104,7 @@ BrowserStrategy.ajax = function(obj) {
 };
 
 
-BrowserStrategy.storageSetup = function(thisJSON) {
+RESUtils.runtime.storageSetup = function(thisJSON) {
 	RESLoadResourceAsText = function(filename, callback) {
 		var xhr = new XMLHttpRequest();
 		xhr.onload = function() {
@@ -143,11 +143,11 @@ BrowserStrategy.storageSetup = function(thisJSON) {
 };
 
 
-BrowserStrategy.sendMessage = function(thisJSON) {
+RESUtils.runtime.sendMessage = function(thisJSON) {
 	chrome.runtime.sendMessage(thisJSON);
 };
 
-BrowserStrategy.deleteCookie = function(cookieName) {
+RESUtils.runtime.deleteCookie = function(cookieName) {
 	var deferred = new $.Deferred();
 
 	var requestJSON = {
@@ -163,7 +163,7 @@ BrowserStrategy.deleteCookie = function(cookieName) {
 };
 
 
-BrowserStrategy.openInNewWindow = function(thisHREF) {
+RESUtils.runtime.openInNewWindow = function(thisHREF) {
 	var thisJSON = {
 		requestType: 'keyboardNav',
 		linkURL: thisHREF
@@ -171,7 +171,7 @@ BrowserStrategy.openInNewWindow = function(thisHREF) {
 	chrome.runtime.sendMessage(thisJSON);
 };
 
-BrowserStrategy.openLinkInNewTab = function(thisHREF) {
+RESUtils.runtime.openLinkInNewTab = function(thisHREF) {
 	var thisJSON = {
 		requestType: 'openLinkInNewTab',
 		linkURL: thisHREF
@@ -179,8 +179,8 @@ BrowserStrategy.openLinkInNewTab = function(thisHREF) {
 	chrome.runtime.sendMessage(thisJSON);
 };
 
-BrowserStrategy.addURLToHistory = (function() {
-	var original = BrowserStrategy.addURLToHistory;
+RESUtils.runtime.addURLToHistory = (function() {
+	var original = RESUtils.runtime.addURLToHistory;
 
 	return function(url) {
 		if (chrome.extension.inIncognitoContext) {

@@ -47,7 +47,7 @@ function safariMessageHandler(msgEvent) {
 			break;
 		case 'addURLToHistory':
 			var url = msgEvent.message.url;
-			BrowserStrategy._addURLToHistoryViaForeground(url);
+			RESUtils.runtime._addURLToHistoryViaForeground(url);
 			break;
 		case 'localStorage':
 			RESStorage.setItem(msgEvent.message.itemName, msgEvent.message.itemValue, true);
@@ -65,7 +65,7 @@ window.onunload = function() {};
 safari.self.addEventListener('message', safariMessageHandler, false);
 
 
-BrowserStrategy.ajax = function(obj) {
+RESUtils.runtime.ajax = function(obj) {
 	obj.requestType = 'ajax';
 	// Since Safari doesn't provide legitimate callbacks, I have to store the onload function here in the main
 	// userscript in a queue (see xhrQueue), wait for data to come back from the background page, then call the onload.
@@ -127,7 +127,7 @@ BrowserStrategy.ajax = function(obj) {
 };
 
 
-BrowserStrategy.sanitizeJSON = function(data) {
+RESUtils.runtime.sanitizeJSON = function(data) {
 	if (data.substring(0, 2) === 's{') {
 		data = data.substring(1, data.length);
 	}
@@ -136,12 +136,12 @@ BrowserStrategy.sanitizeJSON = function(data) {
 };
 
 
-BrowserStrategy.storageSetup = function(thisJSON) {
+RESUtils.runtime.storageSetup = function(thisJSON) {
 	var setupInterval;
 	RESLoadResourceAsText = function(filename, callback) {
 		var url = safari.extension.baseURI + filename;
 
-		BrowserStrategy.ajax({
+		RESUtils.runtime.ajax({
 			method: 'GET',
 			url: url,
 			onload: function (response) {
@@ -178,12 +178,12 @@ BrowserStrategy.storageSetup = function(thisJSON) {
 };
 
 
-BrowserStrategy.sendMessage = function(thisJSON) {
+RESUtils.runtime.sendMessage = function(thisJSON) {
 	safari.self.tab.dispatchMessage(thisJSON.requestType, thisJSON);
 };
 
 
-BrowserStrategy.openInNewWindow = function (thisHREF) {
+RESUtils.runtime.openInNewWindow = function (thisHREF) {
 	var thisJSON = {
 		requestType: 'keyboardNav',
 		linkURL: thisHREF
@@ -191,7 +191,7 @@ BrowserStrategy.openInNewWindow = function (thisHREF) {
 	safari.self.tab.dispatchMessage('keyboardNav', thisJSON);
 };
 
-BrowserStrategy.openLinkInNewTab = function (thisHREF) {
+RESUtils.runtime.openLinkInNewTab = function (thisHREF) {
 	var thisJSON = {
 		requestType: 'openLinkInNewTab',
 		linkURL: thisHREF
@@ -200,4 +200,4 @@ BrowserStrategy.openLinkInNewTab = function (thisHREF) {
 };
 
 
-BrowserStrategy.addURLToHistory = BrowserStrategy._addURLToHistory;
+RESUtils.runtime.addURLToHistory = RESUtils.runtime._addURLToHistory;
