@@ -292,9 +292,9 @@ body.res-console-open {
 #BigEditor .BELeft .RESDialogContents {
 	padding-top: 52px;
 }
-.usertext-edit .RESDialogSmall .md.RESDialogContents {
+.usertext-edit .RESDialogSmall:not(.livePreview) .md.RESDialogContents {
 	border: none;
-	background-color: white !important;
+	background-color: #fff;
 }
 #RESHelp {
 	background-image: url("https://s3.amazonaws.com/b.thumbs.redditmedia.com/tBwwK20XXxtpgudWx1L7bDXla-iotv-JA0jgA0Y-FVs.png");
