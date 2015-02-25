@@ -10,13 +10,9 @@ let pageMod = require('sdk/page-mod');
 let Request = require('sdk/request').Request;
 let self = require('sdk/self');
 let tabs = require('sdk/tabs');
-let ss = require('sdk/simple-storage');
 let priv = require('sdk/private-browsing');
 let windows = require('sdk/windows').browserWindows;
 let viewFor = require('sdk/view/core').viewFor;
-
-let localStorage = ss.storage;
-
 
 let { ToggleButton } = require('sdk/ui/button/toggle'),
 	styleSheetButton;
@@ -47,15 +43,198 @@ function detachWorker(worker, workerArray) {
 	}
 }
 
-localStorage.getItem = function(key) {
-	return ss.storage[key];
+function RESStorage() {
+	if (!this instanceof RESStorage) return new RESStorage();
+	let module = this;
+	init(module);
+	return module;
+
+	function init(module) {
+		let storage = {};
+		module._storage = storage;
+	}
+}
+
+RESStorage.prototype.getItems = function() {
+	var values = {};
+	for (var key in this._storage) {
+		if (!this._storage.hasOwnProperty(key)) continue;
+		values[key] = this._storage[key];
+	}
+
 };
-localStorage.setItem = function(key, value) {
-	ss.storage[key] = value;
+
+RESStorage.prototype.getItem = function(key) {
+	return this._storage[key];
 };
-localStorage.removeItem = function(key) {
-	delete ss.storage[key];
+
+RESStorage.prototype.setItems = function (values) {
+	for (var key in values) {
+		if (!values.hasOwnProperty(key)) continue;
+		this._storage[key] = values[key];
+	}
 };
+RESStorage.prototype.setItem = function(key, value) {
+	this._storage[key] = value;
+}
+RESStorage.prototype.removeItem = function(key) {
+	delete this._storage[key];
+};
+
+RESSQLiteStorage.prototype = new RESStorage();
+function RESSQLiteStorage() {
+	if (!this instanceof RESSQLiteStorage) return new RESSQLiteStorage();
+	let module = this;
+	init(module);
+	return module;
+
+	function init(module) {
+		let debug = false;
+
+		let schema = {
+			tables: {
+				'storage': 'key   TEXT PRIMARY KEY, \
+	                		value    TEXT'
+	    	}
+	    };
+
+		let connection, initialized;
+
+		module.load = function() {
+			if (initialized) return;
+
+			var newFile = initializeFile();
+
+			initialized = true;
+			return newFile;
+		}
+
+		module.getItems = getItems;
+		module.getItem = getItem;
+		module.setItems = setItems;
+		module.setItem = setItem;
+		module.removeItem = removeItem;
+
+
+		function getItems() {
+			let values = {},
+				key, value,
+				statement = connection.createStatement('SELECT key, value FROM storage');
+
+			while (statement.executeStep()) {
+				key = statement.row['key'];
+				value = statement.row['value'];
+				values[key] = value;
+			}
+
+			if (debug) console.log('storage.getItems: ' + Object.getOwnPropertyNames(values).length);
+			return values;
+		}
+
+		function getItem(key) {
+			let value = '',
+				result,
+				statement = connection.createStatement('SELECT value FROM storage WHERE key = :key');
+
+			statement.params['key'] = key;
+			result = statement.executeStep();
+			if (result) {
+				value = statement.row['value'];
+			}
+
+			if (debug) console.log('storage.getItem: ' + key + ' => ' + value);
+			return value;
+		}
+
+		function setItems(values) {
+			if (!(values && Object.getOwnPropertyNames(values).length)) return;
+
+			let key, value;
+
+
+			connection.beginTransaction();
+			for (key in values) {
+				value = values[key];
+				module.setItem(key, value);
+			}
+			connection.commitTransaction();
+
+		};
+
+		function setItem(key, value) {
+			let statement = connection.createStatement('INSERT OR REPLACE INTO storage (key, value) values (:key, :value);');
+			statement.params['key'] = key;
+			statement.params['value'] = value;
+			statement.executeStep();
+
+
+			if (debug) console.log('storage.setItem: ' + key + ' <= ' + value);
+		}
+
+
+		function removeItem(key) {
+			let statement = connection.createStatement('DELETE FROM storage WHERE key = :key');
+			statement.params['key'] = key;
+			statement.executeStep();
+		}
+
+
+	  	function initializeFile() {
+			let dirService, dbService, dbFile, newDbFile; // not connection!
+			dirService = Cc['@mozilla.org/file/directory_service;1'].getService(Ci.nsIProperties);
+			dbService = Cc['@mozilla.org/storage/service;1'].getService(Ci.mozIStorageService);
+			dbFile = dirService.get('ProfD', Ci.nsIFile); dbFile.append('res.sqlite');
+			newDbFile = !dbFile.exists();
+
+			connection = dbService.openDatabase(dbFile);
+
+			if (newDbFile) {
+		    	createTables();
+		    }
+	  	}
+
+	  function createTables() {
+	    for (let name in schema.tables) {
+	    	let table = schema.tables[name];
+			connection.createTable(name, table);
+		 }
+	  }
+
+	}
+}
+
+
+RESSimpleStorage.prototype = new RESStorage();
+function RESSimpleStorage() {
+	if (!this instanceof RESSimpleStorage) return new RESSimpleStorage();
+	let module = this;
+	init(module);
+	return module;
+
+	function init(module) {
+		module._storage = require('sdk/simple-storage').storage;
+	}
+}
+
+
+
+let localStorage, sqliteStorage;
+localStorage = sqliteStorage = new RESSQLiteStorage();
+
+
+if (sqliteStorage.load()) {
+	// sqlite contains data, so update backup storage
+	let simpleStorage = new RESSimpleStorage();
+	let backup = sqliteStorage.getItems();
+	simpleStorage.setItems(backup);
+} else {
+	// sqlite empty, so populate from legacy storage
+	let simpleStorage = new RESSimpleStorage();
+	let backup = simpleStorage.getItems();
+	sqliteStorage.setItems(backup);
+}
+
+
 
 let XHRCache = {
 	forceCache: false,
@@ -117,7 +296,7 @@ tabs.on('activate', function() {
 	// find this worker...
 	let worker = getActiveWorker();
 	if (worker) {
-		worker.postMessage({ name: 'getLocalStorage', message: localStorage });
+		worker.postMessage({ name: 'getLocalStorage', message: localStorage.getItems() });
 		worker.postMessage({ name: 'subredditStyle', message: 'refreshState' });
 	}
 });
@@ -363,7 +542,7 @@ pageMod.PageMod({
 					if (thisLinkURL.toLowerCase().substring(0, 4) !== 'http') {
 						thisLinkURL = (thisLinkURL.substring(0, 1) === '/') ? 'http://www.reddit.com' + thisLinkURL : location.href + thisLinkURL;
 					}
-					// Get the selected tab so we can get the index of it.  This allows us to open our new tab as the "next" tab.
+					// Get the selected tab so we can get the index of it.  This allows us to open our new tab as the 'next' tab.
 					openTab({url: thisLinkURL, inBackground: inBackground, isPrivate: isPrivate });
 					worker.postMessage({status: 'success'});
 					break;
@@ -375,7 +554,7 @@ pageMod.PageMod({
 					if (thisLinkURL.toLowerCase().substring(0, 4) !== 'http') {
 						thisLinkURL = (thisLinkURL.substring(0, 1) === '/') ? 'http://www.reddit.com' + thisLinkURL : location.href + thisLinkURL;
 					}
-					// Get the selected tab so we can get the index of it.  This allows us to open our new tab as the "next" tab.
+					// Get the selected tab so we can get the index of it.  This allows us to open our new tab as the 'next' tab.
 					openTab({url: thisLinkURL, inBackground: inBackground, isPrivate: isPrivate });
 					worker.postMessage({status: 'success'});
 					break;
@@ -395,14 +574,14 @@ pageMod.PageMod({
 					}).get();
 					break;
 				case 'getLocalStorage':
-					worker.postMessage({ name: 'getLocalStorage', message: localStorage });
+					worker.postMessage({ name: 'getLocalStorage', message: localStorage.getItems() });
 					break;
 				case 'saveLocalStorage':
 					for (let key in request.data) {
 						localStorage.setItem(key,request.data[key]);
 					}
 					localStorage.setItem('importedFromForeground', true);
-					worker.postMessage({ name: 'saveLocalStorage', message: localStorage });
+					worker.postMessage({ name: 'saveLocalStorage', message: localStorage.getItems() });
 					break;
 				case 'localStorage':
 					switch (request.operation) {
