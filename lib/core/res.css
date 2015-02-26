@@ -1543,6 +1543,14 @@ tr.RESSortPlaceholder::before, li.RESSortPlaceholder::after, div.RESSortPlacehol
 	text-decoration: underline;
 }
 
+.builderItem .durationField {
+	display: inline-block;
+}
+
+.builderItem .durationField input[type="number"] {
+	width: 3em;
+	/*margin-left: 1ex;*/
+}
 
 
 /*
