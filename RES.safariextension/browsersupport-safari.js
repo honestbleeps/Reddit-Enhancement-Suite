@@ -2,18 +2,19 @@
 // This is the message handler for Safari - the background page calls this function with return data...
 
 function safariMessageHandler(msgEvent) {
+	var request = msgEvent.message;
 	switch (msgEvent.name) {
 		case 'ajax':
 			// Fire the appropriate onload function for this xmlhttprequest.
-			xhrQueue.onloads[msgEvent.message.XHRID](msgEvent.message);
+			xhrQueue.onloads[request.XHRID](request);
 			break;
 		case 'compareVersion':
 			var forceUpdate = false;
-			if (typeof msgEvent.message.forceUpdate !== 'undefined') forceUpdate = true;
-			RESUtils.compareVersion(msgEvent.message, forceUpdate);
+			if (typeof request.forceUpdate !== 'undefined') forceUpdate = true;
+			RESUtils.compareVersion(request, forceUpdate);
 			break;
 		case 'loadTweet':
-			var tweet = msgEvent.message;
+			var tweet = request;
 			var thisExpando = modules['styleTweaks'].tweetExpando;
 			$(thisExpando).html(tweet.html);
 			thisExpando.style.display = 'block';
@@ -22,7 +23,7 @@ function safariMessageHandler(msgEvent) {
 		case 'getLocalStorage':
 			// Does RESStorage have actual data in it?  If it doesn't, they're a legacy user, we need to copy
 			// old schol localStorage from the foreground page to the background page to keep their settings...
-			if (typeof msgEvent.message.importedFromForeground === 'undefined') {
+			if (typeof request.importedFromForeground === 'undefined') {
 				// it doesn't exist.. copy it over...
 				var ls = {};
 				for (var i = 0, len = localStorage.length; i < len; i++) {
@@ -36,21 +37,21 @@ function safariMessageHandler(msgEvent) {
 				};
 				safari.self.tab.dispatchMessage('saveLocalStorage', thisJSON);
 			} else {
-				setUpRESStorage(msgEvent.message);
+				setUpRESStorage(request);
 				//RESInit();
 			}
 			break;
 		case 'saveLocalStorage':
 			// Okay, we just copied localStorage from foreground to background, let's set it up...
-			setUpRESStorage(msgEvent.message);
+			setUpRESStorage(request);
 			//RESInit();
 			break;
 		case 'addURLToHistory':
-			var url = msgEvent.message.url;
+			var url = request.url;
 			RESUtils.runtime._addURLToHistoryViaForeground(url);
 			break;
 		case 'localStorage':
-			RESStorage.setItem(msgEvent.message.itemName, msgEvent.message.itemValue, true);
+			RESStorage.setItem(request.itemName, request.itemValue, true);
 			break;
 		default:
 			// console.log('unknown event type in safariMessageHandler');
