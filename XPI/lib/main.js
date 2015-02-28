@@ -504,6 +504,14 @@ pageMod.PageMod({
 						}]
 					});
 					break;
+				case 'multicast':
+					workers
+						.filter(function(w) { return w !== worker; })
+						.forEach(function(worker) {
+							worker.postMessage(request);
+						});
+
+					break;
 				default:
 					worker.postMessage({status: 'unrecognized request type'});
 					break;
