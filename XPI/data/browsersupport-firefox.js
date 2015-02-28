@@ -67,7 +67,7 @@ self.on('message', function(request) {
 			}
 			break;
 		case 'multicast':
-			RESUtils.rpc(request.moduleID, request.method, request.args);
+			RESUtils.rpc(request.moduleID, request.method, request.arguments);
 			break;
 		default:
 			// console.log('unknown event type in self.on');
