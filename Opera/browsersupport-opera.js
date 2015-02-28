@@ -70,6 +70,9 @@ function operaMessageHandler(msgEvent) {
 				RESUtils.runtime._addURLToHistoryViaForeground(url);
 			}
 			break;
+		case 'multicast':
+			RESUtils.rpc(eventData.moduleID, eventData.method, eventData.arguments);
+			break;
 		default:
 			// console.log('unknown event type in operaMessageHandler');
 			break;

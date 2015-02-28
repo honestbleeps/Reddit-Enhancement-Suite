@@ -301,6 +301,20 @@ opera.extension.addEventListener( 'message', function( event ) {
 				};
 				event.source.postMessage(passBack);
 				break;
+			case 'multicast':
+				var tabs = opera.extension.tabs.getAll();
+				tabs = tabs.filter(function(tab) {
+					return (event.source !== tab);
+				});
+
+				tabs.forEach(function(tab) {
+					tab.sendMessage(tab.id, {
+						msgType: 'multicast',
+						data: request
+					}, function(response) { });
+				});
+
+				break;
 			default:
 				passBack = {
 					msgType: '',
