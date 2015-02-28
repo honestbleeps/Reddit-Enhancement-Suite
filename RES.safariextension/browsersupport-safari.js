@@ -53,6 +53,9 @@ function safariMessageHandler(msgEvent) {
 		case 'localStorage':
 			RESStorage.setItem(request.itemName, request.itemValue, true);
 			break;
+		case 'multicast':
+			RESUtils.rpc(request.moduleID, request.method, request.arguments);
+			break;
 		default:
 			// console.log('unknown event type in safariMessageHandler');
 			break;
