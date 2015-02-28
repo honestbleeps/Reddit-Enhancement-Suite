@@ -117,8 +117,8 @@ tabs.on('activate', function() {
 	// find this worker...
 	let worker = getActiveWorker();
 	if (worker) {
-		worker.postMessage({ name: 'getLocalStorage', message: localStorage });
-		worker.postMessage({ name: 'subredditStyle', message: 'refreshState' });
+		worker.postMessage({ requestType: 'getLocalStorage', message: localStorage });
+		worker.postMessage({ requestType: 'subredditStyle', message: 'refreshState' });
 	}
 });
 
@@ -280,7 +280,7 @@ pageMod.PageMod({
 			switch (request.requestType) {
 				case 'readResource':
 					let fileData = self.data.load(request.filename);
-					worker.postMessage({ name: 'readResource', data: fileData, transaction: request.transaction });
+					worker.postMessage({ requestType: 'readResource', data: fileData, transaction: request.transaction });
 					break;
 				case 'deleteCookie':
 					cookieManager.remove('.reddit.com', request.cname, '/', false);
@@ -289,7 +289,7 @@ pageMod.PageMod({
 				case 'ajax':
 					let responseObj = {
 						XHRID: request.XHRID,
-						name: request.requestType
+						requestType: request.requestType
 					};
 					if (request.aggressiveCache || XHRCache.forceCache) {
 						let cachedResult = XHRCache.check(request.url);
@@ -386,7 +386,7 @@ pageMod.PageMod({
 						onComplete: function(response) {
 							let resp = JSON.parse(response.text);
 							let responseObj = {
-								name: 'loadTweet',
+								requestType: 'loadTweet',
 								response: resp
 							};
 							worker.postMessage(responseObj);
@@ -396,14 +396,14 @@ pageMod.PageMod({
 					}).get();
 					break;
 				case 'getLocalStorage':
-					worker.postMessage({ name: 'getLocalStorage', message: localStorage });
+					worker.postMessage({ requestType: 'getLocalStorage', message: localStorage });
 					break;
 				case 'saveLocalStorage':
 					for (let key in request.data) {
 						localStorage.setItem(key,request.data[key]);
 					}
 					localStorage.setItem('importedFromForeground', true);
-					worker.postMessage({ name: 'saveLocalStorage', message: localStorage });
+					worker.postMessage({ requestType: 'saveLocalStorage', message: localStorage });
 					break;
 				case 'localStorage':
 					switch (request.operation) {
@@ -443,7 +443,7 @@ pageMod.PageMod({
 									onChange: function(state) {
 										let worker = getActiveWorker();
 										worker.postMessage({
-											name: 'subredditStyle',
+											requestType: 'subredditStyle',
 											toggle: state.checked
 										});
 									}
