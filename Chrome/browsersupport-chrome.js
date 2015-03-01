@@ -45,6 +45,9 @@ chrome.runtime.onMessage.addListener(
 				var toggle = !modules['styleTweaks'].styleToggleCheckbox.checked;
 				modules['styleTweaks'].toggleSubredditStyle(toggle, RESUtils.currentSubreddit());
 				break;
+			case 'multicast':
+				RESUtils.rpc(request.moduleID, request.method, request.arguments);
+				break;
 			default:
 				// sendResponse({status: 'unrecognized request type'});
 				break;
