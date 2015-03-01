@@ -135,6 +135,7 @@ window.addEventListener('DOMContentLoaded', function() {
 		'modules/hosts/giphy.js',
 		'modules/hosts/streamable.js',
 		'modules/hosts/raddit.js',
+		'modules/hosts/pastebin.js',
 
 		'core/init.js',
 
