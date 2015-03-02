@@ -136,6 +136,7 @@ window.addEventListener('DOMContentLoaded', function() {
 		'modules/hosts/streamable.js',
 		'modules/hosts/raddit.js',
 		'modules/hosts/pastebin.js',
+		'modules/hosts/onedrive.js',
 
 		'core/init.js',
 
