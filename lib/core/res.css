@@ -136,6 +136,7 @@ body.res-console-open {
 	margin-top: -1px;
 }
 .RESDropdownList li {
+	position: relative;
 	cursor: pointer;
 	border-bottom: 1px solid #369;
 	height: 35px;
@@ -291,9 +292,9 @@ body.res-console-open {
 #BigEditor .BELeft .RESDialogContents {
 	padding-top: 52px;
 }
-.usertext-edit .RESDialogSmall .md.RESDialogContents {
+.usertext-edit .RESDialogSmall:not(.livePreview) .md.RESDialogContents {
 	border: none;
-	background-color: white !important;
+	background-color: #fff;
 }
 #RESHelp {
 	background-image: url("https://s3.amazonaws.com/b.thumbs.redditmedia.com/tBwwK20XXxtpgudWx1L7bDXla-iotv-JA0jgA0Y-FVs.png");
@@ -833,17 +834,18 @@ p.moduleListing {
 	border: 0;
 	background: transparent;
 }
-#RESSearchMenuItem {
+.RESMenuItemButton {
 	display: block;
-	float: right;
-	margin: 7px;
+	position: absolute;
+	right: 7px;
+	top: 7px;
 	padding: 2px;
 	width: 16px;
 	height: 16px;
 	line-height: 15px;
 	border-radius: 3px;
 }
-#RESSearchMenuItem:hover {
+.RESMenuItemButton:hover {
 	background-color: #C8DBEC;
 }
 .outdated {

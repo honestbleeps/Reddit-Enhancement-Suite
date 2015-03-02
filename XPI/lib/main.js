@@ -117,8 +117,8 @@ tabs.on('activate', function() {
 	// find this worker...
 	let worker = getActiveWorker();
 	if (worker) {
-		worker.postMessage({ name: 'getLocalStorage', message: localStorage });
-		worker.postMessage({ name: 'subredditStyle', message: 'refreshState' });
+		worker.postMessage({ requestType: 'getLocalStorage', message: localStorage });
+		worker.postMessage({ requestType: 'subredditStyle', message: 'refreshState' });
 	}
 });
 
@@ -175,6 +175,9 @@ pageMod.PageMod({
 		self.data.url('modules/userTagger.js'),
 		self.data.url('modules/keyboardNav.js'),
 		self.data.url('modules/commandLine.js'),
+		self.data.url('modules/floater.js'),
+		self.data.url('modules/orangered.js'),
+		self.data.url('modules/announcements.js'),
 		self.data.url('modules/selectedEntry.js'),
 		self.data.url('modules/settingsConsole.js'),
 		self.data.url('modules/menu.js'),
@@ -253,6 +256,7 @@ pageMod.PageMod({
 		self.data.url('modules/hosts/giphy.js'),
 		self.data.url('modules/hosts/streamable.js'),
 		self.data.url('modules/hosts/raddit.js'),
+		self.data.url('modules/hosts/pastebin.js'),
 		self.data.url('modules/hosts/github.js'),
 		self.data.url('core/init.js')
 	],
@@ -279,7 +283,7 @@ pageMod.PageMod({
 			switch (request.requestType) {
 				case 'readResource':
 					let fileData = self.data.load(request.filename);
-					worker.postMessage({ name: 'readResource', data: fileData, transaction: request.transaction });
+					worker.postMessage({ requestType: 'readResource', data: fileData, transaction: request.transaction });
 					break;
 				case 'deleteCookie':
 					cookieManager.remove('.reddit.com', request.cname, '/', false);
@@ -288,7 +292,7 @@ pageMod.PageMod({
 				case 'ajax':
 					let responseObj = {
 						XHRID: request.XHRID,
-						name: request.requestType
+						requestType: request.requestType
 					};
 					if (request.aggressiveCache || XHRCache.forceCache) {
 						let cachedResult = XHRCache.check(request.url);
@@ -385,7 +389,7 @@ pageMod.PageMod({
 						onComplete: function(response) {
 							let resp = JSON.parse(response.text);
 							let responseObj = {
-								name: 'loadTweet',
+								requestType: 'loadTweet',
 								response: resp
 							};
 							worker.postMessage(responseObj);
@@ -395,14 +399,14 @@ pageMod.PageMod({
 					}).get();
 					break;
 				case 'getLocalStorage':
-					worker.postMessage({ name: 'getLocalStorage', message: localStorage });
+					worker.postMessage({ requestType: 'getLocalStorage', message: localStorage });
 					break;
 				case 'saveLocalStorage':
 					for (let key in request.data) {
 						localStorage.setItem(key,request.data[key]);
 					}
 					localStorage.setItem('importedFromForeground', true);
-					worker.postMessage({ name: 'saveLocalStorage', message: localStorage });
+					worker.postMessage({ requestType: 'saveLocalStorage', message: localStorage });
 					break;
 				case 'localStorage':
 					switch (request.operation) {
@@ -442,7 +446,7 @@ pageMod.PageMod({
 									onChange: function(state) {
 										let worker = getActiveWorker();
 										worker.postMessage({
-											name: 'subredditStyle',
+											requestType: 'subredditStyle',
 											toggle: state.checked
 										});
 									}
@@ -502,6 +506,14 @@ pageMod.PageMod({
 							visitDate: Date.now() * 1000
 						}]
 					});
+					break;
+				case 'multicast':
+					workers
+						.filter(function(w) { return w !== worker; })
+						.forEach(function(worker) {
+							worker.postMessage(request);
+						});
+
 					break;
 				default:
 					worker.postMessage({status: 'unrecognized request type'});

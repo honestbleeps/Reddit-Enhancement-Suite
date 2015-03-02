@@ -301,6 +301,19 @@ chrome.runtime.onMessage.addListener(
 						break;
 				}
 				break;
+			case 'multicast':
+				var tabs = chrome.tabs.query({
+					status: 'complete',
+				}, function(tabs) {
+					tabs = tabs.filter(function(tab) {
+						return (sender.tab.id !== tab.id);
+					});
+
+					tabs.forEach(function(tab) {
+						chrome.tabs.sendMessage(tab.id, request, function(response) { });
+					});
+				});
+				break;
 			default:
 				sendResponse({status: 'unrecognized request type'});
 				break;

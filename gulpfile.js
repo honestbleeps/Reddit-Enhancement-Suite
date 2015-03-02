@@ -362,7 +362,7 @@ gulp.task('modules-js-oblink', function() {
 });
 
 gulp.task('oblink-js-oblink', function() {
-	return gulp.src('OperaBlink/*.js')
+	return gulp.src([ 'OperaBlink/*.js', 'Chrome/browsersupport-chrome.js' ])
 		.pipe(gulp.dest(path.join(oblinkBuildDir)));
 });
 
