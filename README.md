@@ -168,7 +168,11 @@ Where <browsername> is either: chrome, firefox, safari, opera, oblink. This will
 
     gulp add-module --file module.js
 
-adds module.js to the manifest for each browser.
+adds module.js, a new module, to the manifest for each browser.
+
+  gulp add-file --file hostname.js
+
+adds hostname.js, a new media host, to the manifest for each browser.
 
     gulp watch
     or
