@@ -138,6 +138,7 @@ window.addEventListener('DOMContentLoaded', function() {
 		'modules/hosts/raddit.js',
 		'modules/hosts/pastebin.js',
 		'modules/hosts/github.js',
+		'modules/hosts/onedrive.js',
 
 		'core/init.js',
 
