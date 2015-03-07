@@ -690,7 +690,12 @@ p.moduleListing {
 	border-radius: 3px;
 	background-color: #5cc410;
 }
-#moduleOptionsSave:hover {
+#moduleOptionsSave[disabled] {
+	color: #aaa;
+	background-color: #999;
+	cursor: default;
+}
+#moduleOptionsSave:not([disabled]):hover {
 	background-color: #73e81e;
 }
 .addRowButton {
