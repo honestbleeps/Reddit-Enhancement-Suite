@@ -257,6 +257,7 @@ pageMod.PageMod({
 		self.data.url('modules/hosts/streamable.js'),
 		self.data.url('modules/hosts/raddit.js'),
 		self.data.url('modules/hosts/pastebin.js'),
+		self.data.url('modules/hosts/github.js'),
 		self.data.url('core/init.js')
 	],
 	contentStyleFile: [
