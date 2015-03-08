@@ -1534,6 +1534,9 @@ tr.RESSortPlaceholder::before, li.RESSortPlaceholder::after, div.RESSortPlacehol
 	/*margin-left: 1ex;*/
 }
 
+.optionBuilder .handle {
+	cursor: move;
+}
 
 /*
 (cs)spinner.css - http://jh3y.github.io/-cs-spinner
