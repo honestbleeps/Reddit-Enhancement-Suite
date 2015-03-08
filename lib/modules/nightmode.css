@@ -1,5 +1,6 @@
 .res-nightmode body,
 .res-nightmode body .content,
+.res-nightmode .modal-body,
 .res-nightmode .side,
 .res-nightmode .flairselector,
 .res-nightmode .linefield,
@@ -428,7 +429,9 @@
 }
 .res-nightmode .side input[type="text"],
 .res-nightmode .side input[type="password"],
-.res-nightmode .content input[type="text"] {
+.res-nightmode .content input[type="text"],
+.res-nightmode .content input[type="password"],
+.res-nightmode .c-form-control {
 	background-color: #333;
 	border-color: #000;
 	color: #ccc;
@@ -721,7 +724,7 @@
 .res-nightmode .login-form-side .submit,
 .res-nightmode #header-bottom-right,
 .res-nightmode #srList {
-	background-color: #bbb;
+	background-color: #333;
 }
 .res-nightmode .token-input-list-facebook,
 .res-nightmode #quickMessage textarea,
