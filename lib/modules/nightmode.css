@@ -428,7 +428,8 @@
 }
 .res-nightmode .side input[type="text"],
 .res-nightmode .side input[type="password"],
-.res-nightmode .content input[type="text"] {
+.res-nightmode .content input[type="text"],
+.res-nightmode .content input[type="password"] {
 	background-color: #333;
 	border-color: #000;
 	color: #ccc;
@@ -721,7 +722,7 @@
 .res-nightmode .login-form-side .submit,
 .res-nightmode #header-bottom-right,
 .res-nightmode #srList {
-	background-color: #bbb;
+	background-color: #333;
 }
 .res-nightmode .token-input-list-facebook,
 .res-nightmode #quickMessage textarea,
