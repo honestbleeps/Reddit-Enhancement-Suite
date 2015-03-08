@@ -1453,8 +1453,10 @@ tr.RESSortPlaceholder::before, li.RESSortPlaceholder::after, div.RESSortPlacehol
 }
 
 .builderItem {
-	/*border: thin solid lightgrey;*/
+	border: thin solid lightgrey;
 	border-radius: 5px;
+	background-color: rgba(10, 10, 10, 0.05);
+	padding: 0.4em 0.5em;
 	margin-top: 0.5em;
 	margin-bottom: 0.5em;
 }
