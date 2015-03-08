@@ -49,6 +49,10 @@
 				"modules/keyboardNav.js",
 				"modules/about.js",
 				"modules/commandLine.js",
+				"modules/floater.js",
+				"modules/orangered.js",
+				"modules/announcements.js",
+				"modules/selectedEntry.js",
 				"modules/settingsConsole.js",
 				"modules/menu.js",
 				"modules/hover.js",
@@ -125,6 +129,7 @@
 				"modules/hosts/giphy.js",
 				"modules/hosts/streamable.js",
 				"modules/hosts/raddit.js",
+				"modules/hosts/pastebin.js",
 				"core/init.js"
 			],
 			"css": [

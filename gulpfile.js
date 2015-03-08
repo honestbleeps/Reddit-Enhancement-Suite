@@ -56,6 +56,7 @@ gulp.task('zipall', ['chrome-zip', 'safari-zip', 'firefox-zip', 'oblink-zip', 'o
 
 // Add new modules to browser manifests
 gulp.task('add-module', [ 'add-module-chrome', 'add-module-safari', 'add-module-firefox', 'add-module-oblink', 'add-module-opera' ]);
+gulp.task('add-host', [ 'add-host-chrome', 'add-host-safari', 'add-host-firefox', 'add-host-oblink', 'add-host-opera' ]);
 
 // Watch tasks
 gulp.task('watch', [ 'watch-chrome', 'watch-safari', 'watch-firefox', 'watch-oblink', 'watch-opera' ]);
@@ -92,28 +93,45 @@ var zipDir = '../../../var/www/html/res/dl';
 
 
 // "Add file to manifests" task support
-function addFileToManifest(manifest) {
-	var addFilename = options['file'];
-	var pattern = new RegExp('^(.*modules/)' + getFirstModule() + '(.*)$', 'm');
+function addFileToManifest(manifest, pattern) {
+	var addModulename = options['file'];
 	return gulp.src(manifest)
 		.pipe(replace(pattern, function(match, callback) {
 			var withNewFile = match[0] + '\n' +
-				match[1] + addFilename + match[2];
+				match[1] + addModulename + match[2];
 			callback(null, withNewFile);
 		}))
 		.pipe(gulp.dest(path.dirname(manifest)));
+}
+
+function addModuleToManifest(manifest) {
+	var pattern = new RegExp('^(.*modules/)' + getRefModule() + '(.*)$', 'm');
+	return addFileToManifest(manifest, pattern);
+}
+
+// "Add file to manifests" task support
+function addHostToManifest(manifest) {
+	var pattern = new RegExp('^(.*modules/hosts/)' + getRefHost() + '(.*)$', 'm');
+	return addFileToManifest(manifest, pattern);
 }
 
 function getFileParam() {
 	return process.env['file'];
 }
 
-function getFirstModule() {
+function getRefModule() {
 	return 'commandLine.js';
+}
+function getRefHost() {
+	return 'imgur.js';
 }
 // Chrome low-level tasks
 gulp.task('add-module-chrome', function() {
-	return addFileToManifest('Chrome/manifest.json');
+	return addModuleToManifest('Chrome/manifest.json');
+});
+
+gulp.task('add-host-chrome', function() {
+	return addHostToManifest('Chrome/manifest.json');
 });
 
 gulp.task('module-css-chrome', function() {
@@ -188,8 +206,12 @@ gulp.task('chrome-move-4', function() {
 
 // Safari low-level tasks
 gulp.task('add-module-safari', function() {
-	return addFileToManifest('RES.safariextension/Info.plist');
+	return addModuleToManifest('RES.safariextension/Info.plist');
 });
+gulp.task('add-host-safari', function() {
+	return addHostToManifest('RES.safariextension/Info.plist');
+});
+
 
 gulp.task('module-css-safari', function() {
 	return gulp.src('lib/modules/*.css')
@@ -258,7 +280,10 @@ gulp.task('safari-move-4', function() {
 
 // Firefox low-level tasks
 gulp.task('add-module-firefox', function() {
-	return addFileToManifest('XPI/lib/main.js');
+	return addModuleToManifest('XPI/lib/main.js');
+});
+gulp.task('add-host-firefox', function() {
+	return addHostToManifest('XPI/lib/main.js');
 });
 
 gulp.task('module-css-firefox', function() {
@@ -323,7 +348,10 @@ gulp.task('firefox-move-2', function() {
 
 // OperaBlink low-level tasks
 gulp.task('add-module-oblink', function() {
-	return addFileToManifest('OperaBlink/manifest.json');
+	return addModuleToManifest('OperaBlink/manifest.json');
+});
+gulp.task('add-host-oblink', function() {
+	return addHostToManifest('OperaBlink/manifest.json');
 });
 
 gulp.task('module-css-oblink', function() {
@@ -362,7 +390,7 @@ gulp.task('modules-js-oblink', function() {
 });
 
 gulp.task('oblink-js-oblink', function() {
-	return gulp.src('OperaBlink/*.js')
+	return gulp.src([ 'OperaBlink/*.js', 'Chrome/browsersupport-chrome.js' ])
 		.pipe(gulp.dest(path.join(oblinkBuildDir)));
 });
 
@@ -393,7 +421,10 @@ gulp.task('oblink-move-3', function() {
 
 // Opera low-level tasks
 gulp.task('add-module-opera', function() {
-	return addFileToManifest('Opera/includes/loader.js');
+	return addModuleToManifest('Opera/includes/loader.js');
+});
+gulp.task('add-host-opera', function() {
+	return addHostToManifest('Opera/includes/loader.js');
 });
 
 gulp.task('module-css-opera', function() {
