@@ -1477,6 +1477,12 @@ tr.RESSortPlaceholder::before, li.RESSortPlaceholder::after, div.RESSortPlacehol
 	margin-bottom: 1em;
 }
 
+.builderMulti li + li {
+	border-top: 1px lightgray dashed;
+	margin-top: 1px;
+	padding-top: 3px;
+}
+
 .builderItem > .handle {
 	vertical-align: top;
 	font-size: 30pt;
