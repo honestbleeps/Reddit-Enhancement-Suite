@@ -1494,6 +1494,9 @@ tr.RESSortPlaceholder::before, li.RESSortPlaceholder::after, div.RESSortPlacehol
 	margin-top: 1px;
 	padding-top: 3px;
 }
+.builderMulti li:nth-of-type(2n) {
+	background-color: rgba(10, 10, 10, 0.05);
+}
 
 .builderItem > .handle, .builderItem > .builderItemControls .res-icon-button {
 	vertical-align: top;
