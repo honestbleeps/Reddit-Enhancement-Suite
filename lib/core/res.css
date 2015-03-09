@@ -592,7 +592,7 @@ p.moduleListing {
 }
 .optionContainer table {
 	clear: both;
-	width: 650px;
+	min-width: 100%;
 	margin-top: 20px;
 	margin-bottom: 10px;
 }
