@@ -177,6 +177,14 @@ body.res-console-open {
 .optionContainer .res-icon-button:hover {
 	opacity: 1.0;
 }
+.optionContainer tr .deleteButton,
+.optionContainer .builderWrap .deleteButton {
+	visibility: hidden;
+}
+.optionContainer tr:hover .deleteButton,
+.optionContainer .builderWrap:hover > .builderTrailingControls .deleteButton {
+	visibility: visible;
+}
 .optionContainer .handle {
 	cursor: move;
 }
