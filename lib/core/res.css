@@ -1432,7 +1432,9 @@ tr.RESSortPlaceholder::before, li.RESSortPlaceholder::after, div.RESSortPlacehol
 	border-radius: 3px;
 	display: block;
 }
-
+.optionBuilder .RESSortPlaceholder::after {
+	padding: 1em 2em;
+}
 .optionBuilder li {
 	list-style-type: none !important;
 	margin-top: 0.3em;
