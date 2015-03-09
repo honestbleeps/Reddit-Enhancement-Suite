@@ -1461,12 +1461,15 @@ tr.RESSortPlaceholder::before, li.RESSortPlaceholder::after, div.RESSortPlacehol
 	margin-bottom: 0.5em;
 }
 
-.builderControls, .builderBlock {
+.builderControls, .builderBlock:not([data-type="group"]) {
 	display: inline-block;
 }
 .builderControls {
 	padding: 0.1em;
 	vertical-align: top;
+}
+.builderControls.builderTrailingControls {
+	float: right;
 }
 
 .builderMulti {
