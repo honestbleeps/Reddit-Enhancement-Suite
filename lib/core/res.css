@@ -1531,6 +1531,7 @@ tr.RESSortPlaceholder::before, li.RESSortPlaceholder::after, div.RESSortPlacehol
 	border: thin grey solid;
 	background-color: white;
 	padding: 2px 4px;
+	cursor: pointer;
 }
 .checkset label:first-of-type {
 	border-top-left-radius: 6px;
