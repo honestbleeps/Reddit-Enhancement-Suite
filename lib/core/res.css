@@ -172,6 +172,10 @@ body.res-console-open {
 	height: 16px;
 	margin-left: 2px;
 	margin-right: 2px;
+	opacity: 0.25;
+}
+.optionContainer .res-icon-button:hover {
+	opacity: 1.0;
 }
 .optionContainer .handle {
 	cursor: move;
