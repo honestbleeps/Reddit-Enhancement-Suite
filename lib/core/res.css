@@ -265,8 +265,10 @@ body.res-console-open {
 #RESConsoleContent.advanced-options-disabled .optionContainer.advanced {
 	display: none;
 }
-.optionContainer.advanced>label{
-	font-style: italic;
+.optionContainer.advanced > label:after {
+	content: '\26A0';
+	margin-left: 0.5em;
+	color: red;
 }
 .RESDialogSmall {
 	background-color: #fff;
