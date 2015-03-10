@@ -274,9 +274,11 @@ body.res-console-open {
 	display: none;
 }
 .optionContainer.advanced > label:after {
-	content: '\26A0';
+	content: '\F15A';
 	margin-left: 0.5em;
 	color: red;
+	font-family: 'Batch';
+	font-size: 11px;
 }
 .RESDialogSmall {
 	background-color: #fff;
