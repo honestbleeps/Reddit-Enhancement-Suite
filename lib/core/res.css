@@ -1423,7 +1423,6 @@ a.bylink.parentlink {
 .edgescroll {
 	left: 0;
 	right: 0;
-	/*background-color: rgba(0, 0, 255, 0.5);*/
 }
 .edgescroll-top {
 	top: 0;
@@ -1568,7 +1567,6 @@ tr.RESSortPlaceholder::before, li.RESSortPlaceholder::after, div.RESSortPlacehol
 
 .builderItem .durationField input[type="number"] {
 	width: 3em;
-	/*margin-left: 1ex;*/
 }
 
 .optionBuilder .handle {

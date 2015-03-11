@@ -64,11 +64,9 @@ let XHRCache = {
 	count: 0,
 	check: function(key) {
 		if (key in this.entries) {
-//			console.log('hit');
 			this.entries[key].hits++;
 			return this.entries[key].data;
 		} else {
-//			console.log('miss');
 			return null;
 		}
 	},
@@ -76,7 +74,6 @@ let XHRCache = {
 		if (key in this.entries) {
 			return;
 		} else {
-//			console.log('add');
 			this.entries[key] = {data: value, timestamp: Date.now(), hits: 1};
 			this.count++;
 		}
@@ -88,12 +85,6 @@ let XHRCache = {
 		let now = Date.now();
 		let bottom = [];
 		for (let key in this.entries) {
-//			if (this.entries[key].hits === 1) {
-//				delete this.entries[key];
-//				this.count--;
-//				continue;
-//			}
-
 			//Weight by hits/age which is similar to reddit's hit/controversial sort orders
 			bottom.push({
 				key: key,
@@ -106,7 +97,6 @@ let XHRCache = {
 			delete this.entries[bottom[i].key];
 			this.count--;
 		}
-//		console.log('prune');
 	},
 	clear: function() {
 		this.entries = {};
@@ -415,7 +405,6 @@ pageMod.PageMod({
 							break;
 						case 'removeItem':
 							localStorage.removeItem(request.itemName);
-							// worker.postMessage({status: true, value: null});
 							break;
 						case 'setItem':
 							localStorage.setItem(request.itemName, request.itemValue);
