@@ -101,16 +101,29 @@ body.res-console-open {
 	z-index: 10000;
 }
 .gearIcon {
-	display: inline-block;
-	width: 15px;
-	height: 15px;
-	background-image: url('https://s3.amazonaws.com/b.thumbs.redditmedia.com/tBwwK20XXxtpgudWx1L7bDXla-iotv-JA0jgA0Y-FVs.png');
-	background-repeat: no-repeat;
-	background-position: 0 -209px;
+	text-decoration: none !important;
+	position: relative;
+}
+.gearIcon::before, .gearIcon::after {
+	font-family: Batch;
+	line-height: 16px;
+	font-size: 16px;
+	user-select: none;
+}
+.gearIcon::after {
+	content: '\F04D';
+	color: #a0e0fd;
+	text-shadow: -1px -1px 0 #498ed2, -1px 1px 0 #498ed2, 1px -1px 0 #498ed2, 1px 1px 0 #498ed2, 1px 0 0 #498ed2, -1px 0 0 #498ed2, 0 1px 0 #498ed2, 0 -1px 0 #498ed2;
 }
 .gearIcon.newNotification {
 	cursor: pointer;
-	background-position: 0 -134px;
+}
+.gearIcon.newNotification::before {
+	content: '\F15B';
+	color: orangered;
+	position: absolute;
+	bottom: 25%;
+	left: 25%;
 }
 #RESMainGearOverlay .gearIcon {
 	position: absolute;
