@@ -124,6 +124,15 @@ body.res-console-open {
 	bottom: 25%;
 	left: 25%;
 }
+.res-gearIcon-legacy .gearIcon{
+	display: inline-block;
+	width: 15px;
+	height: 15px;
+	background-repeat: no-repeat;
+}
+.res-gearIcon-legacy .gearIcon::after {
+	content: none;
+}
 #RESMainGearOverlay .gearIcon {
 	position: absolute;
 	top: 3px;
