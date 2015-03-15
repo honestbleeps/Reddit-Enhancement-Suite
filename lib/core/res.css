@@ -1239,18 +1239,29 @@ img {
 .RESdupeimg { color: #000; font-size: 10px;  }
 .RESClear { clear: both; margin-bottom: 10px;  }
 
-.RESGalleryControls .next, .RESGalleryControls .previous { cursor: pointer; display: inline-block; background-image: url("https://s3.amazonaws.com/b.thumbs.redditmedia.com/tBwwK20XXxtpgudWx1L7bDXla-iotv-JA0jgA0Y-FVs.png"); width: 16px; height: 16px; margin: 5px; }
 .RESGalleryControls span { position: relative; top: -9px; }
-.RESGalleryControls .previous { background-position: 0 -352px; }
-.RESGalleryControls .next { background-position: 16px -352px; }
-.RESGalleryControls .next,.RESGalleryControls .previous {
-	-webkit-user-select: none;
-	-moz-user-select: none;
+.RESGalleryControls .next::after, .RESGalleryControls .previous::after {
+	font-family: Batch;
+	content: '\F158';
+	cursor: pointer;
+	display: inline-block;
+	vertical-align: bottom;
+	color: #90acff;
+	font-size: 18px;
+	line-height: 16px;
+	width: 16px;
+	margin: 5px;
 }
-.RESGalleryControls .end { background-position-y: -336px; }
-.RESGalleryControls .previous:hover { background-position: 0 -320px; }
-.RESGalleryControls .next:hover { background-position: 16px -320px; }
-.RESGalleryControls .end:hover { background-position-y: -304px; }
+.RESGalleryControls .next:hover::after, .RESGalleryControls .previous:hover::after {
+	color: #6286f4;
+}
+.RESGalleryControls .end::after {
+	content: '\F157';
+}
+.RESGalleryControls .next:not(.end)::after, .RESGalleryControls .previous.end::after {
+	-webkit-transform: scaleX(-1);
+	-moz-transform: scaleX(-1);
+}
 
 .imgTitle {
 	font-size: 13px;
