@@ -43,11 +43,9 @@
 		count: 0,
 		check: function(key) {
 			if (key in this.entries) {
-//				console.count('hit');
 				this.entries[key].hits++;
 				return this.entries[key].data;
 			} else {
-//				console.count('miss');
 				return null;
 			}
 		},
@@ -55,7 +53,6 @@
 			if (key in this.entries) {
 				return;
 			} else {
-//				console.count('add');
 				this.entries[key] = {data: value, timestamp: Date.now(), hits: 1};
 				this.count++;
 			}
@@ -67,12 +64,6 @@
 			var now = Date.now();
 			var bottom = [];
 			for (var key in this.entries) {
-//				if (this.entries[key].hits === 1) {
-//					delete this.entries[key];
-//					this.count--;
-//					continue;
-//				}
-
 				//Weight by hits/age which is similar to reddit's hit/controversial sort orders
 				bottom.push({
 					key: key,
@@ -85,7 +76,6 @@
 				delete this.entries[bottom[i].key];
 				this.count--;
 			}
-//			console.count('prune');
 		},
 		clear: function() {
 			this.entries = {};
@@ -132,20 +122,16 @@
 				if (request.openOrder === 'commentsfirst') {
 					// only open a second tab if the link is different...
 					if (request.linkURL !== request.commentsURL) {
-						// chrome.tabs.create({url: request.commentsURL});
 						commentsTab = safari.application.activeBrowserWindow.openTab(button);
 						commentsTab.url = request.commentsURL;
 					}
-					// chrome.tabs.create({url: request.linkURL});
 					linkTab = safari.application.activeBrowserWindow.openTab(button);
 					linkTab.url = request.linkURL;
 				} else {
-					// chrome.tabs.create({url: request.linkURL});
 					linkTab = safari.application.activeBrowserWindow.openTab(button);
 					linkTab.url = request.linkURL;
 					// only open a second tab if the link is different...
 					if (request.linkURL !== request.commentsURL) {
-						// chrome.tabs.create({url: request.commentsURL});
 						commentsTab = safari.application.activeBrowserWindow.openTab(button);
 						commentsTab.url = request.commentsURL;
 					}
@@ -159,7 +145,6 @@
 				if (thisLinkURL.toLowerCase().substring(0, 4) !== 'http') {
 					thisLinkURL = (thisLinkURL.substring(0, 1) === '/') ? 'http://www.reddit.com' + thisLinkURL : location.href + thisLinkURL;
 				}
-				// chrome.tabs.create({url: thisLinkURL});
 				// opens tab next to current, instead of at end of tab bar
 				linkTab = safari.application.activeBrowserWindow.openTab(button, safari.application.activeBrowserWindow.tabs.indexOf(safari.application.activeBrowserWindow.activeTab) + 1);
 				linkTab.url = thisLinkURL;
