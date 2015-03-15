@@ -735,11 +735,8 @@ p.moduleListing {
 	background-color: #999;
 	cursor: default;
 }
-#moduleOptionsSave {
+#moduleOptionsSave.noOptions {
 	opacity: 0.3;
-}
-#moduleOptionsSave.hasOptions {
-	opacity: 1.0;
 }
 .addRowButton {
 	cursor: pointer;
