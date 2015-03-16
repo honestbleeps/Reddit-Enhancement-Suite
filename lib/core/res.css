@@ -724,18 +724,26 @@ p.moduleListing {
 }
 #moduleOptionsSave {
 	color: #fff;
-	background-color: #5cc410;
+	background-color: #107ac4;
 	cursor: pointer;
+	opacity: 0.9;
 }
 #moduleOptionsSave:hover {
-	background-color: #73e81e;
+	opacity: 1.0;
 }
-#moduleOptionsSave.optionsSaved {
-	color: #aaa;
-	background-color: #999;
-	cursor: default;
+#moduleOptionsSave::before {
+	content: ' ';
+	display: inline-block;
+	margin: 0.2em 0.3em;
+	height: 0.5em;
+	width: 0.5em;
+	border-radius: 0.3em;
+	background: #73e81e;
 }
-#moduleOptionsSave.noOptions {
+#moduleOptionsSave.optionsSaved::before {
+	background: #aaa;
+}
+#moduleOptionsSave.optionsSaved.noOptions {
 	opacity: 0.3;
 }
 .addRowButton {
