@@ -117,8 +117,8 @@ tabs.on('activate', function() {
 	// find this worker...
 	let worker = getActiveWorker();
 	if (worker) {
-		worker.postMessage({ name: 'getLocalStorage', message: localStorage });
-		worker.postMessage({ name: 'subredditStyle', message: 'refreshState' });
+		worker.postMessage({ requestType: 'getLocalStorage', message: localStorage });
+		worker.postMessage({ requestType: 'subredditStyle', message: 'refreshState' });
 	}
 });
 
@@ -146,9 +146,10 @@ pageMod.PageMod({
 	include: ['*.reddit.com'],
 	contentScriptWhen: 'start',
 	contentScriptFile: [
-		self.data.url('vendor/jquery-1.11.1.min.js'),
-		self.data.url('vendor/guiders-1.2.8.js'),
-		self.data.url('vendor/jquery.dragsort-0.6.js'),
+		self.data.url('vendor/jquery-1.11.2.min.js'),
+		self.data.url('vendor/guiders.js'),
+		self.data.url('vendor/jquery.sortable-0.9.12.js'),
+		self.data.url('vendor/jquery.edgescroll-0.1.js'),
 		self.data.url('vendor/jquery-fieldselection.min.js'),
 		self.data.url('vendor/favico.js'),
 		self.data.url('vendor/jquery.tokeninput.js'),
@@ -157,7 +158,7 @@ pageMod.PageMod({
 		self.data.url('core/utils.js'),
 		self.data.url('browsersupport.js'),
 		self.data.url('browsersupport-firefox.js'),
-		self.data.url('core/console.js'),
+		self.data.url('core/options.js'),
 		self.data.url('core/alert.js'),
 		self.data.url('core/migrate.js'),
 		self.data.url('core/storage.js'),
@@ -174,6 +175,12 @@ pageMod.PageMod({
 		self.data.url('modules/userTagger.js'),
 		self.data.url('modules/keyboardNav.js'),
 		self.data.url('modules/commandLine.js'),
+		self.data.url('modules/floater.js'),
+		self.data.url('modules/orangered.js'),
+		self.data.url('modules/announcements.js'),
+		self.data.url('modules/selectedEntry.js'),
+		self.data.url('modules/settingsConsole.js'),
+		self.data.url('modules/menu.js'),
 		self.data.url('modules/about.js'),
 		self.data.url('modules/hover.js'),
 		self.data.url('modules/subredditTagger.js'),
@@ -210,13 +217,48 @@ pageMod.PageMod({
 		self.data.url('modules/context.js'),
 		self.data.url('modules/noParticipation.js'),
 		self.data.url('modules/searchHelper.js'),
+		self.data.url('modules/submitHelper.js'),
 		self.data.url('modules/logoLink.js'),
 		self.data.url('modules/voteEnhancements.js'),
 		self.data.url('modules/upload.js'),
-		self.data.url('modules/hosts/mediacrush.js'),
 		self.data.url('modules/tableTools.js'),
 		self.data.url('modules/modhelper.js'),
 		self.data.url('modules/quickMessage.js'),
+		self.data.url('modules/hosts/imgur.js'),
+		self.data.url('modules/hosts/futurism.js'),
+		self.data.url('modules/hosts/gfycat.js'),
+		self.data.url('modules/hosts/gifyoutube.js'),
+		self.data.url('modules/hosts/vidble.js'),
+		self.data.url('modules/hosts/fitbamob.js'),
+		self.data.url('modules/hosts/giflike.js'),
+		self.data.url('modules/hosts/ctrlv.js'),
+		self.data.url('modules/hosts/snag.js'),
+		self.data.url('modules/hosts/picshd.js'),
+		self.data.url('modules/hosts/minus.js'),
+		self.data.url('modules/hosts/fiveHundredPx.js'),
+		self.data.url('modules/hosts/flickr.js'),
+		self.data.url('modules/hosts/steampowered.js'),
+		self.data.url('modules/hosts/deviantart.js'),
+		self.data.url('modules/hosts/tumblr.js'),
+		self.data.url('modules/hosts/memecrunch.js'),
+		self.data.url('modules/hosts/imgflip.js'),
+		self.data.url('modules/hosts/mediacrush.js'),
+		self.data.url('modules/hosts/livememe.js'),
+		self.data.url('modules/hosts/makeameme.js'),
+		self.data.url('modules/hosts/memegen.js'),
+		self.data.url('modules/hosts/redditbooru.js'),
+		self.data.url('modules/hosts/youtube.js'),
+		self.data.url('modules/hosts/vimeo.js'),
+		self.data.url('modules/hosts/soundcloud.js'),
+		self.data.url('modules/hosts/clyp.js'),
+		self.data.url('modules/hosts/memedad.js'),
+		self.data.url('modules/hosts/ridewithgps.js'),
+		self.data.url('modules/hosts/photobucket.js'),
+		self.data.url('modules/hosts/giphy.js'),
+		self.data.url('modules/hosts/streamable.js'),
+		self.data.url('modules/hosts/raddit.js'),
+		self.data.url('modules/hosts/pastebin.js'),
+		self.data.url('modules/hosts/github.js'),
 		self.data.url('core/init.js')
 	],
 	contentStyleFile: [
@@ -242,7 +284,7 @@ pageMod.PageMod({
 			switch (request.requestType) {
 				case 'readResource':
 					let fileData = self.data.load(request.filename);
-					worker.postMessage({ name: 'readResource', data: fileData, transaction: request.transaction });
+					worker.postMessage({ requestType: 'readResource', data: fileData, transaction: request.transaction });
 					break;
 				case 'deleteCookie':
 					cookieManager.remove('.reddit.com', request.cname, '/', false);
@@ -251,7 +293,7 @@ pageMod.PageMod({
 				case 'ajax':
 					let responseObj = {
 						XHRID: request.XHRID,
-						name: request.requestType
+						requestType: request.requestType
 					};
 					if (request.aggressiveCache || XHRCache.forceCache) {
 						let cachedResult = XHRCache.check(request.url);
@@ -348,7 +390,7 @@ pageMod.PageMod({
 						onComplete: function(response) {
 							let resp = JSON.parse(response.text);
 							let responseObj = {
-								name: 'loadTweet',
+								requestType: 'loadTweet',
 								response: resp
 							};
 							worker.postMessage(responseObj);
@@ -358,14 +400,14 @@ pageMod.PageMod({
 					}).get();
 					break;
 				case 'getLocalStorage':
-					worker.postMessage({ name: 'getLocalStorage', message: localStorage });
+					worker.postMessage({ requestType: 'getLocalStorage', message: localStorage });
 					break;
 				case 'saveLocalStorage':
 					for (let key in request.data) {
 						localStorage.setItem(key,request.data[key]);
 					}
 					localStorage.setItem('importedFromForeground', true);
-					worker.postMessage({ name: 'saveLocalStorage', message: localStorage });
+					worker.postMessage({ requestType: 'saveLocalStorage', message: localStorage });
 					break;
 				case 'localStorage':
 					switch (request.operation) {
@@ -405,7 +447,7 @@ pageMod.PageMod({
 									onChange: function(state) {
 										let worker = getActiveWorker();
 										worker.postMessage({
-											name: 'subredditStyle',
+											requestType: 'subredditStyle',
 											toggle: state.checked
 										});
 									}
@@ -465,6 +507,14 @@ pageMod.PageMod({
 							visitDate: Date.now() * 1000
 						}]
 					});
+					break;
+				case 'multicast':
+					workers
+						.filter(function(w) { return w !== worker; })
+						.forEach(function(worker) {
+							worker.postMessage(request);
+						});
+
 					break;
 				default:
 					worker.postMessage({status: 'unrecognized request type'});

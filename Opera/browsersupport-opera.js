@@ -67,8 +67,11 @@ function operaMessageHandler(msgEvent) {
 		case 'addURLToHistory':
 			var url = eventData.url;
 			if (!eventData.isPrivate) {
-				BrowserStrategy._addURLToHistoryViaForeground(url);
+				RESUtils.runtime._addURLToHistoryViaForeground(url);
 			}
+			break;
+		case 'multicast':
+			RESUtils.rpc(eventData.moduleID, eventData.method, eventData.arguments);
 			break;
 		default:
 			// console.log('unknown event type in operaMessageHandler');
@@ -76,8 +79,8 @@ function operaMessageHandler(msgEvent) {
 	}
 }
 
-
-BrowserStrategy.ajax = function(obj) {
+RESUtils.runtime = RESUtils.runtime || {};
+RESUtils.runtime.ajax = function(obj) {
 	obj.requestType = 'ajax';
 	// Turns out, Opera works this way too, but I'll forgive them since their extensions are so young and they're awesome people...
 
@@ -144,7 +147,7 @@ function operaForcedUpdateCallback(obj) {
 }
 
 
-BrowserStrategy.storageSetup = function(thisJSON) {
+RESUtils.runtime.storageSetup = function(thisJSON) {
 	RESLoadResourceAsText = function(filename, callback) {
 		var f = opera.extension.getFile('/' + filename);
 		var fr = new FileReader();
@@ -159,7 +162,7 @@ BrowserStrategy.storageSetup = function(thisJSON) {
 	opera.extension.postMessage(JSON.stringify(thisJSON));
 };
 
-BrowserStrategy.RESInitReadyCheck = function(RESInit) {
+RESUtils.runtime.RESInitReadyCheck = function(RESInit) {
 	// require.js-like modular injected scripts, code via:
 	// http://my.opera.com/BS-Harou/blog/2012/08/08/modular-injcted-scripts-in-extensions
 	// Note: This code requires Opera 12.50 to run!
@@ -477,7 +480,7 @@ BrowserStrategy.RESInitReadyCheck = function(RESInit) {
 		// save Reddit's jQuery, because this script is going to jack it up.
 		// now, take the new jQuery in and store it local to RES's scope (it's a var up top)
 		var redditJq = window.$;
-		require(['jquery-1.11.1.min', 'guiders-1.2.8', 'favico', 'snuownd', 'jquery.dragsort-0.6', 'jquery.tokeninput', 'jquery-fieldselection.min'], function() {
+		require(['jquery-1.11.2.min', 'guiders', 'favico', 'snuownd', 'jquery.sortable-0.9.12', 'jquery.edgescroll-0.1', 'jquery.tokeninput', 'jquery-fieldselection.min'], function() {
 			RESInit();
 		});
 	} else {
@@ -486,15 +489,15 @@ BrowserStrategy.RESInitReadyCheck = function(RESInit) {
 };
 
 
-BrowserStrategy.sendMessage = function(thisJSON) {
+RESUtils.runtime.sendMessage = function(thisJSON) {
 	opera.extension.postMessage(JSON.stringify(thisJSON));
 };
 
-BrowserStrategy.getOutlineProperty = function() {
+RESUtils.runtime.getOutlineProperty = function() {
 	return 'border';
 };
 
-BrowserStrategy.openNewWindow = function (thisHREF) {
+RESUtils.runtime.openNewWindow = function (thisHREF) {
 	var thisJSON = {
 		requestType: 'keyboardNav',
 		linkURL: thisHREF
@@ -502,7 +505,7 @@ BrowserStrategy.openNewWindow = function (thisHREF) {
 	opera.extension.postMessage(JSON.stringify(thisJSON));
 };
 
-BrowserStrategy.openLinkInNewTab = function (thisHREF) {
+RESUtils.runtime.openLinkInNewTab = function (thisHREF) {
 	var thisJSON = {
 		requestType: 'openLinkInNewTab',
 		linkURL: thisHREF
@@ -510,4 +513,4 @@ BrowserStrategy.openLinkInNewTab = function (thisHREF) {
 	opera.extension.postMessage(JSON.stringify(thisJSON));
 };
 
-BrowserStrategy.addURLToHistory = BrowserStrategy._addURLToHistory;
+RESUtils.runtime.addURLToHistory = RESUtils.runtime._addURLToHistory;

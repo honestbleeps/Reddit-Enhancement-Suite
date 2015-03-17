@@ -266,6 +266,22 @@
 					sendResponse(passBack, msgEvent);
 				}
 				break;
+			case 'multicast':
+				(function () {
+					var tabs = Array.prototype.slice.call(safari.application.browserWindows)
+						.map(function(window) {
+							return Array.prototype.slice.call(window.tabs);
+						}).reduce(function(prev, next) {
+							return prev.concat(next);
+						}, []);
+					var sendTo = tabs.filter(function(tab) {
+							return msgEvent.target !== tab;
+						})
+					sendTo.forEach(function(tab) {
+						tab.page.dispatchMessage(request.requestType, request);
+					});
+				})();
+				break;
 			default:
 				sendResponse({status: 'unrecognized request type'}, msgEvent);
 		}
