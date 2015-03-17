@@ -243,6 +243,29 @@ chrome.runtime.onMessage.addListener(
 			case 'addURLToHistory':
 				chrome.history.addUrl({url: request.url});
 				break;
+			case 'permissions':
+				if (request.action === 'remove') {
+					chrome.permissions.remove(request.data, function(removed) {
+						request.result = removed;
+						chrome.tabs.sendMessage(chrome.tabs.getCurrent(), request, function(response) {
+							// we don't really need to do anything here.
+							console.log(response);
+						});
+					});
+				} else {
+					chrome.permissions.request(request.data, function(granted) {
+						request.result = granted;
+						console.log(request);
+						chrome.tabs.query({ active: true, windowId: chrome.windows.WINDOW_ID_CURRENT }, function(tab) {
+							chrome.tabs.sendMessage(tab[0].id, request, function(response) {
+								// we don't really need to do anything here.
+								console.log(response);
+							});
+						});
+
+					});
+				}
+				break;
 			case 'XHRCache':
 				switch (request.operation) {
 					case 'clear':
@@ -278,6 +301,19 @@ chrome.runtime.onMessage.addListener(
 						chrome.pageAction.hide(sender.tab.id);
 						break;
 				}
+				break;
+			case 'multicast':
+				var tabs = chrome.tabs.query({
+					status: 'complete',
+				}, function(tabs) {
+					tabs = tabs.filter(function(tab) {
+						return (sender.tab.id !== tab.id);
+					});
+
+					tabs.forEach(function(tab) {
+						chrome.tabs.sendMessage(tab.id, request, function(response) { });
+					});
+				});
 				break;
 			default:
 				sendResponse({status: 'unrecognized request type'});

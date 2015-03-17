@@ -1,21 +1,21 @@
 // if this is a jetpack addon, add an event listener like Safari's message handler...
-self.on('message', function(msgEvent) {
-	switch (msgEvent.name) {
+self.on('message', function(request) {
+	switch (request.requestType) {
 		case 'readResource':
-			window.RESLoadCallbacks[msgEvent.transaction](msgEvent.data);
-			delete window.RESLoadCallbacks[msgEvent.transaction];
+			window.RESLoadCallbacks[request.transaction](request.data);
+			delete window.RESLoadCallbacks[request.transaction];
 			break;
 		case 'ajax':
 			// Fire the appropriate onload function for this xmlhttprequest.
-			xhrQueue.onloads[msgEvent.XHRID](msgEvent.response);
+			xhrQueue.onloads[request.XHRID](request.response);
 			break;
 		case 'compareVersion':
 			var forceUpdate = false;
-			if (typeof msgEvent.message.forceUpdate !== 'undefined') forceUpdate = true;
-			RESUtils.compareVersion(msgEvent.message, forceUpdate);
+			if (typeof request.message.forceUpdate !== 'undefined') forceUpdate = true;
+			RESUtils.compareVersion(request.message, forceUpdate);
 			break;
 		case 'loadTweet':
-			var tweet = msgEvent.response;
+			var tweet = request.response;
 			var thisExpando = modules['styleTweaks'].tweetExpando;
 			$(thisExpando).html(tweet.html);
 			thisExpando.style.display = 'block';
@@ -24,7 +24,7 @@ self.on('message', function(msgEvent) {
 		case 'getLocalStorage':
 			// Does RESStorage have actual data in it?  If it doesn't, they're a legacy user, we need to copy
 			// old school localStorage from the foreground page to the background page to keep their settings...
-			if (typeof msgEvent.message.importedFromForeground === 'undefined') {
+			if (typeof request.message.importedFromForeground === 'undefined') {
 				// it doesn't exist.. copy it over...
 				var thisJSON = {
 					requestType: 'saveLocalStorage',
@@ -32,27 +32,27 @@ self.on('message', function(msgEvent) {
 				};
 				self.postMessage(thisJSON);
 			} else {
-				setUpRESStorage(msgEvent.message);
+				setUpRESStorage(request.message);
 				//RESInit();
 			}
 			break;
 		case 'saveLocalStorage':
 			// Okay, we just copied localStorage from foreground to background, let's set it up...
-			setUpRESStorage(msgEvent.message);
+			setUpRESStorage(request.message);
 			break;
 		case 'localStorage':
-			RESStorage.setItem(msgEvent.itemName, msgEvent.itemValue, true);
+			RESStorage.setItem(request.itemName, request.itemValue, true);
 			break;
 		case 'subredditStyle':
 			if (!modules['styleTweaks'].styleToggleCheckbox) {
 				return;
 			}
-			if (msgEvent.message === 'refreshState') {
+			if (request.message === 'refreshState') {
 				var toggle = modules['styleTweaks'].styleToggleCheckbox.checked,
 					currentSubreddit = RESUtils.currentSubreddit();
 
 				if (currentSubreddit) {
-					BrowserStrategy.sendMessage({
+					RESUtils.runtime.sendMessage({
 						requestType: 'pageAction',
 						action: 'stateChange',
 						visible: toggle
@@ -66,15 +66,18 @@ self.on('message', function(msgEvent) {
 				}
 			}
 			break;
+		case 'multicast':
+			RESUtils.rpc(request.moduleID, request.method, request.arguments);
+			break;
 		default:
 			// console.log('unknown event type in self.on');
-			// console.log(msgEvent.toSource());
+			// console.log(request.toSource());
 			break;
 	}
 });
 
-
-BrowserStrategy.ajax = function(obj) {
+RESUtils.runtime = RESUtils.runtime || {};
+RESUtils.runtime.ajax = function(obj) {
 	var crossDomain = (obj.url.indexOf(location.hostname) === -1);
 
 	if ((typeof obj.onload !== 'undefined') && (crossDomain)) {
@@ -132,7 +135,7 @@ BrowserStrategy.ajax = function(obj) {
 };
 
 
-BrowserStrategy.localStorageTest = function() {
+RESUtils.runtime.localStorageTest = function() {
 	// if this is a firefox addon, check for the old lsTest to see if they used to use the Greasemonkey script...
 	// if so, present them with a notification explaining that they should download a new script so they can
 	// copy their old settings...
@@ -154,7 +157,7 @@ BrowserStrategy.localStorageTest = function() {
 	}
 };
 
-BrowserStrategy.storageSetup = function(thisJSON) {
+RESUtils.runtime.storageSetup = function(thisJSON) {
 	var transactions = 0;
 	window.RESLoadCallbacks = [];
 	RESLoadResourceAsText = function(filename, callback) {
@@ -166,8 +169,8 @@ BrowserStrategy.storageSetup = function(thisJSON) {
 	self.postMessage(thisJSON);
 };
 
-BrowserStrategy.RESInitReadyCheck = (function() {
-	var original = BrowserStrategy.RESInitReadyCheck;
+RESUtils.runtime.RESInitReadyCheck = (function() {
+	var original = RESUtils.runtime.RESInitReadyCheck;
 
 	return function(RESInit) {
 		// firefox addon sdk... we've included jQuery...
@@ -182,7 +185,7 @@ BrowserStrategy.RESInitReadyCheck = (function() {
 	}
 })();
 
-BrowserStrategy.openInNewWindow = function(thisHREF) {
+RESUtils.runtime.openInNewWindow = function(thisHREF) {
 	var thisJSON = {
 		requestType: 'keyboardNav',
 		linkURL: thisHREF
@@ -190,7 +193,7 @@ BrowserStrategy.openInNewWindow = function(thisHREF) {
 	self.postMessage(thisJSON);
 };
 
-BrowserStrategy.openLinkInNewTab = function(thisHREF) {
+RESUtils.runtime.openLinkInNewTab = function(thisHREF) {
 	var thisJSON = {
 		requestType: 'openLinkInNewTab',
 		linkURL: thisHREF
@@ -198,11 +201,11 @@ BrowserStrategy.openLinkInNewTab = function(thisHREF) {
 	self.postMessage(thisJSON);
 };
 
-BrowserStrategy.sendMessage = function(thisJSON) {
+RESUtils.runtime.sendMessage = function(thisJSON) {
 	self.postMessage(thisJSON);
 };
 
-BrowserStrategy.deleteCookie = function(cookieName) {
+RESUtils.runtime.deleteCookie = function(cookieName) {
 	var deferred = new $.Deferred();
 
 	var requestJSON = {

@@ -101,29 +101,37 @@ body.res-console-open {
 	z-index: 10000;
 }
 .gearIcon {
+	text-decoration: none !important;
+	position: relative;
+}
+.gearIcon::before, .gearIcon::after {
+	font-family: Batch;
+	line-height: 15px;
+	font-size: 15px;
+}
+.gearIcon::after {
+	content: '\F04D';
+	color: #a0e0fd;
+	text-shadow: -1px -1px 0 #498ed2, -1px 1px 0 #498ed2, 1px -1px 0 #498ed2, 1px 1px 0 #498ed2, 1px 0 0 #498ed2, -1px 0 0 #498ed2, 0 1px 0 #498ed2, 0 -1px 0 #498ed2;
+}
+.gearIcon.newNotification {
+	cursor: pointer;
+}
+.gearIcon.newNotification::before {
+	content: '\F15B';
+	color: orangered;
+	position: absolute;
+	bottom: 25%;
+	left: 25%;
+}
+.res-gearIcon-legacy .gearIcon{
 	display: inline-block;
 	width: 15px;
 	height: 15px;
-	background-image: url('https://s3.amazonaws.com/b.thumbs.redditmedia.com/tBwwK20XXxtpgudWx1L7bDXla-iotv-JA0jgA0Y-FVs.png');
 	background-repeat: no-repeat;
-	background-position: 0 -209px;
 }
-.gearIcon.newNotification {
-	cursor: pointer;
-	background-position: 0px -134px;
-}
-#RESMainGearOverlay .gearIcon {
-	position: absolute;
-	top: 3px;
-	left: 6px;
-}
-#RESSettingsButton {
-	margin: auto;
-	margin-bottom: -2px;
-}
-.gearIcon.newNotification {
-	cursor: pointer;
-	background-position: 0px -134px;
+.res-gearIcon-legacy .gearIcon::after {
+	content: none;
 }
 #RESMainGearOverlay .gearIcon {
 	position: absolute;
@@ -149,6 +157,7 @@ body.res-console-open {
 	margin-top: -1px;
 }
 .RESDropdownList li {
+	position: relative;
 	cursor: pointer;
 	border-bottom: 1px solid #369;
 	height: 35px;
@@ -177,18 +186,27 @@ body.res-console-open {
 	cursor: pointer;
 	width: 24px;
 	height: 22px;
-	background-repeat: no-repeat;
-	background-position: 2px 2px;
-	background-image: url(https://s3.amazonaws.com/b.thumbs.redditmedia.com/G6qEldT8FQ1NadPj3VnmGR1AWJd9ljDwj7bjVEdB8YI.png)
 }
-.optionsTable .res-icon-button {
+.optionContainer .res-icon-button {
 	cursor: pointer;
 	width: 16px;
 	height: 16px;
 	margin-left: 2px;
 	margin-right: 2px;
+	opacity: 0.25;
 }
-.optionsTable .handle {
+.optionContainer .res-icon-button:hover {
+	opacity: 1.0;
+}
+.optionContainer tr .deleteButton,
+.optionContainer .builderWrap .deleteButton {
+	visibility: hidden;
+}
+.optionContainer tr:hover .deleteButton,
+.optionContainer .builderWrap:hover > .builderTrailingControls .deleteButton {
+	visibility: visible;
+}
+.optionContainer .handle {
 	cursor: move;
 }
 #openRESPrefs {
@@ -276,8 +294,10 @@ body.res-console-open {
 #RESConsoleContent.advanced-options-disabled .optionContainer.advanced {
 	display: none;
 }
-.optionContainer.advanced>label{
-	font-style: italic;
+.optionContainer.advanced > label:after {
+	content: '\26A0';
+	margin-left: 0.5em;
+	color: red;
 }
 .RESDialogSmall {
 	background-color: #fff;
@@ -307,9 +327,9 @@ body.res-console-open {
 #BigEditor .BELeft .RESDialogContents {
 	padding-top: 52px;
 }
-.usertext-edit .RESDialogSmall .md.RESDialogContents {
+.usertext-edit .RESDialogSmall:not(.livePreview) .md.RESDialogContents {
 	border: none;
-	background-color: white !important;
+	background-color: #fff;
 }
 #RESHelp {
 	background-image: url("https://s3.amazonaws.com/b.thumbs.redditmedia.com/tBwwK20XXxtpgudWx1L7bDXla-iotv-JA0jgA0Y-FVs.png");
@@ -320,51 +340,20 @@ body.res-console-open {
 	float: right;
 	cursor: pointer;
 }
-#RESMenu {
-	position: absolute;
-	top: 60px;
-	left: 15px;
-	right: 0;
-	height: 30px;
-}
-#RESMenu li {
-	float: left;
-	text-align: center;
-	/* min-width: 80px; */
-	height: 22px;
-	margin-right: 15px;
-	border: 1px solid #c7c7c7;
-	border-radius: 3px;
-	padding: 6px 8px 0 8px;
-	cursor: pointer;
-	background-color: #ddd;
-	color: #6c6c6c;
-}
-#RESMenu li.active {
-	border-color: #000;
-	background-color: #7f7f7f;
-	color: #fff;
-}
-#RESMenu li:hover {
-	border-color: #000;
-}
 #RESConsoleContent {
 	clear: both;
 	padding: 6px 6px 20px 6px;
 	position: absolute;
-	top: 100px;
+	top: 50px;
 	left: 0;
 	right: 0;
 	bottom: 0;
 	border-top: 1px solid #DDD;
 }
-#RESConsoleConfigPanel {
-	height: 100%;
-}
-#RESConfigPanelOptions, #RESAboutDetails {
+#RESConfigPanelOptions {
 	margin-top: 15px;
 	display: block;
-	margin-left: 220px;
+	margin-left: 200px;
 	height: 100%;
 	overflow: auto;
 }
@@ -386,37 +375,16 @@ body.res-console-open {
 #moduleOptionsScrim.visible {
 	display: block;
 }
-#RESConfigPanelModulesPane, #RESAboutPane {
+#RESConfigPanelModulesPane {
+	position: relative;
 	float: left;
-	width: 195px;
-	padding-right: 15px;
 	border-right: 1px solid #dedede;
+	width: 15em;
+	padding-right: 10px;
 	height: 100%;
 	overflow: auto;
 }
-.moduleButton {
-	font-size: 12px;
-	color: #868686;
-	text-align: right;
-	padding-bottom: 3px;
-	padding-top: 3px;
-	margin-bottom: 12px;
-	cursor: pointer;
-	opacity: 0.5;
-}
-.moduleButton.enabled {
-	opacity: 1;
-}
-.moduleButton:hover {
-	text-decoration: underline;
-}
-.moduleButton.active, .moduleButton.active:hover {
-	opacity: 1;
-	font-weight: bold;
-}
-.RESPanel {
-	display: none;
-}
+
 .clear {
 	clear: both;
 }
@@ -482,6 +450,57 @@ p.moduleListing {
 	clear: both;
 	margin-bottom: 10px;
 }
+#RESConfigPanelModulesPane ul {
+	list-style: none;
+}
+#RESConfigPanelModulesPane li h3 {
+	text-align: left;
+	margin: 0.2em 0;
+	border: 1px solid #c7c7c7;
+	padding: 0.3em 0.5em;
+	cursor: pointer;
+	background-color: #ddd;
+	color: #6c6c6c;
+	font-weight: normal;
+}
+#RESConfigPanelModulesPane li.active h3 {
+	border-color: #000;
+	background-color: #7f7f7f;
+	color: #fff;
+}
+#RESConfigPanelModulesPane .RESConfigPanelCategory ul {
+	max-height: 0;
+	overflow: hidden;
+	-webkit-transition: max-height 0.8s;
+	-moz-transition: max-height 0.8s;
+	transition: max-height 0.8s;
+}
+#RESConfigPanelModulesPane .RESConfigPanelCategory.active ul {
+	max-height: 1000px;
+}
+#RESMenu li h3:hover {
+	border-color: #000;
+}
+.moduleButton {
+	font-size: 12px;
+	color: #868686;
+	text-align: right;
+	padding-bottom: 0.5em;
+	padding-top: 0.5em;
+	margin-bottom: 0.2em;
+	cursor: pointer;
+	opacity: 0.5;
+}
+.moduleButton.enabled {
+	opacity: 1;
+}
+.moduleButton:hover {
+	text-decoration: underline;
+}
+.moduleButton.active, .moduleButton.active:hover {
+	opacity: 1;
+	font-weight: bold;
+}
 .moduleDescription {
 	float: left;
 	width: 500px;
@@ -537,12 +556,12 @@ p.moduleListing {
 }
 .moduleToggle .toggleOn, .toggleButton .toggleOn {
 	border: 1px solid #636363;
-	border-right: 0px;
+	border-right: 0;
 	border-radius: 3px 0 0 3px;
 }
 .moduleToggle .toggleOff, .toggleButton .toggleOff {
 	border: 1px solid #636363;
-	border-left: 0px;
+	border-left: 0;
 	border-radius: 0 3px 3px 0;
 }
 .moduleToggle:not(.enabled) .toggleOn, .toggleButton:not(.enabled) .toggleOn {
@@ -608,8 +627,9 @@ p.moduleListing {
 }
 .optionContainer table {
 	clear: both;
-	width: 650px;
+	min-width: 100%;
 	margin-top: 20px;
+	margin-bottom: 10px;
 }
 .optionContainer > label {
 	/* Only target row labels, not labels for specific inputs */
@@ -620,6 +640,9 @@ p.moduleListing {
 	margin-left: 10px;
 	float: left;
 	width: 140px;
+}
+.optionContainer input[type=radio] {
+	margin-right: 0.3em;
 }
 .optionContainer>input[type=color] {
 	margin-left: 10px;
@@ -679,11 +702,10 @@ p.moduleListing {
 	margin-top: 7px;
 }
 #moduleOptionsSave {
-	display: none;
 	position: absolute;
 	z-index: 1100;
-	top: -35px;
-	right: 10px;
+	top: 30px;
+	right: 25px;
 	cursor: pointer;
 	padding: 3px 5px;
 	font-size: 12px;
@@ -694,16 +716,34 @@ p.moduleListing {
 	margin-bottom: 10px;
 }
 .RESConsoleButton {
-	cursor: pointer;
 	padding: 3px 5px;
 	font-size: 12px;
-	color: #fff;
 	border: 1px solid #636363;
 	border-radius: 3px;
-	background-color: #5cc410;
+}
+#moduleOptionsSave {
+	color: #fff;
+	background-color: #107ac4;
+	cursor: pointer;
+	opacity: 0.9;
 }
 #moduleOptionsSave:hover {
-	background-color: #73e81e;
+	opacity: 1.0;
+}
+#moduleOptionsSave::before {
+	content: ' ';
+	display: inline-block;
+	margin: 0.2em 0.3em;
+	height: 0.5em;
+	width: 0.5em;
+	border-radius: 0.3em;
+	background: #5cc410;
+}
+#moduleOptionsSave.optionsSaved::before {
+	background: #aaa;
+}
+#moduleOptionsSave.optionsSaved.noOptions {
+	opacity: 0.3;
 }
 .addRowButton {
 	cursor: pointer;
@@ -748,14 +788,14 @@ p.moduleListing {
 	text-align: center;
 	background-color: #FFFACD;
 }
-#RESConsoleContent p {
+#RESConfigPanelOptions p {
 	margin-bottom: 10px;
 }
-#RESConsoleContent ul {
+#RESConfigPanelOptions ul {
 	margin-bottom: 10px;
 	margin-top: 10px;
 }
-#RESConsoleContent li {
+#RESConfigPanelOptions li {
 	list-style-type: disc;
 	margin-left: 15px;
 }
@@ -789,7 +829,7 @@ p.moduleListing {
 	list-style-type: none;
 	border-bottom: 1px dashed #ccc;
 	cursor: pointer;
-	margin-left: 0px;
+	margin-left: 0;
 	padding-left: 10px;
 	padding-top: 24px;
 	padding-bottom: 24px;
@@ -818,39 +858,46 @@ p.moduleListing {
 	padding: 10px;
 	width: 26px;
 	height: 22px;
-	background: no-repeat center center;
-	background-image: url(https://s3.amazonaws.com/b.thumbs.redditmedia.com/bQYQXsuPzDmLh8iW7Nnfhq0zBczl5V6ek9Oi17rZ9mE.png);
-	display: none;
+	visibility: hidden;
 }
-#SearchRES-results li:hover .SearchRES-result-copybutton { display: block; }
-#SearchRES-input-submit {
-	margin-left: 8px;
+#SearchRES-results li:hover .SearchRES-result-copybutton {
+	visibility: visible;
+}
+#SearchRES-results .SearchRES-result-copybutton:hover {
+	color: #888;
+}
+
+#SearchRES-input-container  {
+	position: relative;
+	margin-bottom: 10px;
 }
 #SearchRES-input {
-	width: 200px;
-	height: 22px;
+	box-sizing: border-box;
+	width: 100%;
+	height: 26px;
 	font-size: 14px;
+	padding: 2px 25px 2px 5px;
 }
-#SearchRES-input-container {
-	float: left;
-	margin-left: 3em;
-	margin-top: 7px;
+#SearchRES-input-submit {
+	position: absolute;
+	top: 50%;
+	margin-top: -10px;
+	right: 0;
+	border: 0;
+	background: transparent;
 }
-#RESSearchMenuItem {
+.RESMenuItemButton {
 	display: block;
-	float: right;
-	margin: 7px;
-	width: 21px;height: 21px;
-	border: 1px #c9def2 solid;
+	position: absolute;
+	right: 7px;
+	top: 7px;
+	padding: 2px;
+	width: 16px;
+	height: 16px;
+	line-height: 15px;
 	border-radius: 3px;
-	background: transparent center center no-repeat;
-	background-image: url(https://s3.amazonaws.com/b.thumbs.redditmedia.com/ekcPwlhwTePc_MTv7mbS3lUnYJdH6lZlG77OfcBwXGA.png);
 }
-li:hover > #RESSearchMenuItem {
-	border-color: #369;
-	background-image: url(https://s3.amazonaws.com/b.thumbs.redditmedia.com/ekcPwlhwTePc_MTv7mbS3lUnYJdH6lZlG77OfcBwXGA.png);
-}
-#RESSearchMenuItem:hover {
+.RESMenuItemButton:hover {
 	background-color: #C8DBEC;
 }
 .outdated {
@@ -981,8 +1028,7 @@ a.RESNotificationButtonBlue {
 	-webkit-transition: all 2s linear;
 	-moz-transition: all 2s linear;
 	-o-transition: all 2s linear;
-	-ms-transition: all 2s linear;
-	-transition: all 2s linear;
+	transition: all 2s linear;
 }
 #baconBit.makeitrain {
 	top: 100%;
@@ -1090,7 +1136,7 @@ body.RESScrollLock {
 .BERight .RESDialogContents, .BERight .RESDialogContents.wiki-page-content {
 	overflow: auto;
 	padding: 12px;
-	margin: 4em 1em 1em 0em;
+	margin: 4em 1em 1em 0;
 	left: 0;
 	right: 0;
 }
@@ -1125,16 +1171,12 @@ body.RESScrollLock {
 
 .content .RESBigEditorPop {
 	float: right;
-	margin: 3px 0 0 12px;
+	margin: 3px 0 0 0;
 	color: #333;
 	background-color: #fff;
 	border: 1px solid #ccc;
 	cursor: pointer;
-	text-indent: 20px;
 	padding: 5px 3px;
-	background-repeat: no-repeat;
-	background-position: 4px 50%;
-	background-image: url(https://b.thumbs.redditmedia.com/KGwj6faDlmPlGvWMZf2i9gn9CpnY__eZlqhdyU8b9gQ.png);
 }
 button.RESBigEditorPop:hover {
 	background-color: #ddd;
@@ -1251,7 +1293,7 @@ img {
 	position: absolute;
 	z-index: 99999;
 }
-.res-parents-up #parentCommentContainer { bottom: 0px; }
+.res-parents-up #parentCommentContainer { bottom: 0; }
 #parentCommentWrapper {
 	position: absolute;
 	left: 10px;
@@ -1346,9 +1388,7 @@ a.bylink.parentlink {
 	border: 1px solid black;
 	color: black;
 	font-size: 12px;
-	padding: 20px;
-	padding-left: 40px;
-	padding-right: 40px;
+	padding: 20px 40px;
 	position: fixed!important;
 	width: 400px;
 	z-index: 1000000201;
@@ -1359,9 +1399,7 @@ a.bylink.parentlink {
 	font-family: normal x-small verdana,arial,helvetica,sans-serif;
 	font-weight: bold;
 	font-size: 10px;
-	padding: 6px;
-	padding-left: 9px;
-	padding-right: 9px;
+	padding: 6px 9px;
 	float: left;
 	background-color: #DFDFDF;
 	cursor: pointer;
@@ -1414,6 +1452,161 @@ a.bylink.parentlink {
 	background-color: lightblue;
 }
 
+/*Edgescroll plugin*/
+.edgescroll {
+	left: 0;
+	right: 0;
+	/*background-color: rgba(0, 0, 255, 0.5);*/
+}
+.edgescroll-top {
+	top: 0;
+}
+.edgescroll-bottom {
+	bottom: 0;
+}
+
+
+/*
+tr looks funny with ::after
+and li looks funny with  ::before
+*/
+tr.RESSortPlaceholder::before, li.RESSortPlaceholder::after, div.RESSortPlaceholder::after {
+	border: medium dashed grey;
+	color: grey;
+	content: 'drop here';
+	vertical-align: center;
+	text-align: center;
+	border-radius: 3px;
+	display: block;
+	margin-bottom: 5px;
+}
+.optionBuilder .RESSortPlaceholder::after {
+	padding: 1em 2em;
+}
+.optionBuilder li {
+	list-style-type: none !important;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+}
+
+.optionBuilder li.dragged {
+	border: medium dashed grey;
+	border-radius: 3px;
+	background-color: #f0f3fc;
+}
+
+.optionBuilder input[type="text"],
+.optionBuilder input[type="checkbox"] {
+	float: none;
+	margin-left: initial;
+	width: auto;
+}
+
+.builderItem {
+	border: thin solid lightgrey;
+	border-radius: 5px;
+	background-color: rgba(10, 10, 10, 0.05);
+	padding: 0.4em 0.5em;
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.builderControls {
+	float: left;
+	padding: 0.1em;
+	vertical-align: top;
+}
+.builderTrailingControls {
+	float: right;
+}
+
+.builderMulti {
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+.builderMulti li:after {
+	content: ' ';
+	display: block;
+	clear: both;
+	height: 0px;
+}
+.builderMulti li + li {
+	border-top: 1px lightgray dashed;
+	margin-top: 1px;
+	padding-top: 3px;
+}
+.builderMulti li:nth-of-type(2n) {
+	background-color: rgba(10, 10, 10, 0.05);
+}
+
+.builderItem > .handle, .builderItem > .builderItemControls .res-icon-button {
+	vertical-align: top;
+	font-size: 30pt;
+	width: auto;
+	height: auto;
+}
+, .builderItem > .builderItemControls .res-icon-button {
+	font-size: 20pt;
+}
+
+.builderItemControls {
+	display: inline-block;
+	vertical-align: top;
+}
+
+.builderMulti:empty::before {
+	border: medium dashed grey;
+	border-radius: 3px;
+	color: grey;
+	content: 'nothing here yet. add something!';
+	padding: 5px 10px;
+	vertical-align: center;
+	text-align: center;
+	display: block;
+}
+.addBuilderBlock {
+	margin-left: 1.5em;
+}
+
+.checkset {
+	display: inline-block;
+}
+.checkset input[type="checkbox"] {
+	display: none;
+}
+
+.checkset label {
+	border: thin grey solid;
+	background-color: white;
+	padding: 2px 4px;
+	cursor: pointer;
+}
+.checkset label:first-of-type {
+	border-top-left-radius: 6px;
+	border-bottom-left-radius: 6px;
+}
+
+.checkset label:last-of-type {
+	border-top-right-radius: 6px;
+	border-bottom-right-radius: 6px;
+}
+.checkset :checked + label {
+	background-color: darkgrey;
+	text-decoration: underline;
+}
+
+.builderItem .durationField {
+	display: inline-block;
+}
+
+.builderItem .durationField input[type="number"] {
+	width: 3em;
+	/*margin-left: 1ex;*/
+}
+
+.optionBuilder .handle {
+	cursor: move;
+}
 
 /*
 (cs)spinner.css - http://jh3y.github.io/-cs-spinner
@@ -1464,11 +1657,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 /* (cs)spinner ringed spinner.
 a spinner with a static ring and no overlay.*/
 .csspinner.ringed:after {
-  border-right: 4px solid #8BBDD6;
-  border-top: 4px solid #0052D6;
-  border-left: 4px solid #8BBDD6;
-  border-bottom: 4px solid #8BBDD6;
-  opacity: 1;
+	border: 4px solid #8BBDD6;
+	border-top-color: #0052D6;
+	opacity: 1;
 }
 /* (cs)spinner standard rotation animation used for duo, double-up etc. */
 @-webkit-keyframes standard {
@@ -1536,19 +1727,19 @@ a spinner with a static ring and no overlay.*/
 
 @-webkit-keyframes progressbar {
 	from {
-		background-position: 0px 0px;
+		background-position: 0 0;
 	}
 	to {
-		background-position: 39px 0px;
+		background-position: 39px 0;
 	}
 }
 
 @keyframes progressbar {
 	from {
-		background-position: 0px 0px;
+		background-position: 0 0;
 	}
 	to {
-		background-position: 39px 0px;
+		background-position: 39px 0;
 	}
 }
 
@@ -1579,8 +1770,7 @@ a spinner with a static ring and no overlay.*/
 }
 
 #RESStyleSheetTipPane-contents ul {
-	list-style-type: disc;
-	list-style-position: inside;
+	list-style: disc inside;
 }
 
 /* gifyoutube player */
