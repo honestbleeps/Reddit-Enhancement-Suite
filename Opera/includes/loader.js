@@ -104,6 +104,7 @@ window.addEventListener('DOMContentLoaded', function() {
 		'modules/quickMessage.js',
 
 		'modules/hosts/imgur.js',
+		'modules/hosts/futurism.js',
 		'modules/hosts/gfycat.js',
 		'modules/hosts/gifyoutube.js',
 		'modules/hosts/vidble.js',
