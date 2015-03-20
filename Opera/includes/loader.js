@@ -54,6 +54,10 @@ window.addEventListener('DOMContentLoaded', function() {
 		'modules/accountSwitcher.js',
 		'modules/betteReddit.js',
 		'modules/commandLine.js',
+		'modules/floater.js',
+		'modules/orangered.js',
+		'modules/announcements.js',
+		'modules/selectedEntry.js',
 		'modules/settingsConsole.js',
 		'modules/menu.js',
 		'modules/commentHidePersistor.js',
@@ -100,6 +104,7 @@ window.addEventListener('DOMContentLoaded', function() {
 		'modules/quickMessage.js',
 
 		'modules/hosts/imgur.js',
+		'modules/hosts/futurism.js',
 		'modules/hosts/gfycat.js',
 		'modules/hosts/gifyoutube.js',
 		'modules/hosts/vidble.js',
@@ -131,6 +136,8 @@ window.addEventListener('DOMContentLoaded', function() {
 		'modules/hosts/giphy.js',
 		'modules/hosts/streamable.js',
 		'modules/hosts/raddit.js',
+		'modules/hosts/pastebin.js',
+		'modules/hosts/github.js',
 
 		'core/init.js',
 

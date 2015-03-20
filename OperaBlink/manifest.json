@@ -48,6 +48,10 @@
 				"modules/keyboardNav.js",
 				"modules/about.js",
 				"modules/commandLine.js",
+				"modules/floater.js",
+				"modules/orangered.js",
+				"modules/announcements.js",
+				"modules/selectedEntry.js",
 				"modules/settingsConsole.js",
 				"modules/menu.js",
 				"modules/hover.js",
@@ -93,6 +97,7 @@
 				"modules/modhelper.js",
 				"modules/quickMessage.js",
 				"modules/hosts/imgur.js",
+				"modules/hosts/futurism.js",
 				"modules/hosts/gfycat.js",
 				"modules/hosts/gifyoutube.js",
 				"modules/hosts/vidble.js",
@@ -124,6 +129,8 @@
 				"modules/hosts/giphy.js",
 				"modules/hosts/streamable.js",
 				"modules/hosts/raddit.js",
+				"modules/hosts/pastebin.js",
+				"modules/hosts/github.js",
 				"core/init.js"
 			],
 			"css": [
@@ -140,7 +147,7 @@
 	],
 	"web_accessible_resources": [
 		"core/templates.html",
-		"modules/hosts/hosts.json",
+		"modules/hosts/hosts.json"
 	],
 	"icons": {
 		"48": "icon48.png",
