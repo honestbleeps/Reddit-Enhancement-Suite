@@ -194,19 +194,6 @@ chrome.runtime.onMessage.addListener(
 				xhr.send();
 				return true;
 				break;
-			case 'loadTweet':
-				xhr = new XMLHttpRequest();
-				xhr.open('GET', request.url, true);
-				xhr.onreadystatechange = function() {
-					if (xhr.readyState === 4) {
-						// JSON.parse does not evaluate the attacker's scripts.
-						var resp = JSON.parse(xhr.responseText);
-						sendResponse(resp);
-					}
-				};
-				xhr.send();
-				return true;
-				break;
 			case 'getLocalStorage':
 				sendResponse(localStorage);
 				break;

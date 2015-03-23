@@ -14,13 +14,6 @@ self.on('message', function(request) {
 			if (typeof request.message.forceUpdate !== 'undefined') forceUpdate = true;
 			RESUtils.compareVersion(request.message, forceUpdate);
 			break;
-		case 'loadTweet':
-			var tweet = request.response;
-			var thisExpando = modules['styleTweaks'].tweetExpando;
-			$(thisExpando).html(tweet.html);
-			thisExpando.style.display = 'block';
-			thisExpando.classList.add('twitterLoaded');
-			break;
 		case 'getLocalStorage':
 			// Does RESStorage have actual data in it?  If it doesn't, they're a legacy user, we need to copy
 			// old school localStorage from the foreground page to the background page to keep their settings...

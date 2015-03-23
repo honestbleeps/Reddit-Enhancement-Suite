@@ -190,21 +190,6 @@
 				};
 				xhr.send();
 				break;
-			case 'loadTweet':
-				xhr = new XMLHttpRequest();
-				xhr.open('GET', request.url, true);
-				xhr.onreadystatechange = function() {
-					if (xhr.readyState === 4) {
-						// JSON.parse does not evaluate the attacker's scripts.
-						var resp = JSON.parse(xhr.responseText);
-						if (typeof msgEvent.message.target !== 'undefined') {
-							resp.target = msgEvent.message.target;
-						}
-						sendResponse(resp, msgEvent);
-					}
-				};
-				xhr.send();
-				break;
 			case 'getLocalStorage':
 				var ls = {};
 				for (var i = 0, len=localStorage.length; i < len; i++){
