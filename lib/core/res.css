@@ -1210,7 +1210,7 @@ img {
 	vertical-align: bottom;
 	margin-left: 4px;
 }
-.expando-button.image, .expando-button.video-muted {
+.expando-button.image, .expando-button.video-muted, .expando-button.image-nsfw{
 	vertical-align: top !important;
 	float: left;
 	width: 23px;
@@ -1244,6 +1244,18 @@ img {
 .expando-button.video-muted.collapsed:hover {background-position: 0 -488px; }
 .expando-button.video-muted.expanded {background-position: 0 -512px; }
 .expando-button.video-muted.expanded:hover {background-position: 0 -536px; }
+
+/* Sprite hack for NSFW expando */
+.expando-button.image-nsfw{
+	background-image: url('https://agentlame.github.io/images/res-orangered.png');
+}
+.expando-button.image-nsfw.collapsedExpando {
+	padding: 0;
+	background-position: 0 0;
+}
+.expando-button.image-nsfw.collapsedExpando:hover {background-position: 0 -24px;}
+.expando-button.image-nsfw.expanded {background-position: 0 -48px;}
+.expando-button.image-nsfw.expanded:hover {background-position: 0 -72px;}
 
 .madeVisible { clear: left; display: block; overflow: hidden; }
 .madeVisible a { display: inline-block; overflow: hidden; }
