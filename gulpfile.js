@@ -60,19 +60,22 @@ function getBrowserSources(browser) {
 	}, []);
 }
 
-function copyBrowserFiles(browser) {
+function copyBrowserFiles(browser, callback) {
 	browserSpecificFiles[browser].forEach(function(paths) {
 		gulp.src(paths.src)
 			.pipe(gulp.dest(path.join(buildDir[browser], paths.dest)));
 	});
+	if (callback) {
+		callback();
+	}
 }
 
 // Browser task runs subtasks
-gulp.task('chrome', function() { copyBrowserFiles('chrome'); });
-gulp.task('safari', function() { copyBrowserFiles('safari'); });
-gulp.task('firefox', function() { copyBrowserFiles('firefox'); });
-gulp.task('oblink', function() { copyBrowserFiles('oblink'); });
-gulp.task('opera', function() { copyBrowserFiles('opera'); });
+gulp.task('chrome', function(callback) { copyBrowserFiles('chrome', callback); });
+gulp.task('safari', function(callback) { copyBrowserFiles('safari', callback); });
+gulp.task('firefox', function(callback) { copyBrowserFiles('firefox', callback); });
+gulp.task('oblink', function(callback) { copyBrowserFiles('oblink', callback); });
+gulp.task('opera', function(callback) { copyBrowserFiles('opera', callback); });
 
 // This kills the CPU
 gulp.task('zipall', ['chrome-zip', 'safari-zip', 'firefox-zip', 'oblink-zip', 'opera-zip']);
