@@ -211,5 +211,5 @@ gulp.task('opera-zip', function() {
 
 // Other
 gulp.task('clean', function(cb) {
-	del(['dist/**/*'], cb);
+	del(['dist/*'], cb);
 });
