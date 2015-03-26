@@ -107,7 +107,8 @@ body.res-console-open {
 .gearIcon::before, .gearIcon::after {
 	font-family: Batch;
 	line-height: 15px;
-	font-size: 15px;
+	font-size: 14px;
+	vertical-align: middle;
 }
 .gearIcon::after {
 	content: '\F04D';
