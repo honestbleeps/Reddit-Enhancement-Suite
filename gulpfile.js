@@ -16,15 +16,15 @@ gulp.task('default', ['clean'], function() {
 
 // Paths
 var rootBuildDir = 'dist',
-	buildDir = {
-		chrome:  path.join(rootBuildDir, 'chrome'),
-		safari:  path.join(rootBuildDir, 'RES.safariextension'),
-		firefox: path.join(rootBuildDir, 'XPI'),
-		oblink:  path.join(rootBuildDir, 'oblink'),
-		opera:   path.join(rootBuildDir, 'opera')
+	buildFolder = {
+		chrome:  'chrome',
+		safari:  'RES.safariextension',
+		firefox: 'XPI',
+		oblink:  'oblink',
+		opera:   'opera'
 	},
 	libFiles = ['lib/**/*.js', 'lib/**/*.json', 'lib/**/*.css', 'lib/**/*.html'],
-	// dest is relative to the browser's buildDir, src is relative to the root of the project
+	// dest is relative to the browser's buildDir [i.e. getBuildDir(browser)], src is relative to the root of the project
 	buildFiles = {
 		chrome: [
 			{ dest: 'images', src: ['Chrome/images/*.png'] },
@@ -62,11 +62,15 @@ var rootBuildDir = 'dist',
 	// the specified `-b browser` or all browsers, if unspecified
 	selectedBrowsers = options.b ? [].concat(options.b) : Object.keys(buildFiles);
 
+function getBuildDir(browser) {
+	return path.join(rootBuildDir, buildFolder[browser]);
+}
+
 gulp.task('build', function(cb) {
 	selectedBrowsers.forEach(function(browser) {
 		buildFiles[browser].forEach(function(paths) {
 			gulp.src(paths.src)
-				.pipe(gulp.dest(path.join(buildDir[browser], paths.dest)));
+				.pipe(gulp.dest(path.join(getBuildDir(browser), paths.dest)));
 		});
 	});
 	cb();
@@ -75,8 +79,8 @@ gulp.task('build', function(cb) {
 gulp.task('zip', function(cb) {
 	var zipDir = options.zipdir || path.join(rootBuildDir, 'zip');
 	selectedBrowsers.forEach(function(browser) {
-		gulp.src(path.join(buildDir[browser], '**/*'))
-			.pipe(zip(browser + '.zip'))
+		gulp.src(path.join(getBuildDir(browser), '**/*'))
+			.pipe(zip(buildFolder[browser] + '.zip'))
 			.pipe(gulp.dest(zipDir));
 	});
 	cb();
