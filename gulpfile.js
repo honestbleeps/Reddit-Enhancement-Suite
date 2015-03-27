@@ -59,7 +59,7 @@ var rootBuildDir = 'dist',
 		oblink:  'OperaBlink/manifest.json',
 		opera:   'Opera/includes/loader.js'
 	},
-	// the specified `-b browser` or all of them. if unspecified
+	// the specified `-b browser` or all browsers, if unspecified
 	selectedBrowsers = options.b ? [].concat(options.b) : Object.keys(buildFiles);
 
 gulp.task('build', function(cb) {
