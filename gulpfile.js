@@ -11,12 +11,11 @@ var options = require('minimist')(process.argv.slice(2));
 
 // What happens when you do gulp without any arguments
 gulp.task('default', ['clean'], function() {
-	gulp.start('chrome', 'safari', 'firefox', 'oblink', 'opera');
+	gulp.start('build');
 });
 
 // Paths
-var zipDir = '../../../var/www/html/res/dl',
-	rootBuildDir = 'dist',
+var rootBuildDir = 'dist',
 	buildDir = {
 		chrome:  path.join(rootBuildDir, 'chrome'),
 		safari:  path.join(rootBuildDir, 'RES.safariextension'),
@@ -26,9 +25,9 @@ var zipDir = '../../../var/www/html/res/dl',
 	},
 	libFiles = ['lib/**/*.js', 'lib/**/*.json', 'lib/**/*.css', 'lib/**/*.html'],
 	// dest is relative to the browser's buildDir, src is relative to the root of the project
-	browserSpecificFiles = {
+	buildFiles = {
 		chrome: [
-			{ dest: 'images', src: 'Chrome/images/*.png' },
+			{ dest: 'images', src: ['Chrome/images/*.png'] },
 			{ dest: '/',      src: ['Chrome/*.js', 'Chrome/*.png', 'Chrome/*.html', 'package.json', 'Chrome/manifest.json'] },
 			{ dest: '/',      src: libFiles }
 		],
@@ -37,74 +36,79 @@ var zipDir = '../../../var/www/html/res/dl',
 			{ dest: '/', src: libFiles }
 		],
 		firefox: [
-			{ dest: 'data', src: 'XPI/data/**/*' },
+			{ dest: 'data', src: ['XPI/data/**/*'] },
 			{ dest: 'data', src: libFiles },
-			{ dest: 'lib',  src: 'XPI/lib/**/*' },
+			{ dest: 'lib',  src: ['XPI/lib/**/*'] },
 			{ dest: '/',    src: ['*.png', 'XPI/package.json'] }
 		],
 		oblink: [
-			{ dest: 'images', src: 'OperaBlink/images/*.png' },
+			{ dest: 'images', src: ['OperaBlink/images/*.png'] },
 			{ dest: '/',      src: ['OperaBlink/*.js', 'Chrome/browsersupport-chrome.js', 'OperaBlink/*.png', 'OperaBlink/*.json', 'package.json'] },
 			{ dest: '/',      src: libFiles }
 		],
 		opera: [
-			{ dest: 'includes', src: 'Opera/includes/*.js' },
+			{ dest: 'includes', src: ['Opera/includes/*.js'] },
 			{ dest: '/',        src: ['Opera/*.js', 'OperaBlink/*.gif', 'Opera/*.html', 'Opera/*.xml', 'package.json'] },
 			{ dest: '/',        src: libFiles }
 		]
-	};
+	},
+	manifests = {
+		chrome:  'Chrome/manifest.json',
+		safari:  'RES.safariextension/Info.plist',
+		firefox: 'XPI/lib/main.js',
+		oblink:  'OperaBlink/manifest.json',
+		opera:   'Opera/includes/loader.js'
+	},
+	// the specified `-b browser` or all of them. if unspecified
+	selectedBrowsers = options.b ? [].concat(options.b) : Object.keys(buildFiles);
 
-function getBrowserSources(browser) {
-	return browserSpecificFiles[browser].reduce(function(pre, cur) {
-		return pre.concat(cur.src);
-	}, []);
-}
-
-function copyBrowserFiles(browser, callback) {
-	browserSpecificFiles[browser].forEach(function(paths) {
-		gulp.src(paths.src)
-			.pipe(gulp.dest(path.join(buildDir[browser], paths.dest)));
+gulp.task('build', function(cb) {
+	selectedBrowsers.forEach(function(browser) {
+		buildFiles[browser].forEach(function(paths) {
+			gulp.src(paths.src)
+				.pipe(gulp.dest(path.join(buildDir[browser], paths.dest)));
+		});
 	});
-	if (callback) {
-		callback();
-	}
-}
+	cb();
+});
 
-// Browser task runs subtasks
-gulp.task('chrome', function(callback) { copyBrowserFiles('chrome', callback); });
-gulp.task('safari', function(callback) { copyBrowserFiles('safari', callback); });
-gulp.task('firefox', function(callback) { copyBrowserFiles('firefox', callback); });
-gulp.task('oblink', function(callback) { copyBrowserFiles('oblink', callback); });
-gulp.task('opera', function(callback) { copyBrowserFiles('opera', callback); });
+gulp.task('zip', function(cb) {
+	var zipDir = options.zipdir || path.join(rootBuildDir, 'zip');
+	selectedBrowsers.forEach(function(browser) {
+		gulp.src(path.join(buildDir[browser], '**/*'))
+			.pipe(zip(browser + '.zip'))
+			.pipe(gulp.dest(zipDir));
+	});
+	cb();
+});
 
-// This kills the CPU
-gulp.task('zipall', ['chrome-zip', 'safari-zip', 'firefox-zip', 'oblink-zip', 'opera-zip']);
+gulp.task('watch', function() {
+	var sources = selectedBrowsers.reduce(function(previous, browser) { // combine the sources of each browser
+		return previous.concat(
+			buildFiles[browser].reduce(function(pre, cur) { // combine the sources within each browser
+				return pre.concat(
+					cur.src.filter(function(src) { // filter out repeated directories (i.e. libFiles, chrome/oblink common files)
+						return previous.indexOf(src) == -1;
+					})
+				);
+			}, [])
+		);
+	}, []);
+	gulp.watch(sources, [ 'build' ]);
+});
 
 // Add new modules to browser manifests
-gulp.task('add-module', [ 'add-module-chrome', 'add-module-safari', 'add-module-firefox', 'add-module-oblink', 'add-module-opera' ]);
-gulp.task('add-host', [ 'add-host-chrome', 'add-host-safari', 'add-host-firefox', 'add-host-oblink', 'add-host-opera' ]);
-
-// Watch tasks
-gulp.task('watch', [ 'watch-chrome', 'watch-safari', 'watch-firefox', 'watch-oblink', 'watch-opera' ]);
-
-gulp.task('watch-chrome', function() {
-	gulp.watch(getBrowserSources('chrome'), [ 'chrome' ]);
+gulp.task('add-module', function(cb) {
+	selectedBrowsers.forEach(function(browser) {
+		addModuleToManifest(manifests[browser]);
+	});
+	cb();
 });
-
-gulp.task('watch-safari', function() {
-	gulp.watch(getBrowserSources('safari'), [ 'safari' ]);
-});
-
-gulp.task('watch-firefox', function() {
-	gulp.watch(getBrowserSources('firefox'), [ 'firefox' ]);
-});
-
-gulp.task('watch-oblink', function() {
-	gulp.watch(getBrowserSources('oblink'), [ 'oblink' ]);
-});
-
-gulp.task('watch-opera', function() {
-	gulp.watch(getBrowserSources('opera'), [ 'opera' ]);
+gulp.task('add-host', function(cb) {
+	selectedBrowsers.forEach(function(browser) {
+		addHostToManifest(manifests[browser]);
+	});
+	cb();
 });
 
 // "Add file to manifests" task support
@@ -130,89 +134,13 @@ function addHostToManifest(manifest) {
 	return addFileToManifest(manifest, pattern);
 }
 
-function getFileParam() {
-	return process.env['file'];
-}
-
 function getRefModule() {
 	return 'commandLine.js';
 }
 function getRefHost() {
 	return 'imgur.js';
 }
-// Chrome low-level tasks
-gulp.task('add-module-chrome', function() {
-	return addModuleToManifest('Chrome/manifest.json');
-});
 
-gulp.task('add-host-chrome', function() {
-	return addHostToManifest('Chrome/manifest.json');
-});
-
-// Safari low-level tasks
-gulp.task('add-module-safari', function() {
-	return addModuleToManifest('RES.safariextension/Info.plist');
-});
-gulp.task('add-host-safari', function() {
-	return addHostToManifest('RES.safariextension/Info.plist');
-});
-
-// Firefox low-level tasks
-gulp.task('add-module-firefox', function() {
-	return addModuleToManifest('XPI/lib/main.js');
-});
-gulp.task('add-host-firefox', function() {
-	return addHostToManifest('XPI/lib/main.js');
-});
-
-// OperaBlink low-level tasks
-gulp.task('add-module-oblink', function() {
-	return addModuleToManifest('OperaBlink/manifest.json');
-});
-gulp.task('add-host-oblink', function() {
-	return addHostToManifest('OperaBlink/manifest.json');
-});
-
-// Opera low-level tasks
-gulp.task('add-module-opera', function() {
-	return addModuleToManifest('Opera/includes/loader.js');
-});
-gulp.task('add-host-opera', function() {
-	return addHostToManifest('Opera/includes/loader.js');
-});
-
-// Zip tasks
-gulp.task('chrome-zip', function() {
-	return gulp.src(path.join(buildDir.chrome, '**/*'))
-		.pipe(zip('chrome.zip'))
-		.pipe(gulp.dest(zipDir));
-});
-
-gulp.task('safari-zip', function() {
-	return gulp.src(path.join(buildDir.safari, '**/*'))
-		.pipe(zip('safari.safariextension.zip'))
-		.pipe(gulp.dest(zipDir));
-});
-
-gulp.task('firefox-zip', function() {
-	return gulp.src(path.join(buildDir.firefox, '**/*'))
-		.pipe(zip('firefox.zip'))
-		.pipe(gulp.dest(zipDir));
-});
-
-gulp.task('oblink-zip', function() {
-	return gulp.src(path.join(buildDir.oblink, '**/*'))
-		.pipe(zip('operablink.zip'))
-		.pipe(gulp.dest(zipDir));
-});
-
-gulp.task('opera-zip', function() {
-	return gulp.src(path.join(buildDir.opera, '**/*'))
-		.pipe(zip('opera.zip'))
-		.pipe(gulp.dest(zipDir));
-});
-
-// Other
 gulp.task('clean', function(cb) {
 	del(['dist/*'], cb);
 });
