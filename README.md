@@ -160,22 +160,28 @@ by itself will build all current browser versions of RES and will place them int
 
     gulp clean
 
-cleans out the 'dist' directory
+cleans out the `dist/` directory
 
-    gulp <browsername>
+    gulp <tasks> -b browser1 -b browser2
 
-Where <browsername> is either: chrome, firefox, safari, opera, oblink. This will build just one version of RES, based on what you enter. Run 'gulp clean' before running the above.
+can be used with any of the following tasks to specify individual browsers (chrome, firefox, safari, opera, or oblink), instead of performing the task(s) for all of them.
+
+    gulp build
+
+builds RES, copying the resultant files into the `dist/` directory. It is recommended to run `gulp clean` first.
 
     gulp add-module --file module.js
 
 adds module.js, a new module, to the manifest for each browser.
 
-  gulp add-file --file hostname.js
+	gulp add-file --file hostname.js
 
 adds hostname.js, a new media host, to the manifest for each browser.
 
     gulp watch
-    or
-    gulp watch-<browsername>
 
-copies the extension files when anything changes.
+rebuilds the extension when anything changes.
+
+    gulp zip --zipdir /path/to/zip/directory
+
+compresses the build folders in `dist/` into .zip files. If no `--zipdir` is specified, the .zip files will be placed in `dist/zip/`. You must run `gulp build` first, otherwise there will be no files to zip.
