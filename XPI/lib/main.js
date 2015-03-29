@@ -225,6 +225,7 @@ pageMod.PageMod({
 		self.data.url('modules/modhelper.js'),
 		self.data.url('modules/quickMessage.js'),
 		self.data.url('modules/hosts/imgur.js'),
+		self.data.url('modules/hosts/twitter.js'),
 		self.data.url('modules/hosts/futurism.js'),
 		self.data.url('modules/hosts/gfycat.js'),
 		self.data.url('modules/hosts/gifyoutube.js'),
@@ -384,21 +385,6 @@ pageMod.PageMod({
 					// Get the selected tab so we can get the index of it.  This allows us to open our new tab as the "next" tab.
 					openTab({url: thisLinkURL, inBackground: inBackground, isPrivate: isPrivate });
 					worker.postMessage({status: 'success'});
-					break;
-				case 'loadTweet':
-					Request({
-						url: request.url,
-						onComplete: function(response) {
-							let resp = JSON.parse(response.text);
-							let responseObj = {
-								requestType: 'loadTweet',
-								response: resp
-							};
-							worker.postMessage(responseObj);
-						},
-						headers: request.headers,
-						content: request.data
-					}).get();
 					break;
 				case 'getLocalStorage':
 					worker.postMessage({ requestType: 'getLocalStorage', message: localStorage });
