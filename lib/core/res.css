@@ -1207,6 +1207,17 @@ img {
 	-webkit-user-select: none;
 	-moz-user-select: none;
 }
+.res-highlight-nsfw-expando .thing.over18 .expando-button:before {
+	display: inline-block;
+	content: ' ';
+	width: 100%;
+	height: 100%;
+	pointer-events: none;
+	background-image: -moz-linear-gradient(45deg, rgba(255, 0, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 0, 0, 0.15) 50%, rgba(255, 0, 0, 0.15) 75%, transparent 75%, transparent);
+	background-image: -webkit-linear-gradient(45deg, rgba(255, 0, 0, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 0, 0, 0.15) 50%, rgba(255, 0, 0, 0.15) 75%, transparent 75%, transparent);
+	background-image: linear-gradient(45deg, rgba(255, 0, 0, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 0, 0, 0.15) 50%, rgba(255, 0, 0, 0.15) 75%, transparent 75%, transparent);
+
+}
 .expando-button.image, .expando-button.video-muted {
 	vertical-align: top !important;
 	float: left;
