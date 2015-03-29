@@ -1202,6 +1202,11 @@ img {
 	vertical-align: bottom;
 	margin-left: 4px;
 }
+.expando-button {
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+}
 .expando-button.image, .expando-button.video-muted {
 	vertical-align: top !important;
 	float: left;
@@ -1212,10 +1217,7 @@ img {
 	display: inline-block;
 	background-image: url('https://s3.amazonaws.com/b.thumbs.redditmedia.com/tBwwK20XXxtpgudWx1L7bDXla-iotv-JA0jgA0Y-FVs.png');
 	margin-right: 6px;
-	cursor: pointer;
 	padding: 0;
-	-webkit-user-select: none;
-	-moz-user-select: none;
 }
 .expando-button.image.commentImg, .expando-button.video-muted.commentImg {
 	float: none;
