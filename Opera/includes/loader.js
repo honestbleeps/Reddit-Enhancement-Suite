@@ -22,8 +22,9 @@ window.addEventListener('DOMContentLoaded', function() {
 		'reddit_enhancement_suite.user.js',
 
 		'opera-save-jquery.js',
-		'vendor/jquery-1.11.1.min.js',
-		'vendor/jquery.dragsort-0.6.js',
+		'vendor/jquery-1.11.2.min.js',
+		'vendor/jquery.sortable-0.9.12.js',
+		'vendor/jquery.edgescroll-0.1.js',
 		'vendor/jquery.tokeninput.js',
 		'opera-restore-jquery.js',
 
@@ -33,16 +34,16 @@ window.addEventListener('DOMContentLoaded', function() {
 		'core/alert.js',
 		'browsersupport.js',
 		'browsersupport-opera.js',
-		'core/console.js',
+		'core/options.js',
 		'vendor/favico.js',
 		'vendor/gfycat.js',
 		'vendor/gifyoutube.js',
 		'vendor/imgurgifv.js',
-		'vendor/guiders-1.2.8.js',
+		'vendor/guiders.js',
 		'vendor/hogan-3.0.2.js',
 		'vendor/HTMLPasteurizer.js',
 		'vendor/konami.js',
-		'vendor/mediacrush.js',
+		'vendor/imgrush.js',
 		'vendor/snuownd.js',
 		'core/migrate.js',
 		'core/storage.js',
@@ -53,6 +54,13 @@ window.addEventListener('DOMContentLoaded', function() {
 		'modules/accountSwitcher.js',
 		'modules/betteReddit.js',
 		'modules/commandLine.js',
+		'modules/contexts.js',
+		'modules/floater.js',
+		'modules/orangered.js',
+		'modules/announcements.js',
+		'modules/selectedEntry.js',
+		'modules/settingsConsole.js',
+		'modules/menu.js',
 		'modules/commentHidePersistor.js',
 		'modules/commentNavigator.js',
 		'modules/commentPreview.js',
@@ -73,6 +81,7 @@ window.addEventListener('DOMContentLoaded', function() {
 		'modules/RESTips.js',
 		'modules/saveComments.js',
 		'modules/searchHelper.js',
+		'modules/submitHelper.js',
 		'modules/settingsNavigation.js',
 		'modules/showImages.js',
 		'modules/showKarma.js',
@@ -91,8 +100,47 @@ window.addEventListener('DOMContentLoaded', function() {
 		'modules/userbarHider.js',
 		'modules/usernameHider.js',
 		'modules/voteEnhancements.js',
+		'modules/upload.js',
 		'modules/modhelper.js',
 		'modules/quickMessage.js',
+
+		'modules/hosts/imgur.js',
+		'modules/hosts/twitter.js',
+		'modules/hosts/futurism.js',
+		'modules/hosts/gfycat.js',
+		'modules/hosts/gifyoutube.js',
+		'modules/hosts/vidble.js',
+		'modules/hosts/fitbamob.js',
+		'modules/hosts/giflike.js',
+		'modules/hosts/ctrlv.js',
+		'modules/hosts/snag.js',
+		'modules/hosts/picshd.js',
+		'modules/hosts/minus.js',
+		'modules/hosts/fiveHundredPx.js',
+		'modules/hosts/flickr.js',
+		'modules/hosts/steampowered.js',
+		'modules/hosts/deviantart.js',
+		'modules/hosts/tumblr.js',
+		'modules/hosts/memecrunch.js',
+		'modules/hosts/imgflip.js',
+		'modules/hosts/imgrush.js',
+		'modules/hosts/livememe.js',
+		'modules/hosts/makeameme.js',
+		'modules/hosts/memegen.js',
+		'modules/hosts/redditbooru.js',
+		'modules/hosts/youtube.js',
+		'modules/hosts/vimeo.js',
+		'modules/hosts/soundcloud.js',
+		'modules/hosts/clyp.js',
+		'modules/hosts/memedad.js',
+		'modules/hosts/ridewithgps.js',
+		'modules/hosts/photobucket.js',
+		'modules/hosts/giphy.js',
+		'modules/hosts/streamable.js',
+		'modules/hosts/raddit.js',
+		'modules/hosts/pastebin.js',
+		'modules/hosts/github.js',
+		'modules/hosts/onedrive.js',
 
 		'core/init.js',
 
@@ -123,10 +171,11 @@ window.addEventListener('DOMContentLoaded', function() {
 			if (loaded === files.length) {
 				run(data.join(';'));
 			}
-		}
+		};
 		fr.readAsText(f);
 	}
 
-	for (var i=0; i<files.length; i++)
+	for (var i=0; i<files.length; i++) {
 		loadFile(i);
+	}
 });

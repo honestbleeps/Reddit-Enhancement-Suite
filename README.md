@@ -23,9 +23,9 @@ steve@honestbleeps.com
 
 Thinking about contributing to RES? Awesome! We just ask that you follow a few simple guidelines:
 
-1. RES has grown quite large, so we do have to pick and choose what features we should add. Code bloat is always a concern, and RES is already rather hefty. If you're unsure if your feature would appeal to a wide audience, please post about it on [/r/Enhancement](http://www.reddit.com/r/Enhancement/) or [contact @honestbleeps](http://www.reddit.com/message/compose/?to=honestbleeps) directly to ask.
+1. RES has grown quite large, so we do have to pick and choose what features we should add. Code bloat is always a concern, and RES is already rather hefty. If you're unsure if your feature would appeal to a wide audience, please post about it on [/r/Enhancement](https://www.reddit.com/r/Enhancement/) or [contact @honestbleeps](https://www.reddit.com/message/compose/?to=honestbleeps) directly to ask.
 
-2. There are a few features we have made a conscious choice not to add to RES, so make sure whatever you'd like to contribute [isn't on that list](http://www.reddit.com/r/Enhancement/wiki/rejectedfeaturerequests).
+2. There are a few features we have made a conscious choice not to add to RES, so make sure whatever you'd like to contribute [isn't on that list](https://www.reddit.com/r/Enhancement/wiki/rejectedfeaturerequests).
 
 3. It would be greatly appreciated if you could stick to a few style guidelines. Some of these guidelines are NOT (yet!) strictly followed by RES because it originally started as an amalgamation of code from so many different sources. That said, we do hope to clean it up in due time...  Some guidelines:
 
@@ -139,3 +139,43 @@ Once done, you can build the extension by running `grunt`.
 For developing, run `grunt` followed by the name of the browser you wish to develop on, such as `grunt chrome` for Chrome or `grunt firefox` for Firefox. Once run, grunt will start a watch task which will instantly copy any changes made in the `lib/` directory over to the given browser's extension folder. You will need to stop and start grunt if you add any additional files.
 
 To load the extension into your browser, see the ["Building development versions of the extension" section](#building-development-versions-of-the-extension) above.
+
+### Using Gulp for building RES
+
+RES can also be built with [gulp](http://gulpjs.com/), an advanced build manager similar to grunt.
+
+You will need [node.js](http://nodejs.org) installed on your system.
+
+First time use:
+
+1. Run `npm install -g gulp`.
+2. Navigate to your RES folder.
+3. Run `npm install` ^(If you're super-conscientious about which modules are installed, then look at gulpfile.js and `npm install` the required packages manually.)
+
+Usage:
+
+    gulp
+
+by itself will build all current browser versions of RES and will place them into a new folder called dist. If the dist directory already exists, it will clear out anything inside it.
+
+    gulp clean
+
+cleans out the 'dist' directory
+
+    gulp <browsername>
+
+Where <browsername> is either: chrome, firefox, safari, opera, oblink. This will build just one version of RES, based on what you enter. Run 'gulp clean' before running the above.
+
+    gulp add-module --file module.js
+
+adds module.js, a new module, to the manifest for each browser.
+
+  gulp add-file --file hostname.js
+
+adds hostname.js, a new media host, to the manifest for each browser.
+
+    gulp watch
+    or
+    gulp watch-<browsername>
+
+copies the extension files when anything changes.

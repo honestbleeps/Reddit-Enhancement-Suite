@@ -209,21 +209,6 @@ opera.extension.addEventListener( 'message', function( event ) {
 				};
 				xhr.send();
 				break;
-			case 'loadTweet':
-				xhr = new XMLHttpRequest();
-				xhr.open('GET', request.url, true);
-				xhr.onreadystatechange = function() {
-					if (xhr.readyState === 4) {
-						var resp = JSON.parse(xhr.responseText);
-						passBack = {
-							msgType: 'loadTweet',
-							data: resp
-						};
-						event.source.postMessage(passBack);
-					}
-				};
-				xhr.send();
-				break;
 			case 'getLocalStorage':
 				ls = {};
 				for (var i = 0, len=localStorage.length; i < len; i++){
@@ -300,6 +285,20 @@ opera.extension.addEventListener( 'message', function( event ) {
 					}
 				};
 				event.source.postMessage(passBack);
+				break;
+			case 'multicast':
+				var tabs = opera.extension.tabs.getAll();
+				tabs = tabs.filter(function(tab) {
+					return (event.source !== tab);
+				});
+
+				tabs.forEach(function(tab) {
+					tab.sendMessage(tab.id, {
+						msgType: 'multicast',
+						data: request
+					}, function(response) { });
+				});
+
 				break;
 			default:
 				passBack = {

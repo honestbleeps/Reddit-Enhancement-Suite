@@ -1,7 +1,7 @@
 /*
-How to use me ?
+How to use me?
 	Move me into the lib/modules/ folder. Add me to the manifest of your browser.
-	Then go on About RES -> wikiCheck and push the button !
+	Then go on About RES -> wikiCheck and push the button!
 	This will check the wiki and list all undocumented options.
 */
 modules['wikiCheck'] = {
@@ -18,7 +18,7 @@ modules['wikiCheck'] = {
 	},
 	description: 'Check if all options are listed on the wiki.',
 	isEnabled: function() {
-		return RESConsole.getModulePrefs(this.moduleID);
+		return RESUtils.options.getModulePrefs(this.moduleID);
 	},
 	isMatchURL: function() {
 		return false;
@@ -36,31 +36,31 @@ modules['wikiCheck'] = {
 			var wikiPages = data.data;
 			var fetchedPages = 0;
 			var optionsList = [];
-			for (var i = 0, len = wikiPages.length; i < len; i++) {
+			wikiPages.forEach(function(wikiPage, i) {
 				setTimeout(function(page) {
 					$.getJSON('http://api.reddit.com/r/Enhancement/wiki/' + page, function(data) {
 						var md = data.data.content_md;
 						var options = md.match(/######\S+/g) || [];
-						options.forEach(function(v, i) {
-							optionsList.push(v.substr(6)); // remove ######
+						options.forEach(function(option) {
+							optionsList.push(option.substr(6)); // remove ######
 						});
 						fetchedPages++;
 						console.log(fetchedPages + '/' + wikiPages.length);
-						if(fetchedPages === wikiPages.length) {
+						if (fetchedPages === wikiPages.length) {
 							modules['wikiCheck'].fetchOptions(optionsList);
 							console.groupEnd();
 						}
-					})
-				},i*1000,wikiPages[i]);
-			}
+					});
+				}, i*1000, wikiPage);
+			});
 		});
 	},
 	fetchOptions: function(optionsList) {
 		var missingOptions = [];
-		for (m in modules) {
+		for (var m in modules) {
 			if (!m.hidden) {
 				console.groupCollapsed(m);
-				for (o in modules[m].options) {
+				for (var o in modules[m].options) {
 					if (!modules[m].options[o].noconfig) {
 						if (optionsList.indexOf(o) === -1) {
 							console.warn(o);

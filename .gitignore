@@ -12,6 +12,7 @@
 *.zip
 
 # Copied files
+dist/
 /Chrome/*.js
 /Chrome/*.css
 /Chrome/templates.html
@@ -41,6 +42,7 @@
 /Opera/vendor/*
 !/Opera/includes/*
 /XPI/data/*
+!/XPI/data/images
 !/XPI/lib/main.js
 !/lib/*
 !browsersupport-*.js
@@ -116,3 +118,5 @@ $RECYCLE.BIN/
 *.opensdf
 *.sdf
 *.cachefile
+
+.idea
