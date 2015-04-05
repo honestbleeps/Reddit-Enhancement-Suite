@@ -125,7 +125,7 @@ tabs.on('activate', function() {
 function getActiveWorker() {
 	let tab = tabs.activeTab;
 	for (let i in workers) {
-		if ((typeof workers[i].tab !== 'undefined') && (tab.title === workers[i].tab.title)) {
+		if (workers[i] && workers[i].tab && (tab.title === workers[i].tab.title)) {
 			return workers[i];
 		}
 	}
