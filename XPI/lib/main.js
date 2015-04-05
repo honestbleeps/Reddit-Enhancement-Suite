@@ -500,8 +500,11 @@ pageMod.PageMod({
 					});
 					break;
 				case 'multicast':
+					isPrivate = priv.isPrivate(worker)
 					workers
-						.filter(function(w) { return w !== worker; })
+						.filter(function(w) {
+							return (w !== worker) && (priv.isPrivate(w) === isPrivate);
+						})
 						.forEach(function(worker) {
 							worker.postMessage(request);
 						});
