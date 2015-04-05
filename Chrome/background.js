@@ -292,8 +292,10 @@ chrome.runtime.onMessage.addListener(
 				var tabs = chrome.tabs.query({
 					status: 'complete',
 				}, function(tabs) {
+					var incognito = sender.tab.incognito;
 					tabs = tabs.filter(function(tab) {
-						return (sender.tab.id !== tab.id);
+						return (sender.tab.id !== tab.id) &&
+							(incognito === tab.incognito);
 					});
 
 					tabs.forEach(function(tab) {
