@@ -1666,8 +1666,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   transition: all .75s ease 0s;
   border-radius: 100%;
   border-top: 4px solid #555555;
-  -webkit-animation: standard .75s infinite linear;
-  animation: standard .75s infinite linear;
+  -webkit-animation: fadeIn 2s 1 cubic-bezier(.3,.25,.7,.15), standard .75s infinite linear;
+  animation: fadeIn 2s 1 cubic-bezier(.3,.25,.7,.15), standard .75s infinite linear;
   -webkit-transform-origin: center;
   -ms-transform-origin: center;
   transform-origin: center;
@@ -1699,6 +1699,14 @@ a spinner with a static ring and no overlay.*/
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
   }
+}
+@-webkit-keyframes fadeIn {
+	from { opacity: 0; }
+	to { opacity: 1; }
+}
+@keyframes fadeIn {
+	from { opacity: 0; }
+	to { opacity: 1; }
 }
 #url-field .progress-wrapper {
 	width: 500px;
