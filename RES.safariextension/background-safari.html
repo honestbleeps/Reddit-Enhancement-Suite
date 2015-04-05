@@ -263,6 +263,7 @@
 							return msgEvent.target !== tab;
 						})
 					sendTo.forEach(function(tab) {
+						if (!tab.page) return;
 						tab.page.dispatchMessage(request.requestType, request);
 					});
 				})();
