@@ -97,6 +97,16 @@ In order to build a development version of RES, run `makelinks.sh` to generate h
 
 An alternative grunt build script is also provided; see ["Using grunt instead of hard links"](#using-grunt-instead-of-hard-links) for more details.
 
+[You can also use Gulp to build RES](#using-gulp-for-building-res)
+
+#### Accessing Nightly Builds
+
+In addition to building your own version of RES, you can download older (or current) builds of RES for testing purposes. 
+
+(Almost) every commit to master is quickly archived away at http://allthefoxes.me - If you would like access to this database, please contact [/u/allthefoxes on reddit](http://reddit.com/u/allthefoxes) or email [fox@allthefoxes.me](mailto:fox@allthefoxes.me)
+
+All that is asked is that you have at least one previous contribution to RES.
+
 ##### Building in Chrome
 
   1. Go to `Menu->Tools->Extensions` and tick the `Developer Mode` checkbox
@@ -162,7 +172,7 @@ by itself will build all current browser versions of RES and will place them int
 
 cleans out the 'dist' directory
 
-    gulp <browsername>
+    gulp -b <browsername>
 
 Where <browsername> is either: chrome, firefox, safari, opera, oblink. This will build just one version of RES, based on what you enter. Run 'gulp clean' before running the above.
 
