@@ -1702,11 +1702,9 @@ a spinner with a static ring and no overlay.*/
 }
 @-webkit-keyframes fadeIn {
 	from { opacity: 0; }
-	to { opacity: 1; }
 }
 @keyframes fadeIn {
 	from { opacity: 0; }
-	to { opacity: 1; }
 }
 #url-field .progress-wrapper {
 	width: 500px;
