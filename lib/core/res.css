@@ -124,6 +124,8 @@ body.res-console-open {
 	position: absolute;
 	bottom: 25%;
 	left: 25%;
+	-webkit-animation: fadeIn 0.5s ease-out 7 alternate;
+	animation: fadeIn 0.5s ease-out 7 alternate;
 }
 .res-gearIcon-legacy .gearIcon{
 	display: inline-block;
