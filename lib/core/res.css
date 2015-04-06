@@ -143,12 +143,8 @@ body.res-console-open {
 	margin: auto;
 	margin-bottom: -2px;
 }
-#RESPrefsDropdown {
-	display: none;
-	position: absolute;
-	z-index: 100000006;
-}
 .RESDropdownList {
+	position: absolute;
 	list-style-type: none;
 	background-color: #5f99cf;
 	width: 180px;
@@ -156,6 +152,14 @@ body.res-console-open {
 	border: 1px solid #369;
 	border-bottom: none;
 	margin-top: -1px;
+}
+.RESDropdownList:before {
+	/* TODO: proper CSS upward pointing wedge */
+	content: '^';
+	position: absolute;
+	top: -10px;
+	left: 50%;
+	margin-left: -0.5em;
 }
 .RESDropdownList li {
 	position: relative;

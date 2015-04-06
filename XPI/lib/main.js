@@ -177,6 +177,7 @@ pageMod.PageMod({
 		self.data.url('modules/commandLine.js'),
 		self.data.url('modules/presets.js'),
 		self.data.url('modules/onboarding.js'),
+		self.data.url('modules/dropdownList.js'),
 		self.data.url('modules/customToggles.js'),
 		self.data.url('modules/floater.js'),
 		self.data.url('modules/orangered.js'),
