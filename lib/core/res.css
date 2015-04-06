@@ -153,14 +153,6 @@ body.res-console-open {
 	border-bottom: none;
 	margin-top: -1px;
 }
-.RESDropdownList:before {
-	/* TODO: proper CSS upward pointing wedge */
-	content: '^';
-	position: absolute;
-	top: -10px;
-	left: 50%;
-	margin-left: -0.5em;
-}
 .RESDropdownList li {
 	position: relative;
 	cursor: pointer;
