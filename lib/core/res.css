@@ -124,6 +124,20 @@ body.res-console-open {
 	position: absolute;
 	bottom: 25%;
 	left: 25%;
+	-webkit-animation: fadeIn 0.5s ease-out 7 alternate;
+	animation: fadeIn 0.5s ease-out 7 alternate;
+}
+.gearIcon.newNotification.important::before {
+	-webkit-animation: gearIconPop 1s ease-out infinite alternate;
+	animation: gearIconPop 1s ease-out infinite alternate;
+}
+@-webkit-keyframes gearIconPop {
+	from { -webkit-transform: scale(0, 0); }
+	to { -webkit-transform: scale(1.5, 1.5); }
+}
+@keyframes gearIconPop {
+	from { transform: scale(0, 0); }
+	to { transform: scale(1.5, 1.5); }
 }
 .res-gearIcon-legacy .gearIcon{
 	display: inline-block;
@@ -1702,11 +1716,9 @@ a spinner with a static ring and no overlay.*/
 }
 @-webkit-keyframes fadeIn {
 	from { opacity: 0; }
-	to { opacity: 1; }
 }
 @keyframes fadeIn {
 	from { opacity: 0; }
-	to { opacity: 1; }
 }
 #url-field .progress-wrapper {
 	width: 500px;
