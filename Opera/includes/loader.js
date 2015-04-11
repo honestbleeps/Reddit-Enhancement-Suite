@@ -56,7 +56,6 @@ window.addEventListener('DOMContentLoaded', function() {
 		'modules/commandLine.js',
 		'modules/presets.js',
 		'modules/onboarding.js',
-		'modules/dropdownList.js',
 		'modules/customToggles.js',
 		'modules/floater.js',
 		'modules/orangered.js',
