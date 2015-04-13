@@ -491,5 +491,37 @@
 
 {{description}}
 		</pre>
+
+		<div id="RESHoverDefault">
+			<div class="RESHover">
+				<div data-hover-element="0" />
+				<div data-hover-element="1" />
+				<div data-hover-element="2" />
+				<div data-hover-element="3" />
+			</div>
+		</div>
+
+		<div id="RESHoverInfoCard">
+			<div class="RESHover RESHoverInfoCard RESDialogSmall">
+				<h3 id="RESHoverTitle" data-hover-element="0"></h3>
+				<div class="RESCloseButton">x</div>
+				<div id="RESHoverBody" class="RESDialogContents" data-hover-element="1"></div>
+			</div>
+		</div>
+
+		<div id="RESHoverDropdownList">
+			<div class="RESHover RESHoverDropdownList RESDropdownList">
+				<ul class="RESDropdownOptions" data-hover-element="0"></ul>
+			</div>
+		</div>
+
+		<style id="RESHoverStyle" type="text/css">
+			.RESHover { display: none; position: absolute; z-index: 10001; }
+
+			.RESHoverInfoCard:before { content: ""; position: absolute; top: 10px; left: -26px; border-style: solid; border-width: 10px 29px 10px 0; border-color: transparent #c7c7c7; display: block; width: 0; z-index: 1; }
+			.RESHoverInfoCard:after { content: ""; position: absolute; top: 10px; left: -24px; border-style: solid; border-width: 10px 29px 10px 0; border-color: transparent #f0f3fc; display: block; width: 0; z-index: 1; }
+			.RESHoverInfoCard.right:before { content: ""; position: absolute; top: 10px; right: -26px; left: auto; border-style: solid; border-width: 10px 0 10px 29px; border-color: transparent #c7c7c7; display: block; width: 0; z-index: 1; }
+			.RESHoverInfoCard.right:after { content: ""; position: absolute; top: 10px; right: -24px; left: auto; border-style: solid; border-width: 10px 0 10px 29px; border-color: transparent #f0f3fc; display: block; width: 0; z-index: 1; }
+		</style>
 	</body>
 </html>
