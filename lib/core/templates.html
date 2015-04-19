@@ -590,13 +590,17 @@
 				top: {{ offset }}px;
 				right: 8px;
 				display: block;
-				list-type: none;
 			}
-			.res-floater-visibleAfterScroll li {
-				display: inline-block;
+			.res-floater-visibleAfterScroll > ul {
+				float: right;
+				list-style: none;
+			}
+			.res-floater-visibleAfterScroll > ul > li {
+				display: block;
+				float: left;
 				opacity: 0.7;
 			}
-			.res-floater-visibleAfterScroll li:hover {
+			.res-floater-visibleAfterScroll > ul > li:hover {
 				opacity: 1.0;
 			}
 		</style>
