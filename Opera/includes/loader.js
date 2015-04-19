@@ -54,6 +54,7 @@ window.addEventListener('DOMContentLoaded', function() {
 		'modules/accountSwitcher.js',
 		'modules/betteReddit.js',
 		'modules/commandLine.js',
+		'modules/pageNavigator.js',
 		'modules/userInfo.js',
 		'modules/presets.js',
 		'modules/onboarding.js',
