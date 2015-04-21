@@ -18,11 +18,15 @@ gulp.task('default', ['clean'], function() {
 var rootBuildDir = 'dist',
 	commonFiles = ['lib/**/*.js', 'lib/**/*.json', 'lib/**/*.css', 'lib/**/*.html'],
 	config = {
+		// The name used to refer to the browser from the command line, i.e. `gulp build -b chrome`
 		chrome: {
+			// Subfolder of rootBuildDir that the buildFiles will be copied to
 			buildFolder: 'chrome',
+			// The file for addFileToManifest to modify when adding new hosts/modules
 			manifest: 'Chrome/manifest.json',
-			// dest is relative to the browser's buildDir [i.e. getBuildDir(browser)], src is relative to the root of the project
+			// Files to be copied when building the extension
 			buildFiles: [
+				// dest is relative to the browser's buildFolder, src is relative to the project root
 				{ dest: 'images', src: ['Chrome/images/*.png'] },
 				{ dest: '/',      src: ['Chrome/*.js', 'Chrome/*.png', 'Chrome/*.html', 'package.json', 'Chrome/manifest.json'] },
 				{ dest: '/',      src: commonFiles }
@@ -65,7 +69,7 @@ var rootBuildDir = 'dist',
 			]
 		}
 	},
-// the `-b browser` argument(s) or all browsers, if unspecified
+	// the `-b browser` argument(s) or all browsers, if unspecified
 	selectedBrowsers = options.b ? [].concat(options.b) : Object.keys(config);
 
 function getBuildDir(browser) {
