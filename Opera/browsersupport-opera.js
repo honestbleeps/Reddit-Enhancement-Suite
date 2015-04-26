@@ -140,16 +140,16 @@ function operaForcedUpdateCallback(obj) {
 }
 
 
-RESUtils.runtime.storageSetup = function(thisJSON) {
-	RESLoadResourceAsText = function(filename, callback) {
-		var f = opera.extension.getFile('/' + filename);
-		var fr = new FileReader();
-		fr.onload = function() {
-			callback(fr.result);
-		};
-		fr.readAsText(f);
+RESUtils.runtime.loadResourceAsText = function(filename, callback) {
+	var f = opera.extension.getFile('/' + filename);
+	var fr = new FileReader();
+	fr.onload = function() {
+		callback(fr.result);
 	};
+	fr.readAsText(f);
+};
 
+RESUtils.runtime.storageSetup = function(thisJSON) {
 	opera.extension.addEventListener('message', operaMessageHandler, false);
 	// We're already loaded, call the handler immediately
 	opera.extension.postMessage(JSON.stringify(thisJSON));

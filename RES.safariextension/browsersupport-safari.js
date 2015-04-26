@@ -132,20 +132,20 @@ RESUtils.runtime.sanitizeJSON = function(data) {
 	return data;
 };
 
+RESUtils.runtime.loadResourceAsText = function(filename, callback) {
+	var url = safari.extension.baseURI + filename;
+
+	RESUtils.runtime.ajax({
+		method: 'GET',
+		url: url,
+		onload: function (response) {
+			callback(response.responseText);
+		}
+	});
+};
 
 RESUtils.runtime.storageSetup = function(thisJSON) {
 	var setupInterval;
-	RESLoadResourceAsText = function(filename, callback) {
-		var url = safari.extension.baseURI + filename;
-
-		RESUtils.runtime.ajax({
-			method: 'GET',
-			url: url,
-			onload: function (response) {
-				callback(response.responseText);
-			}
-		});
-	};
 
 	// we've got safari, get localStorage from background process
 	var setupCallback = function() {
