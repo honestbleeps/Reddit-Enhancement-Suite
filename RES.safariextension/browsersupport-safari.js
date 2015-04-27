@@ -30,14 +30,14 @@ function safariMessageHandler(msgEvent) {
 				};
 				safari.self.tab.dispatchMessage('saveLocalStorage', thisJSON);
 			} else {
-				setUpRESStorage(request);
-				//RESInit();
+				RESUtils.bootstrap.setUpRESStorage(request);
+				//RESUtils.bootstrap.init();
 			}
 			break;
 		case 'saveLocalStorage':
 			// Okay, we just copied localStorage from foreground to background, let's set it up...
-			setUpRESStorage(request);
-			//RESInit();
+			RESUtils.bootstrap.setUpRESStorage(request);
+			//RESUtils.bootstrap.init();
 			break;
 		case 'addURLToHistory':
 			var url = request.url;
@@ -132,20 +132,20 @@ RESUtils.runtime.sanitizeJSON = function(data) {
 	return data;
 };
 
+RESUtils.runtime.loadResourceAsText = function(filename, callback) {
+	var url = safari.extension.baseURI + filename;
+
+	RESUtils.runtime.ajax({
+		method: 'GET',
+		url: url,
+		onload: function (response) {
+			callback(response.responseText);
+		}
+	});
+};
 
 RESUtils.runtime.storageSetup = function(thisJSON) {
 	var setupInterval;
-	RESLoadResourceAsText = function(filename, callback) {
-		var url = safari.extension.baseURI + filename;
-
-		RESUtils.runtime.ajax({
-			method: 'GET',
-			url: url,
-			onload: function (response) {
-				callback(response.responseText);
-			}
-		});
-	};
 
 	// we've got safari, get localStorage from background process
 	var setupCallback = function() {

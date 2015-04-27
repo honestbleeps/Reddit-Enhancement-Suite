@@ -106,20 +106,18 @@ RESUtils.runtime.ajax = function(obj) {
 	}
 };
 
-
-RESUtils.runtime.storageSetup = function(thisJSON) {
-	RESLoadResourceAsText = function(filename, callback) {
-		var xhr = new XMLHttpRequest();
-		xhr.onload = function() {
-			if (callback) {
-				callback(this.responseText);
-			}
-		};
-		var id = chrome.i18n.getMessage('@@extension_id');
-		xhr.open('GET', 'chrome-extension://' + id + '/' + filename);
-		xhr.send();
+RESUtils.runtime.loadResourceAsText = function(filename, callback) {
+	var xhr = new XMLHttpRequest();
+	xhr.onload = function() {
+		if (callback) {
+			callback(this.responseText);
+		}
 	};
-
+	var id = chrome.i18n.getMessage('@@extension_id');
+	xhr.open('GET', 'chrome-extension://' + id + '/' + filename);
+	xhr.send();
+};
+RESUtils.runtime.storageSetup = function(thisJSON) {
 	// we've got chrome, get a copy of the background page's localStorage first, so don't init until after.
 	chrome.runtime.sendMessage(thisJSON, function(response) {
 		// Does RESStorage have actual data in it?  If it doesn't, they're a legacy user, we need to copy
@@ -137,10 +135,10 @@ RESUtils.runtime.storageSetup = function(thisJSON) {
 				data: ls
 			};
 			chrome.runtime.sendMessage(thisJSON, function(response) {
-				setUpRESStorage(response);
+				RESUtils.bootstrap.setUpRESStorage(response);
 			});
 		} else {
-			setUpRESStorage(response);
+			RESUtils.bootstrap.setUpRESStorage(response);
 		}
 	});
 };

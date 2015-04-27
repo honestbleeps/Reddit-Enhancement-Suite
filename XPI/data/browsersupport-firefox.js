@@ -1,9 +1,7 @@
-// if this is a jetpack addon, add an event listener like Safari's message handler...
 self.on('message', function(request) {
 	switch (request.requestType) {
 		case 'readResource':
-			window.RESLoadCallbacks[request.transaction](request.data);
-			delete window.RESLoadCallbacks[request.transaction];
+			RESUtils.runtime._loadResourceAsText(request);
 			break;
 		case 'ajax':
 			// Fire the appropriate onload function for this xmlhttprequest.
@@ -25,13 +23,13 @@ self.on('message', function(request) {
 				};
 				self.postMessage(thisJSON);
 			} else {
-				setUpRESStorage(request.message);
-				//RESInit();
+				RESUtils.bootstrap.setUpRESStorage(request.message);
+				//RESUtils.bootstrap.init();
 			}
 			break;
 		case 'saveLocalStorage':
 			// Okay, we just copied localStorage from foreground to background, let's set it up...
-			setUpRESStorage(request.message);
+			RESUtils.bootstrap.setUpRESStorage(request.message);
 			break;
 		case 'localStorage':
 			RESStorage.setItem(request.itemName, request.itemValue, true);
@@ -150,14 +148,16 @@ RESUtils.runtime.localStorageTest = function() {
 	}
 };
 
+window.RESLoadCallbacks = [];
+RESUtils.runtime.loadResourceAsText = function(filename, callback) {
+	var transactions = window.RESLoadCallbacks.push(callback);
+	self.postMessage({ requestType: 'readResource', filename: filename, transaction: transactions - 1 });
+};
+RESUtils.runtime._loadResourceAsText = function(request) {
+	window.RESLoadCallbacks[request.transaction](request.data);
+	delete window.RESLoadCallbacks[request.transaction];
+}
 RESUtils.runtime.storageSetup = function(thisJSON) {
-	var transactions = 0;
-	window.RESLoadCallbacks = [];
-	RESLoadResourceAsText = function(filename, callback) {
-		window.RESLoadCallbacks[transactions] = callback;
-		self.postMessage({ requestType: 'readResource', filename: filename, transaction: transactions });
-		transactions++;
-	};
 	// we've got firefox jetpack, get localStorage from background process
 	self.postMessage(thisJSON);
 };
