@@ -1,9 +1,7 @@
-// if this is a jetpack addon, add an event listener like Safari's message handler...
 self.on('message', function(request) {
 	switch (request.requestType) {
 		case 'readResource':
-			window.RESLoadCallbacks[request.transaction](request.data);
-			delete window.RESLoadCallbacks[request.transaction];
+			RESUtils.runtime._loadResourceAsText(request);
 			break;
 		case 'ajax':
 			// Fire the appropriate onload function for this xmlhttprequest.
@@ -150,12 +148,16 @@ RESUtils.runtime.localStorageTest = function() {
 	}
 };
 
+window.RESLoadCallbacks = [];
 RESUtils.runtime.loadResourceAsText = function(filename, callback) {
 	var transactions = window.RESLoadCallbacks.push(callback);
 	self.postMessage({ requestType: 'readResource', filename: filename, transaction: transactions - 1 });
 };
+RESUtils.runtime._loadResourceAsText = function(request) {
+	window.RESLoadCallbacks[request.transaction](request.data);
+	delete window.RESLoadCallbacks[request.transaction];
+}
 RESUtils.runtime.storageSetup = function(thisJSON) {
-	window.RESLoadCallbacks = [];
 	// we've got firefox jetpack, get localStorage from background process
 	self.postMessage(thisJSON);
 };
