@@ -175,7 +175,6 @@ pageMod.PageMod({
 		self.data.url('modules/userTagger.js'),
 		self.data.url('modules/keyboardNav.js'),
 		self.data.url('modules/commandLine.js'),
-		self.data.url('modules/easterEgg.js'),
 		self.data.url('modules/pageNavigator.js'),
 		self.data.url('modules/userInfo.js'),
 		self.data.url('modules/presets.js'),

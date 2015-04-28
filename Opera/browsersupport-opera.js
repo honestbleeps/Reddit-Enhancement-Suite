@@ -24,16 +24,16 @@ function operaMessageHandler(msgEvent) {
 				opera.extension.postMessage(JSON.stringify(thisJSON));
 			} else {
 				if (location.hostname.indexOf('reddit') !== -1) {
-					RESUtils.bootstrap.setUpRESStorage(eventData.data);
-					//RESUtils.bootstrap.init();
+					setUpRESStorage(eventData.data);
+					//RESInit();
 				}
 			}
 			break;
 		case 'saveLocalStorage':
 			// Okay, we just copied localStorage from foreground to background, let's set it up...
-			RESUtils.bootstrap.setUpRESStorage(eventData.data);
+			setUpRESStorage(eventData.data);
 			if (location.hostname.indexOf('reddit') !== -1) {
-				//RESUtils.bootstrap.init();
+				//RESInit();
 			}
 			break;
 		case 'localStorage':
@@ -140,16 +140,16 @@ function operaForcedUpdateCallback(obj) {
 }
 
 
-RESUtils.runtime.loadResourceAsText = function(filename, callback) {
-	var f = opera.extension.getFile('/' + filename);
-	var fr = new FileReader();
-	fr.onload = function() {
-		callback(fr.result);
-	};
-	fr.readAsText(f);
-};
-
 RESUtils.runtime.storageSetup = function(thisJSON) {
+	RESLoadResourceAsText = function(filename, callback) {
+		var f = opera.extension.getFile('/' + filename);
+		var fr = new FileReader();
+		fr.onload = function() {
+			callback(fr.result);
+		};
+		fr.readAsText(f);
+	};
+
 	opera.extension.addEventListener('message', operaMessageHandler, false);
 	// We're already loaded, call the handler immediately
 	opera.extension.postMessage(JSON.stringify(thisJSON));
@@ -474,10 +474,10 @@ RESUtils.runtime.RESInitReadyCheck = function(RESInit) {
 		// now, take the new jQuery in and store it local to RES's scope (it's a var up top)
 		var redditJq = window.$;
 		require(['jquery-1.11.2.min', 'guiders', 'favico', 'snuownd', 'jquery.sortable-0.9.12', 'jquery.edgescroll-0.1', 'jquery.tokeninput', 'jquery-fieldselection.min'], function() {
-			RESUtils.bootstrap.init();
+			RESInit();
 		});
 	} else {
-		RESUtils.bootstrap.init();
+		RESInit();
 	}
 };
 
