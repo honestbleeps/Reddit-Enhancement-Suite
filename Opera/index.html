@@ -119,6 +119,12 @@ opera.extension.addEventListener( 'message', function( event ) {
 					xhr.setRequestHeader('Content-length', request.data.length);
 					xhr.setRequestHeader('Connection', 'close');
 				}
+				if (request.headers) {
+					for (var header in request.headers) {
+						if (!request.headers.hasOwnProperty(header)) continue;
+						xhr.setRequestHeader(header, request.headers[header]);
+					}
+				}
 				xhr.onreadystatechange = function() {
 					if (xhr.readyState === 4) {
 						// Ugh, frustrating.  Opera won't let me pass back the xhr object, so I have to fake out

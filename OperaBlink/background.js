@@ -123,6 +123,12 @@ chrome.runtime.onMessage.addListener(
 				if (request.method === 'POST') {
 					xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 				}
+				if (request.headers) {
+					for (var header in request.headers) {
+						if (!request.headers.hasOwnProperty(header)) continue;
+						xhr.setRequestHeader(header, request.headers[header]);
+					}
+				}
 				xhr.onreadystatechange = function() {
 					if (xhr.readyState === 4) {
 						// Only store `status` and `responseText` fields
