@@ -150,6 +150,8 @@ RESUtils.runtime.localStorageTest = function() {
 	}
 };
 
+var transactions = 0;
+window.RESLoadCallbacks = [];
 RESLoadResourceAsText = function(filename, callback) {
 	window.RESLoadCallbacks[transactions] = callback;
 	self.postMessage({ requestType: 'readResource', filename: filename, transaction: transactions });
@@ -157,8 +159,6 @@ RESLoadResourceAsText = function(filename, callback) {
 };
 
 RESUtils.runtime.storageSetup = function(thisJSON) {
-	var transactions = 0;
-	window.RESLoadCallbacks = [];
 	// we've got firefox jetpack, get localStorage from background process
 	self.postMessage(thisJSON);
 };
