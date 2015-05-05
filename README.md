@@ -174,7 +174,7 @@ builds RES, copying the resultant files into the `dist/` directory. It is recomm
 
 adds module.js, a new module, to the manifest for each browser.
 
-	gulp add-file --file hostname.js
+	gulp add-host --file hostname.js
 
 adds hostname.js, a new media host, to the manifest for each browser.
 
