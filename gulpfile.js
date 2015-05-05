@@ -98,16 +98,10 @@ gulp.task('zip', function(cb) {
 });
 
 gulp.task('watch', function() {
-	var sources = selectedBrowsers.reduce(function(previous, browser) { // combine the sources of each browser
-		return previous.concat(
-			config[browser].buildFiles.reduce(function(pre, cur) { // combine the sources within each browser
-				return pre.concat(
-					cur.src.filter(function(src) { // filter out repeated directories (i.e. commonFiles, chrome/oblink common files)
-						return previous.indexOf(src) == -1;
-					})
-				);
-			}, [])
-		);
+	var sources = selectedBrowsers.reduce(function(previous, browser) {
+		return previous.concat(config[browser].buildFiles.reduce(function(pre, cur) {
+			return pre.concat(cur.src);
+		}, []));
 	}, []);
 	gulp.watch(sources, [ 'build' ]);
 });
