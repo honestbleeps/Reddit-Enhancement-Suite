@@ -1807,6 +1807,18 @@ a spinner with a static ring and no overlay.*/
 	list-style: disc inside;
 }
 
+/* user-select: none; on comment widgets, for usability reasons */
+.md .keyNavAnnotation,
+.md .RESUserTag,
+.md .RESdupeimg,
+.md .expando-button,
+.md .madeVisible {
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
 /* gifyoutube player */
 .gifyoutube-source {
 	float: left;
