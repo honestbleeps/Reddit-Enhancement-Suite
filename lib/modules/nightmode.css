@@ -1071,3 +1071,9 @@ html.res-nightmode .multi-details .subreddits .remove-sr {
 .res-nightmode .snoovatar-page .checkbox-label [type=checkbox]:checked + .proxy-checkbox {
 	background: rgb(10, 128, 46);
 }
+
+/* Makes code formating night-mode friendly */
+.res-nightmode .md code, .res-nightmode .md pre {
+    background-color : #232323;
+    color : #FFFFFF;
+}
