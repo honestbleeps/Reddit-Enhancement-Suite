@@ -24,16 +24,16 @@ function operaMessageHandler(msgEvent) {
 				opera.extension.postMessage(JSON.stringify(thisJSON));
 			} else {
 				if (location.hostname.indexOf('reddit') !== -1) {
-					setUpRESStorage(eventData.data);
-					//RESInit();
+					RESStorage.setup(eventData.data);
+					//RESUtils.init.complete();
 				}
 			}
 			break;
 		case 'saveLocalStorage':
 			// Okay, we just copied localStorage from foreground to background, let's set it up...
-			setUpRESStorage(eventData.data);
+			RESStorage.setup(eventData.data);
 			if (location.hostname.indexOf('reddit') !== -1) {
-				//RESInit();
+				//RESUtils.init.complete();
 			}
 			break;
 		case 'localStorage':
@@ -473,10 +473,10 @@ RESUtils.runtime.RESInitReadyCheck = function(RESInit) {
 		// now, take the new jQuery in and store it local to RES's scope (it's a var up top)
 		var redditJq = window.$;
 		require(['jquery-1.11.2.min', 'guiders', 'favico', 'snuownd', 'jquery.sortable-0.9.12', 'jquery.edgescroll-0.1', 'jquery.tokeninput', 'jquery-fieldselection.min'], function() {
-			RESInit();
+			RESUtils.init.complete();
 		});
 	} else {
-		RESInit();
+		RESUtils.init.complete();
 	}
 };
 
