@@ -1,6 +1,6 @@
-'use strict';
-
 module.exports = function(grunt) {
+	'use strict';
+
 	require('matchdep').filterDev('grunt-contrib-*').forEach(grunt.loadNpmTasks);
 
 	grunt.initConfig({
