@@ -472,7 +472,7 @@ RESUtils.runtime.RESInitReadyCheck = function(RESInit) {
 		// save Reddit's jQuery, because this script is going to jack it up.
 		// now, take the new jQuery in and store it local to RES's scope (it's a var up top)
 		var redditJq = window.$;
-		require(['jquery-1.11.2.min', 'guiders', 'favico', 'snuownd', 'jquery.sortable-0.9.12', 'jquery.edgescroll-0.1', 'jquery.tokeninput', 'jquery-fieldselection.min'], function() {
+		require(['jquery-1.11.3.min', 'guiders', 'favico', 'snuownd', 'jquery.sortable-0.9.12', 'jquery.edgescroll-0.1', 'jquery.tokeninput', 'jquery-fieldselection.min'], function() {
 			RESInit();
 		});
 	} else {

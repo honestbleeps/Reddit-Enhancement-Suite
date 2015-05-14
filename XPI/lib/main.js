@@ -146,7 +146,7 @@ pageMod.PageMod({
 	include: ['*.reddit.com'],
 	contentScriptWhen: 'start',
 	contentScriptFile: [
-		self.data.url('vendor/jquery-1.11.2.min.js'),
+		self.data.url('vendor/jquery-1.11.3.min.js'),
 		self.data.url('vendor/guiders.js'),
 		self.data.url('vendor/jquery.sortable-0.9.12.js'),
 		self.data.url('vendor/jquery.edgescroll-0.1.js'),
