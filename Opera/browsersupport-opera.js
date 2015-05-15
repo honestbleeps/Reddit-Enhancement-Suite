@@ -24,14 +24,14 @@ function operaMessageHandler(msgEvent) {
 				opera.extension.postMessage(JSON.stringify(thisJSON));
 			} else {
 				if (location.hostname.indexOf('reddit') !== -1) {
-					RESStorage.setup(eventData.data);
+					RESStorage.setup.complete(eventData.data);
 					//RESUtils.init.complete();
 				}
 			}
 			break;
 		case 'saveLocalStorage':
 			// Okay, we just copied localStorage from foreground to background, let's set it up...
-			RESStorage.setup(eventData.data);
+			RESStorage.setup.complete(eventData.data);
 			if (location.hostname.indexOf('reddit') !== -1) {
 				//RESUtils.init.complete();
 			}

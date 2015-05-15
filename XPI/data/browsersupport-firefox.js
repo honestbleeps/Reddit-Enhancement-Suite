@@ -25,13 +25,13 @@ self.on('message', function(request) {
 				};
 				self.postMessage(thisJSON);
 			} else {
-				RESStorage.setup(request.message);
+				RESStorage.setup.complete(request.message);
 				//RESUtils.init.complete();
 			}
 			break;
 		case 'saveLocalStorage':
 			// Okay, we just copied localStorage from foreground to background, let's set it up...
-			RESStorage.setup(request.message);
+			RESStorage.setup.complete(request.message);
 			break;
 		case 'localStorage':
 			RESStorage.setItem(request.itemName, request.itemValue, true);

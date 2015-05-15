@@ -30,13 +30,13 @@ function safariMessageHandler(msgEvent) {
 				};
 				safari.self.tab.dispatchMessage('saveLocalStorage', thisJSON);
 			} else {
-				RESStorage.setup(request);
+				RESStorage.setup.complete(request);
 				//RESUtils.init.complete();
 			}
 			break;
 		case 'saveLocalStorage':
 			// Okay, we just copied localStorage from foreground to background, let's set it up...
-			RESStorage.setup(request);
+			RESStorage.setup.complete(request);
 			//RESUtils.init.complete();
 			break;
 		case 'addURLToHistory':
