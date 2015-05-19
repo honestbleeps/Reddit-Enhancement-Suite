@@ -35,6 +35,12 @@
 				background-color: #000;
 				outline: 1px #111 solid;
 				cursor: default;
+				{{#transition}}
+				-webkit-transition: color 1.5s ease-in-out;
+				-moz-transition: color 1.5s ease-in-out;
+				-o-transition: color 1.5s ease-in-out;
+				transition: color 1.5s ease-in-out;
+				{{/transition}}
 			}
 			.res-nightmode a[href="/s"], .res-nightmode a[href="/spoiler"], .res-nightmode a[href="#s"], .res-nightmode a[href="#spoiler"]
 			{
