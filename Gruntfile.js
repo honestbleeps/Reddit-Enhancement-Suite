@@ -60,6 +60,22 @@ module.exports = function(grunt) {
 		// Run NodeUnit tests
 		nodeunit: {
 			all: ['tests/selenium/all.js']
+		},
+
+		// JSHint
+		jshint: {
+			options: {
+				jshintrc: '.jshintrc'
+			},
+			grunt: {
+				src: ['Gruntfile.js']
+			},
+			all: {
+				src: [
+					'lib/**/*.js',
+					'!lib/vendor/*.js'
+				]
+			}
 		}
 	});
 
@@ -75,4 +91,7 @@ module.exports = function(grunt) {
 	grunt.registerTask('operablink', ['copy:operablink', 'watch:operablink']);
 	grunt.registerTask('safari', ['copy:safari', 'watch:safari']);
 	grunt.registerTask('firefox', ['copy:firefox', 'watch:firefox']);
+
+	// Travis
+	grunt.registerTask('travis', ['jshint:all']);
 };
