@@ -1,7 +1,7 @@
 module.exports = function(grunt) {
 	'use strict';
 
-	require('matchdep').filterDev('grunt-contrib-*').forEach(grunt.loadNpmTasks);
+	require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
@@ -76,6 +76,19 @@ module.exports = function(grunt) {
 					'!lib/vendor/*.js'
 				]
 			}
+		},
+
+		// JSCS
+		jscs: {
+			options: {
+				config: '.jscsrc'
+			},
+			all: {
+				src: [
+					'lib/**/*.js',
+					'!lib/vendor/*.js'
+				]
+			}
 		}
 	});
 
@@ -93,5 +106,5 @@ module.exports = function(grunt) {
 	grunt.registerTask('firefox', ['copy:firefox', 'watch:firefox']);
 
 	// Travis
-	grunt.registerTask('travis', ['jshint:all']);
+	grunt.registerTask('travis', ['jshint:all', 'jscs:all']);
 };
