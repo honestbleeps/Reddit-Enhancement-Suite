@@ -146,7 +146,7 @@ pageMod.PageMod({
 	include: ['*.reddit.com'],
 	contentScriptWhen: 'start',
 	contentScriptFile: [
-		self.data.url('vendor/jquery-1.11.2.min.js'),
+		self.data.url('vendor/jquery-1.11.3.min.js'),
 		self.data.url('vendor/guiders.js'),
 		self.data.url('vendor/jquery.sortable-0.9.12.js'),
 		self.data.url('vendor/jquery.edgescroll-0.1.js'),
@@ -170,6 +170,7 @@ pageMod.PageMod({
 		self.data.url('vendor/imgurgifv.js'),
 		self.data.url('vendor/hogan-3.0.2.js'),
 		self.data.url('reddit_enhancement_suite.user.js'),
+		self.data.url('modules/spoilerTags.js'),
 		self.data.url('modules/submitIssue.js'),
 		self.data.url('modules/betteReddit.js'),
 		self.data.url('modules/userTagger.js'),

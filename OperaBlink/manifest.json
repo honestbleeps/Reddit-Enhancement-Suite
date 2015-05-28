@@ -18,7 +18,7 @@
 				"https://*.reddit.com/*"
 			],
 			"js": [
-				"vendor/jquery-1.11.2.min.js",
+				"vendor/jquery-1.11.3.min.js",
 				"vendor/guiders.js",
 				"vendor/jquery.sortable-0.9.12.js",
 				"vendor/jquery.edgescroll-0.1.js",
@@ -42,6 +42,7 @@
 				"vendor/gifyoutube.js",
 				"vendor/imgurgifv.js",
 				"reddit_enhancement_suite.user.js",
+				"modules/spoilerTags.js",
 				"modules/submitIssue.js",
 				"modules/betteReddit.js",
 				"modules/userTagger.js",
