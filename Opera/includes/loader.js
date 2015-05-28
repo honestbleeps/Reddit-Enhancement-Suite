@@ -29,6 +29,7 @@ window.addEventListener('DOMContentLoaded', function() {
 		'opera-restore-jquery.js',
 
 		'vendor/jquery-fieldselection.min.js',
+		'vendor/fastdom-0.8.6.js',
 		'core/utils.js',
 
 		'core/alert.js',
