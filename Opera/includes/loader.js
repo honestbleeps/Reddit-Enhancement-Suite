@@ -162,28 +162,6 @@ window.addEventListener('DOMContentLoaded', function() {
 		'core/batch.css'
 	];
 
-	var context = { opera: opera };
-
-	var stylesheetsLoaded = new Deferred();
-	loadFiles(stylesheets)
-		.progress(function(css) {
-			var style = document.createElement('style');
-			style.textContent = css;
-			document.body.appendChild(style);
-		})
-		.done(function() {
-			stylesheetsLoaded.resolve();
-		});
-
-	loadFiles(scripts).done(function(files) {
-		stylesheetsLoaded.done(function() {
-			var batched = files.join(';\n');
-			f.call(context); // why?
-			function f() {
-				eval(batched);
-			}
-		});
-	});
 
 	function loadFiles(filenames) {
 		var deferred = new Deferred();
@@ -254,4 +232,25 @@ window.addEventListener('DOMContentLoaded', function() {
 			return this;
 		}
 	};
+
+
+	var context = { opera: opera };
+
+	var stylesheetsLoaded = loadFiles(stylesheets);
+	stylesheetsLoaded.progress(function(css) {
+		var style = document.createElement('style');
+		style.textContent = css;
+		document.body.appendChild(style);
+	});
+
+	var scriptsLoaded = loadFiles(scripts);
+	scriptsLoaded.done(function(files) {
+		stylesheetsLoaded.done(function() {
+			var batched = files.join(';\n');
+			f.call(context); // why?
+			function f() {
+				eval(batched);
+			}
+		});
+	});
 });
