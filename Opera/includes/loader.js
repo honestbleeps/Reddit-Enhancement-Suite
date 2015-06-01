@@ -19,36 +19,37 @@ window.addEventListener('DOMContentLoaded', function() {
 	var scripts = [
 		'opera-header.js',
 
-		'reddit_enhancement_suite.user.js',
-
 		'opera-save-jquery.js',
 		'vendor/jquery-1.11.3.min.js',
 		'opera-alias-jquery.js',
+
+		'vendor/guiders.js',
 		'vendor/jquery.sortable-0.9.12.js',
 		'vendor/jquery.edgescroll-0.1.js',
-		'vendor/jquery.tokeninput.js',
 		'vendor/jquery-fieldselection.min.js',
+		'vendor/favico.js',
+		'vendor/jquery.tokeninput.js',
+		'vendor/HTMLPasteurizer.js',
+		'vendor/snuownd.js',
+
 		'opera-restore-jquery.js',
 
 		'core/utils.js',
-
-		'core/alert.js',
 		'browsersupport.js',
 		'browsersupport-opera.js',
 		'core/options.js',
-		'vendor/favico.js',
-		'vendor/gfycat.js',
-		'vendor/gifyoutube.js',
-		'vendor/imgurgifv.js',
-		'vendor/guiders.js',
-		'vendor/hogan-3.0.2.js',
-		'vendor/HTMLPasteurizer.js',
-		'vendor/konami.js',
-		'vendor/imgrush.js',
-		'vendor/snuownd.js',
+		'core/alert.js',
 		'core/migrate.js',
 		'core/storage.js',
 		'core/template.js',
+		'vendor/konami.js',
+		'vendor/hogan-3.0.2.js',
+		'vendor/imgrush.js',
+		'vendor/gfycat.js',
+		'vendor/gifyoutube.js',
+		'vendor/imgurgifv.js',
+
+		'reddit_enhancement_suite.user.js',
 
 		'modules/submitIssue.js',
 		'modules/about.js',
