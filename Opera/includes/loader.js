@@ -23,12 +23,13 @@ window.addEventListener('DOMContentLoaded', function() {
 
 		'opera-save-jquery.js',
 		'vendor/jquery-1.11.3.min.js',
+		'opera-alias-jquery.js',
 		'vendor/jquery.sortable-0.9.12.js',
 		'vendor/jquery.edgescroll-0.1.js',
 		'vendor/jquery.tokeninput.js',
+		'vendor/jquery-fieldselection.min.js',
 		'opera-restore-jquery.js',
 
-		'vendor/jquery-fieldselection.min.js',
 		'core/utils.js',
 
 		'core/alert.js',
