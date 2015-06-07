@@ -240,10 +240,16 @@ window.addEventListener('DOMContentLoaded', function() {
 	var context = { opera: opera };
 
 	var stylesheetsLoaded = loadFiles(stylesheets);
-	stylesheetsLoaded.progress(function(css) {
-		var style = document.createElement('style');
-		style.textContent = css;
-		document.body.appendChild(style);
+	stylesheetsLoaded.done(function(css) {
+		var container = document.createDocumentFragment(),
+			elements = css.map(function(css, i) {
+				var element = document.createElement('style');
+				element.textContent = css;
+				element.setAttribute('data-res-src', stylesheets[i]);
+				return element;
+			});
+		elements.forEach(container.appendChild.bind(container));
+		document.head.appendChild(container);
 	});
 
 	var scriptsLoaded = loadFiles(scripts);
