@@ -1,6 +1,7 @@
-[![Code Climate](https://codeclimate.com/github/honestbleeps/Reddit-Enhancement-Suite/badges/gpa.svg)](https://codeclimate.com/github/honestbleeps/Reddit-Enhancement-Suite)
-
 # Reddit Enhancement Suite
+
+[![Travis](https://travis-ci.org/honestbleeps/Reddit-Enhancement-Suite.svg)](https://travis-ci.org/honestbleeps/Reddit-Enhancement-Suite)
+[![Code Climate](https://codeclimate.com/github/honestbleeps/Reddit-Enhancement-Suite/badges/gpa.svg)](https://codeclimate.com/github/honestbleeps/Reddit-Enhancement-Suite)
 
 Reddit Enhancement Suite (RES) is a suite of modules that enhance your Reddit browsing experience.
 
@@ -103,7 +104,7 @@ An alternative grunt build script is also provided; see ["Using grunt instead of
 
 #### Accessing Nightly Builds
 
-In addition to building your own version of RES, you can download older (or current) builds of RES for testing purposes. 
+In addition to building your own version of RES, you can download older (or current) builds of RES for testing purposes.
 
 (Almost) every commit to master is quickly archived away at http://allthefoxes.me - If you would like access to this database, please contact [/u/allthefoxes on reddit](http://reddit.com/u/allthefoxes) or email [fox@allthefoxes.me](mailto:fox@allthefoxes.me)
 
