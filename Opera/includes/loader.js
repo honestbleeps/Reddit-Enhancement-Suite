@@ -182,7 +182,7 @@ window.addEventListener('DOMContentLoaded', function() {
 
 		function onLoad(i, fr) {
 			files[i] = fr.result;
-			deferred.progress(files[i], i);
+			deferred.update(files[i], i);
 			loaded++;
 			if (loaded === files.length) {
 				deferred.resolve(files);
