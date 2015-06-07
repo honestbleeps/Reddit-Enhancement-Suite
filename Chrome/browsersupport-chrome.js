@@ -136,10 +136,10 @@ RESUtils.runtime.storageSetup = function(thisJSON) {
 				data: ls
 			};
 			chrome.runtime.sendMessage(thisJSON, function(response) {
-				setUpRESStorage(response);
+				RESStorage.setup.complete(response);
 			});
 		} else {
-			setUpRESStorage(response);
+			RESStorage.setup.complete(response);
 		}
 	});
 };

@@ -15,39 +15,42 @@
 // @downloadURL   http://redditenhancementsuite.com/latest/reddit_enhancement_suite.user.js
 // ==/UserScript==
 
-window.addEventListener('DOMContentLoaded', function() {
-	var files = [
+(function() {
+	var scripts = [
 		'opera-header.js',
-
-		'reddit_enhancement_suite.user.js',
 
 		'opera-save-jquery.js',
 		'vendor/jquery-1.11.3.min.js',
+		'opera-alias-jquery.js',
+
+		'vendor/guiders.js',
 		'vendor/jquery.sortable-0.9.12.js',
 		'vendor/jquery.edgescroll-0.1.js',
+		'vendor/jquery-fieldselection.min.js',
+		'vendor/favico.js',
 		'vendor/jquery.tokeninput.js',
+		'vendor/HTMLPasteurizer.js',
+		'vendor/snuownd.js',
+
 		'opera-restore-jquery.js',
 
-		'vendor/jquery-fieldselection.min.js',
 		'core/utils.js',
-
-		'core/alert.js',
 		'browsersupport.js',
 		'browsersupport-opera.js',
 		'core/options.js',
-		'vendor/favico.js',
-		'vendor/gfycat.js',
-		'vendor/gifyoutube.js',
-		'vendor/imgurgifv.js',
-		'vendor/guiders.js',
-		'vendor/hogan-3.0.2.js',
-		'vendor/HTMLPasteurizer.js',
-		'vendor/konami.js',
-		'vendor/imgrush.js',
-		'vendor/snuownd.js',
+		'core/alert.js',
 		'core/migrate.js',
 		'core/storage.js',
 		'core/template.js',
+		'vendor/konami.js',
+		'vendor/hogan-3.0.2.js',
+		'vendor/imgrush.js',
+		'vendor/gfycat.js',
+		'vendor/gifyoutube.js',
+		'vendor/imgurgifv.js',
+		'opera-vendor-footer.js',
+
+		'reddit_enhancement_suite.user.js',
 
 		'modules/submitIssue.js',
 		'modules/about.js',
@@ -152,35 +155,111 @@ window.addEventListener('DOMContentLoaded', function() {
 		'opera-footer.js'
 	];
 
-	var context = {opera:opera};
+	var stylesheets = [
+		'core/res.css',
+		'vendor/guiders.css',
+		'vendor/tokenize.css',
+		'modules/commentBoxes.css',
+		'modules/nightmode.css',
+		'vendor/players.css',
+		'core/batch.css'
+	];
 
-	function run(all) {
-		function f() {
-			eval(all);
+
+	function loadFiles(filenames) {
+		var deferred = new Deferred();
+		var files = new Array(filenames.length);
+		var loaded = 0;
+
+		filenames.forEach(loadFile);
+
+		function loadFile(filename, i) {
+			var file = opera.extension.getFile('/' + filename);
+			var fr = new FileReader();
+			fr.onload = onLoad.bind(this, i, fr);
+			fr.readAsText(file);
 		}
 
-		f.call(context);
-	}
-
-	// Load all files asynchronously
-	var data = new Array(files.length);
-	var loaded = 0;
-
-	function loadFile(i) {
-		var fn = files[i];
-		var f = opera.extension.getFile('/' + fn);
-		var fr = new FileReader();
-		fr.onload = function() {
-			data[i] = fr.result;
+		function onLoad(i, fr) {
+			files[i] = fr.result;
+			deferred.update(files[i], i);
 			loaded++;
 			if (loaded === files.length) {
-				run(data.join(';'));
+				deferred.resolve(files);
 			}
-		};
-		fr.readAsText(f);
+		}
+
+		return deferred;
 	}
 
-	for (var i=0; i<files.length; i++) {
-		loadFile(i);
+	function Deferred() {
+		if (!(this instanceof Deferred)) {
+			return new Deferred();
+		}
+		this._ = {
+			progress: [],
+			done: [],
+			result: undefined,
+			status: 'pending'
+		};
 	}
-});
+	Deferred.prototype = {
+		progress: function(callback) {
+			this._.progress.push(callback);
+			return this;
+		},
+		done: function(callback) {
+			if (this._.status === 'resolved') {
+				callback.apply(this, this._.result);
+			} else {
+				this._.done.push(callback);
+			}
+			return this;
+		},
+		update: function(/* ... vals */) {
+			var vals = Array.prototype.slice.call(arguments);
+			this._.progress.forEach(function(callback) {
+				callback.apply(this, vals);
+			}.bind(this));
+			return this;
+		},
+		resolve: function(/* ... vals */) {
+			if (this._.status !== 'resolved') {
+				this._.status = 'resolved';
+				this._.result = Array.prototype.slice.call(arguments);
+
+				this._.done.forEach(function(callback) {
+					callback.apply(this, this._.result);
+				}.bind(this));
+			}
+			return this;
+		}
+	};
+
+
+	var context = { opera: opera };
+
+	var stylesheetsLoaded = loadFiles(stylesheets);
+	stylesheetsLoaded.done(function(css) {
+		var container = document.createDocumentFragment(),
+			elements = css.map(function(css, i) {
+				var element = document.createElement('style');
+				element.textContent = css;
+				element.setAttribute('data-res-src', stylesheets[i]);
+				return element;
+			});
+		elements.forEach(container.appendChild.bind(container));
+		document.head.appendChild(container);
+	});
+
+	var scriptsLoaded = loadFiles(scripts);
+	scriptsLoaded.done(function(files) {
+		stylesheetsLoaded.done(function() {
+			var batched = files.join(';\n');
+			f.call(context); // why?
+			function f() {
+				eval(batched);
+			}
+		});
+	});
+})();

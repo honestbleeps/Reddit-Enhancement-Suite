@@ -105,7 +105,7 @@ body.res-console-open {
 	position: relative;
 }
 .gearIcon::before, .gearIcon::after {
-	font-family: Batch;
+	font-family: "Batch";
 	line-height: 15px;
 	font-size: 14px;
 	vertical-align: middle;
@@ -309,7 +309,7 @@ body.res-console-open {
 	content: '\F15A';
 	margin-left: 0.5em;
 	color: red;
-	font-family: 'Batch';
+	font-family: "Batch";
 	font-size: 11px;
 }
 .RESDialogSmall {
@@ -372,7 +372,7 @@ body.res-console-open {
 	right: 13px;
 	bottom: 1px;
 	border-radius:2px;
-	z-index: 1500;
+	z-index: 1;
 	background-color: #DDD;
 	opacity: 0.7;
 }
