@@ -15,7 +15,7 @@
 // @downloadURL   http://redditenhancementsuite.com/latest/reddit_enhancement_suite.user.js
 // ==/UserScript==
 
-window.addEventListener('DOMContentLoaded', function() {
+(function() {
 	var scripts = [
 		'opera-header.js',
 
@@ -262,4 +262,4 @@ window.addEventListener('DOMContentLoaded', function() {
 			}
 		});
 	});
-});
+})();
