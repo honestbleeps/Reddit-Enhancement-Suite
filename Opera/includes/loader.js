@@ -48,6 +48,7 @@ window.addEventListener('DOMContentLoaded', function() {
 		'vendor/gfycat.js',
 		'vendor/gifyoutube.js',
 		'vendor/imgurgifv.js',
+		'opera-vendor-footer.js',
 
 		'reddit_enhancement_suite.user.js',
 
