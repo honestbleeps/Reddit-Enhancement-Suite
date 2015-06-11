@@ -113,6 +113,7 @@
 		'modules/quickMessage.js',
 
 		'modules/hosts/imgur.js',
+		'modules/hosts/pornbot.js',
 		'modules/hosts/twitter.js',
 		'modules/hosts/futurism.js',
 		'modules/hosts/gfycat.js',
