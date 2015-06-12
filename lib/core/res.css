@@ -257,10 +257,10 @@ body.res-console-open {
 	font-size: 14px;
 }
 #RESConsoleSubredditLink {
-	float: right;
-	margin-right: 1em;
-	margin-top: 7px;
-	font-size: 11px;
+	float: left;
+	margin-left: 1em;
+	margin-top: 9px;
+	font-size: 10px;
 }
 #RESKnownBugs, #RESKnownFeatureRequests {
 	list-style-type: disc;
@@ -701,8 +701,8 @@ p.moduleListing {
 #RESConsoleVersionDisplay {
 	float: left;
 	font-size: 10px;
-	margin-left: 6px;
-	margin-top: 7px;
+	margin-left: 1em;
+	margin-top: 9px;
 }
 #moduleOptionsSave {
 	float: right;
