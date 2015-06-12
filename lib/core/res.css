@@ -296,6 +296,8 @@ body.res-console-open {
 }
 
 #RESAllOptionsSpan {
+	display: block;
+	margin-top: 1em;
 	color: #868686;
 }
 #RESConsoleContent.advanced-options-disabled .optionContainer.advanced {
