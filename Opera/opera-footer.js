@@ -1,7 +1,6 @@
+// It's not great that favico assumes this is the global
+// and that it gets "fixed" at this stage, but it's not terrible.
 window.Favico = this.Favico;
-
-// Initialize RES as the DOMContentLoaded event has already been fired
-RESInitReadyCheck();
 
 // Close self-invoking anonymous function
 })();

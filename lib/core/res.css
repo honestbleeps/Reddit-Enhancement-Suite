@@ -105,7 +105,7 @@ body.res-console-open {
 	position: relative;
 }
 .gearIcon::before, .gearIcon::after {
-	font-family: Batch;
+	font-family: "Batch";
 	line-height: 15px;
 	font-size: 14px;
 	vertical-align: middle;
@@ -246,6 +246,10 @@ body.res-console-open {
 	background-color: #F0F3FC;
 	float: left;
 }
+#RESConsoleTopBar {
+	padding-right: 30px;
+	height: 30px;
+}
 #RESConsoleTopBar h1 {
 	float: left;
 	margin-top: 6px;
@@ -253,10 +257,10 @@ body.res-console-open {
 	font-size: 14px;
 }
 #RESConsoleSubredditLink {
-	float: right;
-	margin-right: 34px;
-	margin-top: 7px;
-	font-size: 11px;
+	float: left;
+	margin-left: 1em;
+	margin-top: 9px;
+	font-size: 10px;
 }
 #RESKnownBugs, #RESKnownFeatureRequests {
 	list-style-type: disc;
@@ -278,8 +282,8 @@ body.res-console-open {
 	cursor: pointer;
 }
 #RESConsoleTopBar .RESCloseButton {
-	top: 9px;
-	right: 9px;
+	top: 7px;
+	right: 7px;
 }
 .RESCloseButton:hover {
 	border: 1px solid #999;
@@ -290,26 +294,21 @@ body.res-console-open {
 	margin-top: 2px;
 	margin-right: 0;
 }
-#RESAllOptions {
-	margin: 0;
-}
+
 #RESAllOptionsSpan {
-	float: right;
-	margin-right: 15px;
-	margin-top: 5px;
+	display: block;
+	margin-top: 1em;
 	color: #868686;
-}
-#RESAllOptionsSpan label {
-	margin-left: 5px;
 }
 #RESConsoleContent.advanced-options-disabled .optionContainer.advanced {
 	display: none;
 }
-.optionContainer.advanced > label:after {
+.optionContainer.advanced > label:after,
+#RESAllOptionsSpan:after {
 	content: '\F15A';
 	margin-left: 0.5em;
 	color: red;
-	font-family: 'Batch';
+	font-family: "Batch";
 	font-size: 11px;
 }
 .RESDialogSmall {
@@ -348,7 +347,7 @@ body.res-console-open {
 	clear: both;
 	padding: 6px 6px 20px 6px;
 	position: absolute;
-	top: 50px;
+	top: 40px;
 	left: 0;
 	right: 0;
 	bottom: 0;
@@ -372,7 +371,7 @@ body.res-console-open {
 	right: 13px;
 	bottom: 1px;
 	border-radius:2px;
-	z-index: 1500;
+	z-index: 1;
 	background-color: #DDD;
 	opacity: 0.7;
 }
@@ -388,7 +387,9 @@ body.res-console-open {
 	height: 100%;
 	overflow: auto;
 }
-
+#RESConfigPanelModulesList {
+	margin-top: 1em;
+}
 .clear {
 	clear: both;
 }
@@ -702,14 +703,11 @@ p.moduleListing {
 #RESConsoleVersionDisplay {
 	float: left;
 	font-size: 10px;
-	margin-left: 6px;
-	margin-top: 7px;
+	margin-left: 1em;
+	margin-top: 9px;
 }
 #moduleOptionsSave {
-	position: absolute;
-	z-index: 1100;
-	top: 30px;
-	right: 25px;
+	float: right;
 	cursor: pointer;
 	padding: 3px 5px;
 	font-size: 12px;
@@ -717,7 +715,7 @@ p.moduleListing {
 	border: 1px solid #636363;
 	border-radius: 3px;
 	background-color: #5cc410;
-	margin-bottom: 10px;
+	margin-right: 1em;
 }
 .RESConsoleButton {
 	padding: 3px 5px;
@@ -1045,6 +1043,7 @@ a.RESNotificationButtonBlue {
 	cursor: pointer;
 	padding: 3px 5px;
 	font-size: 12px;
+	line-height: 15px;
 	color: #fff;
 	border: 1px solid #636363;
 	border-radius: 3px;
