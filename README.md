@@ -1,6 +1,6 @@
 # Reddit Enhancement Suite
 
-[![Travis](https://travis-ci.org/honestbleeps/Reddit-Enhancement-Suite.svg)](https://travis-ci.org/honestbleeps/Reddit-Enhancement-Suite)
+[![Travis](https://travis-ci.org/honestbleeps/Reddit-Enhancement-Suite.svg?branch=master)](https://travis-ci.org/honestbleeps/Reddit-Enhancement-Suite)
 [![Code Climate](https://codeclimate.com/github/honestbleeps/Reddit-Enhancement-Suite/badges/gpa.svg)](https://codeclimate.com/github/honestbleeps/Reddit-Enhancement-Suite)
 
 Reddit Enhancement Suite (RES) is a suite of modules that enhance your Reddit browsing experience.
