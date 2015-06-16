@@ -44,7 +44,7 @@ Thinking about contributing to RES? Awesome! We just ask that you follow a few s
 
 ## Project structure
 
-In order to build the extension, the files from `lib/` must be replicated (either via hard-links or grunt, [see below](#using-grunt-instead-of-hard-links)) into the relevant browser directory.
+In order to build the extension, the files from `lib/` must be replicated (either via hard-links or grunt, [see below](#building-development-versions-of-the-extension)) into the relevant browser directory.
 
 ##### Top level files & folders
 
