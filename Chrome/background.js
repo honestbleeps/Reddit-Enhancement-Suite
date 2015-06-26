@@ -131,8 +131,8 @@ chrome.runtime.onMessage.addListener(
 				}
 				xhr.onreadystatechange = function() {
 					if (xhr.readyState === 4) {
-						// Only store `status` and `responseText` fields
-						var response = {status: xhr.status, responseText: xhr.responseText};
+						// Only store `status` and `responseText` and `responseURL` fields
+						var response = {status: xhr.status, responseText: xhr.responseText, responseURL: xhr.responseURL };
 						sendResponse(response);
 						// Only cache on HTTP OK and non empty body
 						if ((request.aggressiveCache || XHRCache.forceCache) && (xhr.status === 200 && xhr.responseText)) {
