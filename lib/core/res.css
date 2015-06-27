@@ -1174,18 +1174,8 @@ body.RESScrollLock {
 
 .content .RESBigEditorPop {
 	float: right;
-	margin: 3px 0 0 0;
-	color: #333;
-	background-color: #fff;
-	border: 1px solid #ccc;
-	cursor: pointer;
-	padding: 5px 3px;
-}
-button.RESBigEditorPop:hover {
-	background-color: #ddd;
-}
-.wiki-page .RESBigEditorPop {
-	margin: 6px 20px 0 0;
+	margin-top: 5px;
+	margin-left: 5px;
 }
 #autocomplete_dropdown {
 	display: inline-block;
@@ -1456,6 +1446,9 @@ a.bylink.parentlink {
 	display: inline-block;
 	font-size: 16px;
 	font-weight: normal;
+}
+.res-icon.res-icon-12 {
+	font-size: 12px;
 }
 .res-icon.res-icon-32 {
 	font-size: 32px;
