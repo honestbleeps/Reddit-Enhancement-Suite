@@ -739,9 +739,6 @@ p.moduleListing {
 #moduleOptionsSave.optionsSaved::before {
 	background: #225599;
 }
-#moduleOptionsSave.optionsSaved.noOptions {
-	opacity: 0.3;
-}
 .addRowButton {
 	cursor: pointer;
 	padding: 2px 5px;
