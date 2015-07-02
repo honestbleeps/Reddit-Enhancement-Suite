@@ -706,6 +706,12 @@ p.moduleListing {
 	margin-left: 1em;
 	margin-top: 9px;
 }
+.RESConsoleButton {
+	padding: 3px 5px;
+	font-size: 12px;
+	border: 1px solid #636363;
+	border-radius: 3px;
+}
 #moduleOptionsSave {
 	float: right;
 	cursor: pointer;
@@ -714,20 +720,9 @@ p.moduleListing {
 	color: #fff;
 	border: 1px solid #636363;
 	border-radius: 3px;
-	background-color: #5cc410;
-	margin-right: 1em;
-}
-.RESConsoleButton {
-	padding: 3px 5px;
-	font-size: 12px;
-	border: 1px solid #636363;
-	border-radius: 3px;
-}
-#moduleOptionsSave {
-	color: #fff;
 	background-color: #107ac4;
-	cursor: pointer;
 	opacity: 0.9;
+	margin-right: 1em;
 }
 #moduleOptionsSave:hover {
 	opacity: 1.0;
@@ -744,9 +739,6 @@ p.moduleListing {
 #moduleOptionsSave.optionsSaved::before {
 	background: #225599;
 }
-#moduleOptionsSave.optionsSaved.noOptions {
-	opacity: 0.3;
-}
 .addRowButton {
 	cursor: pointer;
 	padding: 2px 5px;
@@ -758,36 +750,11 @@ p.moduleListing {
 .addRowButton:hover {
 	background-color: #289dee;
 }
-#moduleOptionsSaveBottom {
-	float: right;
-	margin-top: 10px;
-	margin-right: 30px;
-	cursor: pointer;
-	padding: 3px;
-	font-size: 12px;
-	border: 1px solid #DDD;
-	-moz-box-shadow: 3px 3px 3px #BBB;
-	-webkit-box-shadow: 3px 3px 3px #BBB;
-	background-color: #F0F3FC;
-	margin-bottom: 10px;
-}
 #moduleOptionsSaveStatus {
 	display: none;
-	position: absolute;
-	top: -35px;
-	right: 100px;
-	width: 180px;
-	padding: 5px;
-	text-align: center;
-	background-color: #FFFACD;
-}
-#moduleOptionsSaveStatusBottom {
-	display: none;
 	float: right;
-	margin-top: 10px;
-	width: 180px;
-	padding: 5px;
-	text-align: center;
+	padding: 4px;
+	margin-right: 1em;
 	background-color: #FFFACD;
 }
 #RESConfigPanelOptions p {
@@ -1174,18 +1141,8 @@ body.RESScrollLock {
 
 .content .RESBigEditorPop {
 	float: right;
-	margin: 3px 0 0 0;
-	color: #333;
-	background-color: #fff;
-	border: 1px solid #ccc;
-	cursor: pointer;
-	padding: 5px 3px;
-}
-button.RESBigEditorPop:hover {
-	background-color: #ddd;
-}
-.wiki-page .RESBigEditorPop {
-	margin: 6px 20px 0 0;
+	margin-top: 5px;
+	margin-left: 5px;
 }
 #autocomplete_dropdown {
 	display: inline-block;
@@ -1456,6 +1413,9 @@ a.bylink.parentlink {
 	display: inline-block;
 	font-size: 16px;
 	font-weight: normal;
+}
+.res-icon.res-icon-12 {
+	font-size: 12px;
 }
 .res-icon.res-icon-32 {
 	font-size: 32px;

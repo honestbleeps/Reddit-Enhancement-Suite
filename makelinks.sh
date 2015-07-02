@@ -18,16 +18,16 @@ do
 			file=$(basename $i)
 			dir=$(dirname $i)
 
-			if [ "$dir" == "lib/core" ]
+			if [[ $dir == "lib/core" ]]
 			then
 				dest="./$j/core/"
-			elif [ "$dir" == "lib/modules" ]
+			elif [[ $dir == "lib/modules" ]]
 			then
 				dest="./$j/modules/"
-			elif [ "$dir" == "lib/modules/hosts" ]
+			elif [[ $dir == "lib/modules/hosts" ]]
 			then
 				dest="./$j/modules/hosts/"
-			elif [ "$dir" == "lib/vendor" ]
+			elif [[ $dir == "lib/vendor" ]]
 			then
 				dest="./$j/vendor/"
 			else
@@ -36,12 +36,12 @@ do
 
 			echo "Re-linking:" $dest$file
 
-			if [ -f $dest$file ]
+			if [[ -f $dest$file ]]
 			then
 				rm $dest$file
 			fi
 
-			if [ "clean" != "$1" ]
+			if [[ $1 != "clean" ]]
 			then
 				mkdir -p $dest
 				ln ./$i $dest
@@ -50,12 +50,12 @@ do
 	done
 done
 
-if [ -f "OperaBlink/browsersupport-chrome.js" ]
+if [[ -f "OperaBlink/browsersupport-chrome.js" ]]
 then
 	rm "OperaBlink/browsersupport-chrome.js"
 fi
 
-if [ "clean" != "$1" ]
+if [[ $1 != "clean" ]]
 then
 	ln "Chrome/browsersupport-chrome.js" "OperaBlink/browsersupport-chrome.js"
 fi
