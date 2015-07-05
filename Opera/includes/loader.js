@@ -150,6 +150,7 @@
 		'modules/hosts/pastebin.js',
 		'modules/hosts/github.js',
 		'modules/hosts/onedrive.js',
+		'modules/hosts/oddshot.js',
 
 		'core/init.js',
 
