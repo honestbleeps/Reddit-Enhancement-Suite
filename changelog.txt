@@ -5,6 +5,7 @@ changelog v4.6.0
 	- New Modules
 		- Added "Upload" module. Allows file uploading directly from the /submit page  - Currently only supports imgrush.com - If you are interested in adding upload support for your site, please [check the RES GitHub wiki.](https://github.com/honestbleeps/Reddit-Enhancement-Suite/wiki/Adding-new-media-hosts) (thanks @SirCmpwn, @andytuba, @erikdesjardins, and @imgrush)
 		- Added "Orangered" module, for managing and syncing unread notifications (locally). Does not replace reddit message notifiers. (thanks @andytuba)
+		- Added dropdown menu to envelope (notification) button linking to various parts of inbox (thanks @andytuba)
 		- Added global spoiler tag module. Currently only works on user profiles. Any markdown pointing to /spoiler, #spoiler, /s or #s will be hidden. Hovering shows the text (thanks @SirCmpwn and @andytuba)
 		- Added stylesheet module - load stylesheets from existing subreddits or arbitrary CSS on specific pages (big thanks @andytuba, thanks @erikdesjardins)
 		- ...and a few more due to breaking up and refactoring existing modules
