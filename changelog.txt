@@ -71,6 +71,7 @@ changelog v4.6.0
 	- Fixed some characters not being unescaped in comment source (thanks @erikdesjardins)
 	- Fixed fadeSpeed options having behavior opposite of their description (thanks @erikdesjardins)
 	- Fixed some user tags being unreadable in nightmode and superscript (thanks @erikdesjardins)
+	- Fixed pinned header from jumping late after pageload (thanks @Shraymonks)
 	- Fixed defaultContext option not applying to profile pages (thanks @thybag)
 	- Fixed new comment count not working in Japanese (thanks @svjharris)
 	- Fixed NSFW stamp not being red in nightmode (thanks @igglyboo)
