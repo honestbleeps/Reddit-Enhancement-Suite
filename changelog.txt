@@ -95,6 +95,7 @@ changelog v4.6.0
 	- Factor out Twitter support from the core files (thanks @andytuba and @erikdesjardins)
 	- Greatly refactored KeyboardNav (thanks @andytuba)
 	- Some RES added elements (such as keyboardNav numbers and usertags) will no longer get copied when you select text (thanks @arresteddevelopment)
+	- Removed toolbarFix since reddit toolbar is gone (thanks @andytuba)
 	- Major refactor of init process (big thanks @andytuba)
 	- Cleaned up gulp (thanks @mc10)
 	- Refactored gulp a bit (thanks @andytuba)
