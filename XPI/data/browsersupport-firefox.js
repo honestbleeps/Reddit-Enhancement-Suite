@@ -1,3 +1,5 @@
+/* global self */
+
 // if this is a jetpack addon, add an event listener like Safari's message handler...
 self.on('message', function(request) {
 	switch (request.requestType) {
