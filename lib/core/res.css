@@ -1224,6 +1224,7 @@ img {
 .RESdupeimg { color: #000; font-size: 10px;  }
 .RESClear { clear: both; margin-bottom: 10px;  }
 
+.RESGalleryControls { margin-bottom: 10px; }
 .RESGalleryControls span { line-height: 16px; vertical-align: bottom; padding: 0 5px; font-size: 11px; }
 .RESGalleryControls .next::after, .RESGalleryControls .previous::after {
 	font-family: Batch;
@@ -1249,7 +1250,6 @@ img {
 
 .imgTitle, .md h3.imgTitle {
 	font-size: 13px;
-	padding: 2px;
 	margin: 0;
 }
 h4.imgCaptions, .md h4.imgCaptions {
