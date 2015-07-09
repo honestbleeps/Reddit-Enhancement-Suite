@@ -17,14 +17,12 @@ let viewFor = require('sdk/view/core').viewFor;
 
 let localStorage = ss.storage;
 
-
-let { ToggleButton } = require('sdk/ui/button/toggle'),
-	styleSheetButton;
+let { ToggleButton } = require('sdk/ui/button/toggle');
+let styleSheetButton;
 
 // require chrome allows us to use XPCOM objects...
 const {Cc,Ci,Cu,components} = require('chrome');
 let historyService = Cc['@mozilla.org/browser/history;1'].getService(Ci.mozIAsyncHistory);
-
 
 // Cookie manager for new API login
 let cookieManager = Cc['@mozilla.org/cookiemanager;1'].getService().QueryInterface(Ci.nsICookieManager2);
@@ -506,7 +504,7 @@ pageMod.PageMod({
 					});
 					break;
 				case 'multicast':
-					isPrivate = priv.isPrivate(worker)
+					isPrivate = priv.isPrivate(worker);
 					workers
 						.filter(function(w) {
 							return (w !== worker) && (priv.isPrivate(w) === isPrivate);
