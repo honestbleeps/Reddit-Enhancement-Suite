@@ -142,7 +142,6 @@ chrome.runtime.onMessage.addListener(
 				};
 				xhr.send(request.data);
 				return true;
-				break;
 			case 'singleClick':
 				button = (request.button !== 1) && (request.ctrl !== 1);
 				// Get the selected tab so we can get the index of it.  This allows us to open our new tab as the "next" tab.
@@ -199,7 +198,6 @@ chrome.runtime.onMessage.addListener(
 				};
 				xhr.send();
 				return true;
-				break;
 			case 'getLocalStorage':
 				sendResponse(localStorage);
 				break;
@@ -268,8 +266,8 @@ chrome.runtime.onMessage.addListener(
 			case 'pageAction':
 				switch (request.action) {
 					case 'show':
-						// we intentionally fall through after this to stateChange
 						chrome.pageAction.show(sender.tab.id);
+						/* falls through */
 					case 'stateChange':
 						if (request.visible) {
 							chrome.pageAction.setIcon({
@@ -295,7 +293,7 @@ chrome.runtime.onMessage.addListener(
 				}
 				break;
 			case 'multicast':
-				var tabs = chrome.tabs.query({
+				chrome.tabs.query({
 					status: 'complete',
 				}, function(tabs) {
 					var incognito = sender.tab.incognito;
