@@ -719,6 +719,15 @@
 .res-nightmode #search option {
 	color: #111;
 }
+.res-nightmode ul.res-search-tabs li {
+	background: linear-gradient(to top, rgb(60,60,60), rgb(45,45,45));
+}
+.res-nightmode ul.res-search-tabs li.res-search-tab-active {
+	background-color: rgb(34,34,34);
+}
+.res-nightmode .combined-search-page #previoussearch .res-search-pane {
+	background-color: rgb(34,34,34);
+}
 .res-nightmode #searchexpando {
 	background: #303030;
 	border-color: #444;
