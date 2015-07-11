@@ -590,8 +590,7 @@
 	color: #dfdfdf;
 }
 .res-nightmode .link-button,
-.res-nightmode .text-button,
-.res-nightmode .user .userkarma {
+.res-nightmode .text-button {
 	color: #444;
 }
 .res-nightmode .flairselector h2 {
@@ -1093,4 +1092,8 @@ html.res-nightmode .multi-details .subreddits .remove-sr {
 }
 .res-nightmode .snoovatar-page .checkbox-label [type=checkbox]:checked + .proxy-checkbox {
 	background: rgb(10, 128, 46);
+}
+.res-nightmode #userbarToggle {
+	background-color: rgb(93, 104, 115);
+	border-right-color: rgb(118, 133, 148);
 }
