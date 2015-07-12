@@ -101,11 +101,6 @@ $RECYCLE.BIN/
 *.log
 *.scc
 
-/IE/[Dd]ebug/
-/IE/[Rr]elease/
-/IE/[Bb]in/
-/IE/[Oo]bj/
-
 # User-specific files
 *.suo
 *.user
@@ -119,4 +114,6 @@ $RECYCLE.BIN/
 *.sdf
 *.cachefile
 
+# IntelliJ
 .idea
+*.iml
