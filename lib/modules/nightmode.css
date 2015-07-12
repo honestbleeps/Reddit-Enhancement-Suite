@@ -354,7 +354,7 @@ body.res-nightmode,
 .res-nightmode .dropdown.lightdrop a.choice:hover {
 	background-color: #111;
 }
-.res-nightmode .side {
+.res-nightmode .guiders_button {
 	color: #fff;
 }
 .res-nightmode .sidebox,
@@ -925,13 +925,14 @@ body.res-nightmode,
 	background: rgb(44,44,44);
 	box-shadow: none;
 }
-.res-nightmode .combined-search-page .search-result .search-result-body {
+.res-nightmode .combined-search-page .search-result .search-result-body,
+.res-nightmode .generic-table {
 	color: inherit;
 }
 .res-nightmode .nextprev a:hover,
 .res-nightmode .next-suggestions a:hover {
 	border-color: transparent;
-	background-color: rgb(119,119,119);
+	background-color: #777;
 }
 .res-nightmode .modactionlisting + #progressIndicator {
 	width: auto;
@@ -1017,7 +1018,8 @@ html.res-nightmode .multi-details .subreddits .remove-sr {
 .res-nightmode .about-page .about-menu {
 	background: #ddd
 }
-.res-nightmode .about-page h2 {
+.res-nightmode .about-page h2,
+.res-nightmode  .md del {
 	color: #777
 }
 .res-nightmode .about-page .about-menu li.selected a,
