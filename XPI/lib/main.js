@@ -1,81 +1,39 @@
 /* jshint esnext: true */
 /* global require: false */
 
+// suppress annoying strict warnings that cfx overrides and turns on
+// comment this line out for releases.
+// require('sdk/preferences/service').set('javascript.options.strict', false);
+
 // Import the APIs we need.
-let pageMod = require("sdk/page-mod");
-let Request = require("sdk/request").Request;
-let self = require("sdk/self");
-let tabs = require("sdk/tabs");
-//let ss = require("simple-storage"); // Temporarily disabled
-let timer = require("sdk/timers");
-let priv = require("sdk/private-browsing");
-let windows = require("sdk/windows").browserWindows;
+let pageMod = require('sdk/page-mod');
+let Request = require('sdk/request').Request;
+let self = require('sdk/self');
+let tabs = require('sdk/tabs');
+let ss = require('sdk/simple-storage');
+let priv = require('sdk/private-browsing');
+let windows = require('sdk/windows').browserWindows;
+let viewFor = require('sdk/view/core').viewFor;
+
+let localStorage = ss.storage;
+
+let { ToggleButton } = require('sdk/ui/button/toggle');
+let styleSheetButton;
 
 // require chrome allows us to use XPCOM objects...
-const {Cc,Ci,Cu,components} = require("chrome");
-let historyService = Cc["@mozilla.org/browser/history;1"].getService(Ci.mozIAsyncHistory);
-
-// Temporary workaround for ss being broken (https://github.com/honestbleeps/Reddit-Enhancement-Suite/issues/797)
-let localStorage = {};
-let file = require("sdk/io/file")
-let ss = (function() {
-	var timeout = null;
-
-	let storeFile = Cc["@mozilla.org/file/directory_service;1"].
-		getService(Ci.nsIProperties).
-		get("ProfD", Ci.nsIFile);
-	storeFile.append("jetpack");
-	storeFile.append(self.id);
-	storeFile.append("simple-storage");
-	file.mkpath(storeFile.path);
-	let tempFile = storeFile.clone();
-	storeFile.append("store.json");
-	tempFile.append("store.json.tmp");
-
-	var really_save = function() {
-		let stream = file.open(tempFile.path, "w");
-		try {
-			stream.writeAsync(JSON.stringify(localStorage), function writeAsync(err) {
-				if (err) {
-					console.error("Error writing simple storage file: " + tempFile.path);
-				} else {
-					let tempFileClone = tempFile.clone();
-					tempFileClone.moveTo(null, storeFile.leafName);
-				}
-			}.bind(this));
-		}
-		catch (err) {
-			// writeAsync closes the stream after it's done, so only close on error.
-			stream.close();
-		}
-	};
-	this.save = function() {
-	    if (timeout !== null) {
-			timer.clearTimeout(timeout);
-	    }
-	    timeout = timer.setTimeout(really_save, 3000);
-	};
-	let str = "";
-	try {
-		str = file.read(storeFile.path);
-	} catch (e) {
-		console.warn("Error loading simple storage file: " + e);
-	}
-	localStorage = str ? JSON.parse(str) : {};
-	return this;
-})();
-// End temporary workaround
+const {Cc,Ci,Cu,components} = require('chrome');
+let historyService = Cc['@mozilla.org/browser/history;1'].getService(Ci.mozIAsyncHistory);
 
 // Cookie manager for new API login
-let cookieManager = Cc["@mozilla.org/cookiemanager;1"].getService().QueryInterface(Ci.nsICookieManager2);
-components.utils.import("resource://gre/modules/NetUtil.jsm");
+let cookieManager = Cc['@mozilla.org/cookiemanager;1'].getService().QueryInterface(Ci.nsICookieManager2);
+components.utils.import('resource://gre/modules/NetUtil.jsm');
 
 // Preferences
-let prefs = Cc["@mozilla.org/preferences-service;1"].getService(Ci.nsIPrefBranch);
+let prefs = Cc['@mozilla.org/preferences-service;1'].getService(Ci.nsIPrefBranch);
 
 // this function takes in a string (and optional charset, paseURI) and creates an nsURI object, which is required by historyService.addURI...
 function makeURI(aURL, aOriginCharset, aBaseURI) {
-	let ioService = Cc["@mozilla.org/network/io-service;1"].getService(Ci.nsIIOService);
+	let ioService = Cc['@mozilla.org/network/io-service;1'].getService(Ci.nsIIOService);
 	return ioService.newURI(aURL, aOriginCharset, aBaseURI);
 }
 
@@ -88,15 +46,13 @@ function detachWorker(worker, workerArray) {
 }
 
 localStorage.getItem = function(key) {
-	return localStorage[key];
+	return ss.storage[key];
 };
 localStorage.setItem = function(key, value) {
-	localStorage[key] = value;
-	ss.save();
+	ss.storage[key] = value;
 };
 localStorage.removeItem = function(key) {
-	delete localStorage[key];
-	ss.save();
+	delete ss.storage[key];
 };
 
 let XHRCache = {
@@ -106,11 +62,11 @@ let XHRCache = {
 	count: 0,
 	check: function(key) {
 		if (key in this.entries) {
-//			console.log("hit");
+//			console.log('hit');
 			this.entries[key].hits++;
 			return this.entries[key].data;
 		} else {
-//			console.log("miss");
+//			console.log('miss');
 			return null;
 		}
 	},
@@ -118,7 +74,7 @@ let XHRCache = {
 		if (key in this.entries) {
 			return;
 		} else {
-//			console.log("add");
+//			console.log('add');
 			this.entries[key] = {data: value, timestamp: Date.now(), hits: 1};
 			this.count++;
 		}
@@ -148,58 +104,96 @@ let XHRCache = {
 			delete this.entries[bottom[i].key];
 			this.count--;
 		}
-//		console.log("prune");
+//		console.log('prune');
 	},
 	clear: function() {
 		this.entries = {};
 		this.count = 0;
 	}
 };
-tabs.on('activate', function(tab) {
+tabs.on('activate', function() {
 	// find this worker...
-	for (let i in workers) {
-		if ((typeof workers[i].tab !== 'undefined') && (tab.title === workers[i].tab.title)) {
-			workers[i].postMessage({ name: "getLocalStorage", message: localStorage });
-		}
+	let worker = getActiveWorker();
+	if (worker) {
+		worker.postMessage({ requestType: 'getLocalStorage', message: localStorage });
+		worker.postMessage({ requestType: 'subredditStyle', message: 'refreshState' });
 	}
 });
 
+function getActiveWorker() {
+	let tab = tabs.activeTab;
+	for (let i in workers) {
+		if (workers[i] && workers[i].tab && (tab.title === workers[i].tab.title)) {
+			return workers[i];
+		}
+	}
+	return null;
+}
+
+function openTab(options) {
+	let nsWindow = viewFor(tabs.activeTab.window);
+	if ('TreeStyleTabService' in nsWindow) {
+		let nsTab = viewFor(tabs.activeTab);
+		nsWindow.TreeStyleTabService.readyToOpenChildTab(nsTab);
+	}
+
+	tabs.open(options);
+}
 
 pageMod.PageMod({
-	include: ["*.reddit.com"],
+	include: ['*.reddit.com'],
 	contentScriptWhen: 'start',
 	contentScriptFile: [
-		self.data.url('jquery-1.10.2.min.js'),
-		self.data.url('guiders-1.2.8.js'),
-		self.data.url('jquery.dragsort-0.6.js'),
-		self.data.url('jquery-fieldselection.min.js'),
-		self.data.url('tinycon.js'),
-		self.data.url('jquery.tokeninput.js'),
-		self.data.url('HTMLPasteurizer.js'),
-		self.data.url('snuownd.js'),
-		self.data.url('utils.js'),
+		self.data.url('vendor/jquery-1.11.3.min.js'),
+		self.data.url('vendor/guiders.js'),
+		self.data.url('vendor/jquery.sortable-0.9.12.js'),
+		self.data.url('vendor/jquery.edgescroll-0.1.js'),
+		self.data.url('vendor/jquery-fieldselection.min.js'),
+		self.data.url('vendor/favico.js'),
+		self.data.url('vendor/jquery.tokeninput.js'),
+		self.data.url('vendor/HTMLPasteurizer.js'),
+		self.data.url('vendor/snuownd.js'),
+		self.data.url('core/utils.js'),
 		self.data.url('browsersupport.js'),
 		self.data.url('browsersupport-firefox.js'),
-		self.data.url('console.js'),
-		self.data.url('alert.js'),
-		self.data.url('storage.js'),
-		self.data.url('template.js'),
-		self.data.url('konami.js'),
-		self.data.url('mediacrush.js'),
-		self.data.url('gfycat.js'),
-		self.data.url('hogan-2.0.0.js'),
+		self.data.url('core/options.js'),
+		self.data.url('core/alert.js'),
+		self.data.url('core/migrate.js'),
+		self.data.url('core/storage.js'),
+		self.data.url('core/template.js'),
+		self.data.url('vendor/konami.js'),
+		self.data.url('vendor/imgrush.js'),
+		self.data.url('vendor/gfycat.js'),
+		self.data.url('vendor/gifyoutube.js'),
+		self.data.url('vendor/imgurgifv.js'),
+		self.data.url('vendor/hogan-3.0.2.js'),
 		self.data.url('reddit_enhancement_suite.user.js'),
+		self.data.url('modules/spoilerTags.js'),
+		self.data.url('modules/submitIssue.js'),
 		self.data.url('modules/betteReddit.js'),
 		self.data.url('modules/userTagger.js'),
 		self.data.url('modules/keyboardNav.js'),
 		self.data.url('modules/commandLine.js'),
+		self.data.url('modules/messageMenu.js'),
+		self.data.url('modules/easterEgg.js'),
+		self.data.url('modules/pageNavigator.js'),
+		self.data.url('modules/userInfo.js'),
+		self.data.url('modules/presets.js'),
+		self.data.url('modules/onboarding.js'),
+		self.data.url('modules/customToggles.js'),
+		self.data.url('modules/floater.js'),
+		self.data.url('modules/orangered.js'),
+		self.data.url('modules/announcements.js'),
+		self.data.url('modules/selectedEntry.js'),
+		self.data.url('modules/settingsConsole.js'),
+		self.data.url('modules/menu.js'),
 		self.data.url('modules/about.js'),
 		self.data.url('modules/hover.js'),
 		self.data.url('modules/subredditTagger.js'),
-		self.data.url('modules/uppersAndDowners.js'),
 		self.data.url('modules/singleClick.js'),
 		self.data.url('modules/commentPreview.js'),
 		self.data.url('modules/commentTools.js'),
+		self.data.url('modules/sourceSnudown.js'),
 		self.data.url('modules/sortCommentsTemporarily.js'),
 		self.data.url('modules/usernameHider.js'),
 		self.data.url('modules/showImages.js'),
@@ -209,7 +203,10 @@ pageMod.PageMod({
 		self.data.url('modules/neverEndingReddit.js'),
 		self.data.url('modules/saveComments.js'),
 		self.data.url('modules/userHighlight.js'),
+		self.data.url('modules/nightMode.js'),
 		self.data.url('modules/styleTweaks.js'),
+		self.data.url('modules/stylesheet.js'),
+		self.data.url('modules/userbarHider.js'),
 		self.data.url('modules/accountSwitcher.js'),
 		self.data.url('modules/filteReddit.js'),
 		self.data.url('modules/newCommentCount.js'),
@@ -222,20 +219,67 @@ pageMod.PageMod({
 		self.data.url('modules/notifications.js'),
 		self.data.url('modules/subredditInfo.js'),
 		self.data.url('modules/commentHidePersistor.js'),
-		self.data.url('modules/bitcointip.js'),
 		self.data.url('modules/troubleshooter.js'),
 		self.data.url('modules/backupAndRestore.js'),
 		self.data.url('modules/localDate.js'),
-		self.data.url('init.js')
+		self.data.url('modules/context.js'),
+		self.data.url('modules/noParticipation.js'),
+		self.data.url('modules/searchHelper.js'),
+		self.data.url('modules/submitHelper.js'),
+		self.data.url('modules/logoLink.js'),
+		self.data.url('modules/voteEnhancements.js'),
+		self.data.url('modules/upload.js'),
+		self.data.url('modules/tableTools.js'),
+		self.data.url('modules/modhelper.js'),
+		self.data.url('modules/quickMessage.js'),
+		self.data.url('modules/hosts/imgur.js'),
+		self.data.url('modules/hosts/twitter.js'),
+		self.data.url('modules/hosts/futurism.js'),
+		self.data.url('modules/hosts/gfycat.js'),
+		self.data.url('modules/hosts/gifyoutube.js'),
+		self.data.url('modules/hosts/vidble.js'),
+		self.data.url('modules/hosts/fitbamob.js'),
+		self.data.url('modules/hosts/giflike.js'),
+		self.data.url('modules/hosts/ctrlv.js'),
+		self.data.url('modules/hosts/snag.js'),
+		self.data.url('modules/hosts/picshd.js'),
+		self.data.url('modules/hosts/minus.js'),
+		self.data.url('modules/hosts/fiveHundredPx.js'),
+		self.data.url('modules/hosts/flickr.js'),
+		self.data.url('modules/hosts/steampowered.js'),
+		self.data.url('modules/hosts/deviantart.js'),
+		self.data.url('modules/hosts/tumblr.js'),
+		self.data.url('modules/hosts/memecrunch.js'),
+		self.data.url('modules/hosts/imgflip.js'),
+		self.data.url('modules/hosts/imgrush.js'),
+		self.data.url('modules/hosts/livememe.js'),
+		self.data.url('modules/hosts/makeameme.js'),
+		self.data.url('modules/hosts/memegen.js'),
+		self.data.url('modules/hosts/redditbooru.js'),
+		self.data.url('modules/hosts/youtube.js'),
+		self.data.url('modules/hosts/vimeo.js'),
+		self.data.url('modules/hosts/soundcloud.js'),
+		self.data.url('modules/hosts/clyp.js'),
+		self.data.url('modules/hosts/memedad.js'),
+		self.data.url('modules/hosts/ridewithgps.js'),
+		self.data.url('modules/hosts/photobucket.js'),
+		self.data.url('modules/hosts/giphy.js'),
+		self.data.url('modules/hosts/streamable.js'),
+		self.data.url('modules/hosts/raddit.js'),
+		self.data.url('modules/hosts/pastebin.js'),
+		self.data.url('modules/hosts/github.js'),
+		self.data.url('modules/hosts/onedrive.js'),
+		self.data.url('modules/hosts/oddshot.js'),
+		self.data.url('core/init.js')
 	],
 	contentStyleFile: [
-		self.data.url('nightmode.css'),
-		self.data.url('commentBoxes.css'),
-		self.data.url('res.css'),
-		self.data.url('players.css'),
-		self.data.url('guiders.css'),
-		self.data.url('tokenize.css'),
-		self.data.url("batch.css")
+		self.data.url('modules/nightmode.css'),
+		self.data.url('modules/commentBoxes.css'),
+		self.data.url('core/res.css'),
+		self.data.url('vendor/players.css'),
+		self.data.url('vendor/guiders.css'),
+		self.data.url('vendor/tokenize.css'),
+		self.data.url('core/batch.css')
 	],
 	onAttach: function(worker) {
 		// when a tab is activated, repopulate localStorage so that changes propagate across tabs...
@@ -245,21 +289,22 @@ pageMod.PageMod({
 		});
 		worker.on('message', function(data) {
 			let request = data,
-				inBackground = prefs.getBoolPref('browser.tabs.loadInBackground') || true,
+				inBackground = prefs.getBoolPref('browser.tabs.loadInBackground'),
 				isPrivate, thisLinkURL;
 
 			switch (request.requestType) {
 				case 'readResource':
 					let fileData = self.data.load(request.filename);
-					worker.postMessage({ name: 'readResource', data: fileData, transaction: request.transaction });
+					worker.postMessage({ requestType: 'readResource', data: fileData, transaction: request.transaction });
 					break;
 				case 'deleteCookie':
 					cookieManager.remove('.reddit.com', request.cname, '/', false);
+					worker.postMessage({removedCookie: request.cname});
 					break;
-				case 'GM_xmlhttpRequest':
+				case 'ajax':
 					let responseObj = {
 						XHRID: request.XHRID,
-						name: request.requestType
+						requestType: request.requestType
 					};
 					if (request.aggressiveCache || XHRCache.forceCache) {
 						let cachedResult = XHRCache.check(request.url);
@@ -313,20 +358,20 @@ pageMod.PageMod({
 					if (request.openOrder === 'commentsfirst') {
 						// only open a second tab if the link is different...
 						if (request.linkURL !== request.commentsURL) {
-							tabs.open({url: request.commentsURL, inBackground: inBackground, isPrivate: isPrivate });
+							openTab({url: request.commentsURL, inBackground: inBackground, isPrivate: isPrivate });
 						}
-						tabs.open({url: request.linkURL, inBackground: inBackground, isPrivate: isPrivate });
+						openTab({url: request.linkURL, inBackground: inBackground, isPrivate: isPrivate });
 					} else {
-						tabs.open({url: request.linkURL, inBackground: inBackground, isPrivate: isPrivate });
+						openTab({url: request.linkURL, inBackground: inBackground, isPrivate: isPrivate });
 						// only open a second tab if the link is different...
 						if (request.linkURL !== request.commentsURL) {
-							tabs.open({url: request.commentsURL, inBackground: inBackground, isPrivate: isPrivate });
+							openTab({url: request.commentsURL, inBackground: inBackground, isPrivate: isPrivate });
 						}
 					}
-					worker.postMessage({status: "success"});
+					worker.postMessage({status: 'success'});
 					break;
 				case 'keyboardNav':
-					inBackground = (request.button === 1)
+					inBackground = (request.button === 1);
 					isPrivate = priv.isPrivate(windows.activeWindow);
 
 					// handle requests from keyboardNav module
@@ -335,8 +380,8 @@ pageMod.PageMod({
 						thisLinkURL = (thisLinkURL.substring(0, 1) === '/') ? 'http://www.reddit.com' + thisLinkURL : location.href + thisLinkURL;
 					}
 					// Get the selected tab so we can get the index of it.  This allows us to open our new tab as the "next" tab.
-					tabs.open({url: thisLinkURL, inBackground: inBackground, isPrivate: isPrivate });
-					worker.postMessage({status: "success"});
+					openTab({url: thisLinkURL, inBackground: inBackground, isPrivate: isPrivate });
+					worker.postMessage({status: 'success'});
 					break;
 				case 'openLinkInNewTab':
 					inBackground = (request.focus !== true);
@@ -347,33 +392,18 @@ pageMod.PageMod({
 						thisLinkURL = (thisLinkURL.substring(0, 1) === '/') ? 'http://www.reddit.com' + thisLinkURL : location.href + thisLinkURL;
 					}
 					// Get the selected tab so we can get the index of it.  This allows us to open our new tab as the "next" tab.
-					tabs.open({url: thisLinkURL, inBackground: inBackground, isPrivate: isPrivate });
-					worker.postMessage({status: "success"});
-					break;
-				case 'loadTweet':
-					Request({
-						url: request.url,
-						onComplete: function(response) {
-							let resp = JSON.parse(response.text);
-							let responseObj = {
-								name: 'loadTweet',
-								response: resp
-							};
-							worker.postMessage(responseObj);
-						},
-						headers: request.headers,
-						content: request.data
-					}).get();
+					openTab({url: thisLinkURL, inBackground: inBackground, isPrivate: isPrivate });
+					worker.postMessage({status: 'success'});
 					break;
 				case 'getLocalStorage':
-					worker.postMessage({ name: 'getLocalStorage', message: localStorage });
+					worker.postMessage({ requestType: 'getLocalStorage', message: localStorage });
 					break;
 				case 'saveLocalStorage':
 					for (let key in request.data) {
 						localStorage.setItem(key,request.data[key]);
 					}
 					localStorage.setItem('importedFromForeground', true);
-					worker.postMessage({ name: 'saveLocalStorage', message: localStorage });
+					worker.postMessage({ requestType: 'saveLocalStorage', message: localStorage });
 					break;
 				case 'localStorage':
 					switch (request.operation) {
@@ -396,6 +426,69 @@ pageMod.PageMod({
 							break;
 					}
 					break;
+				case 'pageAction':
+					let onoff = request.visible ? 'on' : 'off';
+					switch (request.action) {
+						case 'show':
+							if (!styleSheetButton) {
+								styleSheetButton = ToggleButton({
+									id: 'res-styletoggle',
+									label: 'toggle subreddit CSS',
+									disabled: false,
+									checked: request.visible,
+									icon: {
+										'16': self.data.url('images/css-' + onoff + '-small.png'),
+										'32': self.data.url('images/css-' + onoff + '.png')
+									},
+									onChange: function(state) {
+										let worker = getActiveWorker();
+										worker.postMessage({
+											requestType: 'subredditStyle',
+											toggle: state.checked
+										});
+									}
+								});
+							} else {
+								styleSheetButton.state('tab', {
+									label: 'toggle subreddit CSS',
+									icon: {
+										'16': self.data.url('images/css-' + onoff + '-small.png'),
+										'32': self.data.url('images/css-' + onoff + '.png')
+									},
+									disabled: false,
+									checked: request.visible
+								});
+							}
+							break;
+						case 'stateChange':
+							if (styleSheetButton) {
+								styleSheetButton.state('tab', {
+									label: 'toggle subreddit CSS',
+									icon: {
+										'16': self.data.url('images/css-' + onoff + '-small.png'),
+										'32': self.data.url('images/css-' + onoff + '.png')
+									},
+									disabled: false,
+									checked: request.visible
+								});
+							}
+							break;
+						case 'disable':
+							if (styleSheetButton) {
+								styleSheetButton.state('tab', {
+									label: 'toggle subreddit CSS (must be on a subreddit)',
+									disabled: true,
+									checked: true
+								});
+							}
+							break;
+						case 'hide':
+							if (styleSheetButton) {
+								styleSheetButton.destroy();
+							}
+							break;
+					}
+					break;
 				case 'addURLToHistory':
 					isPrivate = priv.isPrivate(windows.activeWindow);
 					if (isPrivate) {
@@ -411,8 +504,19 @@ pageMod.PageMod({
 						}]
 					});
 					break;
+				case 'multicast':
+					isPrivate = priv.isPrivate(worker);
+					workers
+						.filter(function(w) {
+							return (w !== worker) && (priv.isPrivate(w) === isPrivate);
+						})
+						.forEach(function(worker) {
+							worker.postMessage(request);
+						});
+
+					break;
 				default:
-					worker.postMessage({status: "unrecognized request type"});
+					worker.postMessage({status: 'unrecognized request type'});
 					break;
 			}
 		});

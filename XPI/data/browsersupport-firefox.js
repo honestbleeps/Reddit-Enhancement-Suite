@@ -1,30 +1,25 @@
+/* global self */
+
 // if this is a jetpack addon, add an event listener like Safari's message handler...
-self.on('message', function(msgEvent) {
-	switch (msgEvent.name) {
+self.on('message', function(request) {
+	switch (request.requestType) {
 		case 'readResource':
-			window.RESLoadCallbacks[msgEvent.transaction](msgEvent.data);
-			delete window.RESLoadCallbacks[msgEvent.transaction];
+			window.RESLoadCallbacks[request.transaction](request.data);
+			delete window.RESLoadCallbacks[request.transaction];
 			break;
-		case 'GM_xmlhttpRequest':
+		case 'ajax':
 			// Fire the appropriate onload function for this xmlhttprequest.
-			xhrQueue.onloads[msgEvent.XHRID](msgEvent.response);
+			xhrQueue.onloads[request.XHRID](request.response);
 			break;
 		case 'compareVersion':
 			var forceUpdate = false;
-			if (typeof msgEvent.message.forceUpdate !== 'undefined') forceUpdate = true;
-			RESUtils.compareVersion(msgEvent.message, forceUpdate);
-			break;
-		case 'loadTweet':
-			var tweet = msgEvent.response;
-			var thisExpando = modules['styleTweaks'].tweetExpando;
-			$(thisExpando).html(tweet.html);
-			thisExpando.style.display = 'block';
-			thisExpando.classList.add('twitterLoaded');
+			if (typeof request.message.forceUpdate !== 'undefined') forceUpdate = true;
+			RESUtils.compareVersion(request.message, forceUpdate);
 			break;
 		case 'getLocalStorage':
 			// Does RESStorage have actual data in it?  If it doesn't, they're a legacy user, we need to copy
 			// old school localStorage from the foreground page to the background page to keep their settings...
-			if (typeof msgEvent.message.importedFromForeground === 'undefined') {
+			if (typeof request.message.importedFromForeground === 'undefined') {
 				// it doesn't exist.. copy it over...
 				var thisJSON = {
 					requestType: 'saveLocalStorage',
@@ -32,84 +27,110 @@ self.on('message', function(msgEvent) {
 				};
 				self.postMessage(thisJSON);
 			} else {
-				setUpRESStorage(msgEvent.message);
-				//RESInit();
+				RESStorage.setup.complete(request.message);
+				//RESUtils.init.complete();
 			}
 			break;
 		case 'saveLocalStorage':
 			// Okay, we just copied localStorage from foreground to background, let's set it up...
-			setUpRESStorage(msgEvent.message);
+			RESStorage.setup.complete(request.message);
 			break;
 		case 'localStorage':
-			RESStorage.setItem(msgEvent.itemName, msgEvent.itemValue, true);
+			RESStorage.setItem(request.itemName, request.itemValue, true);
+			break;
+		case 'subredditStyle':
+			if (!modules['styleTweaks'].styleToggleCheckbox) {
+				return;
+			}
+			if (request.message === 'refreshState') {
+				var toggle = modules['styleTweaks'].styleToggleCheckbox.checked,
+					currentSubreddit = RESUtils.currentSubreddit();
+
+				if (currentSubreddit) {
+					RESUtils.runtime.sendMessage({
+						requestType: 'pageAction',
+						action: 'stateChange',
+						visible: toggle
+					});
+				}
+			} else {
+				var toggle = !modules['styleTweaks'].styleToggleCheckbox.checked,
+					currentSubreddit = RESUtils.currentSubreddit();
+				if (currentSubreddit) {
+					modules['styleTweaks'].toggleSubredditStyle(toggle, RESUtils.currentSubreddit());
+				}
+			}
+			break;
+		case 'multicast':
+			RESUtils.rpc(request.moduleID, request.method, request.arguments);
 			break;
 		default:
 			// console.log('unknown event type in self.on');
-			// console.log(msgEvent.toSource());
+			// console.log(request.toSource());
 			break;
 	}
 });
 
+RESUtils.runtime = RESUtils.runtime || {};
+RESUtils.runtime.ajax = function(obj) {
+	var crossDomain = (obj.url.indexOf(location.hostname) === -1);
 
-
-// GM_xmlhttpRequest for non-GM browsers
-if (typeof GM_xmlhttpRequest === 'undefined') {
-	// we must be in a Firefox / jetpack addon...
-	GM_xmlhttpRequest = function(obj) {
-		var crossDomain = (obj.url.indexOf(location.hostname) === -1);
-
-		if ((typeof obj.onload !== 'undefined') && (crossDomain)) {
-			obj.requestType = 'GM_xmlhttpRequest';
-			// okay, firefox's jetpack addon does this same stuff... le sigh..
-			if (typeof obj.onload !== 'undefined') {
-				obj.XHRID = xhrQueue.count;
-				xhrQueue.onloads[xhrQueue.count] = obj.onload;
-				self.postMessage(obj);
-				xhrQueue.count++;
-			}
-		} else {
-			var request = new XMLHttpRequest();
-			request.onreadystatechange = function() {
-				if (obj.onreadystatechange) {
-					obj.onreadystatechange(request);
-				}
-				if (request.readyState === 4 && obj.onload) {
-					obj.onload(request);
-				}
-			};
-			request.onerror = function() {
-				if (obj.onerror) {
-					obj.onerror(request);
-				}
-			};
-			try {
-				request.open(obj.method, obj.url, true);
-			} catch (e) {
-				if (obj.onerror) {
-					obj.onerror({
-						readyState: 4,
-						responseHeaders: '',
-						responseText: '',
-						responseXML: '',
-						status: 403,
-						statusText: 'Forbidden'
-					});
-				}
-				return;
-			}
-			if (obj.headers) {
-				for (var name in obj.headers) {
-					request.setRequestHeader(name, obj.headers[name]);
-				}
-			}
-			request.send(obj.data);
-			return request;
+	if ((typeof obj.onload !== 'undefined') && (crossDomain)) {
+		obj.requestType = 'ajax';
+		// okay, firefox's jetpack addon does this same stuff... le sigh..
+		if (typeof obj.onload !== 'undefined') {
+			obj.XHRID = xhrQueue.count;
+			xhrQueue.onloads[xhrQueue.count] = obj.onload;
+			self.postMessage(obj);
+			xhrQueue.count++;
 		}
-	};
-}
+	} else {
+		var request = new XMLHttpRequest();
+		request.onreadystatechange = function() {
+			if (obj.onreadystatechange) {
+				obj.onreadystatechange(request);
+			}
+			if (request.readyState === 4 && obj.onload) {
+				obj.onload(request);
+			}
+		};
+		request.onerror = function() {
+			if (obj.onerror) {
+				obj.onerror(request);
+			}
+		};
+		try {
+			request.open(obj.method, obj.url, true);
+		} catch (e) {
+			if (obj.onerror) {
+				obj.onerror({
+					readyState: 4,
+					responseHeaders: '',
+					responseText: '',
+					responseXML: '',
+					status: 403,
+					statusText: 'Forbidden'
+				});
+			}
+			return;
+		}
+		if (obj.headers) {
+			for (var name in obj.headers) {
+				request.setRequestHeader(name, obj.headers[name]);
+			}
+		}
+
+		if (obj.isLogin) {
+			request.withCredentials = true;
+		}
+
+		request.send(obj.data);
+		return request;
+	}
+};
 
 
-BrowserStrategy.localStorageTest = function() {
+RESUtils.runtime.localStorageTest = function() {
 	// if this is a firefox addon, check for the old lsTest to see if they used to use the Greasemonkey script...
 	// if so, present them with a notification explaining that they should download a new script so they can
 	// copy their old settings...
@@ -131,7 +152,7 @@ BrowserStrategy.localStorageTest = function() {
 	}
 };
 
-BrowserStrategy.storageSetup = function(thisJSON) {
+(function() {
 	var transactions = 0;
 	window.RESLoadCallbacks = [];
 	RESLoadResourceAsText = function(filename, callback) {
@@ -139,12 +160,15 @@ BrowserStrategy.storageSetup = function(thisJSON) {
 		self.postMessage({ requestType: 'readResource', filename: filename, transaction: transactions });
 		transactions++;
 	};
+})();
+
+RESUtils.runtime.storageSetup = function(thisJSON) {
 	// we've got firefox jetpack, get localStorage from background process
 	self.postMessage(thisJSON);
 };
 
-BrowserStrategy.RESInitReadyCheck = (function() {
-	var original = BrowserStrategy.RESInitReadyCheck;
+RESUtils.runtime.RESInitReadyCheck = (function() {
+	var original = RESUtils.runtime.RESInitReadyCheck;
 
 	return function(RESInit) {
 		// firefox addon sdk... we've included jQuery...
@@ -159,7 +183,42 @@ BrowserStrategy.RESInitReadyCheck = (function() {
 	}
 })();
 
-
-BrowserStrategy.sendMessage = function(thisJSON) {
+RESUtils.runtime.openInNewWindow = function(thisHREF) {
+	var thisJSON = {
+		requestType: 'keyboardNav',
+		linkURL: thisHREF
+	};
 	self.postMessage(thisJSON);
+};
+
+RESUtils.runtime.openLinkInNewTab = function(thisHREF) {
+	var thisJSON = {
+		requestType: 'openLinkInNewTab',
+		linkURL: thisHREF
+	};
+	self.postMessage(thisJSON);
+};
+
+RESUtils.runtime.sendMessage = function(thisJSON) {
+	self.postMessage(thisJSON);
+};
+
+RESUtils.runtime.deleteCookie = function(cookieName) {
+	var deferred = new $.Deferred();
+
+	var requestJSON = {
+		requestType: 'deleteCookie',
+		host: location.protocol + '//' + location.host,
+		cname: cookieName
+	};
+
+	self.on('message', function receiveMessage(message) {
+		if (message && message.removedCookie && message.removedCookie === cookieName) {
+			self.removeListener('message', receiveMessage);
+			deferred.resolve(cookieName);
+		}
+	});
+	self.postMessage(requestJSON);
+
+	return deferred;
 };

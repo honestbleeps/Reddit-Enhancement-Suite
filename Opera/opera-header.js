@@ -7,3 +7,4 @@ var DOMParser      = window.DOMParser;
 var localStorage   = window.localStorage;
 var sessionStorage = window.sessionStorage;
 var XMLHttpRequest = window.XMLHttpRequest;
+var navigator      = window.navigator;

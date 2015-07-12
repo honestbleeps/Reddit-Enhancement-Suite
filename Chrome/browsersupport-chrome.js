@@ -1,12 +1,11 @@
-// OperaBlink loads browsersupport-chrome first, then browsersupport-operablink.js for overrides
-
+/* global chrome:false */
 
 // we need a queue of permission callback functions because of
 // multiple async requests now needed... it's yucky and sad. Thanks, Chrome. :(
-permissionQueue = {
+var permissionQueue = {
 	count: 0,
 	onloads: []
-}
+};
 
 
 chrome.runtime.onMessage.addListener(
@@ -33,89 +32,93 @@ chrome.runtime.onMessage.addListener(
 				// TODO: maybe add a type here? right now only reason is for twitter expandos so text is hard coded, etc.
 				// result will just be true/false here. if false, permission was rejected.
 				if (!request.result) {
-					modules['notifications'].showNotification("You clicked 'Deny'. RES needs permission to access the Twitter API at "+request.data.origins[0]+" for twitter expandos to show twitter posts in-line. Be assured RES does not access any of your information on twitter.com - it only accesses the API.", 10);
+					modules['notifications'].showNotification('You clicked "Deny". RES needs permission to access the Twitter API at ' +
+						request.data.origins[0] + ' for twitter expandos to show twitter posts in-line. ' +
+						'Be assured RES does not access any of your information on twitter.com - it only accesses the API.',
+						10);
 					permissionQueue.onloads[request.callbackID](false);
 				} else {
 					permissionQueue.onloads[request.callbackID](true);
 				}
 				break;
+			case 'subredditStyle':
+				var toggle = !modules['styleTweaks'].styleToggleCheckbox.checked;
+				modules['styleTweaks'].toggleSubredditStyle(toggle, RESUtils.currentSubreddit());
+				break;
+			case 'multicast':
+				RESUtils.rpc(request.moduleID, request.method, request.arguments);
+				break;
 			default:
-				// sendResponse({status: "unrecognized request type"});
+				// sendResponse({status: 'unrecognized request type'});
 				break;
 		}
 	}
 );
 
+RESUtils.runtime = RESUtils.runtime || {};
+RESUtils.runtime.ajax = function(obj) {
+	var crossDomain = (obj.url.indexOf(location.hostname) === -1);
 
-
-
-// GM_xmlhttpRequest for non-GM browsers
-if (typeof GM_xmlhttpRequest === 'undefined') {
-	GM_xmlhttpRequest = function(obj) {
-		var crossDomain = (obj.url.indexOf(location.hostname) === -1);
-
-		if ((typeof obj.onload !== 'undefined') && (crossDomain)) {
-			obj.requestType = 'GM_xmlhttpRequest';
-			if (typeof obj.onload !== 'undefined') {
-				chrome.runtime.sendMessage(obj, function(response) {
-					obj.onload(response);
-				});
-			}
-		} else {
-			var request = new XMLHttpRequest();
-			request.onreadystatechange = function() {
-				if (obj.onreadystatechange) {
-					obj.onreadystatechange(request);
-				}
-				if (request.readyState === 4 && obj.onload) {
-					obj.onload(request);
-				}
-			};
-			request.onerror = function() {
-				if (obj.onerror) {
-					obj.onerror(request);
-				}
-			};
-			try {
-				request.open(obj.method, obj.url, true);
-			} catch (e) {
-				if (obj.onerror) {
-					obj.onerror({
-						readyState: 4,
-						responseHeaders: '',
-						responseText: '',
-						responseXML: '',
-						status: 403,
-						statusText: 'Forbidden'
-					});
-				}
-				return;
-			}
-			if (obj.headers) {
-				for (var name in obj.headers) {
-					request.setRequestHeader(name, obj.headers[name]);
-				}
-			}
-			request.send(obj.data);
-			return request;
+	if ((typeof obj.onload !== 'undefined') && (crossDomain)) {
+		obj.requestType = 'ajax';
+		if (typeof obj.onload !== 'undefined') {
+			chrome.runtime.sendMessage(obj, function(response) {
+				obj.onload(response);
+			});
 		}
-	};
-}
-
-
-BrowserStrategy.storageSetup = function(thisJSON) {
-	RESLoadResourceAsText = function(filename, callback) {
-		var xhr = new XMLHttpRequest();
-		xhr.onload = function() {
-			if (callback) {
-				callback(this.responseText);
+	} else {
+		var request = new XMLHttpRequest();
+		request.onreadystatechange = function() {
+			if (obj.onreadystatechange) {
+				obj.onreadystatechange(request);
+			}
+			if (request.readyState === 4 && obj.onload) {
+				obj.onload(request);
 			}
 		};
-		var id = chrome.i18n.getMessage("@@extension_id");
-		xhr.open('GET', 'chrome-extension://' + id + '/' + filename);
-		xhr.send();
-	};
+		request.onerror = function() {
+			if (obj.onerror) {
+				obj.onerror(request);
+			}
+		};
+		try {
+			request.open(obj.method, obj.url, true);
+		} catch (e) {
+			if (obj.onerror) {
+				obj.onerror({
+					readyState: 4,
+					responseHeaders: '',
+					responseText: '',
+					responseXML: '',
+					status: 403,
+					statusText: 'Forbidden'
+				});
+			}
+			return;
+		}
+		if (obj.headers) {
+			for (var name in obj.headers) {
+				request.setRequestHeader(name, obj.headers[name]);
+			}
+		}
+		request.send(obj.data);
+		return request;
+	}
+};
 
+RESLoadResourceAsText = function(filename, callback) {
+	var xhr = new XMLHttpRequest();
+	xhr.onload = function() {
+		if (callback) {
+			callback(this.responseText);
+		}
+	};
+	var id = chrome.i18n.getMessage('@@extension_id');
+	xhr.open('GET', 'chrome-extension://' + id + '/' + filename);
+	xhr.send();
+};
+
+RESUtils.runtime.storageSetup = function(thisJSON) {
 	// we've got chrome, get a copy of the background page's localStorage first, so don't init until after.
 	chrome.runtime.sendMessage(thisJSON, function(response) {
 		// Does RESStorage have actual data in it?  If it doesn't, they're a legacy user, we need to copy
@@ -133,21 +136,36 @@ BrowserStrategy.storageSetup = function(thisJSON) {
 				data: ls
 			};
 			chrome.runtime.sendMessage(thisJSON, function(response) {
-				setUpRESStorage(response);
+				RESStorage.setup.complete(response);
 			});
 		} else {
-			setUpRESStorage(response);
+			RESStorage.setup.complete(response);
 		}
 	});
-}
-
-
-BrowserStrategy.sendMessage = function(thisJSON) {
-	chrome.runtime.sendMessage(thisJSON);
 };
 
 
-BrowserStrategy.openInNewWindow = function(thisHREF) {
+RESUtils.runtime.sendMessage = function(thisJSON) {
+	chrome.runtime.sendMessage(thisJSON);
+};
+
+RESUtils.runtime.deleteCookie = function(cookieName) {
+	var deferred = new $.Deferred();
+
+	var requestJSON = {
+		requestType: 'deleteCookie',
+		host: location.protocol + '//' + location.host,
+		cname: cookieName
+	};
+	chrome.runtime.sendMessage(requestJSON, function(response) {
+		deferred.resolve(cookieName);
+	});
+
+	return deferred;
+};
+
+
+RESUtils.runtime.openInNewWindow = function(thisHREF) {
 	var thisJSON = {
 		requestType: 'keyboardNav',
 		linkURL: thisHREF
@@ -155,8 +173,16 @@ BrowserStrategy.openInNewWindow = function(thisHREF) {
 	chrome.runtime.sendMessage(thisJSON);
 };
 
-BrowserStrategy.addURLToHistory = (function() {
-	var original = BrowserStrategy.addURLToHistory;
+RESUtils.runtime.openLinkInNewTab = function(thisHREF) {
+	var thisJSON = {
+		requestType: 'openLinkInNewTab',
+		linkURL: thisHREF
+	};
+	chrome.runtime.sendMessage(thisJSON);
+};
+
+RESUtils.runtime.addURLToHistory = (function() {
+	var original = RESUtils.runtime.addURLToHistory;
 
 	return function(url) {
 		if (chrome.extension.inIncognitoContext) {
@@ -164,13 +190,5 @@ BrowserStrategy.addURLToHistory = (function() {
 		}
 
 		original(url);
-	}
+	};
 })();
-
-BrowserStrategy.supportsThirdPartyCookies = function() {
-	if (chrome.extension.inIncognitoContext) {
-		return false;
-	}
-
-	return true;
-}

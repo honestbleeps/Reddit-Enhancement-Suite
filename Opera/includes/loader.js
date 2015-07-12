@@ -15,113 +15,254 @@
 // @downloadURL   http://redditenhancementsuite.com/latest/reddit_enhancement_suite.user.js
 // ==/UserScript==
 
-var loadEventFired = false;
-
-window.addEventListener('load', function() {
-	loadEventFired = true;
-});
-
-window.addEventListener('DOMContentLoaded', function() {
-	var files = [
+(function() {
+	var scripts = [
 		'opera-header.js',
+
+		'opera-save-jquery.js',
+		'vendor/jquery-1.11.3.min.js',
+		'opera-alias-jquery.js',
+
+		'vendor/guiders.js',
+		'vendor/jquery.sortable-0.9.12.js',
+		'vendor/jquery.edgescroll-0.1.js',
+		'vendor/jquery-fieldselection.min.js',
+		'vendor/favico.js',
+		'vendor/jquery.tokeninput.js',
+		'vendor/HTMLPasteurizer.js',
+		'vendor/snuownd.js',
+
+		'opera-restore-jquery.js',
+
+		'core/utils.js',
+		'browsersupport.js',
+		'browsersupport-opera.js',
+		'core/options.js',
+		'core/alert.js',
+		'core/migrate.js',
+		'core/storage.js',
+		'core/template.js',
+		'vendor/konami.js',
+		'vendor/hogan-3.0.2.js',
+		'vendor/imgrush.js',
+		'vendor/gfycat.js',
+		'vendor/gifyoutube.js',
+		'vendor/imgurgifv.js',
+		'opera-vendor-footer.js',
 
 		'reddit_enhancement_suite.user.js',
 
-		'opera-save-jquery.js',
-		'jquery-1.10.2.min.js',
-		'jquery.dragsort-0.6.js',
-		'jquery.tokeninput.js',
-		'opera-restore-jquery.js',
-
-		'jquery-fieldselection.min.js',
-		'utils.js',
-
-		'alert.js',
-		'browsersupport.js',
-		'browsersupport-opera.js',
-		'console.js',
-		'gfycat.js',
-		'guiders-1.2.8.js',
-		'hogan-2.0.0.js',
-		'HTMLPasteurizer.js',
-		'konami.js',
-		'mediacrush.js',
-		'snuownd.js',
-		'storage.js',
-		'template.js',
-		'tinycon.js',
-
+		'modules/submitIssue.js',
 		'modules/about.js',
 		'modules/accountSwitcher.js',
 		'modules/betteReddit.js',
-		'modules/bitcointip.js',
 		'modules/commandLine.js',
+		'modules/messageMenu.js',
+		'modules/easterEgg.js',
+		'modules/pageNavigator.js',
+		'modules/userInfo.js',
+		'modules/presets.js',
+		'modules/onboarding.js',
+		'modules/customToggles.js',
+		'modules/floater.js',
+		'modules/orangered.js',
+		'modules/announcements.js',
+		'modules/selectedEntry.js',
+		'modules/settingsConsole.js',
+		'modules/menu.js',
 		'modules/commentHidePersistor.js',
 		'modules/commentNavigator.js',
 		'modules/commentPreview.js',
 		'modules/commentTools.js',
+		'modules/context.js',
+		'modules/noParticipation.js',
 		'modules/dashboard.js',
 		'modules/filteReddit.js',
 		'modules/hideChildComments.js',
 		'modules/hover.js',
 		'modules/keyboardNav.js',
+		'modules/localDate.js',
+		'modules/logoLink.js',
 		'modules/neverEndingReddit.js',
 		'modules/newCommentCount.js',
+		'modules/nightMode.js',
 		'modules/notifications.js',
 		'modules/RESTips.js',
 		'modules/saveComments.js',
+		'modules/searchHelper.js',
+		'modules/submitHelper.js',
 		'modules/settingsNavigation.js',
 		'modules/showImages.js',
 		'modules/showKarma.js',
 		'modules/showParent.js',
 		'modules/singleClick.js',
-		'modules/snoonet.js',
 		'modules/sortCommentsTemporarily.js',
 		'modules/spamButton.js',
 		'modules/styleTweaks.js',
 		'modules/subredditInfo.js',
 		'modules/subredditManager.js',
 		'modules/subredditTagger.js',
+		'modules/tableTools.js',
 		'modules/troubleshooter.js',
 		'modules/backupAndRestore.js',
-		'modules/uppersAndDowners.js',
 		'modules/userHighlight.js',
-		'modules/usernameHider.js',
 		'modules/userTagger.js',
+		'modules/userbarHider.js',
+		'modules/usernameHider.js',
+		'modules/voteEnhancements.js',
+		'modules/upload.js',
+		'modules/modhelper.js',
+		'modules/quickMessage.js',
 
-		'init.js',
+		'modules/hosts/imgur.js',
+		'modules/hosts/twitter.js',
+		'modules/hosts/futurism.js',
+		'modules/hosts/gfycat.js',
+		'modules/hosts/gifyoutube.js',
+		'modules/hosts/vidble.js',
+		'modules/hosts/fitbamob.js',
+		'modules/hosts/giflike.js',
+		'modules/hosts/ctrlv.js',
+		'modules/hosts/snag.js',
+		'modules/hosts/picshd.js',
+		'modules/hosts/minus.js',
+		'modules/hosts/fiveHundredPx.js',
+		'modules/hosts/flickr.js',
+		'modules/hosts/steampowered.js',
+		'modules/hosts/deviantart.js',
+		'modules/hosts/tumblr.js',
+		'modules/hosts/memecrunch.js',
+		'modules/hosts/imgflip.js',
+		'modules/hosts/imgrush.js',
+		'modules/hosts/livememe.js',
+		'modules/hosts/makeameme.js',
+		'modules/hosts/memegen.js',
+		'modules/hosts/redditbooru.js',
+		'modules/hosts/youtube.js',
+		'modules/hosts/vimeo.js',
+		'modules/hosts/soundcloud.js',
+		'modules/hosts/clyp.js',
+		'modules/hosts/memedad.js',
+		'modules/hosts/ridewithgps.js',
+		'modules/hosts/photobucket.js',
+		'modules/hosts/giphy.js',
+		'modules/hosts/streamable.js',
+		'modules/hosts/raddit.js',
+		'modules/hosts/pastebin.js',
+		'modules/hosts/github.js',
+		'modules/hosts/onedrive.js',
+		'modules/hosts/oddshot.js',
+
+		'core/init.js',
 
 		'opera-footer.js'
 	];
 
-	var context = {opera:opera};
+	var stylesheets = [
+		'core/res.css',
+		'vendor/guiders.css',
+		'vendor/tokenize.css',
+		'modules/commentBoxes.css',
+		'modules/nightmode.css',
+		'vendor/players.css',
+		'core/batch.css'
+	];
 
-	function run(all) {
-		function f() {
-			eval(all);
+
+	function loadFiles(filenames) {
+		var deferred = new Deferred();
+		var files = new Array(filenames.length);
+		var loaded = 0;
+
+		filenames.forEach(loadFile);
+
+		function loadFile(filename, i) {
+			var file = opera.extension.getFile('/' + filename);
+			var fr = new FileReader();
+			fr.onload = onLoad.bind(this, i, fr);
+			fr.readAsText(file);
 		}
 
-		f.call(context);
-	}
-
-	// Load all files asynchronously
-	var data = new Array(files.length);
-	var loaded = 0;
-
-	function loadFile(i) {
-		var fn = files[i];
-		var f = opera.extension.getFile('/' + fn);
-		var fr = new FileReader();
-		fr.onload = function() {
-			data[i] = fr.result;
+		function onLoad(i, fr) {
+			files[i] = fr.result;
+			deferred.update(files[i], i);
 			loaded++;
-			if (loaded == files.length) {
-				run(data.join(';'));
+			if (loaded === files.length) {
+				deferred.resolve(files);
 			}
 		}
-		fr.readAsText(f);
+
+		return deferred;
 	}
 
-	for (var i=0; i<files.length; i++)
-		loadFile(i);
-});
+	function Deferred() {
+		if (!(this instanceof Deferred)) {
+			return new Deferred();
+		}
+		this._ = {
+			progress: [],
+			done: [],
+			result: undefined,
+			status: 'pending'
+		};
+	}
+	Deferred.prototype = {
+		progress: function(callback) {
+			this._.progress.push(callback);
+			return this;
+		},
+		done: function(callback) {
+			if (this._.status === 'resolved') {
+				callback.apply(this, this._.result);
+			} else {
+				this._.done.push(callback);
+			}
+			return this;
+		},
+		update: function(/* ... vals */) {
+			var vals = Array.prototype.slice.call(arguments);
+			this._.progress.forEach(function(callback) {
+				callback.apply(this, vals);
+			}.bind(this));
+			return this;
+		},
+		resolve: function(/* ... vals */) {
+			if (this._.status !== 'resolved') {
+				this._.status = 'resolved';
+				this._.result = Array.prototype.slice.call(arguments);
+
+				this._.done.forEach(function(callback) {
+					callback.apply(this, this._.result);
+				}.bind(this));
+			}
+			return this;
+		}
+	};
+
+
+	var context = { opera: opera };
+
+	var stylesheetsLoaded = loadFiles(stylesheets);
+	stylesheetsLoaded.done(function(css) {
+		var container = document.createDocumentFragment(),
+			elements = css.map(function(css, i) {
+				var element = document.createElement('style');
+				element.textContent = css;
+				element.setAttribute('data-res-src', stylesheets[i]);
+				return element;
+			});
+		elements.forEach(container.appendChild.bind(container));
+		document.head.appendChild(container);
+	});
+
+	var scriptsLoaded = loadFiles(scripts);
+	scriptsLoaded.done(function(files) {
+		stylesheetsLoaded.done(function() {
+			var batched = files.join(';\n');
+			f.call(context); // why?
+			function f() {
+				eval(batched);
+			}
+		});
+	});
+})();
