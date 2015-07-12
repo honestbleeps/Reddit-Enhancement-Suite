@@ -309,8 +309,9 @@
 	background-color: #222;
 	color: #ddd;
 }
+body.res-nightmode,
 .res-nightmode .side,
-.res-nightmode .side .md {
+.res-nightmode .side * {
 	color: #ccc;
 }
 
@@ -752,7 +753,8 @@
 .res-nightmode .parent .subreddit,
 .res-nightmode .comment .md p a,
 .res-nightmode .combined-search-page .search-result a,
-.res-nightmode .combined-search-page .search-result a>markk {
+.res-nightmode .combined-search-page .search-result a>mark,
+.res-nightmode .hoverHelp {
 	color: rgb(20,150,220);
 }
 .res-nightmode .combined-search-page .search-result a:visited,
@@ -798,7 +800,7 @@
 .res-nightmode .instructions .preftable th,
 .res-nightmode #BigEditor .markdownEditor a,
 .res-nightmode #BigEditor .markdownEditor .RESMacroDropdownTitle,
-.res-nightmode #searchexpando {
+.res-nightmode .content .tabmenu li a {
 	color: #ccc;
 }
 .res-nightmode .RES-keyNav-activeElement .usertext-body .md blockquote p {
@@ -813,7 +815,8 @@
 	background-color: #222;
 	color: #ccc;
 }
-.res-nightmode .infobar {
+.res-nightmode .infobar,
+.res-nightmode .infobar .md {
 	border-color: #a48f50;
 	background: #dad0b3;
 	color: #000;
