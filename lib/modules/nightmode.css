@@ -101,7 +101,9 @@
 .res-nightmode .sidecontentbox .content {
 	border-color: rgba(234,234,234,.1);
 }
-.res-nightmode .RESUserTagImage,
+.res-nightmode .RESUserTagImage::after {
+	color: rgb(117,142,168);
+}
 .res-nightmode button.arrow.prev,
 .res-nightmode button.arrow.next {
 	opacity: .5;
@@ -296,15 +298,8 @@
 .res-nightmode .entry .score {
 	color: #dde;
 }
-.res-nightmode .entry .tagline:first-of-type,
-.res-nightmode .entry time {
-	color: rgba(231,231,176,.6);
-}
 .res-nightmode .permission-summary {
 	border-color: transparent;
-}
-.res-nightmode .entry .domain a {
-	color: #ADD8E6;
 }
 .res-nightmode .side .titlebox form.flairtoggle,
 .res-nightmode .trophy-area .content,
@@ -315,7 +310,6 @@
 	color: #ddd;
 }
 .res-nightmode .side,
-.res-nightmode .side *,
 .res-nightmode .side .md {
 	color: #ccc;
 }
@@ -721,7 +715,8 @@
 .res-nightmode #search option {
 	color: #111;
 }
-.res-nightmode #searchexpando {
+.res-nightmode #searchexpando,
+.res-nightmode .post-sharing {
 	background: #303030;
 	border-color: #444;
 }
@@ -734,12 +729,13 @@
 .res-nightmode #shortlink-text {
 	color: #fff;
 }
+.res-nightmode a,
+.res-nightmode .md a,
 .res-nightmode .share-button .option,
 .res-nightmode #subscribe a,
 .res-nightmode .share .option,
 .res-nightmode .tagline a,
 .res-nightmode .tagline .head .author,
-.res-nightmode .footer a,
 .res-nightmode .wired a,
 .res-nightmode .side a,
 .res-nightmode .subredditbox li a,
@@ -801,14 +797,14 @@
 .res-nightmode .dsq-auth-header,
 .res-nightmode .instructions .preftable th,
 .res-nightmode #BigEditor .markdownEditor a,
-.res-nightmode #BigEditor .markdownEditor .RESMacroDropdownTitle {
+.res-nightmode #BigEditor .markdownEditor .RESMacroDropdownTitle,
+.res-nightmode #searchexpando {
 	color: #ccc;
 }
 .res-nightmode .RES-keyNav-activeElement .usertext-body .md blockquote p {
 	background: rgb(40,40,40)!important;
 }
 .res-nightmode .content .md blockquote {
-	background: rgb(40,40,40);
 	border-left-color: #ccc;
 	color: #bbb;
 }
@@ -867,7 +863,8 @@
 .res-nightmode .submit #sr-autocomplete,
 .res-nightmode .usertext-edit textarea,
 .res-nightmode .usertext-edit .RESDialogSmall .md,
-.res-nightmode .RESDialogSmall {
+.res-nightmode .RESDialogSmall,
+.res-nightmode .c-close {
 	background-color: #666;
 	color: #ccc;
 }
