@@ -339,6 +339,21 @@ body.res-console-open {
 #BigEditor .BELeft .RESDialogContents {
 	padding-top: 52px;
 }
+/* Allow textarea to be any width without disappearing. */
+body.wiki-page form#editform,
+form.usertext {
+	overflow: auto; /* Same as top-level comment form on vanilla reddit */
+}
+/* Fix for when form.usertext has overflow: visible. */
+form.usertext textarea {
+	display: block; /* Allow the textarea to go behind the sidebar. */
+	position: relative; /* Bring it in front of the sidebar. */
+}
+/* Fix wiki editing form. */
+#wiki_page_content,
+.wiki-page .wiki-page-content #wiki_revision_reason {
+	box-sizing: border-box;
+}
 .usertext-edit .RESDialogSmall:not(.livePreview) .md.RESDialogContents {
 	border: none;
 	background-color: #fff;
