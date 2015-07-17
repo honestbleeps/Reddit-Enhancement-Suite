@@ -346,12 +346,18 @@ body.wiki-page form#editform, form.usertext {
 div.usertext-edit {
 	width: auto;
 	max-width: 500px;
+	padding: 0px;
+}
+/* Correct reddit's miscalculation of textarea width when editing a comment. */
+.usertext-body > .md {
+	padding-right: 1px;
 }
 .usertext-edit .md,
 .wiki-page #editform textarea {
 	clear: left;
 }
-/* Fix wiki edit form. */
+/* Improve size calculation for textareas. */
+.usertext-edit textarea,
 #wiki_page_content,
 .wiki-page .wiki-page-content #wiki_revision_reason {
 	box-sizing: border-box;
@@ -1150,12 +1156,6 @@ body.RESScrollLock {
 	right: 38px;
 	font-family: Webdings;
 }
-
-.usertext-edit div textarea {
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
-}
-
 .content .RESBigEditorPop {
 	float: right;
 	margin-top: 5px;
@@ -1165,8 +1165,6 @@ body.RESScrollLock {
 	display: inline-block;
 	z-index: 3000;
 }
-
-
 
 /* Image Viewer */
 img {
