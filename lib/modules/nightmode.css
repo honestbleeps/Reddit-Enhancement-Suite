@@ -51,10 +51,12 @@
 	background: #c7c7c7;
 }
 .res-nightmode .RESCloseButton {
-	background: #ddd;
+  border-color: rgb(76,76,76);
+	background-color: rgb(46,46,46);
 }
-.res-nightmode .tabmenu .selected a,
-.res-nightmode #header .tabmenu .selected a,
+.res-nightmode .RESCloseButton:hover {
+	background-color: rgb(46,46,46);
+}
 .res-nightmode .RESNotificationContent,
 .res-nightmode #commentNavCloseButton:hover {
 	background: #eee;
@@ -84,16 +86,12 @@
 .res-nightmode #BigEditor .markdownEditor .RESMacroDropdownList li:hover a {
 	color: rgb(187,187,187);
 }
+.res-nightmode .comment a:visited,
 .res-nightmode .comment .md p a:visited,
 .res-nightmode .new-comment .usertext-body .md p a:visited {
-	color: #369;
 }
 .res-nightmode .trophy-info .trophy-name {
 	color: #eee!important;
-}
-.res-nightmode .comment .md > p a:not(.madeVisible):hover {
-	opacity: .9;
-	text-decoration: underline;
 }
 .res-nightmode .submit-page .submit .formtab .selected a {
 	background: gray;
@@ -126,9 +124,8 @@
 	background-color: #888;
 	color: #eee;
 }
-.res-nightmode #header,
-.res-nightmode #REScommentNavBox {
-	background-color: #999;
+.res-nightmode #header {
+	background-color: rgb(105, 105, 105);
 }
 .res-nightmode #jumpToContent {
 	color: #ddd;
@@ -183,12 +180,6 @@
 }
 .res-nightmode .new-comment .usertext-body .md {
 	border: 1px #aaa dashed;
-}
-.res-nightmode .sitetable .moderator {
-	background-color: #282;
-}
-.res-nightmode .sitetable .admin {
-	background-color: #F01;
 }
 .res-nightmode .message ul {
 	color: #abc;
@@ -273,7 +264,9 @@
 .res-nightmode .moderator .footer-parent .footer {
 	background: #191919;
 }
-.res-nightmode .wiki-page .wiki-page-content .md.wiki>.toc ul {
+.res-nightmode .wiki-page .wiki-page-content .md.wiki>.toc ul,
+.res-nightmode .tabmenu .selected a,
+.res-nightmode #header .tabmenu .selected a {
 	background-color: #222;
 }
 .res-nightmode #RESDashboardAddComponent,
@@ -294,9 +287,6 @@
 .res-nightmode .RESDashboardComponent .RESDashboardComponentHeader ul li.active,
 .res-nightmode .RESDashboardComponent .RESDashboardComponentHeader ul li:hover {
 	background-color: #ccc;
-}
-.res-nightmode .entry .score {
-	color: #dde;
 }
 .res-nightmode .permission-summary {
 	border-color: transparent;
@@ -457,8 +447,8 @@ body.res-nightmode,
 .res-nightmode .nextprev img:hover {
 	opacity: .85;
 }
-.res-nightmode #header-bottom-left .tabmenu .selected a {
-	border-color: transparent;
+.res-nightmode .tabmenu .selected a {
+	border-bottom-color: #222;
 }
 .res-nightmode #ad-frame {
 	opacity: .8;
@@ -577,10 +567,6 @@ body.res-nightmode,
 	color: #eee;
 	font-size: 10px;
 }
-.res-nightmode .RES-keyNav-activeElement .title.loggedin:visited,
-.res-nightmode .RES-keyNav-activeElement .title:visited {
-	color: #dfdfdf;
-}
 .res-nightmode .link-button,
 .res-nightmode .text-button {
 	color: #444;
@@ -642,8 +628,7 @@ body.res-nightmode,
 .res-nightmode .traffic-table tr:nth-of-type(even) {
 	background-color: #181818;
 }
-.res-nightmode .report-form,
-.res-nightmode #authorInfoToolTip {
+.res-nightmode .report-form {
 	background-color: #666;
 	color: #ccc;
 	border-color: #888;
@@ -694,7 +679,8 @@ body.res-nightmode,
 }
 .res-nightmode .usertable tr:hover,
 .res-nightmode .moderator-table tr:hover,
-.res-nightmode .usertext.border .usertext-body {
+.res-nightmode .usertext.border .usertext-body,
+.res-nightmode .usertext.grayed .usertext-body {
 	background-color: #444;
 }
 .res-nightmode .tabmenu li a,
@@ -745,7 +731,6 @@ body.res-nightmode,
 .res-nightmode a[rel=tag],
 .res-nightmode .dsq-help,
 .res-nightmode #authorInfoToolTip h3 a,
-.res-nightmode .RES-keyNav-activeElement .md,
 .res-nightmode .help-toggle .option,
 .res-nightmode .morecomments a,
 .res-nightmode .reddiquette,
@@ -754,22 +739,11 @@ body.res-nightmode,
 .res-nightmode .combined-search-page .search-result a,
 .res-nightmode .combined-search-page .search-result a>mark,
 .res-nightmode .hoverHelp {
-	color: rgb(20,150,220);
+	color: rgb(100,140,160);
 }
 .res-nightmode .combined-search-page .search-result a:visited,
 .res-nightmode .combined-search-page .search-result a:visited>mark {
 	color: rgb(132,124,184);
-}
-.res-nightmode .RES-keyNav-activeElement .usertext .md a,
-.res-nightmode .RES-keyNav-activeElement .tagline a,
-.res-nightmode .RES-keyNav-activeElement .parent-link {
-	color: #8ad;
-}
-.res-nightmode .RES-keyNav-activeElement .tagline {
-	color: #bbb;
-}
-.res-nightmode .RES-keyNav-activeElement .usertext .md a:visited {
-	color: rgb(51,137,208);
 }
 .res-nightmode>.content>.spacer>.sitetable:before,
 .res-nightmode>.content>.sharelink~.sitetable:before,
@@ -802,15 +776,11 @@ body.res-nightmode,
 .res-nightmode .content .tabmenu li a {
 	color: #ccc;
 }
-.res-nightmode .RES-keyNav-activeElement .usertext-body .md blockquote p {
-	background: rgb(40,40,40)!important;
-}
 .res-nightmode .content .md blockquote {
-	border-left-color: #ccc;
-	color: #bbb;
+	color: rgb(160,160,160);
+	border-left-color: rgb(100,100,100);
 }
-.res-nightmode .subreddit .usertext .md,
-.res-nightmode .RESDialogSmall h3 {
+.res-nightmode .subreddit .usertext .md {
 	background-color: #222;
 	color: #ccc;
 }
@@ -848,10 +818,6 @@ body.res-nightmode,
 	color: #aaa;
 }
 .res-nightmode form .usertext-body,
-.res-nightmode .sitetable .moderator,
-.res-nightmode .sitetable .admin,
-.res-nightmode .sitetable .submitter,
-.res-nightmode .sitetable .friend,
 .res-nightmode .moderator .traffic-table tbody tr:nth-child(even),
 .res-nightmode .thing .expando-button,
 .res-nightmode .instructions,
@@ -866,9 +832,28 @@ body.res-nightmode,
 .res-nightmode .usertext-edit textarea,
 .res-nightmode .usertext-edit .RESDialogSmall .md,
 .res-nightmode .RESDialogSmall,
-.res-nightmode .c-close {
-	background-color: #666;
+.res-nightmode .c-close,
+.res-nightmode #REScommentNavBox {
+	border-color: rgb(76,76,76);
+	background-color: rgb(46, 46, 46);
 	color: #ccc;
+}
+.res-nightmode .RESHoverInfoCard:before {
+  border-right-color: rgb(76,76,76);
+}
+.res-nightmode .RESHoverInfoCard:after {
+  border-right-color: rgb(46,46,46);
+}
+.res-nightmode .RESHoverInfoCard.right:before {
+  border-left-color: rgb(76,76,76);
+}
+.res-nightmode .RESHoverInfoCard.right:after {
+  border-left-color: rgb(46,46,46);
+}
+.res-nightmode .RESDialogSmall > h3 {
+	color: inherit;
+	border-color: rgb(76,76,76);
+	background-color: transparent;
 }
 .res-nightmode .RESDialogSmall.livePreview .md.RESDialogContents {
 	background-color: transparent!important;
@@ -1097,4 +1082,20 @@ html.res-nightmode .multi-details .subreddits .remove-sr {
 .res-nightmode #userbarToggle {
 	background-color: rgb(93, 104, 115);
 	border-right-color: rgb(118, 133, 148);
+}
+.res-nightmode .tagline .submitter,
+.res-nightmode .tagline .submitter:visited {
+	color: rgb(20,150,220);
+}
+.res-nightmode .tagline .moderator,
+.res-nightmode .tagline .moderator:visited {
+	color: rgb(34,136,34)
+}
+.res-nightmode .tagline .admin,
+.res-nightmode .tagline .admin:visited {
+	color: rgb(218,73,83);
+}
+.res-nightmode .tagline .friend,
+.res-nightmode .tagline .friend:visited {
+  color: rgb(255,69,0);
 }
