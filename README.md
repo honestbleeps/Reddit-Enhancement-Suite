@@ -117,9 +117,8 @@ All that is asked is that you have at least one previous contribution to RES.
 
 ##### Building in Firefox
 
-  1. [Download the Add-on SDK](https://ftp.mozilla.org/pub/mozilla.org/labs/jetpack/jetpack-sdk-latest.zip).
-  2. Start a terminal and source the Python script so that you can run the `cfx` commands. In Unix this is usually `. bin/activate` or `source bin/activate` and in Windows this usually involves running `bin/activate.bat`. If you are not using Python 2, run `virtualenv --python=python2 .` and try again.
-  3. In the terminal, `cd` to the `XPI` folder and run the command `cfx run`, which should launch a new Firefox browser using a temporary profile with only RES installed.
+  1. Install [jpm](https://developer.mozilla.org/en-US/Add-ons/SDK/Tools/jpm) using `npm`: `npm install -g jpm`
+  2. Navigate to `dist/XPI` and run the command `jpm run`, which should launch a new Firefox browser using a temporary profile with only RES installed.
 
 ##### Building in Safari (assumes Mac)
 
