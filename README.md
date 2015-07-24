@@ -86,7 +86,7 @@ NOTE: This directory must have `.safariextension` in the name, or Safari's exten
 ##### Firefox files (XPI)
 NOTE: An XPI is a Firefox add-on, which is compiled using the [Add-on SDK](https://developer.mozilla.org/en-US/Add-ons/SDK).
 
-  - `lib/main.js` – this is Firefox's sort of "background page" for RES, like what Chrome has, but just a JS file
+  - `index.js` – this is Firefox's sort of "background page" for RES, like what Chrome has, but just a JS file
   - `package.json` – the project manifest for the Firefox add-on
 
 ##### OperaBlink files
