@@ -20,6 +20,7 @@ changelog v4.6.0
 		- Added a subreddit manager option for lowercase/mixed-case shortcuts in top bar (thanks @andytuba)
         - Added a subreddit manager option to use different/same set of shortcuts for different accounts (thanks @andytuba)
         - Added a dropdown to the inbox icon for sending messages and quickly navigating to inbox sections (thanks @andytuba)
+        - Added option for reddit logo to link to /r/Dashboard (thanks @cathcart)
 	- Settings Console enhancements
 		- Added some usability and gussying-up to the settings console (thanks @andytuba and @gamefreak)
 		- Added new settings presets - one button press to apply different presets to RES settings. (thanks @andytuba)
@@ -45,6 +46,7 @@ changelog v4.6.0
         - Added the number of children to "show child comments" (thanks @erikdesjardins)
         - Highlight expando buttons of NSFW posts (thanks @andytuba)
         - Added option to change case of post titles (thanks @andytuba)
+        - Command line "r" to navigate to rising posts (thanks @erikdesjardins)
         - Split "move up/down" keyboard shortcuts into seperate keys for comments and link lists (thanks @andytuba)
         - Added option to automatically use the old search page (thanks @andytuba)
 
@@ -52,6 +54,7 @@ changelog v4.6.0
 
 	- Vote weight tracking (RES tracking upvotes/downvotes you give to each user) works again (thanks @matheod)
 	- Updated styling of certain elements and pages in nightmode (code blocks, quotes, etc..) to work with reddit's new markdown. (thanks @gavin19)
+	- Updated nightmode styling for other changes, including reddit's new search layout (thanks @githue)
 	- rts and save-RES buttons and some other things should now work with newly loaded comments (thanks @erikdesjardins)
 	- Username Hider hides username with correct displayText in header and taglines (thanks @erikdesjardins)
 	- Username Highlighter adds colored background to hidden (usernameHider) usernames (e.g. OP, mod, admin, etc.) (thanks @erikdesjardins)
@@ -80,7 +83,7 @@ changelog v4.6.0
 
 - Housekeeping / Other
 
-	- Updated various icons and buttons to use a flat look (thanks @erikdesjardins)
+	- Updated various icons and buttons to use a flat look (thanks @erikdesjardins, @githue)
 	- Tidied up galeryimage gallery text and controls (thanks @Githue)
 	- Made the new announcement notification on the RES Gear Icon stand out a bit more (thanks @erikdesjardins)
 	- Moved uncheckSendReplies from betteReddit to submitHelper
