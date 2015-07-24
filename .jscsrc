@@ -1,5 +1,7 @@
 {
 	"preset": "node-style-guide",
+	"requireCapitalizedComments": null,
+	"requireCurlyBraces": ["if", "else", "for", "while", "do", "try", "catch"],
 	"requireTrailingComma": null,
 	"validateIndentation": "\t",
 	"validateQuoteMarks": "'"
