@@ -57,6 +57,7 @@ changelog v4.6.0
 	- Updated styling of certain elements and pages in nightmode (code blocks, quotes, etc..) to work with reddit's new markdown. (thanks @gavin19)
 	- Updated nightmode styling for other changes, including reddit's new search layout (thanks @githue)
 	- rts and save-RES buttons and some other things should now work with newly loaded comments (thanks @erikdesjardins)
+	- Fixed beta flask covering username (thanks @githue)
 	- Username Hider hides username with correct displayText in header and taglines (thanks @erikdesjardins)
 	- Username Highlighter adds colored background to hidden (usernameHider) usernames (e.g. OP, mod, admin, etc.) (thanks @erikdesjardins)
 	- New tabs will open in the foreground/background according to browser preference now. (Used to only open in background) (thanks @mc10)
