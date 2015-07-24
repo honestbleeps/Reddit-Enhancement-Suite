@@ -790,6 +790,21 @@ p.moduleListing {
 #RESConsoleContent.advanced-options-disabled .SearchRES-result-item.advanced {
 	display: none;
 }
+/* Universal subreddit toggle button (subscribe, filter, shortcut, etc) */
+/* Borrowed from fancty-toggle-button */
+.res-subreddit-btn {
+	font: bold 10px verdana, sans-serif; /* allow line-height to be inherited */
+	color: white;
+	margin: 0 5px 5px 0;
+	padding: 1px 6px;
+	border: 1px solid rgb(68,68,68);
+	background: rgb(123,184,80) url(https://redditstatic.s3.amazonaws.com/bg-button-add.png) 0 100% repeat-x;
+	border-radius: 3px;
+	cursor: pointer;
+}
+.res-subreddit-btn.remove {
+	background: rgb(207,97,101) url(https://redditstatic.s3.amazonaws.com/bg-button-remove.png) 0 100% repeat-x;
+}
 #SearchRES-results-container + #SearchRES-boilerplate { margin-top: 1em; border-top: 1px black solid; padding-top: 1em; }
 #SearchRES-results-container li {
 	list-style-type: none;
