@@ -28,9 +28,15 @@
 	background-color: #333;
 	color: #bbb;
 }
-.res-nightmode .RESCloseButton {
+.res-nightmode .RESCloseButton,
+.res-nightmode .message.new > .entry,
+.res-nightmode .read-next {
   border-color: rgb(76,76,76);
 	background-color: rgb(46,46,46);
+}
+.res-nightmode .read-next .read-next-header {
+	border-color: transparent;
+	background-color: rgb(62,62,62);
 }
 .res-nightmode .RESCloseButton:hover {
 	background-color: rgb(46,46,46);
@@ -53,10 +59,6 @@
 .res-nightmode #BigEditor .markdownEditor .RESMacroDropdownList li:hover a {
 	color: rgb(187,187,187);
 }
-.res-nightmode .comment a:visited,
-.res-nightmode .comment .md p a:visited,
-.res-nightmode .new-comment .usertext-body .md p a:visited {
-}
 .res-nightmode .trophy-info .trophy-name {
 	color: #eee!important;
 }
@@ -77,7 +79,9 @@
 	background: rgb(204,204,204);
 }
 .res-nightmode #progressIndicator {
-	opacity: .4;
+	color: #ddd;
+	border-color: rgb(76,76,76);
+	background-color: rgb(46,46,46);
 }
 .res-nightmode .login-form-side {
 	background-color: #888;
@@ -109,9 +113,6 @@
 .res-nightmode .thing.spam {
 	background-color: rgba(250,128,114,.3);
 }
-.res-nightmode .nsfw-stamp.stamp{
-	color: rgb(209, 0, 35);
-}
 .res-nightmode .content .pretty-form * {
 	box-shadow: none;
 }
@@ -121,8 +122,9 @@
 .res-nightmode .RESDashboardComponentContainer .linklisting {
 	padding: 5px;
 }
-.res-nightmode .new-comment .usertext-body .md {
-	border: 1px #aaa dashed;
+.res-nightmode .new-comment .usertext-body  {
+	border: solid 1px rgb(84,106,128);
+	background-color: rgb(51, 68, 85);
 }
 .res-nightmode .message ul {
 	color: #abc;
@@ -131,9 +133,6 @@
 .res-nightmode #tab-link_templates a {
 	background-color: #666660;
 	color: #ddd;
-}
-.res-nightmode .livePreview .md a {
-	color: rgb(20, 10, 200);
 }
 .res-nightmode .markdownEditor .btn:not(.btn-macro) {
 	border-color: #333;
@@ -153,16 +152,6 @@
 }
 .res-nightmode .contact-us-page .button:hover {
 	background: #666;
-}
-.res-nightmode .content .wiki-page-content .md.wiki h1,
-.res-nightmode .content .wiki-page-content .md.wiki h2,
-.res-nightmode .content .wiki-page-content .md.wiki h3,
-.res-nightmode .content .wiki-page-content .md.wiki h4,
-.res-nightmode .content .wiki-page-content .md.wiki h5,
-.res-nightmode .content .wiki-page-content .md.wiki h6,
-.res-nightmode .content .wiki-page-content .md.wiki p,
-.res-nightmode .wiki-page .wiki-page-content .pagelisting {
-	color: #ddd;
 }
 .res-nightmode .spam.thing .author,
 .res-nightmode .spam.thing .subreddit,
@@ -191,7 +180,7 @@
 }
 .res-nightmode .tabmenu.formtab a {
 	color: rgb(255,255,255);
-	border-color: transparent;
+	border-color: rgb(80,80,80);
 }
 .res-nightmode .tabmenu.formtab li.selected a {
 	background-color: rgb(95,153,207);
@@ -218,16 +207,6 @@
 	background-color: #222;
 	color: #ddd;
 }
-
-.res-nightmode .flair,
-.res-nightmode .linkflairlabel {
-	background-color: #bbb;
-	color: #000;
-}
-.res-nightmode .message.message-reply.recipient>.entry .head,
-.res-nightmode .message.message-parent.recipient> .entry .head {
-	color: inherit;
-}
 .res-nightmode .organic-listing,
 .res-nightmode .organic-listing .link,
 .res-nightmode .link.promotedlink {
@@ -250,10 +229,6 @@
 .res-nightmode .thing .arrow.down:hover { background-position: -30px -14px!important; }
 .res-nightmode .thing .arrow.upmod { background-position: 0 0!important; }
 .res-nightmode .thing .arrow.downmod { background-position: 0 -14px!important; }
-.res-nightmode .message.new > .entry {
-	background-color: #444;
-	border: 1px solid #E9E9E9;
-}
 .res-nightmode .subredditbox li a:before {
 	content: "#";
 }
@@ -261,15 +236,8 @@
 	font-weight: 700;
 	text-transform: lowercase;
 }
-.res-nightmode .dropdown.lightdrop .drop-choices {
-	background-color: #333;
-}
 .res-nightmode .dropdown.lightdrop a.choice:hover {
 	background-color: #111;
-}
-.res-nightmode .guiders_button,
-.res-nightmode .blueButton {
-	color: #fff;
 }
 .res-nightmode .sidebox,
 .res-nightmode .subredditbox,
@@ -313,10 +281,8 @@
 .res-nightmode .commentbody.border {
 	background-color: #369;
 }
-.res-nightmode .side input[type="text"],
-.res-nightmode .side input[type="password"],
-.res-nightmode .content input[type="text"],
-.res-nightmode .content input[type="password"],
+.res-nightmode input[type="text"],
+.res-nightmode input[type="password"],
 .res-nightmode .c-form-control {
 	background-color: #333;
 	border-color: #000;
@@ -336,7 +302,6 @@
 .res-nightmode .rulespage .example,
 .res-nightmode #userTaggerTable th,
 .res-nightmode #newCommentsTable th,
-.res-nightmode .buttons .stamp,
 .res-nightmode .RESDashboardComponent .RESDashboardComponentHeader ul .updateTime:hover,
 .res-nightmode .big-mod-buttons .pretty-button,
 .res-nightmode .instructions .preftable th,
@@ -344,12 +309,11 @@
 .res-nightmode .drop-choices a,
 .res-nightmode .remove-self .option,
 .res-nightmode .unfriend-button .option,
-.res-nightmode #progressIndicator p,
 .res-nightmode .RESDashboardComponent .widgetPath {
 	color: #000;
 }
 .res-nightmode .viewSource textarea[readonly] {
-	background: rgb(102, 102, 102);
+	background: rgb(102,102,102);
 }
 .res-nightmode .spam {
 	border-color: #FF4500;
@@ -361,9 +325,6 @@
 	background: #777;
 	border-color: #333;
 	color: #ddd;
-}
-.res-nightmode .nextprev img {
-	opacity: .7;
 }
 .res-nightmode .nextprev img:hover {
 	opacity: .85;
@@ -520,12 +481,6 @@
 .res-nightmode div#RESShortcutsTrash {
 	background: #ccc;
 }
-.res-nightmode #BigEditor .md :not(code),
-.res-nightmode #BigEditor #BigText {
-	background: #666;
-	color: #ccc;
-	font-weight: 400;
-}
 .res-nightmode.res-commentBoxes .comments-page .comment .comment {
 	margin-right: 0;
 }
@@ -542,49 +497,20 @@
 	color: #ccc;
 	border-color: #888;
 }
-.res-nightmode .new-comment .usertext-body {
-	background-color: #345;
-}
 .res-nightmode .md code,
 .res-nightmode .md pre,
 .res-nightmode .content .md pre,
 .res-nightmode .link .md :not(pre)>code {
 	background-color: #456;
 }
-.res-nightmode .new-comment .usertext-body .md p a,
-.res-nightmode code, .res-nightmode .md code {
+.res-nightmode code,
+.res-nightmode .md code {
 	color: #87CEEB;
 }
 .res-nightmode .comment .md p a[href="/spoiler"],
 .res-nightmode .comment .md p a[href="#spoiler"] {
 	background-color: #000;
 	color: #000;
-}
-.res-nightmode .comment .md p a[href="/spoiler"]:hover,
-.res-nightmode .comment .md p a[href="/spoiler"]:active,
-.res-nightmode .comment .md p a[href="#spoiler"]:hover,
-.res-nightmode .comment .md p a[href="#spoiler"]:active,
-.res-nightmode .addNewWidget,
-.res-nightmode .editWidget,
-.res-nightmode #authorInfoToolTip .option,
-.res-nightmode .updateTime,
-.res-nightmode .toggle .option,
-.res-nightmode .REStoggle,
-.res-nightmode .RESshortcut,
-.res-nightmode #RESSubmitOptions ~ div a {
-	color: #fff;
-}
-.res-nightmode .md,
-.res-nightmode .content .sitetable .thing .md,
-.res-nightmode .side .usertext-body ol,
-.res-nightmode .side .redditname a,
-.res-nightmode .side h1,
-.res-nightmode .side h2,
-.res-nightmode .side h3,
-.res-nightmode .side h4,
-.res-nightmode .side h5,
-.res-nightmode .side h6 {
-	color: #ddd;
 }
 .res-nightmode .usertable tr:hover,
 .res-nightmode .moderator-table tr:hover,
@@ -595,7 +521,8 @@
 .res-nightmode .login-form,
 .res-nightmode .login-form-side .submit,
 .res-nightmode #header-bottom-right,
-.res-nightmode #srList {
+.res-nightmode #srList,
+.res-nightmode .dropdown.lightdrop .drop-choices {
 	background-color: #333;
 }
 .res-nightmode #srList tr {
@@ -627,9 +554,6 @@
 .res-nightmode .combined-search-page .search-result-group .search-result-group-header {
 	border-bottom-color: rgb(128,128,128);
 }
-.res-nightmode #shortlink-text {
-	color: #fff;
-}
 .res-nightmode a,
 .res-nightmode .thing .title,
 .res-nightmode .md a,
@@ -646,7 +570,6 @@
 .res-nightmode a[rel=tag],
 .res-nightmode .dsq-help,
 .res-nightmode #authorInfoToolTip h3 a,
-.res-nightmode .help-toggle .option,
 .res-nightmode .morecomments a,
 .res-nightmode .reddiquette,
 .res-nightmode .parent .author,
@@ -660,17 +583,7 @@
 .res-nightmode .thing.visited .title,
 .res-nightmode .combined-search-page .search-result a:visited,
 .res-nightmode .combined-search-page .search-result a:visited>mark {
-	color: rgb(110,103,185);
-}
-.res-nightmode>.content>.spacer>.sitetable:before,
-.res-nightmode>.content>.sharelink~.sitetable:before,
-.res-nightmode .side .age,
-.res-nightmode .trophy-info *,
-.res-nightmode .golddvertisement,
-.res-nightmode .flair-jump .title,
-.res-nightmode .NERdupe p.title:after,
-.res-nightmode .savedComment {
-	color: #ddd;
+	color: rgb(129, 124, 187);
 }
 .res-nightmode .flair-settings ~ .tabpane-content {
 	border-color: #111;
@@ -681,10 +594,6 @@
 .res-nightmode .md blockquote {
 	color: rgb(160,160,160);
 	border-left-color: rgb(100,100,100);
-}
-.res-nightmode .subreddit .usertext .md {
-	background-color: #222;
-	color: #ccc;
 }
 .res-nightmode .infobar,
 .res-nightmode .infobar .md {
@@ -698,10 +607,11 @@
 	color: #FF4500;
 }
 .res-nightmode .linkcompressed .entry .buttons li a,
-.res-nightmode .link .usertext .md,
+.res-nightmode .link .usertext-body .md,
 .res-nightmode .thing .compressed,
 .res-nightmode .link.promotedlink,
 .res-nightmode .link.promotedlink.promoted,
+.res-nightmode .subreddit .usertext .md,
 .res-nightmode .commentreply .help tr,
 .res-nightmode .sr-interest-bar .bubble {
 	background: none;
@@ -721,11 +631,11 @@
 .res-nightmode .submit #url,
 .res-nightmode .submit #sr-autocomplete,
 .res-nightmode .usertext-edit textarea,
-.res-nightmode .usertext-edit .RESDialogSmall .md,
 .res-nightmode .RESDialogSmall,
 .res-nightmode .RESNotification,
 .res-nightmode .c-close,
-.res-nightmode #REScommentNavBox {
+.res-nightmode #REScommentNavBox,
+.res-nightmode #BigEditor #BigText {
 	border-color: rgb(76,76,76);
 	background-color: rgb(46, 46, 46);
 	color: #ccc;
@@ -788,10 +698,44 @@
 .res-nightmode #delete-img:hover {
 	background-color: rgb(102,102,102);
 }
-.res-nightmode .md h2 {
+.res-nightmode>.content>.spacer>.sitetable:before,
+.res-nightmode>.content>.sharelink~.sitetable:before,
+.res-nightmode .side .age,
+.res-nightmode .trophy-info *,
+.res-nightmode .golddvertisement,
+.res-nightmode .flair-jump .title,
+.res-nightmode .NERdupe p.title:after,
+.res-nightmode .savedComment,
+.res-nightmode .md,
+.res-nightmode .md h2,
+.res-nightmode .content .sitetable .thing .md,
+.res-nightmode .side .usertext-body ol,
+.res-nightmode .side .redditname a,
+.res-nightmode .side h1,
+.res-nightmode .side h2,
+.res-nightmode .side h3,
+.res-nightmode .side h4,
+.res-nightmode .side h5,
+.res-nightmode .side h6,
+.res-nightmode .content .wiki-page-content .md.wiki h1,
+.res-nightmode .content .wiki-page-content .md.wiki h2,
+.res-nightmode .content .wiki-page-content .md.wiki h3,
+.res-nightmode .content .wiki-page-content .md.wiki h4,
+.res-nightmode .content .wiki-page-content .md.wiki h5,
+.res-nightmode .content .wiki-page-content .md.wiki h6,
+.res-nightmode .content .wiki-page-content .md.wiki p,
+.res-nightmode .wiki-page .wiki-page-content .pagelisting,
+.res-nightmode .RESUserTag,
+.res-nightmode .sidebar h1,
+.res-nightmode .sidebar h2,
+.res-nightmode .sidebar h3,
+.res-nightmode .sidebar h4,
+.res-nightmode .sidebar h5,
+.res-nightmode .sidebar h6 {
 	color: #ddd;
 }
-.res-nightmode .voteWeight {
+.res-nightmode .voteWeight,
+.res-nightmode .nextprev img {
 	opacity: .7;
 }
 .res-nightmode .searchfacets {
@@ -799,7 +743,9 @@
 	box-shadow: none;
 }
 .res-nightmode .combined-search-page .search-result .search-result-body,
-.res-nightmode .generic-table {
+.res-nightmode .generic-table,
+.res-nightmode .message.message-reply.recipient>.entry .head,
+.res-nightmode .message.message-parent.recipient> .entry .head {
 	color: inherit;
 }
 .res-nightmode .nextprev a:hover,
@@ -864,10 +810,6 @@ html.res-nightmode .multi-details .add-sr .add {
 html.res-nightmode .multi-details .subreddits .remove-sr {
 	background-position: -3px -15px;
 }
-/* Neutral background colour for tags in nightmode */
-.res-nightmode .hasTag[style*="background-color: transparent"] {
-	background-color: #999 !important;
-}
 /* Nightmode friendly snoo/balloons image */
 .res-nightmode .with-listing-chooser:not(.multi-page) .footer-parent {
 	background: url(https://b.thumbs.redditmedia.com/oPSTBWXkQufBAIYbFWiN0eI2J06zBLDEmq1NMHQ-Ems.png) no-repeat 49% 0;
@@ -925,14 +867,6 @@ body.res-nightmode,
 .res-nightmode #BigEditor .markdownEditor .RESMacroDropdownTitle {
 	color: #ccc;
 }
-.res-nightmode .sidebar h1,
-.res-nightmode .sidebar h2,
-.res-nightmode .sidebar h3,
-.res-nightmode .sidebar h4,
-.res-nightmode .sidebar h5,
-.res-nightmode .sidebar h6 {
-	color: #ddd;
-}
 .res-nightmode .liveupdate-listing table tr.separator time {
 	background: #666;
 	color: #fff;
@@ -969,7 +903,9 @@ body.res-nightmode,
 	color: rgb(34,136,34)
 }
 .res-nightmode .tagline .admin,
-.res-nightmode .tagline .admin:visited {
+.res-nightmode .tagline .admin:visited,
+.res-nightmode .user-distinction .admin,
+.res-nightmode .user-distinction .admin:visited {
 	color: rgb(218,73,83);
 }
 .res-nightmode .tagline .friend,
@@ -991,24 +927,21 @@ body.res-nightmode,
 }
 .res-nightmode .goldvertisement,
 .res-nightmode .goldvertisement .inner {
-	border-color: rgba(196, 180, 135,.5);
+	border-color: rgba(196,180,135,.5);
 }
 .res-nightmode .goldvertisement .inner h2,
 .res-nightmode .goldvertisement .progress p {
-	color: rgb(196, 180, 135);
+	color: rgb(196,180,135);
 }
 .res-nightmode .goldvertisement a,
 .res-nightmode .goldvertisement a:hover {
-	background-color: rgb(76, 76, 76);
-	border-color: rgb(0, 0, 0);
-	color: rgb(255, 255, 255);
+	background-color: rgb(76,76,76);
+	border-color: rgb(0,0,0);
+	color: rgb(255,255,255);
 }
-.res-nightmode .gold-bubble,
-.res-nightmode .gold-accent,
 .res-nightmode .report-action-form {
 	background-color: #dad0b3;
 }
-.res-nightmode .gold-accent .gold-remaining,
 .res-nightmode .letter-body p,
 .res-nightmode #gold-letter h1,
 .res-nightmode #about-gold h1,
@@ -1016,8 +949,17 @@ body.res-nightmode,
 .res-nightmode .RESDashboardComponentScrim span,
 .res-nightmode .RESDashboardComponent .RESDashboardComponentHeader ul .updateTime,
 .res-nightmode .remove-self .option,
-.res-nightmode .moderator.remove-self .option {
+.res-nightmode .moderator.remove-self .option,
+.res-nightmode .message-count {
 	color: #222;
+}
+.res-nightmode .gold-accent {
+  color: rgb(230,218,174);
+  background-color: hsl(46,22%,42%);
+  border-color: hsl(46,29%,54%);
+}
+.res-nightmode .side .gold-accent * {
+  color: rgb(230,218,174);
 }
 .res-nightmode .hover-bubble.anchor-top-centered:after,
 .res-nightmode #about-main #history .events.timeline .event-marker.top,
@@ -1033,13 +975,50 @@ body.res-nightmode,
 .res-nightmode .delete-field,
 .res-nightmode .liveupdate-listing table tr.separator td,
 .res-nightmode .RESDialogSmall.livePreview .md.RESDialogContents,
-.res-nightmode form .usertext-body,
 .res-nightmode .moderator .traffic-table tbody tr:nth-child(even),
 .res-nightmode .thing .expando-button,
 .res-nightmode .instructions,
 .res-nightmode .linefield .delete-field,
 .res-nightmode #pref-delete .delete-field,
-.res-nightmode .usertext .usertext-body .md,
 .res-nightmode .contact-us-page .details li  {
 	background-color: transparent;
+}
+.res-nightmode .message.message-reply .entry,
+.res-nightmode .message.message-parent .entry {
+	border-color: rgb(76,76,76);
+}
+.res-nightmode .comment .md p a[href="/spoiler"]:hover,
+.res-nightmode .comment .md p a[href="/spoiler"]:active,
+.res-nightmode .comment .md p a[href="#spoiler"]:hover,
+.res-nightmode .comment .md p a[href="#spoiler"]:active,
+.res-nightmode .addNewWidget,
+.res-nightmode .editWidget,
+.res-nightmode #authorInfoToolTip .option,
+.res-nightmode .updateTime,
+.res-nightmode .REStoggle,
+.res-nightmode .RESshortcut,
+.res-nightmode #RESSubmitOptions ~ div a,
+.res-nightmode #shortlink-text,
+.res-nightmode .guiders_button,
+.res-nightmode .blueButton,
+.res-nightmode .gold-accent a,
+.res-nightmode .snoovatar-page .gold-accent a,
+.combined-search-page .search-result-subreddit .search-subscribe-button .add.active,
+.combined-search-page .search-result-subreddit .search-subscribe-button .remove.active,
+.res-nightmode .fancy-toggle-button a {
+	color: rgb(255,255,255);
+}
+.res-nightmode .markhelp table tr:first-child {
+	background-color: rgb(76,76,76) !important;
+}
+.res-nightmode .usertext .markhelp .spaces {
+	background-color: rgb(76,76,76);
+}
+.res-nightmode .flair,
+.res-nightmode .linkflairlabel {
+	background-color: #bbb;
+	color: #000;
+}
+.res-nightmode #NERContent {
+	background-color: rgb(160,160,160);
 }
