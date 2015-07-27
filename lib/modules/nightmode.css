@@ -2,7 +2,6 @@
 .res-nightmode body .content,
 .res-nightmode .modal-body,
 .res-nightmode .side,
-.res-nightmode .flairselector,
 .res-nightmode .linefield,
 .res-nightmode .icon-menu a,
 .res-nightmode .side .leavemoderator,
@@ -30,13 +29,22 @@
 }
 .res-nightmode .RESCloseButton,
 .res-nightmode .message.new > .entry,
-.res-nightmode .read-next {
+.res-nightmode .read-next,
+.res-nightmode .drop-choices {
   border-color: rgb(76,76,76);
 	background-color: rgb(46,46,46);
 }
-.res-nightmode .read-next .read-next-header {
+.res-nightmode .drop-choices {
+	box-shadow: 4px 4px 4px rgba(0,0,0,.3);
+}
+.res-nightmode .read-next .read-next-header,
+.res-nightmode .flairselector h2,
+.res-nightmode .flairselector li:hover {
 	border-color: transparent;
 	background-color: rgb(62,62,62);
+}
+.res-nightmode .flairselector li.selected {
+	border-color: rgb(120,120,120);
 }
 .res-nightmode .RESCloseButton:hover {
 	background-color: rgb(46,46,46);
@@ -126,14 +134,6 @@
 	border: solid 1px rgb(84,106,128);
 	background-color: rgb(51, 68, 85);
 }
-.res-nightmode .message ul {
-	color: #abc;
-}
-.res-nightmode #tab-templates a,
-.res-nightmode #tab-link_templates a {
-	background-color: #666660;
-	color: #ddd;
-}
 .res-nightmode .markdownEditor .btn:not(.btn-macro) {
 	border-color: #333;
 	background-color: #777;
@@ -207,7 +207,10 @@
 	background-color: #222;
 	color: #ddd;
 }
-.res-nightmode .organic-listing,
+.res-nightmode .organic-listing {
+	border-color: rgb(80,80,80);
+	background-color: transparent !important;
+}
 .res-nightmode .organic-listing .link,
 .res-nightmode .link.promotedlink {
 	background-color: transparent;
@@ -444,14 +447,10 @@
 	color: #eee;
 	font-size: 10px;
 }
-.res-nightmode .flairselector h2 {
-	color: #999;
-	background-color: #444;
-}
 .res-nightmode #sr-autocomplete-area {
 	z-index: 1;
 }
-.res-nightmode .content button,
+.res-nightmode button,
 .res-nightmode #REScommentSubToggle {
 	background: #111;
 	border: 2px solid #666;
@@ -561,7 +560,6 @@
 .res-nightmode #subscribe a,
 .res-nightmode .share .option,
 .res-nightmode .tagline a,
-.res-nightmode .tagline .head .author,
 .res-nightmode .wired a,
 .res-nightmode .side a,
 .res-nightmode .subredditbox li a,
@@ -578,6 +576,9 @@
 .res-nightmode .combined-search-page .search-result a>mark,
 .res-nightmode .hoverHelp {
 	color: rgb(20,150,220);
+}
+.res-nightmode .flairselector li a {
+	color: rgb(20,150,220) !important;
 }
 .res-nightmode .thing .title:visited,
 .res-nightmode .thing.visited .title,
@@ -731,7 +732,9 @@
 .res-nightmode .sidebar h3,
 .res-nightmode .sidebar h4,
 .res-nightmode .sidebar h5,
-.res-nightmode .sidebar h6 {
+.res-nightmode .sidebar h6,
+.res-nightmode span.score,
+.res-nightmode .flairselector h2 {
 	color: #ddd;
 }
 .res-nightmode .voteWeight,
@@ -822,7 +825,8 @@ html.res-nightmode .multi-details .subreddits .remove-sr {
 }
 .res-nightmode .about-page .abouttitle h1,
 .res-nightmode .create .morelink,
-.res-nightmode .permission-summary {
+.res-nightmode .permission-summary,
+.res-nightmode .flairselector li {
 	border-color: transparent;
 }
 .res-nightmode .about-page .about-menu {
@@ -894,6 +898,11 @@ body.res-nightmode,
 	background-color: rgb(73,80,93);
 	border-right-color: rgb(118,133,148);
 }
+/* moderator style takes higher priority than friend */
+.res-nightmode .tagline .friend,
+.res-nightmode .tagline .friend:visited {
+  color: rgb(255,69,0);
+}
 .res-nightmode .tagline .submitter,
 .res-nightmode .tagline .submitter:visited {
 	color: rgb(44,196,224);
@@ -907,10 +916,6 @@ body.res-nightmode,
 .res-nightmode .user-distinction .admin,
 .res-nightmode .user-distinction .admin:visited {
 	color: rgb(218,73,83);
-}
-.res-nightmode .tagline .friend,
-.res-nightmode .tagline .friend:visited {
-  color: rgb(255,69,0);
 }
 .res-nightmode hr,
 .res-nightmode .md hr,
@@ -984,7 +989,8 @@ body.res-nightmode,
 	background-color: transparent;
 }
 .res-nightmode .message.message-reply .entry,
-.res-nightmode .message.message-parent .entry {
+.res-nightmode .message.message-parent .entry,
+.res-nightmode .flairselector.drop-choices.active {
 	border-color: rgb(76,76,76);
 }
 .res-nightmode .comment .md p a[href="/spoiler"]:hover,
