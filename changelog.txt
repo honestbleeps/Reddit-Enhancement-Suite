@@ -72,6 +72,7 @@ changelog v4.6.0
 	- Fixed RES running on reddit toolbar pages (thanks @andytuba)
 	- Fixed nightmode styling on login popup (thanks @yangzihe)
 	- Fixed wrong account age near first of the month in user info hover popup (thanks @yangzihe)
+	- Fixed NoParticipation EscapeNP on links starting with "/" (thanks @andytuba, @mc10)
 	- Fixed duplicate expando buttons - RES will now simply replace reddit's expando if it exists (thanks @andytuba)
 	- Stop the Never Ending Reddit progress indicator from being pushed below the sidebar (thanks @erikdesjardins)
 	- Fixed quickMessage messages getting truncated (thanks @erikdesjardins)
