@@ -852,16 +852,6 @@ p.moduleListing {
 	border: 0;
 	background: transparent;
 }
-/* reddit search page tabs */
-ul.res-search-tabs li.res-search-tab-facets a:before {
-	content: "\F0B7";
-}
-ul.res-search-tabs li.res-search-tab-subs a:before {
-	content: "\F030";
-}
-ul.res-search-tabs li.res-search-tab-options a:before {
-	content: "\F06B";
-}
 .RESMenuItemButton {
 	display: block;
 	position: absolute;
