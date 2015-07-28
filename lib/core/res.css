@@ -105,9 +105,7 @@ body.res-console-open {
 	position: relative;
 }
 .gearIcon::before, .gearIcon::after {
-	font-family: "Batch";
-	line-height: 15px;
-	font-size: 14px;
+	font: normal 14px/15px "Batch";
 	vertical-align: middle;
 }
 .gearIcon::after {
@@ -308,8 +306,7 @@ body.res-console-open {
 	content: '\F15A';
 	margin-left: 0.5em;
 	color: red;
-	font-family: "Batch";
-	font-size: 11px;
+	font: normal 11px "Batch";
 }
 .RESDialogSmall {
 	background-color: #fff;
@@ -793,6 +790,22 @@ p.moduleListing {
 #RESConsoleContent.advanced-options-disabled .SearchRES-result-item.advanced {
 	display: none;
 }
+/* Universal subreddit toggle button (subscribe, filter, shortcut, etc) */
+/* Borrowed from fancty-toggle-button */
+.res-fancy-toggle-button {
+	font: bold 10px verdana, sans-serif; /* allow line-height to be inherited */
+	color: white;
+	display: inline-block;
+	margin: 0 5px 5px 0;
+	padding: 1px 6px;
+	border: 1px solid rgb(68,68,68);
+	background-image: linear-gradient(to bottom, rgb(123,184,80), rgb(117,168,73));
+	border-radius: 3px;
+	cursor: pointer;
+}
+.res-subreddit-btn.remove {
+	background-image: linear-gradient(to bottom, rgb(207,97,101), rgb(190,94,96));
+}
 #SearchRES-results-container + #SearchRES-boilerplate { margin-top: 1em; border-top: 1px black solid; padding-top: 1em; }
 #SearchRES-results-container li {
 	list-style-type: none;
@@ -1227,14 +1240,12 @@ img {
 .RESGalleryControls { margin-bottom: 10px; }
 .RESGalleryControls span { line-height: 16px; vertical-align: bottom; padding: 0 5px; font-size: 11px; }
 .RESGalleryControls .next::after, .RESGalleryControls .previous::after {
-	font-family: Batch;
+	font: normal 18px/16px Batch;
 	content: '\F158';
 	cursor: pointer;
 	display: inline-block;
 	vertical-align: bottom;
 	color: #90acff;
-	font-size: 18px;
-	line-height: 16px;
 	width: 16px;
 }
 .RESGalleryControls .next:hover::after, .RESGalleryControls .previous:hover::after {
@@ -1416,11 +1427,8 @@ a.bylink.parentlink {
 	float: right;
 }
 .res-icon {
-	font-family: "Batch";
-	line-height: 1;
+	font: normal 16px/1 "Batch";
 	display: inline-block;
-	font-size: 16px;
-	font-weight: normal;
 }
 .res-icon.res-icon-12 {
 	font-size: 12px;
@@ -2116,4 +2124,4 @@ a spinner with a static ring and no overlay.*/
 		.player { position: relative; display: inline-block; width: auto; max-width: 100%; }
 		.player video { max-width: 100%; }
 		.player.fullscreen, .player.fullscreen video { max-width: none; }
-		.icon{font-family:"Batch";line-height:1;display:inline-block;font-size:16px;font-weight:normal}.icon.icon-32{font-size:32px}.icon.icon-64{font-size:64px}.icon.icon-128{font-size:128px}
+		.icon{font: normal 16px/1 "Batch";display:inline-block;}.icon.icon-32{font-size:32px}.icon.icon-64{font-size:64px}.icon.icon-128{font-size:128px}
