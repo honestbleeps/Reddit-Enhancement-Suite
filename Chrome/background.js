@@ -327,7 +327,7 @@ chrome.omnibox.onInputChanged.addListener(
 // Set the default text
 function resetDefaultSuggestion() {
 	chrome.omnibox.setDefaultSuggestion({
-		description: 'Go to <url>reddit.com/r/<match>%s</match></url>'
+		description: "Go to <url>reddit.com/r/<match>%s</match></url>"
 	});
 }
 resetDefaultSuggestion();
