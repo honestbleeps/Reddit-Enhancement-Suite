@@ -313,3 +313,35 @@ chrome.runtime.onMessage.addListener(
 		}
 	}
 );
+
+// Add eventlistener for input in omnibox
+chrome.omnibox.onInputChanged.addListener(
+	function(text, suggest) {
+		// Create the option for opening in a new tab
+		suggest([
+			{content: "new:" + text, description: "Open <url>reddit.com/r/<match>"+text+"</match></url> in a new tab"}
+		]);
+	}
+);
+
+// Set the default text
+function resetDefaultSuggestion() {
+	chrome.omnibox.setDefaultSuggestion({
+		description: 'Go to <url>reddit.com/r/<match>%s</match></url>'
+	});
+}
+resetDefaultSuggestion();
+
+// Event fired when user accepts content of omnibox
+chrome.omnibox.onInputEntered.addListener(
+	function(subreddit) {
+		var url = 'http://reddit.com/r/';
+		if (subreddit.substring(0, 4) == "new:") {
+			window.open(url + subreddit.substring(4, subreddit.length));
+		} else {
+			chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+				chrome.tabs.update(tabs[0].id, {url: url + subreddit});
+			});
+		}
+	}
+);
