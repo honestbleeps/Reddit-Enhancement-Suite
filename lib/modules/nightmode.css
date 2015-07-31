@@ -251,9 +251,6 @@
 	border-color: #151515;
 	color: #aaa;
 }
-.res-nightmode .login-form-side .btn {
-	color: #111;
-}
 .res-nightmode .login-form-side .error {
 	color: rgb(205,90,90);
 }
@@ -575,16 +572,16 @@
 .res-nightmode .combined-search-page .search-result a,
 .res-nightmode .combined-search-page .search-result a>mark,
 .res-nightmode .hoverHelp {
-	color: rgb(20,150,220);
+	color: hsl(202,40%,61%);
 }
 .res-nightmode .flairselector li a {
-	color: rgb(20,150,220) !important;
+	color: hsl(202,40%,61%) !important;
 }
 .res-nightmode .thing .title:visited,
 .res-nightmode .thing.visited .title,
 .res-nightmode .combined-search-page .search-result a:visited,
 .res-nightmode .combined-search-page .search-result a:visited>mark {
-	color: rgb(129, 124, 187);
+	color: hsl(245,32%,61%);
 }
 .res-nightmode .flair-settings ~ .tabpane-content {
 	border-color: #111;
@@ -905,7 +902,7 @@ body.res-nightmode,
 }
 .res-nightmode .tagline .submitter,
 .res-nightmode .tagline .submitter:visited {
-	color: rgb(44,196,224);
+	color: rgb(20,150,220);
 }
 .res-nightmode .tagline .moderator,
 .res-nightmode .tagline .moderator:visited {
@@ -990,7 +987,14 @@ body.res-nightmode,
 }
 .res-nightmode .message.message-reply .entry,
 .res-nightmode .message.message-parent .entry,
-.res-nightmode .flairselector.drop-choices.active {
+.res-nightmode .flairselector.drop-choices.active,
+.res-nightmode .message.threaded .child,
+.res-nightmode .comment .child,
+.res-nightmode .comment .showreplies {
+	border-color: rgb(76,76,76);
+}
+.res-nightmode .message.message-reply:not(.threaded) .entry,
+.res-nightmode .message.message-parent:not(.threaded) .entry {
 	border-color: rgb(76,76,76);
 }
 .res-nightmode .comment .md p a[href="/spoiler"]:hover,
