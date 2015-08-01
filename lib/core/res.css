@@ -23,7 +23,8 @@ body.res-console-open {
 	-o-transition: bottom 0.4s;
 	transition: bottom 0.4s;
 }
-#RESConsoleContainer em { font-style: italic; }
+body.res em { font-style: italic; }
+body.res strong { font-style: bold; }
 #RESConsoleContainer.slideIn {
 	visibility: visible;
 	bottom: 1.5%;
