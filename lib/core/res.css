@@ -455,11 +455,14 @@ p.moduleListing {
 #RESConfigPanelModulesPane ul {
 	list-style: none;
 }
+#RESConfigPanelModulesPane > div > ul > li {
+	margin: 2px 0;
+}
 #RESConfigPanelModulesPane li h3 {
 	text-align: left;
-	margin: 0.2em 0;
 	border: 1px solid #c7c7c7;
-	padding: 0.3em 0.5em;
+	padding: 5px;
+	margin: 0;
 	cursor: pointer;
 	background-color: #ddd;
 	color: #6c6c6c;
@@ -470,16 +473,6 @@ p.moduleListing {
 	background-color: #7f7f7f;
 	color: #fff;
 }
-#RESConfigPanelModulesPane .RESConfigPanelCategory ul {
-	max-height: 0;
-	overflow: hidden;
-	-webkit-transition: max-height 0.8s;
-	-moz-transition: max-height 0.8s;
-	transition: max-height 0.8s;
-}
-#RESConfigPanelModulesPane .RESConfigPanelCategory.active ul {
-	max-height: 1000px;
-}
 #RESMenu li h3:hover {
 	border-color: #000;
 }
@@ -487,9 +480,7 @@ p.moduleListing {
 	font-size: 12px;
 	color: #868686;
 	text-align: right;
-	padding-bottom: 0.5em;
-	padding-top: 0.5em;
-	margin-bottom: 0.2em;
+	padding: 5px 0;
 	cursor: pointer;
 	opacity: 0.5;
 }
