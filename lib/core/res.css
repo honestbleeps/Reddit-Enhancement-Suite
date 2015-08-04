@@ -1261,6 +1261,7 @@ h4.imgCaptions, .md h4.imgCaptions {
 }
 div.imgCaptions, .md div.imgCaptions {
 	font-size: 11px;
+	white-space: pre-wrap;
 }
 .imgCredits {
 	font-size: 11px;
