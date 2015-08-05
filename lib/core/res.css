@@ -7,20 +7,12 @@ body.res-console-open {
 	font-size: 12px;
 	z-index: 100000100;
 	position: fixed;
-	top: 1.5%;
-	right: 1.5%;
-	bottom: 100%; /* 100% from the bottom == the top */
-	left: 1.5%;
+	top: 15px; right: 25px; bottom: 100%; left: 25px;
 	overflow: hidden;
 	padding: 10px;
-	-moz-box-shadow: 10px 10px 10px rgba(0,0,0,.2);
-	-webkit-box-shadow: 10px 10px 10px rgba(0,0,0,.2);
-	box-shadow: 10px 10px 10px rgba(0,0,0,.2);
+	box-shadow: 5px 5px 10px rgba(0,0,0,.2);
 	border-radius: 3px;
 	background-color: #fff;
-	-webkit-transition: bottom 0.4s;
-	-moz-transition: bottom 0.4s;
-	-o-transition: bottom 0.4s;
 	transition: bottom 0.4s;
 }
 #RESConsoleContainer em { font-style: italic; }
@@ -71,7 +63,7 @@ body.res-console-open {
 	right: 0;
 	bottom: 0;
 	left: 0;
-	background: rgba(180,180,180,0);
+	background: rgba(0,0,0,0);
 	-webkit-transition: background 0.4s, visibility .4s;
 	-moz-transition: background 0.4s, visibility .4s;
 	-o-transition: background 0.4s, visibility .4s;
@@ -79,10 +71,10 @@ body.res-console-open {
 }
 #modalOverlay.fadeIn {
 	visibility: visible;
-	background: rgba(180,180,180,.9);
+	background: rgba(0,0,0,.5);
 }
 #modalOverlay.fadeOut {
-	background: rgba(180,180,180,0);
+	background: rgba(0,0,0,0);
 }
 #DashboardLink a {
 	display: block;
@@ -202,7 +194,7 @@ body.res-console-open {
 	height: 16px;
 	margin-left: 2px;
 	margin-right: 2px;
-	opacity: 0.25;
+	opacity: 0.4;
 }
 .optionContainer .res-icon-button:hover {
 	opacity: 1.0;
@@ -295,18 +287,11 @@ body.res-console-open {
 
 #RESAllOptionsSpan {
 	display: block;
-	margin-top: 1em;
+	margin: 10px 0;
 	color: #868686;
 }
 #RESConsoleContent.advanced-options-disabled .optionContainer.advanced {
 	display: none;
-}
-.optionContainer.advanced > label:after,
-#RESAllOptionsSpan:after {
-	content: '\F15A';
-	margin-left: 0.5em;
-	color: red;
-	font: normal 11px "Batch";
 }
 .RESDialogSmall {
 	background-color: #fff;
@@ -342,50 +327,38 @@ body.res-console-open {
 }
 #RESConsoleContent {
 	clear: both;
-	padding: 6px 6px 20px 6px;
+	padding: 15px 0 0 15px;
 	position: absolute;
-	top: 40px;
-	left: 0;
-	right: 0;
-	bottom: 0;
+	top: 40px; right: 0; bottom: 0; left: 0;
 	border-top: 1px solid #DDD;
+	display: flex;
 }
 #RESConfigPanelOptions {
-	margin-top: 15px;
 	display: block;
-	margin-left: 200px;
-	height: 100%;
 	overflow: auto;
+	padding: 0 15px;
+	flex-grow: 1;
 }
 #allOptionsContainer {
 	position: relative;
+	max-width: 1150px;
 }
 #moduleOptionsScrim {
 	display: none;
 	position: absolute;
-	top: 1px;
-	left: 4px;
-	right: 13px;
-	bottom: 1px;
-	border-radius:2px;
+	top: 0; right: 0; bottom: 0; left: 0;
 	z-index: 1;
-	background-color: #DDD;
-	opacity: 0.7;
+	background-color: rgba(255,255,255,.7);
 }
 #moduleOptionsScrim.visible {
 	display: block;
 }
 #RESConfigPanelModulesPane {
 	position: relative;
-	float: left;
-	border-right: 1px solid #dedede;
-	width: 15em;
-	padding-right: 10px;
-	height: 100%;
-	overflow: auto;
-}
-#RESConfigPanelModulesList {
-	margin-top: 1em;
+	width: 200px;
+	flex-shrink: 0;
+	overflow-y: auto;
+	overflow-x: hidden;
 }
 .clear {
 	clear: both;
@@ -421,84 +394,103 @@ body.res-console-open {
 	padding: 4px;
 	border: 2px solid #CCC;
 }
-p.moduleListing {
-	padding: 5px 5px 15px 5px;
-	border: 1px solid #BBB;
-	-moz-box-shadow: 3px 3px 3px #BBB;
-	-webkit-box-shadow: 3px 3px 3px #BBB;
+#RESConfigPanelModulesList {
+	color: rgb(80,80,80);
+	margin-top: 15px;
 }
-#RESConsoleModulesPanel label {
-	float: left;
-	width: 15%;
-	padding-top: 6px;
+#RESConfigPanelModulesList > ul {
+	border: 1px solid rgb(230,230,230);
+	border-radius: 2px;
 }
-#RESConsoleModulesPanel input[type=checkbox] {
-	float: left;
-	margin-left: 10px;
+#RESConfigPanelModulesList ul ul {
+	padding: 10px 0;
+	display: none;
 }
-#RESConsoleModulesPanel input[type=button] {
-	float: right;
-	padding: 3px;
-	margin-left: 20px;
-	font-size: 12px;
-	border: 1px solid #DDD;
-	-moz-box-shadow: 3px 3px 3px #BBB;
-	-webkit-box-shadow: 3px 3px 3px #BBB;
-	background-color: #F0F3FC;
-	margin-bottom: 10px;
-}
-#RESConsoleModulesPanel p {
-	overflow: auto;
-	clear: both;
-	margin-bottom: 10px;
-}
-#RESConfigPanelModulesPane ul {
-	list-style: none;
-}
-#RESConfigPanelModulesPane > div > ul > li {
-	margin: 2px 0;
-}
-#RESConfigPanelModulesPane li h3 {
+#RESConfigPanelModulesList li h3 {
 	text-align: left;
-	border: 1px solid #c7c7c7;
-	padding: 5px;
+	padding: 5px 10px;
 	margin: 0;
 	cursor: pointer;
-	background-color: #ddd;
-	color: #6c6c6c;
+	border-top: 1px solid rgb(230,230,230);
 	font-weight: normal;
 }
-#RESConfigPanelModulesPane li.active h3 {
-	border-color: #000;
-	background-color: #7f7f7f;
-	color: #fff;
+#RESConfigPanelModulesList li:first-child h3 {
+	border: none;
+}
+#RESConfigPanelModulesList li.active h3 {
+	border-bottom: 1px solid rgb(230,230,230);
+	background: rgb(245,245,245);
 }
 #RESMenu li h3:hover {
 	border-color: #000;
 }
-.moduleButton {
-	font-size: 12px;
-	color: #868686;
-	text-align: right;
-	padding: 5px 0;
-	cursor: pointer;
-	opacity: 0.5;
+.optionContainer {
+	position: relative;
+	border: 1px solid hsl(205,50%,78%);
+	border-radius: 2px;
+	padding: 10px 20px;
+	background-color: #f0f3fc;
+	margin: 10px 0;
+	overflow: auto;
+	clear: both;
+	display: flex;
 }
-.moduleButton.enabled {
-	opacity: 1;
+.optionContainer.table,
+.optionContainer.specialOptionType {
+	display: block;
 }
-.moduleButton:hover {
-	text-decoration: underline;
+/* for when the functionality is there */
+.optionContainer.depends {
+	margin-top: -11px;
+	border-radius: 0 0 2px 2px;
+	background-color: rgb(251,252,255);
 }
-.moduleButton.active, .moduleButton.active:hover {
-	opacity: 1;
+.optionContainer.highlight {
+	box-shadow: 0 0 5px 1px rgb(171,204,227);
+}
+.optionContainer.highlight .optionTitle {
 	font-weight: bold;
 }
-.moduleDescription {
-	float: left;
-	width: 500px;
-	margin-left: 10px;
-	padding-top: 6px;
+.optionTitle {
+	font-size: 14px;
+	min-width: 200px;
+}
+.optionDescription {
+	line-height: 1.5;
+}
+.optionSetting {
+	white-space: nowrap;
+}
+.optionContainer.advanced .optionTitle:before,
+#RESAllOptionsSpan:after {
+	content: '\F15A';
+	margin-left: 3px;
+	color: rgb(230,30,30);
+	font: normal 11px "Batch";
+}
+.optionContainer.advanced .optionTitle:before {
+	margin: 0 4px 0 -15px; /* 4+(-15) = 11 == Batch font-size */
+}
+.optionContainer:not(.table):not(.specialOptionType) .optionSetting {
+	padding: 0 10px;
+}
+#RESConsoleContainer input[type=radio],
+#RESConsoleContainer input[type=checkbox] {
+	vertical-align: middle;
+	margin-right: 3px;
+}
+.moduleButton {
+	font: 12px sans-serif;
+	text-align: right;
+	color: rgb(180,180,180);
+	padding: 7px 10px 7px 0px;
+	cursor: pointer;
+}
+.moduleButton.enabled {
+	color: rgb(80,80,80);
+}
+.moduleButton.active {
+	font-weight: bold;
 }
 #RESConfigPanelOptions .moduleDescription {
 	margin-left: 0;
@@ -508,42 +500,29 @@ p.moduleListing {
 	width: auto;
 }
 .moduleToggle, .toggleButton {
-	float: left;
-	width: 60px;
-	height: 20px;
 	cursor: pointer;
 	-webkit-user-select: none;
 	-moz-user-select: none;
+	white-space: nowrap;
 }
-.moduleHeader {
-	border: 1px solid #c7c7c7;
-	border-radius: 2px 2px 2px 2px;
-	padding: 12px;
-	background-color: #f0f3fc;
-	display: block;
-	margin-bottom: 12px;
-	margin-right: 12px;
-	margin-left: 3px;
-	overflow: auto;
+.moduleToggle {
+	display: inline-flex; /* removes spaces */
+	vertical-align: middle;
 }
 .moduleName {
-	font-size: 20px;
-	float: left;
-	margin-right: 15px;
-}
-#RESConsoleContainer .toggleButton {
-	margin-left: 10px;
+	font: 20px segoe ui, arial, sans-serif;
+	margin-right: 10px;
+	display: inline-block;
+	vertical-align: middle;
 }
 .toggleButton input[type=checkbox] {
 	display: none;
 }
 .moduleToggle span, .toggleButton span {
-	margin-top: -3px;
 	font-size: 11px;
 	padding-top: 3px;
 	width: 28px;
 	height: 17px;
-	float: left;
 	display: inline-block;
 	text-align: center;
 }
@@ -603,90 +582,47 @@ p.moduleListing {
 	left: 1px;
 	right: auto;
 }
-.optionContainer {
-	position: relative;
-	border: 1px solid #c7c7c7;
-	border-radius: 2px 2px 2px 2px;
-	padding: 12px;
-	background-color: #f0f3fc;
-	display: block;
-	margin-bottom: 12px;
-	margin-right: 12px;
-	margin-left: 3px;
-	overflow: auto;
-}
-.optionContainer.highlight {
-	background-color: #F0FCF9;
-}
 .optionContainer table {
 	clear: both;
-	min-width: 100%;
+	width: 100%;
 	margin-top: 20px;
 	margin-bottom: 10px;
 }
-.optionContainer > label {
-	/* Only target row labels, not labels for specific inputs */
-	float: left;
-	width: 175px;
+.optionsTable th {
+	font-weight: bold;
+	font-size: 14px;
+	color: white;
+	text-shadow: 1px 1px 1px rgba(0,0,0,.3);
+	padding: 7px 5px;
+	background-color: rgb(150, 191, 232);
 }
-.optionContainer input[type=text], .optionContainer input[type=password], div.enum {
-	margin-left: 10px;
-	float: left;
-	width: 140px;
+.optionsTable tr:nth-child(even) {
+	background-color: hsl(215,40%,93%);
 }
-.optionContainer input[type=radio] {
-	margin-right: 0.3em;
+.optionsTable td {
+	padding: 5px 5px;
 }
-.optionContainer>input[type=color] {
-	margin-left: 10px;
-	margin-top: -3px;
-	float: left;
+.optionsTable tr.dragged {
+	width: 80% !important;
+	background-color: transparent;
 }
-.optionContainer input[type=color] {
-	width: 56px;
-	height: 20px;
+.optionsTable tr.dragged input[type=text] {
+	width: auto !important;
 }
-.optionContainer input[type=checkbox] {
-	margin-left: 10px;
-	margin-top: 0;
-	float: left;
+.optionsTable input[type=text] {
+	width: 100%;
 }
-.optionContainer .optionsTable input[type=text], .optionContainer .optionsTable input[type=password] {
-	margin-left: 0;
+.optionsTable textarea,
+.optionsTable ul.token-input-list-facebook {
+	width: 100%;
+	min-width: 300px;
+	box-sizing: border-box;
 }
-.optionContainer .RESConsoleButton {
-	float: left;
-	position: relative;
-	top: -6px;
+#RESConfigPanelOptions ul.token-input-list-facebook {
+	margin: 0;
 }
 .optionContainer .enum img {
 	max-width: 16px;
-}
-.optionsTable th, .optionsTable td {
-	padding-bottom: 7px;
-}
-.optionsTable textarea {
-	width: 400px;
-}
-.optionDescription {
-	margin-left: 255px;
-}
-#fetchWalletAddress + .optionDescription {
-	margin-left: 355px;
-}
-.optionDescription.textInput {
-	margin-left: 340px;
-}
-.optionDescription.table {
-	position: relative;
-	top: auto;
-	left: auto;
-	right: auto;
-	float: left;
-	width: 100%;
-	margin-left: 0;
-	margin-top: 12px;
-	margin-bottom: 12px;
 }
 #RESConsoleVersionDisplay {
 	float: left;
@@ -839,7 +775,6 @@ p.moduleListing {
 #SearchRES-results .SearchRES-result-copybutton:hover {
 	color: #888;
 }
-
 #SearchRES-input-container  {
 	position: relative;
 	margin-bottom: 10px;
@@ -847,9 +782,10 @@ p.moduleListing {
 #SearchRES-input {
 	box-sizing: border-box;
 	width: 100%;
-	height: 26px;
 	font-size: 14px;
-	padding: 2px 25px 2px 5px;
+	padding: 5px 3px;
+	border: 1px solid rgb(171,204,227);
+	border-radius: 2px;
 }
 #SearchRES-input-submit {
 	position: absolute;
@@ -857,6 +793,7 @@ p.moduleListing {
 	margin-top: -10px;
 	right: 0;
 	border: 0;
+	color: rgb(130,177,210);
 	background: transparent;
 }
 .RESMenuItemButton {
