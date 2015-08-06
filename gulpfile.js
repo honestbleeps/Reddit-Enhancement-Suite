@@ -42,12 +42,11 @@ var rootBuildDir = 'dist',
 		},
 		firefox: {
 			buildFolder: 'XPI',
-			manifest: 'XPI/lib/main.js',
+			manifest: 'XPI/index.js',
 			buildFiles: [
 				{ dest: 'data', src: ['XPI/data/**/*'] },
 				{ dest: 'data', src: commonFiles },
-				{ dest: 'lib',  src: ['XPI/lib/**/*'] },
-				{ dest: '/',    src: ['*.png', 'XPI/package.json'] }
+				{ dest: '/',    src: ['*.png', 'XPI/package.json', 'XPI/index.js'] }
 			]
 		},
 		oblink: {
