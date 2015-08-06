@@ -1,9 +1,10 @@
 # Reddit Enhancement Suite
 
-[![Travis](https://travis-ci.org/honestbleeps/Reddit-Enhancement-Suite.svg)](https://travis-ci.org/honestbleeps/Reddit-Enhancement-Suite)
+[![Build Status](https://travis-ci.org/honestbleeps/Reddit-Enhancement-Suite.svg?branch=master)](https://travis-ci.org/honestbleeps/Reddit-Enhancement-Suite)
 [![Code Climate](https://codeclimate.com/github/honestbleeps/Reddit-Enhancement-Suite/badges/gpa.svg)](https://codeclimate.com/github/honestbleeps/Reddit-Enhancement-Suite)
+[![devDependency Status](https://david-dm.org/honestbleeps/Reddit-Enhancement-Suite/dev-status.svg)](https://david-dm.org/honestbleeps/Reddit-Enhancement-Suite#info=devDependencies)
 
-Reddit Enhancement Suite (RES) is a suite of modules that enhance your Reddit browsing experience.
+Reddit Enhancement Suite (RES) is a suite of modules that enhances your Reddit browsing experience.
 
 For general documentation, visit the [Reddit Enhancement Suite Wiki](https://www.reddit.com/r/Enhancement/wiki/index).
 
@@ -44,7 +45,7 @@ Thinking about contributing to RES? Awesome! We just ask that you follow a few s
 
 ## Project structure
 
-In order to build the extension, the files from `lib/` must be replicated (either via hard-links or grunt, [see below](#using-grunt-instead-of-hard-links)) into the relevant browser directory.
+In order to build the extension, the files from `lib/` must be replicated ([either via hard-links or grunt/Gulp](#building-development-versions-of-the-extension)) into the relevant browser directory.
 
 ##### Top level files & folders
 
@@ -85,7 +86,7 @@ NOTE: This directory must have `.safariextension` in the name, or Safari's exten
 ##### Firefox files (XPI)
 NOTE: An XPI is a Firefox add-on, which is compiled using the [Add-on SDK](https://developer.mozilla.org/en-US/Add-ons/SDK).
 
-  - `lib/main.js` – this is Firefox's sort of "background page" for RES, like what Chrome has, but just a JS file
+  - `index.js` – this is Firefox's sort of "background page" for RES, like what Chrome has, but just a JS file
   - `package.json` – the project manifest for the Firefox add-on
 
 ##### OperaBlink files
@@ -98,15 +99,13 @@ NOTE: An XPI is a Firefox add-on, which is compiled using the [Add-on SDK](https
 
 In order to build a development version of RES, run `makelinks.sh` to generate hard links into `lib/` from the browser-specific folders. (This is [necessary on Chrome](https://code.google.com/p/chromium/issues/detail?id=27185).) NOTE: switching branches will break hard links, so you will need to rerun `makelinks.sh` whenever you check out new code.
 
-An alternative grunt build script is also provided; see ["Using grunt instead of hard links"](#using-grunt-instead-of-hard-links) for more details.
+Alternative build scripts for building RES via [grunt](#using-grunt) or [gulp](#using-gulp) are also provided.
 
-[You can also use Gulp to build RES](#using-gulp-for-building-res)
-
-#### Accessing Nightly Builds
+#### Accessing nightly builds
 
 In addition to building your own version of RES, you can download older (or current) builds of RES for testing purposes.
 
-(Almost) every commit to master is quickly archived away at http://allthefoxes.me - If you would like access to this database, please contact [/u/allthefoxes on reddit](http://reddit.com/u/allthefoxes) or email [fox@allthefoxes.me](mailto:fox@allthefoxes.me)
+(Almost) every commit to master is quickly archived away at http://allthefoxes.me; if you would like access to this database, please contact [/u/allthefoxes on reddit](https://www.reddit.com/u/allthefoxes) or email [fox@allthefoxes.me](mailto:fox@allthefoxes.me)
 
 All that is asked is that you have at least one previous contribution to RES.
 
@@ -118,9 +117,8 @@ All that is asked is that you have at least one previous contribution to RES.
 
 ##### Building in Firefox
 
-  1. [Download the Add-on SDK](https://ftp.mozilla.org/pub/mozilla.org/labs/jetpack/jetpack-sdk-latest.zip).
-  2. Start a terminal and source the Python script so that you can run the `cfx` commands. In Unix this is usually `. bin/activate` or `source bin/activate` and in Windows this usually involves running `bin/activate.bat`. If you are not using Python 2, run `virtualenv --python=python2 .` and try again.
-  3. In the terminal, `cd` to the `XPI` folder and run the command `cfx run`, which should launch a new Firefox browser using a temporary profile with only RES installed.
+  1. Install [jpm](https://developer.mozilla.org/en-US/Add-ons/SDK/Tools/jpm) using `npm`: `npm install -g jpm`
+  2. Navigate to `dist/XPI` and run the command `jpm run`, which should launch a new Firefox browser using a temporary profile with only RES installed.
 
 ##### Building in Safari (assumes Mac)
 
@@ -138,7 +136,7 @@ All that is asked is that you have at least one previous contribution to RES.
 
 The above steps will fail if the `makelinks.sh` or grunt build scripts have not been run before hand. Please ensure you only have one copy of RES running at a time.
 
-### Using grunt instead of hard links
+### Using grunt
 
 RES can also be built using [grunt](http://gruntjs.com/). In order to use grunt, you will need to have [node.js](http://nodejs.org/) installed on your system.
 
@@ -153,7 +151,7 @@ For developing, run `grunt` followed by the name of the browser you wish to deve
 
 To load the extension into your browser, see the ["Building development versions of the extension" section](#building-development-versions-of-the-extension) above.
 
-### Using Gulp for building RES
+### Using Gulp
 
 RES can also be built with [gulp](http://gulpjs.com/), an advanced build manager similar to grunt.
 

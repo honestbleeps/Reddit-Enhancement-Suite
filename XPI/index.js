@@ -17,14 +17,12 @@ let viewFor = require('sdk/view/core').viewFor;
 
 let localStorage = ss.storage;
 
-
-let { ToggleButton } = require('sdk/ui/button/toggle'),
-	styleSheetButton;
+let { ToggleButton } = require('sdk/ui/button/toggle');
+let styleSheetButton;
 
 // require chrome allows us to use XPCOM objects...
 const {Cc,Ci,Cu,components} = require('chrome');
 let historyService = Cc['@mozilla.org/browser/history;1'].getService(Ci.mozIAsyncHistory);
-
 
 // Cookie manager for new API login
 let cookieManager = Cc['@mozilla.org/cookiemanager;1'].getService().QueryInterface(Ci.nsICookieManager2);
@@ -176,6 +174,7 @@ pageMod.PageMod({
 		self.data.url('modules/userTagger.js'),
 		self.data.url('modules/keyboardNav.js'),
 		self.data.url('modules/commandLine.js'),
+		self.data.url('modules/messageMenu.js'),
 		self.data.url('modules/easterEgg.js'),
 		self.data.url('modules/pageNavigator.js'),
 		self.data.url('modules/userInfo.js'),
@@ -270,6 +269,7 @@ pageMod.PageMod({
 		self.data.url('modules/hosts/pastebin.js'),
 		self.data.url('modules/hosts/github.js'),
 		self.data.url('modules/hosts/onedrive.js'),
+		self.data.url('modules/hosts/oddshot.js'),
 		self.data.url('core/init.js')
 	],
 	contentStyleFile: [
@@ -505,7 +505,7 @@ pageMod.PageMod({
 					});
 					break;
 				case 'multicast':
-					isPrivate = priv.isPrivate(worker)
+					isPrivate = priv.isPrivate(worker);
 					workers
 						.filter(function(w) {
 							return (w !== worker) && (priv.isPrivate(w) === isPrivate);

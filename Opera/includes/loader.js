@@ -57,6 +57,7 @@
 		'modules/accountSwitcher.js',
 		'modules/betteReddit.js',
 		'modules/commandLine.js',
+		'modules/messageMenu.js',
 		'modules/easterEgg.js',
 		'modules/pageNavigator.js',
 		'modules/userInfo.js',
@@ -150,6 +151,7 @@
 		'modules/hosts/pastebin.js',
 		'modules/hosts/github.js',
 		'modules/hosts/onedrive.js',
+		'modules/hosts/oddshot.js',
 
 		'core/init.js',
 
