@@ -514,9 +514,8 @@ body.res-console-open {
 }
 .toggleButton span {
 	font-size: 11px;
-	padding-top: 3px;
 	width: 28px;
-	height: 17px;
+	line-height: 20px;
 	display: inline-block;
 	text-align: center;
 }
@@ -556,11 +555,10 @@ body.res-console-open {
 	content: ' ';
 	position: absolute;
 	top: 50%;
-	margin-top: -5px;
+	margin-top: -3px;
 	border: 3px white solid;
 	border-top-color: transparent;
 	border-bottom-color: transparent;
-	border-radius: 5px;
 	opacity: 0.3;
 }
 
@@ -568,7 +566,7 @@ body.res-console-open {
 	border-left-width: 0;
 	border-right-width: 5px;
 	left: auto;
-	right: 3px;
+	right: 1px;
 }
 .toggleButton.enabled::before {
 	border-left-width: 5px;
