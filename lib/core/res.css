@@ -257,34 +257,28 @@ body.res-console-open {
 }
 .RESCloseButton {
 	position: absolute;
-	top: 7px;
-	right: 7px;
-	font: 12px Verdana, sans-serif;
+	top: 8px;
+	right: 8px;
+	font: 12px/22px Verdana, sans-serif;
 	background-color: #fff;
 	border: 1px solid #d7d9dc;
 	border-radius: 3px;
 	color: #9a958e;
 	text-align: center;
-	line-height: 22px;
 	width: 24px;
 	height: 24px;
 	z-index: 1000;
 	cursor: pointer;
+	box-sizing: border-box;
 }
 #RESConsoleTopBar .RESCloseButton {
-	top: 7px;
-	right: 7px;
+	top: 9px;
+	right: 9px;
 }
 .RESCloseButton:hover {
-	border: 1px solid #999;
+	border-color: #999;
 	background-color: #ddd;
 }
-#RESClose {
-	float: right;
-	margin-top: 2px;
-	margin-right: 0;
-}
-
 #RESAllOptionsSpan {
 	display: block;
 	margin: 10px 0;
@@ -499,14 +493,14 @@ body.res-console-open {
 	clear: both;
 	width: auto;
 }
-.moduleToggle, .toggleButton {
+.toggleButton {
 	cursor: pointer;
 	-webkit-user-select: none;
 	-moz-user-select: none;
 	white-space: nowrap;
 }
 .moduleToggle {
-	display: inline-flex; /* removes spaces */
+	display: inline-flex; /* removes white space */
 	vertical-align: middle;
 }
 .moduleName {
@@ -518,7 +512,7 @@ body.res-console-open {
 .toggleButton input[type=checkbox] {
 	display: none;
 }
-.moduleToggle span, .toggleButton span {
+.toggleButton span {
 	font-size: 11px;
 	padding-top: 3px;
 	width: 28px;
@@ -526,39 +520,39 @@ body.res-console-open {
 	display: inline-block;
 	text-align: center;
 }
-.moduleToggle .toggleOn, .toggleButton .toggleOn {
+.toggleButton .toggleOn {
 	border: 1px solid #636363;
 	border-right: 0;
 	border-radius: 3px 0 0 3px;
 }
-.moduleToggle .toggleOff, .toggleButton .toggleOff {
+.toggleButton .toggleOff {
 	border: 1px solid #636363;
 	border-left: 0;
 	border-radius: 0 3px 3px 0;
 }
-.moduleToggle:not(.enabled) .toggleOn, .toggleButton:not(.enabled) .toggleOn {
+.toggleButton:not(.enabled) .toggleOn {
 	background-color: #ddd;
 	color: #636363;
 }
-.moduleToggle:not(.enabled) .toggleOff, .toggleButton:not(.enabled) .toggleOff {
+.toggleButton:not(.enabled) .toggleOff {
 	background-color: #d02020;
 	color: #fff;
 	font-weight: bolder;
 }
-.moduleToggle.enabled .toggleOn, .toggleButton.enabled .toggleOn {
+.toggleButton.enabled .toggleOn {
 	background-color: #107ac4 ;
 	color: #fff;
 	font-weight: bolder;
 }
-.moduleToggle.enabled .toggleOff, .toggleButton.enabled .toggleOff {
+.toggleButton.enabled .toggleOff {
 	background-color: #ddd;
 	color: #636363;
 }
 
-.moduleToggle, .toggleButton {
+.toggleButton {
 	position: relative;
 }
-.moduleToggle::before, .toggleButton::before {
+.toggleButton::before {
 	content: ' ';
 	position: absolute;
 	top: 50%;
@@ -570,13 +564,13 @@ body.res-console-open {
 	opacity: 0.3;
 }
 
-.moduleToggle::before, .toggleButton::before {
+.toggleButton::before {
 	border-left-width: 0;
 	border-right-width: 5px;
 	left: auto;
 	right: 3px;
 }
-.moduleToggle.enabled::before, .toggleButton.enabled::before {
+.toggleButton.enabled::before {
 	border-left-width: 5px;
 	border-right-width: 0;
 	left: 1px;
@@ -644,20 +638,19 @@ body.res-console-open {
 	color: #fff;
 	border: 1px solid #636363;
 	border-radius: 3px;
-	background-color: #107ac4;
-	opacity: 0.9;
+	background-color: rgba(16, 122, 196,.9);
 	margin-right: 1em;
 }
 #moduleOptionsSave:hover {
-	opacity: 1.0;
+	background-color: rgb(16, 122, 196);
 }
 #moduleOptionsSave::before {
-	content: ' ';
+	content: '';
 	display: inline-block;
 	margin: 0 0.3em;
-	height: 0.8em;
-	width: 0.7em;
-	border-radius: 1em;
+	height: 8px;
+	width: 8px;
+	border-radius: 100%;
 	background: #66EE11;
 }
 #moduleOptionsSave.optionsSaved::before {
@@ -783,7 +776,7 @@ body.res-console-open {
 	box-sizing: border-box;
 	width: 100%;
 	font-size: 14px;
-	padding: 5px 3px;
+	padding: 5px 25px 5px 3px;
 	border: 1px solid rgb(171,204,227);
 	border-radius: 2px;
 }
