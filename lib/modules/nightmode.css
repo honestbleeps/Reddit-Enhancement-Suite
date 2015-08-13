@@ -56,7 +56,8 @@
 .res-nightmode #RESHoverContainer:after {
 	border-color: transparent #222;
 }
-.res-nightmode .sr-interest-bar {
+.res-nightmode .sr-interest-bar,
+.res-nightmode.liveupdate-app .content {
 	background-color: rgb(22,22,22);
 }
 .res-nightmode .entry .buttons li a,
@@ -95,7 +96,8 @@
 	background-color: #888;
 	color: #eee;
 }
-.res-nightmode #header {
+.res-nightmode #header,
+.res-nightmode .liveupdate-home .content {
 	background-color: rgb(105,105,105);
 }
 .res-nightmode #jumpToContent {
@@ -296,6 +298,9 @@
 .res-nightmode .reported {
 	background: none;
 	border: 1px dotted;
+}
+.res-nightmode #report form {
+	background-color: rgb(76,61,61);
 }
 .res-nightmode .reason-prompt,
 .res-nightmode .report-action-form li,
@@ -633,10 +638,17 @@
 .res-nightmode .RESNotification,
 .res-nightmode .c-close,
 .res-nightmode #REScommentNavBox,
-.res-nightmode #BigEditor #BigText {
+.res-nightmode #BigEditor #BigText,
+.res-nightmode #liveupdate-statusbar,
+.res-nightmode #liveupdate-statusbar.complete {
 	border-color: rgb(76,76,76);
 	background-color: rgb(46, 46, 46);
 	color: #ccc;
+}
+.res-nightmode #liveupdate-statusbar.live.connected {
+  background-color: rgb(52, 75, 78);
+  border: 1px solid rgb(56, 88, 95);
+  color: inherit;
 }
 .res-nightmode .RESHoverInfoCard:before {
   border-right-color: rgb(76,76,76);
@@ -745,7 +757,9 @@
 .res-nightmode .combined-search-page .search-result .search-result-body,
 .res-nightmode .generic-table,
 .res-nightmode .message.message-reply.recipient>.entry .head,
-.res-nightmode .message.message-parent.recipient> .entry .head {
+.res-nightmode .message.message-parent.recipient> .entry .head,
+.res-nightmode .linefield .title,
+.res-nightmode .liveupdate-listing li.liveupdate:hover time {
 	color: inherit;
 }
 .res-nightmode .nextprev a:hover,
@@ -849,7 +863,6 @@ html.res-nightmode .multi-details .subreddits .remove-sr {
 	background-color: rgb(218, 208, 179);
 	color: #000;
 }
-.res-nightmode .liveupdate-listing table tr:hover th time,
 .res-nightmode .policy-page .md p  {
 	color: #eee;
 }
@@ -867,10 +880,6 @@ body.res-nightmode,
 .res-nightmode #BigEditor .markdownEditor a,
 .res-nightmode #BigEditor .markdownEditor .RESMacroDropdownTitle {
 	color: #ccc;
-}
-.res-nightmode .liveupdate-listing table tr.separator time {
-	background: #666;
-	color: #fff;
 }
 .res-nightmode .server-seconds {
 	background: #333;
@@ -952,7 +961,8 @@ body.res-nightmode,
 .res-nightmode .RESDashboardComponent .RESDashboardComponentHeader ul .updateTime,
 .res-nightmode .remove-self .option,
 .res-nightmode .moderator.remove-self .option,
-.res-nightmode .message-count {
+.res-nightmode .message-count,
+.res-nightmode .usertable > .toggle {
 	color: #222;
 }
 .res-nightmode .gold-accent {
@@ -975,7 +985,6 @@ body.res-nightmode,
 }
 .res-nightmode .white-field,
 .res-nightmode .delete-field,
-.res-nightmode .liveupdate-listing table tr.separator td,
 .res-nightmode .RESDialogSmall.livePreview .md.RESDialogContents,
 .res-nightmode .moderator .traffic-table tbody tr:nth-child(even),
 .res-nightmode .thing .expando-button,
@@ -990,11 +999,11 @@ body.res-nightmode,
 .res-nightmode .flairselector.drop-choices.active,
 .res-nightmode .message.threaded .child,
 .res-nightmode .comment .child,
-.res-nightmode .comment .showreplies {
-	border-color: rgb(76,76,76);
-}
+.res-nightmode .comment .showreplies,
 .res-nightmode .message.message-reply:not(.threaded) .entry,
-.res-nightmode .message.message-parent:not(.threaded) .entry {
+.res-nightmode .message.message-parent:not(.threaded) .entry,
+.res-nightmode.liveupdate-app .content,
+.res-nightmode .liveupdate-listing li.separator:before {
 	border-color: rgb(76,76,76);
 }
 .res-nightmode .comment .md p a[href="/spoiler"]:hover,
@@ -1021,7 +1030,8 @@ body.res-nightmode,
 .res-nightmode .markhelp table tr:first-child {
 	background-color: rgb(76,76,76) !important;
 }
-.res-nightmode .usertext .markhelp .spaces {
+.res-nightmode .usertext .markhelp .spaces,
+.res-nightmode .liveupdate-listing li.separator time {
 	background-color: rgb(76,76,76);
 }
 .res-nightmode .flair,
