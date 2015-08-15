@@ -888,18 +888,21 @@ p.moduleListing {
 	background: none;
 	z-index: 100000098 !important;
 	font: 12px/1.6 verdana, arial, sans-serif;
+	color: #000;
 }
 .RESNotification {
 	position: relative;
-	z-index: 100000150;
-	color: #000;
 	background-color: #fff;
 	border: 1px solid rgb(255,255,255);
 	box-shadow: 0px 2px 8px 0 rgba(0,0,0,.3);
 	z-index: 1;
+	opacity: 0;
+	top: -10px;
+	transition: top .2s; /* opacity handled with JS */
 }
-.RESNotification:not(:first-of-type) {
-	margin-top: 15px;
+.RESNotification.transition {
+	top: 0;
+	opacity: 1;
 }
 .RESNotification.timerOn {
 	animation-duration: 3s; /* default */
@@ -912,6 +915,12 @@ p.moduleListing {
 	to {
 		opacity: 0;
 	}
+}
+.RESNotification:not(:first-of-type) {
+	margin-top: 15px;
+}
+.RESNotification a {
+	color: #369;
 }
 .RESNotification a:hover {
 	text-decoration: underline;
@@ -964,30 +973,23 @@ p.moduleListing {
 	font-weight: normal;
 }
 .RESNotificationClose.RESCloseButton {
-	top: 0px;
+	top: 5px;
 	right: 5px;
 	box-sizing: border-box;
 	border: none;
 	background: hsl(0, 70%, 55%);
 	color: rgb(255,255,255);
-	width: 26px;
 	font-weight: bold;
-	border-radius: 0 0 3px 3px;
+	border-radius: 3px;
+	line-height: 24px;
 }
 .RESNotificationClose.RESCloseButton:hover {
 	border: none;
 	background-color: rgb(200,20,20);
 }
-a.RESNotificationButtonBlue {
-	clear: both;
-	float: right;
-	cursor: pointer;
-	margin-top: 12px;
-	padding: 3px 5px;
-	font-size: 12px;
-	color: #fff !important;
-	border: 1px solid #636363;
-	border-radius: 3px;
+.RESNotification a.RESNotificationButtonBlue {
+	padding: 5px 10px;
+	color: white !important;
 	background-color: #107ac4;
 }
 .RES-spoiler {
