@@ -9,7 +9,6 @@ body.res-console-open {
 	position: fixed;
 	top: 15px; right: 25px; bottom: 100%; left: 25px;
 	overflow: hidden;
-	padding: 10px;
 	box-shadow: 5px 5px 10px rgba(0,0,0,.2);
 	border-radius: 3px;
 	background-color: #fff;
@@ -57,7 +56,7 @@ body.res-console-open {
 }
 #modalOverlay {
 	visibility: hidden;
-	z-index: 999;
+	z-index: 100000099;
 	position: fixed;
 	top: 0;
 	right: 0;
@@ -214,12 +213,9 @@ body.res-console-open {
 	display: inline-block;
 	height: 100%;
 }
-#RESConsoleHeader {
-	width: 100%;
-}
 #RESLogo {
 	margin-right: 5px;
-	float: left;
+	vertical-align: middle;
 }
 .RESDialogTopBar {
 	border-radius: 3px 3px 0 0;
@@ -229,28 +225,28 @@ body.res-console-open {
 	right: 0;
 	height: 40px;
 	margin-bottom: 10px;
-	padding-top: 10px;
-	padding-left: 10px;
-	padding-right: 10px;
+	padding: 10px 10px 0 10px;
 	border-bottom: 1px solid #c7c7c7;
 	background-color: #F0F3FC;
-	float: left;
 }
 #RESConsoleTopBar {
 	padding-right: 30px;
-	height: 30px;
+	margin: 0;
+	height: auto;
+	position: static;
 }
 #RESConsoleTopBar h1 {
-	float: left;
-	margin-top: 6px;
+	display: inline-block;
+	margin: 0;
 	padding: 0;
 	font-size: 14px;
+	vertical-align: middle;
 }
 #RESConsoleSubredditLink {
-	float: left;
+	display: inline-block;
 	margin-left: 1em;
-	margin-top: 9px;
 	font-size: 10px;
+	vertical-align: middle;
 }
 #RESKnownBugs, #RESKnownFeatureRequests {
 	list-style-type: disc;
@@ -280,9 +276,10 @@ body.res-console-open {
 	background-color: #ddd;
 }
 #RESAllOptionsSpan {
-	display: block;
+	display: flex; /* removes white space */
 	margin: 10px 0;
 	color: #868686;
+	font-size: 11px;
 }
 #RESConsoleContent.advanced-options-disabled .optionContainer.advanced {
 	display: none;
@@ -320,17 +317,16 @@ body.res-console-open {
 	background-color: #fff;
 }
 #RESConsoleContent {
-	clear: both;
-	padding: 15px 0 0 15px;
-	position: absolute;
-	top: 40px; right: 0; bottom: 0; left: 0;
-	border-top: 1px solid #DDD;
 	display: flex;
+	max-height: 100%;
+	position: absolute;
+	top: 41px; right: 0; bottom: 0; left: 0;
+	padding-left: 15px;
 }
 #RESConfigPanelOptions {
 	display: block;
 	overflow: auto;
-	padding: 0 15px;
+	padding: 15px 15px 0 15px;
 	flex-grow: 1;
 }
 #allOptionsContainer {
@@ -350,6 +346,7 @@ body.res-console-open {
 #RESConfigPanelModulesPane {
 	position: relative;
 	width: 200px;
+	padding-top: 15px;
 	flex-shrink: 0;
 	overflow-y: auto;
 	overflow-x: hidden;
@@ -466,11 +463,13 @@ body.res-console-open {
 	margin: 0 4px 0 -15px; /* 4+(-15) = 11 == Batch font-size */
 }
 .optionContainer:not(.table):not(.specialOptionType) .optionSetting {
-	padding: 0 10px;
+	padding: 0 10px 0 10px;
+	margin-right: 10px;
+	border-right: 1px dashed hsl(205,50%,78%);
 }
 #RESConsoleContainer input[type=radio],
 #RESConsoleContainer input[type=checkbox] {
-	vertical-align: middle;
+	vertical-align: bottom;
 	margin-right: 3px;
 }
 .moduleButton {
@@ -487,11 +486,7 @@ body.res-console-open {
 	font-weight: bold;
 }
 #RESConfigPanelOptions .moduleDescription {
-	margin-left: 0;
-	margin-top: 10px;
-	padding-top: 0;
-	clear: both;
-	width: auto;
+	margin-top: 5px;
 }
 .toggleButton {
 	cursor: pointer;
@@ -617,10 +612,10 @@ body.res-console-open {
 	max-width: 16px;
 }
 #RESConsoleVersionDisplay {
-	float: left;
+	display: inline-block;
 	font-size: 10px;
 	margin-left: 1em;
-	margin-top: 9px;
+	vertical-align: middle;
 }
 .RESConsoleButton {
 	padding: 3px 5px;
