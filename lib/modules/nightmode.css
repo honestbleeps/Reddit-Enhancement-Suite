@@ -43,15 +43,12 @@
 	border-color: transparent;
 	background-color: rgb(62,62,62);
 }
-.res-nightmode .flairselector li.selected {
+.res-nightmode .flairselector li.selected,
+.res-nightmode .RESNotification {
 	border-color: rgb(120,120,120);
 }
 .res-nightmode .RESCloseButton:hover {
 	background-color: rgb(46,46,46);
-}
-.res-nightmode #RESConsoleContainer .RESCloseButton {
-  border-color: rgb(167, 167, 167);
-	background-color: rgb(238, 238, 238);
 }
 .res-nightmode #RESHoverContainer:after {
 	border-color: transparent #222;
@@ -80,7 +77,6 @@
 .res-nightmode #RESMenu li.active {
 	background-color: #7f7f7f;
 }
-.res-nightmode #RESConsoleContent,
 .res-nightmode #RESMenu li {
 	background-color: #eee;
 }
@@ -106,10 +102,7 @@
 	padding: 0 2px;
 }
 .res-nightmode #sr-header-area,
-.res-nightmode #sr-more-link,
-.res-nightmode .moduleHeader,
-.res-nightmode .allOptionsContainer,
-.res-nightmode .optionContainer {
+.res-nightmode #sr-more-link {
 	background-color: #ccc;
 	color: #000;
 }
@@ -190,9 +183,6 @@
 .res-nightmode #RESDashboardAddComponent,
 .res-nightmode .dashboardPane>.RESDashboardComponent {
 	background-color: gray;
-}
-.res-nightmode #RESConsoleContainer {
-	background-color: #ddd;
 }
 .res-nightmode #RESDashboard .RESDashboardComponentHeader {
 	background-color: rgb(132,132,132);
@@ -532,7 +522,6 @@
 .res-nightmode #srList tr:hover {
   background-color: rgb(62, 62, 62);
 }
-.res-nightmode .token-input-list-facebook,
 .res-nightmode #quickMessage textarea,
 .res-nightmode #quickMessage select {
 	background-color: #aaa;
@@ -644,7 +633,6 @@
 .res-nightmode .submit #sr-autocomplete,
 .res-nightmode .usertext-edit textarea,
 .res-nightmode .RESDialogSmall,
-.res-nightmode .RESNotification,
 .res-nightmode .c-close,
 .res-nightmode #REScommentNavBox,
 .res-nightmode #BigEditor #BigText,
@@ -934,15 +922,16 @@ body.res-nightmode,
 }
 .res-nightmode hr,
 .res-nightmode .md hr,
-.res-nightmode .message.gold-auto blockquote,
-.res-nightmode .RESNotificationHeader {
+.res-nightmode .message.gold-auto blockquote {
   border-color: rgb(60,60,60);
   background-color: rgb(60,60,60);
 }
 .res-nightmode #RESSubredditGroupDropdown {
 	background-color: rgb(204,204,204);
 }
-.res-nightmode #RESSubredditGroupDropdown a {
+.res-nightmode #RESSubredditGroupDropdown a,
+.res-nightmode .RESNotificationContent,
+.res-nightmode .RESNotificationFooter {
 	color: rgb(0,0,0);
 }
 .res-nightmode .goldvertisement,
@@ -1050,4 +1039,99 @@ body.res-nightmode,
 }
 .res-nightmode #NERContent {
 	background-color: rgb(160,160,160);
+}
+.res-nightmode .RESNotification {
+	background-color: rgb(210,210,210);
+}
+.res-nightmode .RESNotificationContent {
+	border-color: rgb(180,180,180);
+}
+.res-nightmode #modalOverlay.fadeIn {
+	background-color: rgba(0,0,0,.7);
+}
+.res-nightmode #RESConsoleContainer {
+	color: rgb(180,180,180);
+	background-color: rgb(34,34,34);
+}
+.res-nightmode #RESConsoleTopBar {
+	color: rgb(230,230,230);
+	border-color: rgb(76, 76, 76);
+	background-color: rgb(60,60,60);
+}
+.res-nightmode #RESLogo {
+	-webkit-filter: invert(79%) grayscale(100%);
+	filter: invert(79%) grayscale(100%);
+}
+.res-nightmode .optionContainer,
+.res-nightmode #SearchRES-results-container li {
+	border-color: rgb(60, 60, 60);
+	background-color: rgb(34, 34, 34);
+}
+.res-nightmode .optionContainer:not(.table):not(.specialOptionType) .optionSetting {
+	border-color: rgb(60, 60, 60);
+}
+.res-nightmode #RESConsoleContainer input[type="text"],
+.res-nightmode #RESConsoleContainer input[type="password"],
+.res-nightmode #RESConsoleContainer .c-form-control,
+.res-nightmode ul.token-input-list-facebook,
+.res-nightmode #RESConsoleContainer textarea {
+	padding: 2px 3px;
+	border: 1px solid rgb(60, 60, 60);
+	background-color: rgb(34, 34, 34);
+}
+.res-nightmode #RESConfigPanelModulesList {
+	color: rgb(160,160,160);
+}
+.res-nightmode #RESConfigPanelModulesList li.active h3 {
+	background-color: rgb(20, 20, 20);
+}
+.res-nightmode #RESConfigPanelModulesList > ul,
+.res-nightmode #RESConfigPanelModulesList li h3,
+.res-nightmode #RESConfigPanelModulesList li.active h3 {
+	border-color: rgb(60, 60, 60);
+}
+.res-nightmode .moduleButton {
+	color: rgb(100,100,100);
+}
+.res-nightmode .moduleButton.enabled {
+	color: rgb(180,180,180);
+}
+.res-nightmode #moduleOptionsScrim {
+	background-color: rgba(34,34,34,.7);
+}
+.res-nightmode #RESConsoleContainer .RESCloseButton {
+	color: rgb(200,200,200);
+	background-color: rgb(34,34,34);
+}
+.res-nightmode .optionsTable th {
+	color: rgb(180,180,180);
+	background-color: rgb(60, 60, 60);
+}
+.res-nightmode .optionsTable tr:nth-child(2n) {
+	background-color: rgb(29,29,29);
+}
+.res-nightmode #moduleOptionsSaveStatus {
+	color: rgb(150,150,150);
+	background-color: rgb(50, 50, 50);
+}
+.res-nightmode .toggleButton .toggleOff,
+.res-nightmode .toggleButton .toggleOn {
+	color: rgba(255,255,255,.8);
+	border-color: rgb(60,60,60);
+}
+.res-nightmode .toggleButton:not(.enabled) .toggleOn,
+.res-nightmode .toggleButton.enabled .toggleOff {
+	color: rgb(60,60,60);
+	border-color: rgb(60, 60, 60);
+	background-color: rgb(40, 40, 40);
+}
+.res-nightmode .toggleButton.enabled .toggleOn {
+	background: linear-gradient(to right, rgb(37, 69, 107), rgb(40, 40, 40));
+}
+.res-nightmode .toggleButton:not(.enabled) .toggleOff {
+	background: linear-gradient(to left, rgb(136, 38, 38), rgb(40, 40, 40));
+}
+.res-nightmode .RESDonateButton {
+	color: rgb(200,200,200);
+	background-color: rgb(54,54,54);
 }
