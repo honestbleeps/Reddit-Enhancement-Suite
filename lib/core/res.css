@@ -968,6 +968,21 @@ p.moduleListing {
 .RESNotificationHeader .gearIcon::after {
 	line-height: 1;
 }
+
+.RESNotification:hover .RESNotificationHeader .gearIcon,
+.RESNotification .RESNotificationClose,
+.RESNotification .RESNotificationFooter {
+	opacity: 0.3;
+	-webkit-transition: opacity 0.3s linear;
+	-moz-transition: opacity 0.3s linear;
+	-o-transition: opacity 0.3s linear;
+	transition: opacity 0.3s linear;
+}
+.RESNotification:hover .RESNotificationHeader .gearIcon,
+.RESNotification:hover .RESNotificationClose,
+.RESNotification:hover .RESNotificationFooter {
+	opacity: 1.0;
+}
 .RESNotificationHeader h3 {
 	font-size: 12px;
 	font-weight: normal;
