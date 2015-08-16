@@ -276,6 +276,7 @@ body.res-console-open {
 	background-color: #ddd;
 }
 #RESAllOptionsSpan {
+	display: -webkit-flex; /* safari */
 	display: flex; /* removes white space */
 	margin: 10px 0;
 	color: #868686;
@@ -317,6 +318,7 @@ body.res-console-open {
 	background-color: #fff;
 }
 #RESConsoleContent {
+	display: -webkit-flex; /* safari */
 	display: flex;
 	max-height: 100%;
 	position: absolute;
@@ -327,6 +329,7 @@ body.res-console-open {
 	display: block;
 	overflow: auto;
 	padding: 15px 15px 0 15px;
+	-webkit-flex-grow: 1; /* safari */
 	flex-grow: 1;
 }
 #allOptionsContainer {
@@ -347,6 +350,7 @@ body.res-console-open {
 	position: relative;
 	width: 200px;
 	padding-top: 15px;
+	-webkit-flex-shrink: 0; /* safari */
 	flex-shrink: 0;
 	overflow-y: auto;
 	overflow-x: hidden;
@@ -424,6 +428,7 @@ body.res-console-open {
 	margin: 10px 0;
 	overflow: auto;
 	clear: both;
+	display: -webkit-flex; /* safari */
 	display: flex;
 }
 .optionContainer.table,
@@ -495,6 +500,7 @@ body.res-console-open {
 	white-space: nowrap;
 }
 .moduleToggle {
+	display: -webkit-inline-flex; /* safari */
 	display: inline-flex; /* removes white space */
 	vertical-align: middle;
 }
