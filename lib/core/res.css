@@ -969,7 +969,7 @@ p.moduleListing {
 	line-height: 1;
 }
 
-.RESNotification:hover .RESNotificationHeader .gearIcon,
+.RESNotification .RESNotificationHeader .gearIcon,
 .RESNotification .RESNotificationClose,
 .RESNotification .RESNotificationFooter {
 	opacity: 0.3;
