@@ -449,6 +449,8 @@ body.res-console-open {
 }
 .optionTitle {
 	font-size: 14px;
+	-webkit-flex: 0 0 auto;
+	flex: 0 0 auto;
 	min-width: 200px;
 }
 .optionDescription {
@@ -494,6 +496,7 @@ body.res-console-open {
 	margin-top: 5px;
 }
 .toggleButton {
+	display: inline-block;
 	cursor: pointer;
 	-webkit-user-select: none;
 	-moz-user-select: none;
