@@ -516,7 +516,8 @@
 .res-nightmode .dropdown.lightdrop .drop-choices {
 	background-color: #333;
 }
-.res-nightmode #srList tr {
+.res-nightmode #srList tr,
+.res-nightmode .moduleButton {
   border-bottom-color: rgb(100,100,100);
 }
 .res-nightmode #srList tr:hover {
@@ -536,10 +537,11 @@
 .res-nightmode ul.res-search-tabs li {
 	background: linear-gradient(to top, rgb(60,60,60), rgb(45,45,45));
 }
-.res-nightmode ul.res-search-tabs li.res-search-tab-active {
-	background-color: rgb(34,34,34);
-}
-.res-nightmode .combined-search-page #previoussearch .res-search-pane {
+.res-nightmode ul.res-search-tabs li.res-search-tab-active,
+.res-nightmode .combined-search-page #previoussearch .res-search-pane,
+.res-nightmode #RESConsoleContainer,
+.res-nightmode #SearchRES-results-container li,
+.res-nightmode #SearchRES-results-container li:hover {
 	background-color: rgb(34,34,34);
 }
 .res-nightmode #searchexpando,
@@ -596,8 +598,8 @@
 	color: rgb(160,160,160);
 	border-left-color: rgb(100,100,100);
 }
-.res-nightmode .infobar,
-.res-nightmode .infobar .md {
+.res-nightmode .infobar:not(.newsletterbar),
+.res-nightmode .infobar:not(.newsletterbar) .md {
 	border-color: #a48f50;
 	background-color: #dad0b3;
 	color: #000;
@@ -1049,26 +1051,26 @@ body.res-nightmode,
 .res-nightmode #modalOverlay.fadeIn {
 	background-color: rgba(0,0,0,.7);
 }
-.res-nightmode #RESConsoleContainer {
-	color: rgb(180,180,180);
-	background-color: rgb(34,34,34);
-}
-.res-nightmode #RESConsoleTopBar {
+.res-nightmode #RESConsoleTopBar,
+.res-nightmode .RESDonateButton {
 	color: rgb(230,230,230);
-	border-color: rgb(76, 76, 76);
+	border-color: rgb(76,76,76);
 	background-color: rgb(60,60,60);
 }
 .res-nightmode #RESLogo {
 	-webkit-filter: invert(79%) grayscale(100%);
 	filter: invert(79%) grayscale(100%);
 }
-.res-nightmode .optionContainer,
-.res-nightmode #SearchRES-results-container li {
-	border-color: rgb(60, 60, 60);
-	background-color: rgb(34, 34, 34);
+.res-nightmode .optionContainer {
+	border-color: transparent;
+	background-color: rgb(40,40,40);
 }
-.res-nightmode .optionContainer:not(.table):not(.specialOptionType) .optionSetting {
-	border-color: rgb(60, 60, 60);
+.res-nightmode .optionContainer:not(.table):not(.specialOptionType) .optionSetting,
+.res-nightmode #SearchRES-results-container li,
+.res-nightmode #RESConfigPanelModulesList > ul,
+.res-nightmode #RESConfigPanelModulesList li h3,
+.res-nightmode #RESConfigPanelModulesList li.active h3 {
+	border-color: rgb(60,60,60);
 }
 .res-nightmode #RESConsoleContainer input[type="text"],
 .res-nightmode #RESConsoleContainer input[type="password"],
@@ -1083,36 +1085,25 @@ body.res-nightmode,
 	color: rgb(160,160,160);
 }
 .res-nightmode #RESConfigPanelModulesList li.active h3 {
-	background-color: rgb(20, 20, 20);
+	background-color: rgb(20,20,20);
 }
-.res-nightmode #RESConfigPanelModulesList > ul,
-.res-nightmode #RESConfigPanelModulesList li h3,
-.res-nightmode #RESConfigPanelModulesList li.active h3 {
-	border-color: rgb(60, 60, 60);
-}
-.res-nightmode .moduleButton {
-	color: rgb(100,100,100);
-}
-.res-nightmode .moduleButton.enabled {
+.res-nightmode #RESConsoleContainer,
+.res-nightmode .moduleButton.enabled,
+.res-nightmode .optionsTable th {
 	color: rgb(180,180,180);
 }
 .res-nightmode #moduleOptionsScrim {
 	background-color: rgba(34,34,34,.7);
 }
-.res-nightmode #RESConsoleContainer .RESCloseButton {
-	color: rgb(200,200,200);
-	background-color: rgb(34,34,34);
-}
 .res-nightmode .optionsTable th {
-	color: rgb(180,180,180);
-	background-color: rgb(60, 60, 60);
+	background-color: rgb(60,60,60);
 }
 .res-nightmode .optionsTable tr:nth-child(2n) {
 	background-color: rgb(29,29,29);
 }
 .res-nightmode #moduleOptionsSaveStatus {
 	color: rgb(150,150,150);
-	background-color: rgb(50, 50, 50);
+	background-color: rgb(50,50,50);
 }
 .res-nightmode .toggleButton .toggleOff,
 .res-nightmode .toggleButton .toggleOn {
@@ -1130,8 +1121,4 @@ body.res-nightmode,
 }
 .res-nightmode .toggleButton:not(.enabled) .toggleOff {
 	background: linear-gradient(to left, rgb(136, 38, 38), rgb(40, 40, 40));
-}
-.res-nightmode .RESDonateButton {
-	color: rgb(200,200,200);
-	background-color: rgb(54,54,54);
 }
