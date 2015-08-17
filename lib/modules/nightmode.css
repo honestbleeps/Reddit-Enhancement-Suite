@@ -57,7 +57,6 @@
 .res-nightmode.liveupdate-app .content {
 	background-color: rgb(22,22,22);
 }
-.res-nightmode .entry .buttons li a,
 .res-nightmode .entry .morecomments .gray,
 .res-nightmode .markdownEditor .RESCharCounter {
 	color: rgba(221,221,221,.8);
@@ -151,15 +150,15 @@
 .res-nightmode .spam.thing .author,
 .res-nightmode .spam.thing .subreddit,
 .res-nightmode .spam.thing.comment .md a {
-	color: rgb(20, 190, 250);
+	color: rgb(20,190,250);
 }
 .res-nightmode.moderator .linefield .title {
 	background: transparent;
-	color: rgb(20, 150, 220);
+	color: rgb(20,150,220);
 }
 .res-nightmode .message .subject .correspondent {
 	background: rgb(33, 47, 70);
-	color: rgb(20, 150, 220);
+	color: rgb(20,150,220);
 }
 .res-nightmode .moderator .linefield,
 .res-nightmode .moderator .footer-parent .footer {
@@ -193,7 +192,6 @@
 }
 .res-nightmode .side .titlebox form.flairtoggle,
 .res-nightmode .trophy-area .content,
-.res-nightmode .NERPageMarker,
 .res-nightmode .side .md ol,
 .res-nightmode .side .md ul {
 	background-color: #222;
@@ -261,7 +259,7 @@
 	border-color: #333;
 }
 .res-nightmode .morelink:hover a {
-	color: rgb(20, 150, 220);
+	color: rgb(20,150,220);
 }
 .res-nightmode .morelink .nub {
 	display: none;
@@ -301,7 +299,6 @@
 .res-nightmode .big-mod-buttons .pretty-button,
 .res-nightmode .instructions .preftable th,
 .res-nightmode .instructions .pretty-form,
-.res-nightmode .drop-choices a,
 .res-nightmode .remove-self .option,
 .res-nightmode .unfriend-button .option,
 .res-nightmode .RESDashboardComponent .widgetPath {
@@ -355,85 +352,8 @@
 	visibility: hidden;
 }
 .res-nightmode .expando-button {
-	background-color: transparent;
-	background-image: url(https://s3.amazonaws.com/a.thumbs.redditmedia.com/PkckcN8_3ijRUVP-GUQ6E-c8Ash_jQ3kCrEAoqKjSC4.png)!important;
-	cursor: pointer;
-}
-.res-nightmode .expando-button.image.collapsed,
-.res-nightmode .expando-button.image.collapsedExpando {
-	background-position: 0 0;
-}
-.res-nightmode .expando-button.image.collapsed:hover,
-.res-nightmode .expando-button.image.collapsedExpando:hover {
-	background-position: 0 -24px;
-}
-.res-nightmode.expando-button.image.expanded {
-	margin-bottom: 5px;
-	background-position: 0 -48px;
-}
-.res-nightmode .expando-button.image.expanded:hover {
-	background-position: 0 -72px;
-}
-.res-nightmode .expando-button.image.gallery.collapsed,
-.res-nightmode .expando-button.image.gallery.collapsedExpando {
-	background-position: 0 -288px;
-}
-.res-nightmode .expando-button.image.gallery.collapsed:hover,
-.res-nightmode .expando-button.image.gallery.collapsedExpando:hover {
-	background-position: 0 -312px;
-}
-.res-nightmode .expando-button.image.gallery.expanded {
-	margin-bottom: 5px;
-	background-position: 0 -336px;
-}
-.res-nightmode .expando-button.image.gallery.expanded:hover {
-	background-position: 0 -360px;
-}
-.res-nightmode .expando-button.selftext.collapsed,
-.res-nightmode .expando-button.selftext.collapsedExpando {
-	background-position: 0 -96px;
-}
-.res-nightmode .expando-button.selftext.collapsed:hover,
-.res-nightmode .expando-button.selftext.collapsedExpando:hover {
-	background-position: 0 -120px;
-}
-.res-nightmode .expando-button.selftext.expanded,
-.res-nightmode .eb-se {
-	margin-bottom: 5px;
-	background-position: 0 -144px;
-}
-.res-nightmode .expando-button.selftext.expanded:hover,
-.res-nightmode .eb-seh {
-	background-position: 0 -168px;
-}
-.res-nightmode .expando-button.video.collapsed,
-.res-nightmode .expando-button.video.collapsedExpando {
-	background-position: 0 -192px;
-}
-.res-nightmode .expando-button.video.collapsed:hover,
-.res-nightmode .expando-button.video.collapsedExpando:hover {
-	background-position: 0 -216px;
-}
-.res-nightmode .expando-button.video.expanded {
-	margin-bottom: 5px;
-	background-position: 0 -240px;
-}
-.res-nightmode .expando-button.video.expanded:hover {
-	background-position: 0 -264px;
-}
-.res-nightmode .expando-button.video-muted.collapsed,
-.res-nightmode .expando-button.video-muted.collapsedExpando {
-	background-position: 0 -384px;
-}
-.res-nightmode .expando-button.video-muted.collapsed:hover,
-.res-nightmode .expando-button.video-muted.collapsedExpando:hover {
-	background-position: 0 -408px;
-}
-.res-nightmode .expando-button.video-muted.expanded {
-	background-position: 0 -432px;
-}
-.res-nightmode .expando-button.video-muted.expanded:hover {
-	background-position: 0 -456px;
+	-webkit-filter: grayscale(100%) invert(80%);
+	filter: grayscale(100%) invert(80%);
 }
 .res-nightmode .RESdupeimg {
 	color: #eee;
@@ -516,8 +436,7 @@
 .res-nightmode .dropdown.lightdrop .drop-choices {
 	background-color: #333;
 }
-.res-nightmode #srList tr,
-.res-nightmode .moduleButton {
+.res-nightmode #srList tr {
   border-bottom-color: rgb(100,100,100);
 }
 .res-nightmode #srList tr:hover {
@@ -556,7 +475,6 @@
 	border-bottom-color: rgb(128,128,128);
 }
 .res-nightmode a,
-.res-nightmode .thing .title,
 .res-nightmode .md a,
 .res-nightmode .share-button .option,
 .res-nightmode #subscribe a,
@@ -575,18 +493,21 @@
 .res-nightmode .parent .author,
 .res-nightmode .parent .subreddit,
 .res-nightmode .combined-search-page .search-result a,
-.res-nightmode .combined-search-page .search-result a>mark,
+.res-nightmode .combined-search-page .search-result a > mark,
 .res-nightmode .hoverHelp {
 	color: hsl(202,40%,61%);
 }
 .res-nightmode .flairselector li a {
 	color: hsl(202,40%,61%) !important;
 }
+.res-nightmode .thing .title {
+	color: hsl(203, 50%, 45%)
+}
 .res-nightmode .thing .title:visited,
 .res-nightmode .thing.visited .title,
 .res-nightmode .combined-search-page .search-result a:visited,
-.res-nightmode .combined-search-page .search-result a:visited>mark {
-	color: hsl(245,32%,61%);
+.res-nightmode .combined-search-page .search-result a:visited > mark {
+	color: hsl(245,35%,55%);
 }
 .res-nightmode .flair-settings ~ .tabpane-content {
 	border-color: #111;
@@ -661,7 +582,8 @@
 .res-nightmode .RESHoverInfoCard.right:after {
   border-left-color: rgb(46,46,46);
 }
-.res-nightmode .RESDialogSmall > h3 {
+.res-nightmode .RESDialogSmall > h3,
+.res-nightmode .NERPageMarker {
 	color: inherit;
 	border-color: rgb(76,76,76);
 	background-color: transparent;
@@ -884,10 +806,6 @@ body.res-nightmode,
 	background: #333;
 	border-color: #111;
 }
-.res-nightmode .stylesheet-customize-container textarea {
-	background-color: #222;
-	color: #ddd;
-}
 .res-nightmode .snoovatar-page footer .inputs,
 .res-nightmode .guider,
 .res-nightmode aside.sidebar #discussions li {
@@ -933,7 +851,8 @@ body.res-nightmode,
 }
 .res-nightmode #RESSubredditGroupDropdown a,
 .res-nightmode .RESNotificationContent,
-.res-nightmode .RESNotificationFooter {
+.res-nightmode .RESNotificationFooter,
+.res-nightmode .sr-bar a {
 	color: rgb(0,0,0);
 }
 .res-nightmode .goldvertisement,
@@ -987,7 +906,6 @@ body.res-nightmode,
 .res-nightmode .delete-field,
 .res-nightmode .RESDialogSmall.livePreview .md.RESDialogContents,
 .res-nightmode .moderator .traffic-table tbody tr:nth-child(even),
-.res-nightmode .thing .expando-button,
 .res-nightmode .instructions,
 .res-nightmode .linefield .delete-field,
 .res-nightmode #pref-delete .delete-field,
@@ -1003,7 +921,11 @@ body.res-nightmode,
 .res-nightmode .message.message-reply:not(.threaded) .entry,
 .res-nightmode .message.message-parent:not(.threaded) .entry,
 .res-nightmode.liveupdate-app .content,
-.res-nightmode .liveupdate-listing li.separator:before {
+.res-nightmode .liveupdate-listing li.separator:before,
+.res-nightmode .md td,
+.res-nightmode .md th,
+.res-nightmode .footer,
+.res-nightmode .footer .col {
 	border-color: rgb(76,76,76);
 }
 .res-nightmode .comment .md p a[href="/spoiler"]:hover,
@@ -1036,8 +958,9 @@ body.res-nightmode,
 }
 .res-nightmode .flair,
 .res-nightmode .linkflairlabel {
-	background-color: #bbb;
-	color: #000;
+	color: rgb(200,200,200);
+	background-color: rgb(64,64,64);
+	border-color: rgb(76,76,76);
 }
 .res-nightmode #NERContent {
 	background-color: rgb(160,160,160);
@@ -1080,6 +1003,7 @@ body.res-nightmode,
 	padding: 2px 3px;
 	border: 1px solid rgb(60, 60, 60);
 	background-color: rgb(34, 34, 34);
+	color: #ddd;
 }
 .res-nightmode #RESConfigPanelModulesList {
 	color: rgb(160,160,160);
@@ -1121,4 +1045,22 @@ body.res-nightmode,
 }
 .res-nightmode .toggleButton:not(.enabled) .toggleOff {
 	background: linear-gradient(to left, rgb(136, 38, 38), rgb(40, 40, 40));
+}
+.res-nightmode .link .rank {
+	color: rgb(80,80,80);
+}
+.res-nightmode .content .score,
+.res-nightmode .moduleButton:not(.enabled) {
+	color: rgb(100,100,100);
+}
+.res-nightmode .tagline,
+.res-nightmode .entry .buttons li a,
+.res-nightmode .trending-subreddits strong {
+	color: rgb(130,130,130);
+}
+.res-nightmode .newComments {
+	color: rgb(210,90,50)
+}
+.res-nightmode .nsfw-stamp {
+	color: hsl(0, 50%, 50%);
 }
