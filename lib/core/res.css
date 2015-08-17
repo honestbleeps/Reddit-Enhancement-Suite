@@ -837,11 +837,8 @@ body.res-console-open {
 	opacity: 1;
 }
 .RESNotification.timerOn {
-	animation-duration: 3s; /* default */
-	animation-delay: 5s; /* default */
-	animation-timing-function: ease-in;
-	animation-fill-mode: forwards;
-	animation-name: notificationFadeOut;
+	-webkit-animation: notificationFadeOut, 3s, ease-in, 3s, 1, normal, forwards, running;
+	animation: notificationFadeOut, 3s, ease-in, 3s, 1, normal, forwards, running;
 }
 @keyframes notificationFadeOut {
 	to {
