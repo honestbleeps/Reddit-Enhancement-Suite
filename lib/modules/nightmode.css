@@ -663,7 +663,6 @@
 .res-nightmode .sidebar h4,
 .res-nightmode .sidebar h5,
 .res-nightmode .sidebar h6,
-.res-nightmode span.score,
 .res-nightmode .flairselector h2 {
 	color: #ddd;
 }
@@ -925,7 +924,9 @@ body.res-nightmode,
 .res-nightmode .md td,
 .res-nightmode .md th,
 .res-nightmode .footer,
-.res-nightmode .footer .col {
+.res-nightmode .footer .col,
+.res-nightmode .userTagLink.hasTag,
+.res-nightmode #userTaggerPreview {
 	border-color: rgb(76,76,76);
 }
 .res-nightmode .comment .md p a[href="/spoiler"]:hover,
@@ -1013,7 +1014,8 @@ body.res-nightmode,
 }
 .res-nightmode #RESConsoleContainer,
 .res-nightmode .moduleButton.enabled,
-.res-nightmode .optionsTable th {
+.res-nightmode .optionsTable th,
+.res-nightmode .tagline .score {
 	color: rgb(180,180,180);
 }
 .res-nightmode #moduleOptionsScrim {
@@ -1049,7 +1051,7 @@ body.res-nightmode,
 .res-nightmode .link .rank {
 	color: rgb(80,80,80);
 }
-.res-nightmode .content .score,
+.res-nightmode .midcol .score,
 .res-nightmode .moduleButton:not(.enabled) {
 	color: rgb(100,100,100);
 }
