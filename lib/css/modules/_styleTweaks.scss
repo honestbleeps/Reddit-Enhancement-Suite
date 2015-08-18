@@ -11,29 +11,25 @@ blockquote.twitter-tweet {
 	}
 }
 
-// wow, Reddit doesn't define a visited class for any links on comments pages...
-// let's put that back if users want it back.
-// If not, we still need a visited class for links in comments, like imgur photos for example, or inline image viewer can't make them look different when expanded!
+// wow, Reddit only adds a visited style for submission titles!
+// let's add visited styles to user-editable content (.md) if the user wants to.
+// else we still want visited styles on inline images.
 .res-styleTweaks-visitedStyle {
-	.comment .parent,
-	.comment .tagline,
-	.comment .usertext {
-		a:visited {
-			color: #551a8b;
+	.md a:visited {
+		color: #551a8b; // same color as submission titles.
 
-			.res-nightmode & {
-				color: hsl(0, 0%, 65%);
-			}
+		.res-nightmode & {
+			color: hsl(0, 0%, 65%);
+		}
 
-			.res-nightmode.res-nightMode-coloredLinks & {
-				color: hsl(270, 50%, 65%);
-			}
+		.res-nightmode.res-nightMode-coloredLinks & {
+			color: hsl(270, 50%, 65%);
 		}
 	}
 }
 
 body:not(.res-styleTweaks-visitedStyle) {
-	.comment .md p > a:visited {
+	.md a[name^='img']:visited {
 		color: #551a8b;
 
 		.res-nightmode & {
