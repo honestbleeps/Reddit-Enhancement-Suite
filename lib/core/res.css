@@ -129,13 +129,13 @@ body.res-console-open {
 	from { transform: scale(0, 0); }
 	to { transform: scale(1.5, 1.5); }
 }
-.res-gearIcon-legacy .gearIcon{
+.res-gearIcon-legacy.gearIcon{
 	display: inline-block;
 	width: 15px;
 	height: 15px;
 	background-repeat: no-repeat;
 }
-.res-gearIcon-legacy .gearIcon::after {
+.res-gearIcon-legacy.gearIcon::after {
 	content: none;
 }
 #RESMainGearOverlay .gearIcon {
