@@ -822,22 +822,17 @@ body.res-nightmode,
 	border-right-color: rgb(118,133,148);
 }
 /* moderator style takes higher priority than friend */
-.res-nightmode .tagline .friend,
-.res-nightmode .tagline .friend:visited {
+.res-nightmode .tagline .friend {
   color: rgb(255,69,0);
 }
-.res-nightmode .tagline .submitter,
-.res-nightmode .tagline .submitter:visited {
+.res-nightmode .tagline .submitter {
 	color: rgb(20,150,220);
 }
-.res-nightmode .tagline .moderator,
-.res-nightmode .tagline .moderator:visited {
+.res-nightmode .tagline .moderator {
 	color: rgb(34,136,34)
 }
 .res-nightmode .tagline .admin,
-.res-nightmode .tagline .admin:visited,
-.res-nightmode .user-distinction .admin,
-.res-nightmode .user-distinction .admin:visited {
+.res-nightmode .user-distinction .admin {
 	color: rgb(218,73,83);
 }
 .res-nightmode hr,
