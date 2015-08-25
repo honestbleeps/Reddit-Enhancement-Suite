@@ -269,8 +269,8 @@ body.res-console-open {
 	box-sizing: border-box;
 }
 #RESConsoleTopBar .RESCloseButton {
-	top: 9px;
-	right: 9px;
+	top: 8px;
+	right: 8px;
 }
 .RESCloseButton:hover {
 	border-color: #999;
@@ -636,8 +636,11 @@ body.res-console-open {
 #moduleOptionsSave {
 	float: right;
 	cursor: pointer;
-	padding: 3px 5px;
+	padding: 0 10px;
+	height: auto;
+	margin: -2px 0 0 0;
 	font-size: 12px;
+	line-height: 22px;
 	color: #fff;
 	border: 1px solid #636363;
 	border-radius: 3px;
@@ -650,7 +653,7 @@ body.res-console-open {
 #moduleOptionsSave::before {
 	content: '';
 	display: inline-block;
-	margin: 0 0.3em;
+	margin: 0 7px 0 0;
 	height: 8px;
 	width: 8px;
 	border-radius: 100%;
@@ -658,6 +661,10 @@ body.res-console-open {
 }
 #moduleOptionsSave.optionsSaved::before {
 	background: #225599;
+}
+#moduleOptionsSave::-moz-focus-inner {
+	border: none;
+	padding: 0;
 }
 .addRowButton {
 	cursor: pointer;
@@ -785,12 +792,17 @@ body.res-console-open {
 }
 #SearchRES-input-submit {
 	position: absolute;
-	top: 50%;
-	margin-top: -10px;
-	right: 0;
-	border: 0;
-	color: rgb(130,177,210);
+	border: none;
+	top: 0; right: 0; bottom: 0;
+	width: 25px;
+	height: auto;
+	margin: 0;
+	padding: 0;
 	background: transparent;
+	box-shadow: none;
+}
+#SearchRES-input-submit span {
+	color: rgb(130,177,210);
 }
 .RESMenuItemButton {
 	display: block;
