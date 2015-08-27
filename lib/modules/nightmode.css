@@ -113,7 +113,7 @@
 	color: #aa9;
 }
 .res-nightmode .thing.spam {
-	background-color: rgba(250,128,114,.3);
+	background-color: rgb(61,41,41);
 }
 .res-nightmode .content .pretty-form * {
 	box-shadow: none;
@@ -125,8 +125,8 @@
 	padding: 5px;
 }
 .res-nightmode .new-comment .usertext-body  {
-	border: solid 1px rgb(84,106,128);
-	background-color: rgb(51, 68, 85);
+	border-color: rgb(36,43,63);
+	background-color: rgb(26,33,53);
 }
 .res-nightmode .markdownEditor .btn:not(.btn-macro) {
 	border-color: #333;
@@ -147,11 +147,6 @@
 .res-nightmode .contact-us-page .button:hover {
 	background: #666;
 }
-.res-nightmode .spam.thing .author,
-.res-nightmode .spam.thing .subreddit,
-.res-nightmode .spam.thing.comment .md a {
-	color: rgb(20,190,250);
-}
 .res-nightmode.moderator .linefield .title {
 	background: transparent;
 	color: rgb(20,150,220);
@@ -170,6 +165,7 @@
 	background-color: #222;
 }
 .res-nightmode .tabmenu li.selected a {
+	color: rgb(210,90,50);
 	border-bottom-color: #222;
 }
 .res-nightmode .tabmenu.formtab a {
@@ -210,11 +206,7 @@
 	opacity: .5;
 }
 .res-nightmode .thing .arrow {
-	height: 14px!important;
-	margin-top: 0;
-	width: 15px!important;
 	background-image: url(https://b.thumbs.redditmedia.com/WZDoQsDzUySVTErcweuA3k2HH1HU5-BZNnBXOR4FDwc.png) !important;
-	background-repeat: no-repeat;
 }
 .res-nightmode .thing .arrow.up { background-position: -15px 0!important; }
 .res-nightmode .thing .arrow.down { background-position: -15px -14px!important; }
@@ -282,11 +274,6 @@
 	background-color: rgb(51, 51, 51);
 	color: #eee;
 }
-.res-nightmode .spam,
-.res-nightmode .reported {
-	background: none;
-	border: 1px dotted;
-}
 .res-nightmode #report form {
 	background-color: rgb(76,61,61);
 }
@@ -296,19 +283,18 @@
 .res-nightmode #userTaggerTable th,
 .res-nightmode #newCommentsTable th,
 .res-nightmode .RESDashboardComponent .RESDashboardComponentHeader ul .updateTime:hover,
-.res-nightmode .big-mod-buttons .pretty-button,
 .res-nightmode .instructions .preftable th,
 .res-nightmode .instructions .pretty-form,
 .res-nightmode .remove-self .option,
 .res-nightmode .unfriend-button .option,
-.res-nightmode .RESDashboardComponent .widgetPath {
+.res-nightmode .RESDashboardComponent .widgetPath,
+.res-nightmode .entry .buttons li.reported-stamp,
+.res-nightmode .pretty-button,
+.res-nightmode ul.report-reasons {
 	color: #000;
 }
 .res-nightmode .viewSource textarea[readonly] {
 	background: rgb(102,102,102);
-}
-.res-nightmode .spam {
-	border-color: #FF4500;
 }
 .res-nightmode .reported {
 	border-color: #DAA520;
@@ -411,12 +397,11 @@
 .res-nightmode .md code,
 .res-nightmode .md pre,
 .res-nightmode .content .md pre,
-.res-nightmode .link .md :not(pre)>code {
-	background-color: #456;
-}
-.res-nightmode code,
-.res-nightmode .md code {
-	color: #87CEEB;
+.res-nightmode .link .md :not(pre) > code,
+.res-nightmode .new-comment .md :not(pre) > code {
+	color: inherit;
+	border-color: rgb(88,105,123);
+	background-color: rgb(42,51,64);
 }
 .res-nightmode .comment .md p a[href="/spoiler"],
 .res-nightmode .comment .md p a[href="#spoiler"] {
@@ -679,7 +664,9 @@
 .res-nightmode .message.message-reply.recipient>.entry .head,
 .res-nightmode .message.message-parent.recipient> .entry .head,
 .res-nightmode .linefield .title,
-.res-nightmode .liveupdate-listing li.liveupdate:hover time {
+.res-nightmode .liveupdate-listing li.liveupdate:hover time,
+.res-nightmode .spam .domain,
+.res-nightmode .spam .domain a {
 	color: inherit;
 }
 .res-nightmode .nextprev a:hover,
@@ -820,10 +807,10 @@ body.res-nightmode,
 	background-color: rgb(73,80,93);
 	border-right-color: rgb(118,133,148);
 }
-/* moderator style takes higher priority than friend */
+/* Ordering of user colors is important. */
 .res-nightmode .tagline .friend,
 .res-nightmode .tagline .friend:visited {
-  color: rgb(255,69,0);
+  color: rgb(210,90,50);
 }
 .res-nightmode .tagline .submitter,
 .res-nightmode .tagline .submitter:visited {
@@ -837,7 +824,7 @@ body.res-nightmode,
 .res-nightmode .tagline .admin:visited,
 .res-nightmode .user-distinction .admin,
 .res-nightmode .user-distinction .admin:visited {
-	color: rgb(218,73,83);
+	color: rgb(200,20,20);
 }
 .res-nightmode hr,
 .res-nightmode .md hr,
