@@ -97,7 +97,7 @@ body.res-console-open {
 	position: relative;
 }
 .gearIcon::before, .gearIcon::after {
-	font: normal 14px/15px "Batch";
+	font: normal 14px/1 "Batch";
 	vertical-align: middle;
 }
 .gearIcon::after {
@@ -105,7 +105,10 @@ body.res-console-open {
 	color: #a0e0fd;
 	text-shadow: 0 0 1px #3d6da5, 0 0 1px #3d6da5, 0 0 1px #3d6da5, 0 0 1px #3d6da5, 0 0 1px #3d6da5, 0 0 1px #3d6da5, 0 0 1px #3d6da5, 0 0 1px #3d6da5;
 }
-.gearIcon.newNotification {
+#header-bottom-right .gearIcon {
+	cursor: default; /* firefox */
+}
+#header-bottom-right .gearIcon.newNotification {
 	cursor: pointer;
 }
 .gearIcon.newNotification::before {
@@ -143,9 +146,8 @@ body.res-console-open {
 	top: 3px;
 	left: 6px;
 }
-#RESSettingsButton {
-	margin: auto;
-	margin-bottom: -2px;
+#RESSettingsButton, #openRESPrefs {
+	display: inline-block;
 }
 .RESDropdownList {
 	position: absolute;
@@ -155,7 +157,7 @@ body.res-console-open {
 	border-radius: 0 0 3px 3px;
 	border: 1px solid #369;
 	border-bottom: none;
-	margin-top: -1px;
+	margin: 0 !important;
 }
 .RESDropdownList li {
 	position: relative;
@@ -169,9 +171,11 @@ body.res-console-open {
 }
 .RESDropdownList .toggleButton {
 	float: right;
-	margin-right: 10px;
-	margin-top: 10px;
-	line-height: 10px;
+	margin: 0 4px 0 0;
+	line-height: inherit;
+}
+.RESDropdownList .toggleButton span {
+	line-height: 16px;
 }
 .RESDropdownList a, .RESDropdownList a:visited {
 	display: inline-block;
@@ -209,10 +213,6 @@ body.res-console-open {
 }
 .optionContainer .handle {
 	cursor: move;
-}
-#openRESPrefs {
-	display: inline-block;
-	height: 100%;
 }
 #RESLogo {
 	margin-right: 5px;
