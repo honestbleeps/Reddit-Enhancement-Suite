@@ -716,7 +716,8 @@ body.res-console-open {
 /* Universal subreddit toggle button (subscribe, filter, shortcut, etc) */
 /* Borrowed from fancty-toggle-button */
 .res-fancy-toggle-button {
-	font: bold 10px verdana, sans-serif; /* allow line-height to be inherited */
+	font-weight: bold;
+	font-size: 10px;
 	color: white;
 	display: inline-block;
 	margin: 0 5px 5px 0;
