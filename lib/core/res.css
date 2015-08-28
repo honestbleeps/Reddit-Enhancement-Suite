@@ -37,6 +37,10 @@ body.res-console-open {
 #RESConsoleContent #contributeContents h1 {
 	margin-top: 40px;
 }
+#RESShortcuts.scrollable {
+	overflow-x: scroll;
+	max-width: 100%;
+}
 .RESDonateButton {
 	display: inline-block;
 	background-color: white;
@@ -1431,7 +1435,6 @@ a.bylink.parentlink {
 .edgescroll-bottom {
 	bottom: 0;
 }
-
 
 /*
 tr looks funny with ::after
