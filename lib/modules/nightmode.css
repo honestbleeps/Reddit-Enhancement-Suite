@@ -341,6 +341,14 @@
 	-webkit-filter: grayscale(100%) invert(80%);
 	filter: grayscale(100%) invert(80%);
 }
+/* from white & blue to black and red-ish */
+.res-nightmode.res-highlight-nsfw-expando .thing.over18 .expando-button {
+	-webkit-filter: hue-rotate(-40deg) invert(80%) brightness(70%) saturate(300%);
+	filter: hue-rotate(-40deg) invert(80%) brightness(70%) saturate(300%);
+}
+.res-nightmode.res-highlight-nsfw-expando .thing.over18 .expando-button::before {
+	content: none;
+}
 .res-nightmode .RESdupeimg {
 	color: #eee;
 	font-size: 10px;
@@ -1051,5 +1059,5 @@ body.res-nightmode,
 	color: rgb(210,90,50)
 }
 .res-nightmode .nsfw-stamp {
-	color: hsl(0, 50%, 50%);
+	color: rgb(192,78,81);
 }
