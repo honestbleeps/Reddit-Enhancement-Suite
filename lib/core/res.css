@@ -1741,11 +1741,13 @@ a spinner with a static ring and no overlay.*/
 	display: none; /* hide by default */
 	padding: 10px;
 }
-
 #RESStyleSheetTipPane-contents ul {
-	list-style: disc inside;
+	list-style: initial;
+	margin: 0 0 0 1em;
 }
-
+#RESStyleSheetTipPane-contents li p {
+	margin: .75em 0;
+}
 /* user-select: none; on comment widgets, for usability reasons */
 .md .keyNavAnnotation,
 .md .RESUserTag,
