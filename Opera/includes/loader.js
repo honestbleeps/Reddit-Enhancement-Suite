@@ -115,7 +115,6 @@
 
 		'modules/hosts/imgur.js',
 		'modules/hosts/vidly.js',
-		'modules/hosts/vidly.js',
 		'modules/hosts/twitter.js',
 		'modules/hosts/futurism.js',
 		'modules/hosts/gfycat.js',
