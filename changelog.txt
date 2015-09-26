@@ -105,6 +105,7 @@ changelog v4.6.0
 	- Add less verbose versions of RESStorage commands in console (thanks @andytuba)
 	- Remove (non-functional) autocomplete from console (thanks @gmcclure382)
 	- Fewer ajax calls to check for moderated subreddits (thanks @JordanMilne, @andytuba)
+	- Fewer ajax calls for subreddit info (thanks @githue, @andytuba)
 	- Update jQuery and guiders.js (thanks @mc10)
 	- Update favico.js (thanks @benwa)
 	- Refactored showImages.js - All hosts now have their own file, allowing for easier fixing and creation of expando supporting hosts. (thanks @andytuba @erikdesjardins and more)
