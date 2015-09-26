@@ -68,6 +68,7 @@ changelog v4.6.0
 	- New tabs will open in the foreground/background according to browser preference now. (Used to only open in background) (thanks @mc10)
 	- Fixed Modmail keyboard shortcut not being able to be customized (thanks @erikdesjardins)
 	- Changed: some expando types which used to rewrite the post URL no longer do so (thanks @erikdesjardins)
+	- Fixed subreddit detection with /r/keys for post title tagging and hover info (thanks @jsayol)
 	- Fixed quickMessage not respecting usernameHider (thanks @erikdesjardins)
 	- Fixed albums switching back to image 1 when scrolling and getting weird aspect ratios (thanks @erikdesjardins)
 	- Fixed tumblr photo captions not showing for single-image posts (thanks @andytuba)
