@@ -269,8 +269,8 @@ body.res-console-open {
 	box-sizing: border-box;
 }
 #RESConsoleTopBar .RESCloseButton {
-	top: 9px;
-	right: 9px;
+	top: 8px;
+	right: 8px;
 }
 .RESCloseButton:hover {
 	border-color: #999;
@@ -313,6 +313,29 @@ body.res-console-open {
 }
 #BigEditor .BELeft .RESDialogContents {
 	padding-top: 52px;
+}
+/* Allow textarea to be any width without disappearing. */
+body.wiki-page form#editform, form.usertext {
+	overflow: auto; /* Same as top-level comment form on vanilla reddit */
+}
+div.usertext-edit {
+	width: auto;
+	max-width: 500px;
+	padding: 0px;
+}
+/* Correct reddit's miscalculation of textarea width when editing a comment. */
+.usertext-body > .md {
+	padding-right: 1px;
+}
+.usertext-edit .md,
+.wiki-page #editform textarea {
+	clear: left;
+}
+/* Improve size calculation for textareas. */
+.usertext-edit textarea,
+#wiki_page_content,
+.wiki-page .wiki-page-content #wiki_revision_reason {
+	box-sizing: border-box;
 }
 .usertext-edit .RESDialogSmall:not(.livePreview) .md.RESDialogContents {
 	border: none;
@@ -636,8 +659,11 @@ body.res-console-open {
 #moduleOptionsSave {
 	float: right;
 	cursor: pointer;
-	padding: 3px 5px;
+	padding: 0 10px;
+	height: auto;
+	margin: -2px 0 0 0;
 	font-size: 12px;
+	line-height: 22px;
 	color: #fff;
 	border: 1px solid #636363;
 	border-radius: 3px;
@@ -650,7 +676,7 @@ body.res-console-open {
 #moduleOptionsSave::before {
 	content: '';
 	display: inline-block;
-	margin: 0 0.3em;
+	margin: 0 7px 0 0;
 	height: 8px;
 	width: 8px;
 	border-radius: 100%;
@@ -658,6 +684,10 @@ body.res-console-open {
 }
 #moduleOptionsSave.optionsSaved::before {
 	background: #225599;
+}
+#moduleOptionsSave::-moz-focus-inner {
+	border: none;
+	padding: 0;
 }
 .addRowButton {
 	cursor: pointer;
@@ -786,12 +816,17 @@ body.res-console-open {
 }
 #SearchRES-input-submit {
 	position: absolute;
-	top: 50%;
-	margin-top: -10px;
-	right: 0;
-	border: 0;
-	color: rgb(130,177,210);
+	border: none;
+	top: 0; right: 0; bottom: 0;
+	width: 25px;
+	height: auto;
+	margin: 0;
+	padding: 0;
 	background: transparent;
+	box-shadow: none;
+}
+#SearchRES-input-submit span {
+	color: rgb(130,177,210);
 }
 .RESMenuItemButton {
 	display: block;
@@ -1109,12 +1144,6 @@ body.RESScrollLock {
 	right: 38px;
 	font-family: Webdings;
 }
-
-.usertext-edit div textarea {
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
-}
-
 .content .RESBigEditorPop {
 	float: right;
 	margin-top: 5px;
@@ -1124,8 +1153,6 @@ body.RESScrollLock {
 	display: inline-block;
 	z-index: 3000;
 }
-
-
 
 /* Image Viewer */
 img {
@@ -1168,7 +1195,7 @@ img {
 	max-width: 23px;
 	max-height: 23px;
 	display: inline-block;
-	background-image: url('https://s3.amazonaws.com/b.thumbs.redditmedia.com/tBwwK20XXxtpgudWx1L7bDXla-iotv-JA0jgA0Y-FVs.png');
+	background-image: url('https://b.thumbs.redditmedia.com/s_noD6Owp5p3Hhw9yoBB30iDpSyZFVetFqxtPDbteAw.png');
 	margin-right: 6px;
 	padding: 0;
 }
@@ -1207,7 +1234,7 @@ img {
 	content: '\F158';
 	cursor: pointer;
 	display: inline-block;
-	vertical-align: bottom;
+	vertical-align: middle;
 	color: #90acff;
 	width: 16px;
 }

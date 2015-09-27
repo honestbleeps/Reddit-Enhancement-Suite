@@ -47,7 +47,8 @@ changelog v4.6.0
 		- Added the ability to customize keyboard shortcuts for comment tools (bold, italic, etc.) (thanks @erikdesjardins)
 		- Added options to show full timestamps by default (thanks @erikdesjardins)
         - Added the number of children to "show child comments" (thanks @erikdesjardins)
-        - Highlight expando buttons of NSFW posts (thanks @andytuba)
+        - Improved image/gif/video expando buttons (thanks @githue)
+        - Highlight expando buttons of NSFW posts (thanks @andytuba, @githue)
         - Added option to change case of post titles (thanks @andytuba)
         - Command line "/r" to navigate to rising posts (thanks @erikdesjardins)
         - Split "move up/down" keyboard shortcuts into seperate keys for comments and link lists (thanks @andytuba)
@@ -55,6 +56,7 @@ changelog v4.6.0
         - Increased /r/dashboard height capacity (thanks @erikdesjardins)
         - Added warnings to reload other tabs after switching accounts (thanks @andytuba)
         - Admin/mod/friend/OP highlighting overrides improved (thanks @githue)
+        - Added .RES-keyNav-activeThing class to "currently selected thing" (not just the element, but all its children) (thanks @githue)
 
 - Bug Fixes
 
@@ -68,13 +70,16 @@ changelog v4.6.0
 	- New tabs will open in the foreground/background according to browser preference now. (Used to only open in background) (thanks @mc10)
 	- Fixed Modmail keyboard shortcut not being able to be customized (thanks @erikdesjardins)
 	- Changed: some expando types which used to rewrite the post URL no longer do so (thanks @erikdesjardins)
+	- Fixed subreddit detection with /r/keys for post title tagging and hover info (thanks @jsayol)
 	- Fixed quickMessage not respecting usernameHider (thanks @erikdesjardins)
 	- Fixed albums switching back to image 1 when scrolling and getting weird aspect ratios (thanks @erikdesjardins)
 	- Fixed tumblr photo captions not showing for single-image posts (thanks @andytuba)
 	- Fixed account switcher not closing properly sometimes (thanks @Shraymonks)
 	- Fixed multiple entries for the same subreddit appearing in "My subreddits" dropdown (thanks @andytuba)
+	- Fixed comment box disappearing because pushed below sidebar (thanks @githue)
 	- Fixed RES running on reddit toolbar pages (thanks @andytuba)
 	- Fixed nightmode styling on login popup (thanks @yangzihe)
+	- Fixed sorting by usernames in dashboard (thanks @githue, @andytuba)
 	- Fixed wrong account age near first of the month in user info hover popup (thanks @yangzihe)
 	- Fixed NoParticipation EscapeNP on links starting with "/" (thanks @andytuba, @mc10)
 	- Fixed duplicate expando buttons - RES will now simply replace reddit's expando if it exists (thanks @andytuba)
@@ -92,8 +97,9 @@ changelog v4.6.0
 - Housekeeping / Other
 
 	- Updated various icons and buttons to use a flat look (thanks @erikdesjardins, @githue)
-	- Tidied up galeryimage gallery text and controls (thanks @Githue)
-	- Consolidated and improved toggle button styling (thanks @githue)
+	- Tidied up galeryimage gallery text and controls (thanks @githue)
+	- Consolidated and improved button and toggle button styling (thanks @githue)
+	- Improved styling and usability of pop-up notifications, hover info, dropdown menus, bunches of things (thanks @githue)
 	- Made the new announcement notification on the RES Gear Icon stand out a bit more (thanks @erikdesjardins)
 	- Moved uncheckSendReplies from betteReddit to submitHelper
 	- Default macros are now editable - Look of Disapproval removed from default macro list
@@ -102,6 +108,7 @@ changelog v4.6.0
 	- Add less verbose versions of RESStorage commands in console (thanks @andytuba)
 	- Remove (non-functional) autocomplete from console (thanks @gmcclure382)
 	- Fewer ajax calls to check for moderated subreddits (thanks @JordanMilne, @andytuba)
+	- Fewer ajax calls for subreddit info (thanks @githue, @andytuba)
 	- Update jQuery and guiders.js (thanks @mc10)
 	- Update favico.js (thanks @benwa)
 	- Refactored showImages.js - All hosts now have their own file, allowing for easier fixing and creation of expando supporting hosts. (thanks @andytuba @erikdesjardins and more)
