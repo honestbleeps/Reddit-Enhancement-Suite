@@ -13,10 +13,7 @@
 		{
 			"matches": [
 				"http://redditenhancementsuite.com/*",
-				"http://reddit.com/*",
-				"https://reddit.com/*",
-				"http://*.reddit.com/*",
-				"https://*.reddit.com/*"
+				"*://*.reddit.com/*"
 			],
 			"js": [
 				"vendor/jquery-1.11.3.min.js",
@@ -178,16 +175,13 @@
 		"tabs",
 		"history",
 		"http://redditenhancementsuite.com/",
-		"http://reddit.com/*",
-		"https://reddit.com/*",
-		"http://*.reddit.com/*",
-		"https://*.reddit.com/*",
+		"*://*.reddit.com/*",
 		"http://min.us/api/*",
-		"http://*.flickr.com/photos/*",
-		"http://img.photobucket.com/*",
-		"http://backend.deviantart.com/oembed?url=*",
-		"http://api.tumblr.com/v2/blog/*/posts?api_key=*&id=*",
-		"http://noembed.com/embed?url=*"
+		"*://*.flickr.com/photos/*",
+		"*://img.photobucket.com/*",
+		"*://backend.deviantart.com/oembed?url=*",
+		"*://api.tumblr.com/v2/blog/*/posts?api_key=*&id=*",
+		"*://noembed.com/embed?url=*"
 	],
 	"optional_permissions": [
 		"https://api.twitter.com/*",
