@@ -113,8 +113,7 @@ RESLoadResourceAsText = function(filename, callback) {
 			callback(this.responseText);
 		}
 	};
-	var id = chrome.i18n.getMessage('@@extension_id');
-	xhr.open('GET', 'chrome-extension://' + id + '/' + filename);
+	xhr.open('GET', chrome.runtime.getURL(filename));
 	xhr.send();
 };
 
