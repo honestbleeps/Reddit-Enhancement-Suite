@@ -1,6 +1,6 @@
 # Reddit Enhancement Suite
 
-[![Build Status](https://travis-ci.org/honestbleeps/Reddit-Enhancement-Suite.svg?branch=master)](https://travis-ci.org/honestbleeps/Reddit-Enhancement-Suite)
+[![Build Status](https://api.travis-ci.org/honestbleeps/Reddit-Enhancement-Suite.svg?branch=master)](https://travis-ci.org/honestbleeps/Reddit-Enhancement-Suite)
 [![Code Climate](https://codeclimate.com/github/honestbleeps/Reddit-Enhancement-Suite/badges/gpa.svg)](https://codeclimate.com/github/honestbleeps/Reddit-Enhancement-Suite)
 [![devDependency Status](https://david-dm.org/honestbleeps/Reddit-Enhancement-Suite/dev-status.svg)](https://david-dm.org/honestbleeps/Reddit-Enhancement-Suite#info=devDependencies)
 
@@ -38,7 +38,7 @@ Thinking about contributing to RES? Awesome! We just ask that you follow a few s
   - please use single quotes `'` and not double quotes `"` for strings
   - please comment your code!
   - please, when possible, place `var` declarations all together at the top of a function
-  - please consider installing a tool like [JSHint](http://www.jshint.com) or [JSLint](http://www.jslint.com) that will help enforce good JavaScript best practices!
+  - please consider installing a tool like [JSHint](http://jshint.com) or [JSLint](http://jslint.com) that will help enforce good JavaScript best practices!
 
 4. If you decide to add support for another media hosting site to RES, please be sure that they support [CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). This way, the sites do not need to be added as additional permissions, which has caused [headaches in the past](https://www.reddit.com/r/Enhancement/comments/1jskcm/announcement_chrome_users_did_your_res_turn_off).
 
@@ -105,7 +105,7 @@ Alternative build scripts for building RES via [grunt](#using-grunt) or [gulp](#
 
 In addition to building your own version of RES, you can download older (or current) builds of RES for testing purposes.
 
-(Almost) every commit to master is quickly archived away at http://allthefoxes.me; if you would like access to this database, please contact [/u/allthefoxes on reddit](https://www.reddit.com/u/allthefoxes) or email [fox@allthefoxes.me](mailto:fox@allthefoxes.me)
+(Almost) every commit to master is quickly archived away at http://allthefoxes.me; if you would like access to this database, please contact [/u/allthefoxes on reddit](https://www.reddit.com/user/allthefoxes) or email [fox@allthefoxes.me](mailto:fox@allthefoxes.me)
 
 All that is asked is that you have at least one previous contribution to RES.
 
@@ -155,7 +155,7 @@ To load the extension into your browser, see the ["Building development versions
 
 RES can also be built with [gulp](http://gulpjs.com), an advanced build manager similar to grunt.
 
-You will need [node.js](http://nodejs.org) installed on your system.
+You will need [node.js](https://nodejs.org) installed on your system.
 
 First time use:
 
