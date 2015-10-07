@@ -31,6 +31,7 @@
 		'vendor/jquery.tokeninput.js',
 		'vendor/HTMLPasteurizer.js',
 		'vendor/snuownd.js',
+		'vendor/myrandom.js',
 
 		'opera-restore-jquery.js',
 

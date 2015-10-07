@@ -153,6 +153,7 @@ pageMod.PageMod({
 		self.data.url('vendor/jquery.tokeninput.js'),
 		self.data.url('vendor/HTMLPasteurizer.js'),
 		self.data.url('vendor/snuownd.js'),
+		self.data.url('vendor/myrandom.js'),
 		self.data.url('core/utils.js'),
 		self.data.url('browsersupport.js'),
 		self.data.url('browsersupport-firefox.js'),
