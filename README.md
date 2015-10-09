@@ -1,6 +1,6 @@
 # Reddit Enhancement Suite
 
-[![Build Status](https://travis-ci.org/honestbleeps/Reddit-Enhancement-Suite.svg?branch=master)](https://travis-ci.org/honestbleeps/Reddit-Enhancement-Suite)
+[![Build Status](https://api.travis-ci.org/honestbleeps/Reddit-Enhancement-Suite.svg?branch=master)](https://travis-ci.org/honestbleeps/Reddit-Enhancement-Suite)
 [![Code Climate](https://codeclimate.com/github/honestbleeps/Reddit-Enhancement-Suite/badges/gpa.svg)](https://codeclimate.com/github/honestbleeps/Reddit-Enhancement-Suite)
 [![devDependency Status](https://david-dm.org/honestbleeps/Reddit-Enhancement-Suite/dev-status.svg)](https://david-dm.org/honestbleeps/Reddit-Enhancement-Suite#info=devDependencies)
 
@@ -27,7 +27,7 @@ steve@honestbleeps.com
 
 Thinking about contributing to RES? Awesome! We just ask that you follow a few simple guidelines:
 
-1. RES has grown quite large, so we do have to pick and choose what features we should add. Code bloat is always a concern, and RES is already rather hefty. If you're unsure if your feature would appeal to a wide audience, please post about it on [/r/Enhancement](https://www.reddit.com/r/Enhancement/) or [contact @honestbleeps](https://www.reddit.com/message/compose/?to=honestbleeps) directly to ask.
+1. RES has grown quite large, so we do have to pick and choose what features we should add. Code bloat is always a concern, and RES is already rather hefty. If you're unsure if your feature would appeal to a wide audience, please post about it on [/r/Enhancement](https://www.reddit.com/r/Enhancement) or [contact @honestbleeps](https://www.reddit.com/message/compose/?to=honestbleeps) directly to ask.
 
 2. There are a few features we have made a conscious choice not to add to RES, so make sure whatever you'd like to contribute [isn't on that list](https://www.reddit.com/r/Enhancement/wiki/rejectedfeaturerequests).
 
@@ -38,9 +38,9 @@ Thinking about contributing to RES? Awesome! We just ask that you follow a few s
   - please use single quotes `'` and not double quotes `"` for strings
   - please comment your code!
   - please, when possible, place `var` declarations all together at the top of a function
-  - please consider installing a tool like [JSHint](http://www.jshint.com/) or [JSLint](http://www.jslint.com/) that will help enforce good JavaScript best practices!
+  - please consider installing a tool like [JSHint](http://jshint.com) or [JSLint](http://jslint.com) that will help enforce good JavaScript best practices!
 
-4. If you decide to add support for another media hosting site to RES, please be sure that they support [CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). This way, the sites do not need to be added as additional permissions, which has caused [headaches in the past](https://www.reddit.com/r/Enhancement/comments/1jskcm/announcement_chrome_users_did_your_res_turn_off/).
+4. If you decide to add support for another media hosting site to RES, please be sure that they support [CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). This way, the sites do not need to be added as additional permissions, which has caused [headaches in the past](https://www.reddit.com/r/Enhancement/comments/1jskcm/announcement_chrome_users_did_your_res_turn_off).
 
 
 ## Project structure
@@ -105,7 +105,7 @@ Alternative build scripts for building RES via [grunt](#using-grunt) or [gulp](#
 
 In addition to building your own version of RES, you can download older (or current) builds of RES for testing purposes.
 
-(Almost) every commit to master is quickly archived away at http://allthefoxes.me; if you would like access to this database, please contact [/u/allthefoxes on reddit](https://www.reddit.com/u/allthefoxes) or email [fox@allthefoxes.me](mailto:fox@allthefoxes.me)
+(Almost) every commit to master is quickly archived away at http://allthefoxes.me; if you would like access to this database, please contact [/u/allthefoxes on reddit](https://www.reddit.com/user/allthefoxes) or email [fox@allthefoxes.me](mailto:fox@allthefoxes.me)
 
 All that is asked is that you have at least one previous contribution to RES.
 
@@ -126,7 +126,7 @@ All that is asked is that you have at least one previous contribution to RES.
   2. Navigate to `Develop->Show Extension Builder` to open the extensions menu. Add a new extension by pressing the `+` in the bottom left and choosing `Add extension`.
   3. Navigate to the `RES.safariextension` folder for RES and select it.
   4. It will likely say you cannot install it because no Safari development certificate exists. You will need to visit the [Safari Dev Center](https://developer.apple.com/devcenter/safari/index.action) and create an account (right hand side).
-  5. You then need to visit the [Safari Developer Program](https://developer.apple.com/programs/safari/) site and sign up for a FREE account.
+  5. You then need to visit the [Safari Developer Program](https://developer.apple.com/programs/safari) site and sign up for a FREE account.
   6. You can then visit your member page and use the certificate utility to create a new Safari Developer Certificate. Follow the instructions to install the certificate. If you have an error involving it being signed by an unknown authority, then double click the certificate and under the `Trust` setting choose `Always Trust`. You should then be able to install the extension from the `Extension Builder` menu.
 
 ##### Building in Opera
@@ -138,7 +138,7 @@ The above steps will fail if the `makelinks.sh` or grunt build scripts have not 
 
 ### Using grunt
 
-RES can also be built using [grunt](http://gruntjs.com/). In order to use grunt, you will need to have [node.js](http://nodejs.org/) installed on your system.
+RES can also be built using [grunt](http://gruntjs.com). In order to use grunt, you will need to have [node.js](http://nodejs.org) installed on your system.
 
 If you have never used grunt before:
 
@@ -153,9 +153,9 @@ To load the extension into your browser, see the ["Building development versions
 
 ### Using Gulp
 
-RES can also be built with [gulp](http://gulpjs.com/), an advanced build manager similar to grunt.
+RES can also be built with [gulp](http://gulpjs.com), an advanced build manager similar to grunt.
 
-You will need [node.js](http://nodejs.org) installed on your system.
+You will need [node.js](https://nodejs.org) installed on your system.
 
 First time use:
 
