@@ -40,7 +40,7 @@ Thinking about contributing to RES? Awesome! We just ask that you follow a few s
   - please, when possible, place `var` declarations all together at the top of a function
   - please consider installing a tool like [JSHint](http://www.jshint.com/) or [JSLint](http://www.jslint.com/) that will help enforce good JavaScript best practices!
 
-4. If you decide to add support for another media hosting site to RES, please be sure that they support [CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). This way, the sites do not need to be added as additional permissions, which has caused [headaches in the past](https://www.reddit.com/r/Enhancement/comments/1jskcm/announcement_chrome_users_did_your_res_turn_off/).
+4. If you decide to add support for another media hosting site to RES, check out [lib/modules/hosts/example.js](https://github.com/honestbleeps/Reddit-Enhancement-Suite/blob/master/lib/modules/hosts/example.js). Please be sure that they support [CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) so the sites do not need to be added as additional permissions, which has caused [headaches in the past](https://www.reddit.com/r/Enhancement/comments/1jskcm/announcement_chrome_users_did_your_res_turn_off/).
 
 
 ## Project structure
