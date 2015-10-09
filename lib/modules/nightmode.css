@@ -356,8 +356,7 @@
 .res-nightmode #sr-autocomplete-area {
 	z-index: 1;
 }
-.res-nightmode button,
-.res-nightmode #REScommentSubToggle {
+.res-nightmode button {
 	background: #111;
 	border: 2px solid #666;
 	color: #ddd;
@@ -453,7 +452,8 @@
 .res-nightmode .combined-search-page #previoussearch .res-search-pane,
 .res-nightmode #RESConsoleContainer,
 .res-nightmode #SearchRES-results-container li,
-.res-nightmode #SearchRES-results-container li:hover {
+.res-nightmode #SearchRES-results-container li:hover,
+.res-nightmode #REScommentSubToggle {
 	background-color: rgb(34,34,34);
 }
 .res-nightmode #searchexpando,
@@ -617,7 +617,6 @@
 	color: #bbb;
 }
 .res-nightmode .usertext-buttons button:hover,
-.res-nightmode #REScommentSubToggle:hover,
 .res-nightmode .save-button .btn:hover,
 .res-nightmode #delete-img:hover {
 	background-color: rgb(102,102,102);
@@ -793,7 +792,8 @@ body.res-nightmode,
 .res-nightmode .dsq-auth-header,
 .res-nightmode .instructions .preftable th,
 .res-nightmode #BigEditor .markdownEditor a,
-.res-nightmode #BigEditor .markdownEditor .RESMacroDropdownTitle {
+.res-nightmode #BigEditor .markdownEditor .RESMacroDropdownTitle,
+.res-nightmode #REScommentSubToggle {
 	color: #ccc;
 }
 .res-nightmode .server-seconds {
