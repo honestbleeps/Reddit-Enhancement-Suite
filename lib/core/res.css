@@ -1247,6 +1247,7 @@ img {
 .RESGalleryControls .next:not(.end)::after, .RESGalleryControls .previous.end::after {
 	-webkit-transform: scaleX(-1);
 	-moz-transform: scaleX(-1);
+	transform: scaleX(-1);
 }
 
 .imgTitle, .md h3.imgTitle {
@@ -1468,7 +1469,6 @@ tr.RESSortPlaceholder::before, li.RESSortPlaceholder::after, div.RESSortPlacehol
 	border: medium dashed grey;
 	color: grey;
 	content: 'drop here';
-	vertical-align: center;
 	text-align: center;
 	border-radius: 3px;
 	display: block;
@@ -1539,7 +1539,7 @@ tr.RESSortPlaceholder::before, li.RESSortPlaceholder::after, div.RESSortPlacehol
 	width: auto;
 	height: auto;
 }
-, .builderItem > .builderItemControls .res-icon-button {
+.builderItem > .builderItemControls .res-icon-button {
 	font-size: 20pt;
 }
 
@@ -1554,7 +1554,6 @@ tr.RESSortPlaceholder::before, li.RESSortPlaceholder::after, div.RESSortPlacehol
 	color: grey;
 	content: 'nothing here yet. add something!';
 	padding: 5px 10px;
-	vertical-align: center;
 	text-align: center;
 	display: block;
 }
