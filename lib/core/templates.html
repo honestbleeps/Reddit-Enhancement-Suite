@@ -397,6 +397,20 @@
 		</script>
 		<!--/PornbotUI-->
 
+		<!--swirlUI-->
+		<script id="swirlUI" type="application/x-template">
+			<div class="res-player video">
+				<video {{#autoplay}}autoplay="true"{{/autoplay}} muted loop preload preload controls>
+					{{#sources}}
+					<source src="{{ source }}" {{#type}}type="{{ type }}"{{/type}} class="{{ class }}">
+					{{/sources}}
+				</video>
+				<div style="height: 35px;" class="ctrlContainer">
+					<a href="{{ swirlUrl }}" target="_blank">View on Swirl</a>
+				</div>
+			</div>
+		</script>
+		<!--/swirlUI-->
 
 		<div id="searchResultOptionHtml" type="application/x-template">
 			<div class="SearchRES-result-header">
