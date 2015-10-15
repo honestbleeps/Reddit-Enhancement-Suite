@@ -113,6 +113,7 @@
 				"modules/hosts/xkcd.js",
 				"modules/hosts/dailymotion.js",
 				"modules/hosts/jsfiddle.js",
+				"modules/hosts/gyazo.js",
 				"modules/hosts/pornbot.js",
 				"modules/hosts/coub.js",
 				"modules/hosts/uploadly.js",
@@ -207,6 +208,7 @@
 		"https://onedrive.live.com/*",
 		"http://1drv.ms/*",
 		"*://backend.deviantart.com/oembed?url=*",
+		"*://api.gyazo.com/api/oembed*",
 		"*://api.tumblr.com/v2/blog/*/posts?api_key=*&id=*"
 	]
 }
