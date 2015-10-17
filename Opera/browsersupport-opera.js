@@ -60,7 +60,7 @@ function operaMessageHandler(msgEvent) {
 		case 'addURLToHistory':
 			var url = eventData.url;
 			if (!eventData.isPrivate) {
-				RESUtils.runtime._addURLToHistoryViaForeground(url);
+				RESEnvironment._addURLToHistoryViaForeground(url);
 			}
 			break;
 		case 'multicast':
@@ -72,8 +72,8 @@ function operaMessageHandler(msgEvent) {
 	}
 }
 
-RESUtils.runtime = RESUtils.runtime || {};
 RESUtils.runtime.ajax = function(obj) {
+RESEnvironment.ajax = function(obj) {
 	obj.requestType = 'ajax';
 	// Turns out, Opera works this way too, but I'll forgive them since their extensions are so young and they're awesome people...
 
@@ -148,26 +148,26 @@ RESLoadResourceAsText = function(filename, callback) {
 	fr.readAsText(f);
 };
 
-RESUtils.runtime.storageSetup = function(thisJSON) {
+RESEnvironment.storageSetup = function(thisJSON) {
 	opera.extension.addEventListener('message', operaMessageHandler, false);
 	// We're already loaded, call the handler immediately
 	opera.extension.postMessage(JSON.stringify(thisJSON));
 };
 
-RESUtils.runtime.RESInitReadyCheck = function() {
+RESEnvironment.RESInitReadyCheck = function() {
 	RESUtils.init.complete();
 };
 
 
-RESUtils.runtime.sendMessage = function(thisJSON) {
+RESEnvironment.sendMessage = function(thisJSON) {
 	opera.extension.postMessage(JSON.stringify(thisJSON));
 };
 
-RESUtils.runtime.getOutlineProperty = function() {
+RESEnvironment.getOutlineProperty = function() {
 	return 'border';
 };
 
-RESUtils.runtime.openNewWindow = function (thisHREF) {
+RESEnvironment.openNewWindow = function (thisHREF) {
 	var thisJSON = {
 		requestType: 'keyboardNav',
 		linkURL: thisHREF
@@ -175,7 +175,7 @@ RESUtils.runtime.openNewWindow = function (thisHREF) {
 	opera.extension.postMessage(JSON.stringify(thisJSON));
 };
 
-RESUtils.runtime.openLinkInNewTab = function (thisHREF) {
+RESEnvironment.openLinkInNewTab = function (thisHREF) {
 	var thisJSON = {
 		requestType: 'openLinkInNewTab',
 		linkURL: thisHREF
@@ -183,4 +183,4 @@ RESUtils.runtime.openLinkInNewTab = function (thisHREF) {
 	opera.extension.postMessage(JSON.stringify(thisJSON));
 };
 
-RESUtils.runtime.addURLToHistory = RESUtils.runtime._addURLToHistory;
+RESEnvironment.addURLToHistory = RESEnvironment._addURLToHistory;
