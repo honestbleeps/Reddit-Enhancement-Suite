@@ -14,7 +14,10 @@ fileList.forEach(function(filename) {
 	var contents = fs.readFileSync(filename, 'utf8');
 	console.log('Loading', filename);
 	var exports = _eval(contents, filename, {}, true);
-	$.extend(true, global, exports);
+	for (var key in exports) {
+		if (!exports.hasOwnProperty(key)) continue;
+		global[key] = exports[key];
+	}
 	var exported = Object.getOwnPropertyNames(exports).join(', ');
 	if (exported) console.log('    -->', exported);
 });
