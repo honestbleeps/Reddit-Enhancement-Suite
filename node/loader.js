@@ -2,6 +2,10 @@ var fs = require('fs');
 var _eval = require('eval');
 var files = require("./files.json");
 
+console.log('Loading jQuery');
+/* global */ $ = require('jquery')({ document: mock.getDocument() });
+console.log('loaded jQuery');
+
 var fileList = [];
 for (var section in files) {
 	if (files[section].length) {
