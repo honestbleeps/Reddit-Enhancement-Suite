@@ -106,7 +106,7 @@ RESEnvironment.ajax = function(obj) {
 	}
 };
 
-RESLoadResourceAsText = function(filename, callback) {
+RESEnvironment.loadResourceAsText = function(filename, callback) {
 	var xhr = new XMLHttpRequest();
 	xhr.onload = function() {
 		if (callback) {

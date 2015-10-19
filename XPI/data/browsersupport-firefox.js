@@ -155,7 +155,7 @@ RESEnvironment.localStorageTest = function() {
 (function() {
 	var transactions = 0;
 	window.RESLoadCallbacks = [];
-	RESLoadResourceAsText = function(filename, callback) {
+	RESEnvironment.loadResourceAsText = function(filename, callback) {
 		window.RESLoadCallbacks[transactions] = callback;
 		self.postMessage({ requestType: 'readResource', filename: filename, transaction: transactions });
 		transactions++;

@@ -132,7 +132,7 @@ RESEnvironment.sanitizeJSON = function(data) {
 	return data;
 };
 
-RESLoadResourceAsText = function(filename, callback) {
+RESEnvironment.loadResourceAsText = function(filename, callback) {
 	var url = safari.extension.baseURI + filename;
 
 	RESEnvironment.ajax({

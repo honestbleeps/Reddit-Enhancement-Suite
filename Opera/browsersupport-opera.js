@@ -139,7 +139,7 @@ function operaForcedUpdateCallback(obj) {
 	RESUtils.compareVersion(obj, true);
 }
 
-RESLoadResourceAsText = function(filename, callback) {
+RESEnvironment.loadResourceAsText = function(filename, callback) {
 	var f = opera.extension.getFile('/' + filename);
 	var fr = new FileReader();
 	fr.onload = function() {
