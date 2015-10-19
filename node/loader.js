@@ -5,9 +5,7 @@ var files = require("./files.json");
 
 var MockBrowser = require('mock-browser').mocks.MockBrowser;
 var mock = new MockBrowser();
-console.log('Loading jQuery');
 /* global */ $ = require('jquery')({ document: mock.getDocument() });
-console.log('loaded jQuery');
 
 var skipSections = [].concat(yargs.skip);
 for (var section in files) {
