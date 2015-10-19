@@ -1,7 +1,9 @@
 var fs = require('fs');
 var _eval = require('eval');
+var requireNew = require('require-new');
 var yargs = require('yargs').argv;
 var files = require("./files.json");
+var equals = require('deep-equal');
 
 var MockBrowser = require('mock-browser').mocks.MockBrowser;
 var mock = new MockBrowser();
@@ -46,6 +48,43 @@ if (yargs.storage) {
 } else {
 	console.log('Using empty storage');
 	RESStorage.setup.complete({});
+}
+
+if (yargs.assertstorage) {
+	var actual = RESStorage;
+	var expected = requireNew('./storage/' + yargs.assertstorage + '.json');
+	console.log('Asserting that storage resembles', yargs.assertstorage);
+
+	var failures = [];
+	for (var key in expected) {
+		var expectedValue = 0, actualValue = -1, error = false;
+		if (key.indexOf('RESoptions.') === 0) {
+			try {
+			 	expectedValue = typeof expected[key] === 'string' && JSON.parse(expected[key]).value;
+				actualValue = typeof actual[key] === 'string' && JSON.parse(actual[key]).value;
+				error = !equals(expectedValue, actualValue);
+			} catch (e) {
+				error = e;
+			}
+		} else {
+			expectedValue = expected[key];
+			actualValue = actual[key];
+			error = !equals(expectedValue, actualValue);
+		}
+
+		if (error) {
+			failures.push({
+				error: typeof error === 'boolean' ? 'no match' : error,
+				key: key,
+				expected: expected[key],
+				actual: actual[key]
+			});
+		}
+	}
+	if (failures.length) {
+		console.log('[ERR] Encountered', failures.length, 'non-matching storage items');
+		console.dir(failures);
+	}
 }
 
 console.log('done');
