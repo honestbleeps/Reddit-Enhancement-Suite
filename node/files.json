@@ -2,9 +2,10 @@
 	"vendor": [
 	],
 	"core": [
-		"browsersupport-node.js",
+		"mocks.js",
 		"core/utils.js",
 		"browsersupport.js",
+		"browsersupport-node.js",
 		"core/storage.js",
 		"core/options.js",
 		"core/migrate.js",
