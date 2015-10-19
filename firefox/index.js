@@ -498,6 +498,7 @@ PageMod({
 		self.data.url('vendor/gfycat.js'),
 		self.data.url('vendor/gifyoutube.js'),
 		self.data.url('vendor/imgurgifv.js'),
+		self.data.url('vendor/pornbot.js'),
 		self.data.url('vendor/hogan-3.0.2.js'),
 		self.data.url('modules/spoilerTags.js'),
 		self.data.url('modules/submitIssue.js'),
