@@ -38,5 +38,15 @@ function importFile(filename, key) {
 	if (exported) console.log('    -->', exported);
 }
 
+
+if (yargs.storage) {
+	var storage = require('./storage/' + yargs.storage + '.json');
+	console.log('Loaded storage from', yargs.storage);
+	RESStorage.setup.complete(storage);
+} else {
+	console.log('Using empty storage');
+	RESStorage.setup.complete({});
+}
+
 console.log('done');
 process.exit();
