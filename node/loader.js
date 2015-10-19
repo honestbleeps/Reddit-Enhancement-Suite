@@ -1,7 +1,10 @@
 var fs = require('fs');
 var _eval = require('eval');
+var yargs = require('yargs').argv;
 var files = require("./files.json");
 
+var MockBrowser = require('mock-browser').mocks.MockBrowser;
+var mock = new MockBrowser();
 console.log('Loading jQuery');
 /* global */ $ = require('jquery')({ document: mock.getDocument() });
 console.log('loaded jQuery');
