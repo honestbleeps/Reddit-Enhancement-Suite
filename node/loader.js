@@ -10,9 +10,11 @@ console.log('Loading jQuery');
 console.log('loaded jQuery');
 
 var fileList = [];
+var skipSections = [].concat(yargs.skip);
 for (var section in files) {
 	if (files[section].length) {
 		fileList = fileList.concat(files[section]);
+	if (skipSections.indexOf(section) !== -1) continue;
 
 		fileList.forEach(function(filename) { importFile(filename); });
 	}
