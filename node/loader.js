@@ -13,20 +13,31 @@ var fileList = [];
 for (var section in files) {
 	if (files[section].length) {
 		fileList = fileList.concat(files[section]);
+
+		fileList.forEach(function(filename) { importFile(filename); });
+	}
+	else if (typeof files[section] === 'object') {
+		for (var key in files[section]) {
+			if (!files[section].hasOwnProperty(key)) continue;
+			importFile(files[section][key], key);
+		}
 	}
 }
-
-fileList.forEach(function(filename) {
+function importFile(filename, key) {
 	filename = 'lib/' + filename;
 	var contents = fs.readFileSync(filename, 'utf8');
-	console.log('Loading', filename);
+	console.log('Loading', filename, key ? 'as ' + key : '');
 	var exports = _eval(contents, filename, {}, true);
-	for (var key in exports) {
-		if (!exports.hasOwnProperty(key)) continue;
-		global[key] = exports[key];
+	if (key) {
+		global[key] = exports;
+	} else {
+		for (var key in exports) {
+			if (!exports.hasOwnProperty(key)) continue;
+			global[key] = exports[key];
+		}
 	}
 	var exported = Object.getOwnPropertyNames(exports).join(', ');
 	if (exported) console.log('    -->', exported);
-});
+}
 
 console.log('done');
