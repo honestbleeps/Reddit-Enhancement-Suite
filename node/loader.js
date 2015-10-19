@@ -39,3 +39,4 @@ function importFile(filename, key) {
 }
 
 console.log('done');
+process.exit();
