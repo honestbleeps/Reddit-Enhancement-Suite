@@ -1,4 +1,6 @@
 {
-	"foo": 1,
-	"RESoptions.foo": "{\"value\": \"foo\"}"
+	"equal": "equal",
+	"inequal": "equal stub",
+	"RESoptions.equal": "{\"value\": \"equal\", \"irrelevant\": true}",
+	"RESoptions.inequal": "{\"value\": \"inequal\", \"irrelevant\": true}"
 }
