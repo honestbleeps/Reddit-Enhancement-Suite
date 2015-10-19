@@ -26,7 +26,7 @@ for (var section in files) {
 function importFile(filename, key) {
 	filename = 'lib/' + filename;
 	var contents = fs.readFileSync(filename, 'utf8');
-	console.log('Loading', filename, key ? 'as ' + key : '');
+	if (yargs.v) console.log('Loading', filename, key ? 'as ' + key : '');
 	var exports = _eval(contents, filename, {}, true);
 	if (key) {
 		global[key] = exports;
@@ -37,7 +37,7 @@ function importFile(filename, key) {
 		}
 	}
 	var exported = Object.getOwnPropertyNames(exports).join(', ');
-	if (exported) console.log('    -->', exported);
+	if (yargs.v && exported) console.log('    -->', exported);
 }
 
 
@@ -46,14 +46,14 @@ if (yargs.storage) {
 	console.log('Loaded storage from', yargs.storage);
 	RESStorage.setup.complete(storage);
 } else {
-	console.log('Using empty storage');
+	if (yargs.v) console.log('Using empty storage');
 	RESStorage.setup.complete({});
 }
 
 if (yargs.assertstorage) {
 	var actual = RESStorage;
 	var expected = requireNew('./storage/' + yargs.assertstorage + '.json');
-	console.log('Asserting that storage resembles', yargs.assertstorage);
+	if (yargs.v) console.log('Asserting that storage resembles', yargs.assertstorage);
 
 	var failures = [];
 	for (var key in expected) {
@@ -87,5 +87,5 @@ if (yargs.assertstorage) {
 	}
 }
 
-console.log('done');
+if (yargs.v) console.log('done');
 process.exit();
