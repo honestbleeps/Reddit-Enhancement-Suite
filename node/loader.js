@@ -5,10 +5,6 @@ var yargs = require('yargs').argv;
 var files = require("./files.json");
 var equals = require('deep-equal');
 
-var MockBrowser = require('mock-browser').mocks.MockBrowser;
-var mock = new MockBrowser();
-/* global */ $ = require('jquery')({ document: mock.getDocument() });
-
 var skipSections = [].concat(yargs.skip);
 for (var section in files) {
 	if (skipSections.indexOf(section) !== -1) continue;
