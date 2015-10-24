@@ -71,7 +71,6 @@ self.on('message', function(request) {
 	}
 });
 
-RESUtils.runtime.ajax = function(obj) {
 RESEnvironment.ajax = function(obj) {
 	var crossDomain = (obj.url.indexOf(location.hostname) === -1);
 

@@ -72,7 +72,6 @@ function operaMessageHandler(msgEvent) {
 	}
 }
 
-RESUtils.runtime.ajax = function(obj) {
 RESEnvironment.ajax = function(obj) {
 	obj.requestType = 'ajax';
 	// Turns out, Opera works this way too, but I'll forgive them since their extensions are so young and they're awesome people...
