@@ -28,6 +28,7 @@
 		"RESMetadata": true,
 		"modules": true,
 		"libraries": true,
+		"RESEnvironment": true,
 		"BrowserStrategy": true,
 		"RESdoBeforeLoad": true,
 		"RESInit": true,
@@ -42,10 +43,13 @@
 		"RESdefaultModuleID": true,
 		"escapeHTML": true,
 		"addModule": true,
+		"addLibrary": true,
 		"perfTest": true,
 		"RESTemplates": true,
 		"BrowserDetect": true,
 		"RESOptionsMigrate": true,
-		"gdAlert": true
+		"gdAlert": true,
+
+		"exports": true
 	}
 }
