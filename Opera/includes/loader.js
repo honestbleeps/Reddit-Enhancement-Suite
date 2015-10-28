@@ -15,7 +15,7 @@
 // @downloadURL   http://redditenhancementsuite.com/latest/reddit_enhancement_suite.user.js
 // ==/UserScript==
 
-(function() {
+(function(exports) {
 	var scripts = [
 		'opera-header.js',
 
@@ -257,11 +257,46 @@
 	var scriptsLoaded = loadFiles(scripts);
 	scriptsLoaded.done(function(files) {
 		stylesheetsLoaded.done(function() {
+			var res, error;
 			var batched = files.join(';\n');
-			f.call(context); // why?
-			function f() {
-				eval(batched);
+			console.log('Evaluating RES');
+
+			try {
+				(function() {
+					res = load(files);
+				}).call(context);
+			} catch(e) {
+				error = e;
 			}
+			window.REScontext = {
+				res: res,
+				error: error,
+				getSourceAt: source.bind(batched, batched),
+				sourceText: batched,
+				files: files
+			}
+			if (error) {
+				console.error('Could not load RES. Consult window.resContext.error for more details.');
+			} else {
+				consoel.log('RES loaded');
+
 		});
 	});
-})();
+
+	function evalBatched(batched) {
+		return eval(batched);
+	}
+
+	function source(code, line, after, before) {
+		line = typeof line === 'line' : line : 0;
+		after = typeof after === 'number' : after : 10;
+		before = typeof before === 'number' : before : 5;
+		var slice = code.slice(line - before, line + after).join('\n');
+		return {
+			line: line,
+			before: before,
+			after: after,
+			source: slice
+		};
+	}
+})(typeof exports !== 'undefined' : exports ? typeof window !== 'undefined' ? window : this);
