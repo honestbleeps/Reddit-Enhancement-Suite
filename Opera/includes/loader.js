@@ -15,7 +15,7 @@
 // @downloadURL   http://redditenhancementsuite.com/latest/reddit_enhancement_suite.user.js
 // ==/UserScript==
 
-(function(exports) {
+(function(moduleExports) {
 	var scripts = [
 		'opera-header.js',
 
@@ -263,7 +263,7 @@
 
 			try {
 				(function() {
-					res = load(files);
+					res = eval(batched);
 				}).call(context);
 			} catch(e) {
 				error = e;
@@ -277,20 +277,17 @@
 			}
 			if (error) {
 				console.error('Could not load RES. Consult window.resContext.error for more details.');
+				console.error(error);
 			} else {
-				consoel.log('RES loaded');
-
+				console.log('RES loaded');
+			}
 		});
 	});
 
-	function evalBatched(batched) {
-		return eval(batched);
-	}
-
 	function source(code, line, after, before) {
-		line = typeof line === 'line' : line : 0;
-		after = typeof after === 'number' : after : 10;
-		before = typeof before === 'number' : before : 5;
+		line = typeof line === 'line' ? line : 0;
+		after = typeof after === 'number' ? after : 10;
+		before = typeof before === 'number' ? before : 5;
 		var slice = code.slice(line - before, line + after).join('\n');
 		return {
 			line: line,
@@ -299,4 +296,4 @@
 			source: slice
 		};
 	}
-})(typeof exports !== 'undefined' : exports ? typeof window !== 'undefined' ? window : this);
+})(typeof exports !== 'undefined' ? exports : typeof window !== 'undefined' ? window : this);
