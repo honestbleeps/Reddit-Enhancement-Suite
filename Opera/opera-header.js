@@ -1,5 +1,5 @@
-// Place everything in a self-invoking anonymous function
-(function() {
+// Reddit Enhancement Suite
+(function() { // Load everything inside an IIFE closure to avoid leaking
 
 // Declare globals for functions expecting "window" to be the global object
 var location       = window.location;

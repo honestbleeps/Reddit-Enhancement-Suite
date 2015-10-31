@@ -178,12 +178,12 @@
 		function loadFile(filename, i) {
 			var file = opera.extension.getFile('/' + filename);
 			var fr = new FileReader();
-			fr.onload = onLoad.bind(this, i, fr);
+			fr.onload = onLoad.bind(this, i, fr, filename);
 			fr.readAsText(file);
 		}
 
-		function onLoad(i, fr) {
-			files[i] = fr.result;
+		function onLoad(i, fr, filename) {
+			files[i] = '\r\r\r/**** ' + filename + ' ****/\r\r ' + fr.result;
 			deferred.update(files[i], i);
 			loaded++;
 			if (loaded === files.length) {
