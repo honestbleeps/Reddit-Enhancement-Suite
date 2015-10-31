@@ -184,31 +184,3 @@ RESEnvironment.openLinkInNewTab = function (thisHREF) {
 
 RESEnvironment.addURLToHistory = RESEnvironment._addURLToHistory;
 
-var MutationObserver = function(callback) {
-	this.callback = callback;
-}
-MutationObserver.prototype.observe = function(target, observe) {
-	if (observe.childList) {
-		target.addEventListener('DOMNodeInserted', (function(event) {
-			var record = MutationRecord.initChildListFromNode(target, event.target)
-			this.emitRecord(record);
-		}).bind(this));
-	}
-};
-MutationObserver.prototype.emitRecord = function(record) {
-	this.callback([ record ], this);
-};
-var MutationRecord = function(target) {
-	this.target = target;
-};
-MutationRecord.initChildListFromNode = function(target, node) {
-	var record = new MutationRecord(target);
-	record.type = 'childList'
-	record.addedNodes = [ node ];
-	record.removedNodes = [ ];
-	record.previousSibling = node.previousSibling;
-	record.nextSibling = node.nextSibling;
-
-	return record;
-};
-RESEnvironment.getMutationObserver = function() { return MutationObserver; }
