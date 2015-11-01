@@ -14,7 +14,8 @@ body.res-console-open {
 	background-color: #fff;
 	transition: bottom 0.4s;
 }
-#RESConsoleContainer em { font-style: italic; }
+body.res em { font-style: italic; }
+body.res strong { font-weight: bold; }
 #RESConsoleContainer.slideIn {
 	visibility: visible;
 	bottom: 1.5%;
