@@ -1,9 +1,25 @@
 var fs = require('fs');
 var _eval = require('eval');
 var requireNew = require('require-new');
-var yargs = require('yargs').argv;
+var yargs = require('yargs')
+	.count('verbose')
+    .alias('v', 'verbose')
+    .default('storage', 'andytuba-4.5.4')
+	.default('assertstorage', 'andytuba-4.5.4-6dffad39')
+	.argv;
 var files = require("./files.json");
 var equals = require('deep-equal');
+
+var VERBOSE_LEVEL = yargs.verbose;
+function WARN()  { (VERBOSE_LEVEL >= 0 && console.log.apply(console, arguments)); }
+function INFO()  { (VERBOSE_LEVEL >= 1 && console.log.apply(console, arguments)); }
+function DEBUG() {  (VERBOSE_LEVEL >= 2 && console.log.apply(console, arguments)); }
+
+/*
+WARN("Showing only important stuff");
+INFO("Showing semi-important stuff too");
+DEBUG("Extra chatty mode");
+*/
 
 var skipSections = [].concat(yargs.skip);
 for (var section in files) {
@@ -22,7 +38,7 @@ for (var section in files) {
 function importFile(filename, key) {
 	filename = 'lib/' + filename;
 	var contents = fs.readFileSync(filename, 'utf8');
-	if (yargs.v) console.log('Loading', filename, key ? 'as ' + key : '');
+	DEBUG('Loading', filename, key ? 'as ' + key : '');
 	var exports = _eval(contents, filename, {}, true);
 	if (key) {
 		global[key] = exports;
@@ -33,13 +49,13 @@ function importFile(filename, key) {
 		}
 	}
 	var exported = Object.getOwnPropertyNames(exports).join(', ');
-	if (yargs.v && exported) console.log('    -->', exported);
+	if (exported) DEBUG('    -->', exported);
 }
 
 
 if (yargs.storage) {
 	var storage = require('./storage/' + yargs.storage + '.json');
-	console.log('Loaded storage from', yargs.storage);
+	INFO('Loaded storage from', yargs.storage);
 	RESStorage.setup.complete(storage);
 } else {
 	if (yargs.v) console.log('Using empty storage');
@@ -49,7 +65,7 @@ if (yargs.storage) {
 if (yargs.assertstorage) {
 	var actual = RESStorage;
 	var expected = requireNew('./storage/' + yargs.assertstorage + '.json');
-	if (yargs.v) console.log('Asserting that storage resembles', yargs.assertstorage);
+	INFO('Asserting that storage resembles', yargs.assertstorage);
 
 	var failures = [];
 	for (var key in expected) {
@@ -69,6 +85,7 @@ if (yargs.assertstorage) {
 		}
 
 		if (error) {
+			DEBUG('   didn\'t match assert storage!');
 			failures.push({
 				error: typeof error === 'boolean' ? 'no match' : error,
 				key: key,
@@ -78,10 +95,10 @@ if (yargs.assertstorage) {
 		}
 	}
 	if (failures.length) {
-		console.log('[ERR] Encountered', failures.length, 'non-matching storage items');
+		WARN('[ERR] Encountered', failures.length, 'non-matching storage items');
 		console.dir(failures);
 	}
 }
 
-if (yargs.v) console.log('done');
+DEBUG('done');
 process.exit();
