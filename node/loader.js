@@ -6,6 +6,7 @@ var yargs = require('yargs')
     .alias('v', 'verbose')
     .default('storage', 'andytuba-4.5.4')
 	.default('assertstorage', 'andytuba-4.5.4-6dffad39')
+	.default('ignorestorage', '_ignore-4.5.4-6dffad39')
 	.argv;
 var files = require("./files.json");
 var equals = require('deep-equal');
@@ -67,8 +68,19 @@ if (yargs.assertstorage) {
 	var expected = requireNew('./storage/' + yargs.assertstorage + '.json');
 	INFO('Asserting that storage resembles', yargs.assertstorage);
 
+	var ignoredKeys = [];
+	if (yargs.ignorestorage) {
+		ignoredKeys = requireNew('./storage/' + yargs.ignorestorage+ '.json');
+		INFO('excluding keys listed in', yargs.ignorestorage);
+	}
+
 	var failures = [];
 	for (var key in expected) {
+		if (ignoredKeys.indexOf(key) !== -1) {
+			DEBUG('Skipping comparing key', key);
+			continue;
+		}
+		DEBUG('Comparing key', key);
 		var expectedValue = 0, actualValue = -1, error = false;
 		if (key.indexOf('RESoptions.') === 0) {
 			try {
