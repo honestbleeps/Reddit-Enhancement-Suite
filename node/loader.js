@@ -22,6 +22,14 @@ INFO("Showing semi-important stuff too");
 DEBUG("Extra chatty mode");
 */
 
+var storage = {};
+if (yargs.storage) {
+	var storage = require('./storage/' + yargs.storage + '.json');
+	INFO('Loaded storage from', yargs.storage, ' - loaded ', Object.getOwnPropertyNames(storage).length, 'items');
+} else {
+	INFO('Using empty storage');
+}
+
 var skipSections = [].concat(yargs.skip);
 for (var section in files) {
 	if (skipSections.indexOf(section) !== -1) continue;
@@ -54,24 +62,17 @@ function importFile(filename, key) {
 }
 
 
-if (yargs.storage) {
-	var storage = require('./storage/' + yargs.storage + '.json');
-	INFO('Loaded storage from', yargs.storage);
-	RESStorage.setup.complete(storage);
-} else {
-	if (yargs.v) console.log('Using empty storage');
-	RESStorage.setup.complete({});
-}
+RESStorage.setup.complete(storage);
 
 if (yargs.assertstorage) {
 	var actual = RESStorage;
 	var expected = requireNew('./storage/' + yargs.assertstorage + '.json');
-	INFO('Asserting that storage resembles', yargs.assertstorage);
+	INFO('Asserting that storage matches', yargs.storage, ' - loaded ', Object.getOwnPropertyNames(expected).length, 'items');
 
 	var ignoredKeys = [];
 	if (yargs.ignorestorage) {
 		ignoredKeys = requireNew('./storage/' + yargs.ignorestorage+ '.json');
-		INFO('excluding keys listed in', yargs.ignorestorage);
+		INFO('ignoring keys listed in', yargs.ignorestorage, ' - ignoring ', Object.getOwnPropertyNames(ignoredKeys).length, 'items');
 	}
 
 	var failures = [];
@@ -109,6 +110,8 @@ if (yargs.assertstorage) {
 	if (failures.length) {
 		WARN('[ERR] Encountered', failures.length, 'non-matching storage items');
 		console.dir(failures);
+	} else {
+		INFO('Storage passed equality assertion');
 	}
 }
 
