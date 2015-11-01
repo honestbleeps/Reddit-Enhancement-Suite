@@ -67,7 +67,8 @@ RESStorage.setup.complete(storage);
 if (yargs.assertstorage) {
 	var actual = RESStorage;
 	var expected = requireNew('./storage/' + yargs.assertstorage + '.json');
-	INFO('Asserting that storage matches', yargs.storage, ' - loaded ', Object.getOwnPropertyNames(expected).length, 'items');
+	INFO('Loaded storage from', yargs.storage, ' - loaded ', Object.getOwnPropertyNames(storage).length, 'items');
+	INFO('Asserting that storage matches', yargs.assertstorage, ' - loaded ', Object.getOwnPropertyNames(expected).length, 'items');
 
 	var ignoredKeys = [];
 	if (yargs.ignorestorage) {
@@ -85,27 +86,25 @@ if (yargs.assertstorage) {
 		var expectedValue = 0, actualValue = -1, error = false;
 		if (key.indexOf('RESoptions.') === 0) {
 			try {
-			 	expectedValue = typeof expected[key] === 'string' && JSON.parse(expected[key]).value;
-				actualValue = typeof actual[key] === 'string' && JSON.parse(actual[key]).value;
-				error = !equals(expectedValue, actualValue);
+			 	expectedOptions = typeof expected[key] === 'string' && JSON.parse(expected[key]);
+				actualOptions = typeof actual[key] === 'string' && JSON.parse(actual[key]);
+				for (var option in expectedOptions) {
+					var expectedValue = expectedOptions[option].value;
+					var actualValue = (actualOptions[option] || {}).value
+					error = !equals(expectedValue, actualValue)
+					if (error) addError(key + '::' + option, error, expectedValue, actualValue);
+				}
 			} catch (e) {
-				error = e;
+				addError(key + '::' + option, error);
 			}
 		} else {
 			expectedValue = expected[key];
 			actualValue = actual[key];
 			error = !equals(expectedValue, actualValue);
+			if (error) addError(key, error, expectedValue, actualValue);
 		}
 
-		if (error) {
-			DEBUG('   didn\'t match assert storage!');
-			failures.push({
-				error: typeof error === 'boolean' ? 'no match' : error,
-				key: key,
-				expected: expected[key],
-				actual: actual[key]
-			});
-		}
+
 	}
 	if (failures.length) {
 		WARN('[ERR] Encountered', failures.length, 'non-matching storage items');
@@ -113,6 +112,17 @@ if (yargs.assertstorage) {
 	} else {
 		INFO('Storage passed equality assertion');
 	}
+}
+
+function addError(key, error, expected, actual) {
+	if (!error) return;
+	DEBUG(key, 'didn\'t match assert storage!', error);
+	failures.push({
+		error: typeof error === 'boolean' ? 'no match' : error,
+		key: key,
+		expected: JSON.stringify(expected),
+		actual: JSON.stringify(actual)
+	});
 }
 
 DEBUG('done');
