@@ -1435,6 +1435,22 @@ body.RESScrollLock {
 	70% { background: transparent; }
 }
 
+.RESLoadingSpinner {
+	color: hsl(210, 80%, 50%);
+	font-size: inherit; // Determines size of the icon.
+	display: inline-block;
+	vertical-align: text-bottom;
+	width: 1em;
+	height: .5em;
+	border-bottom: .5em solid;
+	border-radius: 50%;
+	animation: spin 1000ms 0ms infinite linear;
+}
+
+@keyframes spin {
+	100% { transform: rotate(360deg); }
+}
+
 // Handle multireddit bar on savedComments page
 .with-listing-chooser #savedLinksList {
 	margin-left: 120px;
