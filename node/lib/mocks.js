@@ -11,7 +11,10 @@ var location = {"hash":"","search":"","pathname":"/","port":"","hostname":"www.r
 var document = {
 	location: location,
 	createElement: function(tagName) {
-		return {};
+		return {
+			tagName: tagName,
+			style: {}
+		};
 	}
 };
 
