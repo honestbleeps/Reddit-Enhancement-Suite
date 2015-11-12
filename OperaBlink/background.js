@@ -89,7 +89,6 @@ var XHRCache = {
 	}
 };
 
-
 var handlePageActionClick = function(event) {
 	chrome.tabs.sendMessage(event.id, { requestType: 'subredditStyle', action: 'toggle'  }, function(response) {
 		// we don't really need to do anything here.
@@ -109,6 +108,7 @@ chrome.runtime.onMessage.addListener(
 					chrome.cookies = chrome.experimental.cookies;
 				}
 				chrome.cookies.remove({'url': request.host, 'name': request.cname});
+				sendResponse({removedCookie: request.cname});
 				break;
 			case 'ajax':
 				if (request.aggressiveCache || XHRCache.forceCache) {
@@ -131,8 +131,8 @@ chrome.runtime.onMessage.addListener(
 				}
 				xhr.onreadystatechange = function() {
 					if (xhr.readyState === 4) {
-						// Only store `status` and `responseText` fields
-						var response = {status: xhr.status, responseText: xhr.responseText};
+						// Only store `status`, `responseText` and `responseURL` fields
+						var response = {status: xhr.status, responseText: xhr.responseText, responseURL: xhr.responseURL };
 						sendResponse(response);
 						// Only cache on HTTP OK and non empty body
 						if ((request.aggressiveCache || XHRCache.forceCache) && (xhr.status === 200 && xhr.responseText)) {
@@ -246,7 +246,6 @@ chrome.runtime.onMessage.addListener(
 				} else {
 					chrome.permissions.request(request.data, function(granted) {
 						request.result = granted;
-						console.log(request);
 						chrome.tabs.query({ active: true, windowId: chrome.windows.WINDOW_ID_CURRENT }, function(tab) {
 							chrome.tabs.sendMessage(tab[0].id, request, function(response) {
 								// we don't really need to do anything here.
