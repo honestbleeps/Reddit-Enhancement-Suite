@@ -272,13 +272,11 @@ pageMod.PageMod({
 		self.data.url('core/init.js')
 	],
 	contentStyleFile: [
-		self.data.url('modules/nightmode.css'),
-		self.data.url('modules/commentBoxes.css'),
-		self.data.url('core/res.css'),
+		self.data.url('css/res.css'),
 		self.data.url('vendor/players.css'),
 		self.data.url('vendor/guiders.css'),
 		self.data.url('vendor/tokenize.css'),
-		self.data.url('core/batch.css')
+		self.data.url('vendor/mediacrush.css')
 	],
 	onAttach: function(worker) {
 		// when a tab is activated, repopulate localStorage so that changes propagate across tabs...
