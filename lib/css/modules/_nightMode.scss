@@ -89,12 +89,12 @@
 		color: rgb(117, 142, 168);
 	}
 
-	#RESMenu li.active {
-		background-color: #7f7f7f;
-	}
-
 	#RESMenu li {
 		background-color: #eee;
+
+		&.active {
+			background-color: #7f7f7f;
+		}
 	}
 
 	#DonateRES {
@@ -110,6 +110,10 @@
 	.login-form-side {
 		background-color: #888;
 		color: #eee;
+
+		.error {
+			color: rgb(205, 90, 90);
+		}
 	}
 
 	#header,
@@ -148,10 +152,10 @@
 
 	.RESDashboardComponentContainer {
 		padding: 0;
-	}
 
-	.RESDashboardComponentContainer .linklisting {
-		padding: 5px;
+		.linklisting {
+			padding: 5px;
+		}
 	}
 
 	.new-comment .usertext-body {
@@ -243,6 +247,10 @@
 	.organic-listing {
 		border-color: rgb(80, 80, 80);
 		background-color: transparent !important;
+
+		.nextprev {
+			opacity: .5;
+		}
 	}
 
 	.organic-listing .link,
@@ -251,45 +259,24 @@
 		border-color: rgb(80, 80, 80);
 	}
 
-	.organic-listing .nextprev {
-		opacity: .5;
-	}
-
 	.thing .arrow {
 		background-image: url('https://b.thumbs.redditmedia.com/WZDoQsDzUySVTErcweuA3k2HH1HU5-BZNnBXOR4FDwc.png') !important;
-	}
 
-	.thing .arrow.up {
-		background-position: -15px 0 !important;
-	}
-
-	.thing .arrow.down {
-		background-position: -15px -14px !important;
-	}
-
-	.thing .arrow.up:hover {
-		background-position: -30px 0 !important;
-	}
-
-	.thing .arrow.down:hover {
-		background-position: -30px -14px !important;
-	}
-
-	.thing .arrow.upmod {
-		background-position: 0 0 !important;
-	}
-
-	.thing .arrow.downmod {
-		background-position: 0 -14px !important;
-	}
-
-	.subredditbox li a:before {
-		content: '#';
+		&.up { background-position: -15px 0 !important; }
+		&.down { background-position: -15px -14px !important; }
+		&.up:hover { background-position: -30px 0 !important; }
+		&.down:hover { background-position: -30px -14px !important; }
+		&.upmod { background-position: 0 0 !important; }
+		&.downmod { background-position: 0 -14px !important; }
 	}
 
 	.subredditbox li {
 		font-weight: 700;
 		text-transform: lowercase;
+
+		a::before {
+			content: '#';
+		}
 	}
 
 	.dropdown.lightdrop a.choice:hover {
@@ -306,10 +293,6 @@
 		color: #aaa;
 	}
 
-	.login-form-side .error {
-		color: rgb(205, 90, 90);
-	}
-
 	.subreddit-info .spacer a {
 		background-color: #222;
 	}
@@ -321,19 +304,19 @@
 	.morelink {
 		background: #444;
 		border-color: #444;
-	}
 
-	.morelink:hover {
-		border-color: #333;
-		background: #333;
-	}
+		&:hover {
+			border-color: #333;
+			background: #333;
 
-	.morelink:hover a {
-		color: rgb(20, 150, 220);
-	}
+			a {
+				color: rgb(20, 150, 220);
+			}
+		}
 
-	.morelink .nub {
-		display: none;
+		.nub {
+			display: none;
+		}
 	}
 
 	.sidebox .spacer,
@@ -424,10 +407,6 @@
 	}
 
 	.markhelp.md tr td {
-		background-color: #555;
-	}
-
-	.markhelp.md tr td {
 		background-color: #36c;
 	}
 
@@ -443,10 +422,10 @@
 	// from white & blue to black and red-ish
 	&.res-highlight-nsfw-expando .thing.over18 .expando-button {
 		filter: hue-rotate(-40deg) invert(80%) brightness(70%) saturate(300%);
-	}
 
-	&.res-highlight-nsfw-expando .thing.over18 .expando-button::before {
-		content: none;
+		&::before {
+			content: none;
+		}
 	}
 
 	.RESdupeimg {
@@ -957,13 +936,13 @@
 		color: #369;
 	}
 
-	.policy-page .md p em {
-		background-color: rgb(218, 208, 179);
-		color: #000;
-	}
-
 	.policy-page .md p {
 		color: #eee;
+
+		em {
+			background-color: rgb(218, 208, 179);
+			color: #000;
+		}
 	}
 
 	body,
@@ -1224,10 +1203,10 @@
 
 	#RESConfigPanelModulesList {
 		color: rgb(160, 160, 160);
-	}
 
-	#RESConfigPanelModulesList li.active h3 {
-		background-color: rgb(20, 20, 20);
+		li.active h3 {
+			background-color: rgb(20, 20, 20);
+		}
 	}
 
 	#RESConsoleContainer,
