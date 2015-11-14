@@ -22,7 +22,7 @@ linters:
   SelectorDepth:
     enabled: false
 
-  MergeableSelector:
+  NestingDepth:
     enabled: false
 
 # Linters below are temporarily disabled/loosened
