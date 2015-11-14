@@ -66,7 +66,20 @@ var rootBuildDir = 'dist',
 				{ dest: '/',        src: ['Opera/*.js', 'OperaBlink/*.gif', 'Opera/*.html', 'Opera/*.xml', 'package.json'] },
 				{ dest: '/',        src: commonFiles }
 			]
-		}
+		},
+		node: {
+			// Subfolder of rootBuildDir that the buildFiles will be copied to
+			buildFolder: 'node',
+			// The file for addFileToManifest to modify when adding new hosts/modules
+			manifest: 'node/files.json',
+			// Files to be copied when building the extension
+			buildFiles: [
+				// dest is relative to the browser's buildFolder, src is relative to the project root
+				{ dest: 'lib',    src: commonFiles },
+				{ dest: 'node_modules',    src: [ 'node/node_modules', 'node/node_modules/**/*' ] },
+				{ dest: '/',      src: ['node/**/*'] }
+			]
+		},
 	},
 	// the `-b browser` argument(s) or all browsers, if unspecified
 	selectedBrowsers = options.b ? [].concat(options.b) : Object.keys(config);

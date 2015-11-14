@@ -47,7 +47,7 @@ self.on('message', function(request) {
 					currentSubreddit = RESUtils.currentSubreddit();
 
 				if (currentSubreddit) {
-					RESUtils.runtime.sendMessage({
+					RESEnvironment.sendMessage({
 						requestType: 'pageAction',
 						action: 'stateChange',
 						visible: toggle
@@ -71,8 +71,8 @@ self.on('message', function(request) {
 	}
 });
 
-RESUtils.runtime = RESUtils.runtime || {};
-RESUtils.runtime.ajax = function(obj) {
+RESEnvironment = RESEnvironment || {};
+RESEnvironment.ajax = function(obj) {
 	var crossDomain = (obj.url.indexOf(location.hostname) === -1);
 
 	if ((typeof obj.onload !== 'undefined') && (crossDomain)) {
@@ -130,7 +130,7 @@ RESUtils.runtime.ajax = function(obj) {
 };
 
 
-RESUtils.runtime.localStorageTest = function() {
+RESEnvironment.localStorageTest = function() {
 	// if this is a firefox addon, check for the old lsTest to see if they used to use the Greasemonkey script...
 	// if so, present them with a notification explaining that they should download a new script so they can
 	// copy their old settings...
@@ -155,20 +155,20 @@ RESUtils.runtime.localStorageTest = function() {
 (function() {
 	var transactions = 0;
 	window.RESLoadCallbacks = [];
-	RESLoadResourceAsText = function(filename, callback) {
+	RESEnvironment.loadResourceAsText = function(filename, callback) {
 		window.RESLoadCallbacks[transactions] = callback;
 		self.postMessage({ requestType: 'readResource', filename: filename, transaction: transactions });
 		transactions++;
 	};
 })();
 
-RESUtils.runtime.storageSetup = function(thisJSON) {
+RESEnvironment.storageSetup = function(thisJSON) {
 	// we've got firefox jetpack, get localStorage from background process
 	self.postMessage(thisJSON);
 };
 
-RESUtils.runtime.RESInitReadyCheck = (function() {
-	var original = RESUtils.runtime.RESInitReadyCheck;
+RESEnvironment.RESInitReadyCheck = (function() {
+	var original = RESEnvironment.RESInitReadyCheck;
 
 	return function(RESInit) {
 		// firefox addon sdk... we've included jQuery...
@@ -183,7 +183,7 @@ RESUtils.runtime.RESInitReadyCheck = (function() {
 	}
 })();
 
-RESUtils.runtime.openInNewWindow = function(thisHREF) {
+RESEnvironment.openInNewWindow = function(thisHREF) {
 	var thisJSON = {
 		requestType: 'keyboardNav',
 		linkURL: thisHREF
@@ -191,7 +191,7 @@ RESUtils.runtime.openInNewWindow = function(thisHREF) {
 	self.postMessage(thisJSON);
 };
 
-RESUtils.runtime.openLinkInNewTab = function(thisHREF) {
+RESEnvironment.openLinkInNewTab = function(thisHREF) {
 	var thisJSON = {
 		requestType: 'openLinkInNewTab',
 		linkURL: thisHREF
@@ -199,11 +199,11 @@ RESUtils.runtime.openLinkInNewTab = function(thisHREF) {
 	self.postMessage(thisJSON);
 };
 
-RESUtils.runtime.sendMessage = function(thisJSON) {
+RESEnvironment.sendMessage = function(thisJSON) {
 	self.postMessage(thisJSON);
 };
 
-RESUtils.runtime.deleteCookie = function(cookieName) {
+RESEnvironment.deleteCookie = function(cookieName) {
 	var deferred = new $.Deferred();
 
 	var requestJSON = {

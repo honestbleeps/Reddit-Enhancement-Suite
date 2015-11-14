@@ -15,7 +15,7 @@
 // @downloadURL   http://redditenhancementsuite.com/latest/reddit_enhancement_suite.user.js
 // ==/UserScript==
 
-(function() {
+(function(moduleExports) {
 	var scripts = [
 		'opera-header.js',
 
@@ -178,12 +178,12 @@
 		function loadFile(filename, i) {
 			var file = opera.extension.getFile('/' + filename);
 			var fr = new FileReader();
-			fr.onload = onLoad.bind(this, i, fr);
+			fr.onload = onLoad.bind(this, i, fr, filename);
 			fr.readAsText(file);
 		}
 
-		function onLoad(i, fr) {
-			files[i] = fr.result;
+		function onLoad(i, fr, filename) {
+			files[i] = '\r\r\r/**** ' + filename + ' ****/\r\r ' + fr.result;
 			deferred.update(files[i], i);
 			loaded++;
 			if (loaded === files.length) {
@@ -257,11 +257,43 @@
 	var scriptsLoaded = loadFiles(scripts);
 	scriptsLoaded.done(function(files) {
 		stylesheetsLoaded.done(function() {
+			var res, error;
 			var batched = files.join(';\n');
-			f.call(context); // why?
-			function f() {
-				eval(batched);
+			console.log('Evaluating RES');
+
+			try {
+				(function() {
+					res = eval(batched);
+				}).call(context);
+			} catch(e) {
+				error = e;
+			}
+			window.REScontext = {
+				res: res,
+				error: error,
+				getSourceAt: source.bind(batched, batched),
+				sourceText: batched,
+				files: files
+			}
+			if (error) {
+				console.error('Could not load RES. Consult window.resContext.error for more details.');
+				console.error(error);
+			} else {
+				console.log('RES loaded');
 			}
 		});
 	});
-})();
+
+	function source(code, line, after, before) {
+		line = typeof line === 'line' ? line : 0;
+		after = typeof after === 'number' ? after : 10;
+		before = typeof before === 'number' ? before : 5;
+		var slice = code.slice(line - before, line + after).join('\n');
+		return {
+			line: line,
+			before: before,
+			after: after,
+			source: slice
+		};
+	}
+})(typeof exports !== 'undefined' ? exports : typeof window !== 'undefined' ? window : this);

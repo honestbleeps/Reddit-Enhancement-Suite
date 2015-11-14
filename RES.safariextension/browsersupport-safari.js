@@ -41,7 +41,7 @@ function safariMessageHandler(msgEvent) {
 			break;
 		case 'addURLToHistory':
 			var url = request.url;
-			RESUtils.runtime._addURLToHistoryViaForeground(url);
+			RESEnvironment._addURLToHistoryViaForeground(url);
 			break;
 		case 'localStorage':
 			RESStorage.setItem(request.itemName, request.itemValue, true);
@@ -62,7 +62,7 @@ window.onunload = function() {};
 safari.self.addEventListener('message', safariMessageHandler, false);
 
 
-RESUtils.runtime.ajax = function(obj) {
+RESEnvironment.ajax = function(obj) {
 	obj.requestType = 'ajax';
 	// Since Safari doesn't provide legitimate callbacks, I have to store the onload function here in the main
 	// userscript in a queue (see xhrQueue), wait for data to come back from the background page, then call the onload.
@@ -124,7 +124,7 @@ RESUtils.runtime.ajax = function(obj) {
 };
 
 
-RESUtils.runtime.sanitizeJSON = function(data) {
+RESEnvironment.sanitizeJSON = function(data) {
 	if (data.substring(0, 2) === 's{') {
 		data = data.substring(1, data.length);
 	}
@@ -132,10 +132,10 @@ RESUtils.runtime.sanitizeJSON = function(data) {
 	return data;
 };
 
-RESLoadResourceAsText = function(filename, callback) {
+RESEnvironment.loadResourceAsText = function(filename, callback) {
 	var url = safari.extension.baseURI + filename;
 
-	RESUtils.runtime.ajax({
+	RESEnvironment.ajax({
 		method: 'GET',
 		url: url,
 		onload: function (response) {
@@ -144,7 +144,7 @@ RESLoadResourceAsText = function(filename, callback) {
 	});
 };
 
-RESUtils.runtime.storageSetup = function(thisJSON) {
+RESEnvironment.storageSetup = function(thisJSON) {
 	var setupInterval;
 	// we've got safari, get localStorage from background process
 	var setupCallback = function() {
@@ -174,12 +174,12 @@ RESUtils.runtime.storageSetup = function(thisJSON) {
 };
 
 
-RESUtils.runtime.sendMessage = function(thisJSON) {
+RESEnvironment.sendMessage = function(thisJSON) {
 	safari.self.tab.dispatchMessage(thisJSON.requestType, thisJSON);
 };
 
 
-RESUtils.runtime.openInNewWindow = function (thisHREF) {
+RESEnvironment.openInNewWindow = function (thisHREF) {
 	var thisJSON = {
 		requestType: 'keyboardNav',
 		linkURL: thisHREF
@@ -187,7 +187,7 @@ RESUtils.runtime.openInNewWindow = function (thisHREF) {
 	safari.self.tab.dispatchMessage('keyboardNav', thisJSON);
 };
 
-RESUtils.runtime.openLinkInNewTab = function (thisHREF) {
+RESEnvironment.openLinkInNewTab = function (thisHREF) {
 	var thisJSON = {
 		requestType: 'openLinkInNewTab',
 		linkURL: thisHREF
@@ -196,4 +196,4 @@ RESUtils.runtime.openLinkInNewTab = function (thisHREF) {
 };
 
 
-RESUtils.runtime.addURLToHistory = RESUtils.runtime._addURLToHistory;
+RESEnvironment.addURLToHistory = RESEnvironment._addURLToHistory;
