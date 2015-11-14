@@ -88,6 +88,7 @@ changelog v4.6.0
 	- Fixed duplicate expando buttons - RES will now simply replace reddit's expando if it exists (thanks @andytuba)
 	- Stop the Never Ending Reddit progress indicator from being pushed below the sidebar (thanks @erikdesjardins)
 	- Fixed quickMessage messages getting truncated (thanks @erikdesjardins)
+	- Fixed shift-L ("View link and comments in new background tabs") not opening in background tabs (thanks @erikdesjardins)
 	- Fixed some characters not being unescaped in comment source (thanks @erikdesjardins)
 	- Fixed fadeSpeed options having behavior opposite of their description (thanks @erikdesjardins)
 	- Fixed some user tags being unreadable in nightmode and superscript (thanks @erikdesjardins)
