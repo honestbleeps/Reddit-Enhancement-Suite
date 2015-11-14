@@ -220,6 +220,7 @@ pageMod.PageMod({
 		self.data.url('modules/subredditInfo.js'),
 		self.data.url('modules/commentHidePersistor.js'),
 		self.data.url('modules/troubleshooter.js'),
+		self.data.url('modules/backupAndRestore.js'),
 		self.data.url('modules/localDate.js'),
 		self.data.url('modules/context.js'),
 		self.data.url('modules/noParticipation.js'),

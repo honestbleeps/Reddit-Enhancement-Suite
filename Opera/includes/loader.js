@@ -104,6 +104,7 @@
 		'modules/subredditTagger.js',
 		'modules/tableTools.js',
 		'modules/troubleshooter.js',
+		'modules/backupAndRestore.js',
 		'modules/userHighlight.js',
 		'modules/userTagger.js',
 		'modules/userbarHider.js',
