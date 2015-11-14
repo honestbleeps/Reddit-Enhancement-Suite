@@ -1,0 +1,40 @@
+#parentCommentContainer {
+	border: 1px solid #666;
+	background-color: #fff;
+	padding: 4px;
+	width: auto;
+	position: absolute;
+	z-index: 99999;
+}
+
+.res-parents-up #parentCommentContainer {
+	bottom: 0;
+}
+
+#parentCommentWrapper {
+	position: absolute;
+	left: 10px;
+	right: 10px;
+}
+
+.parentArrow {
+	text-align: center;
+	margin-top: -5px;
+	margin-bottom: 5px;
+}
+
+.res-parents-down .parentArrow::before,
+.res-parents-down .parentArrow::after {
+	padding: 1ex;
+	content: '↓';
+}
+
+.res-parents-up .parentArrow::before,
+.res-parents-up .parentArrow::after {
+	padding: 1ex;
+	content: '↑';
+}
+
+a.bylink.parentlink {
+	float: right;
+}
