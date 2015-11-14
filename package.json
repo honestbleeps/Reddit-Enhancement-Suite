@@ -1,23 +1,32 @@
 {
-	"name": "RES",
-	"version": "4.3.2",
-	"repository": {
-		"type": "git",
-		"url": "git://github.com/honestbleeps/Reddit-Enhancement-Suite.git"
-	},
-	"devDependencies": {
-		"grunt-cli": "~0.1.5",
-		"grunt-contrib-watch": "~0.4.3",
-		"grunt-contrib-copy": "~0.5.0",
-		"grunt-contrib-qunit": "~0.4.0",
-		"grunt-contrib-nodeunit": "~0.3.3",
-		"grunt": "~0.4.2",
-		"qunitjs": "~1.10.0",
-		"selenium-webdriver": "~2.41.0",
-		"selenium-server": "~2.38.0",
-		"wrench" : "~1.5.8"
-	},
-	"license": "GPL3",
-	"gitHead": "",
-	"readmeFilename": "README.md"
+  "name": "reddit-enhancement-suite",
+  "version": "4.5.4",
+  "description": "A suite of modules that enhance your Reddit browsing experience",
+  "private": true,
+  "homepage": "http://redditenhancementsuite.com/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/honestbleeps/Reddit-Enhancement-Suite.git"
+  },
+  "devDependencies": {
+    "del": "^1.2.0",
+    "grunt": "^0.4.5",
+    "grunt-contrib-copy": "^0.8.0",
+    "grunt-contrib-jshint": "^0.11.2",
+    "grunt-contrib-nodeunit": "^0.4.1",
+    "grunt-contrib-qunit": "^0.7.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-jscs": "^2.0.0",
+    "gulp": "^3.9.0",
+    "gulp-notify": "^2.2.0",
+    "gulp-replace-async": "^0.0.1",
+    "gulp-zip": "^3.0.2",
+    "matchdep": "^0.3.0",
+    "minimist": "^1.1.2",
+    "qunitjs": "^1.18.0",
+    "selenium-server": "^2.46.0",
+    "selenium-webdriver": "^2.46.1",
+    "wrench": "^1.5.8"
+  },
+  "license": "GPL-3.0"
 }

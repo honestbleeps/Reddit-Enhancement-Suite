@@ -1,5 +1,11 @@
 #!/usr/bin/env node
-var lastVersionDate = '2014-04-03'; // 4.3.2.1
+// var lastVersionDate = '2014-04-03'; // 4.3.2.1
+// var lastVersionDate = '2014-07-02'; // 4.5.0.1
+// var lastVersionDate = '2014-07-07'; // 4.5.0.2
+// var lastVersionDate = '2014-09-13'; // 4.5.1
+// var lastVersionDate = '2014-10-13'; // 4.5.2
+// var lastVersionDate = '2014-12-18'; // 4.5.3
+var lastVersionDate = '2014-12-29'; // 4.5.4
 
 /*
 
@@ -20,7 +26,7 @@ try {
 	credentials = require('../../github-credentials.json');
 } catch(e) {
 	/*
-	console.warn("Could not load credentials");
+	console.warn('Could not load credentials');
 	console.warn(e);
 	process.exit(1);
 	*/

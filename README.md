@@ -1,14 +1,18 @@
 # Reddit Enhancement Suite
 
-Reddit Enhancement Suite (RES) is a suite of modules that enhance your Reddit browsing experience.
+[![Build Status](https://travis-ci.org/honestbleeps/Reddit-Enhancement-Suite.svg?branch=master)](https://travis-ci.org/honestbleeps/Reddit-Enhancement-Suite)
+[![Code Climate](https://codeclimate.com/github/honestbleeps/Reddit-Enhancement-Suite/badges/gpa.svg)](https://codeclimate.com/github/honestbleeps/Reddit-Enhancement-Suite)
+[![devDependency Status](https://david-dm.org/honestbleeps/Reddit-Enhancement-Suite/dev-status.svg)](https://david-dm.org/honestbleeps/Reddit-Enhancement-Suite#info=devDependencies)
 
-For general documentation, visit the [Reddit Enhancement Suite Wiki](http://redditenhancementsuite.com:8080/wiki/).
+Reddit Enhancement Suite (RES) is a suite of modules that enhances your Reddit browsing experience.
 
-### Introduction
+For general documentation, visit the [Reddit Enhancement Suite Wiki](https://www.reddit.com/r/Enhancement/wiki/index).
+
+## Introduction
 
 Hi there! Thanks for checking out RES on GitHub. A few important notes:
 
-1. RES is licensed under GPLv3, which means you're technically free to do whatever you wish in terms of redistribution. However, I ask out of courtesy that should you choose to release your own, separate distribution of RES, you please name it something else entirely. Unfortunately, I have run into problems in the past with people redistributing under the same name, and causing me tech support headaches.
+1. RES is licensed under GPLv3, which means you're technically free to do whatever you wish in terms of redistribution as long as you maintain GPLv3 licensing. However, I ask out of courtesy that should you choose to release your own, separate distribution of RES, you please name it something else entirely. Unfortunately, I have run into problems in the past with people redistributing under the same name, and causing me tech support headaches.
 
 2. I ask that you please do not distribute your own binaries of RES (e.g. with bugfixes, etc). The version numbers in RES are important references for tech support so that we can replicate bugs that users report using the same version they are, and when you distribute your own - you run the risk of polluting/confusing that. In addition, if a user overwrites his/her extension with your distributed copy, it may not properly retain their RES settings/data depending on the developer ID used, etc.
 
@@ -19,18 +23,42 @@ Thanks!
 Steve Sobel
 steve@honestbleeps.com
 
+## Contributor guidelines
+
+Thinking about contributing to RES? Awesome! We just ask that you follow a few simple guidelines:
+
+1. RES has grown quite large, so we do have to pick and choose what features we should add. Code bloat is always a concern, and RES is already rather hefty. If you're unsure if your feature would appeal to a wide audience, please post about it on [/r/Enhancement](https://www.reddit.com/r/Enhancement/) or [contact @honestbleeps](https://www.reddit.com/message/compose/?to=honestbleeps) directly to ask.
+
+2. There are a few features we have made a conscious choice not to add to RES, so make sure whatever you'd like to contribute [isn't on that list](https://www.reddit.com/r/Enhancement/wiki/rejectedfeaturerequests).
+
+3. It would be greatly appreciated if you could stick to a few style guidelines. Some of these guidelines are NOT (yet!) strictly followed by RES because it originally started as an amalgamation of code from so many different sources. That said, we do hope to clean it up in due time...  Some guidelines:
+
+  - please use tabs for indentation
+  - please use spaces in your `if` statements, e.g. `if (foo === bar)`, not `if(foo===bar)`
+  - please use single quotes `'` and not double quotes `"` for strings
+  - please comment your code!
+  - please, when possible, place `var` declarations all together at the top of a function
+  - please consider installing a tool like [JSHint](http://www.jshint.com/) or [JSLint](http://www.jslint.com/) that will help enforce good JavaScript best practices!
+
+4. If you decide to add support for another media hosting site to RES, check out [lib/modules/hosts/example.js](https://github.com/honestbleeps/Reddit-Enhancement-Suite/blob/master/lib/modules/hosts/example.js). Please be sure that they support [CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) so the sites do not need to be added as additional permissions, which has caused [headaches in the past](https://www.reddit.com/r/Enhancement/comments/1jskcm/announcement_chrome_users_did_your_res_turn_off/).
+
+5. If you decide to add a new module, check out [lib/modules/example.js](https://github.com/honestbleeps/Reddit-Enhancement-Suite/blob/master/lib/modules/example.js). To add the module to the browser manifests, use `gulp add-module --file module.js` (replace `module.js` with your filename).
+
+
 ## Project structure
 
-In order to build the extension, the files from `lib/` must be replicated (either via hard-links or grunt) into the relevant browser directory.
+In order to build the extension, the files from `lib/` must be replicated ([either via hard-links or grunt/Gulp](#building-development-versions-of-the-extension)) into the relevant browser directory.
 
 ##### Top level files & folders
 
-  - `README.md` – YOU ARE HERE, unless you're browing on GitHub
+  - `README.md` – YOU ARE HERE, unless you're browsing on GitHub
   - `changelog.txt` – self-explanatory
   - `makelinks.sh` – script to generate hard links
   - `Gruntfile.js`, `package.json` – used for alternative build scripts
-  - `lib/` – core RES code
+  - `lib/` – all RES code
+  - `lib/core/` – core RES code
   - `lib/modules/` – RES modules
+  - `lib/vendor/` – RES vendor libraries
   - `Chrome/` – Chrome-specific RES files
   - `Opera/` – Opera-specific RES files
   - `OperaBlink/` – Opera Blink (new Opera)-specific RES files
@@ -40,33 +68,32 @@ In order to build the extension, the files from `lib/` must be replicated (eithe
 
 ##### Chrome files
 
-  - `background.js` – the "background page" for RES, necessary for chrome extensions
+  - `background.js` – the "background page" for RES, necessary for Chrome extensions
   - `manifest.json` – the project manifest
   - `icon.png`, `icon48.png`, `icon128.png` – icons!
-  - `jquery-1.10.2.min.map` – Chrome moans if this file doesn't exist
 
 ##### Opera files
 
-  - `index.html` – the "background page" for RES, necessary for opera extensions
+  - `index.html` – the "background page" for RES, necessary for Opera extensions
   - `config.xml` – Opera's equivalent of Chrome's `manifest.json`
   - `logo.gif` – a logo gif!
 
 ##### Safari files (RES.safariextension)
 NOTE: This directory must have `.safariextension` in the name, or Safari's extension builder pukes.
 
-  - `background-safari.html` – the "background page" for RES, necessary for safari extensions
+  - `background-safari.html` – the "background page" for RES, necessary for Safari extensions
   - `Info.plist` – the project manifest
   - `icon.png`, `icon48.png`, `icon128.png` – icons!
 
 ##### Firefox files (XPI)
 NOTE: An XPI is a Firefox add-on, which is compiled using the [Add-on SDK](https://developer.mozilla.org/en-US/Add-ons/SDK).
 
-  - `lib/main.js` – this is Firefox's sort of "background page" for RES, like what Chrome has, but just a JS file
+  - `index.js` – this is Firefox's sort of "background page" for RES, like what Chrome has, but just a JS file
   - `package.json` – the project manifest for the Firefox add-on
 
 ##### OperaBlink files
 
-  - `background.js` – the "background page" for RES, necessary for chrome extensions
+  - `background.js` – the "background page" for RES, necessary for Opera extensions
   - `manifest.json` – the project manifest
   - `icon.png`, `icon48.png`, `icon128.png` – icons!
 
@@ -74,7 +101,15 @@ NOTE: An XPI is a Firefox add-on, which is compiled using the [Add-on SDK](https
 
 In order to build a development version of RES, run `makelinks.sh` to generate hard links into `lib/` from the browser-specific folders. (This is [necessary on Chrome](https://code.google.com/p/chromium/issues/detail?id=27185).) NOTE: switching branches will break hard links, so you will need to rerun `makelinks.sh` whenever you check out new code.
 
-An alternative grunt build script is also provided; see ["Using grunt instead of hard links"](#using-grunt-instead-of-hard-links) for more details.
+Alternative build scripts for building RES via [grunt](#using-grunt) or [gulp](#using-gulp) are also provided.
+
+#### Accessing nightly builds
+
+In addition to building your own version of RES, you can download older (or current) builds of RES for testing purposes.
+
+(Almost) every commit to master is quickly archived away at http://allthefoxes.me; if you would like access to this database, please contact [/u/allthefoxes on reddit](https://www.reddit.com/u/allthefoxes) or email [fox@allthefoxes.me](mailto:fox@allthefoxes.me)
+
+All that is asked is that you have at least one previous contribution to RES.
 
 ##### Building in Chrome
 
@@ -84,9 +119,8 @@ An alternative grunt build script is also provided; see ["Using grunt instead of
 
 ##### Building in Firefox
 
-  1. [Download the Add-on SDK](https://ftp.mozilla.org/pub/mozilla.org/labs/jetpack/jetpack-sdk-latest.zip).
-  2. Start a terminal and source the Python script so that you can run the `cfx` commands. In Unix this is usually `. bin/activate` or `source bin/activate` and in Windows this usually involves running `bin/activate.bat`. If you are not using Python 2, run `virtualenv --python=python2 .` and try again.
-  3. In the terminal, `cd` to the `XPI` folder and run the command `cfx run`, which should launch a new Firefox browser using a temporary profile with only RES installed.
+  1. Install [jpm](https://developer.mozilla.org/en-US/Add-ons/SDK/Tools/jpm) using `npm`: `npm install -g jpm`
+  2. Navigate to `dist/XPI` and run the command `jpm run`, which should launch a new Firefox browser using a temporary profile with only RES installed.
 
 ##### Building in Safari (assumes Mac)
 
@@ -104,7 +138,7 @@ An alternative grunt build script is also provided; see ["Using grunt instead of
 
 The above steps will fail if the `makelinks.sh` or grunt build scripts have not been run before hand. Please ensure you only have one copy of RES running at a time.
 
-### Using grunt instead of hard links
+### Using grunt
 
 RES can also be built using [grunt](http://gruntjs.com/). In order to use grunt, you will need to have [node.js](http://nodejs.org/) installed on your system.
 
@@ -117,4 +151,50 @@ Once done, you can build the extension by running `grunt`.
 
 For developing, run `grunt` followed by the name of the browser you wish to develop on, such as `grunt chrome` for Chrome or `grunt firefox` for Firefox. Once run, grunt will start a watch task which will instantly copy any changes made in the `lib/` directory over to the given browser's extension folder. You will need to stop and start grunt if you add any additional files.
 
-To load the extension into your browser, see the "Building development versions of the extension" section above.
+To load the extension into your browser, see the ["Building development versions of the extension" section](#building-development-versions-of-the-extension) above.
+
+### Using Gulp
+
+RES can also be built with [gulp](http://gulpjs.com/), an advanced build manager similar to grunt.
+
+You will need [node.js](http://nodejs.org) installed on your system.
+
+First time use:
+
+1. Run `npm install -g gulp`.
+2. Navigate to your RES folder.
+3. Run `npm install` ^(If you're super-conscientious about which modules are installed, then look at gulpfile.js and `npm install` the required packages manually.)
+
+Usage:
+
+    gulp
+
+by itself will build all current browser versions of RES and will place them into a new folder called dist. If the dist directory already exists, it will clear out anything inside it.
+
+    gulp clean
+
+cleans out the `dist/` directory
+
+    gulp <tasks> -b browser1 -b browser2
+
+can be used with any of the following tasks to specify individual browsers (chrome, firefox, safari, opera, or oblink), instead of performing the task(s) for all of them.
+
+    gulp build
+
+builds RES, copying the resultant files into the `dist/` directory. It is recommended to run `gulp clean` first.
+
+    gulp add-module --file module.js
+
+adds module.js, a new module, to the manifest for each browser.
+
+	gulp add-host --file hostname.js
+
+adds hostname.js, a new media host, to the manifest for each browser.
+
+    gulp watch
+
+rebuilds the extension when anything changes.
+
+    gulp zip --zipdir /path/to/zip/directory
+
+compresses the build folders in `dist/` into .zip files. If no `--zipdir` is specified, the .zip files will be placed in `dist/zip/`. You must run `gulp build` first, otherwise there will be no files to zip.

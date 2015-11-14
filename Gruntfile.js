@@ -1,8 +1,7 @@
 module.exports = function(grunt) {
-	grunt.loadNpmTasks('grunt-contrib-watch');
-	grunt.loadNpmTasks('grunt-contrib-copy');
-	grunt.loadNpmTasks('grunt-contrib-qunit');
-	grunt.loadNpmTasks('grunt-contrib-nodeunit');
+	'use strict';
+
+	require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
@@ -61,6 +60,35 @@ module.exports = function(grunt) {
 		// Run NodeUnit tests
 		nodeunit: {
 			all: ['tests/selenium/all.js']
+		},
+
+		// JSHint
+		jshint: {
+			options: {
+				jshintrc: '.jshintrc'
+			},
+			grunt: {
+				src: ['Gruntfile.js']
+			},
+			all: {
+				src: [
+					'lib/**/*.js',
+					'!lib/vendor/*.js'
+				]
+			}
+		},
+
+		// JSCS
+		jscs: {
+			options: {
+				config: '.jscsrc'
+			},
+			all: {
+				src: [
+					'lib/**/*.js',
+					'!lib/vendor/*.js'
+				]
+			}
 		}
 	});
 
@@ -76,4 +104,7 @@ module.exports = function(grunt) {
 	grunt.registerTask('operablink', ['copy:operablink', 'watch:operablink']);
 	grunt.registerTask('safari', ['copy:safari', 'watch:safari']);
 	grunt.registerTask('firefox', ['copy:firefox', 'watch:firefox']);
+
+	// Travis
+	grunt.registerTask('travis', ['jshint:all', 'jscs:all']);
 };
