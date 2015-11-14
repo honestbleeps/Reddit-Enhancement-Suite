@@ -105,6 +105,7 @@ changelog v4.6.0
 	- Made the new announcement notification on the RES Gear Icon stand out a bit more (thanks @erikdesjardins)
 	- Moved uncheckSendReplies from betteReddit to submitHelper
 	- Default macros are now editable - Look of Disapproval removed from default macro list
+	- {{reply_to}} placeholder gets parent comment's author, not current username (thanks @erikdesjardins)
 	- Cleaned up accountSwitcher menu and error code (thanks @andytuba)
 	- Console fixes (thanks @matheod)
 	- Add less verbose versions of RESStorage commands in console (thanks @andytuba)
