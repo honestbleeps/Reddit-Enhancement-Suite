@@ -43,7 +43,8 @@ var rootBuildDir = 'dist',
 		},
 		firefox: {
 			buildFolder: 'XPI',
-			manifest: 'XPI/index.js',
+			filesList: 'XPI/index.js',
+			manifest: 'XPI/package.json',
 			buildFiles: [
 				{ dest: 'data', src: ['XPI/data/**/*'] },
 				{ dest: 'data', src: commonFiles },
@@ -61,7 +62,8 @@ var rootBuildDir = 'dist',
 		},
 		opera: {
 			buildFolder: 'opera',
-			manifest: 'Opera/includes/loader.js',
+			manifest: 'Opera/config.xml',
+			filesList: 'Opera/includes/loader.js',
 			buildFiles: [
 				{ dest: 'includes', src: ['Opera/includes/*.js'] },
 				{ dest: '/',        src: ['Opera/*.js', 'OperaBlink/*.gif', 'Opera/*.html', 'Opera/*.xml', 'package.json'] },
@@ -72,7 +74,7 @@ var rootBuildDir = 'dist',
 			// Subfolder of rootBuildDir that the buildFiles will be copied to
 			buildFolder: 'node',
 			// The file for addFileToManifest to modify when adding new hosts/modules
-			manifest: 'node/files.json',
+			filesList: 'node/files.json',
 			// Files to be copied when building the extension
 			buildFiles: [
 				// dest is relative to the browser's buildFolder, src is relative to the project root
@@ -122,13 +124,13 @@ gulp.task('watch', function() {
 // Add new modules to browser manifests
 gulp.task('add-module', function(cb) {
 	selectedBrowsers.forEach(function(browser) {
-		addModuleToManifest(config[browser].manifest);
+		addModuleToManifest(config[browser].filesList || config[browser].manifest);
 	});
 	cb();
 });
 gulp.task('add-host', function(cb) {
 	selectedBrowsers.forEach(function(browser) {
-		addHostToManifest(config[browser].manifest);
+		addHostToManifest(config[browser].filesList || config[browser].manifest);
 	});
 	cb();
 });
