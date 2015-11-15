@@ -5,7 +5,8 @@ var gulp = require('gulp'),
 	del = require('del'),
 	zip = require('gulp-zip'),
 	replace = require('gulp-replace-async'),
-	path = require('path');
+	path = require('path'),
+	through = require('through-gulp');
 
 var options = require('minimist')(process.argv.slice(2));
 
