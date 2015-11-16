@@ -70,6 +70,11 @@ var rootBuildDir = 'dist',
 		oblink: {
 			buildFolder: 'oblink',
 			manifest: 'OperaBlink/manifest.json',
+			manifestReplacements: [
+				{ key: 'title', needle: /("title": ")(?:.*)(")$/ },
+				{ key: 'description', needle: /("description": ")(?:.*)(")$/ },
+				{ key: 'version', needle: /("version": ")(?:[\d\.])+(")/ }
+			],
 			buildFiles: [
 				{ dest: 'images', src: ['OperaBlink/images/*.png'] },
 				{ dest: '/', src: ['OperaBlink/*.js', 'Chrome/browsersupport-chrome.js', 'OperaBlink/*.png', 'OperaBlink/*.json', getPackageMetadata().path ] },
