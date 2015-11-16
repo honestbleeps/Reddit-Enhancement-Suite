@@ -25,7 +25,7 @@ var rootBuildDir = 'dist',
 			buildFolder: 'chrome',
 			// The file for addFileToManifest to modify when adding new hosts/modules
 			manifest: 'Chrome/manifest.json',
-			manifestProperties: [
+			manifestReplacements: [
 				{ key: 'title', needle: /("title": ")(?:.*)(")$/ },
 				{ key: 'description', needle: /("description": ")(?:.*)(")$/ },
 				{ key: 'version', needle: /("version": ")(?:[\d\.])+(")/ }
@@ -41,7 +41,7 @@ var rootBuildDir = 'dist',
 		safari: {
 			buildFolder: 'RES.safariextension',
 			manifest: 'RES.safariextension/Info.plist',
-			manifestProperties: [
+			manifestReplacements: [
 				{ key: 'version', needle: /(<key>CFBundleVersion<\/key>\s*<string>)(?:.+)(<\/string>)/ },
 				{ key: 'version', needle: /(<key>CFBundleShortVersionString<\/key>\s*<string>)(?:.+)(<\/string>)/ },
 				{ key: 'description', needle: /(<key>Description<\/key>\s*<string>)(?:.+)(<\/string>)/ },
@@ -56,7 +56,7 @@ var rootBuildDir = 'dist',
 			buildFolder: 'XPI',
 			filesList: 'XPI/index.js',
 			manifest: 'XPI/package.json',
-			manifestProperties: [
+			manifestReplacements: [
 				{ key: 'title', needle: /("title": ")(?:.*)(")/ },
 				{ key: 'description', needle: /("description": ")(?:.*)(")/ },
 				{ key: 'version', needle: /("version": ")(?:[\d\.])+(")/ }
@@ -80,7 +80,7 @@ var rootBuildDir = 'dist',
 			buildFolder: 'opera',
 			manifest: 'Opera/config.xml',
 			filesList: 'Opera/includes/loader.js',
-			manifestProperties: [
+			manifestReplacements: [
 				{ key: 'title', needle: /(<name>)(?:.*)(<\/name>)/ },
 				{ key: 'description', needle: /(<description>)(?:.*)(<\/description>)/ },
 				{ key: 'version', needle: /(update-opera\.php\?v=)(?:[\d\.])+(")/ },
@@ -140,7 +140,7 @@ function getPackageMetadata() {
 }
 
 function populateManifest(browser, file) {
-	var replaceConfig = config[browser].manifestProperties;
+	var replaceConfig = config[browser].manifestReplacements;
 	if (replaceConfig) {
 		var values = getPackageMetadata().contents;
 		var transformed = replaceConfig.reduce(function(haystack, replace) {
