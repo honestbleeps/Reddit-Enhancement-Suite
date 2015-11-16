@@ -26,26 +26,26 @@ var rootBuildDir = 'dist',
 			// The file for addFileToManifest to modify when adding new hosts/modules
 			manifest: 'Chrome/manifest.json',
 			manifestProperties: [
-				{ key: 'title',			needle: /("title": ")(?:.*)(")$/ },
-				{ key: 'description', 	needle: /("description": ")(?:.*)(")$/ },
-				{ key: 'version',	 	needle: /("version": ")(?:[\d\.])+(")/ }
+				{ key: 'title', needle: /("title": ")(?:.*)(")$/ },
+				{ key: 'description', needle: /("description": ")(?:.*)(")$/ },
+				{ key: 'version', needle: /("version": ")(?:[\d\.])+(")/ }
 			],
 			// Files to be copied when building the extension
 			buildFiles: [
 				// dest is relative to the browser's buildFolder, src is relative to the project root
 				{ dest: 'images', src: ['Chrome/images/*.png'] },
-				{ dest: '/',      src: ['Chrome/*.js', 'Chrome/*.png', 'Chrome/*.html', getPackageMetadata().path] },
-				{ dest: '/',      src: commonFiles }
+				{ dest: '/', src: ['Chrome/*.js', 'Chrome/*.png', 'Chrome/*.html', getPackageMetadata().path] },
+				{ dest: '/', src: commonFiles }
 			]
 		},
 		safari: {
 			buildFolder: 'RES.safariextension',
 			manifest: 'RES.safariextension/Info.plist',
 			manifestProperties: [
-				{ key: 'version', 		needle: /(<key>CFBundleVersion<\/key>\s*<string>)(?:.+)(<\/string>)/ },
-				{ key: 'version', 		needle: /(<key>CFBundleShortVersionString<\/key>\s*<string>)(?:.+)(<\/string>)/ },
-				{ key: 'description', 	needle: /(<key>Description<\/key>\s*<string>)(?:.+)(<\/string>)/ },
-				{ key: 'title', 		needle: /(<key>CFBundleDisplayName<\/key>\s*<string>)(?:.+)(<\/string>)/ }
+				{ key: 'version', needle: /(<key>CFBundleVersion<\/key>\s*<string>)(?:.+)(<\/string>)/ },
+				{ key: 'version', needle: /(<key>CFBundleShortVersionString<\/key>\s*<string>)(?:.+)(<\/string>)/ },
+				{ key: 'description', needle: /(<key>Description<\/key>\s*<string>)(?:.+)(<\/string>)/ },
+				{ key: 'title', needle: /(<key>CFBundleDisplayName<\/key>\s*<string>)(?:.+)(<\/string>)/ }
 			],
 			buildFiles: [
 				{ dest: '/', src: ['RES.safariextension/*.js', 'RES.safariextension/*.png', 'RES.safariextension/*.html', getPackageMetadata().path] },
@@ -57,14 +57,14 @@ var rootBuildDir = 'dist',
 			filesList: 'XPI/index.js',
 			manifest: 'XPI/package.json',
 			manifestProperties: [
-				{ key: 'title', 		needle: /("title": ")(?:.*)(")/ },
-				{ key: 'description', 	needle: /("description": ")(?:.*)(")/ },
-				{ key: 'version', 		needle: /("version": ")(?:[\d\.])+(")/ }
+				{ key: 'title', needle: /("title": ")(?:.*)(")/ },
+				{ key: 'description', needle: /("description": ")(?:.*)(")/ },
+				{ key: 'version', needle: /("version": ")(?:[\d\.])+(")/ }
 			],
 			buildFiles: [
 				{ dest: 'data', src: ['XPI/data/**/*'] },
 				{ dest: 'data', src: commonFiles },
-				{ dest: '/',    src: ['*.png', 'XPI/index.js'] }
+				{ dest: '/', src: ['*.png', 'XPI/index.js'] }
 			]
 		},
 		oblink: {
@@ -72,8 +72,8 @@ var rootBuildDir = 'dist',
 			manifest: 'OperaBlink/manifest.json',
 			buildFiles: [
 				{ dest: 'images', src: ['OperaBlink/images/*.png'] },
-				{ dest: '/',      src: ['OperaBlink/*.js', 'Chrome/browsersupport-chrome.js', 'OperaBlink/*.png', 'OperaBlink/*.json', getPackageMetadata().path ] },
-				{ dest: '/',      src: commonFiles }
+				{ dest: '/', src: ['OperaBlink/*.js', 'Chrome/browsersupport-chrome.js', 'OperaBlink/*.png', 'OperaBlink/*.json', getPackageMetadata().path ] },
+				{ dest: '/', src: commonFiles }
 			]
 		},
 		opera: {
@@ -81,15 +81,15 @@ var rootBuildDir = 'dist',
 			manifest: 'Opera/config.xml',
 			filesList: 'Opera/includes/loader.js',
 			manifestProperties: [
-				{ key: 'title', 		needle: /(<name>)(?:.*)(<\/name>)/ },
-				{ key: 'description',	needle: /(<description>)(?:.*)(<\/description>)/ },
-				{ key: 'version',		needle: /(update-opera\.php\?v=)(?:[\d\.])+(")/ },
-				{ key: 'version', 		needle: /(widgets" version=")(?:[\d\.])+(")/ }
+				{ key: 'title', needle: /(<name>)(?:.*)(<\/name>)/ },
+				{ key: 'description', needle: /(<description>)(?:.*)(<\/description>)/ },
+				{ key: 'version', needle: /(update-opera\.php\?v=)(?:[\d\.])+(")/ },
+				{ key: 'version', needle: /(widgets" version=")(?:[\d\.])+(")/ }
 			],
 			buildFiles: [
 				{ dest: 'includes', src: ['Opera/includes/*.js'] },
-				{ dest: '/',        src: ['Opera/*.js', 'OperaBlink/*.gif', 'Opera/*.html', getPackageMetadata().path ] },
-				{ dest: '/',        src: commonFiles }
+				{ dest: '/', src: ['Opera/*.js', 'OperaBlink/*.gif', 'Opera/*.html', getPackageMetadata().path ] },
+				{ dest: '/', src: commonFiles }
 			]
 		},
 		node: {
@@ -100,9 +100,9 @@ var rootBuildDir = 'dist',
 			// Files to be copied when building the extension
 			buildFiles: [
 				// dest is relative to the browser's buildFolder, src is relative to the project root
-				{ dest: 'lib',    src: commonFiles },
-				{ dest: 'node_modules',    src: [ 'node/node_modules', 'node/node_modules/**/*' ] },
-				{ dest: '/',      src: ['node/**/*'] }
+				{ dest: 'lib', src: commonFiles },
+				{ dest: 'node_modules', src: [ 'node/node_modules', 'node/node_modules/**/*' ] },
+				{ dest: '/', src: ['node/**/*'] }
 			]
 		},
 	},
