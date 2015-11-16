@@ -1,0 +1,35 @@
+.RESDialogSmall.livePreview {
+	position: relative;
+	width: auto;
+	margin-bottom: 15px;
+
+	> h3 {
+		font-weight: bold;
+	}
+
+	.gearIcon {
+		float: right;
+		margin-right: 1em;
+	}
+}
+
+.ban-details {
+	position: relative;
+
+	.RESDialogSmall.livePreview {
+		width: 505px;
+	}
+}
+
+#banned .RESBigEditorPop {
+	float: none;
+	left: 414px;
+	bottom: -45px;
+	position: absolute;
+}
+
+.res-commentPreview-draftStyle {
+	.livePreview {
+		background: repeating-linear-gradient(-225deg, transparent, transparent 40px, rgba(166, 166, 166, .07) 40px, rgba(166, 166, 166, .07) 80px);
+	}
+}
