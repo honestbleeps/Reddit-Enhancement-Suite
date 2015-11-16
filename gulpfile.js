@@ -25,19 +25,30 @@ var rootBuildDir = 'dist',
 			buildFolder: 'chrome',
 			// The file for addFileToManifest to modify when adding new hosts/modules
 			manifest: 'Chrome/manifest.json',
+			manifestProperties: [
+				{ key: 'title',			needle: /("title": ")(?:.*)(")$/ },
+				{ key: 'description', 	needle: /("description": ")(?:.*)(")$/ },
+				{ key: 'version',	 	needle: /("version": ")(?:[\d\.])+(")/ }
+			],
 			// Files to be copied when building the extension
 			buildFiles: [
 				// dest is relative to the browser's buildFolder, src is relative to the project root
 				{ dest: 'images', src: ['Chrome/images/*.png'] },
-				{ dest: '/',      src: ['Chrome/*.js', 'Chrome/*.png', 'Chrome/*.html', 'package.json', 'Chrome/manifest.json'] },
+				{ dest: '/',      src: ['Chrome/*.js', 'Chrome/*.png', 'Chrome/*.html', getPackageMetadata().path] },
 				{ dest: '/',      src: commonFiles }
 			]
 		},
 		safari: {
 			buildFolder: 'RES.safariextension',
 			manifest: 'RES.safariextension/Info.plist',
+			manifestProperties: [
+				{ key: 'version', 		needle: /(<key>CFBundleVersion<\/key>\s*<string>)(?:.+)(<\/string>)/ },
+				{ key: 'version', 		needle: /(<key>CFBundleShortVersionString<\/key>\s*<string>)(?:.+)(<\/string>)/ },
+				{ key: 'description', 	needle: /(<key>Description<\/key>\s*<string>)(?:.+)(<\/string>)/ },
+				{ key: 'title', 		needle: /(<key>CFBundleDisplayName<\/key>\s*<string>)(?:.+)(<\/string>)/ }
+			],
 			buildFiles: [
-				{ dest: '/', src: ['RES.safariextension/*.js', 'RES.safariextension/*.png', 'RES.safariextension/*.html', 'package.json', 'RES.safariextension/info.plist'] },
+				{ dest: '/', src: ['RES.safariextension/*.js', 'RES.safariextension/*.png', 'RES.safariextension/*.html', getPackageMetadata().path] },
 				{ dest: '/', src: commonFiles }
 			]
 		},
@@ -45,10 +56,15 @@ var rootBuildDir = 'dist',
 			buildFolder: 'XPI',
 			filesList: 'XPI/index.js',
 			manifest: 'XPI/package.json',
+			manifestProperties: [
+				{ key: 'title', 		needle: /("title": ")(?:.*)(")/ },
+				{ key: 'description', 	needle: /("description": ")(?:.*)(")/ },
+				{ key: 'version', 		needle: /("version": ")(?:[\d\.])+(")/ }
+			],
 			buildFiles: [
 				{ dest: 'data', src: ['XPI/data/**/*'] },
 				{ dest: 'data', src: commonFiles },
-				{ dest: '/',    src: ['*.png', 'XPI/package.json', 'XPI/index.js'] }
+				{ dest: '/',    src: ['*.png', 'XPI/index.js'] }
 			]
 		},
 		oblink: {
@@ -56,7 +72,7 @@ var rootBuildDir = 'dist',
 			manifest: 'OperaBlink/manifest.json',
 			buildFiles: [
 				{ dest: 'images', src: ['OperaBlink/images/*.png'] },
-				{ dest: '/',      src: ['OperaBlink/*.js', 'Chrome/browsersupport-chrome.js', 'OperaBlink/*.png', 'OperaBlink/*.json', 'package.json'] },
+				{ dest: '/',      src: ['OperaBlink/*.js', 'Chrome/browsersupport-chrome.js', 'OperaBlink/*.png', 'OperaBlink/*.json', getPackageMetadata().path ] },
 				{ dest: '/',      src: commonFiles }
 			]
 		},
@@ -64,9 +80,15 @@ var rootBuildDir = 'dist',
 			buildFolder: 'opera',
 			manifest: 'Opera/config.xml',
 			filesList: 'Opera/includes/loader.js',
+			manifestProperties: [
+				{ key: 'title', 		needle: /(<name>)(?:.*)(<\/name>)/ },
+				{ key: 'description',	needle: /(<description>)(?:.*)(<\/description>)/ },
+				{ key: 'version',		needle: /(update-opera\.php\?v=)(?:[\d\.])+(")/ },
+				{ key: 'version', 		needle: /(widgets" version=")(?:[\d\.])+(")/ }
+			],
 			buildFiles: [
 				{ dest: 'includes', src: ['Opera/includes/*.js'] },
-				{ dest: '/',        src: ['Opera/*.js', 'OperaBlink/*.gif', 'Opera/*.html', 'Opera/*.xml', 'package.json'] },
+				{ dest: '/',        src: ['Opera/*.js', 'OperaBlink/*.gif', 'Opera/*.html', getPackageMetadata().path ] },
 				{ dest: '/',        src: commonFiles }
 			]
 		},
@@ -97,9 +119,41 @@ gulp.task('build', function(cb) {
 			gulp.src(paths.src)
 				.pipe(gulp.dest(path.join(getBuildDir(browser), paths.dest)));
 		});
+
+		if (config[browser].manifest) {
+			del(path.join(getBuildDir(browser), config[browser].manifest));
+			gulp.src(config[browser].manifest)
+				.pipe(through.map(populateManifest.bind(this, browser)))
+				.pipe(gulp.dest(getBuildDir(browser)))
+		}
 	});
+
 	cb();
 });
+
+function getPackageMetadata() {
+	var filepath = './' + (options.p || 'package.json');
+	return {
+		path: filepath,
+		contents: require(filepath)
+	};
+}
+
+function populateManifest(browser, file) {
+	var replaceConfig = config[browser].manifestProperties;
+	if (replaceConfig) {
+		var values = getPackageMetadata().contents;
+		var transformed = replaceConfig.reduce(function(haystack, replace) {
+			return haystack.replace(replace.needle, function(match, prefix, suffix) {
+				return prefix + values[replace.key] + suffix;
+			});
+		}, file.contents.toString());
+
+		file.contents = new Buffer(transformed);
+	}
+
+	return file;
+}
 
 gulp.task('zip', function(cb) {
 	// --zipdir argument or <rootBuildDir>/zip/
