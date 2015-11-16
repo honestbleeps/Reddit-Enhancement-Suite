@@ -17,7 +17,7 @@ gulp.task('default', ['clean'], function() {
 
 // Paths
 var rootBuildDir = 'dist',
-	commonFiles = ['lib/**/*.js', 'lib/**/*.json', 'lib/**/*.css', 'lib/**/*.html'],
+	commonFiles = ['lib/**/*.js', 'lib/**/*.json', 'lib/**/*.css', 'lib/**/*.html', getPackageMetadata().path],
 	config = {
 		// The name used to refer to the browser from the command line, i.e. `gulp build -b chrome`
 		chrome: {
@@ -34,7 +34,7 @@ var rootBuildDir = 'dist',
 			buildFiles: [
 				// dest is relative to the browser's buildFolder, src is relative to the project root
 				{ dest: 'images', src: ['Chrome/images/*.png'] },
-				{ dest: '/', src: ['Chrome/*.js', 'Chrome/*.png', 'Chrome/*.html', getPackageMetadata().path] },
+				{ dest: '/', src: ['Chrome/*.js', 'Chrome/*.png', 'Chrome/*.html'] },
 				{ dest: '/', src: commonFiles }
 			]
 		},
@@ -48,7 +48,7 @@ var rootBuildDir = 'dist',
 				{ key: 'title', needle: /(<key>CFBundleDisplayName<\/key>\s*<string>)(?:.+)(<\/string>)/ }
 			],
 			buildFiles: [
-				{ dest: '/', src: ['RES.safariextension/*.js', 'RES.safariextension/*.png', 'RES.safariextension/*.html', getPackageMetadata().path] },
+				{ dest: '/', src: ['RES.safariextension/*.js', 'RES.safariextension/*.png', 'RES.safariextension/*.html'] },
 				{ dest: '/', src: commonFiles }
 			]
 		},
@@ -77,7 +77,7 @@ var rootBuildDir = 'dist',
 			],
 			buildFiles: [
 				{ dest: 'images', src: ['OperaBlink/images/*.png'] },
-				{ dest: '/', src: ['OperaBlink/*.js', 'Chrome/browsersupport-chrome.js', 'OperaBlink/*.png', 'OperaBlink/*.json', getPackageMetadata().path ] },
+				{ dest: '/', src: ['OperaBlink/*.js', 'Chrome/browsersupport-chrome.js', 'OperaBlink/*.png', 'OperaBlink/*.json' ] },
 				{ dest: '/', src: commonFiles }
 			]
 		},
@@ -93,7 +93,7 @@ var rootBuildDir = 'dist',
 			],
 			buildFiles: [
 				{ dest: 'includes', src: ['Opera/includes/*.js'] },
-				{ dest: '/', src: ['Opera/*.js', 'OperaBlink/*.gif', 'Opera/*.html', getPackageMetadata().path ] },
+				{ dest: '/', src: ['Opera/*.js', 'OperaBlink/*.gif', 'Opera/*.html' ] },
 				{ dest: '/', src: commonFiles }
 			]
 		},
