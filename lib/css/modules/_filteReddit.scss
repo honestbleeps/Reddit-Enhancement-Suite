@@ -1,0 +1,10 @@
+.RESFiltered {
+	display: none !important;
+}
+
+body.hideOver18 {
+	.thing.over18:not(.allowOver18),
+	.search-result.over18:not(.allowOver18) {
+		display: none !important;
+	}
+}
