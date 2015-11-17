@@ -594,36 +594,6 @@
 			}
 		</style>
 
-		<style type="text/css" id="neverEndingReddit-CSS">
-			#NERModal { display: none; z-index: 999; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background-color: #333; opacity: 0.6; }
-			#NERContent { display: none; position: fixed; top: 40px; z-index: 1000; width: 720px; background-color: #FFF; color: #000; padding: 10px; font-size: 12px; }
-			#NERModalClose { position: absolute; top: 3px; right: 3px; }
-			#NERFail { min-height: 30px; width: 95%; font-size: 14px; border: 1px solid #999; border-radius: 10px; padding: 5px; text-align: center; bgcolor: #f0f3fc; cursor: auto; }
-			#NERFail .nextprev { font-size: smaller; display: block; }
-			#NERFail .nextprev a + a { margin-left: 2em; }
-			.NERdupe p.title:after { color: #000; font-size: 10px; content: ' (duplicate from previous page)'; }
-			.NERPageMarker { text-align: center; color: #7f7f7f; font-size: 14px; margin-top: 6px; margin-bottom: 6px; overflow: hidden; font-weight: normal; background-color: #f0f3fc; border: 1px solid #c7c7c7; border-radius: 3px; padding: 3px 0; }
-			/* hide next/prev page and random subreddit indicators */
-			.res-ner-listing div.nav-buttons { display: none; }
-			.res-ner-listing .nav-buttons .nextprev { display: none; }
-			.res-ner-fade-dupes .NERdupe { opacity: 0.3; }
-			.res-ner-hide-dupes .NERdupe { display: none; }
-			/* set the style for our little loader widget */
-			#progressIndicator {
-				height: 60px;
-				display: -webkit-flex; -webkit-align-items: center; -webkit-justify-content: center; -webkit-flex-direction: column;
-				display: flex; align-items: center; justify-content: center; flex-direction: column;
-				font-size: 14px; border: 1px solid #999; border-radius: 10px; padding: 10px; background-color: #f0f3fc; cursor: pointer;
-			}
-			#progressIndicator h2 { margin-bottom: .5em; }
-			#progressIndicator .gearIcon { margin-left: 1em; }
-			#progressIndicator .RESThrobber { margin-top: 10px; margin-bottom: 0; }
-			#NREPause { cursor: pointer; }
-			#NREPause::after { font: normal 100% Batch; color: #888; display: block; width: 10px; height: 10px; padding: 0 2px 4px; margin: 3px; border: 1px solid #888; border-radius: 50%; }
-			#NREPause::after, #NREPause.paused.reversePause::after { content: "\F16C"; }
-			#NREPause.paused::after, #NREPause.reversePause::after { content: "\F16B"; }
-		</style>
-
 		<style type="text/css" id="searchHelper-searchPageTabs">
 			/* reddit search page tabs */
 			ul.res-search-tabs li.res-search-tab-facets a:before {
