@@ -57,7 +57,6 @@
 		'modules/accountSwitcher.js',
 		'modules/betteReddit.js',
 		'modules/commandLine.js',
-		'modules/hideScores.js',
 		'modules/messageMenu.js',
 		'modules/easterEgg.js',
 		'modules/pageNavigator.js',
