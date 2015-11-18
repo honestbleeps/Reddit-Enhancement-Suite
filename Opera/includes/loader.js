@@ -96,7 +96,6 @@
 		'modules/showKarma.js',
 		'modules/showParent.js',
 		'modules/singleClick.js',
-		'modules/sortCommentsTemporarily.js',
 		'modules/spamButton.js',
 		'modules/styleTweaks.js',
 		'modules/subredditInfo.js',
