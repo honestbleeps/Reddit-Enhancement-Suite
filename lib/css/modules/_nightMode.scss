@@ -824,33 +824,33 @@
 
 	// multireddits official
 	body.with-listing-chooser .listing-chooser,
-	body.with-listing-chooser .grippy {
+	body.with-listing-chooser.listing-chooser-collapsed .listing-chooser {
 		background-color: #222;
-	}
 
-	body.with-listing-chooser .grippy,
-	body.with-listing-chooser .grippy:after,
-	body.with-listing-chooser .grippy:before {
-		border: none;
-		outline: none;
-	}
+		.grippy,
+		&.initialized .grippy {
+			background-color: #222;
+			border: none;
+			outline: none;
 
-	body.with-listing-chooser .listing-chooser .grippy:hover {
-		background-color: #222;
-		border-left-color: #333;
-	}
+			&::after {
+				background-color: #2f2f2f;
+				border-right-color: #444;
+			}
 
-	body.with-listing-chooser .listing-chooser .grippy:after {
-		background-color: #2f2f2f;
-		border-right-color: #444;
-	}
+			&:hover {
+				background-color: #222;
+				border-left-color: #333;
 
-	body.with-listing-chooser .listing-chooser .grippy:hover:before {
-		background-color: #222;
-	}
+				&::before {
+					background-color: #222;
+				}
 
-	body.with-listing-chooser .listing-chooser .grippy:hover:after {
-		border-right-color: #777;
+				&::after {
+					border-right-color: #777;
+				}
+			}
+		}
 	}
 
 	.listing-chooser li,
