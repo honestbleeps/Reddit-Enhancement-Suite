@@ -19,6 +19,11 @@
 		text-align: right;
 		line-height: 20px;
 
+		.res-nightmode & {
+			background-color: rgb(73, 80, 93);
+			border-right-color: rgb(118, 133, 148);
+		}
+
 		&.userbarShow {
 			min-height: 22px;
 			left: -12px;
