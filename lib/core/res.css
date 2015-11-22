@@ -1349,6 +1349,22 @@ a.bylink.parentlink {
     position: absolute;
     top: 0;
 }
+.RESLoadingSpinner {
+	color: hsl(210,80%,50%);
+	font-size: inherit; /* Determines size of the icon. */
+	display: inline-block;
+	vertical-align: text-bottom;
+	width: 1em;
+	height: .5em;
+	border-bottom: .5em solid;
+	border-radius: 50%;
+	-moz-animation: spin 1000ms 0ms infinite linear;
+	-webkit-animation: spin 1000ms 0ms infinite linear;
+	animation: spin 1000ms 0ms infinite linear;
+}
+@keyframes spin {
+	100% { transform: rotate(360deg); }
+}
 @-webkit-keyframes RESThrobber {
     30% { background: transparent; }
     70% { background: transparent; }
