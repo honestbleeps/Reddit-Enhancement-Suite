@@ -1,3 +1,8 @@
 {
-	"validateQuoteMarks": "'"
+	"preset": "node-style-guide",
+	"requireCapitalizedComments": null,
+	"requireCurlyBraces": ["if", "else", "for", "while", "do", "try", "catch"],
+	"requireDollarBeforejQueryAssignment": true,
+	"requireTrailingComma": null,
+	"validateIndentation": "\t"
 }
