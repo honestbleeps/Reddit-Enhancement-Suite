@@ -3,11 +3,11 @@
 		cursor: pointer;
 	}
 
-	.sort-asc:after {
+	.sort-asc::after {
 		content: '\0020\25B4';
 	}
 
-	.sort-desc:after {
+	.sort-desc::after {
 		content: '\0020\25BE';
 	}
 }

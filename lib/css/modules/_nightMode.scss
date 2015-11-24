@@ -59,7 +59,7 @@
 		background-color: rgb(46, 46, 46);
 	}
 
-	#RESHoverContainer:after {
+	#RESHoverContainer::after {
 		border-color: transparent #222;
 	}
 
@@ -560,7 +560,7 @@
 		border-color: #444;
 	}
 
-	.combined-search-page .search-result .search-expando.collapsed:before {
+	.combined-search-page .search-result .search-expando.collapsed::before {
 		background: linear-gradient(to bottom, rgba(34, 34, 34, 0) 0%, rgb(34, 34, 34) 100%);
 	}
 
@@ -678,19 +678,19 @@
 		color: inherit;
 	}
 
-	.RESHoverInfoCard:before {
+	.RESHoverInfoCard::before {
 		border-right-color: rgb(76, 76, 76);
 	}
 
-	.RESHoverInfoCard:after {
+	.RESHoverInfoCard::after {
 		border-right-color: rgb(46, 46, 46);
 	}
 
-	.RESHoverInfoCard.right:before {
+	.RESHoverInfoCard.right::before {
 		border-left-color: rgb(76, 76, 76);
 	}
 
-	.RESHoverInfoCard.right:after {
+	.RESHoverInfoCard.right::after {
 		border-left-color: rgb(46, 46, 46);
 	}
 
@@ -752,13 +752,13 @@
 		background-color: rgb(102, 102, 102);
 	}
 
-	> .content > .spacer > .sitetable:before,
-	> .content > .sharelink ~ .sitetable:before,
+	> .content > .spacer > .sitetable::before,
+	> .content > .sharelink ~ .sitetable::before,
 	.side .age,
 	.trophy-info *,
 	.golddvertisement,
 	.flair-jump .title,
-	.NERdupe p.title:after,
+	.NERdupe p.title::after,
 	.savedComment,
 	.md,
 	.md h2,
@@ -1062,7 +1062,7 @@
 		color: rgb(230, 218, 174);
 	}
 
-	.hover-bubble.anchor-top-centered:after,
+	.hover-bubble.anchor-top-centered::after,
 	#about-main #history .events.timeline .event-marker.top,
 	#about-main #history .events.timeline .event-marker.bottom {
 		border-bottom-color: #aaa;
@@ -1093,7 +1093,7 @@
 	.message.message-reply:not(.threaded) .entry,
 	.message.message-parent:not(.threaded) .entry,
 	&.liveupdate-app .content,
-	.liveupdate-listing li.separator:before,
+	.liveupdate-listing li.separator::before,
 	.md td,
 	.md th,
 	.footer,

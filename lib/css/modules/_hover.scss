@@ -46,7 +46,7 @@
 		z-index: 1;
 	}
 
-	&.right:after {
+	&.right::after {
 		content: '';
 		position: absolute;
 		top: 10px;
