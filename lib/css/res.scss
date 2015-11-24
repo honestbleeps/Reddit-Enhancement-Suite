@@ -854,7 +854,7 @@ div.usertext-edit {
 		background: #225599;
 	}
 
-	&::-moz-focus-inner {
+	&::-moz-focus-inner { // scss-lint:disable PseudoElement
 		border: none;
 		padding: 0;
 	}
@@ -1573,13 +1573,13 @@ div.imgCaptions,
 	border: none;
 }
 
-.noCtrlF:before {
+.noCtrlF::before {
 	content: attr(data-text);
 }
 
 .RESThrobber,
-.RESThrobber:before,
-.RESThrobber:after {
+.RESThrobber::before,
+.RESThrobber::after {
 	font-size: 0;
 	position: relative;
 	display: inline-block;
@@ -1595,18 +1595,18 @@ div.imgCaptions,
 	margin: 0 35px -7.5px;
 }
 
-.RESThrobber:before {
+.RESThrobber::before {
 	left: -115%;
 	animation-delay: 200ms;
 }
 
-.RESThrobber:after {
+.RESThrobber::after {
 	left: 115%;
 	animation-delay: 600ms;
 }
 
-.RESThrobber:before,
-.RESThrobber:after {
+.RESThrobber::before,
+.RESThrobber::after {
 	content: '';
 	position: absolute;
 	top: 0;
@@ -1933,7 +1933,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 	// (cs)spinner ringed spinner.
 	// a spinner with a static ring and no overlay.
-	&.ringed:after {
+	&.ringed::after {
 		border: 4px solid #8BBDD6;
 		border-top-color: #0052D6;
 		opacity: 1;
