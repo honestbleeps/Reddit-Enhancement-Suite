@@ -1,3 +1,5 @@
+@import '../mixins';
+
 #NREMail {
 	display: inline-block;
 	margin-bottom: -2px;
@@ -14,7 +16,7 @@
 		background-image: url('https://redditstatic.s3.amazonaws.com/mail.png');
 
 		.res-colorblind & {
-			background-image: url('http://thumbs.reddit.com/t5_2s10b_5.png');
+			@include local-background-image('images/colorblindMail.png');
 		}
 	}
 }

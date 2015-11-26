@@ -1,3 +1,4 @@
+@import 'mixins';
 @import 'zindex';
 @import 'fonts/batch';
 @import 'modules/nightMode';
@@ -1196,10 +1197,10 @@ a.RESConsoleButton {
 }
 
 #baconBit {
+	@include local-background-image('images/bacon.png');
 	position: fixed;
 	width: 32px;
 	height: 32px;
-	background-image: url('https://s3.amazonaws.com/f.thumbs.redditmedia.com/OvX59a7-5YkWrwLw.png');
 	top: -5%;
 	left: -5%;
 	z-index: $zindex-baconbit;
@@ -1415,6 +1416,7 @@ img {
 
 	&.image,
 	&.video-muted {
+		@include local-background-image('images/expandoButtons.png');
 		vertical-align: top !important;
 		float: left;
 		width: 23px;
@@ -1422,7 +1424,6 @@ img {
 		max-width: 23px;
 		max-height: 23px;
 		display: inline-block;
-		background-image: url('https://b.thumbs.redditmedia.com/s_noD6Owp5p3Hhw9yoBB30iDpSyZFVetFqxtPDbteAw.png');
 		margin-right: 6px;
 		padding: 0;
 
@@ -1432,22 +1433,20 @@ img {
 		}
 	}
 
-	&.image.collapsedExpando {
-		padding: 0;
-		background-position: 0 0;
-	}
+	@function _($i) { @return $i * -24px; }
 
-	&.image.collapsedExpando:hover { background-position: 0 -24px; }
-	&.image.expanded { background-position: 0 -48px; }
-	&.image.expanded:hover { background-position: 0 -72px; }
-	&.image.gallery.collapsedExpando { background-position: 0 -368px; }
-	&.image.gallery.collapsedExpando:hover { background-position: 0 -392px; }
-	&.image.gallery.expanded { background-position: 0 -416px; }
-	&.image.gallery.expanded:hover { background-position: 0 -440px; }
-	&.video-muted.collapsed { background-position: 0 -464px; }
-	&.video-muted.collapsed:hover { background-position: 0 -488px; }
-	&.video-muted.expanded { background-position: 0 -512px; }
-	&.video-muted.expanded:hover { background-position: 0 -536px; }
+	&.image.collapsedExpando { background-position: 0 _(0); }
+	&.image.collapsedExpando:hover { background-position: 0 _(1); }
+	&.image.expanded { background-position: 0 _(2); }
+	&.image.expanded:hover { background-position: 0 _(3); }
+	&.image.gallery.collapsedExpando { background-position: 0 _(4); }
+	&.image.gallery.collapsedExpando:hover { background-position: 0 _(5); }
+	&.image.gallery.expanded { background-position: 0 _(6); }
+	&.image.gallery.expanded:hover { background-position: 0 _(7); }
+	&.video-muted.collapsed { background-position: 0 _(8); }
+	&.video-muted.collapsed:hover { background-position: 0 _(9); }
+	&.video-muted.expanded { background-position: 0 _(10); }
+	&.video-muted.expanded:hover { background-position: 0 _(11); }
 }
 
 .madeVisible {

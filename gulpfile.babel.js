@@ -22,7 +22,7 @@ const options = minimist(process.argv.slice(2));
 // Paths
 const baseConf = {
 	sources: {
-		copy: { cwd: 'lib/**', src: ['*.json', '*.css', '*.html', 'vendor/**/*.js'] },
+		copy: { cwd: 'lib/**', src: ['*.json', '*.css', '*.html', '*.png', 'vendor/**/*.js'] },
 		babel: { cwd: 'lib/**', src: ['*.js', '!vendor/**/*.js', '!**/__tests__/*.js'] },
 		sass: { cwd: 'lib/**', src: ['*.scss'] }
 	},

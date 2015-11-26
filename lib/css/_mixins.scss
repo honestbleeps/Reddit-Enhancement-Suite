@@ -1,0 +1,10 @@
+@mixin local-background-image($path, $important: false) {
+	$chrome-prefix: 'chrome-extension://__MSG_@@extension_id__/';
+	$firefox-safari-prefix: '../';
+
+	@if $important {
+		background-image: url($firefox-safari-prefix + $path), url($chrome-prefix + $path) !important;
+	} @else {
+		background-image: url($firefox-safari-prefix + $path), url($chrome-prefix + $path);
+	}
+}
