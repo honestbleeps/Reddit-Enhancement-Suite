@@ -1378,40 +1378,46 @@ a.bylink.parentlink {
 
 #alert_message {
 	display: none;
-	opacity: 0.0;
-	background-color: #EFEFEF;
-	border: 1px solid black;
+	position: fixed;
+	top: 0; right: 0; left: 0;
+	box-sizing: border-box;
+	width: 500px;
+	max-height: 100%;
+	margin: auto;
+	padding: 10px;
 	color: black;
-	font-size: 12px;
-	padding: 20px 40px;
-	position: fixed!important;
-	width: 400px;
-	z-index: 1000000201;
 	text-align: left;
+	font-size: 12px;
+	border: 1px solid;
+	background-color: #EFEFEF;
+	overflow: auto;
+	z-index: 1000000201;
+}
+@media (max-width: 520px) {
+	#alert_message { width: auto; left: 10px; right: 10px; }
+}
+@media (max-height: 520px) {
+	#alert_message { height: auto; bottom: 10px; }
 }
 #alert_message input {
-	border: 1px solid black;
-	font-family: normal x-small verdana,arial,helvetica,sans-serif;
-	font-weight: bold;
-	font-size: 10px;
+	border: 1px solid;
 	padding: 6px 9px;
 	float: left;
 	background-color: #DFDFDF;
 	cursor: pointer;
-	margin-right:10px;
+	margin-right: 10px;
 }
-#alert_message div {
+#alert_message > div {
 	margin-bottom: 20px;
 }
 #alert_message_background {
 	position: fixed; top: 0; left: 0; bottom: 0; right: 0;
-	background-color: rgba(51, 51, 51,0.95);
+	background-color: rgba(0, 0, 0,0.7);
 	z-index: 100000200;
 }
 #alert_message input.button-right {
 	float: right;
 }
-
 .res-left {
 	float: left;
 }
