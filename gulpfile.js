@@ -6,7 +6,8 @@ var gulp = require('gulp'),
 	zip = require('gulp-zip'),
 	replace = require('gulp-replace-async'),
 	path = require('path'),
-	through = require('through-gulp');
+	through = require('through-gulp'),
+	Promise = require('promise');
 
 var options = require('minimist')(process.argv.slice(2));
 
@@ -118,23 +119,24 @@ function getBuildDir(browser) {
 	return path.join(rootBuildDir, config[browser].buildFolder);
 }
 
-gulp.task('build', function(cb) {
-	selectedBrowsers.forEach(function(browser) {
-		config[browser].buildFiles.forEach(function(paths) {
-			gulp.src(paths.src)
+gulp.task('build', Promise.nodeify(function() {
+	return Promise.all(selectedBrowsers.map(function(browser) {
+		return Promise.all(config[browser].buildFiles.map(function(paths) {
+			return gulp.src(paths.src)
 				.pipe(gulp.dest(path.join(getBuildDir(browser), paths.dest)));
+		})).then(function() {
+			if (!config[browser].manifest) { 
+				return;
+			}
+			return Promise.denodeify(del)(path.join(getBuildDir(browser), config[browser].manifest), undefined)
+				.then(function() {
+					return gulp.src(config[browser].manifest)
+						.pipe(through.map(populateManifest.bind(this, browser)))
+						.pipe(gulp.dest(getBuildDir(browser)))
+				});
 		});
-
-		if (config[browser].manifest) {
-			del(path.join(getBuildDir(browser), config[browser].manifest));
-			gulp.src(config[browser].manifest)
-				.pipe(through.map(populateManifest.bind(this, browser)))
-				.pipe(gulp.dest(getBuildDir(browser)))
-		}
-	});
-
-	cb();
-});
+	}));
+}));
 
 function getPackageMetadata() {
 	var filepath = './' + (options.p || 'package.json');
@@ -225,5 +227,6 @@ function getRefHost() {
 }
 
 gulp.task('clean', function(cb) {
-	del(['dist/*'], cb);
+	del(['dist/*'], undefined, cb);
 });
+
