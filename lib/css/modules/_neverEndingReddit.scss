@@ -1,6 +1,8 @@
+@import '../zindex';
+
 #NERModal {
 	display: none;
-	z-index: 999;
+	z-index: $zindex-ner-content - 1;
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -14,7 +16,7 @@
 	display: none;
 	position: fixed;
 	top: 40px;
-	z-index: 1000;
+	z-index: $zindex-ner-content;
 	width: 720px;
 	background-color: #FFF;
 	color: #000;

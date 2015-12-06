@@ -1,3 +1,5 @@
+@import '../zindex';
+
 #keyHelp {
 	display: none;
 	position: fixed;
@@ -5,7 +7,7 @@
 	overflow-y: auto;
 	right: 20px;
 	top: 20px;
-	z-index: 1000;
+	z-index: $zindex-key-help;
 	border: 2px solid #aaa;
 	border-radius: 5px;
 	width: 300px;

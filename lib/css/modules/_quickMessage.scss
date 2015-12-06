@@ -1,3 +1,5 @@
+@import '../zindex';
+
 #quickMessage {
 	display: none;
 	position: fixed;
@@ -6,7 +8,7 @@
 	left: 0;
 	right: 0;
 	background-color: rgba(0, 0, 0, .75);
-	z-index: 2000;
+	z-index: $zindex-quick-message-dialog - 1;
 }
 
 #quickMessageDialog {
@@ -14,7 +16,7 @@
 	top: 20%;
 	left: 25%;
 	width: 50%;
-	z-index: 100001;
+	z-index: $zindex-quick-message-dialog;
 
 	.gearIcon {
 		float: right;
