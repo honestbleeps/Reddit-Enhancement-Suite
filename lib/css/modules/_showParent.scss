@@ -23,16 +23,20 @@
 	margin-bottom: 5px;
 }
 
-.res-parents-down .parentArrow::before,
-.res-parents-down .parentArrow::after {
-	padding: 1ex;
-	content: '↓';
+.res-showParent-direction-up {
+	.parentArrow::before,
+	.parentArrow::after {
+		padding: 1ex;
+		content: '↓';
+	}
 }
 
-.res-parents-up .parentArrow::before,
-.res-parents-up .parentArrow::after {
-	padding: 1ex;
-	content: '↑';
+.res-showParent-direction-down {
+	.parentArrow::before,
+	.parentArrow::after {
+		padding: 1ex;
+		content: '↑';
+	}
 }
 
 a.bylink.parentlink {

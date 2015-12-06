@@ -1416,7 +1416,7 @@ img {
 	cursor: pointer;
 	user-select: none;
 
-	.res-highlight-nsfw-expando .thing.over18 &::before {
+	.res-showImages-highlightNSFWButton .thing.over18 &::before {
 		display: inline-block;
 		content: ' ';
 		width: 100%;
