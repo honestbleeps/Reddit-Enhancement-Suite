@@ -420,7 +420,7 @@
 	}
 
 	// from white & blue to black and red-ish
-	&.res-highlight-nsfw-expando .thing.over18 .expando-button {
+	&.res-showImages-highlightNSFWButton .thing.over18 .expando-button {
 		filter: hue-rotate(-40deg) invert(80%) brightness(70%) saturate(300%);
 
 		&::before {
