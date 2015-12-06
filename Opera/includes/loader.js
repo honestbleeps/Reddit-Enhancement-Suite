@@ -48,6 +48,7 @@
 		'vendor/gfycat.js',
 		'vendor/gifyoutube.js',
 		'vendor/imgurgifv.js',
+		'vendor/pornbot.js',
 		'opera-vendor-footer.js',
 
 		'reddit_enhancement_suite.user.js',
@@ -114,6 +115,7 @@
 		'modules/quickMessage.js',
 
 		'modules/hosts/imgur.js',
+		'modules/hosts/pornbot.js',
 		'modules/hosts/twitter.js',
 		'modules/hosts/futurism.js',
 		'modules/hosts/gfycat.js',
