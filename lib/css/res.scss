@@ -1,3 +1,4 @@
+@import 'zindex';
 @import 'fonts/batch';
 @import 'modules/nightMode';
 @import 'modules/commentBoxes';
@@ -42,7 +43,7 @@ body.res-console-open {
 	visibility: hidden;
 	color: #000;
 	font-size: 12px;
-	z-index: 100000100;
+	z-index: $zindex-console-container;
 	position: fixed;
 	top: 15px;
 	right: 25px;
@@ -97,7 +98,7 @@ body.res-console-open {
 
 #modalOverlay {
 	visibility: hidden;
-	z-index: 100000099;
+	z-index: $zindex-modal-overlay;
 	position: fixed;
 	top: 0;
 	right: 0;
@@ -120,18 +121,6 @@ body.res-console-open {
 	display: block;
 	width: auto;
 	height: auto;
-}
-
-#RESMainGearOverlay {
-	position: absolute;
-	display: none;
-	width: 27px;
-	height: 24px;
-	border: 1px solid #369;
-	border-bottom: 1px solid #5f99cf;
-	background-color: #5f99cf;
-	border-radius: 3px 3px 0 0;
-	z-index: 10000;
 }
 
 .gearIcon {
@@ -180,12 +169,6 @@ body.res-console-open {
 		&.newNotification {
 			cursor: pointer;
 		}
-	}
-
-	#RESMainGearOverlay & {
-		position: absolute;
-		top: 3px;
-		left: 6px;
 	}
 }
 
@@ -347,7 +330,6 @@ body.res-console-open {
 		border-bottom: 1px solid #c7c7c7;
 		width: auto;
 		position: relative;
-		z-index: 10;
 		height: 28px;
 		padding-left: 10px;
 		padding-top: 12px;
@@ -491,7 +473,7 @@ div.usertext-edit {
 	width: 250px;
 	margin-left: -125px;
 	margin-top: -140px;
-	z-index: 1000;
+	z-index: $zindex-go-mode-panel;
 
 	table {
 		width: 100%;
@@ -513,7 +495,7 @@ div.usertext-edit {
 	width: 200px;
 	height: 40px;
 	position: absolute;
-	z-index: 200000000;
+	z-index: $zindex-keycode-modal;
 	background-color: #FFF;
 	padding: 4px;
 	border: 2px solid #CCC;
@@ -1046,7 +1028,7 @@ div.usertext-edit {
 	height: auto;
 	width: 300px;
 	background: none;
-	z-index: 100000098 !important;
+	z-index: $zindex-notifications !important;
 	font: 12px/1.6 verdana, arial, sans-serif;
 	color: #000;
 }
@@ -1215,7 +1197,7 @@ div.usertext-edit {
 	background-image: url('https://s3.amazonaws.com/f.thumbs.redditmedia.com/OvX59a7-5YkWrwLw.png');
 	top: -5%;
 	left: -5%;
-	z-index: 999999;
+	z-index: $zindex-baconbit;
 	transform: rotate(0deg);
 	transition: all 2s linear;
 
@@ -1283,7 +1265,7 @@ body.RESScrollLock {
 
 #BigEditor {
 	position: fixed;
-	z-index: 2000;
+	z-index: $zindex-big-editor;
 	top: 0;
 	left: 0;
 	right: 0;
@@ -1385,7 +1367,7 @@ body.RESScrollLock {
 
 #autocomplete_dropdown {
 	display: inline-block;
-	z-index: 3000;
+	z-index: $zindex-autocomplete-dropdown;
 }
 
 //Image Viewer
@@ -1649,7 +1631,7 @@ div.imgCaptions,
 	padding: 20px 40px;
 	position: fixed !important;
 	width: 400px;
-	z-index: 1000000201;
+	z-index: $zindex-alert-message;
 	text-align: left;
 
 	input {
@@ -1680,7 +1662,7 @@ div.imgCaptions,
 	bottom: 0;
 	right: 0;
 	background-color: rgba(51, 51, 51, .95);
-	z-index: 100000200;
+	z-index: $zindex-alert-message - 1;
 }
 
 .res-left {

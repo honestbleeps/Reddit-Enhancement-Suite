@@ -1,16 +1,3 @@
-#parentCommentContainer {
-	border: 1px solid #666;
-	background-color: #fff;
-	padding: 4px;
-	width: auto;
-	position: absolute;
-	z-index: 99999;
-}
-
-.res-parents-up #parentCommentContainer {
-	bottom: 0;
-}
-
 #parentCommentWrapper {
 	position: absolute;
 	left: 10px;
