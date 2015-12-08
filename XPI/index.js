@@ -231,6 +231,7 @@ pageMod.PageMod({
 		self.data.url('modules/tableTools.js'),
 		self.data.url('modules/modhelper.js'),
 		self.data.url('modules/quickMessage.js'),
+		self.data.url('modules/xPostLinks.js'),
 		self.data.url('modules/hosts/imgur.js'),
 		self.data.url('modules/hosts/twitter.js'),
 		self.data.url('modules/hosts/futurism.js'),

@@ -112,6 +112,7 @@
 		'modules/upload.js',
 		'modules/modhelper.js',
 		'modules/quickMessage.js',
+		'modules/xPostLinks.js',
 
 		'modules/hosts/imgur.js',
 		'modules/hosts/twitter.js',
