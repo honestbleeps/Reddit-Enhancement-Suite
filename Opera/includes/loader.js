@@ -151,6 +151,7 @@
 		'modules/hosts/github.js',
 		'modules/hosts/onedrive.js',
 		'modules/hosts/oddshot.js',
+		'modules/hosts/swirl.js',
 
 		'core/init.js',
 
