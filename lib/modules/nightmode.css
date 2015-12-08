@@ -469,9 +469,11 @@
 .res-nightmode .flairselector li a {
 	color: hsl(210,60%,70%) !important;
 }
-.res-nightmode .thing .title,
-.res-nightmode .tagline a {
+.res-nightmode .thing .title {
 	color: hsl(210,60%,60%);
+}
+.res-nightmode .tagline a {
+	color: hsl(200,30%,55%);
 }
 .res-nightmode .morecomments a {
 	color: hsl(0,0%,60%);
@@ -800,7 +802,7 @@ body.res-nightmode,
 }
 .res-nightmode .tagline .submitter,
 .res-nightmode .tagline .submitter:visited {
-	color: rgb(20,150,220);
+	color: hsl(200,100%,50%);
 }
 .res-nightmode .tagline .moderator,
 .res-nightmode .tagline .moderator:visited {
