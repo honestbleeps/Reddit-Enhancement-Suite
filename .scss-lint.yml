@@ -1,0 +1,28 @@
+# Inherits from default config
+# https://github.com/brigade/scss-lint/blob/master/config/default.yml
+
+linters:
+  Indentation:
+    character: tab
+    width: 1
+
+  LeadingZero:
+    style: include_zero
+
+  PropertySortOrder:
+    order: smacss
+
+# Linters below are temporarily disabled/loosened
+# as fixing them immediately would require restructuring a lot of our HTML
+
+  QualifyingElement:
+    allow_element_with_class: true
+
+  IdSelector:
+    enabled: false
+
+  SelectorFormat:
+    enabled: false
+
+  ImportantRule:
+    enabled: false
