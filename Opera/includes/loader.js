@@ -44,7 +44,6 @@
 		'core/template.js',
 		'vendor/konami.js',
 		'vendor/hogan-3.0.2.js',
-		'vendor/imgrush.js',
 		'vendor/gfycat.js',
 		'vendor/gifyoutube.js',
 		'vendor/imgurgifv.js',
@@ -132,7 +131,6 @@
 		'modules/hosts/tumblr.js',
 		'modules/hosts/memecrunch.js',
 		'modules/hosts/imgflip.js',
-		'modules/hosts/imgrush.js',
 		'modules/hosts/livememe.js',
 		'modules/hosts/makeameme.js',
 		'modules/hosts/memegen.js',
@@ -163,7 +161,6 @@
 		'vendor/tokenize.css',
 		'modules/commentBoxes.css',
 		'modules/nightmode.css',
-		'vendor/players.css',
 		'core/batch.css'
 	];
 
