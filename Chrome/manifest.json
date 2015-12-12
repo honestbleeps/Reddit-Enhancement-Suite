@@ -148,11 +148,13 @@
 				"core/init.js"
 			],
 			"css": [
-				"css/res.css",
+				"modules/nightmode.css",
+				"modules/commentBoxes.css",
+				"core/res.css",
 				"vendor/players.css",
 				"vendor/guiders.css",
 				"vendor/tokenize.css",
-				"vendor/mediacrush.css"
+				"core/batch.css"
 			],
 			"run_at": "document_start"
 		}
