@@ -19,6 +19,7 @@
 				"https://*.reddit.com/*"
 			],
 			"js": [
+				"vendor/polyfill.min.js",
 				"vendor/jquery-1.11.3.min.js",
 				"vendor/guiders.js",
 				"vendor/jquery.sortable-0.9.12.js",
@@ -161,7 +162,8 @@
 	"web_accessible_resources": [
 		"core/templates.html",
 		"package.json",
-		"modules/hosts/hosts.json"
+		"modules/hosts/hosts.json",
+		"*.js.map"
 	],
 	"icons": {
 		"48": "icon48.png",
