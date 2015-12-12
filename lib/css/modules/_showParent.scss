@@ -1,0 +1,31 @@
+#parentCommentWrapper {
+	position: absolute;
+	left: 10px;
+	right: 10px;
+}
+
+.parentArrow {
+	text-align: center;
+	margin-top: -5px;
+	margin-bottom: 5px;
+}
+
+.res-showParent-direction-up {
+	.parentArrow::before,
+	.parentArrow::after {
+		padding: 1ex;
+		content: '↓';
+	}
+}
+
+.res-showParent-direction-down {
+	.parentArrow::before,
+	.parentArrow::after {
+		padding: 1ex;
+		content: '↑';
+	}
+}
+
+a.bylink.parentlink {
+	float: right;
+}

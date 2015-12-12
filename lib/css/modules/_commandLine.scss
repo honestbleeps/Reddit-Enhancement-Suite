@@ -1,0 +1,44 @@
+@import '../zindex';
+
+#keyCommandLineWidget {
+	font-size: 14px;
+	display: none;
+	position: fixed;
+	top: 30px;
+	left: 50%;
+	margin-left: -275px;
+	z-index: $zindex-command-line-widget;
+	width: 550px;
+	border: 3px solid #555;
+	border-radius: 10px;
+	padding: 10px;
+	background-color: #333;
+	color: #CCC;
+	opacity: .95;
+}
+
+#keyCommandInput {
+	width: 240px;
+	background-color: #999;
+	margin-right: 10px;
+}
+
+#keyCommandInputTip {
+	margin-top: 5px;
+	color: #9F9;
+
+	ul {
+		font-size: 11px;
+		list-style-type: disc;
+	}
+
+	li {
+		margin-left: 15px;
+	}
+}
+
+#keyCommandInputError {
+	margin-top: 5px;
+	color: red;
+	font-weight: bold;
+}

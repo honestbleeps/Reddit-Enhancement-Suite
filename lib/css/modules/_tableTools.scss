@@ -1,0 +1,13 @@
+.res-tableTools-sort {
+	.md th {
+		cursor: pointer;
+	}
+
+	.sort-asc::after {
+		content: '\0020\25B4';
+	}
+
+	.sort-desc::after {
+		content: '\0020\25BE';
+	}
+}
