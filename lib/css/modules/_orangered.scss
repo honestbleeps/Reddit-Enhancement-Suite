@@ -31,6 +31,10 @@
 	}
 }
 
+.res-orangered-hideUnreadCount {
+	.message-count { display: none !important; }
+}
+
 .res-orangered-retroUnreadCount {
 	.message-count {
 		background: none;
