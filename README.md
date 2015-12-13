@@ -97,7 +97,7 @@ First time installation:
 1. Navigate to your RES folder.
 1. Run `npm install`.
 
-Once done, you can build the extension by running `gulp`. This will also start a watch task that will rebuild RES when you make changes (see [Advanced Usage](#details-and-advanced-usage) for more details).
+Once done, you can build the extension by running `gulp`. This will also start a watch task that will rebuild RES when you make changes (see [Advanced Usage](#details-and-advanced-usage) for more details). If you're having issues with building the extension, try uninstalling global `gulp` (`npm uninstall -g gulp`) and reinstalling it.
 
 To load the extension into your browser, see [the sections below](#building-in-chrome).
 
