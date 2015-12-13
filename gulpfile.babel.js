@@ -10,7 +10,6 @@ import sass from 'gulp-sass';
 import autoprefixer from 'gulp-autoprefixer';
 import merge from 'merge-stream';
 import cache from 'gulp-cached';
-import remember from 'gulp-remember';
 import plumber from 'gulp-plumber';
 import sourcemaps from 'gulp-sourcemaps';
 import eslint from 'gulp-eslint';
@@ -174,8 +173,6 @@ gulp.task('babel', () =>
 gulp.task('sass', () =>
 	pipeToBrowsers(
 		src(baseConf.sources.sass)
-			.pipe(cache('sass'))
-			.pipe(remember('sass'))
 			.pipe(sass().on('error', sass.logError))
 			.pipe(autoprefixer({
 				browsers: ['Chrome >= 25', 'Firefox >= 30', 'Safari >= 6', 'Opera 12.1'],
