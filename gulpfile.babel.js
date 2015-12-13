@@ -53,7 +53,7 @@ const browserConf = {
 		}
 	},
 	safari: {
-		manifest: 'RES.safariextension/Info.plist',
+		manifest: 'Safari/Info.plist',
 		manifestReplacements: [
 			{ key: 'version', needle: /(<key>CFBundleVersion<\/key>\s*<string>)(?:.+)(<\/string>)/ },
 			{ key: 'version', needle: /(<key>CFBundleShortVersionString<\/key>\s*<string>)(?:.+)(<\/string>)/ },
@@ -61,7 +61,7 @@ const browserConf = {
 			{ key: 'title', needle: /(<key>CFBundleDisplayName<\/key>\s*<string>)(?:.+)(<\/string>)/ }
 		],
 		sources: [
-			{ src: ['RES.safariextension/*.js', 'RES.safariextension/*.png', 'RES.safariextension/*.html'] }
+			{ src: ['Safari/*.js', 'Safari/*.png', 'Safari/*.html'] }
 		],
 		dests: {
 			root: 'RES.safariextension',
@@ -69,19 +69,19 @@ const browserConf = {
 		}
 	},
 	firefox: {
-		filesList: 'XPI/index.js',
-		manifest: 'XPI/package.json',
+		filesList: 'Firefox/index.js',
+		manifest: 'Firefox/package.json',
 		manifestReplacements: [
 			{ key: 'title', needle: /("title": ")(?:.*)(")/ },
 			{ key: 'description', needle: /("description": ")(?:.*)(")/ },
 			{ key: 'version', needle: /("version": ")(?:[\d\.])+(")/ }
 		],
 		sources: [
-			{ cwd: 'XPI/**', src: ['data/**/*'] },
-			{ src: ['*.png', 'XPI/index.js'] }
+			{ cwd: 'Firefox/**', src: ['data/**/*'] },
+			{ src: ['*.png', 'Firefox/index.js'] }
 		],
 		dests: {
-			root: 'XPI',
+			root: 'firefox',
 			baseSources: 'data'
 		}
 	},
