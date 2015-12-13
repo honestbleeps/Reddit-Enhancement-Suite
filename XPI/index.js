@@ -5,40 +5,40 @@
 // require('sdk/preferences/service').set('javascript.options.strict', false);
 
 // Import the APIs we need.
-let pageMod = require('sdk/page-mod');
-let Request = require('sdk/request').Request;
-let self = require('sdk/self');
-let tabs = require('sdk/tabs');
-let ss = require('sdk/simple-storage');
-let priv = require('sdk/private-browsing');
-let windows = require('sdk/windows').browserWindows;
-let viewFor = require('sdk/view/core').viewFor;
+const pageMod = require('sdk/page-mod');
+const Request = require('sdk/request').Request;
+const self = require('sdk/self');
+const tabs = require('sdk/tabs');
+const ss = require('sdk/simple-storage');
+const priv = require('sdk/private-browsing');
+const windows = require('sdk/windows').browserWindows;
+const viewFor = require('sdk/view/core').viewFor;
 
-let localStorage = ss.storage;
+const localStorage = ss.storage;
 
-let { ToggleButton } = require('sdk/ui/button/toggle');
+const { ToggleButton } = require('sdk/ui/button/toggle');
 let styleSheetButton;
 
 // require chrome allows us to use XPCOM objects...
 const {Cc,Ci,Cu,components} = require('chrome');
-let historyService = Cc['@mozilla.org/browser/history;1'].getService(Ci.mozIAsyncHistory);
+const historyService = Cc['@mozilla.org/browser/history;1'].getService(Ci.mozIAsyncHistory);
 
 // Cookie manager for new API login
-let cookieManager = Cc['@mozilla.org/cookiemanager;1'].getService().QueryInterface(Ci.nsICookieManager2);
+const cookieManager = Cc['@mozilla.org/cookiemanager;1'].getService().QueryInterface(Ci.nsICookieManager2);
 components.utils.import('resource://gre/modules/NetUtil.jsm');
 
 // Preferences
-let prefs = Cc['@mozilla.org/preferences-service;1'].getService(Ci.nsIPrefBranch);
+const prefs = Cc['@mozilla.org/preferences-service;1'].getService(Ci.nsIPrefBranch);
 
 // this function takes in a string (and optional charset, paseURI) and creates an nsURI object, which is required by historyService.addURI...
 function makeURI(aURL, aOriginCharset, aBaseURI) {
-	let ioService = Cc['@mozilla.org/network/io-service;1'].getService(Ci.nsIIOService);
+	const ioService = Cc['@mozilla.org/network/io-service;1'].getService(Ci.nsIIOService);
 	return ioService.newURI(aURL, aOriginCharset, aBaseURI);
 }
 
-let workers = [];
+const workers = [];
 function detachWorker(worker, workerArray) {
-	let index = workerArray.indexOf(worker);
+	const index = workerArray.indexOf(worker);
 	if (index !== -1) {
 		workerArray.splice(index, 1);
 	}
@@ -54,7 +54,7 @@ localStorage.removeItem = function(key) {
 	delete ss.storage[key];
 };
 
-let XHRCache = {
+const XHRCache = {
 	forceCache: false,
 	capacity: 250,
 	entries: {},
@@ -82,9 +82,9 @@ let XHRCache = {
 		}
 	},
 	prune: function() {
-		let now = Date.now();
-		let bottom = [];
-		for (let key in this.entries) {
+		const now = Date.now();
+		const bottom = [];
+		for (const key in this.entries) {
 //			if (this.entries[key].hits === 1) {
 //				delete this.entries[key];
 //				this.count--;
@@ -98,7 +98,7 @@ let XHRCache = {
 			});
 		}
 		bottom.sort(function(a,b){return a.weight-b.weight;});
-		let count = this.count - Math.floor(this.capacity / 2);
+		const count = this.count - Math.floor(this.capacity / 2);
 		for (let i = 0; i < count; i++) {
 			delete this.entries[bottom[i].key];
 			this.count--;
@@ -112,7 +112,7 @@ let XHRCache = {
 };
 tabs.on('activate', function() {
 	// find this worker...
-	let worker = getActiveWorker();
+	const worker = getActiveWorker();
 	if (worker) {
 		worker.postMessage({ requestType: 'getLocalStorage', message: localStorage });
 		worker.postMessage({ requestType: 'subredditStyle', message: 'refreshState' });
@@ -120,8 +120,8 @@ tabs.on('activate', function() {
 });
 
 function getActiveWorker() {
-	let tab = tabs.activeTab;
-	for (let i in workers) {
+	const tab = tabs.activeTab;
+	for (const i in workers) {
 		if (workers[i] && workers[i].tab && (tab.title === workers[i].tab.title)) {
 			return workers[i];
 		}
@@ -130,9 +130,9 @@ function getActiveWorker() {
 }
 
 function openTab(options) {
-	let nsWindow = viewFor(tabs.activeTab.window);
+	const nsWindow = viewFor(tabs.activeTab.window);
 	if ('TreeStyleTabService' in nsWindow) {
-		let nsTab = viewFor(tabs.activeTab);
+		const nsTab = viewFor(tabs.activeTab);
 		nsWindow.TreeStyleTabService.readyToOpenChildTab(nsTab);
 	}
 
@@ -286,14 +286,13 @@ pageMod.PageMod({
 		worker.on('detach', function () {
 			detachWorker(this, workers);
 		});
-		worker.on('message', function(data) {
-			let request = data,
-				inBackground = prefs.getBoolPref('browser.tabs.loadInBackground'),
+		worker.on('message', function(request) {
+			let inBackground = prefs.getBoolPref('browser.tabs.loadInBackground'),
 				isPrivate, thisLinkURL;
 
 			switch (request.requestType) {
 				case 'readResource':
-					let fileData = self.data.load(request.filename);
+					const fileData = self.data.load(request.filename);
 					worker.postMessage({ requestType: 'readResource', data: fileData, transaction: request.transaction });
 					break;
 				case 'deleteCookie':
@@ -301,12 +300,12 @@ pageMod.PageMod({
 					worker.postMessage({removedCookie: request.cname});
 					break;
 				case 'ajax':
-					let responseObj = {
+					const responseObj = {
 						XHRID: request.XHRID,
 						requestType: request.requestType
 					};
 					if (request.aggressiveCache || XHRCache.forceCache) {
-						let cachedResult = XHRCache.check(request.url);
+						const cachedResult = XHRCache.check(request.url);
 						if (cachedResult) {
 							responseObj.response = cachedResult;
 							worker.postMessage(responseObj);
@@ -398,7 +397,7 @@ pageMod.PageMod({
 					worker.postMessage({ requestType: 'getLocalStorage', message: localStorage });
 					break;
 				case 'saveLocalStorage':
-					for (let key in request.data) {
+					for (const key in request.data) {
 						localStorage.setItem(key,request.data[key]);
 					}
 					localStorage.setItem('importedFromForeground', true);
@@ -426,7 +425,7 @@ pageMod.PageMod({
 					}
 					break;
 				case 'pageAction':
-					let onoff = request.visible ? 'on' : 'off';
+					const onoff = request.visible ? 'on' : 'off';
 					switch (request.action) {
 						case 'show':
 							if (!styleSheetButton) {
@@ -440,7 +439,7 @@ pageMod.PageMod({
 										'32': self.data.url('images/css-' + onoff + '.png')
 									},
 									onChange: function(state) {
-										let worker = getActiveWorker();
+										const worker = getActiveWorker();
 										worker.postMessage({
 											requestType: 'subredditStyle',
 											toggle: state.checked
@@ -494,7 +493,7 @@ pageMod.PageMod({
 						// do not add to history if in private browsing mode!
 						return false;
 					}
-					let uri = makeURI(request.url);
+					const uri = makeURI(request.url);
 					historyService.updatePlaces({
 						uri: uri,
 						visits: [{
