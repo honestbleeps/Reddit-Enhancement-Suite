@@ -84,7 +84,7 @@ const XHRCache = {
 	prune: function() {
 		const now = Date.now();
 		const bottom = [];
-		for (const key in this.entries) {
+		for (let key in this.entries) {
 //			if (this.entries[key].hits === 1) {
 //				delete this.entries[key];
 //				this.count--;
@@ -121,7 +121,7 @@ tabs.on('activate', function() {
 
 function getActiveWorker() {
 	const tab = tabs.activeTab;
-	for (const i in workers) {
+	for (let i in workers) {
 		if (workers[i] && workers[i].tab && (tab.title === workers[i].tab.title)) {
 			return workers[i];
 		}
@@ -394,7 +394,7 @@ pageMod.PageMod({
 					worker.postMessage({ requestType: 'getLocalStorage', message: localStorage });
 					break;
 				case 'saveLocalStorage':
-					for (const key in request.data) {
+					for (let key in request.data) {
 						localStorage.setItem(key,request.data[key]);
 					}
 					localStorage.setItem('importedFromForeground', true);
