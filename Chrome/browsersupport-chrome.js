@@ -149,18 +149,14 @@ RESEnvironment.sendMessage = function(thisJSON) {
 };
 
 RESEnvironment.deleteCookie = function(cookieName) {
-	var deferred = new $.Deferred();
-
-	var requestJSON = {
-		requestType: 'deleteCookie',
-		host: location.protocol + '//' + location.host,
-		cname: cookieName
-	};
-	chrome.runtime.sendMessage(requestJSON, function(response) {
-		deferred.resolve(cookieName);
+	return new Promise(resolve => {
+		var requestJSON = {
+			requestType: 'deleteCookie',
+			host: location.protocol + '//' + location.host,
+			cname: cookieName
+		};
+		chrome.runtime.sendMessage(requestJSON, () => resolve(cookieName));
 	});
-
-	return deferred;
 };
 
 
