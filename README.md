@@ -174,4 +174,7 @@ Create a new `.js` file in `lib/modules/hosts`. Use [gulp add-host](#details-and
 
 ##### Stylesheets
 
-Create a new Sass partial (with a leading underscore, e.g. `_myPartial.scss`). Import the file in `lib/core/res.scss` (i.e. `@import ../modules/myPartial` - do not include the underscore or file type). You do not need to add it to any browser manifests.
+Create a new Sass partial under `lib/css/` (with a leading underscore, e.g. `_myPartial.scss`). Import the file in `lib/css/res.scss` (i.e. `@import 'modules/myPartial';` - do not include the underscore or file extension). You do not need to add it to any browser manifests.
+
+Body classes will be automatically added for boolean and enum options with the property `bodyClass: true`, in the form `.res-moduleId-optionKey` for boolean options (only when they're enabled), and `.res-moduleId-optionKey-optionValue` for enums.
+This is the preferred way to create optional CSS, do not use `addCSS()` unless absolutely necessary (i.e. variable color, size, etc.).

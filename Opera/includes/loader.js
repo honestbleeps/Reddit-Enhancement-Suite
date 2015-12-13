@@ -159,13 +159,10 @@
 	];
 
 	var stylesheets = [
-		'core/res.css',
+		'css/res.css',
 		'vendor/guiders.css',
 		'vendor/tokenize.css',
-		'modules/commentBoxes.css',
-		'modules/nightmode.css',
-		'vendor/players.css',
-		'core/batch.css'
+		'vendor/players.css'
 	];
 
 

@@ -1,0 +1,162 @@
+.markdownEditor-wrapper { width: 500px; } // same as textarea.
+
+//  Formatting tools container
+.markdownEditor {
+	white-space: nowrap;
+	float: none;
+
+	a {
+		margin-right: 8px;
+		text-decoration: none;
+		font-size: 11px;
+	}
+
+	// Formatting tools
+	.edit-btn:not(.btn-macro) {
+		padding: 0;
+		width: 32px;
+		height: 20px;
+		display: inline-block;
+		overflow: hidden;
+		text-indent: 50px;
+		position: relative;
+		margin-right: 4px;
+		border: 1px solid #ccc;
+		float: none;
+		background-color: #fff;
+		background-image: url('data:image/png;base64,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');
+		background-repeat: no-repeat;
+
+		.res-nightmode & {
+			background-color: #999;
+		}
+	}
+
+	.btn-bold { background-position: 8px 2px; }
+	.btn-italic { background-position: 8px -18px; }
+	.btn-strike { background-position: 8px -38px; }
+	.btn-superscript { background-position: 8px -58px; }
+	.btn-link { background-position: 8px -78px; }
+	.btn-quote { background-position: 8px -98px; }
+	.btn-code { background-position: 8px -118px; }
+	.btn-list-unordered { background-position: 8px -138px; }
+	.btn-list-ordered { background-position: 8px -158px; }
+	.btn-table { background-position: 8px -178px; }
+
+	.RESMacroDropdown {
+		font-size: 10px;
+	}
+}
+
+// Macros
+.RESMacroDropdownTitle {
+	cursor: pointer;
+	display: inline-block;
+	font-size: 11px;
+	color: gray;
+	padding-left: 2px;
+	padding-right: 21px;
+	background: url('//www.redditstatic.com/droparrowgray.gif') no-repeat 100% 50%;
+}
+
+.RESMacroWrappingSpan {
+	white-space: normal;
+	display: block;
+	text-align: right;
+	margin: 10px 0 3px 0;
+	user-select: none;
+
+	.openMacro {
+		color: rgb(0, 0, 0);
+		background-color: rgb(235, 240, 245);
+
+		.res-nightmode & {
+			color: rgb(200, 200, 200);
+			background-color: rgb(50, 50, 50);
+		}
+
+		+ span {
+			display: block;
+
+			.res-nightmode & {
+				background-color: rgb(50, 50, 50);
+				border-color: rgb(0, 0, 0);
+
+				li a {
+					color: rgb(200, 200, 200);
+					border-color: rgb(0, 0, 0);
+
+					&:hover {
+						background-color: rgb(60, 60, 60);
+					}
+				}
+			}
+		}
+	}
+}
+
+.RESMacroDropdown {
+	display: none;
+	position: absolute;
+	z-index: 2001;
+	font-size: 10px;
+	line-height: 2;
+	border: 1px solid rgb(200, 200, 200);
+	background-color: rgb(255, 255, 255);
+	text-align: left;
+
+	li a {
+		display: block;
+		padding: 0 10px;
+		color: rgb(0, 0, 0);
+		border-bottom: 1px solid rgb(230, 230, 230);
+
+		&:hover {
+			color: rgb(0, 0, 0);
+			background-color: rgb(245, 250, 255);
+			text-decoration: none;
+		}
+	}
+}
+
+// "Commenting as"
+.commentingAs {
+	clear: left;
+	margin-top: 10px;
+	margin-bottom: 3px;
+
+	a.userTagLink {
+		cursor: default;
+		display: inline;
+	}
+}
+
+.res-commentTools-macroButtons {
+	.commentingAs {
+		float: left;
+	}
+}
+
+// Table editor
+#alert_message table.commentPreview td {
+	border: 1px solid black;
+	padding: 1px;
+	min-width: 25px;
+}
+
+#alert_message table.commentPreview tr:first-child td {
+	font-weight: bold;
+}
+
+#alert_message .buttonContainer {
+	width: 100%;
+	display: block;
+	height: 30px;
+	margin-bottom: 10px;
+}
+
+// Autocomplete
+.selectedItem {
+	color: #fff;
+	background-color: #5f99cf;
+}

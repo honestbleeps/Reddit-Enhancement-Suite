@@ -1,0 +1,36 @@
+#authorInfoToolTip {
+	.authorFieldPair {
+		clear: both;
+		overflow: auto;
+		margin-bottom: 12px;
+	}
+
+	.authorLabel {
+		float: left;
+		width: 140px;
+	}
+
+	.authorDetail {
+		float: left;
+		min-width: 240px;
+
+		a {
+			display: block;
+			max-width: 25em;
+			text-overflow: ellipsis;
+			overflow: hidden;
+			white-space: nowrap;
+		}
+	}
+
+	.blueButton {
+		float: right;
+		margin-left: 8px;
+		margin-top: 12px;
+	}
+
+	.redButton {
+		float: right;
+		margin-left: 8px;
+	}
+}
