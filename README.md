@@ -57,7 +57,6 @@ Thinking about contributing to RES? Awesome! We just ask that you follow a few s
   - `lib/modules/` – RES modules
   - `lib/vendor/` – RES vendor libraries
   - `Chrome/` – Chrome-specific RES files
-  - `Opera/` – Opera-specific RES files
   - `RES.safariextension/` – Safari-specific RES files
   - `XPI/` – Firefox-specific RES files
   - `dist/` - build output
@@ -68,12 +67,6 @@ Thinking about contributing to RES? Awesome! We just ask that you follow a few s
   - `background.js` – the "background page" for RES, necessary for Chrome extensions
   - `manifest.json` – the project manifest
   - `icon.png`, `icon48.png`, `icon128.png` – icons!
-
-##### Opera files
-
-  - `index.html` – the "background page" for RES, necessary for Opera extensions
-  - `config.xml` – Opera's equivalent of Chrome's `manifest.json`
-  - `logo.gif` – a logo gif!
 
 ##### Safari files (RES.safariextension)
 
@@ -121,7 +114,7 @@ Sass (`.scss`) files in `lib/` will be compiled with [Sass](http://sass-lang.com
 
 **`gulp zip --zipdir /path/to/zip/directory`** will compress the build folders in `dist/` into .zip files. If no `--zipdir` is specified, the .zip files will be placed in `dist/zip/`. It is recommended to run `gulp build` first.
 
-**`gulp <tasks> -b chrome -b firefox`** can be used with any of the above commands to specify individual browsers (chrome, firefox, safari, opera), instead of performing the task(s) for all of them.
+**`gulp <tasks> -b chrome -b firefox`** can be used with any of the above commands to specify individual browsers (chrome, firefox, safari), instead of performing the task(s) for all of them.
 
 **`gulp travis`** will verify the code style (and point out any errors) of all `.js` files in `lib/` (except `lib/vendor/`) using [ESLint](http://eslint.org/), as well as all `.scss` files with [scss-lint](https://github.com/brigade/scss-lint). We recommend that you run this before opening a pull request. (This is used by Travis CI to automatically test pull requests.)
 
@@ -154,11 +147,6 @@ All that is asked is that you have at least one previous contribution to RES.
   4. It will likely say you cannot install it because no Safari development certificate exists. You will need to visit the [Safari Dev Center](https://developer.apple.com/devcenter/safari/index.action) and create an account (right hand side).
   5. You then need to visit the [Safari Developer Program](https://developer.apple.com/programs/safari/) site and sign up for a FREE account.
   6. You can then visit your member page and use the certificate utility to create a new Safari Developer Certificate. Follow the instructions to install the certificate. If you have an error involving it being signed by an unknown authority, then double click the certificate and under the `Trust` setting choose `Always Trust`. You should then be able to install the extension from the `Extension Builder` menu.
-
-##### Building in Opera
-
-  1. Click `Tools->Extensions->Manage Extensions`
-  2. Drag the `config.xml` file in the `dist/opera` directory into the extensions window and release. You should now have installed the extension.
 
 ## Adding new files
 
