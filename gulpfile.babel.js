@@ -85,24 +85,6 @@ const browserConf = {
 			baseSources: 'data'
 		}
 	},
-	opera: {
-		filesList: 'Opera/includes/loader.js',
-		manifest: 'Opera/config.xml',
-		manifestReplacements: [
-			{ key: 'title', needle: /(<name>)(?:.*)(<\/name>)/ },
-			{ key: 'description', needle: /(<description>)(?:.*)(<\/description>)/ },
-			{ key: 'version', needle: /(update-opera\.php\?v=)(?:[\d\.])+(")/ },
-			{ key: 'version', needle: /(widgets" version=")(?:[\d\.])+(")/ }
-		],
-		sources: [
-			{ cwd: 'Opera/**', src: ['includes/*.js'] },
-			{ src: ['Opera/*.js', 'OperaBlink/*.gif', 'Opera/*.html'] }
-		],
-		dests: {
-			root: 'opera',
-			baseSources: '/'
-		}
-	},
 	node: {
 		filesList: 'node/files.json',
 		sources: [
@@ -175,7 +157,7 @@ gulp.task('sass', () =>
 		src(baseConf.sources.sass)
 			.pipe(sass().on('error', sass.logError))
 			.pipe(autoprefixer({
-				browsers: ['Chrome >= 25', 'Firefox >= 30', 'Safari >= 6', 'Opera 12.1'],
+				browsers: ['Chrome >= 25', 'Firefox >= 30', 'Safari >= 6'],
 				cascade: false
 			}))
 	)
