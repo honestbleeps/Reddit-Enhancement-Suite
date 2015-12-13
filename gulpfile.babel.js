@@ -206,7 +206,7 @@ gulp.task('copy-browser', () =>
 gulp.task('manifests', () =>
 	merge(
 		browsers.map(browser =>
-			gulp.src(browserConf[browser].manifest || '!*')
+			gulp.src(browserConf[browser].manifest || ['*', '!*'])
 				.pipe(cache('manifests'))
 				.pipe(through.map(file => populateManifest(browser, file)))
 				.pipe(dest(getBuildDir(browser)))
