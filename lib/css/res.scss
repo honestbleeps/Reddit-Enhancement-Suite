@@ -195,16 +195,17 @@ body.res-console-open {
 	border: 1px solid #369;
 	border-bottom: none;
 	margin: 0 !important;
+	font-size: 10px;
 
 	li {
 		position: relative;
 		cursor: pointer;
 		border-bottom: 1px solid #369;
-		height: 35px;
 		line-height: 34px;
 		font-weight: bold;
 		color: #c9def2;
 		padding-left: 10px;
+		box-sizing: content-box;
 	}
 
 	.toggleButton {
@@ -219,12 +220,17 @@ body.res-console-open {
 
 	a {
 		display: block;
-		color: inherit;
-		text-decoration: none;
+
+		&,
+		&:link,
+		&:visited {
+			color: inherit;
+			text-decoration: none;
+		}
 	}
 
 	li:hover,
-	li a:hover {
+	a:hover {
 		background-color: #9cc6ec;
 		color: #369;
 		text-decoration: none;
