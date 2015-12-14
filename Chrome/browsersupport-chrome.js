@@ -106,15 +106,14 @@ RESEnvironment.ajax = function(obj) {
 	}
 };
 
-RESEnvironment.loadResourceAsText = function(filename, callback) {
-	var xhr = new XMLHttpRequest();
-	xhr.onload = function() {
-		if (callback) {
-			callback(this.responseText);
-		}
-	};
-	xhr.open('GET', chrome.runtime.getURL(filename));
-	xhr.send();
+RESEnvironment.loadResourceAsText = function(filename) {
+	return new Promise((resolve, reject) => {
+		var xhr = new XMLHttpRequest();
+		xhr.onload = function() { resolve(this.responseText); };
+		xhr.onerror = reject;
+		xhr.open('GET', chrome.runtime.getURL(filename));
+		xhr.send();
+	});
 };
 
 RESEnvironment.storageSetup = function(thisJSON) {

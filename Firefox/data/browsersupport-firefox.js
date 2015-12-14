@@ -132,10 +132,12 @@ RESEnvironment.ajax = function(obj) {
 (function() {
 	var transactions = 0;
 	window.RESLoadCallbacks = [];
-	RESEnvironment.loadResourceAsText = function(filename, callback) {
-		window.RESLoadCallbacks[transactions] = callback;
-		self.postMessage({ requestType: 'readResource', filename: filename, transaction: transactions });
-		transactions++;
+	RESEnvironment.loadResourceAsText = function(filename) {
+		return new Promise(resolve => {
+			window.RESLoadCallbacks[transactions] = resolve;
+			self.postMessage({ requestType: 'readResource', filename: filename, transaction: transactions });
+			transactions++;
+		});
 	};
 })();
 

@@ -132,15 +132,16 @@ RESEnvironment.sanitizeJSON = function(data) {
 	return data;
 };
 
-RESEnvironment.loadResourceAsText = function(filename, callback) {
-	var url = safari.extension.baseURI + filename;
+RESEnvironment.loadResourceAsText = function(filename) {
+	return new Promise((resolve, reject) => {
+		var url = safari.extension.baseURI + filename;
 
-	RESEnvironment.ajax({
-		method: 'GET',
-		url: url,
-		onload: function (response) {
-			callback(response.responseText);
-		}
+		RESEnvironment.ajax({
+			method: 'GET',
+			url: url,
+			onload: response => resolve(response.responseText),
+			onerror: reject
+		});
 	});
 };
 
