@@ -205,7 +205,7 @@
 	}
 
 	.tabmenu.formtab .selected a {
-		color: rgb(255,255,255);
+		color: rgb(255, 255, 255);
 		background-color: rgb(95, 153, 207);
 	}
 
@@ -245,16 +245,17 @@
 		background-color: transparent;
 		border-color: rgb(80, 80, 80);
 	}
-	
-	/* Note: arrow class is used on other elements besides vote buttons. */
+
+	// Note: arrow class is used on other elements besides vote buttons.
 	.arrow {
 		&.up,
 		&.upmod,
 		&.down,
 		&.downmod {
-			background-image: url(https://b.thumbs.redditmedia.com/WZDoQsDzUySVTErcweuA3k2HH1HU5-BZNnBXOR4FDwc.png);
+			background-image: url('https://b.thumbs.redditmedia.com/WZDoQsDzUySVTErcweuA3k2HH1HU5-BZNnBXOR4FDwc.png');
 			background-repeat: no-repeat;
 		}
+
 		&.up { background-position: -15px 0; }
 		&.up:hover { background-position: -30px 0; }
 		&.upmod { background-position: 0 0; }
@@ -566,7 +567,7 @@
 	.deepthread a,
 	.policy-page .md h1 a,
 	.policy-page .md h3 a {
-		color: hsl(210,50%,70%);
+		color: hsl(210, 50%, 70%);
 	}
 
 	.flairselector li a {
@@ -574,12 +575,13 @@
 	}
 
 	.thing .title {
-		color: hsl(210,60%,60%);
+		color: hsl(210, 60%, 60%);
 	}
-	
+
 	.tagline a {
 		color: hsl(200, 30%, 55%);
 	}
+
 	.morecomments a {
 		color: hsl(0, 0%, 60%);
 	}
@@ -587,7 +589,7 @@
 	.thing .title:visited,
 	.combined-search-page .search-result a:visited,
 	.combined-search-page .search-result a:visited > mark {
-		color: hsl(270, 50%, 65%); /* see also _styleTweaks.scss */
+		color: hsl(270, 50%, 65%); // see also _styleTweaks.scss
 	}
 
 	.flair-settings ~ .tabpane-content {
@@ -608,7 +610,7 @@
 		border-color: hsl(210, 60%, 40%);
 		background-color: hsl(210, 50%, 30%);
 	}
-	
+
 	.infobar:not(.newsletterbar) .md,
 	.reddit-infobar .md {
 		color: white;
@@ -1255,15 +1257,15 @@
 	}
 
 	.diff_sub {
-		background-color: rgba(240, 128, 128 , 0.5);
+		background-color: rgba(240, 128, 128 , .5);
 	}
 
 	.diff_add {
-		background-color: rgba(144, 238, 144, 0.4);
+		background-color: rgba(144, 238, 144, .4);
 	}
 
 	.diff_chg {
-		background-color: rgba(255, 255, 0, 0.4);
+		background-color: rgba(255, 255, 0, .4);
 	}
 
 	.hover-bubble.multi-selector .create-multi input[type="text"] {
@@ -1283,7 +1285,8 @@
 		.bubble {
 			background-color: black;
 		}
-		.bubble:after {
+
+		.bubble::after {
 			border-right-color: black;
 		}
 	}
