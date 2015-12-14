@@ -101,6 +101,7 @@ var rootBuildDir = 'dist',
 		node: {
 			// Subfolder of rootBuildDir that the buildFiles will be copied to
 			buildFolder: 'node',
+			manifest: 'manifest.json',
 			// The file for addFileToManifest to modify when adding new hosts/modules
 			filesList: 'node/files.json',
 			// Files to be copied when building the extension
@@ -119,24 +120,22 @@ function getBuildDir(browser) {
 	return path.join(rootBuildDir, config[browser].buildFolder);
 }
 
-gulp.task('build', Promise.nodeify(function() {
-	return Promise.all(selectedBrowsers.map(function(browser) {
+gulp.task('build', function(cb) {
+	Promise.all(selectedBrowsers.map(function(browser) {
 		return Promise.all(config[browser].buildFiles.map(function(paths) {
 			return gulp.src(paths.src)
 				.pipe(gulp.dest(path.join(getBuildDir(browser), paths.dest)));
 		})).then(function() {
 			if (!config[browser].manifest) { 
-				return;
+				return new Promise(function(resolve) { resolve(); });
 			}
-			return Promise.denodeify(del)(path.join(getBuildDir(browser), config[browser].manifest), undefined)
-				.then(function() {
-					return gulp.src(config[browser].manifest)
-						.pipe(through.map(populateManifest.bind(this, browser)))
-						.pipe(gulp.dest(getBuildDir(browser)))
-				});
+			del(path.join(getBuildDir(browser), config[browser].manifest), undefined)
+			return gulp.src(config[browser].manifest)
+				.pipe(through.map(populateManifest.bind(this, browser)))
+				.pipe(gulp.dest(getBuildDir(browser)))
 		});
-	}));
-}));
+	})).done(function() { cb() });
+});
 
 function getPackageMetadata() {
 	var filepath = './' + (options.p || 'package.json');
