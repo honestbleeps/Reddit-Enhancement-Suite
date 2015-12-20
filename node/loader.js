@@ -1,3 +1,5 @@
+/* eslint-env node */
+
 var fs = require('fs');
 var _eval = require('eval');
 var requireNew = require('require-new');
@@ -8,13 +10,13 @@ var yargs = require('yargs')
 	.default('assertstorage', 'andytuba-4.5.4-6dffad39')
 	.default('ignorestorage', '_ignore-4.5.4-6dffad39')
 	.argv;
-var files = require("./files.json");
+var files = require('./files.json');
 var equals = require('deep-equal');
 
 var VERBOSE_LEVEL = yargs.verbose;
 function WARN()  { (VERBOSE_LEVEL >= 0 && console.log.apply(console, arguments)); }
 function INFO()  { (VERBOSE_LEVEL >= 1 && console.log.apply(console, arguments)); }
-function DEBUG() {  (VERBOSE_LEVEL >= 2 && console.log.apply(console, arguments)); }
+function DEBUG() { (VERBOSE_LEVEL >= 2 && console.log.apply(console, arguments)); }
 
 /*
 WARN("Showing only important stuff");
@@ -36,8 +38,7 @@ for (var section in files) {
 
 	if (files[section].length) {
 		files[section].forEach(function(filename) { importFile(filename); });
-	}
-	else if (typeof files[section] === 'object') {
+	} else if (typeof files[section] === 'object') {
 		for (var key in files[section]) {
 			if (!files[section].hasOwnProperty(key)) continue;
 			importFile(files[section][key], key);
@@ -86,12 +87,12 @@ if (yargs.assertstorage) {
 		var expectedValue = 0, actualValue = -1, error = false;
 		if (key.indexOf('RESoptions.') === 0) {
 			try {
-			 	expectedOptions = typeof expected[key] === 'string' && JSON.parse(expected[key]);
-				actualOptions = typeof actual[key] === 'string' && JSON.parse(actual[key]);
+				var expectedOptions = typeof expected[key] === 'string' && JSON.parse(expected[key]);
+				var actualOptions = typeof actual[key] === 'string' && JSON.parse(actual[key]);
 				for (var option in expectedOptions) {
 					var expectedValue = expectedOptions[option].value;
-					var actualValue = (actualOptions[option] || {}).value
-					error = !equals(expectedValue, actualValue)
+					var actualValue = (actualOptions[option] || {}).value;
+					error = !equals(expectedValue, actualValue);
 					if (error) addError(key + '::' + option, error, expectedValue, actualValue);
 				}
 			} catch (e) {

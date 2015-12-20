@@ -1,3 +1,4 @@
+/* eslint-env node */
 /* exported RESEnvironment */
 
 var fs = require('fs');

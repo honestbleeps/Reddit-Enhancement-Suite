@@ -1,4 +1,4 @@
-/* global require */
+/* eslint-env node */
 
 import gulp from 'gulp';
 import del from 'del';
