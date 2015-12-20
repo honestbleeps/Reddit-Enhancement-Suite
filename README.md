@@ -57,8 +57,8 @@ Thinking about contributing to RES? Awesome! We just ask that you follow a few s
   - `lib/modules/` – RES modules
   - `lib/vendor/` – RES vendor libraries
   - `Chrome/` – Chrome-specific RES files
-  - `RES.safariextension/` – Safari-specific RES files
-  - `XPI/` – Firefox-specific RES files
+  - `Firefox/` – Firefox-specific RES files
+  - `Safari/` – Safari-specific RES files
   - `dist/` - build output
   - `tests/` – RES tests, currently unused
 
@@ -68,16 +68,16 @@ Thinking about contributing to RES? Awesome! We just ask that you follow a few s
   - `manifest.json` – the project manifest
   - `icon.png`, `icon48.png`, `icon128.png` – icons!
 
-##### Safari files (RES.safariextension)
+##### Firefox files
+
+  - `index.js` – this is Firefox's sort of "background page" for RES, like what Chrome has, but just a JS file
+  - `package.json` – the project manifest for the Firefox add-on
+
+##### Safari files
 
   - `background-safari.html` – the "background page" for RES, necessary for Safari extensions
   - `Info.plist` – the project manifest
   - `icon.png`, `icon48.png`, `icon128.png` – icons!
-
-##### Firefox files (XPI)
-
-  - `index.js` – this is Firefox's sort of "background page" for RES, like what Chrome has, but just a JS file
-  - `package.json` – the project manifest for the Firefox add-on
 
 ## Building development versions of the extension
 
@@ -137,7 +137,7 @@ All that is asked is that you have at least one previous contribution to RES.
 ##### Building in Firefox
 
   1. Install [jpm](https://developer.mozilla.org/en-US/Add-ons/SDK/Tools/jpm) using `npm`: `npm install -g jpm`
-  2. Navigate to `dist/XPI` and run the command `jpm run`, which should launch a new Firefox browser using a temporary profile with only RES installed.
+  2. Navigate to `dist/firefox` and run the command `jpm run`, which should launch a new Firefox browser using a temporary profile with only RES installed.
 
 ##### Building in Safari (assumes Mac)
 
