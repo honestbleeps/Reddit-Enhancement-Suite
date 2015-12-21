@@ -41,7 +41,7 @@ Thinking about contributing to RES? Awesome! We just ask that you follow a few s
 
 4. If you decide to add support for another media hosting site to RES, check out [lib/modules/hosts/example.js](https://github.com/honestbleeps/Reddit-Enhancement-Suite/blob/master/lib/modules/hosts/example.js). Please be sure that they support [CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) so the sites do not need to be added as additional permissions, which has caused [headaches in the past](https://www.reddit.com/r/Enhancement/comments/1jskcm/announcement_chrome_users_did_your_res_turn_off/).
 
-5. If you decide to add a new module, check out [lib/modules/example.js](https://github.com/honestbleeps/Reddit-Enhancement-Suite/blob/master/lib/modules/example.js). To add the module to the browser manifests, use `gulp add-module --file module.js` (replace `module.js` with your filename).
+5. If you decide to add a new module, check out [lib/modules/example.js](https://github.com/honestbleeps/Reddit-Enhancement-Suite/blob/master/lib/modules/example.js). To add the module to the browser manifests, use `gulp add-module module.js` (replace `module.js` with your filename).
 
 
 ## Project structure
@@ -108,9 +108,9 @@ Sass (`.scss`) files in `lib/` will be compiled with [Sass](http://sass-lang.com
 
 **`gulp watch`** will run `gulp build`, then re-run it when anything changes. Only changed files will be rebuilt.
 
-**`gulp add-module --file module.js`** will add `module.js`, a new module, to the manifest for each browser.
+**`gulp add-module module.js`** will add `module.js`, a new module, to the manifest for each browser.
 
-**`gulp add-host --file hostname.js`** will add `hostname.js`, a new media host, to the manifest for each browser.
+**`gulp add-host hostname.js`** will add `hostname.js`, a new media host, to the manifest for each browser.
 
 **`gulp zip --zipdir /path/to/zip/directory`** will compress the build folders in `dist/` into .zip files. If no `--zipdir` is specified, the .zip files will be placed in `dist/zip/`. It is recommended to run `gulp build` first.
 
