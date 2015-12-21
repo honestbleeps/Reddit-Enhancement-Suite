@@ -231,7 +231,7 @@ gulp.task('add-host', () =>
 
 // "Add file to manifests" task support
 function addFileToManifest(manifest, pattern) {
-	const addModulename = options['file'];
+	const addModulename = options._[0];
 	return gulp.src(manifest)
 		.pipe(replace(pattern, `$&\n$1${addModulename}$2`))
 		.pipe(dest(path.dirname(manifest)));
