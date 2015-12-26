@@ -13,40 +13,6 @@ node_modules
 
 # Copied files
 dist/
-/Chrome/*.js
-/Chrome/*.css
-/Chrome/templates.html
-!/Chrome/background.js
-/Chrome/core/*
-/Chrome/modules/*
-/Chrome/vendor/*
-/OperaBlink/*.js
-/OperaBlink/*.css
-/OperaBlink/templates.html
-!/OperaBlink/background.js
-/OperaBlink/core/*
-/OperaBlink/modules/*
-/OperaBlink/vendor/*
-/RES.safariextension/*.js
-/RES.safariextension/*.css
-/RES.safariextension/templates.html
-/RES.safariextension/core/*
-/RES.safariextension/modules/*
-/RES.safariextension/vendor/*
-/Opera/*.js
-/Opera/*.css
-/Opera/templates.html
-!/Opera/opera-*.js
-/Opera/core/*
-/Opera/modules/*
-/Opera/vendor/*
-!/Opera/includes/*
-/XPI/data/*
-!/XPI/data/images
-!/XPI/lib/main.js
-!/lib/*
-!browsersupport-*.js
-/OperaBlink/browsersupport-chrome.js
 
 /tests/selenium/opera-profile/
 /tests/selenium/opera-profile-patch/
@@ -128,6 +94,7 @@ $RECYCLE.BIN/
 *.suo
 *.user
 *.sln.docstates
+personal/
 
 # Visual C++ cache files
 /IE/ipch/
