@@ -1,26 +1,20 @@
-/* global require: false */
-
 // suppress annoying strict warnings that cfx overrides and turns on
 // comment this line out for releases.
 // require('sdk/preferences/service').set('javascript.options.strict', false);
 
 // Import the APIs we need.
-const pageMod = require('sdk/page-mod');
-const Request = require('sdk/request').Request;
-const self = require('sdk/self');
-const tabs = require('sdk/tabs');
-const ss = require('sdk/simple-storage');
-const priv = require('sdk/private-browsing');
-const windows = require('sdk/windows').browserWindows;
-const viewFor = require('sdk/view/core').viewFor;
-
-const localStorage = ss.storage;
-
-const { ToggleButton } = require('sdk/ui/button/toggle');
-let styleSheetButton;
+import { PageMod } from 'sdk/page-mod';
+import { Request } from 'sdk/request';
+import self from 'sdk/self';
+import tabs from 'sdk/tabs';
+import ss from 'sdk/simple-storage';
+import priv from 'sdk/private-browsing';
+import { browserWindows as windows } from 'sdk/windows';
+import { viewFor } from 'sdk/view/core';
+import { ActionButton } from 'sdk/ui/button/action';
 
 // require chrome allows us to use XPCOM objects...
-const { Cc, Ci, Cu, components } = require('chrome');
+import { Cc, Ci, Cu, components } from 'chrome';
 const historyService = Cc['@mozilla.org/browser/history;1'].getService(Ci.mozIAsyncHistory);
 
 // Cookie manager for new API login
@@ -36,13 +30,7 @@ function makeURI(aURL, aOriginCharset, aBaseURI) {
 	return ioService.newURI(aURL, aOriginCharset, aBaseURI);
 }
 
-const workers = [];
-function detachWorker(worker, workerArray) {
-	const index = workerArray.indexOf(worker);
-	if (index !== -1) {
-		workerArray.splice(index, 1);
-	}
-}
+const localStorage = ss.storage;
 
 localStorage.getItem = function(key) {
 	return ss.storage[key];
@@ -54,92 +42,339 @@ localStorage.removeItem = function(key) {
 	delete ss.storage[key];
 };
 
+const workers = [];
+
+function onAttach() {
+	// prepend to array so the correct worker will be used when navigating forwards
+	// but all bets are off for going back (see workerFor() comments)
+	workers.unshift(this);
+}
+
+function onDetach() {
+	const index = workers.indexOf(this);
+	if (index !== -1) {
+		workers.splice(index, 1);
+	}
+}
+
+function workerFor(tab) {
+	// important: one tab may have many workers associated with it
+	// that is, all workers in the tab's history are kept, and only detached when the tab is closed
+	// this means that if you visit the same url twice (independently) in one tab, there is no way to tell which worker should be used :(
+	const worker = workers.find(({ url, tab: { id } }) => id === tab.id && url === tab.url);
+	if (!worker) {
+		throw new Error(`Worker not found for tab with id: ${tab.id}, url: ${tab.url}`);
+	}
+	return worker;
+}
+
 const XHRCache = {
 	forceCache: false,
 	capacity: 250,
-	entries: {},
-	count: 0,
-	check: function(key) {
-		if (key in this.entries) {
-//			console.log('hit');
-			this.entries[key].hits++;
-			return this.entries[key].data;
-		} else {
-//			console.log('miss');
-			return null;
+	entries: new Map(),
+	check(key) {
+		if (this.entries.has(key)) {
+			const entry = this.entries.get(key);
+			entry.hits++;
+			return entry.data;
 		}
 	},
-	add: function(key, value) {
-		if (key in this.entries) {
+	add(key, value) {
+		if (this.entries.has(key)) {
 			return;
-		} else {
-//			console.log('add');
-			this.entries[key] = {data: value, timestamp: Date.now(), hits: 1};
-			this.count++;
 		}
-		if (this.count > this.capacity) {
+
+		this.entries.set(key, {
+			data: value,
+			timestamp: Date.now(),
+			hits: 1
+		});
+
+		if (this.entries.size > this.capacity) {
 			this.prune();
 		}
 	},
-	prune: function() {
+	prune() {
 		const now = Date.now();
-		const bottom = [];
-		for (let key in this.entries) {
-//			if (this.entries[key].hits === 1) {
-//				delete this.entries[key];
-//				this.count--;
-//				continue;
-//			}
+		const top = Array.from(this.entries.entries())
+			.map(elem => {
+				const [, { hits, timestamp }] = elem;
+				// Weight by hits/age which is similar to reddit's hit/controversial sort orders
+				return {
+					elem,
+					weight: hits / (now - timestamp)
+				};
+			})
+			.sort(({ weight: a }, { weight: b }) => b - a) /* decreasing weight */
+			.slice(0, (this.capacity / 2) | 0)
+			.map(({ elem }) => elem);
 
-			//Weight by hits/age which is similar to reddit's hit/controversial sort orders
-			bottom.push({
-				key: key,
-				weight: this.entries[key].hits/(now - this.entries[key].timestamp)
-			});
-		}
-		bottom.sort(function(a, b){ return a.weight - b.weight; });
-		const count = this.count - Math.floor(this.capacity / 2);
-		for (let i = 0; i < count; i++) {
-			delete this.entries[bottom[i].key];
-			this.count--;
-		}
-//		console.log('prune');
+		this.entries = new Map(top);
 	},
-	clear: function() {
-		this.entries = {};
-		this.count = 0;
+	clear() {
+		this.entries.clear();
 	}
 };
-tabs.on('activate', function() {
-	// find this worker...
-	const worker = getActiveWorker();
-	if (worker) {
-		worker.postMessage({ requestType: 'getLocalStorage', message: localStorage });
-		worker.postMessage({ requestType: 'subredditStyle', message: 'refreshState' });
+
+const listeners = new Map();
+const waiting = new Map();
+let transaction = 0;
+
+/**
+ * @callback MessageListener
+ * @template T
+ * @param {*} data The message data.
+ * @param {Worker} worker The worker object of the sender.
+ * @returns {T|Promise<T, *>} The response data, optionally wrapped in a promise.
+ * Ignored if the listener is silent.
+ */
+
+/**
+ * Register a listener to be invoked whenever a message of <tt>type</tt> is received.
+ * Responses may be sent synchronously or asynchronously:
+ * If <tt>silent</tt> is true, no response will be sent.
+ * If <tt>callback</tt> returns a non-promise value, a response will be sent synchronously.
+ * If <tt>callback</tt> returns a promise, a response will be sent asynchronously when it resolves.
+ * If it rejects, an invalid response will be sent to close the message channel.
+ * @param {string} type
+ * @param {MessageListener} callback
+ * @param {boolean} [silent=false]
+ * @throws {Error} If a listener for <tt>messageType</tt> already exists.
+ * @returns {void}
+ */
+function addListener(type, callback, { silent = false } = {}) {
+	if (listeners.has(type)) {
+		throw new Error(`Listener for message type: ${type} already exists.`);
+	}
+	listeners.set(type, {
+		options: { silent },
+		callback
+	});
+}
+
+/**
+ * Send a message to the content script via <tt>worker</tt>.
+ * @param {string} type
+ * @param {Worker} worker
+ * @param {*} [data]
+ * @returns {Promise<*, Error>} Rejects if an invalid response is received,
+ * resolves with the response data otherwise.
+ */
+function sendMessage(type, worker, data) {
+	++transaction;
+
+	worker.postMessage({ type, data, transaction });
+
+	return new Promise((resolve, reject) => waiting.set(transaction, { resolve, reject }));
+}
+
+function onMessage({ type, data, transaction, isError, isResponse }) {
+	if (isResponse) {
+		if (!waiting.has(transaction)) {
+			throw new Error(`No response handler for type: ${type}, transaction: ${transaction} - this should never happen.`);
+		}
+
+		const handler = waiting.get(transaction);
+		waiting.delete(transaction);
+
+		if (isError) {
+			handler.reject(new Error(`Error in foreground handler for type: ${type}`));
+		} else {
+			handler.resolve(data);
+		}
+
+		return;
+	}
+
+	if (!listeners.has(type)) {
+		throw new Error(`Unrecognised message type: ${type}`);
+	}
+	const listener = listeners.get(type);
+
+	const response = listener.callback(data, this);
+
+	if (listener.options.silent) {
+		return;
+	}
+
+	const sendResponse = ({ data, isError }) => {
+		this.postMessage({ type, data, transaction, isError, isResponse: true });
+	};
+
+	if (response instanceof Promise) {
+		response
+			.then(data => sendResponse({ data }))
+			.catch(error => {
+				sendResponse({ isError: true });
+				throw error;
+			});
+		return true;
+	}
+	sendResponse({ data: response });
+}
+
+// Listeners
+
+addListener('readResource', filename =>
+	self.data.load(filename)
+);
+
+addListener('deleteCookies', cookies =>
+	cookies.forEach(({ name }) => cookieManager.remove('.reddit.com', name, '/', false))
+);
+
+addListener('ajax', ({ method, url, headers, data, credentials, aggressiveCache }) => {
+	const cachedResult = (aggressiveCache || XHRCache.forceCache) && XHRCache.check(url);
+
+	if (cachedResult) {
+		return cachedResult;
+	}
+
+	// not using async/await here since the polyfill doesn't work with Firefox's backend
+	return new Promise(resolve => {
+		const request = Request({
+			url,
+			onComplete: resolve,
+			headers: headers,
+			content: data
+		});
+		if (method === 'POST') {
+			request.post();
+		} else {
+			request.get();
+		}
+	}).then(request => {
+		const response = {
+			status: request.status,
+			responseText: request.text
+		};
+
+		if ((aggressiveCache || XHRCache.forceCache) && response.status === 200 && response.responseText) {
+			XHRCache.add(url, response);
+		}
+
+		return response;
+	});
+});
+
+addListener('getLocalStorage', () => localStorage);
+
+addListener('saveLocalStorage', data => {
+	for (let key in data) { // eslint-disable-line prefer-const
+		localStorage.setItem(key, data[key]);
+	}
+	localStorage.setItem('importedFromForeground', true);
+	return localStorage;
+});
+
+addListener('storage', ({ operation, itemName, itemValue }, worker) => {
+	switch (operation) {
+		case 'getItem':
+			return localStorage.getItem(itemName);
+		case 'removeItem':
+			return localStorage.removeItem(itemName);
+		case 'setItem':
+			localStorage.setItem(itemName, itemValue);
+			return Promise.all(
+				workers
+					.filter(w => w !== worker)
+					.map(w => sendMessage('storage', w, { itemName, itemValue }))
+			);
 	}
 });
 
-function getActiveWorker() {
-	const tab = tabs.activeTab;
-	for (let i in workers) {
-		if (workers[i] && workers[i].tab && (tab.title === workers[i].tab.title)) {
-			return workers[i];
+addListener('XHRCache', ({ operation }) => {
+	switch (operation) {
+		case 'clear':
+			XHRCache.clear();
+			break;
+	}
+});
+
+const pageAction = ActionButton({
+	id: 'res-styletoggle',
+	label: 'toggle subreddit CSS',
+	icon: {
+		16: self.data.url('images/css-disabled-small.png'),
+		32: self.data.url('images/css-disabled.png')
+	},
+	disabled: true,
+	onClick(state) {
+		sendMessage('pageActionClick', workerFor(tabs.activeTab));
+	}
+});
+let destroyed = false;
+
+// since worker state is persisted, the page action state must be refreshed when navigating backwards or forwards
+tabs.on('pageshow', tab => tab.url.includes('reddit.com') && sendMessage('pageActionRefresh', workerFor(tab)));
+
+addListener('pageAction', ({ action, visible }, { tab }) => {
+	if (destroyed) return;
+
+	switch (action) {
+		case 'show':
+			const onOff = visible ? 'on' : 'off';
+			pageAction.state(tab, {
+				disabled: false,
+				icon: {
+					16: self.data.url(`images/css-${onOff}-small.png`),
+					32: self.data.url(`images/css-${onOff}.png`)
+				}
+			});
+			break;
+		case 'hide':
+			pageAction.state(tab, {
+				disabled: true,
+				icon: {
+					16: self.data.url('images/css-disabled-small.png'),
+					32: self.data.url('images/css-disabled.png')
+				}
+			});
+			break;
+		case 'destroy':
+			pageAction.destroy();
+			destroyed = true;
+	}
+});
+
+addListener('openNewTabs', ({ urls, focusIndex }, { tab }) => {
+	const isPrivate = priv.isPrivate(tab);
+	const nsWindow = viewFor(tab.window);
+	const nsTab = viewFor(tab);
+	urls.forEach((url, i) => {
+		if ('TreeStyleTabService' in nsWindow) {
+			nsWindow.TreeStyleTabService.readyToOpenChildTab(nsTab);
 		}
-	}
-	return null;
-}
+		tabs.open({
+			url,
+			isPrivate,
+			inBackground: i !== focusIndex
+		});
+	});
+});
 
-function openTab(options) {
-	const nsWindow = viewFor(tabs.activeTab.window);
-	if ('TreeStyleTabService' in nsWindow) {
-		const nsTab = viewFor(tabs.activeTab);
-		nsWindow.TreeStyleTabService.readyToOpenChildTab(nsTab);
-	}
+addListener('isPrivateBrowsing', (request, worker) => priv.isPrivate(worker));
 
-	tabs.open(options);
-}
+addListener('addURLToHistory', url => {
+	historyService.updatePlaces({
+		uri: makeURI(url),
+		visits: [{
+			transitionType: Ci.nsINavHistoryService.TRANSITION_LINK,
+			visitDate: Date.now() * 1000
+		}]
+	});
+});
 
-pageMod.PageMod({
+addListener('multicast', (request, worker) => {
+	const isPrivate = priv.isPrivate(worker);
+	return Promise.all(
+		workers
+			.filter(w => w !== worker && priv.isPrivate(w) === isPrivate)
+			.map(w => sendMessage('multicast', w, request))
+	);
+});
+
+PageMod({
 	include: ['*.reddit.com'],
 	contentScriptWhen: 'start',
 	contentScriptFile: [
@@ -271,246 +506,13 @@ pageMod.PageMod({
 	],
 	contentStyleFile: [
 		self.data.url('css/res.css'),
+		self.data.url('vendor/players.css'),
 		self.data.url('vendor/guiders.css'),
 		self.data.url('vendor/tokenize.css')
 	],
-	onAttach: function(worker) {
-		// when a tab is activated, repopulate localStorage so that changes propagate across tabs...
-		workers.push(worker);
-		worker.on('detach', function() {
-			detachWorker(this, workers);
-		});
-		worker.on('message', function(request) {
-			let inBackground = prefs.getBoolPref('browser.tabs.loadInBackground'),
-				isPrivate, thisLinkURL;
-
-			switch (request.requestType) {
-				case 'readResource':
-					const fileData = self.data.load(request.filename);
-					worker.postMessage({ requestType: 'readResource', data: fileData, transaction: request.transaction });
-					break;
-				case 'deleteCookie':
-					cookieManager.remove('.reddit.com', request.cname, '/', false);
-					worker.postMessage({removedCookie: request.cname});
-					break;
-				case 'ajax':
-					const responseObj = {
-						XHRID: request.XHRID,
-						requestType: request.requestType
-					};
-					if (request.aggressiveCache || XHRCache.forceCache) {
-						const cachedResult = XHRCache.check(request.url);
-						if (cachedResult) {
-							responseObj.response = cachedResult;
-							worker.postMessage(responseObj);
-							return;
-						}
-					}
-					if (request.method === 'POST') {
-						Request({
-							url: request.url,
-							onComplete: function(response) {
-								responseObj.response = {
-									responseText: response.text,
-									status: response.status
-								};
-								//Only cache on HTTP OK and non empty body
-								if ((request.aggressiveCache || XHRCache.forceCache) && (response.status === 200 && response.text)) {
-									XHRCache.add(request.url, responseObj.response);
-								}
-								worker.postMessage(responseObj);
-							},
-							headers: request.headers,
-							content: request.data
-						}).post();
-					} else {
-						Request({
-							url: request.url,
-							onComplete: function(response) {
-								responseObj.response = {
-									responseText: response.text,
-									status: response.status
-								};
-								if ((request.aggressiveCache || XHRCache.forceCache) && (response.status === 200 && response.text)) {
-									XHRCache.add(request.url, responseObj.response);
-								}
-								worker.postMessage(responseObj);
-							},
-							headers: request.headers,
-							content: request.data
-						}).get();
-					}
-
-					break;
-				case 'singleClick':
-					inBackground = ((request.button === 1) || (request.ctrl === 1));
-					isPrivate = priv.isPrivate(windows.activeWindow);
-
-					// handle requests from singleClick module
-					if (request.openOrder === 'commentsfirst') {
-						// only open a second tab if the link is different...
-						if (request.linkURL !== request.commentsURL) {
-							openTab({url: request.commentsURL, inBackground: inBackground, isPrivate: isPrivate });
-						}
-						openTab({url: request.linkURL, inBackground: inBackground, isPrivate: isPrivate });
-					} else {
-						openTab({url: request.linkURL, inBackground: inBackground, isPrivate: isPrivate });
-						// only open a second tab if the link is different...
-						if (request.linkURL !== request.commentsURL) {
-							openTab({url: request.commentsURL, inBackground: inBackground, isPrivate: isPrivate });
-						}
-					}
-					worker.postMessage({status: 'success'});
-					break;
-				case 'keyboardNav':
-					inBackground = (request.button === 1);
-					isPrivate = priv.isPrivate(windows.activeWindow);
-
-					// handle requests from keyboardNav module
-					thisLinkURL = request.linkURL;
-					if (thisLinkURL.toLowerCase().substring(0, 4) !== 'http') {
-						thisLinkURL = (thisLinkURL.substring(0, 1) === '/') ? 'http://www.reddit.com' + thisLinkURL : location.href + thisLinkURL;
-					}
-					// Get the selected tab so we can get the index of it.  This allows us to open our new tab as the "next" tab.
-					openTab({url: thisLinkURL, inBackground: inBackground, isPrivate: isPrivate });
-					worker.postMessage({status: 'success'});
-					break;
-				case 'openLinkInNewTab':
-					inBackground = (request.focus !== true);
-					isPrivate = priv.isPrivate(windows.activeWindow);
-
-					thisLinkURL = request.linkURL;
-					if (thisLinkURL.toLowerCase().substring(0, 4) !== 'http') {
-						thisLinkURL = (thisLinkURL.substring(0, 1) === '/') ? 'http://www.reddit.com' + thisLinkURL : location.href + thisLinkURL;
-					}
-					// Get the selected tab so we can get the index of it.  This allows us to open our new tab as the "next" tab.
-					openTab({url: thisLinkURL, inBackground: inBackground, isPrivate: isPrivate });
-					worker.postMessage({status: 'success'});
-					break;
-				case 'getLocalStorage':
-					worker.postMessage({ requestType: 'getLocalStorage', message: localStorage });
-					break;
-				case 'saveLocalStorage':
-					for (let key in request.data) {
-						localStorage.setItem(key, request.data[key]);
-					}
-					localStorage.setItem('importedFromForeground', true);
-					worker.postMessage({ requestType: 'saveLocalStorage', message: localStorage });
-					break;
-				case 'localStorage':
-					switch (request.operation) {
-						case 'getItem':
-							worker.postMessage({status: true, value: localStorage.getItem(request.itemName)});
-							break;
-						case 'removeItem':
-							localStorage.removeItem(request.itemName);
-							// worker.postMessage({status: true, value: null});
-							break;
-						case 'setItem':
-							localStorage.setItem(request.itemName, request.itemValue);
-							break;
-					}
-					break;
-				case 'XHRCache':
-					switch (request.operation) {
-						case 'clear':
-							XHRCache.clear();
-							break;
-					}
-					break;
-				case 'pageAction':
-					const onoff = request.visible ? 'on' : 'off';
-					switch (request.action) {
-						case 'show':
-							if (!styleSheetButton) {
-								styleSheetButton = ToggleButton({
-									id: 'res-styletoggle',
-									label: 'toggle subreddit CSS',
-									disabled: false,
-									checked: request.visible,
-									icon: {
-										'16': self.data.url('images/css-' + onoff + '-small.png'),
-										'32': self.data.url('images/css-' + onoff + '.png')
-									},
-									onChange: function(state) {
-										const worker = getActiveWorker();
-										worker.postMessage({
-											requestType: 'subredditStyle',
-											toggle: state.checked
-										});
-									}
-								});
-							} else {
-								styleSheetButton.state('tab', {
-									label: 'toggle subreddit CSS',
-									icon: {
-										'16': self.data.url('images/css-' + onoff + '-small.png'),
-										'32': self.data.url('images/css-' + onoff + '.png')
-									},
-									disabled: false,
-									checked: request.visible
-								});
-							}
-							break;
-						case 'stateChange':
-							if (styleSheetButton) {
-								styleSheetButton.state('tab', {
-									label: 'toggle subreddit CSS',
-									icon: {
-										'16': self.data.url('images/css-' + onoff + '-small.png'),
-										'32': self.data.url('images/css-' + onoff + '.png')
-									},
-									disabled: false,
-									checked: request.visible
-								});
-							}
-							break;
-						case 'disable':
-							if (styleSheetButton) {
-								styleSheetButton.state('tab', {
-									label: 'toggle subreddit CSS (must be on a subreddit)',
-									disabled: true,
-									checked: true
-								});
-							}
-							break;
-						case 'hide':
-							if (styleSheetButton) {
-								styleSheetButton.destroy();
-							}
-							break;
-					}
-					break;
-				case 'addURLToHistory':
-					isPrivate = priv.isPrivate(windows.activeWindow);
-					if (isPrivate) {
-						// do not add to history if in private browsing mode!
-						return false;
-					}
-					const uri = makeURI(request.url);
-					historyService.updatePlaces({
-						uri: uri,
-						visits: [{
-							transitionType: Ci.nsINavHistoryService.TRANSITION_LINK,
-							visitDate: Date.now() * 1000
-						}]
-					});
-					break;
-				case 'multicast':
-					isPrivate = priv.isPrivate(worker);
-					workers
-						.filter(function(w) {
-							return (w !== worker) && (priv.isPrivate(w) === isPrivate);
-						})
-						.forEach(function(worker) {
-							worker.postMessage(request);
-						});
-
-					break;
-				default:
-					worker.postMessage({status: 'unrecognized request type'});
-					break;
-			}
-		});
+	onAttach(worker) {
+		onAttach.call(worker);
+		worker.on('detach', onDetach);
+		worker.on('message', onMessage);
 	}
 });

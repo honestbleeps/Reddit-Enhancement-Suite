@@ -6,7 +6,8 @@
 	"env": {
 		"browser": true,
 		"webextensions": true,
-		"jquery": true
+		"jquery": true,
+		"es6": true
 	},
 	"globals": {
 		"Favico": false,
@@ -15,28 +16,17 @@
 		"Pasteurizer": false,
 		"Snudown": false,
 		"Konami": false,
-		"MediaPlayer": false,
 		"gfyObject": false,
 
 		"unsafeWindow": false,
-		"permissionQueue": false,
 
 		"RESUtils": true,
 		"RESMetadata": true,
 		"modules": true,
 		"libraries": true,
 		"RESEnvironment": true,
-		"RESdoBeforeLoad": true,
-		"RESInit": true,
-		"xhrQueue": true,
-		"RESConsole": true,
 		"RESStorage": true,
-		"RESRunOnce": true,
-		"RESInitReadyCheck": true,
-		"RESdoAfterLoad": true,
 		"safeJSON": true,
-		"RESVersion": true,
-		"RESdefaultModuleID": true,
 		"escapeHTML": true,
 		"addModule": true,
 		"addLibrary": true,
@@ -54,7 +44,7 @@
 		//"babel/new-cap": 2,
 		//"babel/object-curly-spacing": [2, "always"],
 		//"babel/object-shorthand": 2,
-		//"babel/arrow-parens": [2, "as-needed"],
+		"babel/arrow-parens": [2, "as-needed"],
 		"babel/no-await-in-loop": 2,
 
 		// ES6
@@ -106,7 +96,7 @@
 		"no-unexpected-multiline": 2,
 		"no-unreachable": 2,
 		"use-isnan": 2,
-		//"valid-jsdoc": [2, { "requireParamDescription": false, "prefer": { "return": "returns" } }],
+		"valid-jsdoc": [2, { "requireParamDescription": false, "requireReturnDescription": false, "prefer": { "return": "returns" } }],
 		"valid-typeof": 2,
 
 		// Best Practices

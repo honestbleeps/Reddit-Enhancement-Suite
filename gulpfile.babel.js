@@ -11,6 +11,7 @@ import autoprefixer from 'gulp-autoprefixer';
 import merge from 'merge-stream';
 import cache from 'gulp-cached';
 import plumber from 'gulp-plumber';
+import filter from 'gulp-filter';
 import sourcemaps from 'gulp-sourcemaps';
 import eslint from 'gulp-eslint';
 import scsslint from 'gulp-scss-lint';
@@ -141,7 +142,10 @@ gulp.task('clean', () =>
 
 gulp.task('watch', ['build'], () => {
 	const sources = browsers.reduce(
-		(acc, browser) => acc.concat(browserConf[browser].sources.reduce((a, { src }) => a.concat(src), [])),
+		(acc, browser) => acc.concat(browserConf[browser].sources.reduce(
+			(a, { cwd = '', src }) => a.concat(src.map(s => path.join(cwd, s))),
+			browserConf[browser].manifest ? [browserConf[browser].manifest] : []
+		)),
 		[baseConf.sources.copy.cwd]
 	);
 
@@ -184,11 +188,19 @@ gulp.task('copy', () =>
 
 gulp.task('copy-browser', () =>
 	merge(
-		browsers.map(browser =>
-			merge(browserConf[browser].sources.map(paths => src(paths)))
+		browsers.map(browser => {
+			const jsFilter = filter('**/*.js', { restore: true });
+			return merge(browserConf[browser].sources.map(paths => src(paths)))
 				.pipe(cache(browser))
-				.pipe(dest(getBuildDir(browser)))
-		)
+				.pipe(jsFilter)
+				.pipe(plumber())
+				.pipe(sourcemaps.init())
+				.pipe(babel())
+				.pipe(sourcemaps.write('.'))
+				.pipe(plumber.stop())
+				.pipe(jsFilter.restore)
+				.pipe(dest(getBuildDir(browser)));
+		})
 	)
 );
 
@@ -287,12 +299,17 @@ gulp.task('zip', () => {
 
 gulp.task('travis', ['eslint', 'scsslint', 'qunit']);
 
-gulp.task('eslint', () =>
-	src(baseConf.sources.babel)
+gulp.task('eslint', () => {
+	const jsFilter = filter('**/*.js');
+	return merge(
+		src(baseConf.sources.babel),
+		merge(browsers.map(browser => merge(browserConf[browser].sources.map(paths => src(paths)))))
+			.pipe(jsFilter)
+	)
 		.pipe(eslint())
 		.pipe(eslint.formatEach())
-		.pipe(eslint.failAfterError())
-);
+		.pipe(eslint.failAfterError());
+});
 
 gulp.task('scsslint', () =>
 	src(baseConf.sources.sass)

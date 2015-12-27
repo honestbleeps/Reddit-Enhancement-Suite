@@ -3,6 +3,7 @@
 		"Hogan": "vendor/hogan-3.0.2.js"
 	},
 	"core": [
+		"vendor/polyfill.min.js",
 		"mocks.js",
 		"browsersupport.js",
 		"browsersupport-node.js",

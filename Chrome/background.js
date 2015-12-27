@@ -32,284 +32,283 @@
 
 /* global chrome: false */
 
-var XHRCache = {
+const XHRCache = {
 	forceCache: false,
 	capacity: 250,
-	entries: {},
-	count: 0,
-	check: function(key) {
-		if (key in this.entries) {
-//				console.count('hit');
-			this.entries[key].hits++;
-			return this.entries[key].data;
-		} else {
-//				console.count('miss');
-			return null;
+	entries: new Map(),
+	check(key) {
+		if (this.entries.has(key)) {
+			const entry = this.entries.get(key);
+			entry.hits++;
+			return entry.data;
 		}
 	},
-	add: function(key, value) {
-		if (key in this.entries) {
+	add(key, value) {
+		if (this.entries.has(key)) {
 			return;
-		} else {
-//				console.count('add');
-			this.entries[key] = {data: value, timestamp: Date.now(), hits: 1};
-			this.count++;
 		}
-		if (this.count > this.capacity) {
+
+		this.entries.set(key, {
+			data: value,
+			timestamp: Date.now(),
+			hits: 1
+		});
+
+		if (this.entries.size > this.capacity) {
 			this.prune();
 		}
 	},
-	prune: function() {
-		var now = Date.now();
-		var bottom = [];
-		for (var key in this.entries) {
-//				if (this.entries[key].hits === 1) {
-//					delete this.entries[key];
-//					this.count--;
-//					continue;
-//				}
+	prune() {
+		const now = Date.now();
+		const top = Array.from(this.entries.entries())
+			.map(elem => {
+				const [, { hits, timestamp }] = elem;
+				// Weight by hits/age which is similar to reddit's hit/controversial sort orders
+				return {
+					elem,
+					weight: hits / (now - timestamp)
+				};
+			})
+			.sort(({ weight: a }, { weight: b }) => b - a) /* decreasing weight */
+			.slice(0, (this.capacity / 2) | 0)
+			.map(({ elem }) => elem);
 
-			//Weight by hits/age which is similar to reddit's hit/controversial sort orders
-			bottom.push({
-				key: key,
-				weight: this.entries[key].hits/(now - this.entries[key].timestamp)
-			});
-		}
-		bottom.sort(function(a,b){return a.weight-b.weight;});
-		var count = this.count - Math.floor(this.capacity / 2);
-		for (var i = 0; i < count; i++) {
-			delete this.entries[bottom[i].key];
-			this.count--;
-		}
-//			console.count('prune');
+		this.entries = new Map(top);
 	},
-	clear: function() {
-		this.entries = {};
-		this.count = 0;
+	clear() {
+		this.entries.clear();
 	}
 };
 
-var handlePageActionClick = function(event) {
-	chrome.tabs.sendMessage(event.id, { requestType: 'subredditStyle', action: 'toggle'  }, function(response) {
-		// we don't really need to do anything here.
-		console.log(response);
+function apiToPromise(func) {
+	return (...args) =>
+		new Promise((resolve, reject) =>
+			func(...args, (...results) => {
+				if (chrome.runtime.lastError) {
+					reject(new Error(chrome.runtime.lastError.message));
+				} else {
+					resolve(results.length > 1 ? results : results[0]);
+				}
+			})
+		);
+}
+
+const listeners = new Map();
+
+/**
+ * @callback MessageListener
+ * @template T
+ * @param {*} data The message data.
+ * @param {Tab} tab The tab object of the sender.
+ * @returns {T|Promise<T, *>} The response data, optionally wrapped in a promise.
+ * Ignored if the listener is silent.
+ */
+
+/**
+ * Register a listener to be invoked whenever a message of <tt>type</tt> is received.
+ * Responses may be sent synchronously or asynchronously:
+ * If <tt>silent</tt> is true, no response will be sent.
+ * If <tt>callback</tt> returns a non-promise value, a response will be sent synchronously.
+ * If <tt>callback</tt> returns a promise, a response will be sent asynchronously when it resolves.
+ * If it rejects, an invalid response will be sent to close the message channel.
+ * @param {string} type
+ * @param {MessageListener} callback
+ * @param {boolean} [silent=false]
+ * @throws {Error} If a listener for <tt>messageType</tt> already exists.
+ * @returns {void}
+ */
+function addListener(type, callback, { silent = false } = {}) {
+	if (listeners.has(type)) {
+		throw new Error(`Listener for message type: ${type} already exists.`);
+	}
+	listeners.set(type, {
+		options: { silent },
+		callback
 	});
-};
+}
 
-chrome.pageAction.onClicked.addListener(handlePageActionClick);
+/**
+ * Send a message to the content script at <tt>tabId</tt>.
+ * @param {string} type
+ * @param {number|string} tabId
+ * @param {*} [data]
+ * @returns {Promise<*, Error>} Rejects if an invalid response is received,
+ * resolves with the response data otherwise.
+ */
+async function sendMessage(type, tabId, data) {
+	const message = { type, data };
+	const target = parseInt(tabId, 10);
 
-chrome.runtime.onMessage.addListener(
-	function(request, sender, sendResponse) {
-		var xhr, button, newIndex, thisLinkURL;
-		switch (request.requestType) {
-			case 'deleteCookie':
-				// Get chrome cookie handler
-				if (!chrome.cookies) {
-					chrome.cookies = chrome.experimental.cookies;
-				}
-				chrome.cookies.remove({'url': request.host, 'name': request.cname});
-				sendResponse({removedCookie: request.cname});
-				break;
-			case 'ajax':
-				if (request.aggressiveCache || XHRCache.forceCache) {
-					var cachedResult = XHRCache.check(request.url);
-					if (cachedResult) {
-						sendResponse(cachedResult);
-						return;
-					}
-				}
-				xhr = new XMLHttpRequest();
-				xhr.open(request.method, request.url, true);
-				if (request.method === 'POST') {
-					xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-				}
-				if (request.headers) {
-					for (var header in request.headers) {
-						if (!request.headers.hasOwnProperty(header)) continue;
-						xhr.setRequestHeader(header, request.headers[header]);
-					}
-				}
-				xhr.onreadystatechange = function() {
-					if (xhr.readyState === 4) {
-						// Only store `status`, `responseText` and `responseURL` fields
-						var response = {status: xhr.status, responseText: xhr.responseText, responseURL: xhr.responseURL };
-						sendResponse(response);
-						// Only cache on HTTP OK and non empty body
-						if ((request.aggressiveCache || XHRCache.forceCache) && (xhr.status === 200 && xhr.responseText)) {
-							XHRCache.add(request.url, response);
-						}
-					}
-				};
-				xhr.send(request.data);
-				return true;
-			case 'singleClick':
-				button = (request.button !== 1) && (request.ctrl !== 1);
-				// Get the selected tab so we can get the index of it.  This allows us to open our new tab as the "next" tab.
-				newIndex = sender.tab.index + 1;
-				// handle requests from singleClick module
-				if (request.openOrder === 'commentsfirst') {
-					// only open a second tab if the link is different...
-					if (request.linkURL !== request.commentsURL) {
-						chrome.tabs.create({url: request.commentsURL, selected: button, index: newIndex, openerTabId: sender.tab.id});
-					}
-					chrome.tabs.create({url: request.linkURL, selected: button, index: newIndex+1, openerTabId: sender.tab.id});
-				} else {
-					chrome.tabs.create({url: request.linkURL, selected: button, index: newIndex, openerTabId: sender.tab.id});
-					// only open a second tab if the link is different...
-					if (request.linkURL !== request.commentsURL) {
-						chrome.tabs.create({url: request.commentsURL, selected: button, index: newIndex+1, openerTabId: sender.tab.id});
-					}
-				}
-				sendResponse({status: 'success'});
-				break;
-			case 'keyboardNav':
-				button = (request.button !== 1);
-				// handle requests from keyboardNav module
-				thisLinkURL = request.linkURL;
-				if (thisLinkURL.toLowerCase().substring(0, 4) !== 'http') {
-					thisLinkURL = (thisLinkURL.substring(0, 1) === '/') ? 'http://www.reddit.com' + thisLinkURL : location.href + thisLinkURL;
-				}
-				// Get the selected tab so we can get the index of it.  This allows us to open our new tab as the "next" tab.
-				newIndex = sender.tab.index + 1;
-				chrome.tabs.create({url: thisLinkURL, selected: button, index: newIndex, openerTabId: sender.tab.id});
-				sendResponse({status: 'success'});
-				break;
-			case 'openLinkInNewTab':
-				var focus = (request.focus === true);
-				// handle requests from keyboardNav module
-				thisLinkURL = request.linkURL;
-				if (thisLinkURL.toLowerCase().substring(0, 4) !== 'http') {
-					thisLinkURL = (thisLinkURL.substring(0, 1) === '/') ? 'http://www.reddit.com' + thisLinkURL : location.href + thisLinkURL;
-				}
-				// Get the selected tab so we can get the index of it.  This allows us to open our new tab as the "next" tab.
-				newIndex = sender.tab.index + 1;
-				chrome.tabs.create({url: thisLinkURL, selected: focus, index: newIndex, openerTabId: sender.tab.id});
-				sendResponse({status: 'success'});
-				break;
-			case 'compareVersion':
-				xhr = new XMLHttpRequest();
-				xhr.open('GET', request.url, true);
-				xhr.onreadystatechange = function() {
-					if (xhr.readyState === 4) {
-						// JSON.parse does not evaluate the attacker's scripts.
-						var resp = JSON.parse(xhr.responseText);
-						sendResponse(resp);
-					}
-				};
-				xhr.send();
-				return true;
-			case 'getLocalStorage':
-				sendResponse(localStorage);
-				break;
-			case 'saveLocalStorage':
-				for (var key in request.data) {
-					localStorage.setItem(key,request.data[key]);
-				}
-				localStorage.setItem('importedFromForeground', true);
-				sendResponse(localStorage);
-				break;
-			case 'localStorage':
-				switch (request.operation) {
-					case 'getItem':
-						sendResponse({status: true, value: localStorage.getItem(request.itemName)});
-						break;
-					case 'removeItem':
-						localStorage.removeItem(request.itemName);
-						sendResponse({status: true, value: null});
-						break;
-					case 'setItem':
-						localStorage.setItem(request.itemName, request.itemValue);
-						sendResponse({status: true, value: null});
-						var thisTabID = sender.tab.id;
-						chrome.tabs.query({}, function(tabs){
-							for (var i = 0; i < tabs.length; i++) {
-								if (thisTabID !== tabs[i].id) {
-									chrome.tabs.sendMessage(tabs[i].id, { requestType: 'localStorage', itemName: request.itemName, itemValue: request.itemValue });
-								}
-							}
-						});
-						break;
-				}
-				break;
-			case 'addURLToHistory':
-				chrome.history.addUrl({url: request.url});
-				break;
-			case 'permissions':
-				if (request.action === 'remove') {
-					chrome.permissions.remove(request.data, function(removed) {
-						request.result = removed;
-						chrome.tabs.sendMessage(chrome.tabs.getCurrent(), request, function(response) {
-							// we don't really need to do anything here.
-							console.log(response);
-						});
-					});
-				} else {
-					chrome.permissions.request(request.data, function(granted) {
-						request.result = granted;
-						chrome.tabs.query({ active: true, windowId: chrome.windows.WINDOW_ID_CURRENT }, function(tab) {
-							chrome.tabs.sendMessage(tab[0].id, request, function(response) {
-								// we don't really need to do anything here.
-								console.log(response);
-							});
-						});
+	const response = await apiToPromise(chrome.tabs.sendMessage)(target, message);
 
-					});
-				}
-				break;
-			case 'XHRCache':
-				switch (request.operation) {
-					case 'clear':
-						XHRCache.clear();
-						break;
-				}
-				break;
-			case 'pageAction':
-				switch (request.action) {
-					case 'show':
-						chrome.pageAction.show(sender.tab.id);
-						/* falls through */
-					case 'stateChange':
-						if (request.visible) {
-							chrome.pageAction.setIcon({
-								tabId: sender.tab.id,
-								path: {
-									19: 'images/css-on-small.png',
-									38: 'images/css-on.png'
-								}
-							});
-						} else {
-							chrome.pageAction.setIcon({
-								tabId: sender.tab.id,
-								path: {
-									19: 'images/css-off-small.png',
-									38: 'images/css-off.png'
-								}
-							});
-						}
-						break;
-					case 'hide':
-						chrome.pageAction.hide(sender.tab.id);
-						break;
-				}
-				break;
-			case 'multicast':
-				chrome.tabs.query({
-					status: 'complete',
-				}, function(tabs) {
-					var incognito = sender.tab.incognito;
-					tabs = tabs.filter(function(tab) {
-						return (sender.tab.id !== tab.id) &&
-							(incognito === tab.incognito);
-					});
-
-					tabs.forEach(function(tab) {
-						chrome.tabs.sendMessage(tab.id, request, function(response) { });
-					});
-				});
-				break;
-			default:
-				sendResponse({status: 'unrecognized request type'});
-				break;
-		}
+	if (!response) {
+		throw new Error(`Error in foreground handler for type: ${type}`);
 	}
+
+	return response.data;
+}
+
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+	const { type, data } = request;
+	const tab = sender.tab;
+
+	if (!listeners.has(type)) {
+		throw new Error(`Unrecognised message type: ${type}`);
+	}
+	const listener = listeners.get(type);
+
+	const response = listener.callback(data, tab);
+
+	if (listener.options.silent) {
+		return false;
+	}
+
+	if (response instanceof Promise) {
+		response
+			.then(data => sendResponse({ data }))
+			.catch(error => {
+				sendResponse();
+				throw error;
+			});
+		return true;
+	}
+	sendResponse({ data: response });
+});
+
+// Listeners
+
+addListener('ajax', async ({ method, url, headers, data, credentials, aggressiveCache }) => {
+	const cachedResult = (aggressiveCache || XHRCache.forceCache) && XHRCache.check(url);
+
+	if (cachedResult) {
+		return cachedResult;
+	}
+
+	const request = new XMLHttpRequest();
+
+	const load = Promise.race([
+		new Promise(resolve => request.onload = resolve),
+		new Promise(resolve => request.onerror = resolve)
+			.then(() => { throw new Error(`XHR error - url: ${url}`); })
+	]);
+
+	request.open(method, url, true);
+
+	for (const name in headers) {
+		request.setRequestHeader(name, headers[name]);
+	}
+
+	if (credentials) {
+		request.withCredentials = true;
+	}
+
+	request.send(data);
+
+	await load;
+
+	// Only store `status`, `responseText` and `responseURL` fields
+	const response = {
+		status: request.status,
+		responseText: request.responseText,
+		responseURL: request.responseURL
+	};
+
+	// Only cache on HTTP OK and non empty body
+	if ((aggressiveCache || XHRCache.forceCache) && response.status === 200 && response.responseText) {
+		XHRCache.add(url, response);
+	}
+
+	return response;
+});
+
+addListener('permissions', async ({ permissions, origins }, { id: tabId }) => {
+	const hasPermissions = await apiToPromise(chrome.permissions.contains)({ permissions, origins });
+	if (hasPermissions) {
+		return true;
+	}
+	await sendMessage('userGesture', tabId);
+	return apiToPromise(chrome.permissions.request)({ permissions, origins });
+});
+
+addListener('getLocalStorage', () => localStorage);
+
+addListener('saveLocalStorage', data => {
+	for (const key in data) {
+		localStorage.setItem(key, data[key]);
+	}
+	localStorage.setItem('importedFromForeground', true);
+	return localStorage;
+});
+
+addListener('storage', async ({ operation, itemName, itemValue }, { id: tabId }) => {
+	switch (operation) {
+		case 'getItem':
+			return localStorage.getItem(itemName);
+		case 'removeItem':
+			return localStorage.removeItem(itemName);
+		case 'setItem':
+			localStorage.setItem(itemName, itemValue);
+			return Promise.all(
+				(await apiToPromise(chrome.tabs.query)({ url: '*://*.reddit.com/*', status: 'complete' }))
+					.filter(({ id }) => id !== tabId)
+					.map(({ id }) => sendMessage('storage', id, { itemName, itemValue }))
+			);
+	}
+});
+
+addListener('deleteCookies', cookies =>
+	cookies.forEach(({ url, name }) => chrome.cookies.remove({ url, name }))
+);
+
+addListener('openNewTabs', ({ urls, focusIndex }, { id: tabId, index: currentIndex }) => {
+	urls.forEach((url, i) => chrome.tabs.create({
+		url,
+		selected: i === focusIndex,
+		index: ++currentIndex,
+		openerTabId: tabId
+	}));
+});
+
+addListener('addURLToHistory', url => {
+	chrome.history.addUrl({ url });
+});
+
+addListener('XHRCache', ({ operation }) => {
+	switch (operation) {
+		case 'clear':
+			XHRCache.clear();
+			break;
+	}
+});
+
+chrome.pageAction.onClicked.addListener(({ id: tabId }) =>
+	sendMessage('pageActionClick', tabId)
+);
+
+addListener('pageAction', ({ action, visible }, { id: tabId }) => {
+	switch (action) {
+		case 'show':
+			chrome.pageAction.show(tabId);
+			const onOff = visible ? 'on' : 'off';
+			chrome.pageAction.setIcon({
+				tabId,
+				path: {
+					19: `images/css-${onOff}-small.png`,
+					38: `images/css-${onOff}.png`
+				}
+			});
+			break;
+		case 'hide':
+		case 'destroy':
+			chrome.pageAction.hide(tabId);
+			break;
+	}
+});
+
+addListener('multicast', async (request, { id: tabId, incognito }) =>
+	Promise.all(
+		(await apiToPromise(chrome.tabs.query)({ url: '*://*.reddit.com/*', status: 'complete' }))
+			.filter(tab => tab.id !== tabId && tab.incognito === incognito)
+			.map(({ id }) => sendMessage('multicast', id, request))
+	)
 );

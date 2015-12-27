@@ -1,22 +1,25 @@
 /* eslint-env node */
 
-var fs = require('fs');
-var _eval = require('eval');
-var requireNew = require('require-new');
-var yargs = require('yargs')
+import fs from 'fs';
+import _eval from 'eval';
+import requireNew  from 'require-new';
+
+import _yargs from 'yargs';
+const yargs = _yargs
 	.count('verbose')
     .alias('v', 'verbose')
     .default('storage', 'andytuba-4.5.4')
 	.default('assertstorage', 'andytuba-4.5.4-6dffad39')
 	.default('ignorestorage', '_ignore-4.5.4-6dffad39')
 	.argv;
-var files = require('./files.json');
-var equals = require('deep-equal');
 
-var VERBOSE_LEVEL = yargs.verbose;
-function WARN()  { (VERBOSE_LEVEL >= 0 && console.log.apply(console, arguments)); }
-function INFO()  { (VERBOSE_LEVEL >= 1 && console.log.apply(console, arguments)); }
-function DEBUG() { (VERBOSE_LEVEL >= 2 && console.log.apply(console, arguments)); }
+import files from './files.json';
+import equals from 'deep-equal';
+
+const VERBOSE_LEVEL = yargs.verbose;
+function WARN(...args)  { if (VERBOSE_LEVEL >= 0) console.log(...args); }
+function INFO(...args)  { if (VERBOSE_LEVEL >= 1) console.log(...args); }
+function DEBUG(...args) { if (VERBOSE_LEVEL >= 2) console.log(...args); }
 
 /*
 WARN("Showing only important stuff");
@@ -26,7 +29,7 @@ DEBUG("Extra chatty mode");
 
 var storage = {};
 if (yargs.storage) {
-	var storage = require('./storage/' + yargs.storage + '.json');
+	storage = require('./storage/' + yargs.storage + '.json');
 	INFO('Loaded storage from', yargs.storage, ' - loaded ', Object.getOwnPropertyNames(storage).length, 'items');
 } else {
 	INFO('Using empty storage');
@@ -53,7 +56,7 @@ function importFile(filename, key) {
 	if (key) {
 		global[key] = exports;
 	} else {
-		for (var key in exports) {
+		for (const key in exports) {
 			if (!exports.hasOwnProperty(key)) continue;
 			global[key] = exports[key];
 		}
@@ -84,14 +87,14 @@ if (yargs.assertstorage) {
 			continue;
 		}
 		DEBUG('Comparing key', key);
-		var expectedValue = 0, actualValue = -1, error = false;
+		let expectedValue = 0, actualValue = -1, error = false;
 		if (key.indexOf('RESoptions.') === 0) {
 			try {
-				var expectedOptions = typeof expected[key] === 'string' && JSON.parse(expected[key]);
-				var actualOptions = typeof actual[key] === 'string' && JSON.parse(actual[key]);
+				const expectedOptions = typeof expected[key] === 'string' && JSON.parse(expected[key]);
+				const actualOptions = typeof actual[key] === 'string' && JSON.parse(actual[key]);
 				for (var option in expectedOptions) {
-					var expectedValue = expectedOptions[option].value;
-					var actualValue = (actualOptions[option] || {}).value;
+					expectedValue = expectedOptions[option].value;
+					actualValue = (actualOptions[option] || {}).value;
 					error = !equals(expectedValue, actualValue);
 					if (error) addError(key + '::' + option, error, expectedValue, actualValue);
 				}
