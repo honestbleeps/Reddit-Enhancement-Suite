@@ -164,8 +164,9 @@ window.onunload = () => {};
 	})();
 
 	// Safari has no pageAction
-	RESEnvironment.pageAction = (action, visible = false) =>
-		Promise.resolve();
+	RESEnvironment.pageAction.show = () => Promise.resolve();
+	RESEnvironment.pageAction.hide = () => Promise.resolve();
+	RESEnvironment.pageAction.destroy = () => Promise.resolve();
 
 	RESEnvironment.storageSetup = async () => {
 		let response = await RESEnvironment._sendMessage('getLocalStorage');

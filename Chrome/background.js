@@ -285,11 +285,11 @@ chrome.pageAction.onClicked.addListener(({ id: tabId }) =>
 	sendMessage('pageActionClick', tabId)
 );
 
-addListener('pageAction', ({ action, visible }, { id: tabId }) => {
+addListener('pageAction', ({ action, state }, { id: tabId }) => {
 	switch (action) {
 		case 'show':
 			chrome.pageAction.show(tabId);
-			const onOff = visible ? 'on' : 'off';
+			const onOff = state ? 'on' : 'off';
 			chrome.pageAction.setIcon({
 				tabId,
 				path: {
