@@ -33,30 +33,24 @@ window.onunload = () => {};
 	 * @template T
 	 * @param {*} data The message data.
 	 * @returns {T|Promise<T, *>} The response data, optionally wrapped in a promise.
-	 * Ignored if the listener is silent.
 	 */
 
 	/**
 	 * Register a listener to be invoked whenever a message of <tt>type</tt> is received.
 	 * Responses may be sent synchronously or asynchronously:
-	 * If <tt>silent</tt> is true, no response will be sent.
 	 * If <tt>callback</tt> returns a non-promise value, a response will be sent synchronously.
 	 * If <tt>callback</tt> returns a promise, a response will be sent asynchronously when it resolves.
 	 * If it rejects, an invalid response will be sent.
 	 * @param {string} type
 	 * @param {MessageListener} callback
-	 * @param {boolean} [silent=false]
 	 * @throws {Error} If a listener for <tt>messageType</tt> already exists.
 	 * @returns {void}
 	 */
-	function addListener(type, callback, { silent = false } = {}) {
+	function addListener(type, callback) {
 		if (listeners.has(type)) {
 			throw new Error(`Listener for message type: ${type} already exists.`);
 		}
-		listeners.set(type, {
-			options: { silent },
-			callback
-		});
+		listeners.set(type, { callback });
 	}
 
 	/**
@@ -97,14 +91,17 @@ window.onunload = () => {};
 		}
 		const listener = listeners.get(type);
 
-		const response = listener.callback(data);
-
-		if (listener.options.silent) {
-			return;
-		}
-
 		function sendResponse({ data, isError }) {
 			safari.self.tab.dispatchMessage(type, { data, transaction, isError, isResponse: true });
+		}
+
+		let response;
+
+		try {
+			response = listener.callback(data);
+		} catch (e) {
+			sendResponse({ isError: true });
+			throw e;
 		}
 
 		if (response instanceof Promise) {
