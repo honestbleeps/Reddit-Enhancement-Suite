@@ -1,6 +1,5 @@
 ## General
-node_modules
-/deprecated
+node_modules/
 
 # Browser extensions and certs
 *.crx
@@ -12,7 +11,7 @@ node_modules
 *.zip
 
 # Copied files
-dist/
+/dist/
 
 /tests/selenium/opera-profile/
 /tests/selenium/opera-profile-patch/
@@ -65,45 +64,6 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-## Visual Studio
-*_i.c
-*_p.c
-*.ilk
-*.meta
-*.obj
-*.pch
-*.pdb
-*.pgc
-*.pgd
-*.rsp
-*.sbr
-*.tlb
-*.tli
-*.tlh
-*.tmp
-*.tmp_proj
-*.log
-*.vspscc
-*.vssscc
-.builds
-*.pidb
-*.log
-*.scc
-
-# User-specific files
-*.suo
-*.user
-*.sln.docstates
-personal/
-
-# Visual C++ cache files
-/IE/ipch/
-*.aps
-*.ncb
-*.opensdf
-*.sdf
-*.cachefile
-
-# IntelliJ
+## IntelliJ
 .idea
 *.iml
