@@ -106,5 +106,5 @@ module.exports = function(grunt) {
 	grunt.registerTask('firefox', ['copy:firefox', 'watch:firefox']);
 
 	// Travis
-	grunt.registerTask('travis', ['jshint:all', 'jscs:all']);
+	grunt.registerTask('travis', ['jshint:all', 'jscs:all', 'qunit']);
 };
