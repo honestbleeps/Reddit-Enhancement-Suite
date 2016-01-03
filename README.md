@@ -116,7 +116,7 @@ Sass (`.scss`) files in `lib/` will be compiled with [Sass](http://sass-lang.com
 
 **`gulp <tasks> -b chrome -b firefox`** can be used with any of the above commands to specify individual browsers (chrome, firefox, safari), instead of performing the task(s) for all of them.
 
-**`gulp travis`** will verify the code style (and point out any errors) of all `.js` files in `lib/` (except `lib/vendor/`) using [ESLint](http://eslint.org/), as well as all `.scss` files with [scss-lint](https://github.com/brigade/scss-lint). We recommend that you run this before opening a pull request. (This is used by Travis CI to automatically test pull requests.)
+**`gulp travis`** will verify the code style (and point out any errors) of all `.js` files in `lib/` (except `lib/vendor/`) using [ESLint](http://eslint.org/), as well as all `.scss` files with [scss-lint](https://github.com/brigade/scss-lint). It will also run QUnit tests (in `tests/qunit`). We recommend that you run this before opening a pull request. (This is used by Travis CI to automatically test pull requests.)
 
 Note: You will need to install [Ruby](https://www.ruby-lang.org/) and run `gem install scss_lint` before using `gulp travis`.
 

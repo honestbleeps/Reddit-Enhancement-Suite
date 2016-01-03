@@ -14,6 +14,7 @@ import plumber from 'gulp-plumber';
 import sourcemaps from 'gulp-sourcemaps';
 import eslint from 'gulp-eslint';
 import scsslint from 'gulp-scss-lint';
+import qunit from 'gulp-qunit';
 import through from 'through-gulp';
 
 const options = require('minimist')(process.argv.slice(2));
@@ -93,6 +94,15 @@ const browserConf = {
 		dests: {
 			root: 'node',
 			baseSources: 'lib'
+		}
+	},
+	qunit: {
+		sources: [
+			{ cwd: 'tests/qunit/**', src: '*.*' }
+		],
+		dests: {
+			root: 'qunit',
+			baseSources: '/'
 		}
 	}
 };
@@ -184,12 +194,14 @@ gulp.task('copy-browser', () =>
 
 gulp.task('manifests', () =>
 	merge(
-		browsers.map(browser =>
-			gulp.src(browserConf[browser].manifest || ['*', '!*'])
-				.pipe(cache('manifests'))
-				.pipe(through.map(file => populateManifest(browser, file)))
-				.pipe(dest(getBuildDir(browser)))
-		)
+		browsers
+			.filter(browser => browserConf[browser].manifest)
+			.map(browser =>
+				gulp.src(browserConf[browser].manifest)
+					.pipe(cache('manifests'))
+					.pipe(through.map(file => populateManifest(browser, file)))
+					.pipe(dest(getBuildDir(browser)))
+			)
 	)
 );
 
@@ -219,13 +231,19 @@ function populateManifest(browser, file) {
 // Add new modules to browser manifests
 gulp.task('add-module', () =>
 	merge(
-		browsers.map(browser => addModuleToManifest(browserConf[browser].filesList || browserConf[browser].manifest))
+		browsers
+			.map(browser => browserConf[browser].filesList || browserConf[browser].manifest)
+			.filter(manifest => manifest)
+			.map(manifest => addModuleToManifest(manifest))
 	)
 );
 
 gulp.task('add-host', () =>
 	merge(
-		browsers.map(browser => addHostToManifest(browserConf[browser].filesList || browserConf[browser].manifest))
+		browsers
+			.map(browser => browserConf[browser].filesList || browserConf[browser].manifest)
+			.filter(manifest => manifest)
+			.map(manifest => addHostToManifest(manifest))
 	)
 );
 
@@ -267,7 +285,7 @@ gulp.task('zip', () => {
 	);
 });
 
-gulp.task('travis', ['eslint', 'scsslint']);
+gulp.task('travis', ['eslint', 'scsslint', 'qunit']);
 
 gulp.task('eslint', () =>
 	src(baseConf.sources.babel)
@@ -280,4 +298,10 @@ gulp.task('scsslint', () =>
 	src(baseConf.sources.sass)
 		.pipe(scsslint({ maxBuffer: 1024 * 1024 }))
 		.pipe(scsslint.failReporter())
+);
+
+// todo: when Gulp 4 is released, only build qunit
+gulp.task('qunit', ['build'], () =>
+	gulp.src('dist/qunit/tests.html')
+		.pipe(qunit())
 );
