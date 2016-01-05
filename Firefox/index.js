@@ -20,7 +20,7 @@ const { ToggleButton } = require('sdk/ui/button/toggle');
 let styleSheetButton;
 
 // require chrome allows us to use XPCOM objects...
-const {Cc,Ci,Cu,components} = require('chrome');
+const { Cc, Ci, Cu, components } = require('chrome');
 const historyService = Cc['@mozilla.org/browser/history;1'].getService(Ci.mozIAsyncHistory);
 
 // Cookie manager for new API login
@@ -97,7 +97,7 @@ const XHRCache = {
 				weight: this.entries[key].hits/(now - this.entries[key].timestamp)
 			});
 		}
-		bottom.sort(function(a,b){return a.weight-b.weight;});
+		bottom.sort(function(a, b){ return a.weight - b.weight; });
 		const count = this.count - Math.floor(this.capacity / 2);
 		for (let i = 0; i < count; i++) {
 			delete this.entries[bottom[i].key];
@@ -280,7 +280,7 @@ pageMod.PageMod({
 	onAttach: function(worker) {
 		// when a tab is activated, repopulate localStorage so that changes propagate across tabs...
 		workers.push(worker);
-		worker.on('detach', function () {
+		worker.on('detach', function() {
 			detachWorker(this, workers);
 		});
 		worker.on('message', function(request) {
@@ -395,7 +395,7 @@ pageMod.PageMod({
 					break;
 				case 'saveLocalStorage':
 					for (let key in request.data) {
-						localStorage.setItem(key,request.data[key]);
+						localStorage.setItem(key, request.data[key]);
 					}
 					localStorage.setItem('importedFromForeground', true);
 					worker.postMessage({ requestType: 'saveLocalStorage', message: localStorage });
