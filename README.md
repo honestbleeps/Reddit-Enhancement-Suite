@@ -86,6 +86,7 @@ RES is built with [gulp](http://gulpjs.com/).
 First time installation:
 
 1. Install [node.js](http://nodejs.org) (version 4+).
+1. Install [Python 2](https://www.python.org/downloads/) (*not* version 3).
 1. Run `npm install -g gulp`.
 1. Navigate to your RES folder.
 1. Run `npm install`.
