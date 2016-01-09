@@ -57,6 +57,12 @@
 	&:hover {
 		text-decoration: underline;
 	}
+
+	+ .commentNavSortType {
+		border-left: 1px #ccc solid;
+		margin-left: 0.5em;
+		padding-left: 0.5em;
+	}
 }
 
 #commentNavPostCount {
