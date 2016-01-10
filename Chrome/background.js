@@ -282,8 +282,8 @@ chrome.pageAction.onClicked.addListener(({ id: tabId }) =>
 	sendMessage('pageActionClick', tabId)
 );
 
-addListener('pageAction', ({ action, state }, { id: tabId }) => {
-	switch (action) {
+addListener('pageAction', ({ operation, state }, { id: tabId }) => {
+	switch (operation) {
 		case 'show':
 			chrome.pageAction.show(tabId);
 			const onOff = state ? 'on' : 'off';

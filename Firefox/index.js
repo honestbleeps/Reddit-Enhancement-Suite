@@ -305,10 +305,10 @@ let destroyed = false;
 // since worker state is persisted, the page action state must be refreshed when navigating backwards or forwards
 tabs.on('pageshow', tab => tab.url.includes('reddit.com') && sendMessage('pageActionRefresh', workerFor(tab)));
 
-addListener('pageAction', ({ action, state }, { tab }) => {
+addListener('pageAction', ({ operation, state }, { tab }) => {
 	if (destroyed) return;
 
-	switch (action) {
+	switch (operation) {
 		case 'show':
 			const onOff = state ? 'on' : 'off';
 			pageAction.state(tab, {
