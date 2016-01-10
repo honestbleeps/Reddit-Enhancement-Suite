@@ -35,7 +35,7 @@ const baseConf = {
 };
 
 const browserConf = {
-	// The name used to refer to the browser from the command line, i.e. `gulp build -b chrome`
+	// The name used to refer to the browser from the command line
 	chrome: {
 		// The file for addFileToManifest to modify when adding new hosts/modules
 		manifest: 'Chrome/manifest.json',
@@ -110,8 +110,8 @@ const browserConf = {
 	}
 };
 
-// the `-b browser` argument(s) or all browsers, if unspecified
-const browsers = options.b ? [].concat(options.b) : Object.keys(browserConf);
+// the `--browsers` argument or all browsers, if unspecified
+const browsers = typeof options.browsers === 'string' ? options.browsers.split(',') : Object.keys(browserConf);
 
 function src({ src, cwd }) {
 	return gulp.src(src, { cwd });
@@ -132,10 +132,6 @@ function toBrowsers() {
 		dest(getBuildDir(browser), browserConf[browser].dests.baseSources)
 	));
 }
-
-gulp.task('default', ['clean'], () => {
-	gulp.start('watch');
-});
 
 gulp.task('clean', () =>
 	del(browsers.map(browser => getBuildDir(browser)))
@@ -288,17 +284,15 @@ function getRefHost() {
 	return 'imgur.js';
 }
 
-gulp.task('zip', () => {
-	// --zipdir argument or <baseConf.dests.root>/zip/
-	const zipDir = options.zipdir || path.join(baseConf.dests.root, 'zip');
-	return merge(
+gulp.task('zip', () =>
+	merge(
 		browsers.map(browser =>
 			gulp.src(path.join(getBuildDir(browser), '**/*'))
 				.pipe(zip(`${browserConf[browser].dests.root}.zip`))
-				.pipe(dest(zipDir))
+				.pipe(dest(baseConf.dests.root, 'zip'))
 		)
-	);
-});
+	)
+);
 
 gulp.task('travis', ['eslint', 'scsslint', 'qunit']);
 
@@ -320,8 +314,7 @@ gulp.task('scsslint', () =>
 		.pipe(scsslint.failReporter())
 );
 
-// todo: when Gulp 4 is released, only build qunit
-gulp.task('qunit', ['build'], () =>
+gulp.task('qunit', () =>
 	gulp.src('dist/qunit/tests.html')
 		.pipe(qunit())
 );

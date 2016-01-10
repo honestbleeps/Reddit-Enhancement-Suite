@@ -9,6 +9,19 @@
     "type": "git",
     "url": "https://github.com/honestbleeps/Reddit-Enhancement-Suite.git"
   },
+  "scripts": {
+    "external-deps": "gem install scss_lint",
+    "preinstall": "npm -v && node -v && python --version && git rev-parse HEAD && git status --porcelain",
+    "prestart": "gulp clean",
+    "start": "gulp watch --browsers",
+    "prebuild": "gulp clean",
+    "build": "gulp build --browsers",
+    "postbuild": "gulp zip",
+    "pretest": "gulp build --browsers qunit",
+    "test": "gulp travis",
+    "add-module": "gulp add-module --file",
+    "add-host": "gulp add-host --file"
+  },
   "devDependencies": {
     "babel-core": "^6.6.4",
     "babel-eslint": "^4.1.6",
