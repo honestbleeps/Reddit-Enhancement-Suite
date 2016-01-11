@@ -3,7 +3,6 @@ changelog v4.6.0
 - New Features and Enhancements
 
 	- New Modules
-		- Added "Orangered" module, for managing and syncing unread notifications (locally). Does not replace reddit message notifiers. (thanks @andytuba)
 		- Added dropdown menu to envelope (notification) button linking to various parts of inbox (thanks @andytuba)
 		- Added global spoiler tag module. Currently only works on user profiles. Any markdown pointing to /spoiler, #spoiler, /s or #s will be hidden. Hovering shows the text (thanks @SirCmpwn and @andytuba)
 		- Added stylesheet module - load stylesheets from existing subreddits or arbitrary CSS on specific pages (big thanks @andytuba, thanks @erikdesjardins)
