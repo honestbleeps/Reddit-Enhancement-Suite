@@ -112,15 +112,20 @@
 	{
 		const inProgress = new Map();
 
-		RESEnvironment.requestPermissions = async (...perms) => {
+		function filterPerms(perms) {
+			const permissions = perms.filter(p => !p.includes('://') && p !== '<all_urls>');
+			const origins = perms.filter(p => p.includes('://') || p === '<all_urls>');
+			return { permissions, origins };
+		}
+
+		RESEnvironment.permissions.request = async (...perms) => {
 			const key = perms.join(',');
 
 			if (!inProgress.has(key)) {
 				inProgress.set(key, (async () => {
-					const permissions = perms.filter(p => !p.includes('://') && p !== '<all_urls>');
-					const origins = perms.filter(p => p.includes('://') || p === '<all_urls>');
+					const { permissions, origins } = filterPerms(perms);
 
-					const granted = await RESEnvironment._sendMessage('permissions', { permissions, origins });
+					const granted = await RESEnvironment._sendMessage('permissions', { operation: 'request', permissions, origins });
 
 					inProgress.delete(key);
 
@@ -139,6 +144,14 @@
 
 			return inProgress.get(key);
 		};
+
+		RESEnvironment.permissions.remove = async (...perms) => {
+			const removed = await RESEnvironment._sendMessage('permissions', { operation: 'remove', ...filterPerms(perms) });
+			if (!removed) {
+				throw new Error(`Permissions not removed: ${perms.join(', ')} - are you trying to remove required permissions?`);
+			}
+		};
+
 	}
 
 	RESEnvironment.loadResourceAsText = filename =>

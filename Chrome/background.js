@@ -218,13 +218,18 @@ addListener('ajax', async ({ method, url, headers, data, credentials, aggressive
 	return response;
 });
 
-addListener('permissions', async ({ permissions, origins }, { id: tabId }) => {
-	const hasPermissions = await apiToPromise(chrome.permissions.contains)({ permissions, origins });
-	if (hasPermissions) {
-		return true;
+addListener('permissions', async ({ operation, permissions, origins }, { id: tabId }) => {
+	switch (operation) {
+		case 'request':
+			const hasPermissions = await apiToPromise(chrome.permissions.contains)({ permissions, origins });
+			if (hasPermissions) {
+				return true;
+			}
+			await sendMessage('userGesture', tabId);
+			return apiToPromise(chrome.permissions.request)({ permissions, origins });
+		case 'remove':
+			return apiToPromise(chrome.permissions.remove)({ permissions, origins });
 	}
-	await sendMessage('userGesture', tabId);
-	return apiToPromise(chrome.permissions.request)({ permissions, origins });
 });
 
 addListener('storage', ([operation, key, value]) => {
