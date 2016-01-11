@@ -3,7 +3,6 @@ changelog v4.6.0
 - New Features and Enhancements
 
 	- New Modules
-		- Added "Upload" module. Allows file uploading directly from the /submit page  - Currently only supports imgrush.com - If you are interested in adding upload support for your site, please [check the RES GitHub wiki.](https://github.com/honestbleeps/Reddit-Enhancement-Suite/wiki/Adding-new-media-hosts) (thanks @SirCmpwn, @andytuba, @erikdesjardins, and @imgrush)
 		- Added "Orangered" module, for managing and syncing unread notifications (locally). Does not replace reddit message notifiers. (thanks @andytuba)
 		- Added dropdown menu to envelope (notification) button linking to various parts of inbox (thanks @andytuba)
 		- Added global spoiler tag module. Currently only works on user profiles. Any markdown pointing to /spoiler, #spoiler, /s or #s will be hidden. Hovering shows the text (thanks @SirCmpwn and @andytuba)
@@ -117,6 +116,7 @@ changelog v4.6.0
 	- Update jQuery and guiders.js (thanks @mc10)
 	- Update favico.js (thanks @benwa)
 	- Refactored showImages.js - All hosts now have their own file, allowing for easier fixing and creation of expando supporting hosts. (thanks @andytuba @erikdesjardins and more)
+	- Remove MediaCrush host (now defunct)
 	- Factor out Twitter support from the core files (thanks @andytuba and @erikdesjardins)
 	- Greatly refactored KeyboardNav (thanks @andytuba)
 	- Some RES added elements (such as keyboardNav numbers and usertags) will no longer get copied when you select text (thanks @arresteddevelopment)

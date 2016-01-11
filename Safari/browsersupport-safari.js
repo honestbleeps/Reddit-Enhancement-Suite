@@ -164,7 +164,7 @@ RESEnvironment.storageSetup = function(thisJSON) {
 		};
 
 		// include CSS files, then load scripts.
-		var cssFiles = ['css/res.css', 'vendor/guiders.css', 'vendor/tokenize.css', 'vendor/players.css'];
+		var cssFiles = ['css/res.css', 'vendor/guiders.css', 'vendor/tokenize.css'];
 		for (var i in cssFiles) {
 			loadCSS(cssFiles[i]);
 		}

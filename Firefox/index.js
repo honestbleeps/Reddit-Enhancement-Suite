@@ -162,7 +162,6 @@ pageMod.PageMod({
 		self.data.url('core/storage.js'),
 		self.data.url('core/template.js'),
 		self.data.url('vendor/konami.js'),
-		self.data.url('vendor/imgrush.js'),
 		self.data.url('vendor/gfycat.js'),
 		self.data.url('vendor/gifyoutube.js'),
 		self.data.url('vendor/imgurgifv.js'),
@@ -250,7 +249,6 @@ pageMod.PageMod({
 		self.data.url('modules/hosts/tumblr.js'),
 		self.data.url('modules/hosts/memecrunch.js'),
 		self.data.url('modules/hosts/imgflip.js'),
-		self.data.url('modules/hosts/imgrush.js'),
 		self.data.url('modules/hosts/livememe.js'),
 		self.data.url('modules/hosts/makeameme.js'),
 		self.data.url('modules/hosts/memegen.js'),
@@ -273,7 +271,6 @@ pageMod.PageMod({
 	],
 	contentStyleFile: [
 		self.data.url('css/res.css'),
-		self.data.url('vendor/players.css'),
 		self.data.url('vendor/guiders.css'),
 		self.data.url('vendor/tokenize.css')
 	],
