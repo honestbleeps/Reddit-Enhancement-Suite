@@ -201,39 +201,18 @@ addListener('ajax', async ({ method, url, headers, data, credentials, aggressive
 	return response;
 });
 
-addListener('getLocalStorage', () => {
-	const ls = {};
-	for (let i = 0, len = localStorage.length; i < len; i++) {
-		if (localStorage.key(i)) {
-			ls[localStorage.key(i)] = localStorage.getItem(localStorage.key(i));
-		}
-	}
-	return ls;
-});
-
-addListener('saveLocalStorage', data => {
-	for (const key in data) {
-		localStorage.setItem(key, data[key]);
-	}
-	localStorage.setItem('importedFromForeground', true);
-	return localStorage;
-});
-
-addListener('storage', async ({ operation, itemName, itemValue }, senderTab) => {
+addListener('storage', ([operation, key, value]) => {
 	switch (operation) {
-		case 'getItem':
-			return localStorage.getItem(itemName);
-		case 'removeItem':
-			return localStorage.removeItem(itemName);
-		case 'setItem':
-			localStorage.setItem(itemName, itemValue);
-			return Promise.all(
-				Array.from(safari.application.browserWindows)
-					.map(w => Array.from(w.tabs))
-					.reduce((acc, tabs) => acc.concat(tabs), [])
-					.filter(tab => tab !== senderTab && tab.page)
-					.map(({ page }) => sendMessage('storage', page, { itemName, itemValue }))
-			);
+		case 'get':
+			return localStorage.getItem(key);
+		case 'set':
+			return localStorage.setItem(key, value);
+		case 'remove':
+			return localStorage.removeItem(key);
+		case 'has':
+			return key in localStorage;
+		case 'keys':
+			return Object.keys(localStorage);
 	}
 });
 

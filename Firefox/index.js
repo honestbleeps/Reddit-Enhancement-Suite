@@ -21,26 +21,11 @@ const historyService = Cc['@mozilla.org/browser/history;1'].getService(Ci.mozIAs
 const cookieManager = Cc['@mozilla.org/cookiemanager;1'].getService().QueryInterface(Ci.nsICookieManager2);
 components.utils.import('resource://gre/modules/NetUtil.jsm');
 
-// Preferences
-const prefs = Cc['@mozilla.org/preferences-service;1'].getService(Ci.nsIPrefBranch);
-
 // this function takes in a string (and optional charset, paseURI) and creates an nsURI object, which is required by historyService.addURI...
 function makeURI(aURL, aOriginCharset, aBaseURI) {
 	const ioService = Cc['@mozilla.org/network/io-service;1'].getService(Ci.nsIIOService);
 	return ioService.newURI(aURL, aOriginCharset, aBaseURI);
 }
-
-const localStorage = ss.storage;
-
-localStorage.getItem = function(key) {
-	return ss.storage[key];
-};
-localStorage.setItem = function(key, value) {
-	ss.storage[key] = value;
-};
-localStorage.removeItem = function(key) {
-	delete ss.storage[key];
-};
 
 const workers = [];
 
@@ -254,29 +239,20 @@ addListener('ajax', ({ method, url, headers, data, credentials, aggressiveCache 
 	});
 });
 
-addListener('getLocalStorage', () => localStorage);
-
-addListener('saveLocalStorage', data => {
-	for (let key in data) { // eslint-disable-line prefer-const
-		localStorage.setItem(key, data[key]);
-	}
-	localStorage.setItem('importedFromForeground', true);
-	return localStorage;
-});
-
-addListener('storage', ({ operation, itemName, itemValue }, worker) => {
+addListener('storage', ([operation, key, value]) => {
 	switch (operation) {
-		case 'getItem':
-			return localStorage.getItem(itemName);
-		case 'removeItem':
-			return localStorage.removeItem(itemName);
-		case 'setItem':
-			localStorage.setItem(itemName, itemValue);
-			return Promise.all(
-				workers
-					.filter(w => w !== worker)
-					.map(w => sendMessage('storage', w, { itemName, itemValue }))
-			);
+		case 'get':
+			return key in ss.storage ? ss.storage[key] : null;
+		case 'set':
+			ss.storage[key] = value;
+			break;
+		case 'remove':
+			delete ss.storage[key];
+			break;
+		case 'has':
+			return key in ss.storage;
+		case 'keys':
+			return Object.keys(ss.storage);
 	}
 });
 
@@ -391,7 +367,6 @@ PageMod({
 		self.data.url('core/options.js'),
 		self.data.url('core/alert.js'),
 		self.data.url('core/migrate.js'),
-		self.data.url('core/storage.js'),
 		self.data.url('core/template.js'),
 		self.data.url('vendor/konami.js'),
 		self.data.url('vendor/gfycat.js'),

@@ -227,29 +227,18 @@ addListener('permissions', async ({ permissions, origins }, { id: tabId }) => {
 	return apiToPromise(chrome.permissions.request)({ permissions, origins });
 });
 
-addListener('getLocalStorage', () => localStorage);
-
-addListener('saveLocalStorage', data => {
-	for (const key in data) {
-		localStorage.setItem(key, data[key]);
-	}
-	localStorage.setItem('importedFromForeground', true);
-	return localStorage;
-});
-
-addListener('storage', async ({ operation, itemName, itemValue }, { id: tabId }) => {
+addListener('storage', ([operation, key, value]) => {
 	switch (operation) {
-		case 'getItem':
-			return localStorage.getItem(itemName);
-		case 'removeItem':
-			return localStorage.removeItem(itemName);
-		case 'setItem':
-			localStorage.setItem(itemName, itemValue);
-			return Promise.all(
-				(await apiToPromise(chrome.tabs.query)({ url: '*://*.reddit.com/*', status: 'complete' }))
-					.filter(({ id }) => id !== tabId)
-					.map(({ id }) => sendMessage('storage', id, { itemName, itemValue }))
-			);
+		case 'get':
+			return localStorage.getItem(key);
+		case 'set':
+			return localStorage.setItem(key, value);
+		case 'remove':
+			return localStorage.removeItem(key);
+		case 'has':
+			return key in localStorage;
+		case 'keys':
+			return Object.keys(localStorage);
 	}
 });
 

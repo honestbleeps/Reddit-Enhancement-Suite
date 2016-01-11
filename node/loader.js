@@ -65,9 +65,6 @@ function importFile(filename, key) {
 	if (exported) DEBUG('    -->', exported);
 }
 
-
-RESStorage.setup.complete(storage);
-
 if (yargs.assertstorage) {
 	var actual = RESStorage;
 	var expected = requireNew('./storage/' + yargs.assertstorage + '.json');

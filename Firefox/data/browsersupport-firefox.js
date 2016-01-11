@@ -104,18 +104,4 @@
 
 	RESEnvironment.loadResourceAsText = filename =>
 		RESEnvironment._sendMessage('readResource', filename);
-
-	RESEnvironment.storageSetup = async () => {
-		// we've got firefox jetpack, get localStorage from background process
-		let response = await RESEnvironment._sendMessage('getLocalStorage');
-
-		// Does RESStorage have actual data in it?  If it doesn't, they're a legacy user, we need to copy
-		// old school localStorage from the foreground page to the background page to keep their settings...
-		if (!response || !response.importedFromForeground) {
-			// it doesn't exist.. copy it over...
-			response = await RESEnvironment._sendMessage('saveLocalStorage', localStorage);
-		}
-
-		RESStorage.setup.complete(response);
-	};
 }

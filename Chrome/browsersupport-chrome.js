@@ -144,27 +144,6 @@
 	RESEnvironment.loadResourceAsText = filename =>
 		RESEnvironment.ajax({ url: chrome.runtime.getURL(filename) });
 
-	RESEnvironment.storageSetup = async () => {
-		// we've got chrome, get a copy of the background page's localStorage first, so don't init until after.
-		let response = await RESEnvironment._sendMessage('getLocalStorage');
-
-		// Does RESStorage have actual data in it?  If it doesn't, they're a legacy user, we need to copy
-		// old school localStorage from the foreground page to the background page to keep their settings...
-		if (!response || !response.importedFromForeground) {
-			// it doesn't exist.. copy it over...
-			const ls = {};
-			for (let i = 0, len = localStorage.length; i < len; i++) {
-				if (localStorage.key(i)) {
-					ls[localStorage.key(i)] = localStorage.getItem(localStorage.key(i));
-				}
-			}
-
-			response = await RESEnvironment._sendMessage('saveLocalStorage', ls);
-		}
-
-		RESStorage.setup.complete(response);
-	};
-
 	RESEnvironment.isPrivateBrowsing = RESUtils.once(() =>
 		Promise.resolve(chrome.extension.inIncognitoContext)
 	);

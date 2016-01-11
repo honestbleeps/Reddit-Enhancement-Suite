@@ -142,10 +142,6 @@ window.onunload = () => {};
 		// This is the poor man's implementation of browser.history.push()
 		const frame = RESUtils.once(() => {
 			const frame = document.createElement('iframe');
-			frame.addEventListener('load', function onload() {
-				frame.removeEventListener('load', onload);
-				frame.contentWindow.location.replace('about:blank');
-			});
 			frame.style.display = 'none';
 			frame.style.width = '0px';
 			frame.style.height = '0px';
@@ -155,7 +151,8 @@ window.onunload = () => {};
 
 		return async url => {
 			if (!(await RESEnvironment.isPrivateBrowsing())) {
-				frame().contentWindow.location.replace(url);
+				frame().src = url;
+				return RESUtils.dom.waitForEvent(frame(), 'load');
 			}
 		};
 	})();
@@ -164,24 +161,4 @@ window.onunload = () => {};
 	RESEnvironment.pageAction.show = () => Promise.resolve();
 	RESEnvironment.pageAction.hide = () => Promise.resolve();
 	RESEnvironment.pageAction.destroy = () => Promise.resolve();
-
-	RESEnvironment.storageSetup = async () => {
-		let response = await RESEnvironment._sendMessage('getLocalStorage');
-
-		// Does RESStorage have actual data in it?  If it doesn't, they're a legacy user, we need to copy
-		// old school localStorage from the foreground page to the background page to keep their settings...
-		if (!response || !response.importedFromForeground) {
-			// it doesn't exist.. copy it over...
-			const ls = {};
-			for (let i = 0, len = localStorage.length; i < len; i++) {
-				if (localStorage.key(i)) {
-					ls[localStorage.key(i)] = localStorage.getItem(localStorage.key(i));
-				}
-			}
-
-			response = await RESEnvironment._sendMessage('saveLocalStorage', ls);
-		}
-
-		RESStorage.setup.complete(response);
-	};
 }
