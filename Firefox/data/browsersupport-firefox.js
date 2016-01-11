@@ -13,14 +13,14 @@
 	 */
 
 	/**
-	 * Register a listener to be invoked whenever a message of <tt>type</tt> is received.
+	 * Register a listener to be invoked whenever a message of `type` is received.
 	 * Responses may be sent synchronously or asynchronously:
-	 * If <tt>callback</tt> returns a non-promise value, a response will be sent synchronously.
-	 * If <tt>callback</tt> returns a promise, a response will be sent asynchronously when it resolves.
+	 * If `callback` returns a non-promise value, a response will be sent synchronously.
+	 * If `callback` returns a promise, a response will be sent asynchronously when it resolves.
 	 * If it rejects, an invalid response will be sent.
 	 * @param {string} type
 	 * @param {MessageListener} callback
-	 * @throws {Error} If a listener for <tt>messageType</tt> already exists.
+	 * @throws {Error} If a listener for `messageType` already exists.
 	 * @returns {void}
 	 */
 	function addListener(type, callback) {
