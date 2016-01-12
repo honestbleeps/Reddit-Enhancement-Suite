@@ -138,24 +138,8 @@ window.onunload = () => {};
 		return Promise.resolve();
 	};
 
-	RESEnvironment.addURLToHistory = (() => {
-		// This is the poor man's implementation of browser.history.push()
-		const frame = RESUtils.once(() => {
-			const frame = document.createElement('iframe');
-			frame.style.display = 'none';
-			frame.style.width = '0px';
-			frame.style.height = '0px';
-			document.body.appendChild(frame);
-			return frame;
-		});
-
-		return async url => {
-			if (!(await RESEnvironment.isPrivateBrowsing())) {
-				frame().src = url;
-				return RESUtils.dom.waitForEvent(frame(), 'load');
-			}
-		};
-	})();
+	// The iframe hack doesn't work anymore, so Safari has no way to add urls to history
+	RESEnvironment.addURLToHistory = () => Promise.resolve();
 
 	// Safari has no pageAction
 	RESEnvironment.pageAction.show = () => Promise.resolve();
