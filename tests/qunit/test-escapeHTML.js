@@ -1,3 +1,5 @@
+/* eslint-env qunit */
+
 test('escapeHTML: Returns null on null string', function() {
 	expect(1);
 	equal(escapeHTML(null), null);

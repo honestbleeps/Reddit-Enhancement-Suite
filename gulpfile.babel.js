@@ -99,7 +99,7 @@ const browserConf = {
 	},
 	qunit: {
 		sources: [
-			{ cwd: 'tests/qunit/**', src: '*.*' }
+			{ cwd: 'tests/qunit/**', src: ['*.js', '*.html'] }
 		],
 		dests: {
 			root: 'qunit',
