@@ -136,7 +136,11 @@ async function sendMessage(type, tabId, data) {
 	const response = await apiToPromise(chrome.tabs.sendMessage)(target, message);
 
 	if (!response) {
-		throw new Error(`Error in foreground handler for type: ${type}`);
+		throw new Error(`Critical error in foreground handler for type: ${type}`);
+	}
+
+	if (response.error) {
+		throw new Error(`Error in foreground handler for type: ${type} - message: ${response.error}`);
 	}
 
 	return response.data;
@@ -156,16 +160,16 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 	try {
 		response = listener.callback(data, tab);
 	} catch (e) {
-		sendResponse();
+		sendResponse({ error: e.message || e });
 		throw e;
 	}
 
 	if (response instanceof Promise) {
 		response
 			.then(data => sendResponse({ data }))
-			.catch(error => {
-				sendResponse();
-				throw error;
+			.catch(e => {
+				sendResponse({ error: e.message || e });
+				throw e;
 			});
 		return true;
 	}

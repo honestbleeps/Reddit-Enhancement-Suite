@@ -57,7 +57,11 @@
 		const response = await apiToPromise(chrome.runtime.sendMessage)(message);
 
 		if (!response) {
-			throw new Error(`Error in background handler for type: ${type}`);
+			throw new Error(`Critical error in background handler for type: ${type}`);
+		}
+
+		if (response.error) {
+			throw new Error(`Error in background handler for type: ${type} - message: ${response.error}`);
 		}
 
 		return response.data;
@@ -76,16 +80,16 @@
 		try {
 			response = listener.callback(data);
 		} catch (e) {
-			sendResponse();
+			sendResponse({ error: e.message || e });
 			throw e;
 		}
 
 		if (response instanceof Promise) {
 			response
 				.then(data => sendResponse({ data }))
-				.catch(error => {
-					sendResponse();
-					throw error;
+				.catch(e => {
+					sendResponse({ error: e.message || e });
+					throw e;
 				});
 			return true;
 		}

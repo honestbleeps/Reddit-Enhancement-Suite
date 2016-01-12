@@ -147,7 +147,7 @@ function sendMessage(type, worker, data) {
 	return new Promise((resolve, reject) => waiting.set(transaction, { resolve, reject }));
 }
 
-function onMessage({ type, data, transaction, isError, isResponse }) {
+function onMessage({ type, data, transaction, error, isResponse }) {
 	if (isResponse) {
 		if (!waiting.has(transaction)) {
 			throw new Error(`No response handler for type: ${type}, transaction: ${transaction} - this should never happen.`);
@@ -156,8 +156,8 @@ function onMessage({ type, data, transaction, isError, isResponse }) {
 		const handler = waiting.get(transaction);
 		waiting.delete(transaction);
 
-		if (isError) {
-			handler.reject(new Error(`Error in foreground handler for type: ${type}`));
+		if (error) {
+			handler.reject(new Error(`Error in foreground handler for type: ${type} - message: ${error}`));
 		} else {
 			handler.resolve(data);
 		}
@@ -170,8 +170,8 @@ function onMessage({ type, data, transaction, isError, isResponse }) {
 	}
 	const listener = listeners.get(type);
 
-	const sendResponse = ({ data, isError }) => {
-		this.postMessage({ type, data, transaction, isError, isResponse: true });
+	const sendResponse = ({ data, error }) => {
+		this.postMessage({ type, data, transaction, error, isResponse: true });
 	};
 
 	let response;
@@ -179,16 +179,16 @@ function onMessage({ type, data, transaction, isError, isResponse }) {
 	try {
 		response = listener.callback(data, this);
 	} catch (e) {
-		sendResponse({ isError: true });
+		sendResponse({ error: e.message || e });
 		throw e;
 	}
 
 	if (response instanceof Promise) {
 		response
 			.then(data => sendResponse({ data }))
-			.catch(error => {
-				sendResponse({ isError: true });
-				throw error;
+			.catch(e => {
+				sendResponse({ error: e.message || e });
+				throw e;
 			});
 		return true;
 	}

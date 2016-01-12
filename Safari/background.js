@@ -106,7 +106,7 @@ function nonNull(callback) {
 	});
 }
 
-safari.application.addEventListener('message', ({ name: type, message: { data, transaction, isError, isResponse }, target: tab}) => {
+safari.application.addEventListener('message', ({ name: type, message: { data, transaction, error, isResponse }, target: tab}) => {
 	if (isResponse) {
 		if (!waiting.has(transaction)) {
 			throw new Error(`No response handler for type: ${type}, transaction: ${transaction} - this should never happen.`);
@@ -115,8 +115,8 @@ safari.application.addEventListener('message', ({ name: type, message: { data, t
 		const handler = waiting.get(transaction);
 		waiting.delete(transaction);
 
-		if (isError) {
-			handler.reject(new Error(`Error in foreground handler for type: ${type}`));
+		if (error) {
+			handler.reject(new Error(`Error in foreground handler for type: ${type} - message: ${error}`));
 		} else {
 			handler.resolve(data);
 		}
@@ -129,9 +129,9 @@ safari.application.addEventListener('message', ({ name: type, message: { data, t
 	}
 	const listener = listeners.get(type);
 
-	async function sendResponse({ data, isError }) {
+	async function sendResponse({ data, error }) {
 		// this is ridiculous, Safari.
-		(await nonNull(() => tab.page)).dispatchMessage(type, { data, transaction, isError, isResponse: true });
+		(await nonNull(() => tab.page)).dispatchMessage(type, { data, transaction, error, isResponse: true });
 	}
 
 	let response;
@@ -139,16 +139,16 @@ safari.application.addEventListener('message', ({ name: type, message: { data, t
 	try {
 		response = listener.callback(data, tab);
 	} catch (e) {
-		sendResponse({ isError: true });
+		sendResponse({ error: e.message || e });
 		throw e;
 	}
 
 	if (response instanceof Promise) {
 		response
 			.then(data => sendResponse({ data }))
-			.catch(error => {
-				sendResponse({ isError: true });
-				throw error;
+			.catch(e => {
+				sendResponse({ error: e.message || e });
+				throw e;
 			});
 		return true;
 	}

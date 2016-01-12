@@ -45,7 +45,7 @@
 		return new Promise((resolve, reject) => waiting.set(transaction, { resolve, reject }));
 	};
 
-	self.on('message', ({ type, data, transaction, isError, isResponse }) => {
+	self.on('message', ({ type, data, transaction, error, isResponse }) => {
 		if (isResponse) {
 			if (!waiting.has(transaction)) {
 				throw new Error(`No response handler for type: ${type}, transaction: ${transaction} - this should never happen.`);
@@ -54,8 +54,8 @@
 			const handler = waiting.get(transaction);
 			waiting.delete(transaction);
 
-			if (isError) {
-				handler.reject(new Error(`Error in background handler for type: ${type}`));
+			if (error) {
+				handler.reject(new Error(`Error in background handler for type: ${type} - message: ${error}`));
 			} else {
 				handler.resolve(data);
 			}
@@ -68,8 +68,8 @@
 		}
 		const listener = listeners.get(type);
 
-		function sendResponse({ data, isError }) {
-			self.postMessage({ type, data, transaction, isError, isResponse: true });
+		function sendResponse({ data, error }) {
+			self.postMessage({ type, data, transaction, error, isResponse: true });
 		}
 
 		let response;
@@ -77,17 +77,16 @@
 		try {
 			response = listener.callback(data);
 		} catch (e) {
-			sendResponse({ isError: true });
+			sendResponse({ error: e.message || e });
 			throw e;
 		}
 
 		if (response instanceof Promise) {
 			response
 				.then(data => sendResponse({ data }))
-				.catch(error => {
-					sendResponse({ isError: true });
-					throw error;
-
+				.catch(e => {
+					sendResponse({ error: e.message || e });
+					throw e;
 				});
 			return true;
 		}

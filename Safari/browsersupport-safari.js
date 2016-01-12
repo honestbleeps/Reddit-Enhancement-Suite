@@ -68,7 +68,7 @@ window.onunload = () => {};
 		return new Promise((resolve, reject) => waiting.set(transaction, { resolve, reject }));
 	};
 
-	safari.self.addEventListener('message', ({ name: type, message: { data, transaction, isError, isResponse } }) => {
+	safari.self.addEventListener('message', ({ name: type, message: { data, transaction, error, isResponse } }) => {
 		if (isResponse) {
 			if (!waiting.has(transaction)) {
 				throw new Error(`No response handler for type: ${type}, transaction: ${transaction} - this should never happen.`);
@@ -77,8 +77,8 @@ window.onunload = () => {};
 			const handler = waiting.get(transaction);
 			waiting.delete(transaction);
 
-			if (isError) {
-				handler.reject(new Error(`Error in background handler for type: ${type}`));
+			if (error) {
+				handler.reject(new Error(`Error in background handler for type: ${type} - message: ${error}`));
 			} else {
 				handler.resolve(data);
 			}
@@ -91,8 +91,8 @@ window.onunload = () => {};
 		}
 		const listener = listeners.get(type);
 
-		function sendResponse({ data, isError }) {
-			safari.self.tab.dispatchMessage(type, { data, transaction, isError, isResponse: true });
+		function sendResponse({ data, error }) {
+			safari.self.tab.dispatchMessage(type, { data, transaction, error, isResponse: true });
 		}
 
 		let response;
@@ -100,16 +100,16 @@ window.onunload = () => {};
 		try {
 			response = listener.callback(data);
 		} catch (e) {
-			sendResponse({ isError: true });
+			sendResponse({ error: e.message || e });
 			throw e;
 		}
 
 		if (response instanceof Promise) {
 			response
 				.then(data => sendResponse({ data }))
-				.catch(error => {
-					sendResponse({ isError: true });
-					throw error;
+				.catch(e => {
+					sendResponse({ error: e.message || e });
+					throw e;
 
 				});
 			return true;
