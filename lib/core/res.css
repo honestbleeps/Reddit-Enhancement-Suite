@@ -314,10 +314,6 @@ body.res-console-open {
 #BigEditor .BELeft .RESDialogContents {
 	padding-top: 52px;
 }
-/* Allow textarea to be any width without disappearing. */
-body.wiki-page form#editform, .comment form.usertext {
-	overflow: auto; /* Same as top-level comment form on vanilla reddit */
-}
 div.usertext-edit {
 	width: auto;
 	max-width: 500px;
