@@ -347,11 +347,6 @@ div.usertext-edit {
 	padding: 0;
 }
 
-// Correct reddit's miscalculation of textarea width when editing a comment.
-.usertext-body > .md {
-	padding-right: 1px;
-}
-
 .usertext-edit .md,
 .wiki-page #editform textarea {
 	clear: left;
