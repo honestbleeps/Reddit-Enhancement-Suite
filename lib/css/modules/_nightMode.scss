@@ -405,16 +405,8 @@
 	}
 
 	.expando-button {
-		filter: grayscale(100%) invert(80%);
-	}
-
-	// from white & blue to black and red-ish
-	&.res-showImages-highlightNSFWButton .thing.over18 .expando-button {
-		filter: hue-rotate(-40deg) invert(80%) brightness(70%) saturate(300%);
-
-		&::before {
-			content: none;
-		}
+		opacity: .8;
+		background-color: transparent;
 	}
 
 	.RESdupeimg {
@@ -1053,9 +1045,8 @@
 		border-bottom-color: #aaa;
 	}
 
-	.thumbnail.self,
 	.guiders_arrow {
-		filter: invert(100%) grayscale(100%);
+		opacity: .5;
 	}
 
 	.white-field,
@@ -1152,6 +1143,8 @@
 		background-color: rgb(60, 60, 60);
 	}
 
+	// Affects RES console header img.
+	// Subreddit stylesheets can't override filter, so we only use when it won't affect them.
 	#RESLogo {
 		filter: invert(79%) grayscale(100%);
 	}
