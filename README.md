@@ -142,12 +142,12 @@ All that is asked is that you have at least one previous contribution to RES.
 
 ##### Building in Safari (assumes Mac)
 
-  1. Open the `Preferences` by going to `Safari->Preferences` or pressing `⌘`, then go to `Advanced` and check the checkbox for `Show develop menu in menu bar`.
-  2. Navigate to `Develop->Show Extension Builder` to open the extensions menu. Add a new extension by pressing the `+` in the bottom left and choosing `Add extension`.
+  1. Open the `Preferences` by going to `Safari->Preferences` or pressing `⌘,` then go to `Advanced` and check the checkbox for `Show Develop menu in menu bar`.
+  2. Navigate to `Develop->Show Extension Builder` to open the extensions builder. Add a new extension by pressing the `+` in the bottom left and choosing `Add Extension`.
   3. Navigate to the `dist/RES.safariextension` folder for RES and select it.
-  4. It will likely say you cannot install it because no Safari development certificate exists. You will need to visit the [Safari Dev Center](https://developer.apple.com/devcenter/safari/index.action) and create an account (right hand side).
-  5. You then need to visit the [Safari Developer Program](https://developer.apple.com/programs/safari/) site and sign up for a FREE account.
-  6. You can then visit your member page and use the certificate utility to create a new Safari Developer Certificate. Follow the instructions to install the certificate. If you have an error involving it being signed by an unknown authority, then double click the certificate and under the `Trust` setting choose `Always Trust`. You should then be able to install the extension from the `Extension Builder` menu.
+  4. If you are using Safari 9 or above, you should be able to install the extension without enrolling for the Apple Developer Program, however the extension will be auto-uninstalled when you quit Safari.
+     
+     If you use an older version of Safari or find the auto-uninstall annoying, you need to get a proper certificate by signing up for the [Apple Developer Program](https://developer.apple.com/programs/) which costs money.
 
 ## Adding new files
 
