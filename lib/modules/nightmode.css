@@ -322,16 +322,8 @@
 	visibility: hidden;
 }
 .res-nightmode .expando-button {
-	-webkit-filter: grayscale(100%) invert(80%);
-	filter: grayscale(100%) invert(80%);
-}
-/* from white & blue to black and red-ish */
-.res-nightmode.res-highlight-nsfw-expando .thing.over18 .expando-button {
-	-webkit-filter: hue-rotate(-40deg) invert(80%) brightness(70%) saturate(300%);
-	filter: hue-rotate(-40deg) invert(80%) brightness(70%) saturate(300%);
-}
-.res-nightmode.res-highlight-nsfw-expando .thing.over18 .expando-button::before {
-	content: none;
+	opacity: .8;
+	background-color: transparent;
 }
 .res-nightmode .RESdupeimg {
 	color: #eee;
@@ -874,10 +866,8 @@ body.res-nightmode,
 .res-nightmode #about-main #history .events.timeline .event-marker.bottom {
 	border-bottom-color: #aaa;
 }
-.res-nightmode .thumbnail.self,
 .res-nightmode .guiders_arrow {
-	-webkit-filter: invert(100%) grayscale(100%);
-	filter: invert(100%) grayscale(100%);
+	opacity: .5;
 }
 .res-nightmode .white-field,
 .res-nightmode .delete-field,
@@ -962,6 +952,8 @@ body.res-nightmode,
 	border-color: hsl(0,0%,30%);
 	background-color: rgb(60,60,60);
 }
+/* Affects RES console header img.
+Subreddit stylesheets can't override filter, so we only use when it won't affect them. */
 .res-nightmode #RESLogo {
 	-webkit-filter: invert(79%) grayscale(100%);
 	filter: invert(79%) grayscale(100%);
