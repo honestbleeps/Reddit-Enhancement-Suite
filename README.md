@@ -121,14 +121,6 @@ Sass (`.scss`) files in `lib/` will be compiled with [Sass](http://sass-lang.com
 
 Note: You will need to install [Ruby](https://www.ruby-lang.org/) and run `gem install scss_lint` before using `gulp travis`.
 
-#### Accessing nightly builds
-
-In addition to building your own version of RES, you can download older (or current) builds of RES for testing purposes.
-
-(Almost) every commit to master is quickly archived away at http://allthefoxes.me; if you would like access to this database, please contact [/u/allthefoxes on reddit](https://www.reddit.com/u/allthefoxes) or email [fox@allthefoxes.me](mailto:fox@allthefoxes.me)
-
-All that is asked is that you have at least one previous contribution to RES.
-
 ##### Building in Chrome
 
   1. Go to `Menu->Tools->Extensions` and tick the `Developer Mode` checkbox
@@ -142,12 +134,20 @@ All that is asked is that you have at least one previous contribution to RES.
 
 ##### Building in Safari (assumes Mac)
 
-  1. Open the `Preferences` by going to `Safari->Preferences` or pressing `⌘,` then go to `Advanced` and check the checkbox for `Show Develop menu in menu bar`.
+  1. Open the `Preferences` by going to `Safari->Preferences` or pressing `⌘,`, then go to `Advanced` and check the checkbox for `Show Develop menu in menu bar`.
   2. Navigate to `Develop->Show Extension Builder` to open the extensions builder. Add a new extension by pressing the `+` in the bottom left and choosing `Add Extension`.
   3. Navigate to the `dist/RES.safariextension` folder for RES and select it.
-  4. If you are using Safari 9 or above, you should be able to install the extension without enrolling for the Apple Developer Program, however the extension will be auto-uninstalled when you quit Safari.
-     
-     If you use an older version of Safari or find the auto-uninstall annoying, you need to get a proper certificate by signing up for the [Apple Developer Program](https://developer.apple.com/programs/) which costs money.
+  4. If you are using Safari 9+, you should be able to install the extension without enrolling in the [Apple Developer Program](https://developer.apple.com/programs/); however, the extension will be auto-uninstalled when you quit Safari.
+
+  If you use an older version of Safari or find the auto-uninstall annoying, you need to purchase a proper certificate by signing up for the [Apple Developer Program](https://developer.apple.com/programs/) (currently $99/yr).
+
+#### Accessing nightly builds
+
+In addition to building your own version of RES, you can download older (or current) builds of RES for testing purposes.
+
+(Almost) every commit to master is quickly archived away at http://allthefoxes.me; if you would like access to this database, please contact [/u/allthefoxes on reddit](https://www.reddit.com/u/allthefoxes) or email [fox@allthefoxes.me](mailto:fox@allthefoxes.me).
+
+All that is asked is that you have at least one previous contribution to RES.
 
 ## Adding new files
 
