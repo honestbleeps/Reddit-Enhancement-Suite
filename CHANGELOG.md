@@ -1,5 +1,12 @@
 # Changelog
 
+## [Unreleased]
+
+### Housekeeping / Other
+
+- Converted changelog to Markdown (thanks @Ajedi32)
+
+
 ## v4.6.0
 
 ### New Features and Enhancements
@@ -1823,3 +1830,7 @@
 ## v0.90
 
 Initial release!
+
+
+
+[Unreleased]: https://github.com/honestbleeps/Reddit-Enhancement-Suite/compare/v4.6.0...HEAD
