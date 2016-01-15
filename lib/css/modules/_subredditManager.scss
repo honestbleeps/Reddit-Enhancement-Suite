@@ -204,6 +204,10 @@
 
 	ul {
 		padding: 15px 0;
+		overflow-x: hidden;
+		overflow-y: auto;
+		max-width: 300px;
+		max-height: 500px;
 
 		li {
 			padding: 0;
