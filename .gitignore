@@ -1,93 +1,48 @@
-## Visual Studio
-*_i.c
-*_p.c
-*.ilk
-*.meta
-*.obj
-*.pch
-*.pdb
-*.pgc
-*.pgd
-*.rsp
-*.sbr
-*.tlb
-*.tli
-*.tlh
-*.tmp
-*.tmp_proj
-*.log
-*.vspscc
-*.vssscc
-.builds
-*.pidb
-*.log
-*.scc
-
-/IE/[Dd]ebug/
-/IE/[Rr]elease/
-/IE/[Bb]in/
-/IE/[Oo]bj/
-
-# User-specific files
-*.suo
-*.user
-*.sln.docstates
-
-# Visual C++ cache files
-/IE/ipch/
-*.aps
-*.ncb
-*.opensdf
-*.sdf
-*.cachefile
-
 ## General
-/node_modules
-Chrome.pem
-/XPI/reddit_res.xpi
-/deprecated
+node_modules/
 
-/Chrome/*.js
-/Chrome/modules/*.js
-/Chrome/*.css
-/Chrome/*.html
-!/Chrome/background.js
-/OperaBlink/*.js
-/OperaBlink/*.html
-/OperaBlink/modules/*.js
-/OperaBlink/*.css
-!/OperaBlink/background.js
-/RES.safariextension/*.js
-/RES.safariextension/modules/*.js
-/RES.safariextension/*.css
-/RES.safariextension/*.html
-/Opera/includes/*.js
-/Opera/includes/modules/*.js
-/Opera/includes/*.css
-/Opera/includes/*.html
-/Opera/modules/*.js
-/Opera/modules/*.html
-/XPI/data/
-!/XPI/lib/main.js
-!/lib/*
-/commentBoxes.css
-/nightmode.css
-/res.css
-/guiders.css
-/tokenize.css
+# Browser extensions and certs
+*.crx
+*.oex
+*.pem
+*.xpi
+*.nex
+*.safariextz
+*.zip
+
+# Copied files
+/dist/
+
+/tests/selenium/opera-profile/
+/tests/selenium/opera-profile-patch/
+/tests/selenium/opera-profile-clean/
 
 ## OS X
 .DS_Store
 .AppleDouble
 .LSOverride
+
+# Icon must end with two \r
 Icon
+
 
 # Thumbnails
 ._*
 
-# Files that might appear on external disk
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
 .Spotlight-V100
+.TemporaryItems
 .Trashes
+.VolumeIcon.icns
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
 
 ## Windows
 # Windows image file caches
@@ -99,3 +54,16 @@ Desktop.ini
 
 # Recycle Bin used on file shares
 $RECYCLE.BIN/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# Windows shortcuts
+*.lnk
+
+## IntelliJ
+.idea
+*.iml

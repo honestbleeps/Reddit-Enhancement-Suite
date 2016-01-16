@@ -1,0 +1,62 @@
+.res-betteReddit-showLastEditedTimestamp {
+	.edited-timestamp[title]::after {
+		content: ' (' attr(title) ')';
+		font-size: 90%;
+	}
+}
+
+.res-betteReddit-showTimestampPosts {
+	.thing.link time:not(.edited-timestamp)[title] {
+		font-size: 0;
+
+		&::after {
+			font-size: x-small;
+			content: attr(title);
+		}
+	}
+}
+
+.res-betteReddit-showTimestampComments {
+	.thing.comment time:not(.edited-timestamp)[title],
+	.thing.message time:not(.edited-timestamp)[title] {
+		font-size: 0;
+
+		&::after {
+			font-size: x-small;
+			content: attr(title);
+		}
+	}
+}
+
+.res-betteReddit-showTimestampSidebar {
+	.side time[title] {
+		font-size: 0;
+
+		&::after {
+			font-size: x-small;
+			content: attr(title);
+		}
+	}
+}
+
+.res-betteReddit-showTimestampWiki {
+	.wiki-page-content time[title] {
+		font-size: 0;
+
+		&::after {
+			font-size: x-small;
+			content: attr(title);
+		}
+	}
+}
+
+.res-betteReddit-showTimestampModerationLog {
+	.modactionlisting time[title] {
+		font-size: 0;
+
+		&::after {
+			font-size: small;
+			content: attr(title);
+		}
+	}
+}

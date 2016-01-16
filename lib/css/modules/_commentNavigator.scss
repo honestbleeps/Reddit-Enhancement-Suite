@@ -1,0 +1,72 @@
+#REScommentNavBox {
+	clear: both;
+	margin-top: 10px;
+	width: 265px;
+	border: 1px solid gray;
+	background-color: #fff;
+	opacity: .3;
+	user-select: none;
+	transition: opacity .5s ease-in;
+
+	&:hover {
+		opacity: 1;
+	}
+}
+
+#REScommentNavToggle {
+	clear: left;
+}
+
+.menuarea > .spacer {
+	float: left;
+}
+
+#commentNavButtons {
+	display: none;
+	margin: auto auto auto 12px;
+	text-align: center;
+	user-select: none;
+}
+
+#commentNavUp,
+#commentNavDown {
+	cursor: pointer;
+	color: #1278D3;
+	border: none;
+	background: transparent;
+	padding: 0;
+	font-size: 35px;
+	line-height: .9;
+
+	&:focus {
+		outline: none;
+		text-shadow: 0 0 5px #1278D3;
+	}
+
+	&[disabled] {
+		opacity: .3;
+		cursor: default;
+	}
+}
+
+.commentNavSortType {
+	cursor: pointer;
+	font-weight: bold;
+	display: inline-block;
+
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
+#commentNavPostCount {
+	color: #1278d3;
+}
+
+.noNav #commentNavPostCount {
+	color: #666;
+}
+
+.commentNavSortTypeDisabled {
+	color: #666;
+}

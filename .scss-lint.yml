@@ -1,0 +1,56 @@
+# Inherits from default config
+# https://github.com/brigade/scss-lint/blob/master/config/default.yml
+
+linters:
+  Indentation:
+    character: tab
+    width: 1
+
+  PropertySortOrder:
+    order: smacss
+    enabled: false
+
+  Comment:
+    allowed: '^[/*]*.*license'
+
+  Shorthand:
+    allowed_shorthands: [1, 2]
+
+  BorderZero:
+    convention: none
+
+  SelectorDepth:
+    enabled: false
+
+  NestingDepth:
+    enabled: false
+
+# Linters below are temporarily disabled/loosened
+
+  QualifyingElement:
+    allow_element_with_class: true
+    allow_element_with_attribute: true
+
+  IdSelector:
+    enabled: false
+
+  SelectorFormat:
+    enabled: false
+
+  ImportantRule:
+    enabled: false
+
+  ColorVariable:
+    enabled: false
+
+  ColorKeyword:
+    enabled: false
+
+  HexLength:
+    enabled: false
+
+  HexNotation:
+    enabled: false
+
+  UrlFormat:
+    enabled: false
