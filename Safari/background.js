@@ -204,8 +204,17 @@ addListener('ajax', async ({ method, url, headers, data, credentials, aggressive
 addListener('storage', ([operation, key, value]) => {
 	switch (operation) {
 		case 'get':
+			try {
+				return JSON.parse(localStorage.getItem(key));
+			} catch (e) {
+				console.warn('Failed to parse:', key, e);
+			}
+			return null;
+		case 'getRaw':
 			return localStorage.getItem(key);
 		case 'set':
+			return localStorage.setItem(key, JSON.stringify(value));
+		case 'setRaw':
 			return localStorage.setItem(key, value);
 		case 'remove':
 			return localStorage.removeItem(key);

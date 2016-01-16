@@ -242,8 +242,18 @@ addListener('ajax', ({ method, url, headers, data, credentials, aggressiveCache 
 addListener('storage', ([operation, key, value]) => {
 	switch (operation) {
 		case 'get':
+			try {
+				return key in ss.storage ? JSON.parse(ss.storage[key]) : null;
+			} catch (e) {
+				console.warn('Failed to parse:', key, e);
+			}
+			return null;
+		case 'getRaw':
 			return key in ss.storage ? ss.storage[key] : null;
 		case 'set':
+			ss.storage[key] = JSON.stringify(value);
+			break;
+		case 'setRaw':
 			ss.storage[key] = value;
 			break;
 		case 'remove':
