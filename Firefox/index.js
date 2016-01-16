@@ -267,7 +267,6 @@ pageMod.PageMod({
 		self.data.url('modules/hosts/github.js'),
 		self.data.url('modules/hosts/onedrive.js'),
 		self.data.url('modules/hosts/oddshot.js'),
-		self.data.url('modules/hosts/truncateLongLinks.js'),
 		self.data.url('core/init.js')
 	],
 	contentStyleFile: [
