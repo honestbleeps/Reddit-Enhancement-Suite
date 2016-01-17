@@ -1,45 +1,44 @@
 /* global safari: false */
 
 const XHRCache = {
-	forceCache: false,
 	capacity: 250,
 	entries: new Map(),
-	check(key) {
-		if (this.entries.has(key)) {
-			const entry = this.entries.get(key);
+	check(key, maxAge = Infinity) {
+		const entry = this.entries.get(key);
+		if (entry && (Date.now() - entry.timestamp < maxAge)) {
 			entry.hits++;
 			return entry.data;
 		}
 	},
 	add(key, value) {
+		let hits = 1;
+
 		if (this.entries.has(key)) {
-			return;
+			hits = this.entries.get(key).hits;
 		}
 
 		this.entries.set(key, {
 			data: value,
 			timestamp: Date.now(),
-			hits: 1
+			hits
 		});
 
 		if (this.entries.size > this.capacity) {
 			this.prune();
 		}
 	},
+	delete(key) {
+		this.entries.delete(key);
+	},
 	prune() {
 		const now = Date.now();
 		const top = Array.from(this.entries.entries())
-			.map(elem => {
-				const [, { hits, timestamp }] = elem;
-				// Weight by hits/age which is similar to reddit's hit/controversial sort orders
-				return {
-					elem,
-					weight: hits / (now - timestamp)
-				};
+			.sort(([, a], [, b]) => {
+				const aWeight = a.hits / (now - a.timestamp);
+				const bWeight = b.hits / (now - b.timestamp);
+				return bWeight - aWeight; // in order of decreasing weight
 			})
-			.sort(({ weight: a }, { weight: b }) => b - a) /* decreasing weight */
-			.slice(0, (this.capacity / 2) | 0)
-			.map(({ elem }) => elem);
+			.slice(0, (this.capacity / 2) | 0);
 
 		this.entries = new Map(top);
 	},
@@ -157,13 +156,7 @@ safari.application.addEventListener('message', ({ name: type, message: { data, t
 
 // Listeners
 
-addListener('ajax', async ({ method, url, headers, data, credentials, aggressiveCache }) => {
-	const cachedResult = (aggressiveCache || XHRCache.forceCache) && XHRCache.check(url);
-
-	if (cachedResult) {
-		return cachedResult;
-	}
-
+addListener('ajax', async ({ method, url, headers, data, credentials }) => {
 	const request = new XMLHttpRequest();
 
 	const load = Promise.race([
@@ -187,18 +180,11 @@ addListener('ajax', async ({ method, url, headers, data, credentials, aggressive
 	await load;
 
 	// Only store `status`, `responseText` and `responseURL` fields
-	const response = {
+	return {
 		status: request.status,
 		responseText: request.responseText,
 		responseURL: request.responseURL
 	};
-
-	// Only cache on HTTP OK and non empty body
-	if ((aggressiveCache || XHRCache.forceCache) && response.status === 200 && response.responseText) {
-		XHRCache.add(url, response);
-	}
-
-	return response;
 });
 
 addListener('storage', ([operation, key, value]) => {
@@ -237,11 +223,16 @@ addListener('openNewTabs', ({ urls, focusIndex }, tab) => {
 	);
 });
 
-addListener('XHRCache', ({ operation }) => {
+addListener('XHRCache', ({ operation, key, value, maxAge }) => {
 	switch (operation) {
+		case 'add':
+			return XHRCache.add(key, value);
+		case 'check':
+			return XHRCache.check(key, maxAge);
+		case 'delete':
+			return XHRCache.delete(key);
 		case 'clear':
-			XHRCache.clear();
-			break;
+			return XHRCache.clear();
 	}
 });
 
