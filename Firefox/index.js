@@ -251,6 +251,22 @@ addListener('storage', ([operation, key, value]) => {
 	}
 });
 
+const session = new Map();
+
+addListener('session', ([operation, key, value]) => {
+	switch (operation) {
+		case 'get':
+			return session.get(key);
+		case 'set':
+			session.set(key, value);
+			break;
+		case 'delete':
+			return session.delete(key);
+		case 'clear':
+			return session.clear();
+	}
+});
+
 addListener('XHRCache', ({ operation, key, value, maxAge }) => {
 	switch (operation) {
 		case 'add':
