@@ -1,0 +1,49 @@
+#NREMail {
+	display: inline-block;
+	margin-bottom: -2px;
+	margin-top: 5px;
+	width: 15px;
+	height: 10px;
+	background: center center no-repeat;
+
+	&.nohavemail {
+		background-image: url('https://redditstatic.s3.amazonaws.com/mailgray.png');
+	}
+
+	&.havemail {
+		background-image: url('https://redditstatic.s3.amazonaws.com/mail.png');
+
+		.res-colorblind & {
+			background-image: url('http://thumbs.reddit.com/t5_2s10b_5.png');
+		}
+	}
+}
+
+#NREMailCount {
+	line-height: 12px;
+	margin-top: 4px;
+}
+
+.res-orangered-hideModMail {
+	#modmail,
+	#modmail + .separator {
+		display: none;
+	}
+}
+
+.res-orangered-hideUnreadCount {
+	.message-count { display: none !important; }
+}
+
+.res-orangered-retroUnreadCount {
+	.message-count {
+		background: none;
+		padding: 0;
+		color: inherit;
+		font-size: inherit;
+		font-weight: normal;
+
+		&::before { content: '['; }
+		&::after { content: ']'; }
+	}
+}

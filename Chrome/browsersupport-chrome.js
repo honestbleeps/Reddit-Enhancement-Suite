@@ -55,8 +55,8 @@ chrome.runtime.onMessage.addListener(
 	}
 );
 
-RESUtils.runtime = RESUtils.runtime || {};
-RESUtils.runtime.ajax = function(obj) {
+RESEnvironment = RESEnvironment || {};
+RESEnvironment.ajax = function(obj) {
 	var crossDomain = (obj.url.indexOf(location.hostname) === -1);
 
 	if ((typeof obj.onload !== 'undefined') && (crossDomain)) {
@@ -106,19 +106,18 @@ RESUtils.runtime.ajax = function(obj) {
 	}
 };
 
-RESLoadResourceAsText = function(filename, callback) {
+RESEnvironment.loadResourceAsText = function(filename, callback) {
 	var xhr = new XMLHttpRequest();
 	xhr.onload = function() {
 		if (callback) {
 			callback(this.responseText);
 		}
 	};
-	var id = chrome.i18n.getMessage('@@extension_id');
-	xhr.open('GET', 'chrome-extension://' + id + '/' + filename);
+	xhr.open('GET', chrome.runtime.getURL(filename));
 	xhr.send();
 };
 
-RESUtils.runtime.storageSetup = function(thisJSON) {
+RESEnvironment.storageSetup = function(thisJSON) {
 	// we've got chrome, get a copy of the background page's localStorage first, so don't init until after.
 	chrome.runtime.sendMessage(thisJSON, function(response) {
 		// Does RESStorage have actual data in it?  If it doesn't, they're a legacy user, we need to copy
@@ -145,11 +144,11 @@ RESUtils.runtime.storageSetup = function(thisJSON) {
 };
 
 
-RESUtils.runtime.sendMessage = function(thisJSON) {
+RESEnvironment.sendMessage = function(thisJSON) {
 	chrome.runtime.sendMessage(thisJSON);
 };
 
-RESUtils.runtime.deleteCookie = function(cookieName) {
+RESEnvironment.deleteCookie = function(cookieName) {
 	var deferred = new $.Deferred();
 
 	var requestJSON = {
@@ -165,7 +164,7 @@ RESUtils.runtime.deleteCookie = function(cookieName) {
 };
 
 
-RESUtils.runtime.openInNewWindow = function(thisHREF) {
+RESEnvironment.openInNewWindow = function(thisHREF) {
 	var thisJSON = {
 		requestType: 'keyboardNav',
 		linkURL: thisHREF
@@ -173,7 +172,7 @@ RESUtils.runtime.openInNewWindow = function(thisHREF) {
 	chrome.runtime.sendMessage(thisJSON);
 };
 
-RESUtils.runtime.openLinkInNewTab = function(thisHREF) {
+RESEnvironment.openLinkInNewTab = function(thisHREF) {
 	var thisJSON = {
 		requestType: 'openLinkInNewTab',
 		linkURL: thisHREF
@@ -181,8 +180,8 @@ RESUtils.runtime.openLinkInNewTab = function(thisHREF) {
 	chrome.runtime.sendMessage(thisJSON);
 };
 
-RESUtils.runtime.addURLToHistory = (function() {
-	var original = RESUtils.runtime.addURLToHistory;
+RESEnvironment.addURLToHistory = (function() {
+	var original = RESEnvironment.addURLToHistory;
 
 	return function(url) {
 		if (chrome.extension.inIncognitoContext) {

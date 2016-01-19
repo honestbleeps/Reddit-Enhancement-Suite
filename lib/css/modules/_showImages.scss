@@ -1,0 +1,6 @@
+body:not(.res-showImages-displayImageCaptions) {
+	.imgTitle,
+	.imgCaptions {
+		display: none;
+	}
+}

@@ -1,0 +1,2082 @@
+@import 'zindex';
+@import 'fonts/batch';
+@import 'modules/nightMode';
+@import 'modules/commentBoxes';
+@import 'modules/showParent';
+@import 'modules/quickMessage';
+@import 'modules/accountSwitcher';
+@import 'modules/betteReddit';
+@import 'modules/commandLine';
+@import 'modules/commentNavigator';
+@import 'modules/commentPreview';
+@import 'modules/commentTools';
+@import 'modules/dashboard';
+@import 'modules/newCommentCount';
+@import 'modules/noParticipation';
+@import 'modules/filteReddit';
+@import 'modules/hover';
+@import 'modules/keyboardNav';
+@import 'modules/neverEndingReddit';
+@import 'modules/orangered';
+@import 'modules/pageNavigator';
+@import 'modules/saveComments';
+@import 'modules/searchHelper';
+@import 'modules/selectedEntry';
+@import 'modules/showImages';
+@import 'modules/singleClick';
+@import 'modules/sourceSnudown';
+@import 'modules/styleTweaks';
+@import 'modules/submitIssue';
+@import 'modules/subredditInfo';
+@import 'modules/subredditManager';
+@import 'modules/tableTools';
+@import 'modules/troubleshooter';
+@import 'modules/userbarHider';
+@import 'modules/userInfo';
+@import 'modules/userTagger';
+@import 'modules/voteEnhancements';
+
+body.res-console-open {
+	overflow: hidden;
+}
+
+#RESConsoleContainer {
+	visibility: hidden;
+	color: #000;
+	font-size: 12px;
+	z-index: $zindex-console-container;
+	position: fixed;
+	top: 15px;
+	right: 25px;
+	bottom: 100%;
+	left: 25px;
+	overflow: hidden;
+	box-shadow: 5px 5px 10px rgba(0, 0, 0, .2);
+	border-radius: 3px;
+	background-color: #fff;
+	transition: bottom .4s;
+
+	&.slideIn {
+		visibility: visible;
+		bottom: 1.5%;
+	}
+
+	&.slideOut {
+		visibility: visible;
+		bottom: 100%;
+		padding: 0;
+
+		#RESConfigPanelOptions {
+			overflow: hidden; // try to smooth the transition
+		}
+	}
+
+	em {
+		font-style: italic;
+	}
+}
+
+.RESDonateButton {
+	display: inline-block;
+	background-color: white;
+	color: orangered;
+	border-radius: 10px;
+	padding: 10px 20px;
+	border: 1px solid rgb(255, 69, 0);
+}
+
+.donateOption {
+	margin-top: 25px;
+	text-align: center;
+	float: left;
+	width: 50%;
+	height: 150px;
+}
+
+.donateOption:last-child {
+	margin-right: 0;
+}
+
+#modalOverlay {
+	visibility: hidden;
+	z-index: $zindex-modal-overlay;
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: rgba(0, 0, 0, 0);
+	transition: background .4s, visibility .4s;
+
+	&.fadeIn {
+		visibility: visible;
+		background: rgba(0, 0, 0, .5);
+	}
+
+	&.fadeOut {
+		background: rgba(0, 0, 0, 0);
+	}
+}
+
+#DashboardLink a {
+	display: block;
+	width: auto;
+	height: auto;
+}
+
+.gearIcon {
+	text-decoration: none !important;
+	position: relative;
+
+	&.res-gearIcon-legacy {
+		display: inline-block;
+		width: 15px;
+		height: 15px;
+		background-repeat: no-repeat;
+
+		&::after {
+			content: none;
+		}
+	}
+
+	&::before,
+	&::after {
+		font: normal 14px/1 "Batch";
+		vertical-align: middle;
+	}
+
+	&::after {
+		content: '\F04D';
+		color: #a0e0fd;
+		text-shadow: 0 0 1px #3d6da5, 0 0 1px #3d6da5, 0 0 1px #3d6da5, 0 0 1px #3d6da5, 0 0 1px #3d6da5, 0 0 1px #3d6da5, 0 0 1px #3d6da5, 0 0 1px #3d6da5;
+	}
+
+	&.newNotification::before {
+		content: '\F15B';
+		color: orangered;
+		position: absolute;
+		bottom: 25%;
+		left: 25%;
+		animation: fadeIn .5s ease-out 7 alternate;
+	}
+
+	&.newNotification.important::before {
+		animation: gearIconPop 1s ease-out infinite alternate;
+	}
+
+	#header-bottom-right & {
+		cursor: default; // firefox
+
+		&.newNotification {
+			cursor: pointer;
+		}
+	}
+}
+
+@keyframes gearIconPop {
+	from { transform: scale(0, 0); }
+	to { transform: scale(1.5, 1.5); }
+}
+
+#RESSettingsButton,
+#openRESPrefs {
+	display: inline-block;
+}
+
+.RESDropdownList {
+	position: absolute;
+	list-style-type: none;
+	background-color: #5f99cf;
+	width: 180px;
+	border-radius: 0 0 3px 3px;
+	border: 1px solid #369;
+	border-bottom: none;
+	margin: 0 !important;
+
+	li {
+		position: relative;
+		cursor: pointer;
+		border-bottom: 1px solid #369;
+		height: 35px;
+		line-height: 34px;
+		font-weight: bold;
+		color: #c9def2;
+		padding-left: 10px;
+	}
+
+	.toggleButton {
+		float: right;
+		margin: 0 4px 0 0;
+		line-height: inherit;
+
+		span {
+			line-height: 16px;
+		}
+	}
+
+	a,
+	a:visited {
+		display: inline-block;
+		width: 100%;
+		height: 100%;
+		color: #c9def2;
+	}
+
+	li:hover,
+	li a:hover {
+		background-color: #9cc6ec;
+		color: #369;
+	}
+}
+
+.editButton {
+	cursor: pointer;
+	width: 24px;
+	height: 22px;
+}
+
+#RESLogo {
+	margin-right: 5px;
+	vertical-align: middle;
+}
+
+.RESDialogTopBar {
+	border-radius: 3px 3px 0 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 40px;
+	margin-bottom: 10px;
+	padding: 10px 10px 0 10px;
+	border-bottom: 1px solid #c7c7c7;
+	background-color: #F0F3FC;
+}
+
+#RESConsoleTopBar {
+	padding-right: 30px;
+	margin: 0;
+	height: auto;
+	position: static;
+
+	h1 {
+		display: inline-block;
+		margin: 0;
+		padding: 0;
+		font-size: 14px;
+		vertical-align: middle;
+	}
+}
+
+#RESConsoleSubredditLink {
+	display: inline-block;
+	margin-left: 1em;
+	font-size: 10px;
+	vertical-align: middle;
+}
+
+#RESKnownBugs,
+#RESKnownFeatureRequests {
+	list-style-type: disc;
+}
+
+.RESCloseButton {
+	position: absolute;
+	top: 8px;
+	right: 8px;
+	font: 12px/22px Verdana, sans-serif;
+	background-color: #fff;
+	border: 1px solid #d7d9dc;
+	border-radius: 3px;
+	color: #9a958e;
+	text-align: center;
+	width: 24px;
+	height: 24px;
+	z-index: 1000;
+	cursor: pointer;
+	box-sizing: border-box;
+
+	&:hover {
+		border-color: #999;
+		background-color: #ddd;
+	}
+
+	#RESConsoleTopBar & {
+		top: 8px;
+		right: 8px;
+	}
+}
+
+#RESAllOptionsSpan {
+	display: flex; // removes white space
+	margin: 10px 0;
+	color: #868686;
+	font-size: 11px;
+}
+
+.RESDialogSmall {
+	background-color: #fff;
+	border: 1px solid #c7c7c7;
+	border-radius: 3px;
+	font-size: 12px;
+	color: #666;
+	position: relative;
+
+	> h3 {
+		color: #000;
+		font-size: 14px;
+		margin: 0 0 10px;
+		font-weight: normal;
+		background-color: #f0f3fc;
+		border-bottom: 1px solid #c7c7c7;
+		width: auto;
+		position: relative;
+		height: 28px;
+		padding-left: 10px;
+		padding-top: 12px;
+	}
+
+	.RESDialogContents {
+		padding: 0 12px 12px 12px;
+	}
+}
+
+// Allow textarea to be any width without disappearing.
+body.wiki-page #editform,
+.comment form.usertext {
+	overflow: auto; // Same as top-level comment form on vanilla reddit
+}
+
+div.usertext-edit {
+	width: auto;
+	max-width: 500px;
+	padding: 0;
+}
+
+// Correct reddit's miscalculation of textarea width when editing a comment.
+.usertext-body > .md {
+	padding-right: 1px;
+}
+
+.usertext-edit .md,
+.wiki-page #editform textarea {
+	clear: left;
+}
+
+// Improve size calculation for textareas.
+.usertext-edit textarea,
+#wiki_page_content,
+.wiki-page .wiki-page-content #wiki_revision_reason {
+	box-sizing: border-box;
+}
+
+.usertext-edit .RESDialogSmall:not(.livePreview) .md.RESDialogContents {
+	border: none;
+	background-color: #fff;
+}
+
+#RESConsoleContent {
+	display: flex;
+	max-height: 100%;
+	position: absolute;
+	top: 41px;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	padding-left: 15px;
+
+	&.advanced-options-disabled .SearchRES-result-item.advanced,
+	&.advanced-options-disabled .optionContainer.advanced {
+		display: none;
+	}
+
+	#contributeContents {
+		padding-top: 15px;
+
+		p {
+			margin-bottom: 20px;
+			font-size: 14px;
+		}
+
+		h1 {
+			margin-top: 40px;
+		}
+	}
+}
+
+#RESConfigPanelOptions {
+	display: block;
+	overflow: auto;
+	padding: 15px 15px 0 15px;
+	flex-grow: 1;
+
+	.moduleDescription {
+		margin-top: 5px;
+	}
+
+	p {
+		margin-bottom: 10px;
+	}
+
+	ul {
+		margin-bottom: 10px;
+		margin-top: 10px;
+
+		&.token-input-list-facebook {
+			margin: 0;
+		}
+	}
+
+	li {
+		list-style-type: disc;
+		margin-left: 15px;
+	}
+}
+
+#allOptionsContainer {
+	position: relative;
+	max-width: 1150px;
+}
+
+#moduleOptionsScrim {
+	display: none;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 1;
+	background-color: rgba(255, 255, 255, .7);
+
+	&.visible {
+		display: block;
+	}
+}
+
+#RESConfigPanelModulesPane {
+	position: relative;
+	width: 200px;
+	padding-top: 15px;
+	flex-shrink: 0;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+.clear {
+	clear: both;
+}
+
+#goModePanel {
+	display: none;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	width: 250px;
+	margin-left: -125px;
+	margin-top: -140px;
+	z-index: $zindex-go-mode-panel;
+
+	table {
+		width: 100%;
+
+		td {
+			padding: 4px 2px;
+			border: none;
+
+			&.arrow {
+				padding: 4px 12px;
+				border: none;
+			}
+		}
+	}
+}
+
+#keyCodeModal {
+	display: none;
+	width: 200px;
+	height: 40px;
+	position: absolute;
+	z-index: $zindex-keycode-modal;
+	background-color: #FFF;
+	padding: 4px;
+	border: 2px solid #CCC;
+}
+
+#RESConfigPanelModulesList {
+	color: rgb(80, 80, 80);
+	margin-top: 15px;
+
+	> ul {
+		border: 1px solid rgb(230, 230, 230);
+		border-radius: 2px;
+	}
+
+	ul ul {
+		padding: 10px 0;
+		display: none;
+	}
+
+	li h3 {
+		text-align: left;
+		padding: 5px 10px;
+		margin: 0;
+		cursor: pointer;
+		border-top: 1px solid rgb(230, 230, 230);
+		font-weight: normal;
+	}
+
+	li:first-child h3 {
+		border: none;
+	}
+
+	li.active h3 {
+		border-bottom: 1px solid rgb(230, 230, 230);
+		background: rgb(245, 245, 245);
+	}
+}
+
+#RESMenu li h3:hover {
+	border-color: #000;
+}
+
+%warningIcon {
+	content: '\F15A';
+	margin-left: 3px;
+	color: rgb(230, 30, 30);
+	font: normal 11px "Batch";
+}
+
+#RESAllOptionsSpan::after {
+	@extend %warningIcon;
+}
+
+.optionContainer {
+	position: relative;
+	border: 1px solid hsl(205, 50%, 78%);
+	border-radius: 2px;
+	padding: 10px 20px;
+	background-color: #f0f3fc;
+	margin: 10px 0;
+	overflow: auto;
+	clear: both;
+	display: flex;
+
+	&.table,
+	&.specialOptionType {
+		display: block;
+	}
+
+	// for when the functionality is there
+	&.depends {
+		margin-top: -11px;
+		border-radius: 0 0 2px 2px;
+		background-color: rgb(251, 252, 255);
+	}
+
+	&.highlight {
+		box-shadow: 0 0 5px 1px rgb(171, 204, 227);
+
+		.optionTitle {
+			font-weight: bold;
+		}
+	}
+
+	&.advanced .optionTitle::before {
+		@extend %warningIcon;
+		margin: 0 4px 0 -15px; // 4+(-15) = 11 == Batch font-size
+	}
+
+	&:not(.table):not(.specialOptionType) .optionSetting {
+		padding: 0 10px;
+		margin-right: 10px;
+		border-right: 1px dashed hsl(205, 50%, 78%);
+	}
+
+	.res-icon-button {
+		cursor: pointer;
+		width: 16px;
+		height: 16px;
+		margin-left: 2px;
+		margin-right: 2px;
+		opacity: .4;
+
+		&:hover {
+			opacity: 1;
+		}
+	}
+
+	table {
+		clear: both;
+		width: 100%;
+		margin-top: 20px;
+		margin-bottom: 10px;
+	}
+
+	tr .deleteButton,
+	.builderWrap .deleteButton {
+		visibility: hidden;
+	}
+
+	tr:hover .deleteButton,
+	.builderWrap:hover > .builderTrailingControls .deleteButton {
+		visibility: visible;
+	}
+
+	.handle {
+		cursor: move;
+	}
+
+	.enum img {
+		max-width: 16px;
+	}
+}
+
+.optionTitle {
+	font-size: 14px;
+	flex: 0 0 auto;
+	min-width: 200px;
+}
+
+.optionDescription {
+	line-height: 1.5;
+}
+
+.optionSetting {
+	white-space: nowrap;
+}
+
+#RESConsoleContainer input[type=radio],
+#RESConsoleContainer input[type=checkbox] {
+	vertical-align: bottom;
+	margin-right: 3px;
+}
+
+.moduleButton {
+	font: 12px sans-serif;
+	text-align: right;
+	color: rgb(180, 180, 180);
+	padding: 7px 10px 7px 0;
+	cursor: pointer;
+
+	&.enabled {
+		color: rgb(80, 80, 80);
+	}
+
+	&.active {
+		font-weight: bold;
+	}
+}
+
+.toggleButton {
+	position: relative;
+	display: inline-block;
+	cursor: pointer;
+	white-space: nowrap;
+
+	input[type=checkbox] {
+		display: none;
+	}
+
+	span {
+		font-size: 11px;
+		width: 28px;
+		line-height: 20px;
+		display: inline-block;
+		text-align: center;
+	}
+
+	.toggleOn {
+		border: 1px solid #636363;
+		border-right: none;
+		border-radius: 3px 0 0 3px;
+	}
+
+	.toggleOff {
+		border: 1px solid #636363;
+		border-left: none;
+		border-radius: 0 3px 3px 0;
+	}
+
+	&:not(.enabled) .toggleOn {
+		background-color: #ddd;
+		color: #636363;
+	}
+
+	&:not(.enabled) .toggleOff {
+		background-color: #d02020;
+		color: #fff;
+		font-weight: bolder;
+	}
+
+	&.enabled .toggleOn {
+		background-color: #107ac4;
+		color: #fff;
+		font-weight: bolder;
+	}
+
+	&.enabled .toggleOff {
+		background-color: #ddd;
+		color: #636363;
+	}
+
+	&::before {
+		content: ' ';
+		position: absolute;
+		top: 50%;
+		margin-top: -3px;
+		border: 3px solid;
+		border-color: transparent white;
+		opacity: .3;
+		border-left-width: 0;
+		border-right-width: 5px;
+		left: auto;
+		right: 1px;
+	}
+
+	&.enabled::before {
+		border-left-width: 5px;
+		border-right-width: 0;
+		left: 1px;
+		right: auto;
+	}
+}
+
+.moduleToggle {
+	display: inline-flex; // removes white space
+	vertical-align: middle;
+}
+
+.moduleName {
+	font: 20px segoe ui, arial, sans-serif;
+	margin-right: 10px;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.optionsTable {
+	th {
+		font-weight: bold;
+		font-size: 14px;
+		color: white;
+		text-shadow: 1px 1px 1px rgba(0, 0, 0, .3);
+		padding: 7px 5px;
+		background-color: rgb(150, 191, 232);
+	}
+
+	tr:nth-child(even) {
+		background-color: hsl(215, 40%, 93%);
+	}
+
+	td {
+		padding: 5px;
+	}
+
+	tr.dragged {
+		width: 80% !important;
+		background-color: transparent;
+
+		input[type=text] {
+			width: auto !important;
+		}
+	}
+
+	input[type=text] {
+		width: 100%;
+	}
+
+	textarea,
+	ul.token-input-list-facebook {
+		width: 100%;
+		min-width: 300px;
+		box-sizing: border-box;
+	}
+}
+
+#RESConsoleVersionDisplay {
+	display: inline-block;
+	font-size: 10px;
+	margin-left: 1em;
+	vertical-align: middle;
+}
+
+.RESConsoleButton {
+	padding: 3px 5px;
+	font-size: 12px;
+	border: 1px solid #636363;
+	border-radius: 3px;
+}
+
+#moduleOptionsSave {
+	float: right;
+	cursor: pointer;
+	padding: 0 10px;
+	height: auto;
+	margin: -2px 1em 0 0;
+	font-size: 12px;
+	line-height: 22px;
+	color: #fff;
+	border: 1px solid #636363;
+	border-radius: 3px;
+	background-color: rgba(16, 122, 196, .9);
+
+	&:hover {
+		background-color: rgb(16, 122, 196);
+	}
+
+	&::before {
+		content: '';
+		display: inline-block;
+		margin: 0 7px 0 0;
+		height: 8px;
+		width: 8px;
+		border-radius: 100%;
+		background: #66EE11;
+	}
+
+	&.optionsSaved::before {
+		background: #225599;
+	}
+
+	&::-moz-focus-inner { // scss-lint:disable PseudoElement
+		border: none;
+		padding: 0;
+	}
+}
+
+.addRowButton {
+	cursor: pointer;
+	padding: 2px 5px;
+	color: #fff;
+	border: 1px solid #636363;
+	border-radius: 3px;
+	background-color: #107ac4;
+}
+
+.addRowButton:hover {
+	background-color: #289dee;
+}
+
+#moduleOptionsSaveStatus {
+	display: none;
+	float: right;
+	padding: 4px;
+	margin-right: 1em;
+	background-color: #FFFACD;
+}
+
+#AboutRESTeamImage {
+	width: 100%;
+	background-color: #000;
+	margin-bottom: 12px;
+
+	img {
+		display: block;
+		margin: auto;
+	}
+}
+
+#SearchRES-results-container {
+	display: none;
+
+	+ #SearchRES-boilerplate {
+		margin-top: 1em;
+		border-top: 1px black solid;
+		padding-top: 1em;
+	}
+
+	li {
+		list-style-type: none;
+		border-bottom: 1px dashed #ccc;
+		cursor: pointer;
+		margin-left: 0;
+		padding-left: 10px;
+		padding-top: 24px;
+		padding-bottom: 24px;
+
+		&:hover {
+			background-color: #FAFAFF;
+		}
+	}
+}
+
+#SearchRES-results-hidden {
+	display: none;
+	font-style: italic;
+}
+
+.advanced-options-disabled #SearchRES-results-hidden.advancedResults {
+	display: inline;
+}
+
+// Universal subreddit toggle button (subscribe, filter, shortcut, etc)
+// Borrowed from fancy-toggle-button
+.res-fancy-toggle-button {
+	font-weight: bold;
+	font-size: 10px;
+	color: white;
+	display: inline-block;
+	margin: 0 5px 5px 0;
+	padding: 1px 6px;
+	border: 1px solid rgb(68, 68, 68);
+	background-image: linear-gradient(to bottom, rgb(123, 184, 80), rgb(117, 168, 73));
+	border-radius: 3px;
+	cursor: pointer;
+
+	&.remove {
+		background-image: linear-gradient(to bottom, rgb(207, 97, 101), rgb(190, 94, 96));
+	}
+}
+
+.SearchRES-result-header {
+	margin-bottom: 12px;
+	color: #666;
+}
+
+.SearchRES-result-title {
+	font-weight: bold;
+
+	.advanced & {
+		font-style: italic;
+	}
+}
+
+.SearchRES-result-title,
+.SearchRES-breadcrumb {
+	display: block;
+}
+
+.SearchRES-breadcrumb {
+	font-weight: normal;
+	color: #888;
+}
+
+.SearchRES-result-copybutton {
+	float: right;
+	opacity: .4;
+	padding: 10px;
+	width: 26px;
+	height: 22px;
+	visibility: hidden;
+}
+
+#SearchRES-results li:hover .SearchRES-result-copybutton {
+	visibility: visible;
+}
+
+#SearchRES-results .SearchRES-result-copybutton:hover {
+	color: #888;
+}
+
+#SearchRES-input-container {
+	position: relative;
+	margin-bottom: 10px;
+}
+
+#SearchRES-input {
+	box-sizing: border-box;
+	width: 100%;
+	font-size: 14px;
+	padding: 5px 25px 5px 3px;
+	border: 1px solid rgb(171, 204, 227);
+	border-radius: 2px;
+}
+
+#SearchRES-input-submit {
+	position: absolute;
+	border: none;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	width: 25px;
+	height: auto;
+	margin: 0;
+	padding: 0;
+	background: transparent;
+	box-shadow: none;
+
+	span {
+		color: rgb(130, 177, 210);
+	}
+}
+
+.RESMenuItemButton {
+	display: block;
+	position: absolute;
+	right: 7px;
+	top: 7px;
+	padding: 2px;
+	width: 16px;
+	height: 16px;
+	line-height: 15px;
+	border-radius: 3px;
+}
+
+.RESMenuItemButton:hover {
+	background-color: #C8DBEC;
+}
+
+.outdated {
+	float: right;
+	font-size: 11px;
+	margin-right: 15px;
+	margin-top: 5px;
+}
+
+#RESNotifications {
+	position: fixed;
+	top: 0;
+	right: 7px;
+	height: auto;
+	width: 300px;
+	background: none;
+	z-index: $zindex-notifications !important;
+	font: 12px/1.6 verdana, arial, sans-serif;
+	color: #000;
+}
+
+.RESNotification {
+	position: relative;
+	background-color: #fff;
+	border: 1px solid rgb(255, 255, 255);
+	box-shadow: 0 2px 8px 0 rgba(0, 0, 0, .3);
+	z-index: 1;
+	opacity: 0;
+	top: -10px;
+	transition: top .2s; // opacity handled with JS
+
+	&:not(:first-of-type) {
+		margin-top: 5px;
+	}
+
+	&.transition {
+		top: 0;
+		opacity: 1;
+	}
+
+	&.timerOn {
+		animation: fadeOut, 3s, ease-in, 3s, 1, normal, forwards, running;
+	}
+
+	a {
+		color: #369;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+
+	.RESNotificationToggle {
+		margin-top: .5em;
+		font-size: smaller;
+		font-weight: normal;
+	}
+
+	.RESNotificationButtonBlue {
+		padding: 5px 10px;
+		color: white !important;
+		background-color: #107ac4;
+	}
+
+	.RESNotificationHeader .gearIcon,
+	.RESNotificationClose,
+	.RESNotificationFooter {
+		opacity: .3;
+		transition: opacity .3s linear;
+	}
+
+	&:hover .RESNotificationHeader .gearIcon,
+	&:hover .RESNotificationClose,
+	&:hover .RESNotificationFooter {
+		opacity: 1;
+	}
+}
+
+@keyframes fadeOut {
+	to { opacity: 0; }
+}
+
+.RESNotificationContent {
+	overflow: auto;
+	padding: 15px 10px;
+	color: rgb(0, 0, 0);
+	border-top: 1px solid rgb(230, 230, 230);
+	border-bottom: 1px solid rgb(230, 230, 230);
+
+	h2 {
+		color: #000;
+		margin-bottom: 10px;
+	}
+
+	p {
+		margin: .5em 0;
+	}
+
+	strong {
+		font-weight: bolder;
+	}
+}
+
+.RESNotificationFooter {
+	padding: 10px;
+	color: rgb(140, 140, 140);
+	font-size: 11px;
+
+	input {
+		vertical-align: middle;
+	}
+}
+
+.RESNotificationHeader {
+	line-height: 24px;
+	padding: 5px 10px;
+	color: rgb(255, 255, 255);
+	background-color: rgb(60, 60, 60);
+	border-bottom: #c7c7c7;
+
+	h3 {
+		font-size: 12px;
+		font-weight: normal;
+	}
+
+	.gearIcon {
+		float: left;
+		margin-right: 5px;
+
+		&::after {
+			line-height: 1;
+		}
+	}
+}
+
+.RESNotificationClose.RESCloseButton {
+	top: 5px;
+	right: 5px;
+	box-sizing: border-box;
+	border: none;
+	background: hsl(0, 70%, 55%);
+	color: rgb(255, 255, 255);
+	font-weight: bold;
+	border-radius: 3px;
+	line-height: 24px;
+
+	&:hover {
+		border: none;
+		background-color: rgb(200, 20, 20);
+	}
+}
+
+.RES-spoiler {
+	font-style: italic;
+	text-decoration: dotted underline;
+	cursor: help;
+}
+
+.RES-spoiler-contents {
+	display: none;
+}
+
+.RES-spoiler:hover + .RES-spoiler-contents,
+.RES-spoiler:active + .RES-spoiler-contents,
+.RES-spoiler-contents:active,
+.RES-spoiler-contents:hover {
+	display: inline-block;
+}
+
+.guider dl {
+	margin-top: .6em;
+	margin-bottom: .6em;
+}
+
+.guider em {
+	font-weight: bolder;
+}
+
+#baconBit {
+	position: fixed;
+	width: 32px;
+	height: 32px;
+	background-image: url('https://s3.amazonaws.com/f.thumbs.redditmedia.com/OvX59a7-5YkWrwLw.png');
+	top: -5%;
+	left: -5%;
+	z-index: $zindex-baconbit;
+	transform: rotate(0deg);
+	transition: all 2s linear;
+
+	&.makeitrain {
+		top: 100%;
+		left: 100%;
+		transform: rotate(2000deg);
+	}
+}
+
+.blueButton {
+	cursor: pointer;
+	padding: 3px 5px;
+	font-size: 12px;
+	line-height: 15px;
+	color: #fff;
+	border: 1px solid #636363;
+	border-radius: 3px;
+	background-color: #107ac4;
+}
+
+.redButton {
+	cursor: pointer;
+	margin-top: 12px;
+	padding: 3px 5px;
+	font-size: 12px;
+	line-height: 15px;
+	color: #fff !important;
+	border: 1px solid #bc3d1b;
+	border-radius: 3px;
+	background-color: #ff5757;
+}
+
+.RESButton {
+	margin: 5px;
+	padding: 3px;
+	border: 1px solid #999;
+	width: 120px;
+	cursor: pointer;
+	border-radius: 5px;
+
+	&:hover {
+		background-color: #DDD;
+	}
+}
+
+// Stuff added to force specificty
+span.RESCharCounter {
+	color: gray;
+	float: right;
+	font-size: 15px;
+	// needed to keep the wiki textarea from being pushed down
+	margin-bottom: -2px;
+
+	&.tooLong {
+		color: red;
+	}
+}
+
+// Big Editor
+body.RESScrollLock {
+	height: 100%;
+	overflow: hidden;
+}
+
+#BigEditor {
+	position: fixed;
+	z-index: $zindex-big-editor;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(0, 0, 0, .75);
+
+	> div {
+		margin: 1em .5em;
+	}
+
+	.RESDialogContents {
+		position: absolute !important;
+		top: 0;
+		bottom: 0;
+
+		.markdownEditor-wrapper {
+			display: block;
+		}
+	}
+
+	.markdownEditor-wrapper {
+		display: none; // unused
+	}
+}
+
+.BELeft,
+.BERight {
+	position: absolute !important;
+	top: 0;
+	bottom: 0;
+	width: 49%;
+	box-sizing: border-box;
+	overflow: hidden;
+}
+
+.BELeft {
+	left: 0;
+	margin-right: 0;
+
+	.RESDialogContents {
+		left: 0;
+		right: 0;
+		margin: 0 1em;
+		padding-top: 52px;
+	}
+}
+
+.BERight {
+	right: 0;
+	margin-left: 0;
+
+	.md {
+		max-width: none;
+	}
+
+	.RESDialogContents,
+	.RESDialogContents.wiki-page-content {
+		overflow: auto;
+		padding: 12px;
+		margin: 4em 1em 1em 0;
+		left: 0;
+		right: 0;
+	}
+}
+
+#BigText {
+	resize: none;
+	width: 100%;
+	height: 100%;
+}
+
+.BEFoot {
+	margin-top: .5em;
+
+	button {
+		display: inline-block;
+	}
+
+	.errorList {
+		margin-left: 1em;
+	}
+}
+
+.BESideHide {
+	display: none;
+}
+
+.RESFadeButton {
+	pointer-events: auto;
+	right: 38px;
+	font-family: Webdings;
+}
+
+.content .RESBigEditorPop {
+	float: right;
+	margin-top: 5px;
+	margin-left: 5px;
+}
+
+#autocomplete_dropdown {
+	display: inline-block;
+	z-index: $zindex-autocomplete-dropdown;
+}
+
+//Image Viewer
+img {
+	image-orientation: from-image;
+}
+
+.commentarea .thing .usertext-body .expando-button,
+.listing-page .thing .expando-button {
+	padding: 0;
+}
+
+.profile-page .comment .parent .expando-button {
+	display: inline-block;
+	float: none;
+}
+
+.usertext-body .md .expando-button,
+.wiki-page .expando-button,
+.messages-page .expando-button {
+	float: none;
+	display: inline-block;
+	vertical-align: bottom;
+	margin-left: 4px;
+}
+
+.expando-button {
+	cursor: pointer;
+	user-select: none;
+
+	.res-showImages-highlightNSFWButton .thing.over18 &::before {
+		display: inline-block;
+		content: ' ';
+		width: 100%;
+		height: 100%;
+		pointer-events: none;
+		background-image: linear-gradient(45deg, rgba(255, 0, 0, .15) 25%, transparent 25%, transparent 50%, rgba(255, 0, 0, .15) 50%, rgba(255, 0, 0, .15) 75%, transparent 75%, transparent);
+
+	}
+
+	&.image,
+	&.video-muted {
+		vertical-align: top !important;
+		float: left;
+		width: 23px;
+		height: 23px;
+		max-width: 23px;
+		max-height: 23px;
+		display: inline-block;
+		background-image: url('https://b.thumbs.redditmedia.com/s_noD6Owp5p3Hhw9yoBB30iDpSyZFVetFqxtPDbteAw.png');
+		margin-right: 6px;
+		padding: 0;
+
+		&.commentImg {
+			float: none;
+			margin-left: 4px;
+		}
+	}
+
+	&.image.collapsedExpando {
+		padding: 0;
+		background-position: 0 0;
+	}
+
+	&.image.collapsedExpando:hover { background-position: 0 -24px; }
+	&.image.expanded { background-position: 0 -48px; }
+	&.image.expanded:hover { background-position: 0 -72px; }
+	&.image.gallery.collapsedExpando { background-position: 0 -368px; }
+	&.image.gallery.collapsedExpando:hover { background-position: 0 -392px; }
+	&.image.gallery.expanded { background-position: 0 -416px; }
+	&.image.gallery.expanded:hover { background-position: 0 -440px; }
+	&.video-muted.collapsed { background-position: 0 -464px; }
+	&.video-muted.collapsed:hover { background-position: 0 -488px; }
+	&.video-muted.expanded { background-position: 0 -512px; }
+	&.video-muted.expanded:hover { background-position: 0 -536px; }
+}
+
+.madeVisible {
+	clear: left;
+	display: block;
+	overflow: hidden;
+
+	a.madeVisible {
+		display: inline-block;
+		overflow: hidden;
+	}
+}
+
+.RESImage {
+	display: block !important;
+
+	&.loaded {
+		position: absolute;
+	}
+
+	&.RESImageError {
+		content: '';
+
+		&::after {
+			content: 'Loading of image ' attr(src) ' failed. Click to view directly';
+		}
+	}
+}
+
+.RESImagePlaceholder {
+	float: left;
+	display: block !important;
+}
+
+.RESdupeimg {
+	color: #000;
+	font-size: 10px;
+}
+
+.RESClear {
+	clear: both;
+	margin-bottom: 10px;
+}
+
+.RESGalleryControls {
+	margin-bottom: 10px;
+
+	span {
+		line-height: 16px;
+		vertical-align: bottom;
+		padding: 0 5px;
+		font-size: 11px;
+	}
+
+	.next,
+	.previous {
+		&::after {
+			font: normal 18px/16px Batch;
+			content: '\F158';
+			cursor: pointer;
+			display: inline-block;
+			vertical-align: middle;
+			color: #90acff;
+			width: 16px;
+		}
+
+		&:hover::after {
+			color: #6286f4;
+		}
+	}
+
+	.end::after {
+		content: '\F157';
+	}
+
+	.next:not(.end)::after,
+	.previous.end::after {
+		transform: scaleX(-1);
+	}
+}
+
+.imgTitle,
+.md h3.imgTitle {
+	font-size: 13px;
+	margin: 0;
+}
+
+h4.imgCaptions,
+.md h4.imgCaptions {
+	font-size: 11px;
+	font-weight: bold;
+	margin: 0;
+}
+
+div.imgCaptions,
+.md div.imgCaptions {
+	font-size: 11px;
+	white-space: pre-wrap;
+}
+
+.imgCredits {
+	font-size: 11px;
+	padding: 2px;
+}
+
+.thing .title.visited {
+	color: #551A8B;
+}
+
+.usertext iframe {
+	border: none;
+}
+
+.noCtrlF::before {
+	content: attr(data-text);
+}
+
+.RESThrobber,
+.RESThrobber::before,
+.RESThrobber::after {
+	font-size: 0;
+	position: relative;
+	display: inline-block;
+	background: #ccf;
+	height: 30px;
+	width: 30px;
+	border-radius: 50%;
+	box-shadow: inset 0 0 5px 1px #222;
+	animation: RESThrobber 1400ms 400ms infinite linear;
+}
+
+.RESThrobber {
+	margin: 0 35px -7.5px;
+}
+
+.RESThrobber::before {
+	left: -115%;
+	animation-delay: 200ms;
+}
+
+.RESThrobber::after {
+	left: 115%;
+	animation-delay: 600ms;
+}
+
+.RESThrobber::before,
+.RESThrobber::after {
+	content: '';
+	position: absolute;
+	top: 0;
+}
+
+@keyframes RESThrobber {
+	30% { background: transparent; }
+	70% { background: transparent; }
+}
+
+// Handle multireddit bar on savedComments page
+.with-listing-chooser #savedLinksList {
+	margin-left: 120px;
+}
+
+.listing-chooser-collapsed #savedLinksList {
+	margin-left: 8px;
+}
+
+#alert_message {
+	display: none;
+	opacity: 0;
+	background-color: #EFEFEF;
+	border: 1px solid black;
+	color: black;
+	font-size: 12px;
+	padding: 20px 40px;
+	position: fixed !important;
+	width: 400px;
+	z-index: $zindex-alert-message;
+	text-align: left;
+
+	input {
+		border: 1px solid black;
+		font-family: normal x-small verdana, arial, helvetica, sans-serif;
+		font-weight: bold;
+		font-size: 10px;
+		padding: 6px 9px;
+		float: left;
+		background-color: #DFDFDF;
+		cursor: pointer;
+		margin-right: 10px;
+
+		&.button-right {
+			float: right;
+		}
+	}
+
+	div {
+		margin-bottom: 20px;
+	}
+}
+
+#alert_message_background {
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background-color: rgba(51, 51, 51, .95);
+	z-index: $zindex-alert-message - 1;
+}
+
+.res-left {
+	float: left;
+}
+
+.res-right {
+	float: right;
+}
+
+.res-icon {
+	font: normal 16px/1 'Batch';
+	display: inline-block;
+
+	&.res-icon-12 { font-size: 12px; }
+	&.res-icon-32 { font-size: 32px; }
+	&.res-icon-64 { font-size: 64px; }
+	&.res-icon-128 { font-size: 128px; }
+
+	&[data-icon]::before {
+		content: attr(data-icon);
+	}
+}
+
+.md .usertext-body img {
+	display: inherit;
+}
+
+.highlightedAltAccount {
+	font-weight: bold;
+}
+
+#show_stylesheets:target + label {
+	background-color: lightblue;
+}
+
+// Edgescroll plugin
+.edgescroll {
+	left: 0;
+	right: 0;
+	//background-color: rgba(0, 0, 255, .5);
+}
+
+.edgescroll-top {
+	top: 0;
+}
+
+.edgescroll-bottom {
+	bottom: 0;
+}
+
+// tr looks funny with ::after
+// and li looks funny with  ::before
+tr.RESSortPlaceholder::before,
+li.RESSortPlaceholder::after,
+div.RESSortPlaceholder::after {
+	border: medium dashed grey;
+	color: grey;
+	content: 'drop here';
+	text-align: center;
+	border-radius: 3px;
+	display: block;
+	margin-bottom: 5px;
+}
+
+.optionBuilder {
+	.RESSortPlaceholder::after {
+		padding: 1em 2em;
+	}
+
+	li {
+		list-style-type: none !important;
+		margin-top: .3em;
+		margin-bottom: .3em;
+
+		.dragged {
+			border: medium dashed grey;
+			border-radius: 3px;
+			background-color: #f0f3fc;
+		}
+	}
+
+	input[type="text"],
+	input[type="checkbox"] {
+		float: none;
+		margin-left: initial;
+		width: auto;
+	}
+
+	.handle {
+		cursor: move;
+	}
+}
+
+.builderItem {
+	border: thin solid lightgrey;
+	border-radius: 5px;
+	background-color: rgba(10, 10, 10, .05);
+	padding: .4em .5em;
+	margin-top: .5em;
+	margin-bottom: .5em;
+
+	> .handle,
+	> .builderItemControls .res-icon-button {
+		vertical-align: top;
+		font-size: 30pt;
+		width: auto;
+		height: auto;
+	}
+
+	> .builderItemControls .res-icon-button {
+		font-size: 20pt;
+	}
+
+	.durationField {
+		display: inline-block;
+
+		input[type="number"] {
+			width: 3em;
+			//margin-left: 1ex;
+		}
+	}
+}
+
+.builderControls {
+	float: left;
+	padding: .1em;
+	vertical-align: top;
+}
+
+.builderTrailingControls {
+	float: right;
+}
+
+.builderMulti {
+	margin-top: 1em;
+	margin-bottom: 1em;
+
+	li::after {
+		content: ' ';
+		display: block;
+		clear: both;
+		height: 0;
+	}
+
+	li + li {
+		border-top: 1px lightgray dashed;
+		margin-top: 1px;
+		padding-top: 3px;
+	}
+
+	li:nth-of-type(2n) {
+		background-color: rgba(10, 10, 10, .05);
+	}
+}
+
+
+
+.builderItemControls {
+	display: inline-block;
+	vertical-align: top;
+}
+
+.builderMulti:empty::before {
+	border: medium dashed grey;
+	border-radius: 3px;
+	color: grey;
+	content: 'nothing here yet. add something!';
+	padding: 5px 10px;
+	text-align: center;
+	display: block;
+}
+
+.addBuilderBlock {
+	margin-left: 1.5em;
+}
+
+.checkset {
+	display: inline-block;
+
+	input[type="checkbox"] {
+		display: none;
+	}
+
+	label {
+		border: thin grey solid;
+		background-color: white;
+		padding: 2px 4px;
+		cursor: pointer;
+
+		&:first-of-type {
+			border-top-left-radius: 6px;
+			border-bottom-left-radius: 6px;
+		}
+
+		&:last-of-type {
+			border-top-right-radius: 6px;
+			border-bottom-right-radius: 6px;
+		}
+	}
+
+	*:checked + label {
+		background-color: darkgrey;
+		text-decoration: underline;
+	}
+}
+
+/*
+(cs)spinner.css - http://jh3y.github.io/-cs-spinner
+Licensed under the MIT license
+
+Jhey Tompkins (c) 2014.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+*/
+// (cs)spinner base styling
+.csspinner {
+	position: relative;
+
+	&::before {
+		content: '';
+		z-index: 1;
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		background-color: #999999;
+		opacity: .6;
+	}
+
+	&::after {
+		z-index: 2;
+		content: '';
+		height: 40px;
+		width: 40px;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		margin: -24px 0 0 -24px;
+		transition: all .75s ease 0s;
+		border-radius: 100%;
+		border-top: 4px solid #555555;
+		animation: fadeIn 2s 1 cubic-bezier(.3, .25, .7, .15), standard .75s infinite linear;
+		transform-origin: center;
+	}
+
+	// (cs)spinner ringed spinner.
+	// a spinner with a static ring and no overlay.
+	&.ringed::after {
+		border: 4px solid #8BBDD6;
+		border-top-color: #0052D6;
+		opacity: 1;
+	}
+}
+
+// (cs)spinner standard rotation animation used for duo, double-up etc.
+@keyframes standard {
+	from {
+		transform: rotate(0deg);
+	}
+
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+}
+
+#url-field {
+	.progress-wrapper {
+		width: 500px;
+		height: 8px;
+		position: absolute;
+		top: 54px;
+		left: 10px;
+		overflow: hidden;
+
+		.progress {
+			display: block;
+			position: absolute;
+			left: 0;
+			top: 0;
+			height: 8px;
+		}
+	}
+
+	.progress {
+		animation: progressbar 1s linear infinite;
+		background-color: #149bdf;
+		background-image: linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
+		background-size: 40px 40px;
+
+		&.progress-stalled {
+			background-image: none;
+		}
+
+		&.progress-grey {
+			background-color: #888;
+		}
+
+		&.progress-green {
+			background-color: #5eb95e;
+		}
+
+		&.progress-red {
+			background-color: #ff0000;
+		}
+	}
+}
+
+@keyframes progressbar {
+	from {
+		background-position: 0 0;
+	}
+
+	to {
+		background-position: 39px 0;
+	}
+}
+
+#RESStyleSheetTipPane {
+	display: none;
+	position: relative;
+	border: 1px solid #ddd;
+	margin-bottom: 10px;
+	width: calc(100% - 320px);
+}
+
+#RESStyleSheetTipPane-header {
+	cursor: pointer;
+	font-size: 20px;
+	padding: 10px;
+	border-bottom: 1px solid #ddd;
+
+	span.details {
+		margin-left: 20px;
+		font-size: 12px;
+		visibility: hidden;
+	}
+
+	&.minimized span.details {
+		visibility: visible;
+	}
+}
+
+#RESStyleSheetTipPane-contents {
+	display: none; // hide by default
+	padding: 10px;
+
+	ul {
+		list-style: initial;
+		margin: 0 0 0 1em;
+	}
+
+	li p {
+		margin: .75em 0;
+	}
+}
+
+// user-select: none; on comment widgets, for usability reasons
+.md .keyNavAnnotation,
+.md .RESUserTag,
+.md .RESdupeimg,
+.md .expando-button,
+.md .madeVisible {
+	user-select: none;
+}
+
+// gifyoutube player
+.gifyoutube-source {
+	float: left;
+}
+
+.res-player.gifyoutube .gifyoutube-controls .res-lightweight-player-controls,
+.res-player.gifyoutube .gifyoutube-source-button {
+	color: #fff;
+	font-size: 16px;
+	padding: 5px 10px;
+	cursor: pointer;
+	float: none;
+	margin-right: 0;
+	margin-left: 5px;
+}
+
+.gifyoutubeCtrlSlower,
+.gifyoutubeCtrlFaster {
+	border-radius: 3px;
+	background-color: #f0ad4e;
+	border: 1px solid #eea236;
+}
+
+.res-player.gifyoutube .gifyoutube-source-button {
+	margin-left: 0;
+}
+
+.gifyoutubeCtrlPause {
+	border-radius: 3px;
+	background-color: #5cb85c;
+	border: 1px solid #4cae4c;
+}
+
+.gifyoutube-controls {
+	float: right;
+}
+
+.gifyoutube-source-button {
+	border-radius: 3px;
+	background-color: #5bc0de;
+	border: 1px solid #46b8da;
+}
+
+// imgur gifv player
+.imgurgifv-brand {
+	float: left;
+}
+
+.imgurgifv-download {
+	float: right;
+}

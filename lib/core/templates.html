@@ -56,15 +56,6 @@
 			}
 		</style>
 
-		<!-- Submit issues wizard -->
-		<style type="text/css" id="submitWizardCSS">
-		#submittingToEnhancement { display: none; min-height: 300px; font-size: 14px; line-height: 15px; margin-top: 10px; width: 518px; position: absolute; z-index: 999; } #submittingToEnhancement ol { margin-left: 10px; margin-top: 15px; list-style-type: decimal; } #submittingToEnhancement li { margin-left: 25px; }
-		.submittingToEnhancementButton { border: 1px solid #444; border-radius: 2px; padding: 3px 6px; cursor: pointer; display: inline-block; margin-top: 12px; }
-		#RESSubmitAprilFools { background: #F87; color: black; margin-top: 2em;  padding: 1em;}
-		#RESBugReport, #RESFeatureRequest { display: none; }
-		#RESSubmitOptions .submittingToEnhancementButton { margin-top: 30px; }
-		</style>
-
 
 		<div id="submitWizard">
 			<h3>Let's talk about Reddit Enhancement Suite</h3>
@@ -293,18 +284,6 @@
 		<!-- /RESConsole -->
 
 		<!-- Quick Message Dialog -->
-		<style type="text/css" id="quickMessageCSS">
-			#quickMessage { display: none; position: fixed; top: 0; bottom: 0; left: 0; right: 0; background-color: rgba(0, 0, 0, 0.74902); z-index: 2000; }
-			#quickMessageDialog { position: fixed; top: 20%; left: 25%; width: 50%; z-index: 100001; }
-			#quickMessageDialog .gearIcon { float: right; margin-right: 40px; }
-			#quickMessageDialog label { margin-top: 9px; clear: both; float: left; }
-			#quickMessageDialog input[type=text], #quickMessageDialog textarea { margin-top: 5px; width: calc(100% - 70px); float: right; border: 1px solid #c7c7c7; border-radius: 3px; margin-bottom: 6px; padding: 3px; }
-			#quickMessageDialog select { margin-top: 5px; width: calc(100% - 63px); float: right; border: 1px solid #c7c7c7; border-radius: 3px; margin-bottom: 6px; padding: 3px; }
-			#quickMessageDialog textarea { resize: vertical; min-height: 100px; }
-			#quickMessageDialog input[type=button] { cursor: pointer; position: absolute; right: 16px; bottom: 16px; padding: 3px 5px; font-size: 12px; color: #fff; border: 1px solid #636363; border-radius: 3px; background-color: #5cc410; }
-			#quickMessageDialog .clear { margin-bottom: 10px; }
-			#quickMessageDialog .moderator::after { width: 16px; height: 16px; margin-left: 5px; display: inline-block; vertical-align: top; content: ""; background: url(https://www.redditstatic.com/sprite-reddit.EMWQffWtZwo.png) no-repeat -44px -796px; }
-		</style>
 		<div id="quickMessage" type="application/x-template">
 			<div id="quickMessageDialog" class="RESDialogSmall">
 				<h3>Send Message<a class="gearIcon" href="#!settings/quickMessage"></a></h3>
@@ -533,9 +512,9 @@
 
 		<div id="RESHoverInfoCard">
 			<div class="RESHover RESHoverInfoCard RESDialogSmall">
-				<h3 id="RESHoverTitle" data-hover-element="0"></h3>
+				<h3 class="RESHoverTitle" data-hover-element="0"></h3>
 				<div class="RESCloseButton">x</div>
-				<div id="RESHoverBody" class="RESDialogContents" data-hover-element="1"></div>
+				<div class="RESHoverBody RESDialogContents" data-hover-element="1"></div>
 			</div>
 		</div>
 
@@ -545,35 +524,6 @@
 			</div>
 		</div>
 
-		<style id="RESHoverStyle" type="text/css">
-			.RESHover, .RESHover.RESDialogSmall { display: none; position: absolute; z-index: 10001; }
-
-			.RESHoverInfoCard:before { content: ""; position: absolute; top: 10px; left: -26px; border-style: solid; border-width: 10px 29px 10px 0; border-color: transparent #c7c7c7; display: block; width: 0; z-index: 1; }
-			.RESHoverInfoCard:after { content: ""; position: absolute; top: 10px; left: -24px; border-style: solid; border-width: 10px 29px 10px 0; border-color: transparent #f0f3fc; display: block; width: 0; z-index: 1; }
-			.RESHoverInfoCard.right:before { content: ""; position: absolute; top: 10px; right: -26px; left: auto; border-style: solid; border-width: 10px 0 10px 29px; border-color: transparent #c7c7c7; display: block; width: 0; z-index: 1; }
-			.RESHoverInfoCard.right:after { content: ""; position: absolute; top: 10px; right: -24px; left: auto; border-style: solid; border-width: 10px 0 10px 29px; border-color: transparent #f0f3fc; display: block; width: 0; z-index: 1; }
-			.RESHoverInfoCard.below:before, .RESHoverInfoCard.below:after { content: none; }
-		</style>
-
-
-		<style id="commentNavigatorCSS" type="text/css">
-			#REScommentNavBox { clear: both; margin-top: 10px; width: 265px; border: 1px solid gray; background-color: #fff; opacity: 0.3; user-select: none; -webkit-user-select: none; -moz-user-select: none; -webkit-transition:opacity 0.5s ease-in; -moz-transition:opacity 0.5s ease-in; -o-transition:opacity 0.5s ease-in; -ms-transition:opacity 0.5s ease-in; -transition:opacity 0.5s ease-in; }
-			#REScommentNavBox:hover { opacity: 1 }
-			#REScommentNavToggle { clear: left; }
-			.commentarea .menuarea { margin-right: 0; }
-			.menuarea > .spacer { margin-right: 0; }
-			#commentNavButtons { margin: auto; }
-			#commentNavUp, #commentNavDown { cursor: pointer; color: #1278D3; border: none; background: transparent; padding: 0; font-size: 35px; line-height: 0.9; }
-			#commentNavUp:focus, #commentNavDown:focus { outline: none; text-shadow: 0 0 5px #1278D3; }
-			#commentNavUp[disabled], #commentNavDown[disabled] { opacity: 0.3; cursor: default; }
-			#commentNavButtons { display: none; margin-left: 12px; text-align: center; user-select: none; -webkit-user-select: none; -moz-user-select: none; }
-			.commentNavSortType { cursor: pointer; font-weight: bold; display: inline-block; }
-			#commentNavPostCount { color: #1278d3; }
-			.noNav #commentNavPostCount { color: #666; }
-			.commentNavSortTypeDisabled { color: #666; }
-			.commentNavSortType:hover { text-decoration: underline; }
-			.menuarea > .spacer { float: left; margin-bottom: 10px; }
-		</style>
 
 		<div id="commentNavigator">
 			<h3>
@@ -597,21 +547,10 @@
 			<div id="commentNavCloseButton" class="RESCloseButton">&times;</div>
 			<div class="RESDialogContents">
 				<div id="commentNavButtons">
-					<button id="commentNavUp" type="button" disabled>&#x25B2;</button> <div id="commentNavPostCount"></div> <button id="commentNavDown" type="button" disabled>&#x25BC;</button>
+					<button id="commentNavUp" type="button" disabled="disabled">&#x25B2;</button> <div id="commentNavPostCount"></div> <button id="commentNavDown" type="button" disabled="disabled">&#x25BC;</button>
 				</div>
 			</div>
 		</div>
-
-		<style id="pageNavigator-CSS" type="text/css">
-			.pageNavigator {
-				cursor: pointer;
-				padding: 3px 3px;
-				line-height: 1;
-				font-size: 16px;
-				text-align: center;
-				color: #888;
-			}
-		</style>
 
 		<style type="text/css" id="floater-visibleAfterScroll-CSS">
 			.res-floater-visibleAfterScroll {
@@ -633,77 +572,6 @@
 			.res-floater-visibleAfterScroll > ul > li:hover {
 				opacity: 1.0;
 			}
-		</style>
-
-		<style type="text/css" id="neverEndingReddit-CSS">
-			#NERModal { display: none; z-index: 999; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background-color: #333; opacity: 0.6; }
-			#NERContent { display: none; position: fixed; top: 40px; z-index: 1000; width: 720px; background-color: #FFF; color: #000; padding: 10px; font-size: 12px; }
-			#NERModalClose { position: absolute; top: 3px; right: 3px; }
-			#NERFail { min-height: 30px; width: 95%; font-size: 14px; border: 1px solid #999; border-radius: 10px; padding: 5px; text-align: center; bgcolor: #f0f3fc; cursor: auto; }
-			#NERFail .nextprev { font-size: smaller; display: block; }
-			#NERFail .nextprev a + a { margin-left: 2em; }
-			.NERdupe p.title:after { color: #000; font-size: 10px; content: ' (duplicate from previous page)'; }
-			.NERPageMarker { text-align: center; color: #7f7f7f; font-size: 14px; margin-top: 6px; margin-bottom: 6px; overflow: hidden; font-weight: normal; background-color: #f0f3fc; border: 1px solid #c7c7c7; border-radius: 3px; padding: 3px 0; }
-			/* hide next/prev page and random subreddit indicators */
-			.res-ner-listing div.nav-buttons { display: none; }
-			.res-ner-listing .nav-buttons .nextprev { display: none; }
-			.res-ner-fade-dupes .NERdupe { opacity: 0.3; }
-			.res-ner-hide-dupes .NERdupe { display: none; }
-			/* set the style for our little loader widget */
-			#progressIndicator {
-				height: 60px;
-				display: -webkit-flex; -webkit-align-items: center; -webkit-justify-content: center; -webkit-flex-direction: column;
-				display: flex; align-items: center; justify-content: center; flex-direction: column;
-				font-size: 14px; border: 1px solid #999; border-radius: 10px; padding: 10px; background-color: #f0f3fc; cursor: pointer;
-			}
-			#progressIndicator h2 { margin-bottom: .5em; }
-			#progressIndicator .gearIcon { margin-left: 1em; }
-			#progressIndicator .RESThrobber { margin-top: 10px; margin-bottom: 0; }
-			#NREPause { cursor: pointer; }
-			#NREPause::after { font: normal 100% Batch; color: #888; display: block; width: 10px; height: 10px; padding: 0 2px 4px; margin: 3px; border: 1px solid #888; border-radius: 50%; }
-			#NREPause::after, #NREPause.paused.reversePause::after { content: "\F16C"; }
-			#NREPause.paused::after, #NREPause.reversePause::after { content: "\F16B"; }
-		</style>
-
-		<style type="text/css" id="searchHelper-searchPageTabs">
-			/* reddit search page tabs */
-			ul.res-search-tabs li.res-search-tab-facets a:before {
-				content: "\F0B7";
-			}
-			ul.res-search-tabs li.res-search-tab-subs a:before {
-				content: "\F030";
-			}
-			ul.res-search-tabs li.res-search-tab-options a:before {
-				content: "\F06B";
-			}
-
-			.search-page .searchpane { height: auto; }
-			.search-page #search { margin: 0; height: auto; position: static; }
-			.combined-search-page #previoussearch .searchfacets { max-width: none; border: none; padding: 0 0 0; margin: 0; overflow: visible; }
-			.combined-search-page #previoussearch .searchfacets h4.title { display: none; }
-			.combined-search-page #previoussearch .searchfacets ol { padding: 10px 0 0 0; }
-			.combined-search-page #previoussearch .search-result-group-header { display: none; }
-			ul.res-search-tabs { margin: 10px 0 0 0; padding: 0; list-style: none; clear: left; }
-			ul.res-search-tabs li { font-weight: bold; display: inline-block; margin: 0 2px 0 0; padding: 0; background: linear-gradient(to top, rgb(240,240,240), rgb(225,225,225)) }
-			ul.res-search-tabs li:last-child { margin-right: none; }
-			ul.res-search-tabs li.res-search-tab-active { background: rgb(255,255,255); }
-			ul.res-search-tabs a { border-top: 1px solid transparent; padding: 5px 5px 5px 10px; display: inline-block;  }
-			ul.res-search-tabs li a:after { content: "+"; text-align: center; display: inline-block; padding: 0 3px; width: 1em; visibility: hidden; }
-			ul.res-search-tabs li.res-search-tab-active a:after { content: "-"; }
-			ul.res-search-tabs li:hover a:after { visibility: visible; }
-			ul.res-search-tabs li.res-search-tab-active a { border-color: rgb(51,102,153) }
-			.res-search-options { margin: 0; padding: 0; line-height: 1.5; }
-			.res-search-options p { margin: 10px 0; }
-			.res-search-options dl { padding: 15px; -webkit-column-count: 2; -moz-column-count: 2; }
-			.res-search-options dt { font-weight: normal; margin-left: 0; }
-			.res-search-options dd { margin: 0 0 5px; color: rgb(150,150,150); }
-			.combined-search-page #previoussearch .search-result-group { margin: 0; padding: 0; }
-			.combined-search-page #previoussearch .search-result { margin: 0 0 15px; padding: 0; }
-			.combined-search-page #previoussearch .search-result-listing { margin: 0; }
-			.combined-search-page #previoussearch .res-search-pane { padding: 10px; background-color: rgb(255,255,255); }
-			.combined-search-page .search-result-group footer .nav-buttons { margin-bottom: 0; }
-			ul.res-search-tabs li.res-search-tab-facets a:before, ul.res-search-tabs li.res-search-tab-subs a:before, ul.res-search-tabs li.res-search-tab-options a:before { font: 100%/1 "Batch"; display: inline-block; margin-right: 10px; }
-
 		</style>
 	</body>
 </html>

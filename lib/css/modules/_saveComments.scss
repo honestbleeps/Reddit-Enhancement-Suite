@@ -1,0 +1,55 @@
+#res-contentTabs {
+	margin: 15px 0;
+	font-size: small;
+
+	li {
+		display: inline-block;
+		margin: 0 5px;
+		font-weight: bold;
+
+		a {
+			padding: 3px 5px;
+		}
+
+		&.selected a {
+			border-bottom: 2px solid;
+		}
+	}
+}
+
+#res-saveComments {
+	padding: 0 10px;
+	font-size: small;
+}
+
+.res-saveComments-tip {
+	font-size: small;
+
+	&>div {
+		margin-bottom: 15px;
+	}
+
+	.infobar {
+		margin-top: 10px;
+		margin-bottom: 10px;
+	}
+}
+
+.res-savedComment {
+	margin: 10px 0;
+	padding: 10px 0;
+
+	&.md {
+		font-size: small;
+		max-width: none;
+	}
+
+	.savedCommentHeader {
+		padding-bottom: 5px;
+	}
+
+	.savedCommentFooter {
+		padding-top: 5px;
+		font-size: x-small;
+	}
+}

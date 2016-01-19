@@ -4,32 +4,25 @@ How to use me?
 	Then go on About RES -> wikiCheck and push the button!
 	This will check the wiki and list all undocumented options.
 */
-modules['wikiCheck'] = {
-	moduleID: 'wikiCheck',
-	moduleName: 'Wiki Check',
-	category: 'About RES',
-	options: {
+addModule('wikiCheck', function(module, moduleID) {
+	module.moduleName = 'Wiki Check';
+	module.category = 'About RES';
+	module.description = 'Check if all options are listed on the wiki.';
+	module.options = {
 		check: {
 			type: 'button',
 			text: 'Check',
-			callback: null,
+			callback: check,
 			description: 'Launch the test (open the dev console !).'
 		}
-	},
-	description: 'Check if all options are listed on the wiki.',
-	isEnabled: function() {
-		return RESUtils.options.getModulePrefs(this.moduleID);
-	},
-	isMatchURL: function() {
+	};
+	module.isMatchURL = function() {
 		return false;
-	},
-	go: function() {
-		this.options['check'].callback = this.check;
-	},
-	check: function() {
-		modules['wikiCheck'].fetchPages();
-	},
-	fetchPages: function() {
+	};
+	function check() {
+		fetchPages();
+	}
+	function fetchPages() {
 		console.group('Fetching wiki pages');
 		$.getJSON('http://api.reddit.com/r/Enhancement/wiki/pages/', function(data){
 			console.log('Wiki page list fetched');
@@ -47,15 +40,15 @@ modules['wikiCheck'] = {
 						fetchedPages++;
 						console.log(fetchedPages + '/' + wikiPages.length);
 						if (fetchedPages === wikiPages.length) {
-							modules['wikiCheck'].fetchOptions(optionsList);
+							fetchOptions(optionsList);
 							console.groupEnd();
 						}
 					});
 				}, i*1000, wikiPage);
 			});
 		});
-	},
-	fetchOptions: function(optionsList) {
+	}
+	function fetchOptions(optionsList) {
 		var missingOptions = [];
 		for (var m in modules) {
 			if (!m.hidden) {
@@ -84,4 +77,4 @@ modules['wikiCheck'] = {
 			console.groupEnd();
 		}
 	}
-};
+});

@@ -1,0 +1,171 @@
+@import '../zindex';
+
+#NERModal {
+	display: none;
+	z-index: $zindex-ner-content - 1;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #333;
+	opacity: .6;
+}
+
+#NERContent {
+	display: none;
+	position: fixed;
+	top: 40px;
+	z-index: $zindex-ner-content;
+	width: 720px;
+	background-color: #FFF;
+	color: #000;
+	padding: 10px;
+	font-size: 12px;
+}
+
+#NERModalClose {
+	position: absolute;
+	top: 3px;
+	right: 3px;
+}
+
+#NERFail {
+	min-height: 30px;
+	width: 95%;
+	font-size: 14px;
+	border: 1px solid #999;
+	border-radius: 10px;
+	padding: 5px;
+	text-align: center;
+	cursor: auto;
+
+	.nextprev {
+		font-size: smaller;
+		display: block;
+
+		a + a {
+			margin-left: 2em;
+		}
+	}
+}
+
+.NERPageMarker {
+	text-align: center;
+	color: #7f7f7f;
+	font-size: 14px;
+	margin-top: 6px;
+	margin-bottom: 6px;
+	overflow: hidden;
+	font-weight: normal;
+	background-color: #f0f3fc;
+	border: 1px solid #c7c7c7;
+	border-radius: 3px;
+	padding: 3px 0;
+}
+
+// hide next/prev page and random subreddit indicators
+.res-ner-listing div.nav-buttons {
+	display: none;
+}
+
+.res-ner-listing .nav-buttons .nextprev {
+	display: none;
+}
+
+.NERdupe p.title::after {
+	color: #000;
+	font-size: 10px;
+	content: ' (duplicate from previous page)';
+}
+
+.res-neverEndingReddit-hideDupes-fade {
+	.NERdupe {
+		opacity: .3;
+	}
+}
+
+.res-neverEndingReddit-hideDupes-hide {
+	.NERdupe {
+		display: none;
+	}
+}
+
+// set the style for our little loader widget
+#progressIndicator {
+	height: 60px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	font-size: 14px;
+	border: 1px solid #999;
+	border-radius: 10px;
+	padding: 10px;
+	background-color: #f0f3fc;
+	cursor: pointer;
+
+	h2 {
+		margin-bottom: .5em;
+	}
+
+	.gearIcon {
+		margin-left: 1em;
+	}
+
+	.RESThrobber {
+		margin-top: 10px;
+		margin-bottom: 0;
+	}
+}
+
+#NREPause {
+	cursor: pointer;
+}
+
+#NREPause::after {
+	font: normal 100% Batch;
+	color: #888;
+	display: block;
+	width: 10px;
+	height: 10px;
+	padding: 0 2px 4px;
+	margin: 3px;
+	border: 1px solid #888;
+	border-radius: 50%;
+}
+
+#NREPause::after,
+#NREPause.paused.reversePause::after {
+	content: '\F16C';
+}
+
+#NREPause.paused::after,
+#NREPause.reversePause::after {
+	content: '\F16B';
+}
+
+.res-neverEndingReddit-showServerInfo {
+	.debuginfo {
+		position: fixed;
+		bottom: 5px;
+		right: 5px;
+		background: rgba(255, 255, 255, .3);
+
+		.res-nightmode & {
+			background: rgba(30, 30, 30, .5);
+			color: #ccc;
+		}
+
+		&:hover {
+			background: rgba(255, 255, 255, .8);
+
+			.res-nightmode & {
+				background: rgba(30, 30, 30, .8);
+			}
+		}
+	}
+
+
+
+}
