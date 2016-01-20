@@ -573,5 +573,51 @@
 				opacity: 1.0;
 			}
 		</style>
+
+		<div id="userTaggerDialog">
+			<div id="userTaggerToolTip" class="RESDialogSmall">
+				<h3><span class="res-icon">&#xF0AC;</span>&nbsp;<span>User</span></h3>
+				<div id="userTaggerToolTipContents" class="RESDialogContents">
+					<form name="userTaggerForm" action="">
+						<input type="hidden" id="userTaggerName">
+						<div>
+							<label for="userTaggerTag">Tag</label>
+							<input type="text" id="userTaggerTag">
+						</div>
+						<div>
+							<label for="userTaggerColor">Color</label>
+							<select id="userTaggerColor"></select>
+						</div>
+						<div>
+							<label for="userTaggerPreview">Preview</label>
+							<span id="userTaggerPreview"></span>
+						</div>
+						<div class="res-usertag-ignore">
+							<label for="userTaggerIgnore">Ignore</label>
+						</div>
+						<div>
+							<label for="userTaggerLink">
+								<span class="userTaggerOpenLink">
+									<a title="open link">Source URL</a>
+								</span>
+							</label>
+							<input type="text" id="userTaggerLink">
+						</div>
+						<div>
+							<label for="userTaggerVoteWeight" title="The sum of upvotes and downvotes you have given this redditor">Vote Weight
+								<span class="hoverHelp" title="manually edit vote weight (sum of upvotes and downvotes) for this redditor">(?)</span>
+							</label>
+							<input type="text" size="2" id="userTaggerVoteWeight">
+						</div>
+						<div class="res-usertagger-footer">
+							<a href="/r/dashboard#userTaggerContents" target="_blank">View tagged users</a>
+							<input type="submit" id="userTaggerSave" value="✓ save tag">
+						</div>
+					</form>
+					<div id="userTaggerClose" class="RESCloseButton">&times;</div>
+				</div>
+			</div>
+		</div>
+
 	</body>
 </html>
