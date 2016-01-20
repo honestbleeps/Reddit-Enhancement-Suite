@@ -36,3 +36,21 @@
 		color: #333;
 	}
 }
+
+.res-voteEnhancements-hideCommentScores {
+	.comment .unvoted .score {
+		display: none;
+	}
+	&.res-voteEnhancements-alwaysHideScores .comment .score {
+		display: none;
+	}
+}
+
+.res-voteEnhancements-hideSubmissionScores {
+	.midcol.unvoted .score {
+		visibility: hidden;
+	}
+	&.res-voteEnhancements-alwaysHideScores .midcol .score {
+		visibility: hidden;
+	}
+}
