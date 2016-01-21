@@ -586,7 +586,11 @@
 						</div>
 						<div>
 							<label for="userTaggerColor">Color</label>
-							<select id="userTaggerColor"></select>
+							<select id="userTaggerColor">
+								{{#colors}}
+									<option style="color: {{textColor}}; background-color: {{bgColor}} !important" value="{{color}}">{{color}}</option>
+								{{/colors}}
+							</select>
 						</div>
 						<div>
 							<label for="userTaggerPreview">Preview</label>
