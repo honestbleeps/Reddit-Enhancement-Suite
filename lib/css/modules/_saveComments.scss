@@ -1,55 +1,33 @@
-#res-contentTabs {
-	margin: 15px 0;
-	font-size: small;
-
-	li {
-		display: inline-block;
-		margin: 0 5px;
-		font-weight: bold;
-
-		a {
-			padding: 3px 5px;
-		}
-
-		&.selected a {
-			border-bottom: 2px solid;
-		}
-	}
+.RES-save {
+	cursor: help;
 }
 
 #res-saveComments {
 	padding: 0 10px;
 	font-size: small;
-}
 
-.res-saveComments-tip {
-	font-size: small;
-
-	&>div {
+	.res-module-description {
+		max-width: 60em;
 		margin-bottom: 15px;
 	}
 
-	.infobar {
+	.res-saveComments-tip {
+		font-size: small;
 		margin-top: 10px;
 		margin-bottom: 10px;
 	}
-}
 
-.res-savedComment {
-	margin: 10px 0;
-	padding: 10px 0;
+	.res-savedComment {
+		margin: 10px 0;
+		padding: 10px 0;
 
-	&.md {
-		font-size: small;
-		max-width: none;
-	}
+		&.md {
+			font-size: small;
+			max-width: none;
+		}
 
-	.savedCommentHeader {
-		padding-bottom: 5px;
-	}
-
-	.savedCommentFooter {
-		padding-top: 5px;
-		font-size: x-small;
+		.savedCommentFooter {
+			font-size: x-small;
+		}
 	}
 }

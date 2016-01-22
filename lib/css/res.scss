@@ -2080,3 +2080,23 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 .imgurgifv-download {
 	float: right;
 }
+
+.res-contentTabs {
+	margin: 15px 0;
+	font-size: small;
+	font-weight: bold;
+
+	li {
+		display: inline-block;
+		margin: 0 5px;
+
+		a {
+			display: block;
+			padding: 3px 5px;
+		}
+
+		&.selected a {
+			border-bottom: 2px solid;
+		}
+	}
+}
