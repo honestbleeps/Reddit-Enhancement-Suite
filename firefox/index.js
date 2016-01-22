@@ -569,6 +569,7 @@ PageMod({
 		self.data.url('modules/hosts/uploadly.js'),
 		self.data.url('modules/hosts/eroshare.js'),
 		self.data.url('modules/hosts/iloopit.js'),
+		self.data.url('modules/hosts/livecap.js'),
 		self.data.url('modules/hosts/twitter.js'),
 		self.data.url('modules/hosts/futurism.js'),
 		self.data.url('modules/hosts/gfycat.js'),
