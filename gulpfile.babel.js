@@ -16,7 +16,7 @@ import sourcemaps from 'gulp-sourcemaps';
 import eslint from 'gulp-eslint';
 import scsslint from 'gulp-scss-lint';
 import qunit from 'gulp-qunit';
-import through from 'through-gulp';
+import map from 'through2-map';
 
 const options = require('minimist')(process.argv.slice(2));
 
@@ -211,7 +211,7 @@ gulp.task('manifests', () =>
 			.map(browser =>
 				gulp.src(browserConf[browser].manifest)
 					.pipe(cache('manifests'))
-					.pipe(through.map(file => populateManifest(browser, file)))
+					.pipe(map.obj(file => populateManifest(browser, file)))
 					.pipe(dest(getBuildDir(browser)))
 			)
 	)
