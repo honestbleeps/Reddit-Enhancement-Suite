@@ -1,10 +1,3 @@
-// Silence insertAfter's `console.log(arguments.callee.caller)` calls
-var origLog = console.log;
-console.log = function(x) {
-	if (typeof x !== 'function') {
-		origLog(x);
-	}
-};
 
 test('insertAfter: Inserts a DOM element after a reference element and before the reference\'s next sibling', function() {
 	expect(7);
@@ -67,7 +60,7 @@ test('insertAfter: Cannot insert a DOM element if reference element has no paren
 	equal(document.getElementById('newNode'), null);
 	equal(referenceNode.parentNode, null);
 
-	RESUtils.insertAfter(referenceNode, newNode);
+	RESUtils.insertAfter(referenceNode, newNode, false);
 
 	equal(document.getElementById('newNode'), null);
 });
@@ -83,7 +76,7 @@ test('insertAfter: Cannot insert a DOM element if reference element is undefined
 	equal(document.getElementById('newNode'), null);
 	equal(referenceNode, null);
 
-	RESUtils.insertAfter(referenceNode, newNode);
+	RESUtils.insertAfter(referenceNode, newNode, false);
 
 	equal(document.getElementById('newNode'), null);
 	equal(referenceNode, null);

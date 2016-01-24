@@ -1,0 +1,6 @@
+body:not(.loggedin) #optionContainer-troubleshooter-clearUserInfoCache .optionDescription::before,
+body:not(.loggedin) #optionContainer-troubleshooter-clearSubreddits .optionDescription::before {
+	content: 'Functionality only for logged in users - ';
+	color: #f00;
+	font-weight: bold;
+}

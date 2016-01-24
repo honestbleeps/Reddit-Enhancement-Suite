@@ -1,0 +1,390 @@
+.srOver {
+	outline: 1px dashed black;
+}
+
+#sr-header-area {
+	overflow: hidden;
+
+	a {
+		font-size: 100% !important;
+	}
+}
+
+#srList {
+	position: absolute;
+	top: 18px;
+	left: 0;
+	z-index: 9999;
+	display: none;
+	border: 1px solid black;
+	background-color: #FAFAFA;
+	width: auto;
+	overflow-y: auto;
+
+	tr {
+		border-bottom: 1px solid gray;
+
+		&:hover {
+			background-color: #eef;
+		}
+	}
+
+	thead td {
+		cursor: pointer;
+	}
+
+	td {
+		padding: 3px 8px;
+
+		&.RESvisited,
+		&.RESshortcut {
+			text-transform: none;
+		}
+
+		&.RESshortcut {
+			cursor: pointer;
+		}
+
+		a {
+			width: 100%;
+			display: block;
+		}
+	}
+}
+
+#srLeftContainer,
+#RESStaticShortcuts,
+#RESShortcuts,
+#srDropdown {
+	display: inline;
+	float: left;
+	position: relative;
+	z-index: 5;
+}
+
+// Edit shortcut dialog.
+#editShortcutDialog {
+	display: none;
+	z-index: 999;
+	position: absolute;
+	top: 25px;
+	left: 5px;
+	width: auto;
+	padding: 10px;
+	background: #f0f3fc;
+	border: 1px solid #aaa;
+	border-radius: 7px;
+	font-size: 12px;
+	color: #000;
+	box-shadow: 2px 2px 7px rgba(0, 0, 0, .1);
+
+	h3 {
+		margin: 0 0 1em 0;
+	}
+
+	.RESFormItem {
+		clear: both;
+		margin: 0 0 1em 0;
+	}
+
+	.RESFieldItem {
+		margin: 0 0 0 8em;
+	}
+
+	label {
+		clear: both;
+		float: left;
+		width: 8em;
+		padding: 4px 0;
+	}
+
+	input[type=text] {
+		width: 270px;
+		border: 1px solid #aaa;
+		margin: 0;
+		padding: 2px 0 2px 3px;
+		font-size: 100% !important;
+		box-sizing: border-box;
+	}
+
+	#shortcut-subreddit {
+		width: 240px;
+	}
+
+	#sortButton {
+		border: 1px solid #aaa !important;
+		border-right: none !important;
+		border-radius: 3px 0 0 3px;
+		background: rgb(230, 230, 230);
+		color: #333 !important;
+		margin: 0;
+		padding: 2px 0 !important;
+		text-align: center;
+		cursor: pointer;
+		display: inline-block !important;
+		width: 30px !important;
+		line-height: normal;
+		box-shadow: none;
+		font-size: 100% !important;
+	}
+
+	.RESDescription {
+		font-size: smaller;
+		color: #666;
+		width: 270px;
+	}
+
+	// Fix a Firefox alignment quirk with -moz-focus-inner
+	// scss-lint:disable PseudoElement
+	#sortButton::-moz-focus-inner,
+	#shortcut-subreddit::-moz-focus-inner {
+		border: none;
+		padding: 0;
+	}
+	// scss-lint:enable PseudoElement
+
+	[name=shortcut-save] {
+		float: right;
+		padding: 1px 6px;
+	}
+}
+
+#srLeftContainer {
+	z-index: 4;
+	padding-left: 4px;
+	margin-right: 6px;
+}
+
+#RESShortcutsViewport {
+	width: auto;
+	max-height: 20px;
+	overflow: hidden;
+}
+
+#RESShortcuts {
+	z-index: 6;
+	white-space: nowrap;
+	overflow-x: hidden;
+	padding-left: 2px;
+}
+
+#RESSubredditGroupDropdown {
+	display: none;
+	position: absolute;
+	z-index: 99999;
+	background-color: #F0F0F0;
+	border: 1px solid black;
+	border-top-width: 0;
+	font: 12px/1.5 verdana, sans-serif;
+	padding: 0 !important;
+	margin-left: -5px;
+
+	> .RESShortcutsEditButtons {
+		border-top: 1px rgba(0, 0, 0, .5) solid;
+
+		.res-icon {
+			color: black;
+			font-size: 12px;
+			padding: 5px;
+			margin: 0 !important;
+		}
+
+		.delete {
+			float: right;
+		}
+	}
+
+	.shortcutSuffix {
+		opacity: .4;
+	}
+
+	a:hover .shortcutSuffix {
+		opacity: .6;
+	}
+
+	ul {
+		padding: 15px 0;
+		overflow-x: hidden;
+		overflow-y: auto;
+		max-width: 300px;
+		max-height: 500px;
+
+		li {
+			padding: 0;
+		}
+
+		a {
+			display: block;
+			padding: 1px 15px;
+
+			&:hover {
+				background-color: rgba(255, 255, 255, .6);
+			}
+		}
+	}
+}
+
+#RESShortcutsEditContainer {
+	width: 69px;
+	position: absolute;
+	right: 0;
+	top: 0;
+	z-index: 999;
+	background-color: #f0f0f0;
+	height: 16px;
+	user-select: none;
+
+	.res-icon {
+		font-size: 14px;
+	}
+}
+
+#RESShortcutsSort,
+#RESShortcutsRight,
+#RESShortcutsLeft,
+#RESShortcutsAdd,
+#RESShortcutsTrash {
+	width: 16px;
+	cursor: pointer;
+	background: #F0F0F0;
+	font-size: 20px;
+	color: #369;
+	height: 18px;
+	line-height: 15px;
+	position: absolute;
+	top: 0;
+	z-index: 999;
+	user-select: none;
+}
+
+#RESShortcutsRight {
+	right: 0;
+}
+
+#RESShortcutsAdd {
+	right: 15px;
+}
+
+#RESShortcutsLeft {
+	right: 31px;
+}
+
+#RESShortcutsSort {
+	right: 47px;
+	font-size: 14px;
+}
+
+#RESShortcutsTrash {
+	display: none;
+	font-size: 17px;
+	width: 16px;
+	cursor: pointer;
+	right: 15px;
+	height: 16px;
+	position: absolute;
+	top: 0;
+	z-index: 1000;
+	user-select: none;
+}
+
+.srSep {
+	margin-left: 6px;
+}
+
+h1.redditname {
+	overflow: auto;
+}
+
+.sortAsc,
+.sortDesc {
+	float: right;
+}
+
+.sortAsc::after,
+.sortDesc::after {
+	width: 12px;
+	line-height: 12px;
+	font-size: 12px;
+	color: #82a3c0;
+}
+
+.sortAsc::after {
+	content: '\25B2';
+}
+
+.sortDesc::after {
+	content: '\25BC';
+}
+
+#RESShortcutsAddFormContainer {
+	display: none;
+	position: absolute;
+	width: 290px;
+	padding: 2px;
+	right: 0;
+	top: 21px;
+	z-index: 10000;
+	background-color: #f0f3fc;
+	border: 1px solid #c7c7c7;
+	border-radius: 3px;
+	font-size: 12px;
+	color: #000;
+
+	a {
+		font-weight: bold;
+	}
+}
+
+#newShortcut {
+	width: 130px;
+}
+
+#displayName {
+	width: 130px;
+}
+
+#shortCutsAddForm {
+	padding: 5px;
+
+	div {
+		font-size: 10px;
+		margin-bottom: 10px;
+	}
+
+	label {
+		display: inline-block;
+		width: 100px;
+	}
+
+	input[type=text] {
+		width: 170px;
+		margin-bottom: 6px;
+	}
+}
+
+#addSubreddit {
+	float: right;
+	cursor: pointer;
+	padding: 3px 5px;
+	font-size: 12px;
+	color: #fff;
+	border: 1px solid #636363;
+	border-radius: 3px;
+	background-color: #5cc410;
+}
+
+#sr-header-area a.RESShortcutsCurrentSub,
+#RESSubredditGroupDropdown .RESShortcutsCurrentSub a {
+	color: orangered !important;
+	font-weight: bold;
+}
+
+#srLeftContainer,
+#RESShortcutsViewport,
+#RESShortcutsEditContainer {
+	max-height: 18px;
+}
+
+.res-subredditManager-allowLowercase {
+	#sr-header-area { text-transform: none; }
+}

@@ -1,7 +1,8 @@
 sudo: false
 language: node_js
 node_js:
-  - "0.12"
+  - "5.0"
 before_script:
-  - npm install -g grunt-cli
-script: grunt travis
+  - npm install -g gulp
+  - gem install scss_lint
+script: gulp travis
