@@ -1448,6 +1448,25 @@ img {
 	}
 }
 
+.res-expando-siteAttribution {
+	.madeVisible > & {
+		clear: left;
+		margin: 0.5em;
+
+		a {
+			display: block;
+		}
+	}
+
+	a {
+		color: inherit;
+	}
+
+	img {
+		max-height: 20px;
+	}
+}
+
 .RESImage {
 	display: block !important;
 
