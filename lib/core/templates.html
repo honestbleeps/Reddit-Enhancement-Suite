@@ -476,6 +476,19 @@
 			</div>
 		</script>
 		<!--/imgurgifvUI-->
+		<!--PornbotUI-->
+		<script id="PornbotUI" type="application/x-template">
+			<div class="res-player video pornbot">
+				<a class="madeVisible" href="{{ directurl }}" target="_blank">
+				<video autoplay loop muted preload  class="pornbotVid">
+					{{#sources}}
+					<source src="{{ source }}" {{#type}}type="{{ type }}"{{/type}} class="{{ class }}">
+					{{/sources}}
+				</video>
+				</a>
+			</div>
+		</script>
+		<!--/PornbotUI-->
 		<!--GiphyUI: modified from MediaCrush Player-->
 		<script id="GiphyUI" type="application/x-template">
 			<div class="res-player video giphyres">
