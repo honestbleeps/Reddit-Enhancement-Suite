@@ -151,6 +151,7 @@
 		'modules/hosts/github.js',
 		'modules/hosts/onedrive.js',
 		'modules/hosts/oddshot.js',
+		'modules/hosts/miiverse.js',
 
 		'core/init.js',
 
