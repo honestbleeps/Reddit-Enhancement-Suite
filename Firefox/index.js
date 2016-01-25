@@ -241,7 +241,7 @@ addListener('storage', ([operation, key, value]) => {
 		case 'setRaw':
 			ss.storage[key] = value;
 			break;
-		case 'remove':
+		case 'delete':
 			delete ss.storage[key];
 			break;
 		case 'has':

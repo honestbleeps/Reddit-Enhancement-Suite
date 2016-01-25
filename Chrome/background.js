@@ -237,7 +237,7 @@ addListener('storage', ([operation, key, value]) => {
 			return localStorage.setItem(key, JSON.stringify(value));
 		case 'setRaw':
 			return localStorage.setItem(key, value);
-		case 'remove':
+		case 'delete':
 			return localStorage.removeItem(key);
 		case 'has':
 			return key in localStorage;
