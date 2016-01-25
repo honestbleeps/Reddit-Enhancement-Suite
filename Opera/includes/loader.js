@@ -153,6 +153,7 @@
 		'modules/hosts/onedrive.js',
 		'modules/hosts/oddshot.js',
 		'modules/hosts/miiverse.js',
+		'modules/hosts/swirl.js',
 
 		'core/init.js',
 

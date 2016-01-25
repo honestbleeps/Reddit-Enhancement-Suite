@@ -271,6 +271,7 @@ pageMod.PageMod({
 		self.data.url('modules/hosts/onedrive.js'),
 		self.data.url('modules/hosts/oddshot.js'),
 		self.data.url('modules/hosts/miiverse.js'),
+		self.data.url('modules/hosts/swirl.js'),
 		self.data.url('core/init.js')
 	],
 	contentStyleFile: [
