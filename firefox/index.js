@@ -566,6 +566,8 @@ PageMod({
 		self.data.url('modules/hosts/imgur.js'),
 		self.data.url('modules/hosts/pornbot.js'),
 		self.data.url('modules/hosts/coub.js'),
+		self.data.url('modules/hosts/uploadly.js'),
+		self.data.url('modules/hosts/eroshare.js'),
 		self.data.url('modules/hosts/twitter.js'),
 		self.data.url('modules/hosts/futurism.js'),
 		self.data.url('modules/hosts/gfycat.js'),
