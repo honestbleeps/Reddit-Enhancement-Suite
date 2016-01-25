@@ -63,7 +63,7 @@ const XHRCache = {
 			return entry.data;
 		}
 	},
-	add(key, value) {
+	set(key, value) {
 		let hits = 1;
 
 		if (this.entries.has(key)) {
@@ -269,8 +269,8 @@ addListener('session', ([operation, key, value]) => {
 
 addListener('XHRCache', ({ operation, key, value, maxAge }) => {
 	switch (operation) {
-		case 'add':
-			return XHRCache.add(key, value);
+		case 'set':
+			return XHRCache.set(key, value);
 		case 'check':
 			return XHRCache.check(key, maxAge);
 		case 'delete':
