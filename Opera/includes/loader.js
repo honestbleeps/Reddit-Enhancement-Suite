@@ -114,6 +114,8 @@
 		'modules/quickMessage.js',
 
 		'modules/hosts/imgur.js',
+		'modules/hosts/uploadly.js',
+		'modules/hosts/eroshare.js',
 		'modules/hosts/twitter.js',
 		'modules/hosts/futurism.js',
 		'modules/hosts/gfycat.js',
