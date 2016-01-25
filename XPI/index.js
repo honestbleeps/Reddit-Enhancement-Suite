@@ -233,6 +233,7 @@ pageMod.PageMod({
 		self.data.url('modules/quickMessage.js'),
 		self.data.url('modules/hosts/imgur.js'),
 		self.data.url('modules/hosts/pornbot.js'),
+		self.data.url('modules/hosts/threadshots.js'),
 		self.data.url('modules/hosts/twitter.js'),
 		self.data.url('modules/hosts/futurism.js'),
 		self.data.url('modules/hosts/gfycat.js'),

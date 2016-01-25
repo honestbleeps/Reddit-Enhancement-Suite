@@ -115,6 +115,7 @@
 
 		'modules/hosts/imgur.js',
 		'modules/hosts/pornbot.js',
+		'modules/hosts/threadshots.js',
 		'modules/hosts/twitter.js',
 		'modules/hosts/futurism.js',
 		'modules/hosts/gfycat.js',
