@@ -262,6 +262,18 @@ addListener('storage', ([operation, key, value]) => {
 				throw new Error(`Failed to patch: ${key} - error: ${e}`);
 			}
 			break;
+		case 'deletePath':
+			try {
+				const stored = JSON.parse(ss.storage[key] || '{}') || {};
+				value.split(',').reduce((obj, key, i, { length }) => {
+					if (i < length - 1) return obj[key];
+					delete obj[key];
+				}, stored);
+				ss.storage[key] = JSON.stringify(stored);
+			} catch (e) {
+				throw new Error(`Failed to delete path: ${value} on key: ${key} - error: ${e}`);
+			}
+			break;
 		case 'delete':
 			delete ss.storage[key];
 			break;
