@@ -18,6 +18,7 @@ import scsslint from 'gulp-scss-lint';
 import qunit from 'gulp-qunit';
 import map from 'through2-map';
 import pumpify from 'pumpify';
+import insert from 'gulp-insert';
 
 const options = require('minimist')(process.argv.slice(2));
 
@@ -157,6 +158,7 @@ function babelPipeline() {
 		plumber(),
 		sourcemaps.init(),
 		babel(),
+		insert.wrap('(function(exports) {', '})(typeof exports === "object" ? exports : typeof window === "object" ? window : {});'),
 		sourcemaps.write('.'),
 		plumber.stop()
 	);
