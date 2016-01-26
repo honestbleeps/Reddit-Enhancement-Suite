@@ -865,8 +865,8 @@ body.res-nightmode,
 .res-nightmode .linefield .delete-field,
 .res-nightmode #pref-delete .delete-field,
 .res-nightmode .contact-us-page .details li,
-.subreddit-report-form input:disabled,
-.action-form input:disabled {
+.res-nightmode .subreddit-report-form input:disabled,
+.res-nightmode .action-form input:disabled {
 	background-color: transparent;
 }
 .res-nightmode .message.message-reply .entry,
