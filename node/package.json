@@ -1,11 +1,10 @@
 {
-  "devDependencies": {
-    "mock-browser": "^0.91.34",
-    "jquery": "^1.11.3",
-    "eval": "^0.1.1",
-    "yargs": "^3.27.0",
-    "xmldom": "^0.1.19",
+  "dependencies": {
     "deep-equal": "^1.0.1",
-    "require-new": "^1.1.0"
+    "eval": "^0.1.1",
+    "jquery": "^1.11.3",
+    "jsdom": "^7.2.2",
+    "require-new": "^1.1.0",
+    "yargs": "^3.27.0"
   }
 }

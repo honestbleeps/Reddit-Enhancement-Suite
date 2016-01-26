@@ -27,14 +27,6 @@ INFO("Showing semi-important stuff too");
 DEBUG("Extra chatty mode");
 */
 
-var storage = {};
-if (yargs.storage) {
-	storage = require('./storage/' + yargs.storage + '.json');
-	INFO('Loaded storage from', yargs.storage, ' - loaded ', Object.getOwnPropertyNames(storage).length, 'items');
-} else {
-	INFO('Using empty storage');
-}
-
 var skipSections = [].concat(yargs.skip);
 for (var section in files) {
 	if (skipSections.indexOf(section) !== -1) continue;
@@ -65,66 +57,80 @@ function importFile(filename, key) {
 	if (exported) DEBUG('    -->', exported);
 }
 
-if (yargs.assertstorage) {
-	var actual = RESStorage;
-	var expected = requireNew('./storage/' + yargs.assertstorage + '.json');
-	INFO('Loaded storage from', yargs.storage, ' - loaded ', Object.getOwnPropertyNames(storage).length, 'items');
-	INFO('Asserting that storage matches', yargs.assertstorage, ' - loaded ', Object.getOwnPropertyNames(expected).length, 'items');
+if (yargs.storage) {
+	RESEnvironment._storage = require('./storage/' + yargs.storage + '.json');
+	INFO('Loaded storage from', yargs.storage, ' - loaded ', Object.getOwnPropertyNames(RESEnvironment._storage).length, 'items');
+} else {
+	INFO('Using empty storage');
+}
 
-	var ignoredKeys = [];
-	if (yargs.ignorestorage) {
-		ignoredKeys = requireNew('./storage/' + yargs.ignorestorage+ '.json');
-		INFO('ignoring keys listed in', yargs.ignorestorage, ' - ignoring ', Object.getOwnPropertyNames(ignoredKeys).length, 'items');
-	}
+RESUtils.init.await.options
+	.then(() => {
+		if (yargs.assertstorage) {
+			var actual = RESEnvironment._storage;
+			var expected = requireNew('./storage/' + yargs.assertstorage + '.json');
+			INFO('Asserting that storage matches', yargs.assertstorage, ' - loaded ', Object.getOwnPropertyNames(expected).length, 'items');
 
-	var failures = [];
-	for (var key in expected) {
-		if (ignoredKeys.indexOf(key) !== -1) {
-			DEBUG('Skipping comparing key', key);
-			continue;
-		}
-		DEBUG('Comparing key', key);
-		let expectedValue = 0, actualValue = -1, error = false;
-		if (key.indexOf('RESoptions.') === 0) {
-			try {
-				const expectedOptions = typeof expected[key] === 'string' && JSON.parse(expected[key]);
-				const actualOptions = typeof actual[key] === 'string' && JSON.parse(actual[key]);
-				for (var option in expectedOptions) {
-					expectedValue = expectedOptions[option].value;
-					actualValue = (actualOptions[option] || {}).value;
-					error = !equals(expectedValue, actualValue);
-					if (error) addError(key + '::' + option, error, expectedValue, actualValue);
-				}
-			} catch (e) {
-				addError(key + '::' + option, error);
+			var ignoredKeys = [];
+			if (yargs.ignorestorage) {
+				ignoredKeys = requireNew('./storage/' + yargs.ignorestorage + '.json');
+				INFO('ignoring keys listed in', yargs.ignorestorage, ' - ignoring ', Object.getOwnPropertyNames(ignoredKeys).length, 'items');
 			}
-		} else {
-			expectedValue = expected[key];
-			actualValue = actual[key];
-			error = !equals(expectedValue, actualValue);
-			if (error) addError(key, error, expectedValue, actualValue);
+
+			var failures = [];
+
+			function addError(key, error, expected, actual) {
+				if (!error) return;
+				DEBUG(key, 'didn\'t match assert storage!', error);
+				failures.push({
+					error: typeof error === 'boolean' ? 'no match' : error,
+					key: key,
+					expected: JSON.stringify(expected),
+					actual: JSON.stringify(actual)
+				});
+			}
+
+			for (var key in expected) {
+				if (ignoredKeys.indexOf(key) !== -1) {
+					DEBUG('Skipping comparing key', key);
+					continue;
+				}
+				DEBUG('Comparing key', key);
+				let expectedValue = 0, actualValue = -1, error = false;
+				if (key.indexOf('RESoptions.') === 0) {
+					try {
+						const expectedOptions = typeof expected[key] === 'string' && JSON.parse(expected[key]);
+						const actualOptions = typeof actual[key] === 'string' && JSON.parse(actual[key]);
+						for (var option in expectedOptions) {
+							expectedValue = expectedOptions[option].value;
+							actualValue = (actualOptions[option] || {}).value;
+							error = !equals(expectedValue, actualValue);
+							if (error) addError(key + '::' + option, error, expectedValue, actualValue);
+						}
+					} catch (e) {
+						addError(key + '::' + option, error);
+					}
+				} else {
+					expectedValue = expected[key];
+					actualValue = actual[key];
+					error = !equals(expectedValue, actualValue);
+					if (error) addError(key, error, expectedValue, actualValue);
+				}
+
+
+			}
+			if (failures.length) {
+				WARN('[ERR] Encountered', failures.length, 'non-matching storage items');
+				console.dir(failures);
+			} else {
+				INFO('Storage passed equality assertion');
+			}
 		}
 
-
-	}
-	if (failures.length) {
-		WARN('[ERR] Encountered', failures.length, 'non-matching storage items');
-		console.dir(failures);
-	} else {
-		INFO('Storage passed equality assertion');
-	}
-}
-
-function addError(key, error, expected, actual) {
-	if (!error) return;
-	DEBUG(key, 'didn\'t match assert storage!', error);
-	failures.push({
-		error: typeof error === 'boolean' ? 'no match' : error,
-		key: key,
-		expected: JSON.stringify(expected),
-		actual: JSON.stringify(actual)
+		DEBUG('done');
+		process.exit();
+	})
+	.catch(e => {
+		INFO('Error: ', e);
+		process.exit(1);
 	});
-}
-
-DEBUG('done');
-process.exit();
