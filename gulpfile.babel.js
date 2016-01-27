@@ -10,7 +10,6 @@ import sass from 'gulp-sass';
 import autoprefixer from 'gulp-autoprefixer';
 import merge from 'merge-stream';
 import cache from 'gulp-cached';
-import plumber from 'gulp-plumber';
 import filter from 'gulp-filter';
 import sourcemaps from 'gulp-sourcemaps';
 import eslint from 'gulp-eslint';
@@ -126,7 +125,7 @@ function getBuildDir(browser) {
 }
 
 function toBrowsers() {
-	return pumpify.obj(...browsers.map(browser =>
+	return pumpify.obj(browsers.map(browser =>
 		dest(getBuildDir(browser), browserConf[browser].dests.baseSources)
 	));
 }
@@ -155,13 +154,14 @@ gulp.task('build', ['babel', 'sass', 'copy', 'copy-browser', 'manifests']);
 
 function babelPipeline() {
 	return pumpify.obj(
-		plumber(),
 		sourcemaps.init(),
-		babel(),
+		babel().on('error', e => console.error(e.message)),
 		insert.wrap('(function(exports) {', '})(typeof exports === "object" ? exports : typeof window === "object" ? window : {});'),
-		sourcemaps.write('.'),
-		plumber.stop()
-	);
+		sourcemaps.write('.')
+	).on('close', function() {
+		// Gulp doesn't seem to stop on close, only end...
+		this.emit('end');
+	});
 }
 
 gulp.task('babel', () =>
