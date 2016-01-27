@@ -238,6 +238,8 @@ addListener('storage', ([operation, key, value]) => {
 			return key in localStorage;
 		case 'keys':
 			return Object.keys(localStorage);
+		case 'clear':
+			return localStorage.clear();
 		default:
 			throw new Error(`Invalid storage operation: ${operation}`);
 	}

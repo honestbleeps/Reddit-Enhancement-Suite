@@ -277,6 +277,11 @@ addListener('storage', ([operation, key, value]) => {
 			return key in ss.storage;
 		case 'keys':
 			return Object.keys(ss.storage);
+		case 'clear':
+			for (const k in ss.storage) {
+				delete ss.storage[k];
+			}
+			break;
 		default:
 			throw new Error(`Invalid storage operation: ${operation}`);
 	}
