@@ -25,22 +25,15 @@ RESEnvironment.storage = {
 		try {
 			return Promise.resolve(key in RESEnvironment._storage ? JSON.parse(RESEnvironment._storage[key]) : null);
 		} catch (e) {
-			console.warn('Failed to parse:', key, e);
+			console.warn('Failed to parse:', key, 'falling back to raw string.');
+			return Promise.resolve(RESEnvironment._storage[key]);
 		}
-		return Promise.resolve(null);
-	},
-	getRaw(key) {
-		return Promise.resolve(key in RESEnvironment._storage ? RESEnvironment._storage[key] : null);
 	},
 	set(key, value) {
 		return new Promise(resolve => {
 			RESEnvironment._storage[key] = JSON.stringify(value);
 			resolve();
 		});
-	},
-	setRaw(key, value) {
-		RESEnvironment._storage[key] = value;
-		return Promise.resolve();
 	},
 	patch(key, value) {
 		return new Promise(resolve => {

@@ -244,16 +244,11 @@ addListener('storage', ([operation, key, value]) => {
 			try {
 				return key in ss.storage ? JSON.parse(ss.storage[key]) : null;
 			} catch (e) {
-				console.warn('Failed to parse:', key, e);
+				console.warn('Failed to parse:', key, 'falling back to raw string.');
 			}
-			return null;
-		case 'getRaw':
-			return key in ss.storage ? ss.storage[key] : null;
+			return ss.storage[key];
 		case 'set':
 			ss.storage[key] = JSON.stringify(value);
-			break;
-		case 'setRaw':
-			ss.storage[key] = value;
 			break;
 		case 'patch':
 			try {
