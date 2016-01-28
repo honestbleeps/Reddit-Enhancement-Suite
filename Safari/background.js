@@ -105,7 +105,7 @@ function nonNull(callback) {
 	});
 }
 
-safari.application.addEventListener('message', ({ name: type, message: { data, transaction, error, isResponse }, target: tab}) => {
+safari.application.addEventListener('message', ({ name: type, message: { data, transaction, error, isResponse }, target: tab }) => {
 	if (isResponse) {
 		if (!waiting.has(transaction)) {
 			throw new Error(`No response handler for type: ${type}, transaction: ${transaction} - this should never happen.`);
