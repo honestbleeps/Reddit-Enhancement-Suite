@@ -9,12 +9,11 @@ import self from 'sdk/self';
 import tabs from 'sdk/tabs';
 import ss from 'sdk/simple-storage';
 import priv from 'sdk/private-browsing';
-import { browserWindows as windows } from 'sdk/windows';
 import { viewFor } from 'sdk/view/core';
 import { ActionButton } from 'sdk/ui/button/action';
 
 // require chrome allows us to use XPCOM objects...
-import { Cc, Ci, Cu, components } from 'chrome';
+import { Cc, Ci, components } from 'chrome';
 const historyService = Cc['@mozilla.org/browser/history;1'].getService(Ci.mozIAsyncHistory);
 
 // Cookie manager for new API login

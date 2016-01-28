@@ -2,7 +2,6 @@
 
 test('insertAfter: Inserts a DOM element after a reference element and before the reference\'s next sibling', function() {
 	expect(7);
-	var $fixture = $('#qunit-fixture');
 
 	var referenceNode = document.createElement('div');
 	referenceNode.id = 'referenceNode';
@@ -29,7 +28,6 @@ test('insertAfter: Inserts a DOM element after a reference element and before th
 
 test('insertAfter: Can insert a DOM element after a reference element even if reference is only child', function() {
 	expect(5);
-	var $fixture = $('#qunit-fixture');
 
 	var referenceNode = document.createElement('div');
 	referenceNode.id = 'referenceNode';
@@ -51,7 +49,6 @@ test('insertAfter: Can insert a DOM element after a reference element even if re
 
 test('insertAfter: Cannot insert a DOM element if reference element has no parent', function() {
 	expect(3);
-	var $fixture = $('#qunit-fixture');
 
 	var referenceNode = document.createElement('div');
 	referenceNode.id = 'referenceNode';
@@ -68,7 +65,6 @@ test('insertAfter: Cannot insert a DOM element if reference element has no paren
 
 test('insertAfter: Cannot insert a DOM element if reference element is undefined', function() {
 	expect(4);
-	var $fixture = $('#qunit-fixture');
 
 	var referenceNode = null;
 	var newNode = document.createElement('div');
