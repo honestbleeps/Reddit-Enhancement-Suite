@@ -110,7 +110,6 @@ window.onunload = () => { /* empty */ };
 				.catch(e => {
 					sendResponse({ error: e.message || e });
 					throw e;
-
 				});
 			return true;
 		}

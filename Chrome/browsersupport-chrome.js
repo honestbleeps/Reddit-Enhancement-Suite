@@ -155,7 +155,6 @@
 				throw new Error(`Permissions not removed: ${perms.join(', ')} - are you trying to remove required permissions?`);
 			}
 		};
-
 	}
 
 	RESEnvironment.loadResourceAsText = filename =>

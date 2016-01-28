@@ -116,8 +116,6 @@ RESUtils.init.await.options
 					error = !equals(expectedValue, actualValue);
 					if (error) addError(key, error, expectedValue, actualValue);
 				}
-
-
 			}
 			if (failures.length) {
 				WARN('[ERR] Encountered', failures.length, 'non-matching storage items');
