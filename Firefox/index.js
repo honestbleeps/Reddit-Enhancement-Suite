@@ -14,6 +14,8 @@ import priv from 'sdk/private-browsing';
 import { viewFor } from 'sdk/view/core';
 import { ActionButton } from 'sdk/ui/button/action';
 
+import { indexedDB } from 'sdk/indexed-db';
+
 // require chrome allows us to use XPCOM objects...
 import { Cc, Ci, components } from 'chrome';
 const historyService = Cc['@mozilla.org/browser/history;1'].getService(Ci.mozIAsyncHistory);
@@ -238,50 +240,121 @@ function extend(target, source) {
 	return target;
 }
 
+let db;
+
+{
+	const request = indexedDB.open('storage', 1);
+	request.onupgradeneeded = () => {
+		const db = request.result;
+		if (db.objectStoreNames.contains('storage')) {
+			db.deleteObjectStore('storage');
+		}
+		db.createObjectStore('storage', { keyPath: 'key' });
+	};
+	request.onsuccess = () => {
+		db = request.result;
+		runMigration();
+	};
+	request.onerror = ::console.error;
+
+	const MIGRATED_TO_INDEXEDDB = 'MIGRATED_TO_INDEXEDDB';
+
+	function runMigration() {
+		if (ss.storage[MIGRATED_TO_INDEXEDDB] !== MIGRATED_TO_INDEXEDDB) {
+			const transaction = db.transaction('storage', 'readwrite');
+			transaction.oncomplete = () => ss.storage[MIGRATED_TO_INDEXEDDB] = MIGRATED_TO_INDEXEDDB;
+			transaction.onerror = ::console.error;
+			const store = transaction.objectStore('storage');
+			Object.keys(ss.storage).forEach(key => {
+				let value;
+				try {
+					value = JSON.parse(ss.storage[key]);
+					console.log(key);
+				} catch (e) {
+					value = ss.storage[key];
+					console.warn(key);
+				}
+				store.put({ key, value });
+			});
+		}
+	}
+}
+
 addListener('storage', ([operation, key, value]) => {
 	switch (operation) {
 		case 'get':
-			try {
-				return key in ss.storage ? JSON.parse(ss.storage[key]) : null;
-			} catch (e) {
-				console.warn('Failed to parse:', key, 'falling back to raw string.');
-			}
-			return ss.storage[key];
+			return new Promise((resolve, reject) => {
+				const request = db.transaction('storage', 'readonly').objectStore('storage').get(key);
+				request.onsuccess = () => resolve(request.result ? request.result.value : null);
+				request.onerror = reject;
+			});
 		case 'set':
-			ss.storage[key] = JSON.stringify(value);
-			break;
+			return new Promise((resolve, reject) => {
+				const request = db.transaction('storage', 'readwrite').objectStore('storage').put({ key, value });
+				request.onsuccess = () => resolve();
+				request.onerror = reject;
+			});
 		case 'patch':
-			try {
-				const stored = JSON.parse(ss.storage[key] || '{}') || {};
-				ss.storage[key] = JSON.stringify(extend(stored, value));
-			} catch (e) {
-				throw new Error(`Failed to patch: ${key} - error: ${e}`);
-			}
-			break;
+			return new Promise((resolve, reject) => {
+				const transaction = db.transaction('storage', 'readwrite');
+				transaction.oncomplete = () => resolve();
+				transaction.onerror = reject;
+				const store = transaction.objectStore('storage');
+				const request = store.get(key);
+				request.onsuccess = () => {
+					const extended = extend(request.result && request.result.value || {}, value);
+					store.put({ key, value: extended });
+				};
+			});
 		case 'deletePath':
-			try {
-				const stored = JSON.parse(ss.storage[key] || '{}') || {};
-				value.split(',').reduce((obj, key, i, { length }) => {
-					if (i < length - 1) return obj[key];
-					delete obj[key];
-				}, stored);
-				ss.storage[key] = JSON.stringify(stored);
-			} catch (e) {
-				throw new Error(`Failed to delete path: ${value} on key: ${key} - error: ${e}`);
-			}
-			break;
+			return new Promise((resolve, reject) => {
+				const transaction = db.transaction('storage', 'readwrite');
+				transaction.oncomplete = () => resolve();
+				transaction.onerror = reject;
+				const store = transaction.objectStore('storage');
+				const request = store.get(key);
+				request.onsuccess = () => {
+					const stored = request.result.value;
+					value.split(',').reduce((obj, key, i, { length }) => {
+						if (i < length - 1) return obj[key];
+						delete obj[key];
+					}, stored);
+					store.put({ key, value: stored });
+				};
+			});
 		case 'delete':
-			delete ss.storage[key];
-			break;
+			return new Promise((resolve, reject) => {
+				const request = db.transaction('storage', 'readwrite').objectStore('storage').delete(key);
+				request.onsuccess = () => resolve();
+				request.onerror = reject;
+			});
 		case 'has':
-			return key in ss.storage;
+			return new Promise((resolve, reject) => {
+				const request = db.transaction('storage', 'readonly').objectStore('storage').openCursor(key);
+				request.onsuccess = () => resolve(!!request.result);
+				request.onerror = reject;
+			});
 		case 'keys':
-			return Object.keys(ss.storage);
+			return new Promise((resolve, reject) => {
+				const request = db.transaction('storage', 'readonly').objectStore('storage').openKeyCursor();
+				const keys = [];
+				request.onsuccess = () => {
+					const cursor = request.result;
+					if (cursor) {
+						keys.push(cursor.key);
+						cursor.continue();
+					} else {
+						resolve(keys);
+					}
+				};
+				request.onerror = reject;
+			});
 		case 'clear':
-			for (const k in ss.storage) {
-				delete ss.storage[k];
-			}
-			break;
+			return new Promise((resolve, reject) => {
+				const request = db.transaction('storage', 'readwrite').objectStore('storage').clear();
+				request.onsuccess = () => resolve();
+				request.onerror = reject;
+			});
 		default:
 			throw new Error(`Invalid storage operation: ${operation}`);
 	}
