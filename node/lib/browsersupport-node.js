@@ -75,7 +75,7 @@ RESEnvironment.storage = {
 	has(key) {
 		return Promise.resolve(key in RESEnvironment._storage);
 	},
-	keys(key) {
+	keys() {
 		return Promise.resolve(Object.keys(RESEnvironment._storage));
 	}
 };

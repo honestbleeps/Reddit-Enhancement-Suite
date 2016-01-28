@@ -203,7 +203,7 @@ addListener('deleteCookies', cookies =>
 	cookies.forEach(({ name }) => cookieManager.remove('.reddit.com', name, '/', false))
 );
 
-addListener('ajax', ({ method, url, headers, data, credentials }) =>
+addListener('ajax', ({ method, url, headers, data }) =>
 	// not using async/await here since the polyfill doesn't work with Firefox's backend
 	new Promise(resolve => {
 		const request = Request({
@@ -320,7 +320,7 @@ const pageAction = ActionButton({
 		32: self.data.url('images/css-disabled.png')
 	},
 	disabled: true,
-	onClick(state) {
+	onClick() {
 		sendMessage('pageActionClick', workerFor(tabs.activeTab));
 	}
 });
