@@ -181,7 +181,7 @@
 		"consistent-this": [2, "this"], // do not alias `this`, use arrow functions
 		"eol-last": 2,
 		//"func-names": 2, // all anonymous functions should be arrows
-		//"func-style": [2, "declaration"],
+		"func-style": [2, "declaration", { "allowArrowFunctions": true }],
 		//"id-length": 2,
 		//"id-match": 2,
 		"indent": [2, "tab", { "SwitchCase": 1 }],
