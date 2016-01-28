@@ -2,7 +2,7 @@
 
 import fs from 'fs';
 import _eval from 'eval';
-import requireNew  from 'require-new';
+import requireNew from 'require-new';
 
 import _yargs from 'yargs';
 const yargs = _yargs
@@ -17,8 +17,8 @@ import files from './files.json';
 import equals from 'deep-equal';
 
 const VERBOSE_LEVEL = yargs.verbose;
-function WARN(...args)  { if (VERBOSE_LEVEL >= 0) console.log(...args); }
-function INFO(...args)  { if (VERBOSE_LEVEL >= 1) console.log(...args); }
+function WARN(...args) { if (VERBOSE_LEVEL >= 0) console.log(...args); }
+function INFO(...args) { if (VERBOSE_LEVEL >= 1) console.log(...args); }
 function DEBUG(...args) { if (VERBOSE_LEVEL >= 2) console.log(...args); }
 
 /*
