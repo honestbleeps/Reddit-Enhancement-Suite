@@ -204,9 +204,9 @@ addListener('deleteCookies', cookies =>
 	cookies.forEach(({ name }) => cookieManager.remove('.reddit.com', name, '/', false))
 );
 
-addListener('ajax', ({ method, url, headers, data, credentials }) => {
+addListener('ajax', ({ method, url, headers, data, credentials }) =>
 	// not using async/await here since the polyfill doesn't work with Firefox's backend
-	return new Promise(resolve => {
+	new Promise(resolve => {
 		const request = Request({
 			url,
 			onComplete: resolve,
@@ -221,8 +221,8 @@ addListener('ajax', ({ method, url, headers, data, credentials }) => {
 	}).then(request => ({
 		status: request.status,
 		responseText: request.text
-	}));
-});
+	}))
+);
 
 // Circular references can't exist in storage, so we don't need to consider that
 // and only enumerable own properties are sent in messages
