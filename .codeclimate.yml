@@ -3,6 +3,15 @@ engines:
     enabled: true
   scss-lint:
     enabled: true
+  duplication:
+    enabled: true
+    config:
+      languages:
+      - javascript
+  fixme:
+    enabled: true
+  nodesecurity:
+    enabled: true
 
 ratings:
   paths:
