@@ -4,5 +4,10 @@ engines:
   scss-lint:
     enabled: true
 
+ratings:
+  paths:
+  - "**.js"
+  - "**.scss"
+
 exclude_paths:
 - "lib/vendor/*"
