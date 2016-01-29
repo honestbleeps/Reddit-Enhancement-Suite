@@ -1211,6 +1211,19 @@ img {
 .expando-button.video-muted.expanded {background-position: 0 -512px; }
 .expando-button.video-muted.expanded:hover {background-position: 0 -536px; }
 
+.madeVisible > .res-expando-siteAttribution {
+	clear: left;
+	margin: 0.5em;
+}
+.madeVisible > .res-expando-siteAttribution a {
+	display: block;
+}
+.res-expando-siteAttribution a {
+	color: inherit;
+}
+.res-expando-siteAttribution img {
+	max-height: 20px;
+}
 .madeVisible { clear: left; display: block; overflow: hidden; }
 .madeVisible a.madeVisible { display: inline-block; overflow: hidden; }
 .RESImage { display: block !important;  }

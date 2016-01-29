@@ -339,6 +339,16 @@
 		</div>
 		<!-- /Submit Page Repost Warning -->
 
+		<!-- ShowImages expando site attribution -->
+		<script id="showImages-siteAttribution" type="application-x/template">
+			<cite class="res-expando-siteAttribution">
+				<a href="{{url}}" target="_blank">
+					{{#logoUrl}}<img src="{{logoUrl}}" alt="Hosted by {{name}}" title="Hosted by {{name}}" />{{/logoUrl}}
+					{{^logoUrl}}{{#name}}<span>{{name}}</span>{{/name}}{{/logoUrl}}
+				</a>
+			</cite>
+		</script>
+
 		<!--VideoUI-->
 		<!--Adapted from MediaCrush video player-->
 		<script id="VideoUI" type="application/x-template">
@@ -412,6 +422,7 @@
 				</video>
 				</a>
 				<div style="height: 35px;" class="ctrlContainer">
+					<div class="res-expando-siteAttribution"></div>
 					<div style="height: 25px; float: right; padding: 5px; display: none;" class="ctrlBox">
 						<div class="res-icon res-lightweight-player-controls gfyRCtrlPause" style="margin-left: 6px; cursor: pointer;">&#xf16c;</div>
 						<div class="res-icon res-lightweight-player-controls gfyRCtrlReverse" style="margin-left: 6px; cursor: pointer;">&#xf169;</div>
@@ -433,6 +444,7 @@
 				</video>
 				</a>
 				<div style="height: 35px;" class="ctrlContainer">
+					<div class="res-expando-siteAttribution"></div>
 					<div class="gifyoutube-source">
 						<a target="_blank" class="res-icon res-lightweight-player-controls gifyoutube-source-button">Watch Full Video</a>
 					</div>
@@ -456,9 +468,7 @@
 				</video>
 				</a>
 				<div style="height: 35px;" class="ctrlContainer">
-					<div class="imgurgifv-brand">
-						<img src="//imgur.com/favicon.ico">
-					</div>
+					<div class="res-expando-siteAttribution"></div>
 					<div class="imgurgifv-download">
 						<a href="{{ downloadurl }}">download</a>
 					</div>
@@ -466,6 +476,19 @@
 			</div>
 		</script>
 		<!--/imgurgifvUI-->
+		<!--PornbotUI-->
+		<script id="PornbotUI" type="application/x-template">
+			<div class="res-player video pornbot">
+				<a class="madeVisible" href="{{ directurl }}" target="_blank">
+				<video autoplay loop muted preload  class="pornbotVid">
+					{{#sources}}
+					<source src="{{ source }}" {{#type}}type="{{ type }}"{{/type}} class="{{ class }}">
+					{{/sources}}
+				</video>
+				</a>
+			</div>
+		</script>
+		<!--/PornbotUI-->
 		<!--GiphyUI: modified from MediaCrush Player-->
 		<script id="GiphyUI" type="application/x-template">
 			<div class="res-player video giphyres">
@@ -498,6 +521,21 @@
 		</script>
 		<!--/GiphyUI-->
 
+		<!--swirlUI-->
+		<script id="swirlUI" type="application/x-template">
+			<div class="res-player video">
+				<video {{#autoplay}}autoplay="true"{{/autoplay}} muted loop preload preload controls>
+					{{#sources}}
+					<source src="{{ source }}" {{#type}}type="{{ type }}"{{/type}} class="{{ class }}">
+					{{/sources}}
+				</video>
+				<div style="height: 35px;" class="ctrlContainer">
+					<div class="res-expando-siteAttribution" />
+					<a href="{{ swirlUrl }}" target="_blank">View on Swirl</a>
+				</div>
+			</div>
+		</script>
+		<!--/swirlUI-->
 
 		<div id="searchResultOptionHtml" type="application/x-template">
 			<div class="SearchRES-result-header">
