@@ -41,6 +41,7 @@
 		// Reimplemented for ES6/7 compatibility
 		"babel/generator-star-spacing": [2, { "before": false, "after": true }],
 		//"babel/new-cap": 2,
+		//"babel/array-bracket-spacing": 2, documented in the repo, but not yet released
 		"babel/object-curly-spacing": [2, "always"],
 		//"babel/object-shorthand": 2,
 		"babel/arrow-parens": [2, "as-needed"],
@@ -48,25 +49,23 @@
 
 		// ES6
 		"arrow-body-style": 2,
+		//"arrow-parens": 2, see babel/arrow-parens
 		"arrow-spacing": 2,
 		"constructor-super": 2,
+		//"generator-star-spacing": 2, see babel/generator-star-spacing
 		"no-arrow-condition": 2,
 		"no-class-assign": 2,
 		"no-const-assign": 2,
 		"no-dupe-class-members": 2,
 		"no-this-before-super": 2,
 		//"no-var": 2,
+		//"object-shorthand": 2, see babel/object-shorthand
 		//"prefer-arrow-callback": 2,
 		"prefer-const": 2,
 		//"prefer-reflect": 2,
 		//"prefer-spread": 2,
 		//"prefer-template": 2,
 		"require-yield": 2,
-
-		// Legacy / JSHint compat
-		//"max-depth": [1, 3],
-		//"max-len": [1, 80],
-		//"max-statements": [1, 15],
 
 		// Possible Errors
 		//"comma-dangle": 2,
@@ -111,6 +110,7 @@
 		//"guard-for-in": 2,
 		//"no-alert": 2,
 		"no-caller": 2,
+		//"no-case-declarations": 2,
 		"no-div-regex": 2,
 		//"no-else-return": 2,
 		"no-empty-label": 2,
@@ -189,10 +189,16 @@
 		"key-spacing": 2,
 		//"linebreak-style": 2,
 		//"lines-around-comment": [2, { "allowBlockStart": true }],
+		//"max-depth": 2,
+		//"max-len": 2,
 		"max-nested-callbacks": [2, 5],
+		//"max-params": 2,
+		//"max-statements": 2,
+		//"new-cap": 2, see babel/new-cap
 		"new-parens": 2,
 		//"newline-after-var": [2, "never"],
 		"no-array-constructor": 2,
+		//"no-bitwise": 2,
 		//"no-continue": 2,
 		//"no-inline-comments": 2,
 		//"no-lonely-if": 2,
@@ -201,11 +207,14 @@
 		//"no-negated-condition": 2,
 		//"no-nested-ternary": 2,
 		"no-new-object": 2,
+		//"no-plusplus": 2,
+		//"no-restricted-syntax": 2,
 		"no-spaced-func": 2,
 		//"no-ternary": 2,
 		"no-trailing-spaces": 2,
 		//"no-underscore-dangle": 2,
 		"no-unneeded-ternary": 2,
+		//"object-curly-spacing": 2, see babel/object-curly-spacing
 		//"one-var": [2, { "initialized": "never" }],
 		"operator-assignment": [2, "always"],
 		"operator-linebreak": [2, "after"],
