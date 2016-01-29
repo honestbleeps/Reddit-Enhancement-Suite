@@ -150,7 +150,8 @@
 }
 .res-nightmode .wiki-page .wiki-page-content .md.wiki>.toc ul,
 .res-nightmode .tabmenu li a,
-.res-nightmode .tabmenu li.selected a {
+.res-nightmode .tabmenu li.selected a,
+.res-nightmode #report form {
 	background-color: hsl(0,0%,15%);
 }
 .res-nightmode .tabmenu li.selected a {
@@ -258,11 +259,6 @@
 	background-color: rgb(51, 51, 51);
 	color: #eee;
 }
-.res-nightmode #report form {
-	background-color: rgb(76,61,61);
-}
-.res-nightmode .reason-prompt,
-.res-nightmode .report-action-form li,
 .res-nightmode .rulespage .example,
 .res-nightmode #userTaggerTable th,
 .res-nightmode #newCommentsTable th,
@@ -273,8 +269,7 @@
 .res-nightmode .unfriend-button .option,
 .res-nightmode .RESDashboardComponent .widgetPath,
 .res-nightmode .entry .buttons li.reported-stamp,
-.res-nightmode .pretty-button,
-.res-nightmode ul.report-reasons {
+.res-nightmode .pretty-button {
 	color: #000;
 }
 .res-nightmode .viewSource textarea[readonly] {
@@ -363,11 +358,6 @@
 .res-nightmode .content.submit .roundfield,
 .res-nightmode .traffic-table tr:nth-of-type(even) {
 	background-color: #181818;
-}
-.res-nightmode .report-form {
-	background-color: #666;
-	color: #ccc;
-	border-color: #888;
 }
 .res-nightmode .md code,
 .res-nightmode .md pre,
@@ -647,7 +637,8 @@
 .res-nightmode .liveupdate-listing li.liveupdate:hover time,
 .res-nightmode .spam .domain,
 .res-nightmode .spam .domain a,
-.res-nightmode .hover-bubble.multi-selector strong {
+.res-nightmode .hover-bubble.multi-selector strong,
+.res-nightmode .subreddit-rules-page .md-container .md .subreddit-rule-description {
 	color: inherit;
 }
 .res-nightmode .nextprev a:hover,
@@ -681,7 +672,6 @@ html.res-nightmode body.with-listing-chooser .listing-chooser .grippy:after {
 html.res-nightmode body.with-listing-chooser .listing-chooser .grippy:hover:before {
 	background-color: hsl(0,0%,15%);
 }
-
 html.res-nightmode body.with-listing-chooser .listing-chooser .grippy:hover:after {
 	border-right-color: #777;
 }
@@ -765,7 +755,8 @@ body.res-nightmode,
 .res-nightmode #BigEditor .markdownEditor a,
 .res-nightmode #BigEditor .markdownEditor .RESMacroDropdownTitle,
 .res-nightmode #REScommentSubToggle,
-.res-nightmode #alert_message {
+.res-nightmode #alert_message,
+.res-nightmode #report-action-form {
 	color: #ccc;
 }
 .res-nightmode .server-seconds {
@@ -835,9 +826,6 @@ body.res-nightmode,
 	border-color: rgb(0,0,0);
 	color: rgb(255,255,255);
 }
-.res-nightmode .report-action-form {
-	background-color: #dad0b3;
-}
 .res-nightmode .letter-body p,
 .res-nightmode #gold-letter h1,
 .res-nightmode #about-gold h1,
@@ -876,7 +864,9 @@ body.res-nightmode,
 .res-nightmode .instructions,
 .res-nightmode .linefield .delete-field,
 .res-nightmode #pref-delete .delete-field,
-.res-nightmode .contact-us-page .details li {
+.res-nightmode .contact-us-page .details li,
+.res-nightmode .subreddit-report-form input:disabled,
+.res-nightmode .action-form input:disabled {
 	background-color: transparent;
 }
 .res-nightmode .message.message-reply .entry,
@@ -1052,7 +1042,8 @@ Subreddit stylesheets can't override filter, so we only use when it won't affect
 	color: rgb(192,78,81);
 	background-color: inherit;
 }
-.res-nightmode #alert_message {
+.res-nightmode #alert_message,
+.res-nightmode #report-action-form {
 	border-color: hsl(0,0%,25%);
 	background-color: hsl(0,0%,15%);
 }
@@ -1065,4 +1056,7 @@ Subreddit stylesheets can't override filter, so we only use when it won't affect
 }
 .res-nightmode .sr-interest-bar .bubble:after {
 	border-right-color: black;
+}
+.res-nightmode .subreddit-rule-item:hover {
+	background-color: hsl(0,0%,17%);
 }
