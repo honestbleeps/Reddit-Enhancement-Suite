@@ -181,7 +181,8 @@ addListener('ajax', async ({ method, url, headers, data, credentials }) => {
 
 	// Only store `status`, `responseText` and `responseURL` fields
 	return {
-		status: request.status,
+		// Safari doesn't set status on requests for local resources...
+		status: request.status === 0 ? 200 : request.status,
 		responseText: request.responseText,
 		responseURL: request.responseURL
 	};
