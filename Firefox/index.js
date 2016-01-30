@@ -209,7 +209,7 @@ addListener('ajax', ({ method, url, headers, data }) =>
 		const request = Request({
 			url,
 			onComplete: resolve,
-			headers: headers,
+			headers,
 			content: data
 		});
 		if (method === 'POST') {

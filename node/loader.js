@@ -84,7 +84,7 @@ RESUtils.init.await.options
 				DEBUG(key, 'didn\'t match assert storage!', error);
 				failures.push({
 					error: typeof error === 'boolean' ? 'no match' : error,
-					key: key,
+					key,
 					expected: JSON.stringify(expected),
 					actual: JSON.stringify(actual)
 				});

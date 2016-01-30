@@ -12,7 +12,7 @@ export const DOMParser = window.DOMParser;
 export const $ = jQuery(window);
 
 export const sessionStorage = {
-	getItem: function() {
+	getItem() {
 		return undefined;
 	}
 };
