@@ -5,25 +5,25 @@ test('insertAfter: Inserts a DOM element after a reference element and before th
 
 	var referenceNode = document.createElement('div');
 	referenceNode.id = 'referenceNode';
-	var referenceNode_sibling = document.createElement('div');
-	referenceNode_sibling.id = 'referenceNode_sibling';
+	var referenceNodeSibling = document.createElement('div');
+	referenceNodeSibling.id = 'referenceNode_sibling';
 	var newNode = document.createElement('div');
 	newNode.id = 'newNode';
 
 	var fix = document.getElementById('qunit-fixture');
 	fix.appendChild(referenceNode);
-	fix.appendChild(referenceNode_sibling);
+	fix.appendChild(referenceNodeSibling);
 
 	equal(fix.childNodes.length, 2);
 	equal(fix.firstChild, referenceNode);
-	equal(fix.lastChild, referenceNode_sibling);
+	equal(fix.lastChild, referenceNodeSibling);
 
 	RESUtils.insertAfter(referenceNode, newNode);
 
 	equal(fix.childNodes.length, 3);
 	equal(fix.firstChild, referenceNode);
 	equal(referenceNode.nextSibling, newNode);
-	equal(newNode.nextSibling, referenceNode_sibling);
+	equal(newNode.nextSibling, referenceNodeSibling);
 });
 
 test('insertAfter: Can insert a DOM element after a reference element even if reference is only child', function() {
