@@ -15,6 +15,7 @@ import sourcemaps from 'gulp-sourcemaps';
 import eslint from 'gulp-eslint';
 import scsslint from 'gulp-scss-lint';
 import qunit from 'gulp-qunit';
+import through from 'through2';
 import map from 'through2-map';
 import pumpify from 'pumpify';
 import insert from 'gulp-insert';
@@ -125,7 +126,9 @@ function getBuildDir(browser) {
 }
 
 function toBrowsers() {
-	return pumpify.obj(browsers.map(browser =>
+	// through() with no transform as a dummy passthrough stream
+	// since pumpify doesn't have reasonable default behavior for a single stream
+	return pumpify.obj(through.obj(), ...browsers.map(browser =>
 		dest(getBuildDir(browser), browserConf[browser].dests.baseSources)
 	));
 }
