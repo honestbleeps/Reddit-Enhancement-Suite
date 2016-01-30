@@ -62,6 +62,11 @@
 	border: 1px solid #c7c7c7;
 	border-radius: 3px;
 	padding: 3px 0;
+
+	.gearIcon {
+		float: right;
+		margin-right: 0.5em;
+	}
 }
 
 // hide next/prev page and random subreddit indicators
