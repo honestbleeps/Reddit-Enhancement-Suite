@@ -1,8 +1,12 @@
 /* eslint-env node */
+/* eslint-disable import/no-unresolved */
 
 import fs from 'fs';
 import _eval from 'eval';
 import requireNew from 'require-new';
+
+import files from './files.json'; // eslint-disable-line
+import equals from 'deep-equal';
 
 import _yargs from 'yargs';
 const yargs = _yargs
@@ -12,9 +16,6 @@ const yargs = _yargs
 	.default('assertstorage', 'andytuba-4.5.4-6dffad39')
 	.default('ignorestorage', '_ignore-4.5.4-6dffad39')
 	.argv;
-
-import files from './files.json';
-import equals from 'deep-equal';
 
 const VERBOSE_LEVEL = yargs.verbose;
 function WARN(...args) { if (VERBOSE_LEVEL >= 0) console.log(...args); }

@@ -1,4 +1,5 @@
 /* eslint-env node */
+/* eslint-disable import/no-unresolved */
 /* exported location, document, sessionStorage, alert */
 
 import jsdom from 'jsdom';

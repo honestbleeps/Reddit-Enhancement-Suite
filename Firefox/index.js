@@ -1,3 +1,5 @@
+/* eslint-disable import/no-unresolved */
+
 // suppress annoying strict warnings that cfx overrides and turns on
 // comment this line out for releases.
 // require('sdk/preferences/service').set('javascript.options.strict', false);

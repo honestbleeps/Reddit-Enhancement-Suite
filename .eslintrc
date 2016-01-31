@@ -3,7 +3,8 @@
 	"plugins": [
 		"babel",
 		"dollar-sign",
-		"filenames"
+		"filenames",
+		"import"
 	],
 	"env": {
 		"browser": true,
@@ -242,6 +243,17 @@
 		"dollar-sign/dollar-sign": [2, "ignoreProperties"],
 
 		// eslint-plugin-filenames
-		"filenames/filenames": [2, ".*", "match-regex-and-exported"]
+		"filenames/filenames": [2, ".*", "match-regex-and-exported"],
+
+		// eslint-plugin-import
+		"import/no-unresolved": 2,
+		"import/named": 2,
+		"import/default": 2,
+		"import/namespace": 2,
+		"import/export": 2,
+		"import/no-named-as-default": 2,
+		"import/no-require": 2,
+		"import/imports-first": 2,
+		"import/no-duplicates": 2
 	}
 }
