@@ -2,7 +2,8 @@
 	"parser": "babel-eslint",
 	"plugins": [
 		"babel",
-		"dollar-sign"
+		"dollar-sign",
+		"filenames"
 	],
 	"env": {
 		"browser": true,
@@ -238,6 +239,9 @@
 		"wrap-regex": 2,
 
 		// eslint-plugin-dollar-sign
-		"dollar-sign/dollar-sign": [2, "ignoreProperties"]
+		"dollar-sign/dollar-sign": [2, "ignoreProperties"],
+
+		// eslint-plugin-filenames
+		"filenames/filenames": [2, ".*", "match-regex-and-exported"]
 	}
 }
