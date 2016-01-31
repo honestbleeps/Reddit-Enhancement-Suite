@@ -28,6 +28,14 @@
 	}
 }
 
+.res-betteReddit-truncateLongLinks {
+	.link.title{
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+}
+
 .res-betteReddit-showTimestampSidebar {
 	.side time[title] {
 		font-size: 0;
