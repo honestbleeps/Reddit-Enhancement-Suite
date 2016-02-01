@@ -7,3 +7,7 @@ before_script: npm run external-deps
 script:
   - npm run lint
   - npm test
+  - npm run build -- node
+  - cd dist/node
+  - npm i
+  - node loader.js
