@@ -1,6 +1,7 @@
 sudo: false
 language: node_js
 node_js:
-  - "5.0"
+  - "5"
+  - "4"
 before_script: npm run external-deps
 script: npm test
