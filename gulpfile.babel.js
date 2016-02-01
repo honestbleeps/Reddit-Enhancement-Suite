@@ -294,7 +294,7 @@ gulp.task('zip', () =>
 	)
 );
 
-gulp.task('travis', ['eslint', 'scsslint', 'qunit']);
+gulp.task('lint', ['eslint', 'scsslint']);
 
 gulp.task('eslint', () => {
 	const jsFilter = filter('**/*.js');
@@ -313,6 +313,8 @@ gulp.task('scsslint', () =>
 		.pipe(scsslint({ maxBuffer: 1024 * 1024 }))
 		.pipe(scsslint.failReporter())
 );
+
+gulp.task('test', ['qunit']);
 
 gulp.task('qunit', () =>
 	gulp.src('dist/qunit/tests.html')

@@ -38,7 +38,7 @@ Thinking about contributing to RES? Awesome! We just ask that you follow a few s
   - please use spaces in your `if` statements, e.g. `if (foo === bar)`, not `if(foo===bar)`
   - please use single quotes `'` and not double quotes `"` for strings
   - please comment your code!
-  - please consider using the `npm test` command ([see below](#details-and-advanced-usage)) to verify your code style
+  - please consider using `npm run lint` ([see below](#details-and-advanced-usage)) to verify your code style
 
 4. If you're adding new modules or hosts, [see below](#adding-new-files).
 
@@ -108,9 +108,11 @@ Sass (`.scss`) files in `lib/` will be compiled with [Sass](http://sass-lang.com
 
 **`npm run add-host -- hostname.js`** will add `hostname.js`, a new media host, to the manifest for each browser.
 
-**`npm test`** will verify the code style (and point out any errors) of all `.js` files in `lib/` (except `lib/vendor/`) using [ESLint](http://eslint.org/), as well as all `.scss` files with [scss-lint](https://github.com/brigade/scss-lint). It will also run QUnit tests (in `tests/qunit`). We recommend that you run this before opening a pull request.
+**`npm run lint`** will verify the code style (and point out any errors) of all `.js` files in `lib/` (except `lib/vendor/`) using [ESLint](http://eslint.org/), as well as all `.scss` files with [scss-lint](https://github.com/brigade/scss-lint).
 
-Note: You will need to install [Ruby](https://www.ruby-lang.org/) and run `npm run external-deps` before using `npm test`.
+Note: You will need to install [Ruby](https://www.ruby-lang.org/) and run `npm run external-deps` before using `npm run lint`.
+
+**`npm test`** will run QUnit tests (in `tests/qunit`).
 
 ##### Building in Chrome
 

@@ -18,7 +18,8 @@
     "build": "gulp build --browsers",
     "postbuild": "gulp zip",
     "pretest": "gulp build --browsers qunit",
-    "test": "gulp travis",
+    "test": "gulp test",
+    "lint": "gulp lint",
     "add-module": "gulp add-module --file",
     "add-host": "gulp add-host --file"
   },
