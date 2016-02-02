@@ -1,5 +1,7 @@
 # Reddit Enhancement Suite
 
+[![Join the chat at https://gitter.im/honestbleeps/Reddit-Enhancement-Suite](https://badges.gitter.im/honestbleeps/Reddit-Enhancement-Suite.svg)](https://gitter.im/honestbleeps/Reddit-Enhancement-Suite?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 [![Build Status](https://travis-ci.org/honestbleeps/Reddit-Enhancement-Suite.svg?branch=master)](https://travis-ci.org/honestbleeps/Reddit-Enhancement-Suite)
 [![Code Climate](https://codeclimate.com/github/honestbleeps/Reddit-Enhancement-Suite/badges/gpa.svg)](https://codeclimate.com/github/honestbleeps/Reddit-Enhancement-Suite)
 [![devDependency Status](https://david-dm.org/honestbleeps/Reddit-Enhancement-Suite/dev-status.svg)](https://david-dm.org/honestbleeps/Reddit-Enhancement-Suite#info=devDependencies)
