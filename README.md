@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/honestbleeps/Reddit-Enhancement-Suite.svg?branch=master)](https://travis-ci.org/honestbleeps/Reddit-Enhancement-Suite)
 [![Code Climate](https://codeclimate.com/github/honestbleeps/Reddit-Enhancement-Suite/badges/gpa.svg)](https://codeclimate.com/github/honestbleeps/Reddit-Enhancement-Suite)
 [![devDependency Status](https://david-dm.org/honestbleeps/Reddit-Enhancement-Suite/dev-status.svg)](https://david-dm.org/honestbleeps/Reddit-Enhancement-Suite#info=devDependencies)
-[![Chat on IRC](https://img.shields.io/badge/irc-%23enhancement-blue.svg)](irc://irc.snoonet.org/enhancement)
+[![Chat on IRC](https://img.shields.io/badge/irc-%23enhancement-blue.svg)](http://webchat.snoonet.org/#enhancement)
 
 Reddit Enhancement Suite (RES) is a suite of modules that enhances your Reddit browsing experience.
 
