@@ -3,10 +3,10 @@
 function testNiceDateDiff(origDate, newDate, expected) {
 	return test('niceDateDiff: ' + origDate + ' - ' + newDate + ' = ' + expected, function() {
 		expect(1);
-		var date1 = new Date(origDate);
-		var date2 = new Date(newDate);
+		const date1 = new Date(origDate);
+		const date2 = new Date(newDate);
 
-		var actual = RESUtils.niceDateDiff(date1, date2);
+		const actual = RESUtils.niceDateDiff(date1, date2);
 		equal(actual, expected, 'RESUtils.niceDateDiff(new Date("' + origDate + '"), new Date("' + newDate + '"));');
 	});
 }

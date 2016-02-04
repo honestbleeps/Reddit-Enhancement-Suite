@@ -28,14 +28,14 @@ INFO("Showing semi-important stuff too");
 DEBUG("Extra chatty mode");
 */
 
-var skipSections = [].concat(yargs.skip);
-for (var section in files) {
+const skipSections = [].concat(yargs.skip);
+for (const section in files) {
 	if (skipSections.indexOf(section) !== -1) continue;
 
 	if (files[section].length) {
 		files[section].forEach(function(filename) { importFile(filename); });
 	} else if (typeof files[section] === 'object') {
-		for (var key in files[section]) {
+		for (const key in files[section]) {
 			if (!files[section].hasOwnProperty(key)) continue;
 			importFile(files[section][key], key);
 		}
@@ -43,9 +43,9 @@ for (var section in files) {
 }
 function importFile(filename, key) {
 	filename = 'lib/' + filename;
-	var contents = fs.readFileSync(filename, 'utf8');
+	const contents = fs.readFileSync(filename, 'utf8');
 	DEBUG('Loading', filename, key ? 'as ' + key : '');
-	var exports = _eval(contents, filename, {}, true);
+	const exports = _eval(contents, filename, {}, true);
 	if (key) {
 		global[key] = exports;
 	} else {
@@ -54,7 +54,7 @@ function importFile(filename, key) {
 			global[key] = exports[key];
 		}
 	}
-	var exported = Object.getOwnPropertyNames(exports).join(', ');
+	const exported = Object.getOwnPropertyNames(exports).join(', ');
 	if (exported) DEBUG('    -->', exported);
 }
 
@@ -68,17 +68,17 @@ if (yargs.storage) {
 RESUtils.init.await.options
 	.then(() => {
 		if (yargs.assertstorage) {
-			var actual = RESEnvironment._storage;
-			var expected = requireNew('./storage/' + yargs.assertstorage + '.json');
+			const actual = RESEnvironment._storage;
+			const expected = requireNew('./storage/' + yargs.assertstorage + '.json');
 			INFO('Asserting that storage matches', yargs.assertstorage, ' - loaded ', Object.getOwnPropertyNames(expected).length, 'items');
 
-			var ignoredKeys = [];
+			let ignoredKeys = [];
 			if (yargs.ignorestorage) {
 				ignoredKeys = requireNew('./storage/' + yargs.ignorestorage + '.json');
 				INFO('ignoring keys listed in', yargs.ignorestorage, ' - ignoring ', Object.getOwnPropertyNames(ignoredKeys).length, 'items');
 			}
 
-			var failures = [];
+			const failures = [];
 
 			function addError(key, error, expected, actual) {
 				if (!error) return;
@@ -91,7 +91,7 @@ RESUtils.init.await.options
 				});
 			}
 
-			for (var key in expected) {
+			for (const key in expected) {
 				if (ignoredKeys.indexOf(key) !== -1) {
 					DEBUG('Skipping comparing key', key);
 					continue;
@@ -99,10 +99,11 @@ RESUtils.init.await.options
 				DEBUG('Comparing key', key);
 				let expectedValue = 0, actualValue = -1, error = false;
 				if (key.indexOf('RESoptions.') === 0) {
+					let option;
 					try {
 						const expectedOptions = typeof expected[key] === 'string' && JSON.parse(expected[key]);
 						const actualOptions = typeof actual[key] === 'string' && JSON.parse(actual[key]);
-						for (var option in expectedOptions) {
+						for (option in expectedOptions) {
 							expectedValue = expectedOptions[option].value;
 							actualValue = (actualOptions[option] || {}).value;
 							error = !equals(expectedValue, actualValue);
