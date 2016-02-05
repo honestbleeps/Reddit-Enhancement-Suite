@@ -218,7 +218,7 @@
 		//"no-underscore-dangle": 2,
 		"no-unneeded-ternary": 2,
 		//"object-curly-spacing": 2, see babel/object-curly-spacing
-		//"one-var": [2, { "initialized": "never" }],
+		"one-var": [2, { "initialized": "never" }],
 		"operator-assignment": [2, "always"],
 		"operator-linebreak": [2, "after"],
 		"padded-blocks": [2, "never"],

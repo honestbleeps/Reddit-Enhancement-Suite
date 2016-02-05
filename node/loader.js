@@ -97,7 +97,9 @@ RESUtils.init.await.options
 					continue;
 				}
 				DEBUG('Comparing key', key);
-				let expectedValue = 0, actualValue = -1, error = false;
+				let expectedValue = 0;
+				let actualValue = -1;
+				let error = false;
 				if (key.indexOf('RESoptions.') === 0) {
 					let option;
 					try {
