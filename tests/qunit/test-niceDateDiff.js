@@ -1,7 +1,7 @@
 /* eslint-env qunit */
 
 function testNiceDateDiff(origDate, newDate, expected) {
-	return test('niceDateDiff: ' + origDate + ' - ' + newDate + ' = ' + expected, function() {
+	return test('niceDateDiff: ' + origDate + ' - ' + newDate + ' = ' + expected, () => {
 		expect(1);
 		const date1 = new Date(origDate);
 		const date2 = new Date(newDate);

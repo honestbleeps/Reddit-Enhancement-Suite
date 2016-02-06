@@ -1,6 +1,6 @@
 /* eslint-env qunit */
 
-test('insertAfter: Inserts a DOM element after a reference element and before the reference\'s next sibling', function() {
+test('insertAfter: Inserts a DOM element after a reference element and before the reference\'s next sibling', () => {
 	expect(7);
 
 	const referenceNode = document.createElement('div');
@@ -26,7 +26,7 @@ test('insertAfter: Inserts a DOM element after a reference element and before th
 	equal(newNode.nextSibling, referenceNodeSibling);
 });
 
-test('insertAfter: Can insert a DOM element after a reference element even if reference is only child', function() {
+test('insertAfter: Can insert a DOM element after a reference element even if reference is only child', () => {
 	expect(5);
 
 	const referenceNode = document.createElement('div');
@@ -47,7 +47,7 @@ test('insertAfter: Can insert a DOM element after a reference element even if re
 	equal(fix.lastChild, newNode);
 });
 
-test('insertAfter: Cannot insert a DOM element if reference element has no parent', function() {
+test('insertAfter: Cannot insert a DOM element if reference element has no parent', () => {
 	expect(3);
 
 	const referenceNode = document.createElement('div');
@@ -63,7 +63,7 @@ test('insertAfter: Cannot insert a DOM element if reference element has no paren
 	equal(document.getElementById('newNode'), null);
 });
 
-test('insertAfter: Cannot insert a DOM element if reference element is undefined', function() {
+test('insertAfter: Cannot insert a DOM element if reference element is undefined', () => {
 	expect(4);
 
 	const referenceNode = null;

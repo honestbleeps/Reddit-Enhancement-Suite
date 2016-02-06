@@ -33,7 +33,7 @@ for (const section in files) {
 	if (skipSections.indexOf(section) !== -1) continue;
 
 	if (files[section].length) {
-		files[section].forEach(function(filename) { importFile(filename); });
+		files[section].forEach(filename => importFile(filename));
 	} else if (typeof files[section] === 'object') {
 		for (const key in files[section]) {
 			if (!files[section].hasOwnProperty(key)) continue;
