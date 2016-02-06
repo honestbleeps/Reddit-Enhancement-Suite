@@ -175,22 +175,41 @@
 		return target;
 	}
 
+	const queues = new Map();
+
+	function mutex(callback) {
+		return (...args) => {
+			const key = args[0];
+			let tail;
+			if (queues.has(key)) {
+				tail = queues.get(key).then(() => callback(...args));
+			} else {
+				tail = callback(...args);
+			}
+			queues.set(key, tail);
+			tail.then(() => {
+				if (queues.get(key) === tail) queues.delete(key);
+			});
+			return tail;
+		};
+	}
+
 	const _set = apiToPromise(::chrome.storage.local.set);
 	const set = (key, value) => _set({ [key]: value });
 
 	const _get = apiToPromise(::chrome.storage.local.get);
 	const get = async (key, defaultValue = null) => (await _get({ [key]: defaultValue }))[key];
 
-	RESEnvironment.storage.get = key => get(key, null);
+	RESEnvironment.storage.get = mutex(key => get(key, null));
 
-	RESEnvironment.storage.set = (key, value) => set(key, value);
+	RESEnvironment.storage.set = mutex((key, value) => set(key, value));
 
-	RESEnvironment.storage.patch = async (key, value) => {
+	RESEnvironment.storage.patch = mutex(async (key, value) => {
 		const extended = extend(await get(key) || {}, value);
 		return set(key, extended);
-	};
+	});
 
-	RESEnvironment.storage.deletePath = async (key, ...path) => {
+	RESEnvironment.storage.deletePath = mutex(async (key, ...path) => {
 		try {
 			const stored = await get(key) || {};
 			path.reduce((obj, key, i, { length }) => {
@@ -201,14 +220,14 @@
 		} catch (e) {
 			throw new Error(`Failed to delete path: ${path} on key: ${key} - error: ${e}`);
 		}
-	};
+	});
 
-	RESEnvironment.storage.delete = apiToPromise(::chrome.storage.local.remove);
+	RESEnvironment.storage.delete = mutex(apiToPromise(::chrome.storage.local.remove));
 
-	RESEnvironment.storage.has = async key => {
+	RESEnvironment.storage.has = mutex(async key => {
 		const sentinel = Math.random();
 		return (await get(key, sentinel)) !== sentinel;
-	};
+	});
 
 	RESEnvironment.storage.keys = async () => Object.keys(await _get(null));
 
