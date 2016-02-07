@@ -149,7 +149,7 @@ safari.application.addEventListener('message', ({ name: type, message: { data, t
 				sendResponse({ error: e.message || e });
 				throw e;
 			});
-		return true;
+		return;
 	}
 	sendResponse({ data: response });
 }, false);

@@ -190,7 +190,7 @@ function onMessage({ type, data, transaction, error, isResponse }) {
 				sendResponse({ error: e.message || e });
 				throw e;
 			});
-		return true;
+		return;
 	}
 	sendResponse({ data: response });
 }
