@@ -542,7 +542,7 @@ PageMod({
 		self.data.url('vendor/tokenize.css')
 	],
 	onAttach(worker) {
-		onAttach.call(worker);
+		onAttach.call(worker); // eslint-disable-line prefer-reflect
 		worker.on('detach', onDetach);
 		worker.on('message', onMessage);
 	}

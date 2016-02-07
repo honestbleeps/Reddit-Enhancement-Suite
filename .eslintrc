@@ -65,7 +65,7 @@
 		//"object-shorthand": 2, see babel/object-shorthand
 		"prefer-arrow-callback": 2,
 		"prefer-const": 2,
-		//"prefer-reflect": 2,
+		"prefer-reflect": [2, { "exceptions": ["delete", "getOwnPropertyNames"] }],
 		"prefer-spread": 2,
 		//"prefer-template": 2,
 		"require-yield": 2,
