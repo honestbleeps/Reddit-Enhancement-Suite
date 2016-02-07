@@ -242,6 +242,8 @@ addListener('storage', ([operation, key, value]) => {
 			return key in localStorage;
 		case 'keys':
 			return Object.keys(localStorage);
+		default:
+			throw new Error(`Invalid storage operation: ${operation}`);
 	}
 });
 
@@ -258,6 +260,8 @@ addListener('session', ([operation, key, value]) => {
 			return session.delete(key);
 		case 'clear':
 			return session.clear();
+		default:
+			throw new Error(`Invalid session operation: ${operation}`);
 	}
 });
 
@@ -283,6 +287,8 @@ addListener('XHRCache', ({ operation, key, value, maxAge }) => {
 			return XHRCache.delete(key);
 		case 'clear':
 			return XHRCache.clear();
+		default:
+			throw new Error(`Invalid XHRCache operation: ${operation}`);
 	}
 });
 
