@@ -44,7 +44,7 @@
 		// Reimplemented for ES6/7 compatibility
 		"babel/generator-star-spacing": [2, { "before": false, "after": true }],
 		//"babel/new-cap": 2,
-		//"babel/array-bracket-spacing": 2, documented in the repo, but not yet released
+		"babel/array-bracket-spacing": 2,
 		"babel/object-curly-spacing": [2, "always"],
 		"babel/object-shorthand": 2,
 		"babel/arrow-parens": [2, "as-needed"],
@@ -174,7 +174,7 @@
 		//"no-use-before-define": [2, "nofunc"],
 
 		// Code Style
-		"array-bracket-spacing": 2,
+		//"array-bracket-spacing": 2, see babel/array-bracket-spacing
 		"block-spacing": 2,
 		"brace-style": [2, "1tbs", { "allowSingleLine": true }],
 		"camelcase": [2, { "properties": "never" }],
