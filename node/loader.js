@@ -42,9 +42,9 @@ for (const section in files) {
 	}
 }
 function importFile(filename, key) {
-	filename = 'lib/' + filename;
+	filename = `lib/${filename}`;
 	const contents = fs.readFileSync(filename, 'utf8');
-	DEBUG('Loading', filename, key ? 'as ' + key : '');
+	DEBUG('Loading', filename, key ? `as ${key}` : '');
 	const exports = _eval(contents, filename, {}, true);
 	if (key) {
 		global[key] = exports;
@@ -59,7 +59,7 @@ function importFile(filename, key) {
 }
 
 if (yargs.storage) {
-	RESEnvironment._storage = require('./storage/' + yargs.storage + '.json');
+	RESEnvironment._storage = require(`./storage/${yargs.storage}.json`);
 	INFO('Loaded storage from', yargs.storage, ' - loaded ', Object.getOwnPropertyNames(RESEnvironment._storage).length, 'items');
 } else {
 	INFO('Using empty storage');
@@ -69,12 +69,12 @@ RESUtils.init.await.options
 	.then(() => {
 		if (yargs.assertstorage) {
 			const actual = RESEnvironment._storage;
-			const expected = requireNew('./storage/' + yargs.assertstorage + '.json');
+			const expected = requireNew(`./storage/${yargs.assertstorage}.json`);
 			INFO('Asserting that storage matches', yargs.assertstorage, ' - loaded ', Object.getOwnPropertyNames(expected).length, 'items');
 
 			let ignoredKeys = [];
 			if (yargs.ignorestorage) {
-				ignoredKeys = requireNew('./storage/' + yargs.ignorestorage + '.json');
+				ignoredKeys = requireNew(`./storage/${yargs.ignorestorage}.json`);
 				INFO('ignoring keys listed in', yargs.ignorestorage, ' - ignoring ', Object.getOwnPropertyNames(ignoredKeys).length, 'items');
 			}
 
@@ -109,10 +109,10 @@ RESUtils.init.await.options
 							expectedValue = expectedOptions[option].value;
 							actualValue = (actualOptions[option] || {}).value;
 							error = !equals(expectedValue, actualValue);
-							if (error) addError(key + '::' + option, error, expectedValue, actualValue);
+							if (error) addError(`${key}::${option}`, error, expectedValue, actualValue);
 						}
 					} catch (e) {
-						addError(key + '::' + option, error);
+						addError(`${key}::${option}`, error);
 					}
 				} else {
 					expectedValue = expected[key];
