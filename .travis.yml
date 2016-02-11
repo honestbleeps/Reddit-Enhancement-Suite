@@ -6,3 +6,6 @@ before_script:
   - npm install -g gulp
   - gem install scss_lint
 script: gulp travis
+cache:
+  directories:
+    - node_modules
