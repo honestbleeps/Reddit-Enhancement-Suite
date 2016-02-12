@@ -3,6 +3,7 @@
 	"plugins": [
 		"babel",
 		"dollar-sign",
+		"no-useless-assign",
 		"filenames",
 		"import"
 	],
@@ -241,6 +242,9 @@
 
 		// eslint-plugin-dollar-sign
 		"dollar-sign/dollar-sign": [2, "ignoreProperties"],
+
+		// eslint-plugin-no-useless-assign
+		"no-useless-assign/no-useless-assign": 2,
 
 		// eslint-plugin-filenames
 		"filenames/filenames": [2, ".*", "match-regex-and-exported"],
