@@ -6,8 +6,8 @@ node_js:
 before_script: npm run external-deps
 script:
   - npm run lint
-  - npm test
+  - nyc npm test
   - npm run build -- node
-  - cd dist/node
-  - npm i
-  - node loader.js
+  - node dist/node/loader.js
+after_success:
+  - './node_modules/.bin/nyc report --reporter=text-lcov | ./node_modules/.bin/coveralls'

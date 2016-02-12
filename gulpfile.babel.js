@@ -11,10 +11,8 @@ import autoprefixer from 'gulp-autoprefixer';
 import merge from 'merge-stream';
 import cache from 'gulp-cached';
 import filter from 'gulp-filter';
-import sourcemaps from 'gulp-sourcemaps';
 import eslint from 'gulp-eslint';
 import scsslint from 'gulp-scss-lint';
-import qunit from 'gulp-qunit';
 import through from 'through2';
 import map from 'through2-map';
 import pumpify from 'pumpify';
@@ -26,7 +24,7 @@ const options = require('minimist')(process.argv.slice(2));
 const baseConf = {
 	sources: {
 		copy:  { cwd: 'lib/**', src: ['*.json', '*.css', '*.html', 'vendor/**/*.js'] },
-		babel: { cwd: 'lib/**', src: ['*.js', '!vendor/**/*.js'] },
+		babel: { cwd: 'lib/**', src: ['*.js', '!vendor/**/*.js', '!**/__tests__/*.js'] },
 		sass:  { cwd: 'lib/**', src: ['*.scss'] }
 	},
 	dests: {
@@ -98,15 +96,6 @@ const browserConf = {
 			root: 'node',
 			baseSources: 'lib'
 		}
-	},
-	qunit: {
-		sources: [
-			{ cwd: 'tests/qunit/**', src: ['*.js', '*.html'] }
-		],
-		dests: {
-			root: 'qunit',
-			baseSources: '/'
-		}
 	}
 };
 
@@ -153,10 +142,8 @@ gulp.task('build', ['babel', 'sass', 'copy', 'copy-browser', 'manifests']);
 
 function babelPipeline() {
 	return pumpify.obj(
-		sourcemaps.init(),
 		babel().on('error', e => console.error(e.message)),
-		insert.wrap('(function(exports) {', '})(typeof exports === "object" ? exports : typeof window === "object" ? window : {});'),
-		sourcemaps.write('.')
+		insert.wrap('(function(exports) {\n', '\n})(typeof exports === "object" ? exports : typeof window === "object" ? window : {});')
 	).on('close', function() {
 		// Gulp doesn't seem to stop on close, only end...
 		this.emit('end');
@@ -312,11 +299,4 @@ gulp.task('scsslint', () =>
 	src(baseConf.sources.sass)
 		.pipe(scsslint({ maxBuffer: 1024 * 1024 }))
 		.pipe(scsslint.failReporter())
-);
-
-gulp.task('test', ['qunit']);
-
-gulp.task('qunit', () =>
-	gulp.src('dist/qunit/tests.html')
-		.pipe(qunit())
 );

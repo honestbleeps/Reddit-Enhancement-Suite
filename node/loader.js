@@ -1,7 +1,10 @@
 /* eslint-env node */
 /* eslint-disable import/no-unresolved */
 
+import 'babel-polyfill';
+
 import fs from 'fs';
+import path from 'path';
 import _eval from 'eval';
 import requireNew from 'require-new';
 
@@ -42,7 +45,7 @@ for (const section in files) {
 	}
 }
 function importFile(filename, key) {
-	filename = `lib/${filename}`;
+	filename = path.join(__dirname, 'lib/', filename);
 	const contents = fs.readFileSync(filename, 'utf8');
 	DEBUG('Loading', filename, key ? `as ${key}` : '');
 	const exports = _eval(contents, filename, {}, true);

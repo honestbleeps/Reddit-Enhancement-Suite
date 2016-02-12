@@ -112,7 +112,7 @@ Sass (`.scss`) files in `lib/` will be compiled with [Sass](http://sass-lang.com
 
 Note: You will need to install [Ruby](https://www.ruby-lang.org/) and run `npm run external-deps` before using `npm run lint`.
 
-**`npm test`** will run QUnit tests (in `tests/qunit`).
+**`npm test`** will run unit tests (in `__tests__` directories).
 
 ##### Building in Chrome
 
