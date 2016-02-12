@@ -54,9 +54,9 @@ Thinking about contributing to RES? Awesome! We just ask that you follow a few s
   - `lib/core/` – core RES code
   - `lib/modules/` – RES modules
   - `lib/vendor/` – RES vendor libraries
-  - `Chrome/` – Chrome-specific RES files
-  - `Firefox/` – Firefox-specific RES files
-  - `Safari/` – Safari-specific RES files
+  - `chrome/` – Chrome-specific RES files
+  - `firefox/` – Firefox-specific RES files
+  - `safari/` – Safari-specific RES files
   - `dist/` - build output
   - `tests/` – RES tests, currently unused
 

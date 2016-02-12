@@ -38,7 +38,7 @@ const browserConf = {
 	// The name used to refer to the browser from the command line
 	chrome: {
 		// The file for addFileToManifest to modify when adding new hosts/modules
-		manifest: 'Chrome/manifest.json',
+		manifest: 'chrome/manifest.json',
 		manifestReplacements: [
 			{ key: 'title', needle: /("title": ")(?:.*?)(")/ },
 			{ key: 'description', needle: /("description": ")(?:.*?)(")/ },
@@ -46,8 +46,8 @@ const browserConf = {
 		],
 		// Browser-specific files to be copied when building the extension (paths relative to project root)
 		sources: [
-			{ cwd: 'Chrome/**', src: ['images/*.png'] },
-			{ src: ['Chrome/*.js', 'Chrome/*.png', 'Chrome/*.html'] }
+			{ cwd: 'chrome/**', src: ['images/*.png'] },
+			{ src: ['chrome/*.js', 'chrome/*.png', 'chrome/*.html'] }
 		],
 		dests: {
 			// Subdirectory of baseConf.dests.root that the sources will be copied to
@@ -57,7 +57,7 @@ const browserConf = {
 		}
 	},
 	safari: {
-		manifest: 'Safari/Info.plist',
+		manifest: 'safari/Info.plist',
 		manifestReplacements: [
 			{ key: 'version', needle: /(<key>CFBundleVersion<\/key>\s*<string>)(?:.+)(<\/string>)/ },
 			{ key: 'version', needle: /(<key>CFBundleShortVersionString<\/key>\s*<string>)(?:.+)(<\/string>)/ },
@@ -65,7 +65,7 @@ const browserConf = {
 			{ key: 'title', needle: /(<key>CFBundleDisplayName<\/key>\s*<string>)(?:.+)(<\/string>)/ }
 		],
 		sources: [
-			{ src: ['Safari/*.js', 'Safari/*.png', 'Safari/*.html'] }
+			{ src: ['safari/*.js', 'safari/*.png', 'safari/*.html'] }
 		],
 		dests: {
 			root: 'RES.safariextension',
@@ -73,16 +73,16 @@ const browserConf = {
 		}
 	},
 	firefox: {
-		filesList: 'Firefox/index.js',
-		manifest: 'Firefox/package.json',
+		filesList: 'firefox/index.js',
+		manifest: 'firefox/package.json',
 		manifestReplacements: [
 			{ key: 'title', needle: /("title": ")(?:.*)(")/ },
 			{ key: 'description', needle: /("description": ")(?:.*)(")/ },
 			{ key: 'version', needle: /("version": ")(?:[\d\.])+(")/ }
 		],
 		sources: [
-			{ cwd: 'Firefox/**', src: ['data/**/*'] },
-			{ src: ['*.png', 'Firefox/index.js'] }
+			{ cwd: 'firefox/**', src: ['data/**/*'] },
+			{ src: ['*.png', 'firefox/index.js'] }
 		],
 		dests: {
 			root: 'firefox',
