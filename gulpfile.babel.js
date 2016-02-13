@@ -11,8 +11,6 @@ import autoprefixer from 'gulp-autoprefixer';
 import merge from 'merge-stream';
 import cache from 'gulp-cached';
 import filter from 'gulp-filter';
-import eslint from 'gulp-eslint';
-import scsslint from 'gulp-scss-lint';
 import through from 'through2';
 import map from 'through2-map';
 import pumpify from 'pumpify';
@@ -23,9 +21,9 @@ const options = require('minimist')(process.argv.slice(2));
 // Paths
 const baseConf = {
 	sources: {
-		copy:  { cwd: 'lib/**', src: ['*.json', '*.css', '*.html', 'vendor/**/*.js'] },
+		copy: { cwd: 'lib/**', src: ['*.json', '*.css', '*.html', 'vendor/**/*.js'] },
 		babel: { cwd: 'lib/**', src: ['*.js', '!vendor/**/*.js', '!**/__tests__/*.js'] },
-		sass:  { cwd: 'lib/**', src: ['*.scss'] }
+		sass: { cwd: 'lib/**', src: ['*.scss'] }
 	},
 	dests: {
 		root: 'dist'
@@ -279,24 +277,4 @@ gulp.task('zip', () =>
 				.pipe(dest(baseConf.dests.root, 'zip'))
 		)
 	)
-);
-
-gulp.task('lint', ['eslint', 'scsslint']);
-
-gulp.task('eslint', () => {
-	const jsFilter = filter('**/*.js');
-	return merge(
-		src(baseConf.sources.babel),
-		merge(browsers.map(browser => merge(browserConf[browser].sources.map(paths => src(paths)))))
-			.pipe(jsFilter)
-	)
-		.pipe(eslint())
-		.pipe(eslint.formatEach())
-		.pipe(eslint.failAfterError());
-});
-
-gulp.task('scsslint', () =>
-	src(baseConf.sources.sass)
-		.pipe(scsslint({ maxBuffer: 1024 * 1024 }))
-		.pipe(scsslint.failReporter())
 );
