@@ -106,7 +106,7 @@
 		"no-extra-bind": 2,
 		"no-extra-boolean-cast": 2,
 		"no-extra-label": 2,
-		"no-extra-parens": 0,
+		"no-extra-parens": [2, "functions"], // "all" conflicts with no-return-assign and some other rules, unfortunately
 		"no-extra-semi": 2,
 		"no-fallthrough": 2,
 		"no-floating-decimal": 2,
