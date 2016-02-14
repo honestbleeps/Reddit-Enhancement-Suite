@@ -7,6 +7,7 @@
 		"babel",
 		"dollar-sign",
 		"no-useless-assign",
+		"consistent-return-legacy",
 		"filenames",
 		"import"
 	],
@@ -56,6 +57,8 @@
 		"dollar-sign/dollar-sign": [2, "ignoreProperties"],
 
 		"no-useless-assign/no-useless-assign": 2,
+
+		"consistent-return-legacy/consistent-return-legacy": 2,
 
 		"filenames/filenames": [2, ".*", "match-regex-and-exported"],
 
@@ -204,7 +207,7 @@
 		"comma-style": 2,
 		"complexity": [0, 11],
 		"computed-property-spacing": 2,
-		"consistent-return": 2,
+		"consistent-return": 0, // see consistent-return-legacy/consistent-return-legacy
 		"consistent-this": [2, "this"], // do not alias `this`, use arrow functions
 		"constructor-super": 2,
 		"curly": [2, "multi-line"],

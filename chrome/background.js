@@ -181,8 +181,8 @@ addListener('ajax', async ({ method, url, headers, data, credentials }) => {
 	const request = new XMLHttpRequest();
 
 	const load = Promise.race([
-		new Promise(resolve => request.onload = resolve),
-		new Promise(resolve => request.onerror = resolve)
+		new Promise(resolve => (request.onload = resolve)),
+		new Promise(resolve => (request.onerror = resolve))
 			.then(() => { throw new Error(`XHR error - url: ${url}`); })
 	]);
 

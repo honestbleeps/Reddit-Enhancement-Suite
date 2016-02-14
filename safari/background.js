@@ -96,9 +96,10 @@ function sendMessage(type, page, data) {
 function nonNull(callback) {
 	return new Promise(resolve => {
 		(function repeat() {
-			let val;
-			if (!(val = callback())) {
-				return setTimeout(repeat, 1);
+			const val = callback;
+			if (!val) {
+				setTimeout(repeat, 1);
+				return;
 			}
 			resolve(val);
 		})();
@@ -160,8 +161,8 @@ addListener('ajax', async ({ method, url, headers, data, credentials }) => {
 	const request = new XMLHttpRequest();
 
 	const load = Promise.race([
-		new Promise(resolve => request.onload = resolve),
-		new Promise(resolve => request.onerror = resolve)
+		new Promise(resolve => (request.onload = resolve)),
+		new Promise(resolve => (request.onerror = resolve))
 			.then(() => { throw new Error(`XHR error - url: ${url}`); })
 	]);
 
@@ -267,12 +268,12 @@ addListener('openNewTabs', ({ urls, focusIndex }, tab) => {
 	// Really? No SafariBrowserTab::index?
 	let currentIndex = Array.from(tab.browserWindow.tabs).findIndex(t => t === tab);
 	if (currentIndex === -1) currentIndex = 2 ** 50; // 7881299347898367 more tabs may be safely opened
-	urls.forEach((url, i) =>
+	urls.forEach((url, i) => (
 		tab.browserWindow.openTab(
 			i === focusIndex ? 'foreground' : 'background',
 			++currentIndex
 		).url = url
-	);
+	));
 });
 
 addListener('XHRCache', ({ operation, key, value, maxAge }) => {

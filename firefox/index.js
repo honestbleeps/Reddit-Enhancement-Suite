@@ -5,19 +5,17 @@
 // require('sdk/preferences/service').set('javascript.options.strict', false);
 
 // Import the APIs we need.
+import { Cc, Ci, components } from 'chrome';
+import { ActionButton } from 'sdk/ui/button/action';
 import { PageMod } from 'sdk/page-mod';
 import { Request } from 'sdk/request';
-import self from 'sdk/self';
-import tabs from 'sdk/tabs';
-import ss from 'sdk/simple-storage';
-import priv from 'sdk/private-browsing';
-import { viewFor } from 'sdk/view/core';
-import { ActionButton } from 'sdk/ui/button/action';
-
 import { indexedDB } from 'sdk/indexed-db';
+import priv from 'sdk/private-browsing';
+import self from 'sdk/self';
+import ss from 'sdk/simple-storage';
+import tabs from 'sdk/tabs';
+import { viewFor } from 'sdk/view/core';
 
-// require chrome allows us to use XPCOM objects...
-import { Cc, Ci, components } from 'chrome';
 const historyService = Cc['@mozilla.org/browser/history;1'].getService(Ci.mozIAsyncHistory);
 
 // Cookie manager for new API login

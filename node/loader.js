@@ -3,15 +3,14 @@
 
 import 'babel-polyfill';
 
+import _eval from 'eval';
+import _yargs from 'yargs';
+import equals from 'deep-equal';
+import files from './files.json'; // eslint-disable-line
 import fs from 'fs';
 import path from 'path';
-import _eval from 'eval';
 import requireNew from 'require-new';
 
-import files from './files.json'; // eslint-disable-line
-import equals from 'deep-equal';
-
-import _yargs from 'yargs';
 const yargs = _yargs
 	.count('verbose')
     .alias('v', 'verbose')
@@ -62,7 +61,7 @@ function importFile(filename, key) {
 }
 
 if (yargs.storage) {
-	RESEnvironment._storage = require(`./storage/${yargs.storage}.json`);
+	RESEnvironment._storage = require(`./storage/${yargs.storage}.json`); // eslint-disable-line global-require
 	INFO('Loaded storage from', yargs.storage, ' - loaded ', Object.getOwnPropertyNames(RESEnvironment._storage).length, 'items');
 } else {
 	INFO('Using empty storage');

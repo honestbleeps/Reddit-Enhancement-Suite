@@ -1,22 +1,23 @@
 /* eslint-env node */
 
-import gulp from 'gulp';
-import del from 'del';
-import zip from 'gulp-zip';
-import replace from 'gulp-replace';
-import path from 'path';
-import babel from 'gulp-babel';
-import sass from 'gulp-sass';
 import autoprefixer from 'gulp-autoprefixer';
-import merge from 'merge-stream';
+import babel from 'gulp-babel';
 import cache from 'gulp-cached';
+import del from 'del';
 import filter from 'gulp-filter';
-import through from 'through2';
-import map from 'through2-map';
-import pumpify from 'pumpify';
+import gulp from 'gulp';
 import insert from 'gulp-insert';
+import map from 'through2-map';
+import merge from 'merge-stream';
+import minimist from 'minimist';
+import path from 'path';
+import pumpify from 'pumpify';
+import replace from 'gulp-replace';
+import sass from 'gulp-sass';
+import through from 'through2';
+import zip from 'gulp-zip';
 
-const options = require('minimist')(process.argv.slice(2));
+const options = minimist(process.argv.slice(2));
 
 // Paths
 const baseConf = {
@@ -205,7 +206,7 @@ function getPackageMetadata() {
 	const path = `./${options.p || 'package.json'}`;
 	return {
 		path,
-		contents: require(path)
+		contents: require(path) // eslint-disable-line global-require
 	};
 }
 

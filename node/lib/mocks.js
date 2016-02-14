@@ -2,8 +2,8 @@
 /* eslint-disable import/no-unresolved */
 /* exported location, document, sessionStorage, alert */
 
-import jsdom from 'jsdom';
 import jQuery from 'jquery';
+import jsdom from 'jsdom';
 
 export const document = jsdom.jsdom(undefined, { url: 'https://www.reddit.com/' });
 export const window = document.defaultView;
