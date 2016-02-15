@@ -154,7 +154,7 @@
 		"no-regex-spaces": 2,
 		"no-restricted-imports": 0,
 		"no-restricted-modules": 0,
-		"no-restricted-syntax": 0,
+		"no-restricted-syntax": [2, "ForStatement"], // use for..of or Array.prototype methods
 		"no-return-assign": 2,
 		"no-script-url": 2,
 		"no-self-assign": 2,
