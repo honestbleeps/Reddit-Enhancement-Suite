@@ -8,6 +8,7 @@
 		"dollar-sign",
 		"no-useless-assign",
 		"consistent-return-legacy",
+		"prefer-bind-operator",
 		"filenames",
 		"import"
 	],
@@ -59,6 +60,8 @@
 		"no-useless-assign/no-useless-assign": 2,
 
 		"consistent-return-legacy/consistent-return-legacy": 2,
+
+		"prefer-bind-operator/prefer-bind-operator": 2,
 
 		"filenames/filenames": [2, ".*", "match-regex-and-exported"],
 
