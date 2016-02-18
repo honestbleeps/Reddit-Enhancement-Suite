@@ -58,7 +58,8 @@ Thinking about contributing to RES? Awesome! We just ask that you follow a few s
   - `firefox/` – Firefox-specific RES files
   - `safari/` – Safari-specific RES files
   - `dist/` - build output
-  - `tests/` – RES tests, currently unused
+  - `tests/` – integration tests, currently unused
+  - `**/__tests__` - unit tests
 
 ##### Chrome files
 
