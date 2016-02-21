@@ -6,6 +6,7 @@
 		"no-useless-assign",
 		"consistent-return-legacy",
 		"prefer-bind-operator",
+		"sort-imports-es6",
 		"filenames",
 		"import"
 	],
@@ -59,6 +60,8 @@
 		"consistent-return-legacy/consistent-return-legacy": 2,
 
 		"prefer-bind-operator/prefer-bind-operator": 2,
+
+		"sort-imports-es6/sort-imports-es6": [2, { "memberSyntaxSortOrder": ["none", "single", "all", "multiple"] }],
 
 		"filenames/filenames": [2, ".*", "match-regex-and-exported"],
 
@@ -261,7 +264,7 @@
 		"semi": 2,
 		"semi-spacing": 2,
 		"sort-vars": 0,
-		"sort-imports": 2,
+		"sort-imports": 0, // see sort-imports-es6/sort-imports-es6
 		"space-before-blocks": 2,
 		"space-before-function-paren": [2, "never"],
 		"space-in-parens": 2,

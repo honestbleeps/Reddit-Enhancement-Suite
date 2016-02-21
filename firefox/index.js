@@ -5,15 +5,15 @@
 // require('sdk/preferences/service').set('javascript.options.strict', false);
 
 // Import the APIs we need.
-import { Cc, Ci, components } from 'chrome';
-import { ActionButton } from 'sdk/ui/button/action';
-import { PageMod } from 'sdk/page-mod';
-import { Request } from 'sdk/request';
-import { indexedDB } from 'sdk/indexed-db';
 import priv from 'sdk/private-browsing';
 import self from 'sdk/self';
 import ss from 'sdk/simple-storage';
 import tabs from 'sdk/tabs';
+import { ActionButton } from 'sdk/ui/button/action';
+import { Cc, Ci, components } from 'chrome';
+import { PageMod } from 'sdk/page-mod';
+import { Request } from 'sdk/request';
+import { indexedDB } from 'sdk/indexed-db';
 import { viewFor } from 'sdk/view/core';
 
 const historyService = Cc['@mozilla.org/browser/history;1'].getService(Ci.mozIAsyncHistory);
