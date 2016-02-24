@@ -111,6 +111,11 @@ a.voteWeight {
 
 .RESUserTag {
 	color: black;
+
+	// unselectable in comments/markdown for usability
+	.md & {
+		user-select: none;
+	}
 }
 
 .RESUserTagImage::after {
