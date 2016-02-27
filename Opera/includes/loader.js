@@ -115,7 +115,6 @@
 
 		'modules/hosts/imgur.js',
 		'modules/hosts/pornbot.js',
-		'modules/hosts/threadshots.js',
 		'modules/hosts/uploadly.js',
 		'modules/hosts/eroshare.js',
 		'modules/hosts/iloopit.js',
