@@ -995,20 +995,26 @@ Subreddit stylesheets can't override filter, so we only use when it won't affect
 	background-color: rgb(50,50,50);
 }
 .res-nightmode .toggleButton .toggleOff,
-.res-nightmode .toggleButton .toggleOn {
+.res-nightmode .reverseToggleButton:not(.enabled) .toggleOff,
+.res-nightmode .toggleButton .toggleOn,
+.res-nightmode .reverseToggleButton:not(.enabled) .toggleOn {
 	color: rgba(255,255,255,.8);
 	border-color: rgb(60,60,60);
 }
 .res-nightmode .toggleButton:not(.enabled) .toggleOn,
-.res-nightmode .toggleButton.enabled .toggleOff {
+.res-nightmode .toggleButton.reverseToggleButton.enabled .toggleOn,
+.res-nightmode .toggleButton.enabled .toggleOff,
+.res-nightmode .toggleButton.reverseToggleButton:not(.enabled) .toggleOff {
 	color: rgb(60,60,60);
 	border-color: rgb(60, 60, 60);
-	background-color: rgb(40, 40, 40);
+	background: rgb(40, 40, 40);
 }
-.res-nightmode .toggleButton.enabled .toggleOn {
+.res-nightmode .toggleButton.enabled .toggleOn,
+.res-nightmode .toggleButton.reverseToggleButton:not(.enabled) .toggleOn {
 	background: linear-gradient(to right, rgb(37, 69, 107), rgb(40, 40, 40));
 }
-.res-nightmode .toggleButton:not(.enabled) .toggleOff {
+.res-nightmode .toggleButton:not(.enabled) .toggleOff,
+.res-nightmode .toggleButton.reverseToggleButton.enabled .toggleOff {
 	background: linear-gradient(to left, rgb(136, 38, 38), rgb(40, 40, 40));
 }
 .res-nightmode .link .rank {
