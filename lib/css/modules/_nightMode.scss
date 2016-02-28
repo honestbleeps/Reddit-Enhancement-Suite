@@ -1193,25 +1193,33 @@
 		color: rgb(150, 150, 150);
 	}
 
-	.toggleButton .toggleOff,
-	.toggleButton .toggleOn {
-		color: rgba(255, 255, 255, .8);
-		border-color: rgb(60, 60, 60);
-	}
+	.toggleButton {
+		.toggleOff,
+		.toggleOn,
+		&.reverseToggleButton:not(.enabled) .toggleOff,
+		&.reverseToggleButton:not(.enabled) .toggleOn {
+			color: rgba(255, 255, 255, .8);
+			border-color: rgb(60, 60, 60);
+		}
 
-	.toggleButton:not(.enabled) .toggleOn,
-	.toggleButton.enabled .toggleOff {
-		color: rgb(60, 60, 60);
-		border-color: rgb(60, 60, 60);
-		background-color: rgb(40, 40, 40);
-	}
+		&:not(.enabled) .toggleOn,
+		&.enabled .toggleOff,
+		&.reverseToggleButton.enabled .toggleOn,
+		&.reverseToggleButton:not(.enabled) .toggleOff {
+			color: rgb(60, 60, 60);
+			border-color: rgb(60, 60, 60);
+			background: rgb(40, 40, 40);
+		}
 
-	.toggleButton.enabled .toggleOn {
-		background: linear-gradient(to right, rgb(37, 69, 107), rgb(40, 40, 40));
-	}
+		&.enabled .toggleOn,
+		&.reverseToggleButton:not(.enabled) .toggleOn {
+			background: linear-gradient(to right, rgb(37, 69, 107), rgb(40, 40, 40));
+		}
 
-	.toggleButton:not(.enabled) .toggleOff {
-		background: linear-gradient(to left, rgb(136, 38, 38), rgb(40, 40, 40));
+		&:not(.enabled) .toggleOff,
+		&.reverseToggleButton.enabled .toggleOff {
+			background: linear-gradient(to left, rgb(136, 38, 38), rgb(40, 40, 40));
+		}
 	}
 
 	.link .rank {
