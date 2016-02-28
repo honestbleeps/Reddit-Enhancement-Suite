@@ -78,7 +78,11 @@
 	],
 	"libraries": [
 		"modules/hosts/imgur.js",
+		"modules/hosts/pornbot.js",
 		"modules/hosts/coub.js",
+		"modules/hosts/uploadly.js",
+		"modules/hosts/eroshare.js",
+		"modules/hosts/iloopit.js",
 		"modules/hosts/livecap.js",
 		"modules/hosts/twitter.js",
 		"modules/hosts/futurism.js",
@@ -116,7 +120,9 @@
 		"modules/hosts/pastebin.js",
 		"modules/hosts/github.js",
 		"modules/hosts/onedrive.js",
-		"modules/hosts/oddshot.js"
+		"modules/hosts/oddshot.js",
+		"modules/hosts/miiverse.js",
+		"modules/hosts/swirl.js"
 	],
 	"init": [
 		"core/init.js"
