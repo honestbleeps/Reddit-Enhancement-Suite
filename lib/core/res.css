@@ -549,21 +549,25 @@ div.usertext-edit {
 	border-left: 0;
 	border-radius: 0 3px 3px 0;
 }
-.toggleButton:not(.enabled) .toggleOn {
+.toggleButton:not(.enabled) .toggleOn,
+.toggleButton.reverseToggleButton.enabled .toggleOn {
 	background-color: #ddd;
 	color: #636363;
 }
-.toggleButton:not(.enabled) .toggleOff {
+.toggleButton:not(.enabled) .toggleOff,
+.toggleButton.reverseToggleButton.enabled .toggleOff {
 	background-color: #d02020;
 	color: #fff;
 	font-weight: bolder;
 }
-.toggleButton.enabled .toggleOn {
+.toggleButton.enabled .toggleOn,
+.toggleButton.reverseToggleButton:not(.enabled) .toggleOn {
 	background-color: #107ac4 ;
 	color: #fff;
 	font-weight: bolder;
 }
-.toggleButton.enabled .toggleOff {
+.toggleButton.enabled .toggleOff,
+.toggleButton.reverseToggleButton:not(.enabled) .toggleOff {
 	background-color: #ddd;
 	color: #636363;
 }
@@ -582,13 +586,15 @@ div.usertext-edit {
 	opacity: 0.3;
 }
 
-.toggleButton::before {
+.toggleButton::before,
+.toggleButton.reverseToggleButton.enabled:before {
 	border-left-width: 0;
 	border-right-width: 5px;
 	left: auto;
 	right: 1px;
 }
-.toggleButton.enabled::before {
+.toggleButton.enabled::before,
+.toggleButton.reverseToggleButton:not(.enabled):before {
 	border-left-width: 5px;
 	border-right-width: 0;
 	left: 1px;
