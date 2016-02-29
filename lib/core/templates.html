@@ -750,5 +750,23 @@
 			ul.res-search-tabs li.res-search-tab-facets a:before, ul.res-search-tabs li.res-search-tab-subs a:before, ul.res-search-tabs li.res-search-tab-options a:before { font: 100%/1 "Batch"; display: inline-block; margin-right: 10px; }
 
 		</style>
+
+		<div id="announcements-notification">
+			<div>
+				{{#post.title}}
+					<p>
+						<a href="{{url}}">{{post.title}}</a>
+					</p>
+				{{/post.title}}
+				<p>
+					Posted to <a href="{{viewUrl}}">/r/{{post.subreddit}}</a> {{#post.author}}by /u/{{post.author}}{{/post.author}}
+				</p>
+				<p class="RESNotificationCTA">
+					<a class="RESNotificationButtonBlue" href="{{url}}">read more</a>
+				</p>
+			</div>
+		</div>
+
+		</div>div>
 	</body>
 </html>
