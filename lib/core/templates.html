@@ -536,5 +536,21 @@
 - Browser Version: {{browserVersion}}
 - Cookies Enabled: {{cookies}}
 		</div>
+
+		<div id="announcements-notification">
+			<div>
+				{{#post.title}}
+				<p>
+					<a href="{{url}}">{{post.title}}</a>
+				</p>
+				{{/post.title}}
+				<p>
+					Posted to <a href="{{viewUrl}}">/r/{{post.subreddit}}</a> {{#post.author}}by /u/{{post.author}}{{/post.author}}
+				</p>
+				<p class="RESNotificationCTA">
+					<a class="RESNotificationButtonBlue" href="{{url}}">read more</a>
+				</p>
+			</div>
+		</div>
 	</body>
 </html>
