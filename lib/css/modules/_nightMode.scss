@@ -468,6 +468,20 @@
 		background-color: #666;
 	}
 
+	.sponsored-page .linefield-content textarea,
+	.sponsored-page .linefield-content input {
+		color: #181818;
+	}
+
+	.linefield .markhelp table {
+		background-color: inherit;
+	}
+
+	.content .sponsored-page textarea,
+	.content .sponsored-page input {
+		background-color: rgb(252, 252, 252);
+	}
+
 	.md code,
 	.md pre,
 	.content .md pre,
