@@ -37,22 +37,16 @@ const XHRCache = {
 	entries: new Map(),
 	check(key, maxAge = Infinity) {
 		const entry = this.entries.get(key);
-		if (entry && (Date.now() - entry.timestamp < maxAge)) {
-			entry.hits++;
+		const now = Date.now();
+		if (entry && (now - entry.timestamp < maxAge)) {
+			entry.timestamp = now;
 			return entry.data;
 		}
 	},
 	set(key, value) {
-		let hits = 1;
-
-		if (this.entries.has(key)) {
-			hits = this.entries.get(key).hits;
-		}
-
 		this.entries.set(key, {
 			data: value,
-			timestamp: Date.now(),
-			hits
+			timestamp: Date.now()
 		});
 
 		if (this.entries.size > this.capacity) {
@@ -63,14 +57,10 @@ const XHRCache = {
 		this.entries.delete(key);
 	},
 	prune() {
-		const now = Date.now();
+		// evict least-recently used
 		const top = Array.from(this.entries.entries())
-			.sort(([, a], [, b]) => {
-				const aWeight = a.hits / (now - a.timestamp);
-				const bWeight = b.hits / (now - b.timestamp);
-				return bWeight - aWeight; // in order of decreasing weight
-			})
-			.slice(0, (this.capacity / 2) | 0);
+			.sort(([, a], [, b]) => a.timestamp - b.timestamp)
+			.slice((this.capacity / 2) | 0);
 
 		this.entries = new Map(top);
 	},
