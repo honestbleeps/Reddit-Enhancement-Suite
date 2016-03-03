@@ -1,6 +1,107 @@
+$thumb-width: 100px;
+$content-offsetleft: 54px; // icon width + margins
+
 .pageNavigator {
 	cursor: pointer;
 	padding: 3px;
 	text-align: center;
 	color: #888;
+}
+
+.res-show-link {
+	overflow-y: hidden;
+	position: fixed;
+	top: 0;
+	left: 15px;
+	color: black;
+	background: hsl(0, 0%, 100%);
+	box-sizing: border-box;
+	box-shadow: hsla(0, 0%, 0%, .24) 0 1px 3px, hsla(0, 0%, 0%, .12) 0 3px 3px;
+	transition: all .3s;
+	z-index: 10000001;
+	font: 11px/1.6 verdana, sans-serif;
+
+	a {
+		color: hsl(206, 100%, 41%);
+	}
+
+	.res-show-link-domain {
+		color: hsl(0, 0%, 50%);
+	}
+
+	.res-show-link-content {
+		margin: 5px 46px 5px $content-offsetleft;
+	}
+
+	.res-show-link-thumb {
+		float: left;
+
+		img {
+			vertical-align: top;
+			width: $thumb-width;
+		}
+
+		~.res-show-link-content {
+			margin-left: $content-offsetleft + $thumb-width;
+		}
+	}
+
+	.res-show-link-header {
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+
+		.res-show-link-title {
+			font-weight: bold;
+		}
+	}
+
+	.res-show-link-tagline {
+		visibility: hidden;
+		opacity: 0;
+		transition: all .3s .1s;
+	}
+
+	.toTop {
+		color: hsl(205, 100%, 50%);
+		float: left;
+		margin: 5px 15px 0 15px;
+		width: 24px;
+		height: 24px;
+		text-align: center;
+		vertical-align: middle;
+		transition: font-size .2s .1s;
+
+		&:hover {
+			color: hsl(205, 100%, 35%);
+		}
+	}
+
+	.gearIcon {
+		float: right;
+		margin: 5px 15px 0 15px;
+		visibility: hidden;
+		opacity: 0;
+		transition: all .2s;
+		width: auto !important;
+		height: auto !important;
+	}
+
+	&.hide {
+		visibility: hidden;
+		opacity: 0;
+	}
+
+	&:hover {
+
+		.res-show-link-tagline,
+		.gearIcon {
+			visibility: visible;
+			opacity: 1;
+		}
+
+		.toTop {
+			font-size: 24px;
+		}
+	}
 }
