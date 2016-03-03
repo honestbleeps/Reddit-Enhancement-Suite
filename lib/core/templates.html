@@ -435,12 +435,16 @@
 				</video>
 				</a>
 				<div style="height: 35px;" class="ctrlContainer">
-					<div class="imgurgifv-brand">
-						<img src="//imgur.com/favicon.ico">
-					</div>
+					<a href="{{ siteUrl }}" target="_blank">
+						<div class="imgurgifv-brand">
+							<img src="{{ siteIcon }}" title="view on {{ siteName }}" />
+						</div>
+					</a>
+					{{#downloadurl}}
 					<div class="imgurgifv-download">
 						<a href="{{ downloadurl }}">download</a>
 					</div>
+					{{/downloadurl}}
 				</div>
 			</div>
 		</script>
