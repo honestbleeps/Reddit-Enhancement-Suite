@@ -6,6 +6,7 @@
 		"no-useless-assign",
 		"consistent-return-legacy",
 		"prefer-bind-operator",
+		"prefer-spread",
 		"sort-imports-es6",
 		"filenames",
 		"import"
@@ -60,6 +61,8 @@
 		"consistent-return-legacy/consistent-return-legacy": 2,
 
 		"prefer-bind-operator/prefer-bind-operator": 2,
+
+		"prefer-spread/prefer-object-spread": 2,
 
 		"sort-imports-es6/sort-imports-es6": [2, { "memberSyntaxSortOrder": ["none", "single", "all", "multiple"] }],
 
