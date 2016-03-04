@@ -2,6 +2,7 @@
 	"parser": "babel-eslint",
 	"plugins": [
 		"babel",
+		"ava",
 		"dollar-sign",
 		"no-useless-assign",
 		"consistent-return-legacy",
@@ -53,6 +54,18 @@
 		"babel/object-shorthand": 2,
 		"babel/arrow-parens": [2, "as-needed"],
 		"babel/no-await-in-loop": 2,
+
+		"ava/max-asserts": 0,
+		"ava/no-cb-test": 2,
+		"ava/no-identical-title": 2,
+		"ava/no-invalid-end": 2,
+		"ava/no-only-test": 2,
+		"ava/no-skip-assert": 1,
+		"ava/no-skip-test": 1,
+		"ava/no-todo-test": 1,
+		"ava/prefer-power-assert": 0,
+		"ava/test-ended": 2,
+		"ava/test-title": [2, "if-multiple"],
 
 		"dollar-sign/dollar-sign": [2, "ignoreProperties"],
 
