@@ -1,6 +1,6 @@
 {
 	"name": "Reddit Enhancement Suite",
-	"version": "9000.1",
+	"version": "4.5.4",
 	"manifest_version": 2,
 	"minimum_chrome_version": "26.0",
 	"description": "Reddit Enhancement Suite - a group of enhancements for browsing Reddit",
@@ -8,7 +8,6 @@
 		"scripts": ["background.js"]
 	},
 	"homepage_url": "http://redditenhancementsuite.com",
-	"options_page": "options.html",
 	"content_scripts": [
 		{
 			"matches": [
@@ -19,7 +18,6 @@
 				"https://*.reddit.com/*"
 			],
 			"js": [
-				"vendor/polyfill.min.js",
 				"vendor/jquery-1.11.3.min.js",
 				"vendor/guiders.js",
 				"vendor/jquery.sortable-0.9.12.js",
@@ -39,6 +37,7 @@
 				"core/template.js",
 				"vendor/konami.js",
 				"vendor/hogan-3.0.2.js",
+				"vendor/imgrush.js",
 				"vendor/gfycat.js",
 				"vendor/gifyoutube.js",
 				"vendor/imgurgifv.js",
@@ -69,6 +68,7 @@
 				"modules/commentPreview.js",
 				"modules/commentTools.js",
 				"modules/sourceSnudown.js",
+				"modules/sortCommentsTemporarily.js",
 				"modules/usernameHider.js",
 				"modules/showImages.js",
 				"modules/showKarma.js",
@@ -94,7 +94,6 @@
 				"modules/subredditInfo.js",
 				"modules/commentHidePersistor.js",
 				"modules/troubleshooter.js",
-				"modules/backupAndRestore.js",
 				"modules/localDate.js",
 				"modules/context.js",
 				"modules/noParticipation.js",
@@ -126,6 +125,7 @@
 				"modules/hosts/tumblr.js",
 				"modules/hosts/memecrunch.js",
 				"modules/hosts/imgflip.js",
+				"modules/hosts/imgrush.js",
 				"modules/hosts/livememe.js",
 				"modules/hosts/makeameme.js",
 				"modules/hosts/memegen.js",
@@ -147,18 +147,20 @@
 				"core/init.js"
 			],
 			"css": [
-				"css/res.css",
+				"modules/nightmode.css",
+				"modules/commentBoxes.css",
+				"core/res.css",
+				"vendor/players.css",
 				"vendor/guiders.css",
-				"vendor/tokenize.css"
+				"vendor/tokenize.css",
+				"core/batch.css"
 			],
 			"run_at": "document_start"
 		}
 	],
 	"web_accessible_resources": [
 		"core/templates.html",
-		"package.json",
-		"modules/hosts/hosts.json",
-		"*.js.map"
+		"modules/hosts/hosts.json"
 	],
 	"icons": {
 		"48": "icon48.png",
@@ -188,8 +190,6 @@
 		"http://noembed.com/embed?url=*"
 	],
 	"optional_permissions": [
-		"https://api.twitter.com/*",
-		"https://onedrive.live.com/*",
-		"http://1drv.ms/*"
+		"https://api.twitter.com/*"
 	]
 }
