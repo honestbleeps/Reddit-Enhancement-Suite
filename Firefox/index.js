@@ -262,6 +262,7 @@ pageMod.PageMod({
 		self.data.url('modules/hosts/photobucket.js'),
 		self.data.url('modules/hosts/giphy.js'),
 		self.data.url('modules/hosts/streamable.js'),
+		self.data.url('modules/hosts/qwipit.js'),
 		self.data.url('modules/hosts/raddit.js'),
 		self.data.url('modules/hosts/pastebin.js'),
 		self.data.url('modules/hosts/github.js'),
