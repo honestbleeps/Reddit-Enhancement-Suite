@@ -7,16 +7,18 @@ body:not(.res-showImages-displayImageCaptions) {
 
 .madeVisible {
 
-	position:relative;
+	position: relative;
 
 	.RESMediaControls {
 		opacity: 0;
 	}
-	&:hover .RESMediaControls{
-		opacity: 0.8;
+
+	&:hover .RESMediaControls {
+		opacity: .8;
 		transition: opacity 300ms;
 	}
 }
+
 .RESMediaControls {
 
 	position: absolute;
@@ -25,23 +27,25 @@ body:not(.res-showImages-displayImageCaptions) {
 	bottom: 10px;
 	right: 10px;
 	border: solid 1px #eee;
-	
+
 	span {
-		padding:8px;
-		display:inline-block;
+		padding: 8px;
+		display: inline-block;
 		font: normal 14px/1 "Batch";
 		vertical-align: middle;
 		font-size: 1.1em;
-	}
-	span.rotateLeft {
-		transform: scaleX(-1);
-		&:after {	
-			content: '\F0B0';
+
+		.rotateLeft {
+			transform: scaleX(-1);
+			&::after {
+				content: '\F0B0';
+			}
 		}
-	}
-	span.rotateRight {
-		&:after {
-			content: '\F0B0';
+		
+		.rotateRight {
+			&::after {
+				content: '\F0B0';
+			}
 		}
 	}
 }
