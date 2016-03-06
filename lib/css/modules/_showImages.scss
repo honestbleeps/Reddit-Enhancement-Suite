@@ -37,7 +37,7 @@ body:not(.res-showImages-displayImageCaptions) {
 
 		&.rotateLeft {
 			transform: scaleX(-1);
-			
+
 			&::after {
 				content: '\F0B0';
 			}
