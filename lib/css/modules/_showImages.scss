@@ -4,3 +4,44 @@ body:not(.res-showImages-displayImageCaptions) {
 		display: none;
 	}
 }
+
+.madeVisible {
+
+	position:relative;
+
+	.RESMediaControls {
+		opacity: 0;
+	}
+	&:hover .RESMediaControls{
+		opacity: 0.8;
+		transition: opacity 300ms;
+	}
+}
+.RESMediaControls {
+
+	position: absolute;
+	background: #fff;
+	z-index: 2;
+	bottom: 10px;
+	right: 10px;
+	border: solid 1px #eee;
+	
+	span {
+		padding:8px;
+		display:inline-block;
+		font: normal 14px/1 "Batch";
+		vertical-align: middle;
+		font-size: 1.1em;
+	}
+	span.rotateLeft {
+		transform: scaleX(-1);
+		&:after {	
+			content: '\F0B0';
+		}
+	}
+	span.rotateRight {
+		&:after {
+			content: '\F0B0';
+		}
+	}
+}
