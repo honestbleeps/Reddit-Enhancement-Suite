@@ -35,14 +35,14 @@ body:not(.res-showImages-displayImageCaptions) {
 		vertical-align: middle;
 		font-size: 1.1em;
 
-		.rotateLeft {
+		&.rotateLeft {
 			transform: scaleX(-1);
 			&::after {
 				content: '\F0B0';
 			}
 		}
-		
-		.rotateRight {
+
+		&.rotateRight {
 			&::after {
 				content: '\F0B0';
 			}
