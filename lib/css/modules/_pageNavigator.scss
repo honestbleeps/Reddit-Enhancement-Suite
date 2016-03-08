@@ -14,7 +14,7 @@ $content-offsetleft: 54px; // icon width + margins
 	top: 0;
 	left: 15px;
 	color: black;
-	background: padding-box hsl(0, 0%, 100%);
+	background: hsl(0, 0%, 100%);
 	box-sizing: border-box;
 	box-shadow: hsla(0, 0%, 0%, .24) 0 1px 3px, hsla(0, 0%, 0%, .12) 0 3px 3px;
 	transition: all .3s;
@@ -35,7 +35,6 @@ $content-offsetleft: 54px; // icon width + margins
 
 	.res-show-link-thumb {
 		float: left;
-		margin: -5px 0;
 
 		img {
 			vertical-align: top;
@@ -53,7 +52,6 @@ $content-offsetleft: 54px; // icon width + margins
 		text-overflow: ellipsis;
 
 		.res-show-link-title {
-			cursor: pointer;
 			font-weight: bold;
 		}
 	}
@@ -89,18 +87,21 @@ $content-offsetleft: 54px; // icon width + margins
 		height: auto !important;
 	}
 
-	&:hover .res-icon.toTop {
-		font-size: 24px;
-	}
-
 	&.hide {
 		visibility: hidden;
 		opacity: 0;
 	}
 
-	&:hover .res-show-link-tagline,
-	&:hover .gearIcon {
-		visibility: visible;
-		opacity: 1;
+	&:hover {
+
+		.res-show-link-tagline,
+		.gearIcon {
+			visibility: visible;
+			opacity: 1;
+		}
+
+		.toTop {
+			font-size: 24px;
+		}
 	}
 }
