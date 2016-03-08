@@ -22,7 +22,7 @@ a.madeVisible {
 	position: absolute;
 	z-index: 2;
 	border: solid 1px #eee;
-	background: rgba(255,255,255,0.8);
+	background: rgba(255, 255, 255, .8);
 
 	// Support multiple positions. top left is default
 	&.top-left {
@@ -49,9 +49,9 @@ a.madeVisible {
 		padding: 8px;
 		vertical-align: middle;
 		font-size: 1.1em;
-		
+
 		&:hover {
-			background: rgba(255,255,255,0.9);
+			background: rgba(255, 255, 255, .9);
 		}
 
 		&.rotateLeft {
