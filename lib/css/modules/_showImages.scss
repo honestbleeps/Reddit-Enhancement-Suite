@@ -5,8 +5,7 @@ body:not(.res-showImages-displayImageCaptions) {
 	}
 }
 
-.madeVisible {
-
+a.madeVisible {
 	position: relative;
 
 	.RESMediaControls {
@@ -20,20 +19,40 @@ body:not(.res-showImages-displayImageCaptions) {
 }
 
 .RESMediaControls {
-
 	position: absolute;
-	background: #fff;
 	z-index: 2;
-	bottom: 10px;
-	right: 10px;
 	border: solid 1px #eee;
+	background: rgba(255,255,255,0.8);
+
+	// Support multiple positions. top left is default
+	&.top-left {
+		top: 10px;
+		left: 10px;
+	}
+
+	&.top-right {
+		top: 10px;
+		right: 10px;
+	}
+
+	&.bottom-right {
+		bottom: 10px;
+		right: 10px;
+	}
+
+	&.bottom-left {
+		bottom: 10px;
+		left: 10px;
+	}
 
 	span {
 		padding: 8px;
-		display: inline-block;
-		font: normal 14px/1 "Batch";
 		vertical-align: middle;
 		font-size: 1.1em;
+		
+		&:hover {
+			background: rgba(255,255,255,0.9);
+		}
 
 		&.rotateLeft {
 			transform: scaleX(-1);
