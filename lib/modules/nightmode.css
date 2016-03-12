@@ -452,6 +452,9 @@
 	color: hsl(210,60%,70%) !important;
 }
 .res-nightmode .thing .title {
+	color: hsl(0,0%,87%);
+}
+.res-nightmode.res-nightMode-coloredLinks .thing .title {
 	color: hsl(210,60%,60%);
 }
 .res-nightmode .tagline a {
@@ -464,7 +467,13 @@
 .res-nightmode .thing.visited .title,
 .res-nightmode .combined-search-page .search-result a:visited,
 .res-nightmode .combined-search-page .search-result a:visited > mark {
-	color: hsl(270,50%,65%); /* see also styleTweaks.js */
+	color: hsl(0,0%,65%); /* see also styleTweaks.js visitedStyle */
+}
+.res-nightmode.res-nightMode-coloredLinks .thing .title:visited,
+.res-nightmode.res-nightMode-coloredLinks .thing.visited .title,
+.res-nightmode.res-nightMode-coloredLinks .combined-search-page .search-result a:visited,
+.res-nightmode.res-nightMode-coloredLinks .combined-search-page .search-result a:visited > mark {
+	color: hsl(270,50%,65%); /* see also styleTweaks.js visitedStyle */
 }
 .res-nightmode .flair-settings ~ .tabpane-content {
 	border-color: hsl(0,0%,10%);
