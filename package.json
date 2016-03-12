@@ -14,6 +14,8 @@
     "preinstall": "npm -v && node -v && python --version && git rev-parse HEAD && git status --porcelain",
     "prestart": "gulp clean",
     "start": "cross-env NODE_ENV=development gulp watch --browsers",
+    "preonce": "gulp clean",
+    "once": "cross-env NODE_ENV=development gulp build --browsers",
     "prebuild": "gulp clean",
     "build": "cross-env NODE_ENV=production gulp build --browsers",
     "postbuild": "gulp zip",

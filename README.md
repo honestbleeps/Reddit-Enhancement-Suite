@@ -99,9 +99,11 @@ JavaScript files in `lib/` (except `lib/vendor/`) will be compiled with [Babel](
 
 Sass (`.scss`) files in `lib/` will be compiled with [Sass](http://sass-lang.com/) and post-processed with [Autoprefixer](https://github.com/postcss/autoprefixer).
 
-**`npm start [-- <browsers>]`** will clean `dist/`, build RES (similar to `npm run build`), and start a watch task that will rebuild RES when you make changes. Only changed files will be rebuilt.
+**`npm start [-- <browsers>]`** will clean `dist/`, then build RES (dev mode), and start a watch task that will rebuild RES when you make changes. Only changed files will be rebuilt.
 
-**`npm run build [-- <browsers>]`** will clean `dist/`, then build RES, copying the resultant files into the `dist/` directory. Each build output will then be compressed to a .zip file in `dist/zip/`.
+**`npm run once [-- <browsers>]`** will clean `dist/`, then build RES (dev mode) a single time.
+
+**`npm run build [-- <browsers>]`** will clean `dist/`, then build RES (release mode). Each build output will be compressed to a .zip file in `dist/zip/`.
 
 `<browsers>` is a comma-separated list of browsers to target, e.g. `chrome,firefox,safari,node`. By default, all will be targeted.
 
