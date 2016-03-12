@@ -262,15 +262,20 @@ let db;
 	function runMigration() {
 		if (ss.storage[MIGRATED_TO_INDEXEDDB] !== MIGRATED_TO_INDEXEDDB) {
 			const transaction = db.transaction('storage', 'readwrite');
+
 			transaction.oncomplete = () => (ss.storage[MIGRATED_TO_INDEXEDDB] = MIGRATED_TO_INDEXEDDB);
 			transaction.onerror = ::console.error;
+
 			const store = transaction.objectStore('storage');
+
 			Object.keys(ss.storage).forEach(key => {
 				let value;
 				try {
+					// existing storage values are _usually_ stringified JSON, so try to parse it...
 					value = JSON.parse(ss.storage[key]);
 					console.log(key);
 				} catch (e) {
+					// ...but if not, fall back to the raw string
 					value = ss.storage[key];
 					console.warn(key);
 				}
