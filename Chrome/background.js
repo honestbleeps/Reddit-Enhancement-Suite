@@ -243,15 +243,11 @@ addListener('storage', ([operation, key, value]) => {
 			try {
 				return JSON.parse(localStorage.getItem(key));
 			} catch (e) {
-				console.warn('Failed to parse:', key, e);
+				console.warn('Failed to parse:', key, 'falling back to raw string.');
 			}
-			return null;
-		case 'getRaw':
 			return localStorage.getItem(key);
 		case 'set':
 			return localStorage.setItem(key, JSON.stringify(value));
-		case 'setRaw':
-			return localStorage.setItem(key, value);
 		case 'patch':
 			try {
 				const stored = JSON.parse(localStorage.getItem(key)) || {};
@@ -278,6 +274,8 @@ addListener('storage', ([operation, key, value]) => {
 			return key in localStorage;
 		case 'keys':
 			return Object.keys(localStorage);
+		case 'clear':
+			return localStorage.clear();
 		default:
 			throw new Error(`Invalid storage operation: ${operation}`);
 	}

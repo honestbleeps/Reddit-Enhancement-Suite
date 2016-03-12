@@ -22,46 +22,25 @@ RESEnvironment._storage = {};
 
 RESEnvironment.storage = {
 	get(key) {
-		try {
-			return Promise.resolve(key in RESEnvironment._storage ? JSON.parse(RESEnvironment._storage[key]) : null);
-		} catch (e) {
-			console.warn('Failed to parse:', key, e);
-		}
-		return Promise.resolve(null);
-	},
-	getRaw(key) {
 		return Promise.resolve(key in RESEnvironment._storage ? RESEnvironment._storage[key] : null);
 	},
 	set(key, value) {
-		return new Promise(resolve => {
-			RESEnvironment._storage[key] = JSON.stringify(value);
-			resolve();
-		});
-	},
-	setRaw(key, value) {
 		RESEnvironment._storage[key] = value;
 		return Promise.resolve();
 	},
 	patch(key, value) {
-		return new Promise(resolve => {
-			try {
-				const stored = JSON.parse(RESEnvironment._storage[key] || '{}') || {};
-				RESEnvironment._storage[key] = JSON.stringify(extend(stored, value));
-			} catch (e) {
-				throw new Error(`Failed to patch: ${key} - error: ${e}`);
-			}
-			resolve();
-		});
+		RESEnvironment._storage[key] = extend(RESEnvironment._storage[key] || {}, value);
+		return Promise.resolve();
 	},
 	deletePath(key, value) {
 		return new Promise(resolve => {
 			try {
-				const stored = JSON.parse(RESEnvironment._storage[key] || '{}') || {};
+				const stored = RESEnvironment._storage[key] || {};
 				value.split(',').reduce((obj, key, i, { length }) => {
 					if (i < length - 1) return obj[key];
 					delete obj[key];
 				}, stored);
-				RESEnvironment._storage[key] = JSON.stringify(stored);
+				RESEnvironment._storage[key] = stored;
 			} catch (e) {
 				throw new Error(`Failed to delete path: ${value} on key: ${key} - error: ${e}`);
 			}
