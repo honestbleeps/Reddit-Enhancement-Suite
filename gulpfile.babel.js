@@ -10,12 +10,15 @@ import sass from 'gulp-sass';
 import autoprefixer from 'gulp-autoprefixer';
 import merge from 'merge-stream';
 import cache from 'gulp-cached';
-import plumber from 'gulp-plumber';
+import filter from 'gulp-filter';
 import sourcemaps from 'gulp-sourcemaps';
 import eslint from 'gulp-eslint';
 import scsslint from 'gulp-scss-lint';
 import qunit from 'gulp-qunit';
-import through from 'through-gulp';
+import through from 'through2';
+import map from 'through2-map';
+import pumpify from 'pumpify';
+import insert from 'gulp-insert';
 
 const options = require('minimist')(process.argv.slice(2));
 
@@ -98,7 +101,7 @@ const browserConf = {
 	},
 	qunit: {
 		sources: [
-			{ cwd: 'tests/qunit/**', src: '*.*' }
+			{ cwd: 'tests/qunit/**', src: ['*.js', '*.html'] }
 		],
 		dests: {
 			root: 'qunit',
@@ -122,13 +125,12 @@ function getBuildDir(browser) {
 	return path.join(baseConf.dests.root, browserConf[browser].dests.root);
 }
 
-// Accepts a stream, sourced from baseConf.sources
-// and pipes it to each selected browsers' dests.baseSources directory.
-function pipeToBrowsers(inStream) {
-	return browsers.reduce(
-		(stream, browser) => stream.pipe(dest(getBuildDir(browser), browserConf[browser].dests.baseSources)),
-		inStream
-	);
+function toBrowsers() {
+	// through() with no transform as a dummy passthrough stream
+	// since pumpify doesn't have reasonable default behavior for a single stream
+	return pumpify.obj(through.obj(), ...browsers.map(browser =>
+		dest(getBuildDir(browser), browserConf[browser].dests.baseSources)
+	));
 }
 
 gulp.task('default', ['clean'], () => {
@@ -141,7 +143,10 @@ gulp.task('clean', () =>
 
 gulp.task('watch', ['build'], () => {
 	const sources = browsers.reduce(
-		(acc, browser) => acc.concat(browserConf[browser].sources.reduce((a, { src }) => a.concat(src), [])),
+		(acc, browser) => acc.concat(browserConf[browser].sources.reduce(
+			(a, { cwd = '', src }) => a.concat(src.map(s => path.join(cwd, s))),
+			browserConf[browser].manifest ? [browserConf[browser].manifest] : []
+		)),
 		[baseConf.sources.copy.cwd]
 	);
 
@@ -150,45 +155,55 @@ gulp.task('watch', ['build'], () => {
 
 gulp.task('build', ['babel', 'sass', 'copy', 'copy-browser', 'manifests']);
 
+function babelPipeline() {
+	return pumpify.obj(
+		sourcemaps.init(),
+		babel().on('error', e => console.error(e.message)),
+		insert.wrap('(function(exports) {', '})(typeof exports === "object" ? exports : typeof window === "object" ? window : {});'),
+		sourcemaps.write('.')
+	).on('close', function() {
+		// Gulp doesn't seem to stop on close, only end...
+		this.emit('end');
+	});
+}
+
 gulp.task('babel', () =>
-	pipeToBrowsers(
-		src(baseConf.sources.babel)
-			.pipe(cache('babel'))
-			.pipe(plumber())
-			.pipe(sourcemaps.init())
-			.pipe(babel())
-			.pipe(sourcemaps.write('.'))
-			.pipe(plumber.stop())
-	)
+	src(baseConf.sources.babel)
+		.pipe(cache('babel'))
+		.pipe(babelPipeline())
+		.pipe(toBrowsers())
 );
 
 gulp.task('sass', () =>
-	pipeToBrowsers(
-		src(baseConf.sources.sass)
-			.pipe(sass().on('error', sass.logError))
-			.pipe(autoprefixer({
-				browsers: ['Chrome >= 25', 'Firefox >= 30', 'Safari >= 6'],
-				cascade: false
-			}))
-	)
+	src(baseConf.sources.sass)
+		.pipe(sass().on('error', sass.logError))
+		.pipe(autoprefixer({
+			browsers: ['Chrome >= 25', 'Firefox >= 30', 'Safari >= 6'],
+			cascade: false
+		}))
+		.pipe(toBrowsers())
 );
 
 gulp.task('copy', () =>
-	pipeToBrowsers(
-		merge(
-			src(baseConf.sources.copy),
-			gulp.src(getPackageMetadata().path)
-		).pipe(cache('copy'))
+	merge(
+		src(baseConf.sources.copy),
+		gulp.src(getPackageMetadata().path)
 	)
+		.pipe(cache('copy'))
+		.pipe(toBrowsers())
 );
 
 gulp.task('copy-browser', () =>
 	merge(
-		browsers.map(browser =>
-			merge(browserConf[browser].sources.map(paths => src(paths)))
+		browsers.map(browser => {
+			const jsFilter = filter('**/*.js', { restore: true });
+			return merge(browserConf[browser].sources.map(paths => src(paths)))
 				.pipe(cache(browser))
-				.pipe(dest(getBuildDir(browser)))
-		)
+				.pipe(jsFilter)
+				.pipe(babelPipeline())
+				.pipe(jsFilter.restore)
+				.pipe(dest(getBuildDir(browser)));
+		})
 	)
 );
 
@@ -199,7 +214,7 @@ gulp.task('manifests', () =>
 			.map(browser =>
 				gulp.src(browserConf[browser].manifest)
 					.pipe(cache('manifests'))
-					.pipe(through.map(file => populateManifest(browser, file)))
+					.pipe(map.obj(file => populateManifest(browser, file)))
 					.pipe(dest(getBuildDir(browser)))
 			)
 	)
@@ -287,12 +302,17 @@ gulp.task('zip', () => {
 
 gulp.task('travis', ['eslint', 'scsslint', 'qunit']);
 
-gulp.task('eslint', () =>
-	src(baseConf.sources.babel)
+gulp.task('eslint', () => {
+	const jsFilter = filter('**/*.js');
+	return merge(
+		src(baseConf.sources.babel),
+		merge(browsers.map(browser => merge(browserConf[browser].sources.map(paths => src(paths)))))
+			.pipe(jsFilter)
+	)
 		.pipe(eslint())
 		.pipe(eslint.formatEach())
-		.pipe(eslint.failAfterError())
-);
+		.pipe(eslint.failAfterError());
+});
 
 gulp.task('scsslint', () =>
 	src(baseConf.sources.sass)

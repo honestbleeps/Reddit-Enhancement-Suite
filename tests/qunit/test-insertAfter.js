@@ -1,3 +1,4 @@
+/* eslint-env qunit */
 
 test('insertAfter: Inserts a DOM element after a reference element and before the reference\'s next sibling', function() {
 	expect(7);

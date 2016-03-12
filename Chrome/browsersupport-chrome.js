@@ -1,193 +1,167 @@
 /* global chrome:false */
 
-// we need a queue of permission callback functions because of
-// multiple async requests now needed... it's yucky and sad. Thanks, Chrome. :(
-var permissionQueue = {
-	count: 0,
-	onloads: []
-};
+{
+	// via https://github.com/erikdesjardins/global-mediakeys
+	// Erik Desjardins, GPLv3
 
-
-chrome.runtime.onMessage.addListener(
-	function(request, sender, sendResponse) {
-		switch (request.requestType) {
-			case 'localStorage':
-				if (typeof RESStorage.setItem !== 'function') {
-					// if RESStorage isn't ready yet, wait a moment, then try setting again.
-					var waitForRESStorage = function(request) {
-						if ((typeof RESStorage !== 'undefined') && (typeof RESStorage.setItem === 'function')) {
-							RESStorage.setItem(request.itemName, request.itemValue, true);
-						} else {
-							setTimeout(function() {
-								waitForRESStorage(request);
-							}, 50);
-						}
-					};
-					waitForRESStorage(request);
-				} else {
-					RESStorage.setItem(request.itemName, request.itemValue, true);
-				}
-				break;
-			case 'permissions':
-				// TODO: maybe add a type here? right now only reason is for twitter expandos so text is hard coded, etc.
-				// result will just be true/false here. if false, permission was rejected.
-				if (!request.result) {
-					modules['notifications'].showNotification('You clicked "Deny". RES needs permission to access the Twitter API at ' +
-						request.data.origins[0] + ' for twitter expandos to show twitter posts in-line. ' +
-						'Be assured RES does not access any of your information on twitter.com - it only accesses the API.',
-						10);
-					permissionQueue.onloads[request.callbackID](false);
-				} else {
-					permissionQueue.onloads[request.callbackID](true);
-				}
-				break;
-			case 'subredditStyle':
-				var toggle = !modules['styleTweaks'].styleToggleCheckbox.checked;
-				modules['styleTweaks'].toggleSubredditStyle(toggle, RESUtils.currentSubreddit());
-				break;
-			case 'multicast':
-				RESUtils.rpc(request.moduleID, request.method, request.arguments);
-				break;
-			default:
-				// sendResponse({status: 'unrecognized request type'});
-				break;
-		}
+	function apiToPromise(func) {
+		return (...args) =>
+			new Promise((resolve, reject) =>
+				func(...args, (...results) => {
+					if (chrome.runtime.lastError) {
+						reject(new Error(chrome.runtime.lastError.message));
+					} else {
+						resolve(results.length > 1 ? results : results[0]);
+					}
+				})
+			);
 	}
-);
 
-RESEnvironment = RESEnvironment || {};
-RESEnvironment.ajax = function(obj) {
-	var crossDomain = (obj.url.indexOf(location.hostname) === -1);
+	const listeners = new Map();
 
-	if ((typeof obj.onload !== 'undefined') && (crossDomain)) {
-		obj.requestType = 'ajax';
-		if (typeof obj.onload !== 'undefined') {
-			chrome.runtime.sendMessage(obj, function(response) {
-				obj.onload(response);
-			});
+	/**
+	 * @callback MessageListener
+	 * @template T
+	 * @param {*} data The message data.
+	 * @returns {T|Promise<T, *>} The response data, optionally wrapped in a promise.
+	 */
+
+	/**
+	 * Register a listener to be invoked whenever a message of `type` is received.
+	 * Responses may be sent synchronously or asynchronously:
+	 * If `callback` returns a non-promise value, a response will be sent synchronously.
+	 * If `callback` returns a promise, a response will be sent asynchronously when it resolves.
+	 * If it rejects, an invalid response will be sent to close the message channel.
+	 * @param {string} type
+	 * @param {MessageListener} callback
+	 * @throws {Error} If a listener for `messageType` already exists.
+	 * @returns {void}
+	 */
+	function addListener(type, callback) {
+		if (listeners.has(type)) {
+			throw new Error(`Listener for message type: ${type} already exists.`);
 		}
-	} else {
-		var request = new XMLHttpRequest();
-		request.onreadystatechange = function() {
-			if (obj.onreadystatechange) {
-				obj.onreadystatechange(request);
-			}
-			if (request.readyState === 4 && obj.onload) {
-				obj.onload(request);
-			}
-		};
-		request.onerror = function() {
-			if (obj.onerror) {
-				obj.onerror(request);
-			}
-		};
+		listeners.set(type, { callback });
+	}
+
+	/**
+	 * Sends a message to non-content scripts.
+	 * @param {string} type
+	 * @param {*} [data]
+	 * @returns {Promise<*, Error>} Rejects if an invalid response is received,
+	 * resolves with the response data otherwise.
+	 */
+	RESEnvironment._sendMessage = async (type, data) => {
+		const message = { type, data };
+
+		const response = await apiToPromise(chrome.runtime.sendMessage)(message);
+
+		if (!response) {
+			throw new Error(`Critical error in background handler for type: ${type}`);
+		}
+
+		if (response.error) {
+			throw new Error(`Error in background handler for type: ${type} - message: ${response.error}`);
+		}
+
+		return response.data;
+	};
+
+	chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+		const { type, data } = request;
+
+		if (!listeners.has(type)) {
+			throw new Error(`Unrecognised message type: ${type}`);
+		}
+		const listener = listeners.get(type);
+
+		let response;
+
 		try {
-			request.open(obj.method, obj.url, true);
+			response = listener.callback(data);
 		} catch (e) {
-			if (obj.onerror) {
-				obj.onerror({
-					readyState: 4,
-					responseHeaders: '',
-					responseText: '',
-					responseXML: '',
-					status: 403,
-					statusText: 'Forbidden'
+			sendResponse({ error: e.message || e });
+			throw e;
+		}
+
+		if (response instanceof Promise) {
+			response
+				.then(data => sendResponse({ data }))
+				.catch(e => {
+					sendResponse({ error: e.message || e });
+					throw e;
 				});
-			}
-			return;
+			return true;
 		}
-		if (obj.headers) {
-			for (var name in obj.headers) {
-				request.setRequestHeader(name, obj.headers[name]);
-			}
-		}
-		request.send(obj.data);
-		return request;
+		sendResponse({ data: response });
+	});
+
+	// Listeners
+
+	function waitForEvent(ele, ...events) {
+		return Promise.race(events.map(event =>
+			new Promise(resolve => ele.addEventListener(event, function fire() {
+				ele.removeEventListener(event, fire);
+				resolve();
+			}))
+		));
 	}
-};
 
-RESEnvironment.loadResourceAsText = function(filename, callback) {
-	var xhr = new XMLHttpRequest();
-	xhr.onload = function() {
-		if (callback) {
-			callback(this.responseText);
+	addListener('userGesture', () => waitForEvent(document.body, 'mousedown', 'keydown'));
+
+	RESEnvironment._addSharedListeners(addListener);
+
+	// RESEnvironment
+
+	{
+		const inProgress = new Map();
+
+		function filterPerms(perms) {
+			const permissions = perms.filter(p => !p.includes('://') && p !== '<all_urls>');
+			const origins = perms.filter(p => p.includes('://') || p === '<all_urls>');
+			return { permissions, origins };
 		}
-	};
-	xhr.open('GET', chrome.runtime.getURL(filename));
-	xhr.send();
-};
 
-RESEnvironment.storageSetup = function(thisJSON) {
-	// we've got chrome, get a copy of the background page's localStorage first, so don't init until after.
-	chrome.runtime.sendMessage(thisJSON, function(response) {
-		// Does RESStorage have actual data in it?  If it doesn't, they're a legacy user, we need to copy
-		// old school localStorage from the foreground page to the background page to keep their settings...
-		if (!response || typeof response.importedFromForeground === 'undefined') {
-			// it doesn't exist.. copy it over...
-			var ls = {};
-			for (var i = 0, len = localStorage.length; i < len; i++) {
-				if (localStorage.key(i)) {
-					ls[localStorage.key(i)] = localStorage.getItem(localStorage.key(i));
-				}
+		RESEnvironment.permissions.request = async (...perms) => {
+			const key = perms.join(',');
+
+			if (!inProgress.has(key)) {
+				inProgress.set(key, (async () => {
+					const { permissions, origins } = filterPerms(perms);
+
+					const granted = await RESEnvironment._sendMessage('permissions', { operation: 'request', permissions, origins });
+
+					inProgress.delete(key);
+
+					if (!granted) {
+						const re = /((?:\w+\.)+\w+)(?=\/|$)/i;
+						modules['notifications'].showNotification(
+							`<p>You clicked "Deny". RES needs permission to access the API(s) at:</p>
+							<p>${origins.map(u => `<code>${re.exec(u)[0]}</code>`).join(', ')}</p>
+							<p>Be assured RES does not access any of your information on these domains - it only accesses the API.</p>`,
+							20000
+						);
+						throw new Error(`Permission not granted for: ${perms.join(', ')}`);
+					}
+				})());
 			}
-			var thisJSON = {
-				requestType: 'saveLocalStorage',
-				data: ls
-			};
-			chrome.runtime.sendMessage(thisJSON, function(response) {
-				RESStorage.setup.complete(response);
-			});
-		} else {
-			RESStorage.setup.complete(response);
-		}
-	});
-};
 
+			return inProgress.get(key);
+		};
 
-RESEnvironment.sendMessage = function(thisJSON) {
-	chrome.runtime.sendMessage(thisJSON);
-};
+		RESEnvironment.permissions.remove = async (...perms) => {
+			const removed = await RESEnvironment._sendMessage('permissions', { operation: 'remove', ...filterPerms(perms) });
+			if (!removed) {
+				throw new Error(`Permissions not removed: ${perms.join(', ')} - are you trying to remove required permissions?`);
+			}
+		};
 
-RESEnvironment.deleteCookie = function(cookieName) {
-	var deferred = new $.Deferred();
+	}
 
-	var requestJSON = {
-		requestType: 'deleteCookie',
-		host: location.protocol + '//' + location.host,
-		cname: cookieName
-	};
-	chrome.runtime.sendMessage(requestJSON, function(response) {
-		deferred.resolve(cookieName);
-	});
+	RESEnvironment.loadResourceAsText = filename =>
+		RESEnvironment.ajax({ url: chrome.runtime.getURL(filename) });
 
-	return deferred;
-};
-
-
-RESEnvironment.openInNewWindow = function(thisHREF) {
-	var thisJSON = {
-		requestType: 'keyboardNav',
-		linkURL: thisHREF
-	};
-	chrome.runtime.sendMessage(thisJSON);
-};
-
-RESEnvironment.openLinkInNewTab = function(thisHREF) {
-	var thisJSON = {
-		requestType: 'openLinkInNewTab',
-		linkURL: thisHREF
-	};
-	chrome.runtime.sendMessage(thisJSON);
-};
-
-RESEnvironment.addURLToHistory = (function() {
-	var original = RESEnvironment.addURLToHistory;
-
-	return function(url) {
-		if (chrome.extension.inIncognitoContext) {
-			return;
-		}
-
-		original(url);
-	};
-})();
+	RESEnvironment.isPrivateBrowsing = RESUtils.once(() =>
+		Promise.resolve(chrome.extension.inIncognitoContext)
+	);
+}

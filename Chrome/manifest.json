@@ -5,7 +5,10 @@
 	"minimum_chrome_version": "26.0",
 	"description": "Reddit Enhancement Suite - a group of enhancements for browsing Reddit",
 	"background": {
-		"scripts": ["background.js"]
+		"scripts": [
+			"vendor/polyfill.min.js",
+			"background.js"
+		]
 	},
 	"homepage_url": "http://redditenhancementsuite.com",
 	"options_page": "options.html",
@@ -35,7 +38,6 @@
 				"core/options.js",
 				"core/alert.js",
 				"core/migrate.js",
-				"core/storage.js",
 				"core/template.js",
 				"vendor/konami.js",
 				"vendor/hogan-3.0.2.js",
@@ -182,13 +184,13 @@
 		"http://min.us/api/*",
 		"http://*.flickr.com/photos/*",
 		"http://img.photobucket.com/*",
-		"http://backend.deviantart.com/oembed?url=*",
-		"http://api.tumblr.com/v2/blog/*/posts?api_key=*&id=*",
 		"http://noembed.com/embed?url=*"
 	],
 	"optional_permissions": [
 		"https://api.twitter.com/*",
 		"https://onedrive.live.com/*",
-		"http://1drv.ms/*"
+		"http://1drv.ms/*",
+		"*://backend.deviantart.com/oembed?url=*",
+		"*://api.tumblr.com/v2/blog/*/posts?api_key=*&id=*"
 	]
 }
