@@ -555,7 +555,11 @@
 	}
 
 	.thing .title {
-		color: hsl(210, 60%, 60%);
+		color: hsl(0, 0%, 87%);
+
+		.res-nightMode-coloredLinks & {
+			color: hsl(210, 60%, 60%);
+		}
 	}
 
 	.tagline a {
@@ -569,7 +573,12 @@
 	.thing .title:visited,
 	.combined-search-page .search-result a:visited,
 	.combined-search-page .search-result a:visited > mark {
-		color: hsl(270, 50%, 65%); // see also _styleTweaks.scss
+		// see also _styleTweaks.scss visitedStyle
+		color: hsl(0, 0%, 65%);
+
+		.res-nightMode-coloredLinks & {
+			color: hsl(270, 50%, 65%);
+		}
 	}
 
 	.flair-settings ~ .tabpane-content {
