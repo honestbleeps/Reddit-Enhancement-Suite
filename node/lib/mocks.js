@@ -1,4 +1,5 @@
 /* eslint-env node */
+/* eslint-disable import/no-unresolved */
 /* exported location, document, sessionStorage, alert */
 
 import jsdom from 'jsdom';
@@ -12,7 +13,7 @@ export const DOMParser = window.DOMParser;
 export const $ = jQuery(window);
 
 export const sessionStorage = {
-	getItem: function() {
+	getItem() {
 		return undefined;
 	}
 };

@@ -221,7 +221,7 @@ gulp.task('manifests', () =>
 );
 
 function getPackageMetadata() {
-	const path = './' + (options.p || 'package.json');
+	const path = `./${options.p || 'package.json'}`;
 	return {
 		path,
 		contents: require(path)
@@ -294,7 +294,7 @@ gulp.task('zip', () => {
 	return merge(
 		browsers.map(browser =>
 			gulp.src(path.join(getBuildDir(browser), '**/*'))
-				.pipe(zip(browserConf[browser].dests.root + '.zip'))
+				.pipe(zip(`${browserConf[browser].dests.root}.zip`))
 				.pipe(dest(zipDir))
 		)
 	);

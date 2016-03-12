@@ -1,3 +1,5 @@
+/* eslint-disable import/no-unresolved */
+
 // suppress annoying strict warnings that cfx overrides and turns on
 // comment this line out for releases.
 // require('sdk/preferences/service').set('javascript.options.strict', false);
@@ -9,12 +11,11 @@ import self from 'sdk/self';
 import tabs from 'sdk/tabs';
 import ss from 'sdk/simple-storage';
 import priv from 'sdk/private-browsing';
-import { browserWindows as windows } from 'sdk/windows';
 import { viewFor } from 'sdk/view/core';
 import { ActionButton } from 'sdk/ui/button/action';
 
 // require chrome allows us to use XPCOM objects...
-import { Cc, Ci, Cu, components } from 'chrome';
+import { Cc, Ci, components } from 'chrome';
 const historyService = Cc['@mozilla.org/browser/history;1'].getService(Ci.mozIAsyncHistory);
 
 // Cookie manager for new API login
@@ -189,7 +190,7 @@ function onMessage({ type, data, transaction, error, isResponse }) {
 				sendResponse({ error: e.message || e });
 				throw e;
 			});
-		return true;
+		return;
 	}
 	sendResponse({ data: response });
 }
@@ -204,13 +205,13 @@ addListener('deleteCookies', cookies =>
 	cookies.forEach(({ name }) => cookieManager.remove('.reddit.com', name, '/', false))
 );
 
-addListener('ajax', ({ method, url, headers, data, credentials }) => {
+addListener('ajax', ({ method, url, headers, data }) =>
 	// not using async/await here since the polyfill doesn't work with Firefox's backend
-	return new Promise(resolve => {
+	new Promise(resolve => {
 		const request = Request({
 			url,
 			onComplete: resolve,
-			headers: headers,
+			headers,
 			content: data
 		});
 		if (method === 'POST') {
@@ -221,8 +222,8 @@ addListener('ajax', ({ method, url, headers, data, credentials }) => {
 	}).then(request => ({
 		status: request.status,
 		responseText: request.text
-	}));
-});
+	}))
+);
 
 // Circular references can't exist in storage, so we don't need to consider that
 // and only enumerable own properties are sent in messages
@@ -281,6 +282,8 @@ addListener('storage', ([operation, key, value]) => {
 			return key in ss.storage;
 		case 'keys':
 			return Object.keys(ss.storage);
+		default:
+			throw new Error(`Invalid storage operation: ${operation}`);
 	}
 });
 
@@ -297,6 +300,8 @@ addListener('session', ([operation, key, value]) => {
 			return session.delete(key);
 		case 'clear':
 			return session.clear();
+		default:
+			throw new Error(`Invalid session operation: ${operation}`);
 	}
 });
 
@@ -310,6 +315,8 @@ addListener('XHRCache', ({ operation, key, value, maxAge }) => {
 			return XHRCache.delete(key);
 		case 'clear':
 			return XHRCache.clear();
+		default:
+			throw new Error(`Invalid XHRCache operation: ${operation}`);
 	}
 });
 
@@ -321,7 +328,7 @@ const pageAction = ActionButton({
 		32: self.data.url('images/css-disabled.png')
 	},
 	disabled: true,
-	onClick(state) {
+	onClick() {
 		sendMessage('pageActionClick', workerFor(tabs.activeTab));
 	}
 });
@@ -356,6 +363,9 @@ addListener('pageAction', ({ operation, state }, { tab }) => {
 		case 'destroy':
 			pageAction.destroy();
 			destroyed = true;
+			break;
+		default:
+			throw new Error(`Invalid pageAction operation: ${operation}`);
 	}
 });
 
@@ -532,7 +542,7 @@ PageMod({
 		self.data.url('vendor/tokenize.css')
 	],
 	onAttach(worker) {
-		onAttach.call(worker);
+		onAttach.call(worker); // eslint-disable-line prefer-reflect
 		worker.on('detach', onDetach);
 		worker.on('message', onMessage);
 	}

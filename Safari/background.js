@@ -105,7 +105,7 @@ function nonNull(callback) {
 	});
 }
 
-safari.application.addEventListener('message', ({ name: type, message: { data, transaction, error, isResponse }, target: tab}) => {
+safari.application.addEventListener('message', ({ name: type, message: { data, transaction, error, isResponse }, target: tab }) => {
 	if (isResponse) {
 		if (!waiting.has(transaction)) {
 			throw new Error(`No response handler for type: ${type}, transaction: ${transaction} - this should never happen.`);
@@ -149,7 +149,7 @@ safari.application.addEventListener('message', ({ name: type, message: { data, t
 				sendResponse({ error: e.message || e });
 				throw e;
 			});
-		return true;
+		return;
 	}
 	sendResponse({ data: response });
 }, false);
@@ -242,6 +242,8 @@ addListener('storage', ([operation, key, value]) => {
 			return key in localStorage;
 		case 'keys':
 			return Object.keys(localStorage);
+		default:
+			throw new Error(`Invalid storage operation: ${operation}`);
 	}
 });
 
@@ -258,6 +260,8 @@ addListener('session', ([operation, key, value]) => {
 			return session.delete(key);
 		case 'clear':
 			return session.clear();
+		default:
+			throw new Error(`Invalid session operation: ${operation}`);
 	}
 });
 
@@ -283,6 +287,8 @@ addListener('XHRCache', ({ operation, key, value, maxAge }) => {
 			return XHRCache.delete(key);
 		case 'clear':
 			return XHRCache.clear();
+		default:
+			throw new Error(`Invalid XHRCache operation: ${operation}`);
 	}
 });
 

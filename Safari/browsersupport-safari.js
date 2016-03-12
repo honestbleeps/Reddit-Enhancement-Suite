@@ -2,7 +2,7 @@
 
 // Safari has a ridiculous bug that causes it to lose access to safari.self.tab if you click the back button.
 // this stupid one liner fixes that.
-window.onunload = () => {};
+window.onunload = () => { /* empty */ };
 
 // since safari's built in extension stylesheets are treated as user stylesheets,
 // we can't inject them that way.  That makes them "user stylesheets" which would make
@@ -110,9 +110,8 @@ window.onunload = () => {};
 				.catch(e => {
 					sendResponse({ error: e.message || e });
 					throw e;
-
 				});
-			return true;
+			return;
 		}
 		sendResponse({ data: response });
 	}, false);
