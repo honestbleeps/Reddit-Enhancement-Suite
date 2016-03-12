@@ -262,7 +262,7 @@ let db;
 	function runMigration() {
 		if (ss.storage[MIGRATED_TO_INDEXEDDB] !== MIGRATED_TO_INDEXEDDB) {
 			const transaction = db.transaction('storage', 'readwrite');
-			transaction.oncomplete = () => ss.storage[MIGRATED_TO_INDEXEDDB] = MIGRATED_TO_INDEXEDDB;
+			transaction.oncomplete = () => (ss.storage[MIGRATED_TO_INDEXEDDB] = MIGRATED_TO_INDEXEDDB);
 			transaction.onerror = ::console.error;
 			const store = transaction.objectStore('storage');
 			Object.keys(ss.storage).forEach(key => {
