@@ -2,9 +2,73 @@
 
 ## v4.6.1
 
+Highlights:
+
+- Fixed automatic scrolling issues -- Selected Entry can be turned back on!
+- Added several new sites for expandos
+- Moved "CSS hotfix" stylesheet from reddit.com to redditenhancementsuite.com (potential privacy concern)
+- Fixed various issues with filteReddit
+
+### New Features and Enhancements
+
+- [Quick navigation in RES Settings](https://www.reddit.com/#!settings/about) ([thanks](https://github.com/honestbleeps/Reddit-Enhancement-Suite/pull/2773) @andytuba)
+- New media hosts
+	- Oddshot.tv ([thanks](https://github.com/honestbleeps/Reddit-Enhancement-Suite/pull/2652) @nicememe)
+	- Miiverse ([thanks](https://github.com/honestbleeps/Reddit-Enhancement-Suite/pull/2440) @sfoop)
+	- coub ([thanks](https://github.com/honestbleeps/Reddit-Enhancement-Suite/pull/2539) @igorgladkoborodov)
+	- qwip.it ([thanks](https://github.com/honestbleeps/Reddit-Enhancement-Suite/pull/2594) @grafixoner)
+	- swirl.xyz ([thanks](https://github.com/honestbleeps/Reddit-Enhancement-Suite/pull/2483) @klpl, @zjaved)
+	- uploadly (([thanks](https://github.com/honestbleeps/Reddit-Enhancement-Suite/pull/2491) @Cervenka)
+	- eroshare ([thanks](https://github.com/honestbleeps/Reddit-Enhancement-Suite/pull/2491) @Cervenka)
+	- iloopit.net ([thanks](https://github.com/honestbleeps/Reddit-Enhancement-Suite/pull/2494) @rapkin)
+	- pornbot.net ([thanks](https://github.com/honestbleeps/Reddit-Enhancement-Suite/pull/2272) Brad Mills @pornbotnet)
+	- Use reddit's streamable expando on post listings ([thanks](https://github.com/honestbleeps/Reddit-Enhancement-Suite/commit/3b3077c7eae91c61249d53f2b9ea36e11da988c2) @githue)
+- Added favicons for media hosts below expandos on post listings (thanks @andytuba)
+- Added "legacy" scrolling style for keyboard nav (thanks @erikdesjardins)
+- Changed "need to save settings" indicator to colorblind-friendly white (thanks @andytuba)
+- Stylesheet Loader can load external stylesheets, RESUpdates.css moved to cdn.redditenhancmeentsuite.com (thanks @andytuba)
+- /r/RESAnnouncements notifications are a little more ~~obnoxious~~ obvious (thanks @andytuba)
+- "Use subreddit stylesheet" checkbox can be styled more easily by moderators and does not appear on top of other UI elements ([thanks](https://github.com/honestbleeps/Reddit-Enhancement-Suite/pull/2768) @andytuba)
+- [Presets module](https://www.reddit.com/#!settings/presets) easier to find and safer to use (thanks @andytuba)
+
+### Bug Fixes
+- filteReddit
+	- Fix filters which apply to certain subreddits ([thanks](https://github.com/honestbleeps/Reddit-Enhancement-Suite/commit/53b9019784475f5a5ec6414b689ef8bc92405e95) @honestbleeps)
+	- Fix custom filtering by [title](https://github.com/honestbleeps/Reddit-Enhancement-Suite/commit/798ab78b54820a6b0bf1e7ec6f6adcc443489d17), by [score](https://github.com/honestbleeps/Reddit-Enhancement-Suite/commit/b55e3476b9af5c5e5b907442cc3b041f61111c48), and [when no score is available](https://github.com/honestbleeps/Reddit-Enhancement-Suite/issues/2721) (thanks @erikdesjardins, @andytuba)
+
+- Never Ending Reddit
+	- Fixed on modlog and comments pages (thanks @erikdesjardins)
+	- Removed jumping to page 2 or deeper after switching accounts ([thanks](https://github.com/honestbleeps/Reddit-Enhancement-Suite/commit/8892044bca9174b6aba39436b141df38faf493f4) @andytuba)
+	- Improved conserveMemory ([thanks](https://github.com/honestbleeps/Reddit-Enhancement-Suite/pull/2767) @erikdesjardins)
+- Show Media
+	- Fix gfycat control panel ordering ([thanks](https://github.com/honestbleeps/Reddit-Enhancement-Suite/commit/e6425f55381c43c2ab118241234ccda879cc7caa) @githue)
+	- Fix images linking to albums ([thanks](https://github.com/honestbleeps/Reddit-Enhancement-Suite/commit/ae7fb99aa9128b3085a755a0e8dac1e4b6939e48) @erikdesjardins)
+	- Show images on page 2 of "saved" links (thanks @erikdesjardins)
+- Upgraded /r/Dashboard search widget for new reddit search layout ([thanks](https://github.com/honestbleeps/Reddit-Enhancement-Suite/commit/8dc57d1a2b399dd7c5b99a4c050b98cb48d30840) @matheod)
+- Styling
+	- Fix subreddit shortcut drawers from extending below viewport ([thanks](https://github.com/honestbleeps/Reddit-Enhancement-Suite/commit/a8eba3b9f4e4bae8b258baae1958b5e406a16edc) @githue)
+	- Fix unnecessary scrollbars on new comments ([thanks](https://github.com/honestbleeps/Reddit-Enhancement-Suite/commit/3651dd4518c84a674f88e0e3868cb8c5d7d54162) @githue)
+	- Fix comments showing on top of sidebar ([thanks](https://github.com/honestbleeps/Reddit-Enhancement-Suite/pull/2676) @githue)
+	- Fix notifications hidden behind setting console ([thanks](https://github.com/honestbleeps/Reddit-Enhancement-Suite/commit/18026577e50e1d2a226c87ae78c6199cedb8c83a) @andytuba)
+- Selected Entry/Keyboard Nav
+	- fix automatically scrolling on pageload annoyingly (thanks @andytuba)
+	- fix navigating from posts to comments and inside inbox and a variety of broken keyboard shortcuts (thanks @erikdesjardins, @andytuba)
+	- fixed expandoss crolling the page awkwardly ([thanks](https://github.com/honestbleeps/Reddit-Enhancement-Suite/commit/84ed23f792f82de8eaee4c50170f8b231f3da7e9) @andyuba)
+	- Fix "open link" from keyboard nav not opening in the same tab per options ([thanks](https://github.com/honestbleeps/Reddit-Enhancement-Suite/pull/2764) @13steinj)
+- Fix User Info appearing when module disabled (thanks @andytuba)
+- Fixed new comment count for Japanese readers (thanks @kusotool)
+- Fixed vote weight being attributed to wrong author when voting from inbox or comments listings ([thanks](https://github.com/honestbleeps/Reddit-Enhancement-Suite/commit/7eac310848f6e3c1cd1ca25367ca87ba69689b36) @andytuba)
+- Fixed Stylesheet Loader loading stylesheets outside selected "only on..." subreddits
+- Don't run RES on .json pages ([thanks](https://github.com/honestbleeps/Reddit-Enhancement-Suite/commit/371da40a065deda890fc782ea9c184707b9619c2) @andytuba)
+- Fix [l=c] Single Click Opener from opening two comments pages for posts with non-Latin titles ([thanks](https://github.com/honestbleeps/Reddit-Enhancement-Suite/pull/2682) @kusotool, @andytuba)
+
+
 ### Housekeeping / Other
 
 - Converted changelog to Markdown (thanks @Ajedi32)
+- Upgrade firing events to outside extensions ([thanks](https://github.com/honestbleeps/Reddit-Enhancement-Suite/commit/73f414f19f657477548ce870e532f34780fd7d8a) @LordWingZero)
+- "New messages" event fired to [other extensions](/r/InboxRevamp) ([thanks](https://github.com/honestbleeps/Reddit-Enhancement-Suite/commit/bb2a85c417edc473164856d505432eb64a69a5e3) @andytuba)
+
 
 
 ## [v4.6.0](https://github.com/honestbleeps/Reddit-Enhancement-Suite/releases/tag/v4.6.0)
