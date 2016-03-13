@@ -6,7 +6,7 @@ Highlights:
 
 - Fixed automatic scrolling issues -- Selected Entry can be turned back on!
 - Added several new sites for expandos
-- Moved "CSS hotfix" stylesheet from reddit.com to redditenhancementsuite.com (potential privacy concern)
+- Moved "CSS hotfix" stylesheet from reddit.com to redditenhancementsuite.com[^*](https://www.reddit.com/r/Enhancement/wiki/about/privacy#wiki_external_assets "Potential privacy concern")
 - Fixed various issues with filteReddit
 
 ### New Features and Enhancements
