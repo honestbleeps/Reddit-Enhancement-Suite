@@ -46,9 +46,9 @@ a.madeVisible {
 	}
 
 	span {
-		padding: 8px;
+		padding: 6px;
 		vertical-align: middle;
-		font-size: 1.1em;
+		font-size: 1.2em;
 
 		&:hover {
 			background: rgba(255, 255, 255, .9);
@@ -62,10 +62,13 @@ a.madeVisible {
 			}
 		}
 
-		&.rotateRight {
-			&::after {
+		&.rotateRight::after {
 				content: '\F0B0';
-			}
 		}
+
+		&.imageLookup::after {
+				content: '\F178';
+		}
+
 	}
 }
