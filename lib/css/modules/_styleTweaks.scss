@@ -22,6 +22,10 @@ blockquote.twitter-tweet {
 			color: #551a8b;
 
 			.res-nightmode & {
+				color: hsl(0, 0%, 65%);
+			}
+
+			.res-nightmode.res-nightMode-coloredLinks & {
 				color: hsl(270, 50%, 65%);
 			}
 		}
