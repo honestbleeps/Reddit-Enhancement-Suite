@@ -1,34 +1,28 @@
-/* global require: false */
+/* eslint-disable import/no-unresolved */
 
 // suppress annoying strict warnings that cfx overrides and turns on
 // comment this line out for releases.
 // require('sdk/preferences/service').set('javascript.options.strict', false);
 
 // Import the APIs we need.
-const pageMod = require('sdk/page-mod');
-const Request = require('sdk/request').Request;
-const self = require('sdk/self');
-const tabs = require('sdk/tabs');
-const ss = require('sdk/simple-storage');
-const priv = require('sdk/private-browsing');
-const windows = require('sdk/windows').browserWindows;
-const viewFor = require('sdk/view/core').viewFor;
+import { PageMod } from 'sdk/page-mod';
+import { Request } from 'sdk/request';
+import self from 'sdk/self';
+import tabs from 'sdk/tabs';
+import ss from 'sdk/simple-storage';
+import priv from 'sdk/private-browsing';
+import { viewFor } from 'sdk/view/core';
+import { ActionButton } from 'sdk/ui/button/action';
 
-const localStorage = ss.storage;
-
-const { ToggleButton } = require('sdk/ui/button/toggle');
-let styleSheetButton;
+import { indexedDB } from 'sdk/indexed-db';
 
 // require chrome allows us to use XPCOM objects...
-const { Cc, Ci, Cu, components } = require('chrome');
+import { Cc, Ci, components } from 'chrome';
 const historyService = Cc['@mozilla.org/browser/history;1'].getService(Ci.mozIAsyncHistory);
 
 // Cookie manager for new API login
 const cookieManager = Cc['@mozilla.org/cookiemanager;1'].getService().QueryInterface(Ci.nsICookieManager2);
 components.utils.import('resource://gre/modules/NetUtil.jsm');
-
-// Preferences
-const prefs = Cc['@mozilla.org/preferences-service;1'].getService(Ci.nsIPrefBranch);
 
 // this function takes in a string (and optional charset, paseURI) and creates an nsURI object, which is required by historyService.addURI...
 function makeURI(aURL, aOriginCharset, aBaseURI) {
@@ -37,109 +31,460 @@ function makeURI(aURL, aOriginCharset, aBaseURI) {
 }
 
 const workers = [];
-function detachWorker(worker, workerArray) {
-	const index = workerArray.indexOf(worker);
+
+function onAttach() {
+	// prepend to array so the correct worker will be used when navigating forwards
+	// but all bets are off for going back (see workerFor() comments)
+	workers.unshift(this);
+}
+
+function onDetach() {
+	const index = workers.indexOf(this);
 	if (index !== -1) {
-		workerArray.splice(index, 1);
+		workers.splice(index, 1);
 	}
 }
 
-localStorage.getItem = function(key) {
-	return ss.storage[key];
-};
-localStorage.setItem = function(key, value) {
-	ss.storage[key] = value;
-};
-localStorage.removeItem = function(key) {
-	delete ss.storage[key];
-};
+function workerFor(tab) {
+	// important: one tab may have many workers associated with it
+	// that is, all workers in the tab's history are kept, and only detached when the tab is closed
+	// this means that if you visit the same url twice (independently) in one tab, there is no way to tell which worker should be used :(
+	const worker = workers.find(({ url, tab: { id } }) => id === tab.id && url === tab.url);
+	if (!worker) {
+		throw new Error(`Worker not found for tab with id: ${tab.id}, url: ${tab.url}`);
+	}
+	return worker;
+}
 
 const XHRCache = {
-	forceCache: false,
 	capacity: 250,
-	entries: {},
-	count: 0,
-	check: function(key) {
-		if (key in this.entries) {
-//			console.log('hit');
-			this.entries[key].hits++;
-			return this.entries[key].data;
-		} else {
-//			console.log('miss');
-			return null;
+	entries: new Map(),
+	check(key, maxAge = Infinity) {
+		const entry = this.entries.get(key);
+		if (entry && (Date.now() - entry.timestamp < maxAge)) {
+			entry.hits++;
+			return entry.data;
 		}
 	},
-	add: function(key, value) {
-		if (key in this.entries) {
-			return;
-		} else {
-//			console.log('add');
-			this.entries[key] = {data: value, timestamp: Date.now(), hits: 1};
-			this.count++;
+	set(key, value) {
+		let hits = 1;
+
+		if (this.entries.has(key)) {
+			hits = this.entries.get(key).hits;
 		}
-		if (this.count > this.capacity) {
+
+		this.entries.set(key, {
+			data: value,
+			timestamp: Date.now(),
+			hits
+		});
+
+		if (this.entries.size > this.capacity) {
 			this.prune();
 		}
 	},
-	prune: function() {
-		const now = Date.now();
-		const bottom = [];
-		for (let key in this.entries) {
-//			if (this.entries[key].hits === 1) {
-//				delete this.entries[key];
-//				this.count--;
-//				continue;
-//			}
-
-			//Weight by hits/age which is similar to reddit's hit/controversial sort orders
-			bottom.push({
-				key: key,
-				weight: this.entries[key].hits/(now - this.entries[key].timestamp)
-			});
-		}
-		bottom.sort(function(a, b){ return a.weight - b.weight; });
-		const count = this.count - Math.floor(this.capacity / 2);
-		for (let i = 0; i < count; i++) {
-			delete this.entries[bottom[i].key];
-			this.count--;
-		}
-//		console.log('prune');
+	delete(key) {
+		this.entries.delete(key);
 	},
-	clear: function() {
-		this.entries = {};
-		this.count = 0;
+	prune() {
+		const now = Date.now();
+		const top = Array.from(this.entries.entries())
+			.sort(([, a], [, b]) => {
+				const aWeight = a.hits / (now - a.timestamp);
+				const bWeight = b.hits / (now - b.timestamp);
+				return bWeight - aWeight; // in order of decreasing weight
+			})
+			.slice(0, (this.capacity / 2) | 0);
+
+		this.entries = new Map(top);
+	},
+	clear() {
+		this.entries.clear();
 	}
 };
-tabs.on('activate', function() {
-	// find this worker...
-	const worker = getActiveWorker();
-	if (worker) {
-		worker.postMessage({ requestType: 'getLocalStorage', message: localStorage });
-		worker.postMessage({ requestType: 'subredditStyle', message: 'refreshState' });
+
+const listeners = new Map();
+const waiting = new Map();
+let transaction = 0;
+
+/**
+ * @callback MessageListener
+ * @template T
+ * @param {*} data The message data.
+ * @param {Worker} worker The worker object of the sender.
+ * @returns {T|Promise<T, *>} The response data, optionally wrapped in a promise.
+ */
+
+/**
+ * Register a listener to be invoked whenever a message of `type` is received.
+ * Responses may be sent synchronously or asynchronously:
+ * If `callback` returns a non-promise value, a response will be sent synchronously.
+ * If `callback` returns a promise, a response will be sent asynchronously when it resolves.
+ * If it rejects, an invalid response will be sent to close the message channel.
+ * @param {string} type
+ * @param {MessageListener} callback
+ * @throws {Error} If a listener for `messageType` already exists.
+ * @returns {void}
+ */
+function addListener(type, callback) {
+	if (listeners.has(type)) {
+		throw new Error(`Listener for message type: ${type} already exists.`);
+	}
+	listeners.set(type, { callback });
+}
+
+/**
+ * Send a message to the content script via `worker`.
+ * @param {string} type
+ * @param {Worker} worker
+ * @param {*} [data]
+ * @returns {Promise<*, Error>} Rejects if an invalid response is received,
+ * resolves with the response data otherwise.
+ */
+function sendMessage(type, worker, data) {
+	++transaction;
+
+	worker.postMessage({ type, data, transaction });
+
+	return new Promise((resolve, reject) => waiting.set(transaction, { resolve, reject }));
+}
+
+function onMessage({ type, data, transaction, error, isResponse }) {
+	if (isResponse) {
+		if (!waiting.has(transaction)) {
+			throw new Error(`No response handler for type: ${type}, transaction: ${transaction} - this should never happen.`);
+		}
+
+		const handler = waiting.get(transaction);
+		waiting.delete(transaction);
+
+		if (error) {
+			handler.reject(new Error(`Error in foreground handler for type: ${type} - message: ${error}`));
+		} else {
+			handler.resolve(data);
+		}
+
+		return;
+	}
+
+	if (!listeners.has(type)) {
+		throw new Error(`Unrecognised message type: ${type}`);
+	}
+	const listener = listeners.get(type);
+
+	const sendResponse = ({ data, error }) => {
+		this.postMessage({ type, data, transaction, error, isResponse: true });
+	};
+
+	let response;
+
+	try {
+		response = listener.callback(data, this);
+	} catch (e) {
+		sendResponse({ error: e.message || e });
+		throw e;
+	}
+
+	if (response instanceof Promise) {
+		response
+			.then(data => sendResponse({ data }))
+			.catch(e => {
+				sendResponse({ error: e.message || e });
+				throw e;
+			});
+		return;
+	}
+	sendResponse({ data: response });
+}
+
+// Listeners
+
+addListener('readResource', filename =>
+	self.data.load(filename)
+);
+
+addListener('deleteCookies', cookies =>
+	cookies.forEach(({ name }) => cookieManager.remove('.reddit.com', name, '/', false))
+);
+
+addListener('ajax', ({ method, url, headers, data }) =>
+	// not using async/await here since the polyfill doesn't work with Firefox's backend
+	new Promise(resolve => {
+		const request = Request({
+			url,
+			onComplete: resolve,
+			headers,
+			content: data
+		});
+		if (method === 'POST') {
+			request.post();
+		} else {
+			request.get();
+		}
+	}).then(request => ({
+		status: request.status,
+		responseText: request.text
+	}))
+);
+
+// Circular references can't exist in storage, so we don't need to consider that
+// and only enumerable own properties are sent in messages
+function extend(target, source) {
+	for (const key in source) {
+		if (target[key] && source[key] && typeof target[key] === 'object' && typeof source[key] === 'object') {
+			extend(target[key], source[key]);
+		} else {
+			target[key] = source[key];
+		}
+	}
+	return target;
+}
+
+let db;
+
+{
+	const request = indexedDB.open('storage', 1);
+	request.onupgradeneeded = () => {
+		const db = request.result;
+		if (db.objectStoreNames.contains('storage')) {
+			db.deleteObjectStore('storage');
+		}
+		db.createObjectStore('storage', { keyPath: 'key' });
+	};
+	request.onsuccess = () => {
+		db = request.result;
+		runMigration();
+	};
+	request.onerror = ::console.error;
+
+	const MIGRATED_TO_INDEXEDDB = 'MIGRATED_TO_INDEXEDDB';
+
+	function runMigration() {
+		if (ss.storage[MIGRATED_TO_INDEXEDDB] !== MIGRATED_TO_INDEXEDDB) {
+			const transaction = db.transaction('storage', 'readwrite');
+
+			transaction.oncomplete = () => (ss.storage[MIGRATED_TO_INDEXEDDB] = MIGRATED_TO_INDEXEDDB);
+			transaction.onerror = ::console.error;
+
+			const store = transaction.objectStore('storage');
+
+			Object.keys(ss.storage).forEach(key => {
+				let value;
+				try {
+					// existing storage values are _usually_ stringified JSON, so try to parse it...
+					value = JSON.parse(ss.storage[key]);
+					console.log(key);
+				} catch (e) {
+					// ...but if not, fall back to the raw string
+					value = ss.storage[key];
+					console.warn(key);
+				}
+				store.put({ key, value });
+			});
+		}
+	}
+}
+
+addListener('storage', ([operation, key, value]) => {
+	switch (operation) {
+		case 'get':
+			return new Promise((resolve, reject) => {
+				const request = db.transaction('storage', 'readonly').objectStore('storage').get(key);
+				request.onsuccess = () => resolve(request.result ? request.result.value : null);
+				request.onerror = reject;
+			});
+		case 'set':
+			return new Promise((resolve, reject) => {
+				const request = db.transaction('storage', 'readwrite').objectStore('storage').put({ key, value });
+				request.onsuccess = () => resolve();
+				request.onerror = reject;
+			});
+		case 'patch':
+			return new Promise((resolve, reject) => {
+				const transaction = db.transaction('storage', 'readwrite');
+				transaction.oncomplete = () => resolve();
+				transaction.onerror = reject;
+				const store = transaction.objectStore('storage');
+				const request = store.get(key);
+				request.onsuccess = () => {
+					const extended = extend(request.result && request.result.value || {}, value);
+					store.put({ key, value: extended });
+				};
+			});
+		case 'deletePath':
+			return new Promise((resolve, reject) => {
+				const transaction = db.transaction('storage', 'readwrite');
+				transaction.oncomplete = () => resolve();
+				transaction.onerror = reject;
+				const store = transaction.objectStore('storage');
+				const request = store.get(key);
+				request.onsuccess = () => {
+					const stored = request.result.value;
+					value.split(',').reduce((obj, key, i, { length }) => {
+						if (i < length - 1) return obj[key];
+						delete obj[key];
+					}, stored);
+					store.put({ key, value: stored });
+				};
+			});
+		case 'delete':
+			return new Promise((resolve, reject) => {
+				const request = db.transaction('storage', 'readwrite').objectStore('storage').delete(key);
+				request.onsuccess = () => resolve();
+				request.onerror = reject;
+			});
+		case 'has':
+			return new Promise((resolve, reject) => {
+				const request = db.transaction('storage', 'readonly').objectStore('storage').openCursor(key);
+				request.onsuccess = () => resolve(!!request.result);
+				request.onerror = reject;
+			});
+		case 'keys':
+			return new Promise((resolve, reject) => {
+				const request = db.transaction('storage', 'readonly').objectStore('storage').openKeyCursor();
+				const keys = [];
+				request.onsuccess = () => {
+					const cursor = request.result;
+					if (cursor) {
+						keys.push(cursor.key);
+						cursor.continue();
+					} else {
+						resolve(keys);
+					}
+				};
+				request.onerror = reject;
+			});
+		case 'clear':
+			return new Promise((resolve, reject) => {
+				const request = db.transaction('storage', 'readwrite').objectStore('storage').clear();
+				request.onsuccess = () => resolve();
+				request.onerror = reject;
+			});
+		default:
+			throw new Error(`Invalid storage operation: ${operation}`);
 	}
 });
 
-function getActiveWorker() {
-	const tab = tabs.activeTab;
-	for (let i in workers) {
-		if (workers[i] && workers[i].tab && (tab.title === workers[i].tab.title)) {
-			return workers[i];
+const session = new Map();
+
+addListener('session', ([operation, key, value]) => {
+	switch (operation) {
+		case 'get':
+			return session.get(key);
+		case 'set':
+			session.set(key, value);
+			break;
+		case 'delete':
+			return session.delete(key);
+		case 'clear':
+			return session.clear();
+		default:
+			throw new Error(`Invalid session operation: ${operation}`);
+	}
+});
+
+addListener('XHRCache', ({ operation, key, value, maxAge }) => {
+	switch (operation) {
+		case 'set':
+			return XHRCache.set(key, value);
+		case 'check':
+			return XHRCache.check(key, maxAge);
+		case 'delete':
+			return XHRCache.delete(key);
+		case 'clear':
+			return XHRCache.clear();
+		default:
+			throw new Error(`Invalid XHRCache operation: ${operation}`);
+	}
+});
+
+const pageAction = ActionButton({
+	id: 'res-styletoggle',
+	label: 'toggle subreddit CSS',
+	icon: {
+		16: self.data.url('images/css-disabled-small.png'),
+		32: self.data.url('images/css-disabled.png')
+	},
+	disabled: true,
+	onClick() {
+		sendMessage('pageActionClick', workerFor(tabs.activeTab));
+	}
+});
+let destroyed = false;
+
+// since worker state is persisted, the page action state must be refreshed when navigating backwards or forwards
+tabs.on('pageshow', tab => tab.url.includes('reddit.com') && sendMessage('pageActionRefresh', workerFor(tab)));
+
+addListener('pageAction', ({ operation, state }, { tab }) => {
+	if (destroyed) return;
+
+	switch (operation) {
+		case 'show':
+			const onOff = state ? 'on' : 'off';
+			pageAction.state(tab, {
+				disabled: false,
+				icon: {
+					16: self.data.url(`images/css-${onOff}-small.png`),
+					32: self.data.url(`images/css-${onOff}.png`)
+				}
+			});
+			break;
+		case 'hide':
+			pageAction.state(tab, {
+				disabled: true,
+				icon: {
+					16: self.data.url('images/css-disabled-small.png'),
+					32: self.data.url('images/css-disabled.png')
+				}
+			});
+			break;
+		case 'destroy':
+			pageAction.destroy();
+			destroyed = true;
+			break;
+		default:
+			throw new Error(`Invalid pageAction operation: ${operation}`);
+	}
+});
+
+addListener('openNewTabs', ({ urls, focusIndex }, { tab }) => {
+	const isPrivate = priv.isPrivate(tab);
+	const nsWindow = viewFor(tab.window);
+	const nsTab = viewFor(tab);
+	urls.forEach((url, i) => {
+		if ('TreeStyleTabService' in nsWindow) {
+			nsWindow.TreeStyleTabService.readyToOpenChildTab(nsTab);
 		}
-	}
-	return null;
-}
+		tabs.open({
+			url,
+			isPrivate,
+			inBackground: i !== focusIndex
+		});
+	});
+});
 
-function openTab(options) {
-	const nsWindow = viewFor(tabs.activeTab.window);
-	if ('TreeStyleTabService' in nsWindow) {
-		const nsTab = viewFor(tabs.activeTab);
-		nsWindow.TreeStyleTabService.readyToOpenChildTab(nsTab);
-	}
+addListener('isPrivateBrowsing', (request, worker) => priv.isPrivate(worker));
 
-	tabs.open(options);
-}
+addListener('addURLToHistory', url => {
+	historyService.updatePlaces({
+		uri: makeURI(url),
+		visits: [{
+			transitionType: Ci.nsINavHistoryService.TRANSITION_LINK,
+			visitDate: Date.now() * 1000
+		}]
+	});
+});
 
-pageMod.PageMod({
+addListener('multicast', (request, worker) => {
+	const isPrivate = priv.isPrivate(worker);
+	return Promise.all(
+		workers
+			.filter(w => w !== worker && priv.isPrivate(w) === isPrivate)
+			.map(w => sendMessage('multicast', w, request))
+	);
+});
+
+PageMod({
 	include: ['*.reddit.com'],
 	contentScriptWhen: 'start',
 	contentScriptFile: [
@@ -152,14 +497,13 @@ pageMod.PageMod({
 		self.data.url('vendor/favico.js'),
 		self.data.url('vendor/jquery.tokeninput.js'),
 		self.data.url('vendor/HTMLPasteurizer.js'),
-		self.data.url('vendor/snuownd.js'),
+		self.data.url('vendor/snudown.js'),
 		self.data.url('core/utils.js'),
 		self.data.url('browsersupport.js'),
 		self.data.url('browsersupport-firefox.js'),
 		self.data.url('core/options.js'),
 		self.data.url('core/alert.js'),
 		self.data.url('core/migrate.js'),
-		self.data.url('core/storage.js'),
 		self.data.url('core/template.js'),
 		self.data.url('vendor/konami.js'),
 		self.data.url('vendor/gfycat.js'),
@@ -271,246 +615,13 @@ pageMod.PageMod({
 	],
 	contentStyleFile: [
 		self.data.url('css/res.css'),
+		self.data.url('vendor/players.css'),
 		self.data.url('vendor/guiders.css'),
 		self.data.url('vendor/tokenize.css')
 	],
-	onAttach: function(worker) {
-		// when a tab is activated, repopulate localStorage so that changes propagate across tabs...
-		workers.push(worker);
-		worker.on('detach', function() {
-			detachWorker(this, workers);
-		});
-		worker.on('message', function(request) {
-			let inBackground = prefs.getBoolPref('browser.tabs.loadInBackground'),
-				isPrivate, thisLinkURL;
-
-			switch (request.requestType) {
-				case 'readResource':
-					const fileData = self.data.load(request.filename);
-					worker.postMessage({ requestType: 'readResource', data: fileData, transaction: request.transaction });
-					break;
-				case 'deleteCookie':
-					cookieManager.remove('.reddit.com', request.cname, '/', false);
-					worker.postMessage({removedCookie: request.cname});
-					break;
-				case 'ajax':
-					const responseObj = {
-						XHRID: request.XHRID,
-						requestType: request.requestType
-					};
-					if (request.aggressiveCache || XHRCache.forceCache) {
-						const cachedResult = XHRCache.check(request.url);
-						if (cachedResult) {
-							responseObj.response = cachedResult;
-							worker.postMessage(responseObj);
-							return;
-						}
-					}
-					if (request.method === 'POST') {
-						Request({
-							url: request.url,
-							onComplete: function(response) {
-								responseObj.response = {
-									responseText: response.text,
-									status: response.status
-								};
-								//Only cache on HTTP OK and non empty body
-								if ((request.aggressiveCache || XHRCache.forceCache) && (response.status === 200 && response.text)) {
-									XHRCache.add(request.url, responseObj.response);
-								}
-								worker.postMessage(responseObj);
-							},
-							headers: request.headers,
-							content: request.data
-						}).post();
-					} else {
-						Request({
-							url: request.url,
-							onComplete: function(response) {
-								responseObj.response = {
-									responseText: response.text,
-									status: response.status
-								};
-								if ((request.aggressiveCache || XHRCache.forceCache) && (response.status === 200 && response.text)) {
-									XHRCache.add(request.url, responseObj.response);
-								}
-								worker.postMessage(responseObj);
-							},
-							headers: request.headers,
-							content: request.data
-						}).get();
-					}
-
-					break;
-				case 'singleClick':
-					inBackground = ((request.button === 1) || (request.ctrl === 1));
-					isPrivate = priv.isPrivate(windows.activeWindow);
-
-					// handle requests from singleClick module
-					if (request.openOrder === 'commentsfirst') {
-						// only open a second tab if the link is different...
-						if (request.linkURL !== request.commentsURL) {
-							openTab({url: request.commentsURL, inBackground: inBackground, isPrivate: isPrivate });
-						}
-						openTab({url: request.linkURL, inBackground: inBackground, isPrivate: isPrivate });
-					} else {
-						openTab({url: request.linkURL, inBackground: inBackground, isPrivate: isPrivate });
-						// only open a second tab if the link is different...
-						if (request.linkURL !== request.commentsURL) {
-							openTab({url: request.commentsURL, inBackground: inBackground, isPrivate: isPrivate });
-						}
-					}
-					worker.postMessage({status: 'success'});
-					break;
-				case 'keyboardNav':
-					inBackground = (request.button === 1);
-					isPrivate = priv.isPrivate(windows.activeWindow);
-
-					// handle requests from keyboardNav module
-					thisLinkURL = request.linkURL;
-					if (thisLinkURL.toLowerCase().substring(0, 4) !== 'http') {
-						thisLinkURL = (thisLinkURL.substring(0, 1) === '/') ? 'http://www.reddit.com' + thisLinkURL : location.href + thisLinkURL;
-					}
-					// Get the selected tab so we can get the index of it.  This allows us to open our new tab as the "next" tab.
-					openTab({url: thisLinkURL, inBackground: inBackground, isPrivate: isPrivate });
-					worker.postMessage({status: 'success'});
-					break;
-				case 'openLinkInNewTab':
-					inBackground = (request.focus !== true);
-					isPrivate = priv.isPrivate(windows.activeWindow);
-
-					thisLinkURL = request.linkURL;
-					if (thisLinkURL.toLowerCase().substring(0, 4) !== 'http') {
-						thisLinkURL = (thisLinkURL.substring(0, 1) === '/') ? 'http://www.reddit.com' + thisLinkURL : location.href + thisLinkURL;
-					}
-					// Get the selected tab so we can get the index of it.  This allows us to open our new tab as the "next" tab.
-					openTab({url: thisLinkURL, inBackground: inBackground, isPrivate: isPrivate });
-					worker.postMessage({status: 'success'});
-					break;
-				case 'getLocalStorage':
-					worker.postMessage({ requestType: 'getLocalStorage', message: localStorage });
-					break;
-				case 'saveLocalStorage':
-					for (let key in request.data) {
-						localStorage.setItem(key, request.data[key]);
-					}
-					localStorage.setItem('importedFromForeground', true);
-					worker.postMessage({ requestType: 'saveLocalStorage', message: localStorage });
-					break;
-				case 'localStorage':
-					switch (request.operation) {
-						case 'getItem':
-							worker.postMessage({status: true, value: localStorage.getItem(request.itemName)});
-							break;
-						case 'removeItem':
-							localStorage.removeItem(request.itemName);
-							// worker.postMessage({status: true, value: null});
-							break;
-						case 'setItem':
-							localStorage.setItem(request.itemName, request.itemValue);
-							break;
-					}
-					break;
-				case 'XHRCache':
-					switch (request.operation) {
-						case 'clear':
-							XHRCache.clear();
-							break;
-					}
-					break;
-				case 'pageAction':
-					const onoff = request.visible ? 'on' : 'off';
-					switch (request.action) {
-						case 'show':
-							if (!styleSheetButton) {
-								styleSheetButton = ToggleButton({
-									id: 'res-styletoggle',
-									label: 'toggle subreddit CSS',
-									disabled: false,
-									checked: request.visible,
-									icon: {
-										'16': self.data.url('images/css-' + onoff + '-small.png'),
-										'32': self.data.url('images/css-' + onoff + '.png')
-									},
-									onChange: function(state) {
-										const worker = getActiveWorker();
-										worker.postMessage({
-											requestType: 'subredditStyle',
-											toggle: state.checked
-										});
-									}
-								});
-							} else {
-								styleSheetButton.state('tab', {
-									label: 'toggle subreddit CSS',
-									icon: {
-										'16': self.data.url('images/css-' + onoff + '-small.png'),
-										'32': self.data.url('images/css-' + onoff + '.png')
-									},
-									disabled: false,
-									checked: request.visible
-								});
-							}
-							break;
-						case 'stateChange':
-							if (styleSheetButton) {
-								styleSheetButton.state('tab', {
-									label: 'toggle subreddit CSS',
-									icon: {
-										'16': self.data.url('images/css-' + onoff + '-small.png'),
-										'32': self.data.url('images/css-' + onoff + '.png')
-									},
-									disabled: false,
-									checked: request.visible
-								});
-							}
-							break;
-						case 'disable':
-							if (styleSheetButton) {
-								styleSheetButton.state('tab', {
-									label: 'toggle subreddit CSS (must be on a subreddit)',
-									disabled: true,
-									checked: true
-								});
-							}
-							break;
-						case 'hide':
-							if (styleSheetButton) {
-								styleSheetButton.destroy();
-							}
-							break;
-					}
-					break;
-				case 'addURLToHistory':
-					isPrivate = priv.isPrivate(windows.activeWindow);
-					if (isPrivate) {
-						// do not add to history if in private browsing mode!
-						return false;
-					}
-					const uri = makeURI(request.url);
-					historyService.updatePlaces({
-						uri: uri,
-						visits: [{
-							transitionType: Ci.nsINavHistoryService.TRANSITION_LINK,
-							visitDate: Date.now() * 1000
-						}]
-					});
-					break;
-				case 'multicast':
-					isPrivate = priv.isPrivate(worker);
-					workers
-						.filter(function(w) {
-							return (w !== worker) && (priv.isPrivate(w) === isPrivate);
-						})
-						.forEach(function(worker) {
-							worker.postMessage(request);
-						});
-
-					break;
-				default:
-					worker.postMessage({status: 'unrecognized request type'});
-					break;
-			}
-		});
+	onAttach(worker) {
+		onAttach.call(worker); // eslint-disable-line prefer-reflect
+		worker.on('detach', onDetach);
+		worker.on('message', onMessage);
 	}
 });

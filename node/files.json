@@ -3,15 +3,15 @@
 		"Hogan": "vendor/hogan-3.0.2.js"
 	},
 	"core": [
+		"vendor/polyfill.min.js",
 		"mocks.js",
+	  	"reddit_enhancement_suite.user.js",
+		"core/utils.js",
 		"browsersupport.js",
 		"browsersupport-node.js",
-		"core/utils.js",
-		"core/storage.js",
 		"core/options.js",
 		"core/migrate.js",
-		"core/template.js",
-		"reddit_enhancement_suite.user.js"
+		"core/template.js"
 	],
 	"modules": [
 		"modules/spoilerTags.js",

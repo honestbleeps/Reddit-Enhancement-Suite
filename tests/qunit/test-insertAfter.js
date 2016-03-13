@@ -1,41 +1,40 @@
+/* eslint-env qunit */
 
-test('insertAfter: Inserts a DOM element after a reference element and before the reference\'s next sibling', function() {
+test('insertAfter: Inserts a DOM element after a reference element and before the reference\'s next sibling', () => {
 	expect(7);
-	var $fixture = $('#qunit-fixture');
 
-	var referenceNode = document.createElement('div');
+	const referenceNode = document.createElement('div');
 	referenceNode.id = 'referenceNode';
-	var referenceNode_sibling = document.createElement('div');
-	referenceNode_sibling.id = 'referenceNode_sibling';
-	var newNode = document.createElement('div');
+	const referenceNodeSibling = document.createElement('div');
+	referenceNodeSibling.id = 'referenceNode_sibling';
+	const newNode = document.createElement('div');
 	newNode.id = 'newNode';
 
-	var fix = document.getElementById('qunit-fixture');
+	const fix = document.getElementById('qunit-fixture');
 	fix.appendChild(referenceNode);
-	fix.appendChild(referenceNode_sibling);
+	fix.appendChild(referenceNodeSibling);
 
 	equal(fix.childNodes.length, 2);
 	equal(fix.firstChild, referenceNode);
-	equal(fix.lastChild, referenceNode_sibling);
+	equal(fix.lastChild, referenceNodeSibling);
 
 	RESUtils.insertAfter(referenceNode, newNode);
 
 	equal(fix.childNodes.length, 3);
 	equal(fix.firstChild, referenceNode);
 	equal(referenceNode.nextSibling, newNode);
-	equal(newNode.nextSibling, referenceNode_sibling);
+	equal(newNode.nextSibling, referenceNodeSibling);
 });
 
-test('insertAfter: Can insert a DOM element after a reference element even if reference is only child', function() {
+test('insertAfter: Can insert a DOM element after a reference element even if reference is only child', () => {
 	expect(5);
-	var $fixture = $('#qunit-fixture');
 
-	var referenceNode = document.createElement('div');
+	const referenceNode = document.createElement('div');
 	referenceNode.id = 'referenceNode';
-	var newNode = document.createElement('div');
+	const newNode = document.createElement('div');
 	newNode.id = 'newNode';
 
-	var fix = document.getElementById('qunit-fixture');
+	const fix = document.getElementById('qunit-fixture');
 	fix.appendChild(referenceNode);
 
 	equal(fix.childNodes.length, 1);
@@ -48,13 +47,12 @@ test('insertAfter: Can insert a DOM element after a reference element even if re
 	equal(fix.lastChild, newNode);
 });
 
-test('insertAfter: Cannot insert a DOM element if reference element has no parent', function() {
+test('insertAfter: Cannot insert a DOM element if reference element has no parent', () => {
 	expect(3);
-	var $fixture = $('#qunit-fixture');
 
-	var referenceNode = document.createElement('div');
+	const referenceNode = document.createElement('div');
 	referenceNode.id = 'referenceNode';
-	var newNode = document.createElement('div');
+	const newNode = document.createElement('div');
 	newNode.id = 'newNode';
 
 	equal(document.getElementById('newNode'), null);
@@ -65,12 +63,11 @@ test('insertAfter: Cannot insert a DOM element if reference element has no paren
 	equal(document.getElementById('newNode'), null);
 });
 
-test('insertAfter: Cannot insert a DOM element if reference element is undefined', function() {
+test('insertAfter: Cannot insert a DOM element if reference element is undefined', () => {
 	expect(4);
-	var $fixture = $('#qunit-fixture');
 
-	var referenceNode = null;
-	var newNode = document.createElement('div');
+	const referenceNode = null;
+	const newNode = document.createElement('div');
 	newNode.id = 'newNode';
 
 	equal(document.getElementById('newNode'), null);

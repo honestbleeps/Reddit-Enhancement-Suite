@@ -1,48 +1,23 @@
 /* eslint-env node */
+/* eslint-disable import/no-unresolved */
 /* exported location, document, sessionStorage, alert */
 
-var MockBrowser = require('mock-browser').mocks.MockBrowser;
-var mock = new MockBrowser();
-var $ = require('jquery')({ document: mock.getDocument() });
+import jsdom from 'jsdom';
+import jQuery from 'jquery';
 
+export const document = jsdom.jsdom(undefined, { url: 'https://www.reddit.com/' });
+export const window = document.defaultView;
+export const location = window.location;
+export const DOMParser = window.DOMParser;
 
+export const $ = jQuery(window);
 
-var location = {
-	'hash': '',
-	'search': '',
-	'pathname': '/',
-	'port': '',
-	'hostname': 'www.reddit.com',
-	'host': 'www.reddit.com',
-	'protocol': 'https:',
-	'origin': 'https://www.reddit.com',
-	'href': 'https://www.reddit.com/',
-	'ancestorOrigins': {}
-};
-
-var document = {
-	location: location,
-	createElement: function(tagName) {
-		return {
-			tagName: tagName,
-			style: {}
-		};
-	}
-};
-
-var sessionStorage = {
-	getItem: function() {
+export const sessionStorage = {
+	getItem() {
 		return undefined;
 	}
 };
 
-function alert(msg) {
+export function alert(msg) {
 	console.error('[ALERT]', msg);
 }
-
-exports.location = location;
-exports.document = document;
-exports.sessionStorage = sessionStorage;
-exports.DOMParser = require('xmldom').DOMParser;
-exports.alert = alert;
-exports.$ = $;
