@@ -35,7 +35,10 @@ Highlights:
 - filteReddit
 	- Fix filters which apply to certain subreddits ([thanks](https://github.com/honestbleeps/Reddit-Enhancement-Suite/commit/53b9019784475f5a5ec6414b689ef8bc92405e95) @honestbleeps)
 	- Fix custom filtering by [title](https://github.com/honestbleeps/Reddit-Enhancement-Suite/commit/798ab78b54820a6b0bf1e7ec6f6adcc443489d17), by [score](https://github.com/honestbleeps/Reddit-Enhancement-Suite/commit/b55e3476b9af5c5e5b907442cc3b041f61111c48), and [when no score is available](https://github.com/honestbleeps/Reddit-Enhancement-Suite/issues/2721) (thanks @erikdesjardins, @andytuba)
-
+- Nightmode
+	- Removed filters from post thumbnails so subreddit moderators can style them ([thanks](https://github.com/honestbleeps/Reddit-Enhancement-Suite/commit/b54d50e59a3b0bcfa0eb2d08113250abdba0a58f) @githue)
+	- Fixed nightmode on report form and rules page ([thanks](https://github.com/honestbleeps/Reddit-Enhancement-Suite/commit/3408c7b45ffa450513dd375a4c4fcd3808297505) @githue)
+	- Fixed sidebar toggles white background (thanks @andytuba)
 - Never Ending Reddit
 	- Fixed on modlog and comments pages (thanks @erikdesjardins)
 	- Removed jumping to page 2 or deeper after switching accounts ([thanks](https://github.com/honestbleeps/Reddit-Enhancement-Suite/commit/8892044bca9174b6aba39436b141df38faf493f4) @andytuba)
