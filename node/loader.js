@@ -1,14 +1,16 @@
 /* eslint-env node */
 /* eslint-disable import/no-unresolved */
 
-import fs from 'fs';
+import 'babel-polyfill';
+
 import _eval from 'eval';
+import _yargs from 'yargs';
+import equals from 'deep-equal';
+import files from './files.json'; // eslint-disable-line
+import fs from 'fs';
+import path from 'path';
 import requireNew from 'require-new';
 
-import files from './files.json'; // eslint-disable-line
-import equals from 'deep-equal';
-
-import _yargs from 'yargs';
 const yargs = _yargs
 	.count('verbose')
     .alias('v', 'verbose')
@@ -42,7 +44,7 @@ for (const section in files) {
 	}
 }
 function importFile(filename, key) {
-	filename = `lib/${filename}`;
+	filename = path.join(__dirname, 'lib/', filename);
 	const contents = fs.readFileSync(filename, 'utf8');
 	DEBUG('Loading', filename, key ? `as ${key}` : '');
 	const exports = _eval(contents, filename, {}, true);
@@ -59,7 +61,7 @@ function importFile(filename, key) {
 }
 
 if (yargs.storage) {
-	RESEnvironment._storage = require(`./storage/${yargs.storage}.json`);
+	RESEnvironment._storage = require(`./storage/${yargs.storage}.json`); // eslint-disable-line global-require
 	INFO('Loaded storage from', yargs.storage, ' - loaded ', Object.getOwnPropertyNames(RESEnvironment._storage).length, 'items');
 } else {
 	INFO('Using empty storage');
