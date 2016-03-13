@@ -62,15 +62,20 @@
 	border: 1px solid #c7c7c7;
 	border-radius: 3px;
 	padding: 3px 0;
+
+	.gearIcon {
+		float: right;
+		margin-right: .5em;
+	}
 }
 
 // hide next/prev page and random subreddit indicators
-.res-ner-listing div.nav-buttons {
-	display: none;
-}
-
-.res-ner-listing .nav-buttons .nextprev {
-	display: none;
+.res-ner-listing {
+	~ .nextprev, // for /about/log
+	div.nav-buttons,
+	.nav-buttons .nextprev {
+		display: none;
+	}
 }
 
 .NERdupe p.title::after {

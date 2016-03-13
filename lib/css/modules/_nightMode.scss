@@ -190,7 +190,8 @@
 
 	.wiki-page .wiki-page-content .md.wiki > .toc ul,
 	.tabmenu li a,
-	.tabmenu li.selected a {
+	.tabmenu li.selected a,
+	#report form {
 		background-color: hsl(0, 0%, 15%);
 	}
 
@@ -330,12 +331,6 @@
 		color: #eee;
 	}
 
-	#report form {
-		background-color: rgb(76, 61, 61);
-	}
-
-	.reason-prompt,
-	.report-action-form li,
 	.rulespage .example,
 	#userTaggerTable th,
 	#newCommentsTable th,
@@ -346,8 +341,7 @@
 	.unfriend-button .option,
 	.RESDashboardComponent .widgetPath,
 	.entry .buttons li.reported-stamp,
-	.pretty-button,
-	ul.report-reasons {
+	.pretty-button {
 		color: #000;
 	}
 
@@ -405,16 +399,8 @@
 	}
 
 	.expando-button {
-		filter: grayscale(100%) invert(80%);
-	}
-
-	// from white & blue to black and red-ish
-	&.res-showImages-highlightNSFWButton .thing.over18 .expando-button {
-		filter: hue-rotate(-40deg) invert(80%) brightness(70%) saturate(300%);
-
-		&::before {
-			content: none;
-		}
+		opacity: .8;
+		background-color: transparent;
 	}
 
 	.RESdupeimg {
@@ -458,12 +444,6 @@
 	.content.submit .roundfield,
 	.traffic-table tr:nth-of-type(even) {
 		background-color: #181818;
-	}
-
-	.report-form {
-		background-color: #666;
-		color: #ccc;
-		border-color: #888;
 	}
 
 	.md code,
@@ -575,7 +555,11 @@
 	}
 
 	.thing .title {
-		color: hsl(210, 60%, 60%);
+		color: hsl(0, 0%, 87%);
+
+		.res-nightMode-coloredLinks & {
+			color: hsl(210, 60%, 60%);
+		}
 	}
 
 	.tagline a {
@@ -589,7 +573,12 @@
 	.thing .title:visited,
 	.combined-search-page .search-result a:visited,
 	.combined-search-page .search-result a:visited > mark {
-		color: hsl(270, 50%, 65%); // see also _styleTweaks.scss
+		// see also _styleTweaks.scss visitedStyle
+		color: hsl(0, 0%, 65%);
+
+		.res-nightMode-coloredLinks & {
+			color: hsl(270, 50%, 65%);
+		}
 	}
 
 	.flair-settings ~ .tabpane-content {
@@ -792,7 +781,8 @@
 	.liveupdate-listing li.liveupdate:hover time,
 	.spam .domain,
 	.spam .domain a,
-	.hover-bubble.multi-selector strong {
+	.hover-bubble.multi-selector strong,
+	.subreddit-rules-page .md-container .md .subreddit-rule-description {
 		color: inherit;
 	}
 
@@ -936,7 +926,8 @@
 	#BigEditor .markdownEditor a,
 	#BigEditor .markdownEditor .RESMacroDropdownTitle,
 	#REScommentSubToggle,
-	#alert_message {
+	#alert_message,
+	#report-action-form {
 		color: #ccc;
 	}
 
@@ -1017,10 +1008,6 @@
 		color: rgb(255, 255, 255);
 	}
 
-	.report-action-form {
-		background-color: #dad0b3;
-	}
-
 	.letter-body p,
 	#gold-letter h1,
 	#about-gold h1,
@@ -1053,9 +1040,8 @@
 		border-bottom-color: #aaa;
 	}
 
-	.thumbnail.self,
 	.guiders_arrow {
-		filter: invert(100%) grayscale(100%);
+		opacity: .5;
 	}
 
 	.white-field,
@@ -1065,7 +1051,9 @@
 	.instructions,
 	.linefield .delete-field,
 	#pref-delete .delete-field,
-	.contact-us-page .details li {
+	.contact-us-page .details li,
+	.subreddit-report-form input:disabled,
+	.action-form input:disabled {
 		background-color: transparent;
 	}
 
@@ -1152,6 +1140,8 @@
 		background-color: rgb(60, 60, 60);
 	}
 
+	// Affects RES console header img.
+	// Subreddit stylesheets can't override filter, so we only use when it won't affect them.
 	#RESLogo {
 		filter: invert(79%) grayscale(100%);
 	}
@@ -1212,25 +1202,33 @@
 		color: rgb(150, 150, 150);
 	}
 
-	.toggleButton .toggleOff,
-	.toggleButton .toggleOn {
-		color: rgba(255, 255, 255, .8);
-		border-color: rgb(60, 60, 60);
-	}
+	.toggleButton {
+		.toggleOff,
+		.toggleOn,
+		&.reverseToggleButton:not(.enabled) .toggleOff,
+		&.reverseToggleButton:not(.enabled) .toggleOn {
+			color: rgba(255, 255, 255, .8);
+			border-color: rgb(60, 60, 60);
+		}
 
-	.toggleButton:not(.enabled) .toggleOn,
-	.toggleButton.enabled .toggleOff {
-		color: rgb(60, 60, 60);
-		border-color: rgb(60, 60, 60);
-		background-color: rgb(40, 40, 40);
-	}
+		&:not(.enabled) .toggleOn,
+		&.enabled .toggleOff,
+		&.reverseToggleButton.enabled .toggleOn,
+		&.reverseToggleButton:not(.enabled) .toggleOff {
+			color: rgb(60, 60, 60);
+			border-color: rgb(60, 60, 60);
+			background: rgb(40, 40, 40);
+		}
 
-	.toggleButton.enabled .toggleOn {
-		background: linear-gradient(to right, rgb(37, 69, 107), rgb(40, 40, 40));
-	}
+		&.enabled .toggleOn,
+		&.reverseToggleButton:not(.enabled) .toggleOn {
+			background: linear-gradient(to right, rgb(37, 69, 107), rgb(40, 40, 40));
+		}
 
-	.toggleButton:not(.enabled) .toggleOff {
-		background: linear-gradient(to left, rgb(136, 38, 38), rgb(40, 40, 40));
+		&:not(.enabled) .toggleOff,
+		&.reverseToggleButton.enabled .toggleOff {
+			background: linear-gradient(to left, rgb(136, 38, 38), rgb(40, 40, 40));
+		}
 	}
 
 	.link .rank {
@@ -1273,7 +1271,8 @@
 		background-color: inherit;
 	}
 
-	#alert_message {
+	#alert_message,
+	#report-action-form {
 		border-color: hsl(0, 0%, 25%);
 		background-color: hsl(0, 0%, 15%);
 	}
@@ -1289,5 +1288,9 @@
 		.bubble::after {
 			border-right-color: black;
 		}
+	}
+
+	.subreddit-rule-item:hover {
+		background-color: hsl(0, 0%, 17%);
 	}
 }

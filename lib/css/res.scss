@@ -341,21 +341,10 @@ body.res-console-open {
 	}
 }
 
-// Allow textarea to be any width without disappearing.
-body.wiki-page #editform,
-.comment form.usertext {
-	overflow: auto; // Same as top-level comment form on vanilla reddit
-}
-
 div.usertext-edit {
 	width: auto;
 	max-width: 500px;
 	padding: 0;
-}
-
-// Correct reddit's miscalculation of textarea width when editing a comment.
-.usertext-body > .md {
-	padding-right: 1px;
 }
 
 .usertext-edit .md,
@@ -697,29 +686,34 @@ div.usertext-edit {
 		border-radius: 0 3px 3px 0;
 	}
 
-	&:not(.enabled) .toggleOn {
+	&:not(.enabled) .toggleOn,
+	&.reverseToggleButton.enabled .toggleOn {
 		background-color: #ddd;
 		color: #636363;
 	}
 
-	&:not(.enabled) .toggleOff {
+	&:not(.enabled) .toggleOff,
+	&.reverseToggleButton.enabled .toggleOff {
 		background-color: #d02020;
 		color: #fff;
 		font-weight: bolder;
 	}
 
-	&.enabled .toggleOn {
+	&.enabled .toggleOn,
+	&.reverseToggleButton:not(.enabled) .toggleOn {
 		background-color: #107ac4;
 		color: #fff;
 		font-weight: bolder;
 	}
 
-	&.enabled .toggleOff {
+	&.enabled .toggleOff,
+	&.reverseToggleButton:not(.enabled) .toggleOff {
 		background-color: #ddd;
 		color: #636363;
 	}
 
-	&::before {
+	&::before,
+	&.reverseToggleButton.enabled::before {
 		content: ' ';
 		position: absolute;
 		top: 50%;
@@ -733,7 +727,8 @@ div.usertext-edit {
 		right: 1px;
 	}
 
-	&.enabled::before {
+	&.enabled::before,
+	&.reverseToggleButton:not(.enabled)::before {
 		border-left-width: 5px;
 		border-right-width: 0;
 		left: 1px;
@@ -830,7 +825,7 @@ div.usertext-edit {
 		height: 8px;
 		width: 8px;
 		border-radius: 100%;
-		background: #66EE11;
+		background: white;
 	}
 
 	&.optionsSaved::before {
@@ -1113,6 +1108,10 @@ div.usertext-edit {
 
 	strong {
 		font-weight: bolder;
+	}
+
+	.RESNotificationCTA {
+		margin: 1.5em 0 0;
 	}
 }
 
@@ -1456,6 +1455,25 @@ img {
 	a.madeVisible {
 		display: inline-block;
 		overflow: hidden;
+	}
+}
+
+.res-expando-siteAttribution {
+	.madeVisible > & {
+		clear: left;
+		margin: .5em;
+
+		a {
+			display: block;
+		}
+	}
+
+	a {
+		color: inherit;
+	}
+
+	img {
+		max-height: 20px;
 	}
 }
 
