@@ -7,7 +7,7 @@
 - Converted changelog to Markdown (thanks @Ajedi32)
 
 
-## v4.6.0
+## [v4.6.0](https://github.com/honestbleeps/Reddit-Enhancement-Suite/releases/tag/v4.6.0)
 
 ### New Features and Enhancements
 
@@ -142,7 +142,7 @@
 - Big thanks to @allthefoxes and others for maintaining this changelog.
 - A [few](http://i.imgur.com/s4XgqRN.png) [typo](http://i.imgur.com/1oTVuEX.png) [commits](http://i.imgur.com/DC6svMP.png) [as](http://i.imgur.com/H5TJPnD.png) [always](http://i.imgur.com/yGrByoR.png) - [and](http://i.imgur.com/FkfNwcc.png) [these](http://i.imgur.com/PJSJCru.png) too.
 
-## v4.5.4
+## [v4.5.4](https://github.com/honestbleeps/Reddit-Enhancement-Suite/releases/tag/v4.5.4)
 
 ### Bug Fixes
 
@@ -161,7 +161,7 @@
 - "submit an issue" wizard text re-ordered to ask user questions upfront and provide specific suggestions for troubleshooting info (thanks @andytuba)
 - 4.5.3 changelog and hugs added to repo (thanks @KamranMackey)
 
-## v4.5.3
+## [v4.5.3](https://github.com/honestbleeps/Reddit-Enhancement-Suite/releases/tag/v4.5.3)
 
 ### New Features and Enhancements
 
@@ -235,7 +235,7 @@
 	- And a few hugs too!
 
 
-## v4.5.2
+## [v4.5.2](https://github.com/honestbleeps/Reddit-Enhancement-Suite/releases/tag/v4.5.2)
 
 ### New features
 
@@ -276,7 +276,7 @@
 - ... and as always, various code cleanup and other minor fixes / performance enhancements.
 
 
-## v4.5.1
+## [v4.5.1](https://github.com/honestbleeps/Reddit-Enhancement-Suite/releases/tag/v4.5.1)
 
 ### New features
 
@@ -334,7 +334,7 @@
 - ... and as always, various code cleanup and other minor fixes / performance enhancements.
 
 
-## v4.5.0.2
+## [v4.5.0.2](https://github.com/honestbleeps/Reddit-Enhancement-Suite/releases/tag/v4.5.0.2)
 
 ### New features
 
@@ -356,14 +356,14 @@
 - Fix "sort comments temporaily" (thankns @matheod)
 
 
-## v4.5.0.1
+## [v4.5.0.1](https://github.com/honestbleeps/Reddit-Enhancement-Suite/releases/tag/v4.5.0.1)
 
 - Fixed a couple of issues with night mode coloring
 - Fixed a few issues with "use subreddit stylesheet" for some users
 - Various other small / emergency bug fixes
 
 
-## v4.5.0
+## [v4.5.0](https://github.com/honestbleeps/Reddit-Enhancement-Suite/releases/tag/v4.5.0.0)
 
 ### New features
 
@@ -544,7 +544,7 @@
 - Yet more Opera 12.* specific tweaks to regain functionality in Opera
 
 
-## v4.3.0.3
+## [v4.3.0.3](https://github.com/honestbleeps/Reddit-Enhancement-Suite/releases/tag/v4.3.0.3)
 
 ### New features
 
