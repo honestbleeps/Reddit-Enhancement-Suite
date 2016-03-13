@@ -2,7 +2,7 @@
 
 // Safari has a ridiculous bug that causes it to lose access to safari.self.tab if you click the back button.
 // this stupid one liner fixes that.
-window.onunload = () => { /* empty */ };
+window.onunload = () => {};
 
 // since safari's built in extension stylesheets are treated as user stylesheets,
 // we can't inject them that way.  That makes them "user stylesheets" which would make
@@ -133,7 +133,7 @@ window.onunload = () => { /* empty */ };
 		RESEnvironment.ajax({ url: safari.extension.baseURI + filename });
 
 	RESEnvironment.deleteCookies = (...cookieNames) => {
-		cookieNames.forEach(cookieName => document.cookie = `${cookieName}=null;expires=${Date.now()}; path=/;domain=reddit.com`);
+		cookieNames.forEach(cookieName => (document.cookie = `${cookieName}=null;expires=${Date.now()}; path=/;domain=reddit.com`));
 		return Promise.resolve();
 	};
 

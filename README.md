@@ -38,12 +38,9 @@ Thinking about contributing to RES? Awesome! We just ask that you follow a few s
   - please use spaces in your `if` statements, e.g. `if (foo === bar)`, not `if(foo===bar)`
   - please use single quotes `'` and not double quotes `"` for strings
   - please comment your code!
-  - please consider using the `gulp travis` command ([see below](#details-and-advanced-usage)) to verify your code style
+  - please consider using `npm run lint` ([see below](#details-and-advanced-usage)) to verify your code style
 
-4. If you decide to add support for another media hosting site to RES, check out [lib/modules/hosts/example.js](https://github.com/honestbleeps/Reddit-Enhancement-Suite/blob/master/lib/modules/hosts/example.js). Please be sure that they support [CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) so the sites do not need to be added as additional permissions, which has caused [headaches in the past](https://www.reddit.com/r/Enhancement/comments/1jskcm/announcement_chrome_users_did_your_res_turn_off/).
-
-5. If you decide to add a new module, check out [lib/modules/example.js](https://github.com/honestbleeps/Reddit-Enhancement-Suite/blob/master/lib/modules/example.js). To add the module to the browser manifests, use `gulp add-module --file module.js` (replace `module.js` with your filename).
-
+4. If you're adding new modules or hosts, [see below](#adding-new-files).
 
 ## Project structure
 
@@ -51,17 +48,18 @@ Thinking about contributing to RES? Awesome! We just ask that you follow a few s
 
   - `README.md` – YOU ARE HERE, unless you're browsing on GitHub
   - `changelog.txt` – self-explanatory
-  - `gulpfile.js` - build script
+  - `gulpfile.babel.js` - build script
   - `package.json` – package info, dependencies
   - `lib/` – all RES code
   - `lib/core/` – core RES code
   - `lib/modules/` – RES modules
   - `lib/vendor/` – RES vendor libraries
-  - `Chrome/` – Chrome-specific RES files
-  - `Firefox/` – Firefox-specific RES files
-  - `Safari/` – Safari-specific RES files
+  - `chrome/` – Chrome-specific RES files
+  - `firefox/` – Firefox-specific RES files
+  - `safari/` – Safari-specific RES files
   - `dist/` - build output
-  - `tests/` – RES tests, currently unused
+  - `tests/` – integration tests, currently unused
+  - `**/__tests__` - unit tests
 
 ##### Chrome files
 
@@ -88,11 +86,10 @@ First time installation:
 
 1. Install [node.js](http://nodejs.org) (version 4+).
 1. Install [Python 2](https://www.python.org/downloads/) (*not* version 3).
-1. Run `npm install -g gulp`.
 1. Navigate to your RES folder.
 1. Run `npm install`.
 
-Once done, you can build the extension by running `gulp`. This will also start a watch task that will rebuild RES when you make changes (see [Advanced Usage](#details-and-advanced-usage) for more details). If you're having issues with building the extension, try uninstalling global `gulp` (`npm uninstall -g gulp`) and reinstalling it.
+Once done, you can build the extension by running `npm start`. This will also start a watch task that will rebuild RES when you make changes (see [Advanced Usage](#details-and-advanced-usage) for more details).
 
 To load the extension into your browser, see [the sections below](#building-in-chrome).
 
@@ -102,25 +99,23 @@ JavaScript files in `lib/` (except `lib/vendor/`) will be compiled with [Babel](
 
 Sass (`.scss`) files in `lib/` will be compiled with [Sass](http://sass-lang.com/) and post-processed with [Autoprefixer](https://github.com/postcss/autoprefixer).
 
-**`gulp`** will run `gulp clean` and `gulp watch` in sequence.
+**`npm start [-- <browsers>]`** will clean `dist/`, then build RES (dev mode), and start a watch task that will rebuild RES when you make changes. Only changed files will be rebuilt.
 
-**`gulp clean`** will delete the build output subdirectories of the `dist/` directory.
+**`npm run once [-- <browsers>]`** will clean `dist/`, then build RES (dev mode) a single time.
 
-**`gulp build`** will build RES, copying the resultant files into the `dist/` directory. It is recommended to run `gulp clean` first.
+**`npm run build [-- <browsers>]`** will clean `dist/`, then build RES (release mode). Each build output will be compressed to a .zip file in `dist/zip/`.
 
-**`gulp watch`** will run `gulp build`, then re-run it when anything changes. Only changed files will be rebuilt.
+`<browsers>` is a comma-separated list of browsers to target, e.g. `chrome,firefox,safari,node`. By default, all will be targeted.
 
-**`gulp add-module --file module.js`** will add `module.js`, a new module, to the manifest for each browser.
+**`npm run add-module -- module.js`** will add `module.js`, a new module, to the manifest for each browser.
 
-**`gulp add-host --file hostname.js`** will add `hostname.js`, a new media host, to the manifest for each browser.
+**`npm run add-host -- hostname.js`** will add `hostname.js`, a new media host, to the manifest for each browser.
 
-**`gulp zip --zipdir /path/to/zip/directory`** will compress the build folders in `dist/` into .zip files. If no `--zipdir` is specified, the .zip files will be placed in `dist/zip/`. It is recommended to run `gulp build` first.
+**`npm run lint`** will verify the code style (and point out any errors) of all `.js` files in `lib/` (except `lib/vendor/`) using [ESLint](http://eslint.org/), as well as all `.scss` files with [scss-lint](https://github.com/brigade/scss-lint).
 
-**`gulp <tasks> -b chrome -b firefox`** can be used with any of the above commands to specify individual browsers (chrome, firefox, safari), instead of performing the task(s) for all of them.
+Note: You will need to install [Ruby](https://www.ruby-lang.org/) and run `npm run external-deps` before using `npm run lint`.
 
-**`gulp travis`** will verify the code style (and point out any errors) of all `.js` files in `lib/` (except `lib/vendor/`) using [ESLint](http://eslint.org/), as well as all `.scss` files with [scss-lint](https://github.com/brigade/scss-lint). It will also run QUnit tests (in `tests/qunit`). We recommend that you run this before opening a pull request. (This is used by Travis CI to automatically test pull requests.)
-
-Note: You will need to install [Ruby](https://www.ruby-lang.org/) and run `gem install scss_lint` before using `gulp travis`.
+**`npm test`** will run unit tests (in `__tests__` directories).
 
 ##### Building in Chrome
 
@@ -154,13 +149,17 @@ All that is asked is that you have at least one previous contribution to RES.
 
 ##### Modules
 
-Create a new `.js` file in `lib/modules`. Use [gulp add-module](#details-and-advanced-usage) to add the file to the browsers' manifests.
+See [`lib/modules/example.js`](https://github.com/honestbleeps/Reddit-Enhancement-Suite/blob/master/lib/modules/example.js) for an example.
+
+Create a new `.js` file in `lib/modules`. Use [npm run add-module](#details-and-advanced-usage) to add the file to the browsers' manifests.
 
 ##### Inline image viewer hosts
 
-See `lib/modules/hosts/example.js` for an example.
+Please be sure that they support [CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) so the sites do not need to be added as additional permissions, which has caused [headaches in the past](https://www.reddit.com/r/Enhancement/comments/1jskcm/announcement_chrome_users_did_your_res_turn_off/).
 
-Create a new `.js` file in `lib/modules/hosts`. Use [gulp add-host](#details-and-advanced-usage) to add the file to the browsers' manifests.
+See [`lib/modules/hosts/example.js`](https://github.com/honestbleeps/Reddit-Enhancement-Suite/blob/master/lib/modules/hosts/example.js) for an example.
+
+Create a new `.js` file in `lib/modules/hosts`. Use [npm run add-host](#details-and-advanced-usage) to add the file to the browsers' manifests.
 
 ##### Stylesheets
 

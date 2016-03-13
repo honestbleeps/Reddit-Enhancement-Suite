@@ -5,19 +5,17 @@
 // require('sdk/preferences/service').set('javascript.options.strict', false);
 
 // Import the APIs we need.
+import priv from 'sdk/private-browsing';
+import self from 'sdk/self';
+import ss from 'sdk/simple-storage';
+import tabs from 'sdk/tabs';
+import { ActionButton } from 'sdk/ui/button/action';
+import { Cc, Ci, components } from 'chrome';
 import { PageMod } from 'sdk/page-mod';
 import { Request } from 'sdk/request';
-import self from 'sdk/self';
-import tabs from 'sdk/tabs';
-import ss from 'sdk/simple-storage';
-import priv from 'sdk/private-browsing';
-import { viewFor } from 'sdk/view/core';
-import { ActionButton } from 'sdk/ui/button/action';
-
 import { indexedDB } from 'sdk/indexed-db';
+import { viewFor } from 'sdk/view/core';
 
-// require chrome allows us to use XPCOM objects...
-import { Cc, Ci, components } from 'chrome';
 const historyService = Cc['@mozilla.org/browser/history;1'].getService(Ci.mozIAsyncHistory);
 
 // Cookie manager for new API login
@@ -61,22 +59,16 @@ const XHRCache = {
 	entries: new Map(),
 	check(key, maxAge = Infinity) {
 		const entry = this.entries.get(key);
-		if (entry && (Date.now() - entry.timestamp < maxAge)) {
-			entry.hits++;
+		const now = Date.now();
+		if (entry && (now - entry.timestamp < maxAge)) {
+			entry.timestamp = now;
 			return entry.data;
 		}
 	},
 	set(key, value) {
-		let hits = 1;
-
-		if (this.entries.has(key)) {
-			hits = this.entries.get(key).hits;
-		}
-
 		this.entries.set(key, {
 			data: value,
-			timestamp: Date.now(),
-			hits
+			timestamp: Date.now()
 		});
 
 		if (this.entries.size > this.capacity) {
@@ -87,14 +79,10 @@ const XHRCache = {
 		this.entries.delete(key);
 	},
 	prune() {
-		const now = Date.now();
+		// evict least-recently used
 		const top = Array.from(this.entries.entries())
-			.sort(([, a], [, b]) => {
-				const aWeight = a.hits / (now - a.timestamp);
-				const bWeight = b.hits / (now - b.timestamp);
-				return bWeight - aWeight; // in order of decreasing weight
-			})
-			.slice(0, (this.capacity / 2) | 0);
+			.sort(([, a], [, b]) => a.timestamp - b.timestamp)
+			.slice((this.capacity / 2) | 0);
 
 		this.entries = new Map(top);
 	},
@@ -505,12 +493,12 @@ PageMod({
 		self.data.url('core/alert.js'),
 		self.data.url('core/migrate.js'),
 		self.data.url('core/template.js'),
+		self.data.url('core/metadata.js'),
 		self.data.url('vendor/konami.js'),
 		self.data.url('vendor/gfycat.js'),
 		self.data.url('vendor/gifyoutube.js'),
 		self.data.url('vendor/imgurgifv.js'),
 		self.data.url('vendor/hogan-3.0.2.js'),
-		self.data.url('reddit_enhancement_suite.user.js'),
 		self.data.url('modules/spoilerTags.js'),
 		self.data.url('modules/submitIssue.js'),
 		self.data.url('modules/betteReddit.js'),
@@ -620,7 +608,7 @@ PageMod({
 		self.data.url('vendor/tokenize.css')
 	],
 	onAttach(worker) {
-		onAttach.call(worker); // eslint-disable-line prefer-reflect
+		worker::onAttach();
 		worker.on('detach', onDetach);
 		worker.on('message', onMessage);
 	}

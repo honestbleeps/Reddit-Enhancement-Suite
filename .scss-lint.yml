@@ -1,6 +1,8 @@
 # Inherits from default config
 # https://github.com/brigade/scss-lint/blob/master/config/default.yml
 
+scss_files: 'lib/**/*.scss'
+
 linters:
   Indentation:
     character: tab

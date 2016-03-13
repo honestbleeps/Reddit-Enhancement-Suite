@@ -1,8 +1,13 @@
 sudo: false
 language: node_js
 node_js:
-  - "5.0"
-before_script:
-  - npm install -g gulp
-  - gem install scss_lint
-script: gulp travis
+  - "5"
+  - "4"
+before_script: npm run external-deps
+script:
+  - npm run lint
+  - nyc npm test
+  - npm run build -- node
+  - node dist/node/loader.js
+after_success:
+  - './node_modules/.bin/nyc report --reporter=text-lcov | ./node_modules/.bin/coveralls'
