@@ -768,6 +768,10 @@ body.res-nightmode,
 .res-nightmode #report-action-form {
 	color: #ccc;
 }
+.res-nightmode .titlebox form.toggle,
+.res-nightmode .leavemoderator {
+	background-color: inherit;
+}
 .res-nightmode .server-seconds {
 	background: hsl(0,0%,20%);
 	border-color: hsl(0,0%,10%);
