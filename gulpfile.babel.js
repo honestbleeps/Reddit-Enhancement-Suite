@@ -1,30 +1,30 @@
 /* eslint-env node */
 
-import gulp from 'gulp';
-import del from 'del';
-import zip from 'gulp-zip';
-import replace from 'gulp-replace';
-import path from 'path';
-import babel from 'gulp-babel';
-import sass from 'gulp-sass';
 import autoprefixer from 'gulp-autoprefixer';
-import merge from 'merge-stream';
+import babel from 'gulp-babel';
 import cache from 'gulp-cached';
-import plumber from 'gulp-plumber';
-import sourcemaps from 'gulp-sourcemaps';
-import eslint from 'gulp-eslint';
-import scsslint from 'gulp-scss-lint';
-import qunit from 'gulp-qunit';
-import through from 'through-gulp';
+import del from 'del';
+import filter from 'gulp-filter';
+import gulp from 'gulp';
+import insert from 'gulp-insert';
+import map from 'through2-map';
+import merge from 'merge-stream';
+import minimist from 'minimist';
+import path from 'path';
+import pumpify from 'pumpify';
+import replace from 'gulp-replace';
+import sass from 'gulp-sass';
+import through from 'through2';
+import zip from 'gulp-zip';
 
-const options = require('minimist')(process.argv.slice(2));
+const options = minimist(process.argv.slice(2));
 
 // Paths
 const baseConf = {
 	sources: {
-		copy:  { cwd: 'lib/**', src: ['*.json', '*.css', '*.html', 'vendor/**/*.js'] },
-		babel: { cwd: 'lib/**', src: ['*.js', '!vendor/**/*.js'] },
-		sass:  { cwd: 'lib/**', src: ['*.scss'] }
+		copy: { cwd: 'lib/**', src: ['*.json', '*.css', '*.html', 'vendor/**/*.js'] },
+		babel: { cwd: 'lib/**', src: ['*.js', '!vendor/**/*.js', '!**/__tests__/*.js'] },
+		sass: { cwd: 'lib/**', src: ['*.scss'] }
 	},
 	dests: {
 		root: 'dist'
@@ -32,10 +32,10 @@ const baseConf = {
 };
 
 const browserConf = {
-	// The name used to refer to the browser from the command line, i.e. `gulp build -b chrome`
+	// The name used to refer to the browser from the command line
 	chrome: {
 		// The file for addFileToManifest to modify when adding new hosts/modules
-		manifest: 'Chrome/manifest.json',
+		manifest: 'chrome/manifest.json',
 		manifestReplacements: [
 			{ key: 'title', needle: /("title": ")(?:.*?)(")/ },
 			{ key: 'description', needle: /("description": ")(?:.*?)(")/ },
@@ -43,8 +43,8 @@ const browserConf = {
 		],
 		// Browser-specific files to be copied when building the extension (paths relative to project root)
 		sources: [
-			{ cwd: 'Chrome/**', src: ['images/*.png'] },
-			{ src: ['Chrome/*.js', 'Chrome/*.png', 'Chrome/*.html'] }
+			{ cwd: 'chrome/**', src: ['images/*.png'] },
+			{ src: ['chrome/*.js', 'chrome/*.png', 'chrome/*.html'] }
 		],
 		dests: {
 			// Subdirectory of baseConf.dests.root that the sources will be copied to
@@ -54,7 +54,7 @@ const browserConf = {
 		}
 	},
 	safari: {
-		manifest: 'Safari/Info.plist',
+		manifest: 'safari/Info.plist',
 		manifestReplacements: [
 			{ key: 'version', needle: /(<key>CFBundleVersion<\/key>\s*<string>)(?:.+)(<\/string>)/ },
 			{ key: 'version', needle: /(<key>CFBundleShortVersionString<\/key>\s*<string>)(?:.+)(<\/string>)/ },
@@ -62,7 +62,7 @@ const browserConf = {
 			{ key: 'title', needle: /(<key>CFBundleDisplayName<\/key>\s*<string>)(?:.+)(<\/string>)/ }
 		],
 		sources: [
-			{ src: ['Safari/*.js', 'Safari/*.png', 'Safari/*.html'] }
+			{ src: ['safari/*.js', 'safari/*.png', 'safari/*.html'] }
 		],
 		dests: {
 			root: 'RES.safariextension',
@@ -70,16 +70,16 @@ const browserConf = {
 		}
 	},
 	firefox: {
-		filesList: 'Firefox/index.js',
-		manifest: 'Firefox/package.json',
+		filesList: 'firefox/index.js',
+		manifest: 'firefox/package.json',
 		manifestReplacements: [
 			{ key: 'title', needle: /("title": ")(?:.*)(")/ },
 			{ key: 'description', needle: /("description": ")(?:.*)(")/ },
 			{ key: 'version', needle: /("version": ")(?:[\d\.])+(")/ }
 		],
 		sources: [
-			{ cwd: 'Firefox/**', src: ['data/**/*'] },
-			{ src: ['*.png', 'Firefox/index.js'] }
+			{ cwd: 'firefox/**', src: ['data/**/*'] },
+			{ src: ['*.png', 'firefox/index.js'] }
 		],
 		dests: {
 			root: 'firefox',
@@ -95,20 +95,11 @@ const browserConf = {
 			root: 'node',
 			baseSources: 'lib'
 		}
-	},
-	qunit: {
-		sources: [
-			{ cwd: 'tests/qunit/**', src: '*.*' }
-		],
-		dests: {
-			root: 'qunit',
-			baseSources: '/'
-		}
 	}
 };
 
-// the `-b browser` argument(s) or all browsers, if unspecified
-const browsers = options.b ? [].concat(options.b) : Object.keys(browserConf);
+// the `--browsers` argument or all browsers, if unspecified
+const browsers = typeof options.browsers === 'string' ? options.browsers.split(',') : Object.keys(browserConf);
 
 function src({ src, cwd }) {
 	return gulp.src(src, { cwd });
@@ -122,18 +113,13 @@ function getBuildDir(browser) {
 	return path.join(baseConf.dests.root, browserConf[browser].dests.root);
 }
 
-// Accepts a stream, sourced from baseConf.sources
-// and pipes it to each selected browsers' dests.baseSources directory.
-function pipeToBrowsers(inStream) {
-	return browsers.reduce(
-		(stream, browser) => stream.pipe(dest(getBuildDir(browser), browserConf[browser].dests.baseSources)),
-		inStream
-	);
+function toBrowsers() {
+	// through() with no transform as a dummy passthrough stream
+	// since pumpify doesn't have reasonable default behavior for a single stream
+	return pumpify.obj(through.obj(), ...browsers.map(browser =>
+		dest(getBuildDir(browser), browserConf[browser].dests.baseSources)
+	));
 }
-
-gulp.task('default', ['clean'], () => {
-	gulp.start('watch');
-});
 
 gulp.task('clean', () =>
 	del(browsers.map(browser => getBuildDir(browser)))
@@ -141,7 +127,10 @@ gulp.task('clean', () =>
 
 gulp.task('watch', ['build'], () => {
 	const sources = browsers.reduce(
-		(acc, browser) => acc.concat(browserConf[browser].sources.reduce((a, { src }) => a.concat(src), [])),
+		(acc, browser) => acc.concat(browserConf[browser].sources.reduce(
+			(a, { cwd = '', src }) => a.concat(src.map(s => path.join(cwd, s))),
+			browserConf[browser].manifest ? [browserConf[browser].manifest] : []
+		)),
 		[baseConf.sources.copy.cwd]
 	);
 
@@ -150,45 +139,53 @@ gulp.task('watch', ['build'], () => {
 
 gulp.task('build', ['babel', 'sass', 'copy', 'copy-browser', 'manifests']);
 
+function babelPipeline() {
+	return pumpify.obj(
+		babel().on('error', e => console.error(e.message)),
+		insert.wrap('(function(exports) {\n', '\n})(typeof exports === "object" ? exports : typeof window === "object" ? window : {});')
+	).on('close', function() {
+		// Gulp doesn't seem to stop on close, only end...
+		this.emit('end');
+	});
+}
+
 gulp.task('babel', () =>
-	pipeToBrowsers(
-		src(baseConf.sources.babel)
-			.pipe(cache('babel'))
-			.pipe(plumber())
-			.pipe(sourcemaps.init())
-			.pipe(babel())
-			.pipe(sourcemaps.write('.'))
-			.pipe(plumber.stop())
-	)
+	src(baseConf.sources.babel)
+		.pipe(cache('babel'))
+		.pipe(babelPipeline())
+		.pipe(toBrowsers())
 );
 
 gulp.task('sass', () =>
-	pipeToBrowsers(
-		src(baseConf.sources.sass)
-			.pipe(sass().on('error', sass.logError))
-			.pipe(autoprefixer({
-				browsers: ['Chrome >= 25', 'Firefox >= 30', 'Safari >= 6'],
-				cascade: false
-			}))
-	)
+	src(baseConf.sources.sass)
+		.pipe(sass().on('error', sass.logError))
+		.pipe(autoprefixer({
+			browsers: ['Chrome >= 25', 'Firefox >= 30', 'Safari >= 6'],
+			cascade: false
+		}))
+		.pipe(toBrowsers())
 );
 
 gulp.task('copy', () =>
-	pipeToBrowsers(
-		merge(
-			src(baseConf.sources.copy),
-			gulp.src(getPackageMetadata().path)
-		).pipe(cache('copy'))
+	merge(
+		src(baseConf.sources.copy),
+		gulp.src(getPackageMetadata().path)
 	)
+		.pipe(cache('copy'))
+		.pipe(toBrowsers())
 );
 
 gulp.task('copy-browser', () =>
 	merge(
-		browsers.map(browser =>
-			merge(browserConf[browser].sources.map(paths => src(paths)))
+		browsers.map(browser => {
+			const jsFilter = filter('**/*.js', { restore: true });
+			return merge(browserConf[browser].sources.map(paths => src(paths)))
 				.pipe(cache(browser))
-				.pipe(dest(getBuildDir(browser)))
-		)
+				.pipe(jsFilter)
+				.pipe(babelPipeline())
+				.pipe(jsFilter.restore)
+				.pipe(dest(getBuildDir(browser)));
+		})
 	)
 );
 
@@ -199,17 +196,17 @@ gulp.task('manifests', () =>
 			.map(browser =>
 				gulp.src(browserConf[browser].manifest)
 					.pipe(cache('manifests'))
-					.pipe(through.map(file => populateManifest(browser, file)))
+					.pipe(map.obj(file => populateManifest(browser, file)))
 					.pipe(dest(getBuildDir(browser)))
 			)
 	)
 );
 
 function getPackageMetadata() {
-	const path = './' + (options.p || 'package.json');
+	const path = `./${options.p || 'package.json'}`;
 	return {
 		path,
-		contents: require(path)
+		contents: require(path) // eslint-disable-line global-require
 	};
 }
 
@@ -273,35 +270,12 @@ function getRefHost() {
 	return 'imgur.js';
 }
 
-gulp.task('zip', () => {
-	// --zipdir argument or <baseConf.dests.root>/zip/
-	const zipDir = options.zipdir || path.join(baseConf.dests.root, 'zip');
-	return merge(
+gulp.task('zip', () =>
+	merge(
 		browsers.map(browser =>
 			gulp.src(path.join(getBuildDir(browser), '**/*'))
-				.pipe(zip(browserConf[browser].dests.root + '.zip'))
-				.pipe(dest(zipDir))
+				.pipe(zip(`${browserConf[browser].dests.root}.zip`))
+				.pipe(dest(baseConf.dests.root, 'zip'))
 		)
-	);
-});
-
-gulp.task('travis', ['eslint', 'scsslint', 'qunit']);
-
-gulp.task('eslint', () =>
-	src(baseConf.sources.babel)
-		.pipe(eslint())
-		.pipe(eslint.formatEach())
-		.pipe(eslint.failAfterError())
-);
-
-gulp.task('scsslint', () =>
-	src(baseConf.sources.sass)
-		.pipe(scsslint({ maxBuffer: 1024 * 1024 }))
-		.pipe(scsslint.failReporter())
-);
-
-// todo: when Gulp 4 is released, only build qunit
-gulp.task('qunit', ['build'], () =>
-	gulp.src('dist/qunit/tests.html')
-		.pipe(qunit())
+	)
 );

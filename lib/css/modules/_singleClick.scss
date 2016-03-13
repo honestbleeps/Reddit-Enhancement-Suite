@@ -1,6 +1,20 @@
-.redditSingleClick {
+.redditSingleClick::after {
 	color: #888;
 	font-weight: bold;
 	cursor: pointer;
 	padding: 0 1px;
+
+	.thing.link & {
+		content: '[l+c]';
+	}
+
+	.thing.self & {
+		content: '[l=c]';
+	}
+}
+
+.res-singleClick-hideLEC {
+	.thing.self .redditSingleClick {
+		display: none;
+	}
 }

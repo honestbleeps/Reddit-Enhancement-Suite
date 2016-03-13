@@ -4,14 +4,13 @@
 	},
 	"core": [
 		"mocks.js",
+		"core/metadata.js",
+		"core/utils.js",
 		"browsersupport.js",
 		"browsersupport-node.js",
-		"core/utils.js",
-		"core/storage.js",
 		"core/options.js",
 		"core/migrate.js",
-		"core/template.js",
-		"reddit_enhancement_suite.user.js"
+		"core/template.js"
 	],
 	"modules": [
 		"modules/spoilerTags.js",

@@ -1127,6 +1127,7 @@ div.usertext-edit {
 }
 
 .RESNotificationHeader {
+	min-height: 24px;
 	line-height: 24px;
 	padding: 5px 10px;
 	color: rgb(255, 255, 255);
@@ -1450,6 +1451,7 @@ img {
 	clear: left;
 	display: block;
 	overflow: hidden;
+	user-select: none;
 
 	a.madeVisible {
 		display: inline-block;
@@ -1481,6 +1483,7 @@ img {
 .RESdupeimg {
 	color: #000;
 	font-size: 10px;
+	user-select: none;
 }
 
 .RESClear {
@@ -2018,15 +2021,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 	li p {
 		margin: .75em 0;
 	}
-}
-
-// user-select: none; on comment widgets, for usability reasons
-.md .keyNavAnnotation,
-.md .RESUserTag,
-.md .RESdupeimg,
-.md .expando-button,
-.md .madeVisible {
-	user-select: none;
 }
 
 // gifyoutube player
