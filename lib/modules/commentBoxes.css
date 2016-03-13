@@ -16,6 +16,9 @@
 .res-commentBoxes.res-continuity .comment div.child {
 	border-left: 1px dotted #555 !important;
 }
+.res-commentBoxes .comment.spam {
+	background-image: linear-gradient(hsl(0,70%,80%), hsl(0,70%,80%));
+}
 
 .res-commentBoxes .comment .comment{
 	margin-right:0!important;

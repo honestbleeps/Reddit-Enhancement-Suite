@@ -574,6 +574,9 @@
 .res-nightmode.res-commentBoxes .comment {
 	border-color: hsl(0,0%,20%) !important;
 }
+.res-nightmode.res-commentBoxes .comment.spam {
+	background-image: linear-gradient(hsl(0,30%,30%), hsl(0,30%,30%));
+}
 .res-nightmode.res-commentBoxes.res-commentHoverBorder .comment:hover {
 	border-color: #555 !important;
 }
