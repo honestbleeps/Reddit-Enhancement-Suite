@@ -577,6 +577,10 @@
 .res-nightmode.res-commentBoxes .comment.spam {
 	background-image: linear-gradient(hsl(0,30%,30%), hsl(0,30%,30%));
 }
+.res-nightmode.res-commentBoxes .comment.spam>.child,
+.res-nightmode.res-commentBoxes .message.spam>.child {
+    background-color: transparent;
+}
 .res-nightmode.res-commentBoxes.res-commentHoverBorder .comment:hover {
 	border-color: #555 !important;
 }
