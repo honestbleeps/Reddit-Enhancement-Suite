@@ -1,6 +1,6 @@
 # Changelog
 
-## [Unreleased]
+## v4.6.1
 
 ### Housekeeping / Other
 
