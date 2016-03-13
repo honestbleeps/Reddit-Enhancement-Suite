@@ -325,69 +325,6 @@
 		</script>
 		<!-- /Media Controls -->
 
-		<!--VideoUI-->
-		<!--Adapted from MediaCrush video player-->
-		<script id="VideoUI" type="application/x-template">
-			<div class="res-player video {{ brand.name }}">
-				<video {{#autoplay}}autoplay="true"{{/autoplay}} {{#loop}}loop="true"{{/loop}} {{#poster}}poster="{{ poster }}"{{/poster}} preload>
-					{{#sources}}
-					<source src="{{ source }}" {{#type}}type="{{ type }}"{{/type}}>
-					{{/sources}}
-				</video>
-				{{#brand}}
-				<a class="brand" href="{{ brand.url }}" target="_blank"><img src="{{ brand.img }}" width="16" height="16" /> {{ brand.name }}</a>
-				{{/brand}}
-				<a class="start {{#autoplay}}hidden{{/autoplay}}" href="#">
-					<span class="res-icon">&#xF16B;</span>
-				</a>
-				<div class="controls {{#muted}}muted{{/muted}}">
-					<a href="#" class="res-icon play-pause {{#autoplay}}pause{{/autoplay}}{{^autoplay}}play{{/autoplay}}"></a>
-					<div class="seek">
-						<div class="background"></div>
-						<div class="loading progress"></div>
-						<div class="hidden loaded"></div>
-						<div class="hidden played"></div>
-						<div class="clickable"></div>
-					</div>
-					<div class="right">
-						{{^muted}}
-						<span class="toggleable volume">
-							<a href="#" class="res-icon">&#xF03B;</a>
-							<div>
-								<span>
-									<span class="background"></span>
-									<span class="amount"></span>
-									<span class="clickable"></span>
-								</span>
-							</div>
-						</span>
-						{{/muted}}
-						<a href="#" class="res-icon fullscreen"></a>
-						<span class="toggleable settings">
-							<span class="res-icon">&#xF04E;</span>
-							<div>
-								<div class="playback-speed">
-									<div class="header">Playback Speed</div>
-									<div class="speeds">
-										<a href="#" data-speed="0.5">50%</a><a href="#" data-speed="1" class="selected">100%</a><a href="#" data-speed="1.5">150%</a>
-									</div>
-								</div>
-								<div class="highlight">
-									<a href="#" class="loop">
-										<span class="text">Loop {{#loop}}ON{{/loop}}{{^loop}}OFF{{/loop}}</span><span class="res-icon loop {{#loop}}disabled{{/loop}}">&#xF0B2;</span>
-									</a>
-								</div>
-								{{#download}}
-								<div class="highlight"><a href="{{download}}" class="download">Download<span class="res-icon">&#xF0BD;</span></a></div>
-								{{/download}}
-							</div>
-						</span>
-					</div>
-				</div>
-			</div>
-		</script>
-		<!--/VideoUI-->
-
 		<!--GfycatUI-->
 		<script id="GfycatUI" type="application/x-template">
 			<div class="res-player video gfycatR">
