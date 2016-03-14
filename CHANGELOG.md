@@ -1,6 +1,6 @@
 # Changelog
 
-## v4.6.1
+## [v4.6.1](https://github.com/honestbleeps/Reddit-Enhancement-Suite/releases/v4.6.1)
 
 Highlights:
 
