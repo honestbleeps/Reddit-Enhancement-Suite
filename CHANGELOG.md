@@ -65,7 +65,7 @@ Highlights:
 - Fixed Stylesheet Loader loading stylesheets outside selected "only on..." subreddits
 - Don't run RES on .json pages ([thanks](https://github.com/honestbleeps/Reddit-Enhancement-Suite/commit/371da40a065deda890fc782ea9c184707b9619c2) @andytuba)
 - Fix [l=c] Single Click Opener from opening two comments pages for posts with non-Latin titles ([thanks](https://github.com/honestbleeps/Reddit-Enhancement-Suite/pull/2682) @kusotool, @andytuba)
-
+- Fix "back to top" arrow not appearing in Firefox 45 ([thanks](https://github.com/honestbleeps/Reddit-Enhancement-Suite/commit/defdd75) @andytuba)
 
 ### Housekeeping / Other
 
