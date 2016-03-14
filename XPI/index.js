@@ -304,7 +304,7 @@ pageMod.PageMod({
 					worker.postMessage({ requestType: 'readResource', data: fileData, transaction: request.transaction });
 					break;
 				case 'deleteCookie':
-					cookieManager.remove('.reddit.com', request.cname, '/', false);
+					cookieManager.remove('.reddit.com', request.cname, '/', false, false);
 					worker.postMessage({removedCookie: request.cname});
 					break;
 				case 'ajax':
