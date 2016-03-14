@@ -14,6 +14,7 @@ Highlights:
 - [Quick navigation in RES Settings](https://www.reddit.com/#!settings/about) ([thanks](https://github.com/honestbleeps/Reddit-Enhancement-Suite/pull/2773) @andytuba)
 - New media hosts
 	- Oddshot.tv ([thanks](https://github.com/honestbleeps/Reddit-Enhancement-Suite/pull/2652) @nicememe)
+	- LiveCap.tv ([thanks](https://github.com/honestbleeps/Reddit-Enhancement-Suite/pull/2670) @gapipro)
 	- Miiverse ([thanks](https://github.com/honestbleeps/Reddit-Enhancement-Suite/pull/2440) @sfoop)
 	- coub ([thanks](https://github.com/honestbleeps/Reddit-Enhancement-Suite/pull/2539) @igorgladkoborodov)
 	- qwip.it ([thanks](https://github.com/honestbleeps/Reddit-Enhancement-Suite/pull/2594) @grafixoner)
