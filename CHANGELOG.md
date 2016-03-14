@@ -55,7 +55,7 @@ Highlights:
 	- Fix comments showing on top of sidebar ([thanks](https://github.com/honestbleeps/Reddit-Enhancement-Suite/pull/2676) @githue)
 	- Fix notifications hidden behind setting console ([thanks](https://github.com/honestbleeps/Reddit-Enhancement-Suite/commit/18026577e50e1d2a226c87ae78c6199cedb8c83a) @andytuba)
 - Selected Entry/Keyboard Nav
-	- fix automatically scrolling on pageload annoyingly (thanks @andytuba)
+	- fix annoyingautomatically scrolling on pageload or closing expando (thanks @andytuba)
 	- fix navigating from posts to comments and inside inbox and a variety of broken keyboard shortcuts (thanks @erikdesjardins, @andytuba)
 	- fixed expandoss crolling the page awkwardly ([thanks](https://github.com/honestbleeps/Reddit-Enhancement-Suite/commit/84ed23f792f82de8eaee4c50170f8b231f3da7e9) @andyuba)
 	- Fix "open link" from keyboard nav not opening in the same tab per options ([thanks](https://github.com/honestbleeps/Reddit-Enhancement-Suite/pull/2764) @13steinj)
