@@ -931,6 +931,11 @@
 		color: #ccc;
 	}
 
+	.titlebox form.toggle,
+	.leavemoderator {
+		background-color: inherit;
+	}
+
 	.server-seconds {
 		background: hsl(0, 0%, 20%);
 		border-color: hsl(0, 0%, 10%);
