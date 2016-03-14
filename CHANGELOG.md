@@ -40,6 +40,7 @@ Highlights:
 	- Removed filters from post thumbnails and expando buttons so subreddit moderators can style them ([thanks](https://github.com/honestbleeps/Reddit-Enhancement-Suite/commit/b54d50e59a3b0bcfa0eb2d08113250abdba0a58f) @githue)
 	- Fixed nightmode on report form and rules page ([thanks](https://github.com/honestbleeps/Reddit-Enhancement-Suite/commit/3408c7b45ffa450513dd375a4c4fcd3808297505) @githue)
 	- Fixed sidebar toggles white background (thanks @andytuba)
+	- Fixed nightmode loading slow in FF45 ([thanks](https://github.com/honestbleeps/Reddit-Enhancement-Suite/commit/acfb5f47dc49a5ccdecdd8f7ec5e5c198d8e854b) @andytuba)
 - Never Ending Reddit
 	- Fixed on modlog and comments pages (thanks @erikdesjardins)
 	- Removed jumping to page 2 or deeper after switching accounts ([thanks](https://github.com/honestbleeps/Reddit-Enhancement-Suite/commit/8892044bca9174b6aba39436b141df38faf493f4) @andytuba)
