@@ -15,11 +15,9 @@
 	"content_scripts": [
 		{
 			"matches": [
-				"http://redditenhancementsuite.com/*",
-				"http://reddit.com/*",
-				"https://reddit.com/*",
-				"http://*.reddit.com/*",
-				"https://*.reddit.com/*"
+				"*://redditenhancementsuite.com/*",
+				"*://*.reddit.com/*",
+				"*://reddit.com/*",
 			],
 			"js": [
 				"vendor/polyfill.min.js",
@@ -186,20 +184,18 @@
 		"cookies",
 		"tabs",
 		"history",
-		"http://redditenhancementsuite.com/",
-		"http://reddit.com/*",
-		"https://reddit.com/*",
-		"http://*.reddit.com/*",
-		"https://*.reddit.com/*",
-		"http://min.us/api/*",
-		"http://*.flickr.com/photos/*",
-		"http://img.photobucket.com/*",
-		"http://noembed.com/embed?url=*"
+		"*://redditenhancementsuite.com/",
+		"*://reddit.com/*",
+		"*://*.reddit.com/*",
+		"*://min.us/api/*",
+		"*://*.flickr.com/photos/*",
+		"*://img.photobucket.com/*",
+		"*://noembed.com/embed?url=*"
 	],
 	"optional_permissions": [
-		"https://api.twitter.com/*",
-		"https://onedrive.live.com/*",
-		"http://1drv.ms/*",
+		"*://api.twitter.com/*",
+		"*://onedrive.live.com/*",
+		"*://1drv.ms/*",
 		"*://backend.deviantart.com/oembed?url=*",
 		"*://api.tumblr.com/v2/blog/*/posts?api_key=*&id=*"
 	]
