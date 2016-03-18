@@ -32,6 +32,14 @@
 
 /* global chrome: false */
 
+/* Edge Support - BETA */
+if (typeof msBrowser !== 'undefined') {
+	chrome = msBrowser;
+}
+else if (typeof browser != 'undefined') {
+	chrome = browser;
+}
+
 const XHRCache = {
 	capacity: 250,
 	entries: new Map(),

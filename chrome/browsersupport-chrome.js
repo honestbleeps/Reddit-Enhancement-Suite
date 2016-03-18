@@ -1,5 +1,12 @@
 /* global chrome:false */
 
+if (typeof msBrowser !== 'undefined') {
+	chrome = msBrowser;
+}
+else if (typeof browser != 'undefined') {
+	chrome = browser;
+}
+
 {
 	// via https://github.com/erikdesjardins/global-mediakeys
 	// Erik Desjardins, GPLv3
