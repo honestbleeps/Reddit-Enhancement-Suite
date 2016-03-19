@@ -12,7 +12,7 @@
   "scripts": {
     "external-deps": "gem install scss_lint",
     "preinstall": "npm -v && node -v && python --version && git rev-parse HEAD && git status --porcelain",
-    "prestart": "gulp clean",
+    "prestart": "npm install && gulp clean",
     "start": "cross-env NODE_ENV=development gulp watch --browsers",
     "preonce": "gulp clean",
     "once": "cross-env NODE_ENV=development gulp build --browsers",
