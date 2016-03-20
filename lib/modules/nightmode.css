@@ -201,15 +201,19 @@
 .res-nightmode .arrow.upmod,
 .res-nightmode .arrow.down,
 .res-nightmode .arrow.downmod {
-	background-image: url(https://b.thumbs.redditmedia.com/WZDoQsDzUySVTErcweuA3k2HH1HU5-BZNnBXOR4FDwc.png);
+	width: 15px;
+	height: 14px;
+	margin-left: auto;
+	margin-right: auto;
+	background-image: url(http://i.imgur.com/o1IiV1o.png) !important;
 	background-repeat: no-repeat;
 }
-.res-nightmode .arrow.up { background-position: -15px 0; }
-.res-nightmode .arrow.up:hover { background-position: -30px 0; }
-.res-nightmode .arrow.upmod { background-position: 0 0; }
-.res-nightmode .arrow.down { background-position: -15px -14px; }
-.res-nightmode .arrow.down:hover { background-position: -30px -14px; }
-.res-nightmode .arrow.downmod { background-position: 0 -14px; }
+.res-nightmode .arrow.up { background-position: -15px 0 !important; }
+.res-nightmode .arrow.up:hover { background-position: -30px 0 !important; }
+.res-nightmode .arrow.upmod { background-position: 0 0 !important; }
+.res-nightmode .arrow.down { background-position: -15px -14px !important; }
+.res-nightmode .arrow.down:hover { background-position: -30px -14px !important; }
+.res-nightmode .arrow.downmod { background-position: 0 -14px !important; }
 .res-nightmode .dropdown.lightdrop a.choice:hover {
 	background-color: hsl(0,0%,10%);
 }
