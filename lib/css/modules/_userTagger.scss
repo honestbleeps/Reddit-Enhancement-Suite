@@ -80,6 +80,11 @@ a.voteWeight {
 	&:hover {
 		text-decoration: none;
 	}
+
+	// unselectable in comments/markdown for usability
+	.md & {
+		user-select: none;
+	}
 }
 
 #benefits {
