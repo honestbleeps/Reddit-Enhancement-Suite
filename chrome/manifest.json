@@ -4,12 +4,10 @@
 	"manifest_version": 2,
 	"minimum_chrome_version": "26.0",
 	"description": "Reddit Enhancement Suite - a group of enhancements for browsing Reddit",
-	"background": {
-		"scripts": [
-			"vendor/polyfill.min.js",
-			"background.js"
-		]
-	},
+    "background": {
+        "page": "background.html",
+        "persistent": true
+    },
 	"homepage_url": "http://redditenhancementsuite.com",
 	"options_page": "options.html",
 	"content_scripts": [
