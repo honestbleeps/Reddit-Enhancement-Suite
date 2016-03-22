@@ -69,6 +69,10 @@ a.madeVisible {
 		&.imageLookup::after {
 			content: '\F178';
 		}
-
 	}
+}
+
+// Hide "lookup" button on video's
+.res-player .RESMediaControls .imageLookup {
+	display:none;
 }
