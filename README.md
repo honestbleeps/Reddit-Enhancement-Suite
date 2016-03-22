@@ -44,11 +44,11 @@ Thinking about contributing to RES? Awesome! We just ask that you follow a few s
 
 ## Project structure
 
-##### Top level files & folders
+##### Top level files and folders
 
   - `README.md` – YOU ARE HERE, unless you're browsing on GitHub
   - `changelog.txt` – self-explanatory
-  - `gulpfile.babel.js` - build script
+  - `gulpfile.babel.js` – build script
   - `package.json` – package info, dependencies
   - `lib/` – all RES code
   - `lib/core/` – core RES code
@@ -57,9 +57,9 @@ Thinking about contributing to RES? Awesome! We just ask that you follow a few s
   - `chrome/` – Chrome-specific RES files
   - `firefox/` – Firefox-specific RES files
   - `safari/` – Safari-specific RES files
-  - `dist/` - build output
+  - `dist/` – build output
   - `tests/` – integration tests, currently unused
-  - `**/__tests__` - unit tests
+  - `**/__tests__` – unit tests
 
 ##### Chrome files
 
@@ -93,7 +93,7 @@ Once done, you can build the extension by running `npm start`. This will also st
 
 To load the extension into your browser, see [the sections below](#building-in-chrome).
 
-#### Details and Advanced Usage
+#### Details and advanced usage
 
 JavaScript files in `lib/` (except `lib/vendor/`) will be compiled with [Babel](https://babeljs.io/).
 
@@ -151,7 +151,7 @@ All that is asked is that you have at least one previous contribution to RES.
 
 See [`lib/modules/example.js`](https://github.com/honestbleeps/Reddit-Enhancement-Suite/blob/master/lib/modules/example.js) for an example.
 
-Create a new `.js` file in `lib/modules`. Use [npm run add-module](#details-and-advanced-usage) to add the file to the browsers' manifests.
+Create a new `.js` file in `lib/modules`. Use [`npm run add-module`](#details-and-advanced-usage) to add the file to the browsers' manifests.
 
 ##### Inline image viewer hosts
 
@@ -159,11 +159,11 @@ Please be sure that they support [CORS](https://en.wikipedia.org/wiki/Cross-orig
 
 See [`lib/modules/hosts/example.js`](https://github.com/honestbleeps/Reddit-Enhancement-Suite/blob/master/lib/modules/hosts/example.js) for an example.
 
-Create a new `.js` file in `lib/modules/hosts`. Use [npm run add-host](#details-and-advanced-usage) to add the file to the browsers' manifests.
+Create a new `.js` file in `lib/modules/hosts`. Use [`npm run add-host`](#details-and-advanced-usage) to add the file to the browsers' manifests.
 
 ##### Stylesheets
 
-Create a new Sass partial under `lib/css/` (with a leading underscore, e.g. `_myPartial.scss`). Import the file in `lib/css/res.scss` (i.e. `@import 'modules/myPartial';` - do not include the underscore or file extension). You do not need to add it to any browser manifests.
+Create a new Sass partial under `lib/css/` (with a leading underscore, e.g. `_myPartial.scss`). Import the file in `lib/css/res.scss` (i.e. `@import 'modules/myPartial';`—do not include the underscore or file extension). You do not need to add it to any browser manifests.
 
 Body classes will be automatically added for boolean and enum options with the property `bodyClass: true`, in the form `.res-moduleId-optionKey` for boolean options (only when they're enabled), and `.res-moduleId-optionKey-optionValue` for enums.
-This is the preferred way to create optional CSS, do not use `addCSS()` unless absolutely necessary (i.e. variable color, size, etc.).
+This is the preferred way to create optional CSS; do not use `addCSS()` unless absolutely necessary (i.e. variable color, size, etc.).
