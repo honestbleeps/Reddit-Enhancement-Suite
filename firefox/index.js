@@ -192,7 +192,7 @@ addListener('readResource', filename =>
 );
 
 addListener('deleteCookies', cookies =>
-	cookies.forEach(({ name }) => cookieManager.remove('.reddit.com', name, '/', false))
+	cookies.forEach(({ name }) => cookieManager.remove('.reddit.com', name, '/', false, false))
 );
 
 addListener('ajax', ({ method, url, headers, data }) =>
