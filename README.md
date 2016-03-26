@@ -86,10 +86,10 @@ First time installation:
 
 1. Install [node.js](http://nodejs.org) (version 4+).
 1. Install [Python 2](https://www.python.org/downloads/) (*not* version 3).
-1. Navigate to your RES folder.
-1. Run `npm install`.
+1. Navigate/cd to your RES folder.
+1. Run `npm start`.
 
-Once done, you can build the extension by running `npm start`. This will also start a watch task that will rebuild RES when you make changes (see [Advanced Usage](#details-and-advanced-usage) for more details).
+`npm start` will also start a watch task that will rebuild RES when you make changes (see [Advanced Usage](#details-and-advanced-usage) for more details).
 
 To load the extension into your browser, see [the sections below](#building-in-chrome).
 
