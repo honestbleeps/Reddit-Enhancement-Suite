@@ -67,7 +67,7 @@ body:not(.res-styleTweaks-visitedStyle) {
 	#header-bottom-right {
 		top: 19px;
 		border-radius: 0 0 0 3px;
-		bottom: auto;
+		bottom: auto !important;
 	}
 
 	.beta-notice {
