@@ -46,37 +46,36 @@ Thinking about contributing to RES? Awesome! We just ask that you follow a few s
 
 ##### Top level files and folders
 
-  - `README.md` – YOU ARE HERE, unless you're browsing on GitHub
-  - `changelog.txt` – self-explanatory
-  - `gulpfile.babel.js` – build script
-  - `package.json` – package info, dependencies
-  - `lib/` – all RES code
-  - `lib/core/` – core RES code
-  - `lib/modules/` – RES modules
-  - `lib/vendor/` – RES vendor libraries
-  - `chrome/` – Chrome-specific RES files
-  - `firefox/` – Firefox-specific RES files
-  - `safari/` – Safari-specific RES files
-  - `dist/` – build output
-  - `tests/` – integration tests, currently unused
-  - `**/__tests__` – unit tests
+  - `README.md`: YOU ARE HERE, unless you're browsing on GitHub
+  - `changelog.txt`: self-explanatory
+  - `gulpfile.babel.js`: build script
+  - `package.json`: package info, dependencies
+  - `lib/`: all RES code
+  - `lib/core/`: core RES code
+  - `lib/modules/`: RES modules
+  - `lib/vendor/`: RES vendor libraries
+  - `chrome/`: Chrome-specific RES files
+  - `firefox/`: Firefox-specific RES files
+  - `safari/`: Safari-specific RES files
+  - `dist/`: build output
+  - `**/__tests__`: unit tests
 
 ##### Chrome files
 
-  - `background.js` – the "background page" for RES, necessary for Chrome extensions
-  - `manifest.json` – the project manifest
-  - `icon.png`, `icon48.png`, `icon128.png` – icons!
+  - `background.js`: the "background page" for RES, necessary for Chrome extensions
+  - `manifest.json`: the project manifest
+  - `icon.png`, `icon48.png`, `icon128.png`: icons!
 
 ##### Firefox files
 
-  - `index.js` – this is Firefox's sort of "background page" for RES, like what Chrome has, but just a JS file
-  - `package.json` – the project manifest for the Firefox add-on
+  - `index.js`: this is Firefox's sort of "background page" for RES, like what Chrome has, but just a JS file
+  - `package.json`: the project manifest for the Firefox add-on
 
 ##### Safari files
 
-  - `background-safari.html` – the "background page" for RES, necessary for Safari extensions
-  - `Info.plist` – the project manifest
-  - `icon.png`, `icon48.png`, `icon128.png` – icons!
+  - `background-safari.html`: the "background page" for RES, necessary for Safari extensions
+  - `Info.plist`: the project manifest
+  - `icon.png`, `icon48.png`, `icon128.png`: icons!
 
 ## Building development versions of the extension
 
