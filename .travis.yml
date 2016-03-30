@@ -6,7 +6,7 @@ node_js:
 before_script: npm run external-deps
 script:
   - npm run lint
-  - nyc npm test
+  - nyc --all --require babel-core/register npm test
   - npm run build -- node
   - node dist/node/loader.js
 after_success:
