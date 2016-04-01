@@ -32,6 +32,13 @@
       "babel-core/register"
     ]
   },
+  "nyc": {
+	"exclude": [
+	  "dist",
+	  "lib/vendor",
+	  "**/__tests__"
+	]
+  },
   "devDependencies": {
     "ava": "0.13.0",
     "babel-core": "6.7.4",
