@@ -80,8 +80,6 @@ Thinking about contributing to RES? Awesome! We just ask that you follow a few s
 
 ## Building development versions of the extension
 
-RES is built with [gulp](http://gulpjs.com/).
-
 First time installation:
 
 1. Install [node.js](http://nodejs.org) (version 4+).
