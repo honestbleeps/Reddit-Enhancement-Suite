@@ -22,27 +22,41 @@ RESEnvironment._storage = {};
 
 RESEnvironment.storage = {
 	get(key) {
-		return Promise.resolve(key in RESEnvironment._storage ? RESEnvironment._storage[key] : null);
+		try {
+			return Promise.resolve(key in RESEnvironment._storage ? JSON.parse(RESEnvironment._storage[key]) : null);
+		} catch (e) {
+			console.warn('Failed to parse:', key, 'falling back to raw string.');
+		}
+		return Promise.resolve(RESEnvironment._storage[key]);
 	},
 	set(key, value) {
-		RESEnvironment._storage[key] = value;
-		return Promise.resolve();
+		return new Promise(resolve => {
+			RESEnvironment._storage[key] = JSON.stringify(value);
+			resolve();
+		});
 	},
 	patch(key, value) {
-		RESEnvironment._storage[key] = extend(RESEnvironment._storage[key] || {}, value);
-		return Promise.resolve();
-	},
-	deletePath(key, value) {
 		return new Promise(resolve => {
 			try {
-				const stored = RESEnvironment._storage[key] || {};
-				value.split(',').reduce((obj, key, i, { length }) => {
+				const stored = JSON.parse(RESEnvironment._storage[key] || '{}') || {};
+				RESEnvironment._storage[key] = JSON.stringify(extend(stored, value));
+			} catch (e) {
+				throw new Error(`Failed to patch: ${key} - error: ${e}`);
+			}
+			resolve();
+		});
+	},
+	deletePath(key, ...path) {
+		return new Promise(resolve => {
+			try {
+				const stored = JSON.parse(RESEnvironment._storage[key] || '{}') || {};
+				path.reduce((obj, key, i, { length }) => {
 					if (i < length - 1) return obj[key];
 					delete obj[key];
 				}, stored);
-				RESEnvironment._storage[key] = stored;
+				RESEnvironment._storage[key] = JSON.stringify(stored);
 			} catch (e) {
-				throw new Error(`Failed to delete path: ${value} on key: ${key} - error: ${e}`);
+				throw new Error(`Failed to delete path: ${path} on key: ${key} - error: ${e}`);
 			}
 			resolve();
 		});
@@ -56,5 +70,9 @@ RESEnvironment.storage = {
 	},
 	keys() {
 		return Promise.resolve(Object.keys(RESEnvironment._storage));
+	},
+	clear() {
+		RESEnvironment._storage = {};
+		return Promise.resolve();
 	}
 };
