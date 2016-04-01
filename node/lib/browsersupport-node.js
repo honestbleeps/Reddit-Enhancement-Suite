@@ -70,5 +70,9 @@ RESEnvironment.storage = {
 	},
 	keys() {
 		return Promise.resolve(Object.keys(RESEnvironment._storage));
+	},
+	clear() {
+		RESEnvironment._storage = {};
+		return Promise.resolve();
 	}
 };
