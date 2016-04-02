@@ -567,6 +567,7 @@ PageMod({
 		self.data.url('modules/hosts/xkcd.js'),
 		self.data.url('modules/hosts/dailymotion.js'),
 		self.data.url('modules/hosts/jsfiddle.js'),
+		self.data.url('modules/hosts/gyazo.js'),
 		self.data.url('modules/hosts/pornbot.js'),
 		self.data.url('modules/hosts/coub.js'),
 		self.data.url('modules/hosts/uploadly.js'),
