@@ -564,6 +564,7 @@ PageMod({
 		self.data.url('modules/modhelper.js'),
 		self.data.url('modules/quickMessage.js'),
 		self.data.url('modules/hosts/imgur.js'),
+		self.data.url('modules/hosts/strawpoll.js'),
 		self.data.url('modules/hosts/twimg.js'),
 		self.data.url('modules/hosts/xkcd.js'),
 		self.data.url('modules/hosts/dailymotion.js'),
