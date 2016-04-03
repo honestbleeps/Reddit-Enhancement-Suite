@@ -22,7 +22,9 @@
     "test": "ava",
     "lint": "eslint . && scss-lint",
     "add-module": "gulp add-module --file",
-    "add-host": "gulp add-host --file"
+    "add-host": "gulp add-host --file",
+    "coverage": "nyc --all --require babel-core/register ava",
+    "report-coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "ava": {
     "files": [
@@ -33,11 +35,11 @@
     ]
   },
   "nyc": {
-	"exclude": [
-	  "dist",
-	  "lib/vendor",
-	  "**/__tests__"
-	]
+    "exclude": [
+      "dist",
+      "lib/vendor",
+      "**/__tests__"
+    ]
   },
   "devDependencies": {
     "ava": "0.13.0",
