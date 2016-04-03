@@ -1,6 +1,7 @@
 # Reddit Enhancement Suite
 
 [![Build Status](https://travis-ci.org/honestbleeps/Reddit-Enhancement-Suite.svg?branch=master)](https://travis-ci.org/honestbleeps/Reddit-Enhancement-Suite)
+[![Coverage Status](https://coveralls.io/repos/github/honestbleeps/Reddit-Enhancement-Suite/badge.svg?branch=master)](https://coveralls.io/github/honestbleeps/Reddit-Enhancement-Suite?branch=master)
 [![Code Climate](https://codeclimate.com/github/honestbleeps/Reddit-Enhancement-Suite/badges/gpa.svg)](https://codeclimate.com/github/honestbleeps/Reddit-Enhancement-Suite)
 [![devDependency Status](https://david-dm.org/honestbleeps/Reddit-Enhancement-Suite/dev-status.svg)](https://david-dm.org/honestbleeps/Reddit-Enhancement-Suite#info=devDependencies)
 [![Chat on IRC](https://img.shields.io/badge/irc-%23enhancement-blue.svg)](http://webchat.snoonet.org/#enhancement)
@@ -46,41 +47,38 @@ Thinking about contributing to RES? Awesome! We just ask that you follow a few s
 
 ##### Top level files and folders
 
-  - `README.md` – YOU ARE HERE, unless you're browsing on GitHub
-  - `changelog.txt` – self-explanatory
-  - `gulpfile.babel.js` – build script
-  - `package.json` – package info, dependencies
-  - `lib/` – all RES code
-  - `lib/core/` – core RES code
-  - `lib/modules/` – RES modules
-  - `lib/vendor/` – RES vendor libraries
-  - `chrome/` – Chrome-specific RES files
-  - `firefox/` – Firefox-specific RES files
-  - `safari/` – Safari-specific RES files
-  - `dist/` – build output
-  - `tests/` – integration tests, currently unused
-  - `**/__tests__` – unit tests
+  - `README.md`: YOU ARE HERE, unless you're browsing on GitHub
+  - `changelog.txt`: self-explanatory
+  - `gulpfile.babel.js`: build script
+  - `package.json`: package info, dependencies
+  - `lib/`: all RES code
+  - `lib/core/`: core RES code
+  - `lib/modules/`: RES modules
+  - `lib/vendor/`: RES vendor libraries
+  - `chrome/`: Chrome-specific RES files
+  - `firefox/`: Firefox-specific RES files
+  - `safari/`: Safari-specific RES files
+  - `dist/`: build output
+  - `**/__tests__`: unit tests
 
 ##### Chrome files
 
-  - `background.js` – the "background page" for RES, necessary for Chrome extensions
-  - `manifest.json` – the project manifest
-  - `icon.png`, `icon48.png`, `icon128.png` – icons!
+  - `background.js`: the "background page" for RES, necessary for Chrome extensions
+  - `manifest.json`: the project manifest
+  - `icon.png`, `icon48.png`, `icon128.png`: icons!
 
 ##### Firefox files
 
-  - `index.js` – this is Firefox's sort of "background page" for RES, like what Chrome has, but just a JS file
-  - `package.json` – the project manifest for the Firefox add-on
+  - `index.js`: this is Firefox's sort of "background page" for RES, like what Chrome has, but just a JS file
+  - `package.json`: the project manifest for the Firefox add-on
 
 ##### Safari files
 
-  - `background-safari.html` – the "background page" for RES, necessary for Safari extensions
-  - `Info.plist` – the project manifest
-  - `icon.png`, `icon48.png`, `icon128.png` – icons!
+  - `background-safari.html`: the "background page" for RES, necessary for Safari extensions
+  - `Info.plist`: the project manifest
+  - `icon.png`, `icon48.png`, `icon128.png`: icons!
 
 ## Building development versions of the extension
-
-RES is built with [gulp](http://gulpjs.com/).
 
 First time installation:
 

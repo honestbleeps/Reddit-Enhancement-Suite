@@ -446,6 +446,42 @@
 		background-color: #181818;
 	}
 
+	.traffic-table tr:nth-of-type(odd).promo-traffic-live {
+		color: #181818;
+	}
+
+	.traffic-table.promocampaign-table tr.active {
+		background-color: #6D2F39;
+		border: 2px dotted #A70000;
+	}
+
+	.sponsored-page .dashboard {
+		color: hsl(0, 0%, 87%);
+	}
+
+	.sponsored-page .campaign-editor .editor-group,
+	.sponsored-page .editor-group {
+		background-color: #151515;
+	}
+
+	.sponsored-page .campaign-editor .campaign-set {
+		background-color: #666;
+	}
+
+	.sponsored-page .linefield-content textarea,
+	.sponsored-page .linefield-content input {
+		color: #181818;
+	}
+
+	.linefield .markhelp table {
+		background-color: inherit;
+	}
+
+	.content .sponsored-page textarea,
+	.content .sponsored-page input {
+		background-color: rgb(252, 252, 252);
+	}
+
 	.md code,
 	.md pre,
 	.content .md pre,
