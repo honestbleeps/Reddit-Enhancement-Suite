@@ -1,3 +1,4 @@
+@import '../mixins';
 @import '../zindex';
 
 #quickMessage {
@@ -73,12 +74,12 @@
 	}
 
 	.moderator::after {
+		@include local-background-image('images/moderatorShield.png');
 		width: 16px;
 		height: 16px;
 		margin-left: 5px;
 		display: inline-block;
 		vertical-align: top;
 		content: '';
-		background: url('https://www.redditstatic.com/sprite-reddit.EMWQffWtZwo.png') no-repeat -44px -796px;
 	}
 }
