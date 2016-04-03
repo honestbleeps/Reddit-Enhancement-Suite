@@ -163,4 +163,73 @@
 	RESEnvironment.isPrivateBrowsing = RESUtils.once(() =>
 		Promise.resolve(chrome.extension.inIncognitoContext)
 	);
+
+	function extend(target, source) {
+		for (const key in source) {
+			if (target[key] && source[key] && typeof target[key] === 'object' && typeof source[key] === 'object') {
+				extend(target[key], source[key]);
+			} else {
+				target[key] = source[key];
+			}
+		}
+		return target;
+	}
+
+	const queues = new Map();
+
+	function mutex(callback) {
+		return (...args) => {
+			const key = args[0];
+			let tail;
+			if (queues.has(key)) {
+				tail = queues.get(key).then(() => callback(...args));
+			} else {
+				tail = callback(...args);
+			}
+			queues.set(key, tail);
+			tail.then(() => {
+				if (queues.get(key) === tail) queues.delete(key);
+			});
+			return tail;
+		};
+	}
+
+	const _set = apiToPromise(::chrome.storage.local.set);
+	const set = (key, value) => _set({ [key]: value });
+
+	const _get = apiToPromise(::chrome.storage.local.get);
+	const get = async (key, defaultValue = null) => (await _get({ [key]: defaultValue }))[key];
+
+	RESEnvironment.storage.get = mutex(key => get(key, null));
+
+	RESEnvironment.storage.set = mutex((key, value) => set(key, value));
+
+	RESEnvironment.storage.patch = mutex(async (key, value) => {
+		const extended = extend(await get(key) || {}, value);
+		return set(key, extended);
+	});
+
+	RESEnvironment.storage.deletePath = mutex(async (key, ...path) => {
+		try {
+			const stored = await get(key) || {};
+			path.reduce((obj, key, i, { length }) => {
+				if (i < length - 1) return obj[key];
+				delete obj[key];
+			}, stored);
+			return set(key, stored);
+		} catch (e) {
+			throw new Error(`Failed to delete path: ${path} on key: ${key} - error: ${e}`);
+		}
+	});
+
+	RESEnvironment.storage.delete = mutex(apiToPromise(::chrome.storage.local.remove));
+
+	RESEnvironment.storage.has = mutex(async key => {
+		const sentinel = Math.random();
+		return (await get(key, sentinel)) !== sentinel;
+	});
+
+	RESEnvironment.storage.keys = async () => Object.keys(await _get(null));
+
+	RESEnvironment.storage.clear = apiToPromise(::chrome.storage.local.clear);
 }

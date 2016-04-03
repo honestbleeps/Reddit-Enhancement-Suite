@@ -192,7 +192,7 @@ addListener('readResource', filename =>
 );
 
 addListener('deleteCookies', cookies =>
-	cookies.forEach(({ name }) => cookieManager.remove('.reddit.com', name, '/', false))
+	cookies.forEach(({ name }) => cookieManager.remove('.reddit.com', name, '/', false, false))
 );
 
 addListener('ajax', ({ method, url, headers, data }) =>
@@ -565,12 +565,18 @@ PageMod({
 		self.data.url('modules/quickMessage.js'),
 		self.data.url('modules/hosts/imgur.js'),
 		self.data.url('modules/hosts/strawpoll.js'),
+		self.data.url('modules/hosts/twimg.js'),
+		self.data.url('modules/hosts/xkcd.js'),
+		self.data.url('modules/hosts/dailymotion.js'),
+		self.data.url('modules/hosts/jsfiddle.js'),
+		self.data.url('modules/hosts/gyazo.js'),
 		self.data.url('modules/hosts/pornbot.js'),
 		self.data.url('modules/hosts/coub.js'),
 		self.data.url('modules/hosts/uploadly.js'),
 		self.data.url('modules/hosts/eroshare.js'),
 		self.data.url('modules/hosts/iloopit.js'),
 		self.data.url('modules/hosts/livecap.js'),
+		self.data.url('modules/hosts/pixpit.js'),
 		self.data.url('modules/hosts/twitter.js'),
 		self.data.url('modules/hosts/futurism.js'),
 		self.data.url('modules/hosts/gfycat.js'),

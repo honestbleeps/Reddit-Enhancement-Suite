@@ -60,3 +60,7 @@
 		}
 	}
 }
+
+.res-betteReddit-showHiddenSortOptions {
+	.drop-choices .choice.hidden { display: block; }
+}
