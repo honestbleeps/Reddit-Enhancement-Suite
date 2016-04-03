@@ -1456,6 +1456,10 @@ img {
 	overflow: hidden;
 	user-select: none;
 
+	&.usertext-body {
+		user-select: text; // Allow selection if is a text expando
+	}
+
 	a.madeVisible {
 		display: inline-block;
 		overflow: hidden;
