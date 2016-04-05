@@ -502,6 +502,7 @@ PageMod({
 		self.data.url('modules/userTagger.js'),
 		self.data.url('modules/keyboardNav.js'),
 		self.data.url('modules/commandLine.js'),
+		self.data.url('modules/xPostLinks.js'),
 		self.data.url('modules/messageMenu.js'),
 		self.data.url('modules/easterEgg.js'),
 		self.data.url('modules/pageNavigator.js'),
