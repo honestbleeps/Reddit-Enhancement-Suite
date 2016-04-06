@@ -5,8 +5,10 @@
 	"minimum_chrome_version": "26.0",
 	"description": "Reddit Enhancement Suite - a group of enhancements for browsing Reddit",
 	"background": {
-		"page": "background.html",
-		"persistent": true
+		"scripts": [
+			"vendor/polyfill.min.js",
+			"background.js"
+		]
 	},
 	"homepage_url": "http://redditenhancementsuite.com",
 	"options_page": "options.html",
