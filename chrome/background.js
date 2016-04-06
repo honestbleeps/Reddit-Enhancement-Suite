@@ -222,62 +222,25 @@ addListener('permissions', async ({ operation, permissions, origins }, { id: tab
 	}
 });
 
-// Circular references can't exist in storage, so we don't need to consider that
-// and only enumerable own properties are sent in messages
-function extend(target, source) {
-	for (const key in source) {
-		if (target[key] && source[key] && typeof target[key] === 'object' && typeof source[key] === 'object') {
-			extend(target[key], source[key]);
-		} else {
-			target[key] = source[key];
-		}
-	}
-	return target;
-}
+(async () => {
+	const _set = apiToPromise(::chrome.storage.local.set);
+	const set = (key, value) => _set({ [key]: value });
 
-addListener('storage', ([operation, key, value]) => {
-	switch (operation) {
-		case 'get':
+	const MIGRATED_TO_CHROME_STORAGE = 'MIGRATED_TO_CHROME_STORAGE';
+
+	if (localStorage.getItem(MIGRATED_TO_CHROME_STORAGE) !== MIGRATED_TO_CHROME_STORAGE) {
+		await Promise.all(Object.keys(localStorage).map(async key => {
 			try {
-				return JSON.parse(localStorage.getItem(key));
+				await set(key, JSON.parse(localStorage.getItem(key)));
+				console.log(key);
 			} catch (e) {
-				console.warn('Failed to parse:', key, 'falling back to raw string.');
+				await set(key, localStorage.getItem(key));
+				console.warn(key);
 			}
-			return localStorage.getItem(key);
-		case 'set':
-			return localStorage.setItem(key, JSON.stringify(value));
-		case 'patch':
-			try {
-				const stored = JSON.parse(localStorage.getItem(key)) || {};
-				localStorage.setItem(key, JSON.stringify(extend(stored, value)));
-			} catch (e) {
-				throw new Error(`Failed to patch: ${key} - error: ${e}`);
-			}
-			break;
-		case 'deletePath':
-			try {
-				const stored = JSON.parse(localStorage.getItem(key)) || {};
-				value.split(',').reduce((obj, key, i, { length }) => {
-					if (i < length - 1) return obj[key];
-					delete obj[key];
-				}, stored);
-				localStorage.setItem(key, JSON.stringify(stored));
-			} catch (e) {
-				throw new Error(`Failed to delete path: ${value} on key: ${key} - error: ${e}`);
-			}
-			break;
-		case 'delete':
-			return localStorage.removeItem(key);
-		case 'has':
-			return key in localStorage;
-		case 'keys':
-			return Object.keys(localStorage);
-		case 'clear':
-			return localStorage.clear();
-		default:
-			throw new Error(`Invalid storage operation: ${operation}`);
+		}));
+		localStorage.setItem(MIGRATED_TO_CHROME_STORAGE, MIGRATED_TO_CHROME_STORAGE);
 	}
-});
+})();
 
 const session = new Map();
 

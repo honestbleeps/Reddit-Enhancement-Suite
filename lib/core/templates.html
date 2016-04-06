@@ -304,99 +304,51 @@
 			</cite>
 		</script>
 
-		<!--GfycatUI-->
-		<script id="GfycatUI" type="application/x-template">
-			<div class="res-player video gfycatR">
-				<a class="madeVisible" href="{{ directurl }}" target="_blank">
-				<video autoplay loop muted preload class="gfyRVid" poster="{{ poster }}">
+		<!--video-advanced-->
+		<script id="video-advanced" type="application/x-template">
+			<div class="res-player video video-advanced">
+				<video {{#controls}}controls{{/controls}} {{#autoplay}}autoplay{{/autoplay}} {{#muted}}muted{{/muted}} {{#loop}}loop{{/loop}} poster="{{ poster }}">
 					{{#sources}}
-					<source src="{{ source }}" {{#type}}type="{{ type }}"{{/type}} class="{{ class }}">
+					<source src="{{ source }}" {{#type}}type="{{ type }}"{{/type}} {{#reverse}}data-reverse="{{ reverse }}"{{/reverse}}>
 					{{/sources}}
 				</video>
-				</a>
-				<div style="height: 35px;" class="ctrlContainer">
-					<div class="res-expando-siteAttribution"></div>
-					<div style="height: 25px; float: right; padding: 5px; display: none;" class="ctrlBox">
-						<div class="res-icon res-lightweight-player-controls gfyRCtrlPause" style="margin-left: 6px; cursor: pointer;">&#xf16c;</div>
-						<div class="res-icon res-lightweight-player-controls gfyRCtrlReverse" style="margin-left: 6px; cursor: pointer;">&#xf169;</div>
-						<div class="res-icon res-lightweight-player-controls gfyRCtrlSlower" style="margin-left: 6px; cursor: pointer;">&#xf14d;</div>
-						<div class="res-icon res-lightweight-player-controls gfyRCtrlFaster" style="margin-left: 6px; cursor: pointer;">&#xf14c;</div>
+				<div class="video-advanced-below">
+					<div class="video-advanced-progress">
+						<div class="video-advanced-position"></div>
+					</div>
+					<div class="video-advanced-main">
+						<div hidden class="video-advanced-controls">
+							<div title="Toggle pause" class="res-icon video-advanced-button video-advanced-toggle-pause">&#xf16c;</div>
+							{{#reversable}}
+							<div title="Reverse video" class="res-icon video-advanced-button video-advanced-reverse">&#xf169;</div>
+							{{/reversable}}
+							<div class="video-advanced-controls-group">
+								<div title="Select previous frame" class="res-icon video-advanced-button video-advanced-time-decrease">&#xf168;</div>
+								<div class="video-advanced-time">1.00s</div>
+								<div title="Select next frame" class="res-icon video-advanced-button video-advanced-time-increase">&#xf16e;</div>
+								<div title="Decrease speed by 10%" class="res-icon video-advanced-button video-advanced-speed-decrease">&#xf14d;</div>
+								<div class="video-advanced-speed">1.00x</div>
+								<div title="Increase speed by 10%" class="res-icon video-advanced-button video-advanced-speed-increase">&#xf14c;</div>
+							</div>
+						</div>
+						<div hidden class="video-advanced-error">
+							<div class="res-icon">&#xf15b</div>
+							<span>Could not load video</span>
+						</div>
+						<div class="video-advanced-info">
+							{{#source}}
+							<a class="video-advanced-link video-advanced-source" href="{{ source }}">source</a>
+							{{/source}}
+							{{#downloadurl}}
+							<a class="video-advanced-link video-advanced-download" href="{{ downloadurl }}">download</a>
+							{{/downloadurl}}
+							<div class="res-expando-siteAttribution"></div>
+						</div>
 					</div>
 				</div>
 			</div>
 		</script>
-		<!--/GfycatUI-->
-		<!--gifyoutubeUI-->
-		<script id="gifyoutubeUI" type="application/x-template">
-			<div class="res-player video gifyoutube">
-				<a class="madeVisible" href="{{ directurl }}" target="_blank">
-				<video autoplay loop muted preload class="gifyoutubeVid">
-					{{#sources}}
-					<source src="{{ source }}" {{#type}}type="{{ type }}"{{/type}} class="{{ class }}">
-					{{/sources}}
-				</video>
-				</a>
-				<div style="height: 35px;" class="ctrlContainer">
-					<div class="res-expando-siteAttribution"></div>
-					<div class="gifyoutube-source">
-						<a target="_blank" class="res-icon res-lightweight-player-controls gifyoutube-source-button">Watch Full Video</a>
-					</div>
-					<div class="gifyoutube-controls">
-						<div class="res-icon res-lightweight-player-controls gifyoutubeCtrlSlower">&#xf169;</div>
-						<div class="res-icon res-lightweight-player-controls gifyoutubeCtrlPause">&#xf16c;</div>
-						<div class="res-icon res-lightweight-player-controls gifyoutubeCtrlFaster">&#xf16d;</div>
-					</div>
-				</div>
-			</div>
-		</script>
-		<!--/gifyoutubeUI-->
-		<!--imgurgifvUI-->
-		<script id="imgurgifvUI" type="application/x-template">
-			<div class="res-player video imgurgifv">
-				<a class="madeVisible" href="{{ directurl }}" target="_blank">
-				<video autoplay loop muted preload  class="imgurgifvVid">
-					{{#sources}}
-					<source src="{{ source }}" {{#type}}type="{{ type }}"{{/type}} class="{{ class }}">
-					{{/sources}}
-				</video>
-				</a>
-				<div style="height: 35px;" class="ctrlContainer">
-					<div class="res-expando-siteAttribution"></div>
-					<div class="imgurgifv-download">
-						<a href="{{ downloadurl }}">download</a>
-					</div>
-				</div>
-			</div>
-		</script>
-		<!--/imgurgifvUI-->
-		<!--PornbotUI-->
-		<script id="PornbotUI" type="application/x-template">
-			<div class="res-player video pornbot">
-				<a class="madeVisible" href="{{ directurl }}" target="_blank">
-				<video autoplay loop muted preload  class="pornbotVid">
-					{{#sources}}
-					<source src="{{ source }}" {{#type}}type="{{ type }}"{{/type}} class="{{ class }}">
-					{{/sources}}
-				</video>
-				</a>
-			</div>
-		</script>
-		<!--/PornbotUI-->
-
-		<!--swirlUI-->
-		<script id="swirlUI" type="application/x-template">
-			<div class="res-player video">
-				<video {{#autoplay}}autoplay="true"{{/autoplay}} muted loop preload preload controls>
-					{{#sources}}
-					<source src="{{ source }}" {{#type}}type="{{ type }}"{{/type}} class="{{ class }}">
-					{{/sources}}
-				</video>
-				<div style="height: 35px;" class="ctrlContainer">
-					<a href="{{ swirlUrl }}" target="_blank">View on Swirl</a>
-				</div>
-			</div>
-		</script>
-		<!--/swirlUI-->
+		<!--/video-advanced-->
 
 		<div id="searchResultOptionHtml" type="application/x-template">
 			<div class="SearchRES-result-header">

@@ -49,16 +49,13 @@
 				<string>core/template.js</string>
 				<string>core/metadata.js</string>
 				<string>vendor/konami.js</string>
-				<string>vendor/gfycat.js</string>
-				<string>vendor/gifyoutube.js</string>
-				<string>vendor/imgurgifv.js</string>
-				<string>vendor/pornbot.js</string>
 				<string>modules/spoilerTags.js</string>
 				<string>modules/submitIssue.js</string>
 				<string>modules/betteReddit.js</string>
 				<string>modules/userTagger.js</string>
 				<string>modules/keyboardNav.js</string>
 				<string>modules/commandLine.js</string>
+				<string>modules/xPostLinks.js</string>
 				<string>modules/messageMenu.js</string>
 				<string>modules/easterEgg.js</string>
 				<string>modules/pageNavigator.js</string>
@@ -117,12 +114,23 @@
 				<string>modules/modhelper.js</string>
 				<string>modules/quickMessage.js</string>
 				<string>modules/hosts/imgur.js</string>
+				<string>modules/hosts/derpibooru.js</string>
+				<string>modules/hosts/wikipedia.js</string>
+				<string>modules/hosts/strawpoll.js</string>
+				<string>modules/hosts/twimg.js</string>
+				<string>modules/hosts/xkcd.js</string>
+				<string>modules/hosts/dailymotion.js</string>
+				<string>modules/hosts/jsfiddle.js</string>
+				<string>modules/hosts/gyazo.js</string>
 				<string>modules/hosts/pornbot.js</string>
 				<string>modules/hosts/coub.js</string>
 				<string>modules/hosts/uploadly.js</string>
 				<string>modules/hosts/eroshare.js</string>
 				<string>modules/hosts/iloopit.js</string>
 				<string>modules/hosts/livecap.js</string>
+				<string>modules/hosts/graphiq.js</string>
+				<string>modules/hosts/spotify.js</string>
+				<string>modules/hosts/pixpit.js</string>
 				<string>modules/hosts/twitter.js</string>
 				<string>modules/hosts/futurism.js</string>
 				<string>modules/hosts/gfycat.js</string>
@@ -191,6 +199,7 @@
 				<string>api.tumblr.com</string>
 				<string>noembed.com</string>
 				<string>miiverse.nintendo.net</string>
+				<string>api.gyazo.com</string>
 			</array>
 			<key>Include Secure Pages</key>
 			<true/>
