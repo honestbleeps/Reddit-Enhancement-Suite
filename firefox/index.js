@@ -561,6 +561,7 @@ PageMod({
 		self.data.url('modules/modhelper.js'),
 		self.data.url('modules/quickMessage.js'),
 		self.data.url('modules/hosts/imgur.js'),
+		self.data.url('modules/hosts/reddituploads.js'),
 		self.data.url('modules/hosts/derpibooru.js'),
 		self.data.url('modules/hosts/wikipedia.js'),
 		self.data.url('modules/hosts/strawpoll.js'),
