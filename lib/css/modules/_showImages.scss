@@ -76,3 +76,128 @@ a.madeVisible {
 .res-player .RESMediaControls .imageLookup {
 	display: none;
 }
+
+// video-advanced
+.video-advanced {
+	video {
+		display: block;
+	}
+
+	.video-advanced-below {
+		background-color: rgba(52, 47, 38, 1);
+		user-select: none;
+		cursor: default;
+
+		.video-advanced-progress {
+			width: 100%;
+			height: 2px;
+			background-color: rgba(256, 256, 256, .06);
+			padding: 0 1%;
+			box-sizing: border-box;
+
+			.video-advanced-position {
+				height: 100%;
+				position: relative;
+				width: 2%;
+				margin-left: -1%;
+				background-color: rgba(52, 47, 38, 1);
+			}
+		}
+
+		.video-advanced-main {
+			padding: 3px 5px;
+			display: flex;
+			justify-content: space-between;
+			flex-wrap: wrap;
+			color: rgba(256, 256, 256, .9);
+
+			> * {
+				height: 20px;
+			}
+
+			.video-advanced-controls,
+			.video-advanced-info {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				font-size: 11px;
+			}
+
+			.video-advanced-info {
+				margin-left: auto;
+
+				.video-advanced-link {
+					padding: 0 3px;
+					color: rgba(256, 256, 256, .7);
+
+					&:not(:last-of-type)::after {
+						content: '|';
+						padding-left: 3px;
+					}
+				}
+			}
+
+			.video-advanced-error {
+				color: #FA778B;
+			}
+
+			.video-advanced-controls {
+				.video-advanced-button {
+					cursor: pointer;
+					margin-right: 7px;
+
+					&:hover {
+						color: rgba(256, 256, 256, .8);
+					}
+				}
+
+				.video-advanced-controls-group {
+					display: flex;
+					align-items: center;
+					position: relative;
+
+					.video-advanced-button {
+						margin-right: 0;
+					}
+
+					.video-advanced-time,
+					.video-advanced-speed {
+						font-family: monospace;
+						font-size: 11px;
+						line-height: 8px;
+						width: 38px;
+						text-align: center;
+					}
+
+					.video-advanced-speed {
+						cursor: pointer;
+					}
+				}
+			}
+		}
+	}
+
+	&:hover {
+		video:not([controls]) ~	* {
+			.video-advanced-progress {
+				background-color: rgba(256, 256, 256, .6);
+			}
+		}
+	}
+
+	video[controls] ~ * {
+		.video-advanced-toggle-pause {
+			display: none;
+		}
+	}
+
+	video[controls]:hover ~ * {
+		.video-advanced-position {
+			display: none;
+		}
+	}
+
+	[hidden] {
+		display: none !important;
+	}
+}

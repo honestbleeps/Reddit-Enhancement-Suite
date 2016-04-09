@@ -1456,6 +1456,10 @@ img {
 	overflow: hidden;
 	user-select: none;
 
+	&.usertext-body {
+		user-select: text; // Allow selection if is a text expando
+	}
+
 	a.madeVisible {
 		display: inline-block;
 		overflow: hidden;
@@ -2043,56 +2047,4 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 	li p {
 		margin: .75em 0;
 	}
-}
-
-// gifyoutube player
-.gifyoutube-source {
-	float: left;
-}
-
-.res-player.gifyoutube .gifyoutube-controls .res-lightweight-player-controls,
-.res-player.gifyoutube .gifyoutube-source-button {
-	color: #fff;
-	font-size: 16px;
-	padding: 5px 10px;
-	cursor: pointer;
-	float: none;
-	margin-right: 0;
-	margin-left: 5px;
-}
-
-.gifyoutubeCtrlSlower,
-.gifyoutubeCtrlFaster {
-	border-radius: 3px;
-	background-color: #f0ad4e;
-	border: 1px solid #eea236;
-}
-
-.res-player.gifyoutube .gifyoutube-source-button {
-	margin-left: 0;
-}
-
-.gifyoutubeCtrlPause {
-	border-radius: 3px;
-	background-color: #5cb85c;
-	border: 1px solid #4cae4c;
-}
-
-.gifyoutube-controls {
-	float: right;
-}
-
-.gifyoutube-source-button {
-	border-radius: 3px;
-	background-color: #5bc0de;
-	border: 1px solid #46b8da;
-}
-
-// imgur gifv player
-.imgurgifv-brand {
-	float: left;
-}
-
-.imgurgifv-download {
-	float: right;
 }
