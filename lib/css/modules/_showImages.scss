@@ -5,6 +5,10 @@ body:not(.res-showImages-displayImageCaptions) {
 	}
 }
 
+.res-player {
+	position: absolute;
+}
+
 a.madeVisible, div.madeVisible {
 	position: relative;
 
@@ -23,6 +27,7 @@ a.madeVisible, div.madeVisible {
 	z-index: 2;
 	border: solid 1px #eee;
 	background: rgba(255, 255, 255, .8);
+	cursor: pointer;
 
 	// Support multiple positions. top left is default
 	&.top-left {
