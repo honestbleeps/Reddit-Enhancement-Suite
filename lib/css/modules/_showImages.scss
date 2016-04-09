@@ -136,4 +136,11 @@ body:not(.res-showImages-displayImageCaptions) {
 	border: 1px solid #369;
 	border-radius: 7px;
 	padding: 5px 10px;
+
+	// Nightmode styles
+	.res-nightmode & {
+		color: rgb(221, 221, 221);
+		border-color: rgb(102, 102, 102);
+		background: none;
+	}
 }
