@@ -5,11 +5,8 @@ body:not(.res-showImages-displayImageCaptions) {
 	}
 }
 
-.res-player {
-	position: absolute;
-}
-
-a.madeVisible, div.madeVisible {
+a.madeVisible,
+div.madeVisible {
 	position: relative;
 
 	.RESMediaControls {
@@ -77,16 +74,21 @@ a.madeVisible, div.madeVisible {
 	}
 }
 
-// Hide "lookup" button on video's
-.res-player .RESMediaControls .imageLookup {
-	display: none;
+
+.res-player {
+	position: absolute;
+
+	// Hide "lookup" button on video's
+	.RESMediaControls .imageLookup {
+		display: none;
+	}
 }
 
 // video-advanced
 .video-advanced {
 	video {
 		display: block;
-		margin-bottom:28px;
+		margin-bottom: 28px;
 	}
 
 	.video-advanced-below {
