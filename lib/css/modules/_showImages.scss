@@ -81,12 +81,17 @@ a.madeVisible {
 .video-advanced {
 	video {
 		display: block;
+		margin-bottom:28px;
 	}
 
 	.video-advanced-below {
 		background-color: rgba(52, 47, 38, 1);
 		user-select: none;
 		cursor: default;
+
+		position: absolute;
+		bottom:0px;
+		width:100%;
 
 		.video-advanced-progress {
 			width: 100%;
