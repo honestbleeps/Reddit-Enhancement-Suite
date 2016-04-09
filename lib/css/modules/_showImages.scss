@@ -129,3 +129,11 @@ body:not(.res-showImages-displayImageCaptions) {
 		display: none !important;
 	}
 }
+
+// style expando text content in comments
+.commentarea div.usertext-body.madeVisible .md {
+	background-color: #fafafa;
+	border: 1px solid #369;
+	border-radius: 7px;
+	padding: 5px 10px;
+}
