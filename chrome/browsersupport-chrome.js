@@ -159,9 +159,6 @@ import 'babel-polyfill';
 		};
 	}
 
-	RESEnvironment.loadResourceAsText = filename =>
-		RESEnvironment.ajax({ url: chrome.runtime.getURL(filename) });
-
 	RESEnvironment.isPrivateBrowsing = RESUtils.once(() =>
 		Promise.resolve(chrome.extension.inIncognitoContext)
 	);

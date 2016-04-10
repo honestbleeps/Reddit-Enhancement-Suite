@@ -100,9 +100,4 @@ import 'babel-polyfill';
 	addListener('pageActionRefresh', () => modules['styleTweaks'].updatePageAction());
 
 	RESEnvironment._addSharedListeners(addListener);
-
-	// RESEnvironment
-
-	RESEnvironment.loadResourceAsText = filename =>
-		RESEnvironment._sendMessage('readResource', filename);
 }

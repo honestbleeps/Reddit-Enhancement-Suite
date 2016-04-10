@@ -131,9 +131,6 @@ window.onunload = () => {};
 		return data;
 	};
 
-	RESEnvironment.loadResourceAsText = filename =>
-		RESEnvironment.ajax({ url: safari.extension.baseURI + filename });
-
 	RESEnvironment.deleteCookies = (...cookieNames) => {
 		cookieNames.forEach(cookieName => (document.cookie = `${cookieName}=null;expires=${Date.now()}; path=/;domain=reddit.com`));
 		return Promise.resolve();

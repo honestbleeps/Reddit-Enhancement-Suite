@@ -1,9 +1,6 @@
 /* eslint-env node */
 
-import fs from 'fs';
 
-RESEnvironment.loadResourceAsText = filename =>
-	Promise.resolve(fs.readFileSync(`lib/${filename}`, 'utf8'));
 
 RESEnvironment._sendMessage = () => Promise.resolve();
 

@@ -1,0 +1,19 @@
+.res-floater-visibleAfterScroll {
+	position: fixed;
+	z-index: 10000000;
+	top: {{ offset }}px;
+	right: 8px;
+	display: block;
+}
+.res-floater-visibleAfterScroll > ul {
+	float: right;
+	list-style: none;
+}
+.res-floater-visibleAfterScroll > ul > li {
+	display: block;
+	float: left;
+	opacity: 0.7;
+}
+.res-floater-visibleAfterScroll > ul > li:hover {
+	opacity: 1.0;
+}
