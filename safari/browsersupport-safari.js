@@ -1,5 +1,7 @@
 /* global safari */
 
+import 'babel-polyfill';
+
 // Safari has a ridiculous bug that causes it to lose access to safari.self.tab if you click the back button.
 // this stupid one liner fixes that.
 window.onunload = () => {};

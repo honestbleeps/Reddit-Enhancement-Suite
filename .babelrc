@@ -4,10 +4,13 @@
 		"stage-0"
 	],
 	"plugins": [
-		"transform-decorators-legacy"
+		"transform-decorators-legacy",
+		"transform-dead-code-elimination",
+		"transform-node-env-inline",
+		"lodash"
 	],
 	"env": {
-		"development": {
+		"test": {
 			"sourceMaps": "inline"
 		}
 	}

@@ -1,5 +1,7 @@
 /* global self */
 
+import 'babel-polyfill';
+
 {
 	const listeners = new Map();
 	const waiting = new Map();

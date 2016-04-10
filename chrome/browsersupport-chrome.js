@@ -1,5 +1,7 @@
 /* global chrome:false */
 
+import 'babel-polyfill';
+
 {
 	// via https://github.com/erikdesjardins/global-mediakeys
 	// Erik Desjardins, GPLv3

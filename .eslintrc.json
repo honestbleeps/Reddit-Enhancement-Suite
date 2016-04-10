@@ -12,9 +12,17 @@
 		"filenames",
 		"import"
 	],
+	"settings": {
+		"import/ignore": [
+			"node_modules",
+			"\\.(json|png|html|scss|hbs)$"
+		],
+		"import/resolver": "webpack"
+	},
 	"env": {
 		"browser": true,
 		"webextensions": true,
+		"node": true,
 		"jquery": true,
 		"es6": true
 	},
@@ -26,8 +34,6 @@
 		"Snudown": false,
 		"Konami": false,
 		"gfyObject": false,
-
-		"unsafeWindow": false,
 
 		"RESUtils": true,
 		"RESMetadata": true,
@@ -168,7 +174,7 @@
 		"no-param-reassign": 0,
 		"no-path-concat": 2,
 		"no-plusplus": 0,
-		"no-process-env": 2,
+		"no-process-env": 0,
 		"no-process-exit": 0,
 		"no-proto": 2,
 		"no-redeclare": 2,

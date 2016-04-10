@@ -3,7 +3,6 @@
 import autoprefixer from 'gulp-autoprefixer';
 import babel from 'gulp-babel';
 import cache from 'gulp-cached';
-import del from 'del';
 import filter from 'gulp-filter';
 import gulp from 'gulp';
 import insert from 'gulp-insert';
@@ -120,10 +119,6 @@ function toBrowsers() {
 		dest(getBuildDir(browser), browserConf[browser].dests.baseSources)
 	));
 }
-
-gulp.task('clean', () =>
-	del(browsers.map(browser => getBuildDir(browser)))
-);
 
 gulp.task('watch', ['build'], () => {
 	const sources = browsers.reduce(

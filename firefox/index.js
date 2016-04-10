@@ -4,7 +4,9 @@
 // comment this line out for releases.
 // require('sdk/preferences/service').set('javascript.options.strict', false);
 
-// Import the APIs we need.
+import 'babel-polyfill';
+
+import XHRCache from '../lib/utils/XHRCache';
 import priv from 'sdk/private-browsing';
 import self from 'sdk/self';
 import ss from 'sdk/simple-storage';
@@ -53,43 +55,6 @@ function workerFor(tab) {
 	}
 	return worker;
 }
-
-const XHRCache = {
-	capacity: 250,
-	entries: new Map(),
-	check(key, maxAge = Infinity) {
-		const entry = this.entries.get(key);
-		const now = Date.now();
-		if (entry && (now - entry.timestamp < maxAge)) {
-			entry.timestamp = now;
-			return entry.data;
-		}
-	},
-	set(key, value) {
-		this.entries.set(key, {
-			data: value,
-			timestamp: Date.now()
-		});
-
-		if (this.entries.size > this.capacity) {
-			this.prune();
-		}
-	},
-	delete(key) {
-		this.entries.delete(key);
-	},
-	prune() {
-		// evict least-recently used
-		const top = Array.from(this.entries.entries())
-			.sort(([, a], [, b]) => a.timestamp - b.timestamp)
-			.slice((this.capacity / 2) | 0);
-
-		this.entries = new Map(top);
-	},
-	clear() {
-		this.entries.clear();
-	}
-};
 
 const listeners = new Map();
 const waiting = new Map();
@@ -371,16 +336,18 @@ addListener('session', ([operation, key, value]) => {
 	}
 });
 
+const cache = new XHRCache();
+
 addListener('XHRCache', ({ operation, key, value, maxAge }) => {
 	switch (operation) {
 		case 'set':
-			return XHRCache.set(key, value);
+			return cache.set(key, value);
 		case 'check':
-			return XHRCache.check(key, maxAge);
+			return cache.check(key, maxAge);
 		case 'delete':
-			return XHRCache.delete(key);
+			return cache.delete(key);
 		case 'clear':
-			return XHRCache.clear();
+			return cache.clear();
 		default:
 			throw new Error(`Invalid XHRCache operation: ${operation}`);
 	}

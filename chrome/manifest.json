@@ -1,17 +1,16 @@
 {
 	"name": "Reddit Enhancement Suite",
-	"version": "0.9000.1",
+	"version": "{{prop?version!../package.json}}",
 	"manifest_version": 2,
 	"minimum_chrome_version": "26.0",
-	"description": "Reddit Enhancement Suite - a group of enhancements for browsing Reddit",
+	"description": "{{prop?description!../package.json}}",
 	"background": {
 		"scripts": [
-			"vendor/polyfill.min.js",
-			"background.js"
+			"{{./background.entry.js}}"
 		]
 	},
 	"homepage_url": "http://redditenhancementsuite.com",
-	"options_page": "options.html",
+	"options_page": "{{./options.html}}",
 	"content_scripts": [
 		{
 			"matches": [
@@ -22,7 +21,6 @@
 				"https://*.reddit.com/*"
 			],
 			"js": [
-				"vendor/polyfill.min.js",
 				"vendor/jquery-1.11.3.min.js",
 				"vendor/guiders.js",
 				"vendor/jquery.sortable-0.9.12.js",
@@ -168,27 +166,24 @@
 				"core/init.js"
 			],
 			"css": [
-				"css/res.css",
-				"vendor/guiders.css",
-				"vendor/tokenize.css"
+				"{{../lib/css/res.scss}}",
+				"{{../lib/vendor/guiders.css}}",
+				"{{../lib/vendor/tokenize.css}}"
 			],
 			"run_at": "document_start"
 		}
 	],
 	"web_accessible_resources": [
 		"core/templates.html",
-		"package.json",
-		"modules/hosts/hosts.json",
-		"*.js.map"
 	],
 	"icons": {
-		"48": "icon48.png",
-		"128": "icon128.png"
+		"48": "{{file!./icon48.png}}",
+		"128": "{{file!./icon128.png}}"
 	},
 	"page_action": {
 		"default_icon": {
-			"19": "images/css-on-small.png",
-			"38": "images/css-on.png"
+			"19": "{{file!./images/css-on-small.png}}",
+			"38": "{{file!./images/css-on.png}}"
 		},
 		"default_title": "Subreddit Style On"
 	},
