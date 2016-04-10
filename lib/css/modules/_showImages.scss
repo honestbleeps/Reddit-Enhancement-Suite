@@ -51,6 +51,7 @@ div.madeVisible {
 		padding: 6px;
 		vertical-align: middle;
 		font-size: 1rem;
+		color: #000;
 
 		&:hover {
 			background: rgba(255, 255, 255, .9);
@@ -74,7 +75,6 @@ div.madeVisible {
 	}
 }
 
-
 .res-player {
 	position: absolute;
 
@@ -88,7 +88,6 @@ div.madeVisible {
 .video-advanced {
 	video {
 		display: block;
-		margin-bottom: 28px;
 	}
 
 	.video-advanced-interface {
@@ -96,10 +95,6 @@ div.madeVisible {
 		background: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, .6));
 		user-select: none;
 		cursor: default;
-
-		position: absolute;
-		bottom: 0;
-		width: 100%;
 
 		.video-advanced-progress {
 			width: 100%;
