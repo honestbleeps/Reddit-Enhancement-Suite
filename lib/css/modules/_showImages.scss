@@ -11,8 +11,9 @@ body:not(.res-showImages-displayImageCaptions) {
 		display: block;
 	}
 
-	.video-advanced-below {
-		background-color: rgba(52, 47, 38, 1);
+	.video-advanced-interface {
+		display: none;
+		background: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, .6));
 		user-select: none;
 		cursor: default;
 
@@ -28,13 +29,14 @@ body:not(.res-showImages-displayImageCaptions) {
 				position: relative;
 				width: 2%;
 				margin-left: -1%;
-				background-color: rgba(52, 47, 38, 1);
+				background-color: rgba(255, 47, 0, .6);
+				border-radius: 1px;
 			}
 		}
 
 		.video-advanced-main {
-			padding: 3px 5px;
 			display: flex;
+			padding: 3px 5px;
 			justify-content: space-between;
 			flex-wrap: wrap;
 			color: rgba(256, 256, 256, .9);
@@ -56,7 +58,7 @@ body:not(.res-showImages-displayImageCaptions) {
 
 				.video-advanced-link {
 					padding: 0 3px;
-					color: rgba(256, 256, 256, .7);
+					color: rgba(256, 256, 256, .9);
 
 					&:not(:last-of-type)::after {
 						content: '|';
@@ -66,7 +68,7 @@ body:not(.res-showImages-displayImageCaptions) {
 			}
 
 			.video-advanced-error {
-				color: #FA778B;
+				color: red;
 			}
 
 			.video-advanced-controls {
@@ -96,33 +98,33 @@ body:not(.res-showImages-displayImageCaptions) {
 						width: 38px;
 						text-align: center;
 					}
-
-					.video-advanced-speed {
-						cursor: pointer;
-					}
 				}
 			}
 		}
 	}
 
-	&:hover {
-		video:not([controls]) ~	* {
-			.video-advanced-progress {
-				background-color: rgba(256, 256, 256, .6);
+	video[controls] {
+		~ .video-advanced-interface {
+			display: block;
+			background: rgba(52, 47, 38, 1);
+
+			// [controls]:hover has a inbuilt pause/play button
+			.video-advanced-toggle-pause {
+				display: none;
 			}
 		}
-	}
 
-	video[controls] ~ * {
-		.video-advanced-toggle-pause {
-			display: none;
-		}
-	}
-
-	video[controls]:hover ~ * {
+		// [controls]:hover has a inbuilt position bar
 		.video-advanced-position {
 			display: none;
 		}
+	}
+
+	&:hover > video:not([controls]) ~ .video-advanced-interface {
+		display: block;
+		position: absolute;
+		bottom: 0;
+		width: 100%;
 	}
 
 	[hidden] {
