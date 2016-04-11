@@ -1,6 +1,3 @@
-/* eslint-env node */
-/* eslint-disable import/no-unresolved */
-
 import 'babel-polyfill';
 
 import _eval from 'eval';

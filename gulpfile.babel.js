@@ -1,5 +1,3 @@
-/* eslint-env node */
-
 import autoprefixer from 'gulp-autoprefixer';
 import babel from 'gulp-babel';
 import cache from 'gulp-cached';

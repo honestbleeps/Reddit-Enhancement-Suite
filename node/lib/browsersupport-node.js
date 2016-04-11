@@ -1,7 +1,3 @@
-/* eslint-env node */
-
-
-
 RESEnvironment._sendMessage = () => Promise.resolve();
 
 function extend(target, source) {
