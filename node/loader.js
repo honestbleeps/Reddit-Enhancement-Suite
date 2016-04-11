@@ -1,5 +1,3 @@
-import 'babel-polyfill';
-
 import _eval from 'eval';
 import _yargs from 'yargs';
 import equals from 'deep-equal';
@@ -7,6 +5,8 @@ import files from './files.json'; // eslint-disable-line
 import fs from 'fs';
 import path from 'path';
 import requireNew from 'require-new';
+
+import { storage } from '../lib/environment';
 
 const yargs = _yargs
 	.count('verbose')
@@ -58,8 +58,8 @@ function importFile(filename, key) {
 }
 
 if (yargs.storage) {
-	RESEnvironment._storage = require(`./storage/${yargs.storage}.json`); // eslint-disable-line global-require
-	INFO('Loaded storage from', yargs.storage, ' - loaded ', Object.getOwnPropertyNames(RESEnvironment._storage).length, 'items');
+	storage._mockStorage(require(`./storage/${yargs.storage}.json`)); // eslint-disable-line global-require
+	INFO('Loaded storage from', yargs.storage, ' - loaded ', Object.getOwnPropertyNames(storage._mockStorage()).length, 'items');
 } else {
 	INFO('Using empty storage');
 }
@@ -67,7 +67,7 @@ if (yargs.storage) {
 RESUtils.init.await.options
 	.then(() => {
 		if (yargs.assertstorage) {
-			const actual = RESEnvironment._storage;
+			const actual = storage._mockStorage();
 			const expected = requireNew(`./storage/${yargs.assertstorage}.json`);
 			INFO('Asserting that storage matches', yargs.assertstorage, ' - loaded ', Object.getOwnPropertyNames(expected).length, 'items');
 
