@@ -32,8 +32,7 @@
 		"safeJSON": true,
 		"escapeHTML": true,
 		"addModule": true,
-		"addLibrary": true,
-		"RESOptionsMigrate": true
+		"addLibrary": true
 	},
 	"rules": {
 		"babel/generator-star-spacing": [2, { "before": false, "after": true }],
