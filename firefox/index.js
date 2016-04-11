@@ -6,12 +6,12 @@
 
 import 'babel-polyfill';
 
-import XHRCache from '../lib/utils/XHRCache';
 import priv from 'sdk/private-browsing';
 import self from 'sdk/self';
 import ss from 'sdk/simple-storage';
 import tabs from 'sdk/tabs';
 import { ActionButton } from 'sdk/ui/button/action';
+import { Cache } from '../lib/utils';
 import { Cc, Ci, components } from 'chrome';
 import { PageMod } from 'sdk/page-mod';
 import { Request } from 'sdk/request';
@@ -336,7 +336,7 @@ addListener('session', ([operation, key, value]) => {
 	}
 });
 
-const cache = new XHRCache();
+const cache = new Cache();
 
 addListener('XHRCache', ({ operation, key, value, maxAge }) => {
 	switch (operation) {

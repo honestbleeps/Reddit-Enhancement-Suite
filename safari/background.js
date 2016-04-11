@@ -2,7 +2,7 @@
 
 import 'babel-polyfill';
 
-import XHRCache from '../lib/utils/XHRCache';
+import { Cache } from '../lib/utils';
 
 const listeners = new Map();
 const waiting = new Map();
@@ -232,7 +232,7 @@ addListener('openNewTabs', ({ urls, focusIndex }, tab) => {
 	));
 });
 
-const cache = new XHRCache();
+const cache = new Cache();
 
 addListener('XHRCache', ({ operation, key, value, maxAge }) => {
 	switch (operation) {

@@ -34,7 +34,7 @@
 
 import 'babel-polyfill';
 
-import XHRCache from '../lib/utils/XHRCache';
+import { Cache } from '../lib/utils';
 
 function apiToPromise(func) {
 	return (...args) =>
@@ -236,7 +236,7 @@ addListener('addURLToHistory', url => {
 	chrome.history.addUrl({ url });
 });
 
-const cache = new XHRCache();
+const cache = new Cache();
 
 addListener('XHRCache', ({ operation, key, value, maxAge }) => {
 	switch (operation) {
