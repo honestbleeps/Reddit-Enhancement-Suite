@@ -1,5 +1,3 @@
-/* exported location, document, sessionStorage, alert */
-
 import jsdom from 'jsdom';
 
 export const document = jsdom.jsdom(undefined, { url: 'https://www.reddit.com/' });
@@ -12,7 +10,3 @@ export const sessionStorage = {
 		return undefined;
 	}
 };
-
-export function alert(msg) {
-	console.error('[ALERT]', msg);
-}

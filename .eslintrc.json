@@ -37,10 +37,7 @@
 		"addLibrary": true,
 		"perfTest": true,
 		"BrowserDetect": true,
-		"RESOptionsMigrate": true,
-		"gdAlert": true,
-
-		"exports": true
+		"RESOptionsMigrate": true
 	},
 	"rules": {
 		"babel/generator-star-spacing": [2, { "before": false, "after": true }],
@@ -85,7 +82,7 @@
 		"import/namespace": 2,
 		"import/export": 2,
 		"import/no-named-as-default": 2,
-		"import/no-commonjs": 0,
+		"import/no-commonjs": 2,
 		"import/no-amd": 2,
 		"import/imports-first": 2,
 		"import/no-duplicates": 2,

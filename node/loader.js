@@ -44,17 +44,17 @@ function importFile(filename, key) {
 	filename = path.join(__dirname, 'lib/', filename);
 	const contents = fs.readFileSync(filename, 'utf8');
 	DEBUG('Loading', filename, key ? `as ${key}` : '');
-	const exports = _eval(contents, filename, {}, true);
+	const exported = _eval(contents, filename, {}, true);
 	if (key) {
-		global[key] = exports;
+		global[key] = exported;
 	} else {
-		for (const key in exports) {
-			if (!exports.hasOwnProperty(key)) continue;
-			global[key] = exports[key];
+		for (const key in exported) {
+			if (!exported.hasOwnProperty(key)) continue;
+			global[key] = exported[key];
 		}
 	}
-	const exported = Object.getOwnPropertyNames(exports).join(', ');
-	if (exported) DEBUG('    -->', exported);
+	const exportedKeys = Object.getOwnPropertyNames(exported).join(', ');
+	if (exportedKeys) DEBUG('    -->', exportedKeys);
 }
 
 if (yargs.storage) {
