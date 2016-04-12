@@ -5,6 +5,85 @@ body:not(.res-showImages-displayImageCaptions) {
 	}
 }
 
+a.madeVisible,
+div.madeVisible {
+	position: relative;
+
+	.RESMediaControls {
+		opacity: 0;
+	}
+
+	&:hover .RESMediaControls {
+		opacity: .8;
+		transition: opacity 300ms;
+	}
+}
+
+.RESMediaControls {
+	position: absolute;
+	z-index: 2;
+	border: solid 1px #eee;
+	background: rgba(255, 255, 255, .8);
+	cursor: pointer;
+
+	// Support multiple positions. top left is default
+	&.top-left {
+		top: 10px;
+		left: 10px;
+	}
+
+	&.top-right {
+		top: 10px;
+		right: 10px;
+	}
+
+	&.bottom-right {
+		bottom: 10px;
+		right: 10px;
+	}
+
+	&.bottom-left {
+		bottom: 10px;
+		left: 10px;
+	}
+
+	span {
+		padding: 6px;
+		vertical-align: middle;
+		font-size: 1rem;
+		color: #000;
+
+		&:hover {
+			background: rgba(255, 255, 255, .9);
+		}
+
+		&.rotateLeft {
+			transform: scaleX(-1);
+
+			&::after {
+				content: '\F0B0';
+			}
+		}
+
+		&.rotateRight::after {
+			content: '\F0B0';
+		}
+
+		&.imageLookup::after {
+			content: '\F178';
+		}
+	}
+}
+
+.res-player {
+	position: absolute;
+
+	// Hide "lookup" button on video's
+	.RESMediaControls .imageLookup {
+		display: none;
+	}
+}
+
 // video-advanced
 .video-advanced {
 	video {
