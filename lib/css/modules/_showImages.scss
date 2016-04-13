@@ -227,8 +227,8 @@ div.madeVisible {
 .RESMediaControls {
 	position: absolute;
 	z-index: 2;
-	border: solid 1px #eee;
-	background: rgba(255, 255, 255, .8);
+	border: 0;
+	background: rgba(0, 0, 0, .3);
 	cursor: pointer;
 
 	// Support multiple positions. top left is default
@@ -259,7 +259,16 @@ div.madeVisible {
 		color: #000;
 
 		&:hover {
-			background: rgba(255, 255, 255, .9);
+			background: rgba(30, 30, 30, .3);
+		}
+
+		&::after {
+			// particularly for .gearIcon
+			color: #eee;
+		}
+
+		&:hover::after {
+			color: #fff;
 		}
 
 		&.rotateLeft {
