@@ -316,11 +316,13 @@
 		<!--video-advanced-->
 		<script id="video-advanced" type="application/x-template">
 			<div class="res-player video video-advanced">
-				<video {{#controls}}controls{{/controls}} {{#autoplay}}autoplay{{/autoplay}} {{#muted}}muted{{/muted}} {{#loop}}loop{{/loop}} poster="{{ poster }}">
-					{{#sources}}
-					<source src="{{ source }}" {{#type}}type="{{ type }}"{{/type}} {{#reverse}}data-reverse="{{ reverse }}"{{/reverse}}>
-					{{/sources}}
-				</video>
+				<a class="madeVisible" target="_blank" href="{{href}}">
+					<video {{#controls}}controls{{/controls}} {{#autoplay}}autoplay{{/autoplay}} {{#muted}}muted{{/muted}} {{#loop}}loop{{/loop}} poster="{{ poster }}">
+						{{#sources}}
+						<source src="{{ source }}" {{#type}}type="{{ type }}"{{/type}} {{#reverse}}data-reverse="{{ reverse }}"{{/reverse}}>
+						{{/sources}}
+					</video>
+				</a>
 				<div class="video-advanced-interface">
 					<div class="video-advanced-progress">
 						<div class="video-advanced-position"></div>
