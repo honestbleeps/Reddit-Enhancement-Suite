@@ -70,7 +70,7 @@
 		"filenames/filenames": [2, ".*", "match-regex-and-exported"],
 
 		"import/no-unresolved": 2,
-		"import/named": 0, // temp disabled until we have proper ES6 modules
+		"import/named": 2,
 		"import/default": 2,
 		"import/namespace": 2,
 		"import/export": 2,
