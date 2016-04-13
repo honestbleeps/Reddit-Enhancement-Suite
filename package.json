@@ -33,6 +33,7 @@
       "**/__tests__/*.js"
     ],
     "require": [
+	  "babel-polyfill",
       "babel-core/register"
     ]
   },
