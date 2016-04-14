@@ -294,12 +294,21 @@
 		</div>
 		<!-- /Submit Page Repost Warning -->
 
+		<!-- Media Controls -->
+		<script id="mediaControls" type="application/x-template">
+			<span class="res-icon gearIcon" title="Settings" data-action="showImageSettings"></span>
+			<span class="rotateLeft res-icon" title="Rotate image counter-clockwise" data-action="rotateLeft"></span>
+			<span class="rotateRight res-icon" title="Rotate image clockwise" data-action="rotateRight"></span>
+			<span class="imageLookup res-icon" title="Reverse image seach" data-action="imageLookup"></span>
+		</script>
+		<!-- /Media Controls -->
+
 		<!-- ShowImages expando site attribution -->
 		<script id="showImages-siteAttribution" type="application-x/template">
 			<cite class="res-expando-siteAttribution">
 				<a href="{{url}}" target="_blank">
-					{{#logoUrl}}<img src="{{logoUrl}}" alt="Hosted by {{name}}" title="Hosted by {{name}}" />{{/logoUrl}}
-					{{^logoUrl}}{{#name}}<span>{{name}}</span>{{/name}}{{/logoUrl}}
+					{{#logoUrl}}<img src="{{logoUrl}}" alt="Hosted on {{name}}" title="Hosted on {{name}}" />{{/logoUrl}}
+					{{#name}}<span>hosted on {{name}}</span>{{/name}}
 				</a>
 			</cite>
 		</script>
@@ -307,12 +316,14 @@
 		<!--video-advanced-->
 		<script id="video-advanced" type="application/x-template">
 			<div class="res-player video video-advanced">
-				<video {{#controls}}controls{{/controls}} {{#autoplay}}autoplay{{/autoplay}} {{#muted}}muted{{/muted}} {{#loop}}loop{{/loop}} poster="{{ poster }}">
-					{{#sources}}
-					<source src="{{ source }}" {{#type}}type="{{ type }}"{{/type}} {{#reverse}}data-reverse="{{ reverse }}"{{/reverse}}>
-					{{/sources}}
-				</video>
-				<div class="video-advanced-below">
+				<a class="madeVisible" target="_blank" href="{{href}}">
+					<video {{#controls}}controls{{/controls}} {{#autoplay}}autoplay{{/autoplay}} {{#muted}}muted{{/muted}} {{#loop}}loop{{/loop}} poster="{{ poster }}">
+						{{#sources}}
+						<source src="{{ source }}" {{#type}}type="{{ type }}"{{/type}} {{#reverse}}data-reverse="{{ reverse }}"{{/reverse}}>
+						{{/sources}}
+					</video>
+				</a>
+				<div class="video-advanced-interface">
 					<div class="video-advanced-progress">
 						<div class="video-advanced-position"></div>
 					</div>
@@ -340,7 +351,7 @@
 							<a class="video-advanced-link video-advanced-source" href="{{ source }}">source</a>
 							{{/source}}
 							{{#downloadurl}}
-							<a class="video-advanced-link video-advanced-download" href="{{ downloadurl }}">download</a>
+							<a class="video-advanced-link video-advanced-download res-icon" href="{{ downloadurl }}" title="download">&#xF02C;</a>
 							{{/downloadurl}}
 							<div class="res-expando-siteAttribution"></div>
 						</div>

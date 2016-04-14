@@ -292,7 +292,7 @@
 		"strict": [2, "never"], // Babel inserts it for us
 		"template-curly-spacing": 2,
 		"use-isnan": 2,
-		"valid-jsdoc": [2, { "requireParamDescription": false, "requireReturnDescription": false, "prefer": { "return": "returns" } }],
+		"valid-jsdoc": [2, { "requireParamDescription": false, "requireReturnDescription": false }],
 		"valid-typeof": 2,
 		"vars-on-top": 0,
 		"wrap-iife": [2, "inside"],

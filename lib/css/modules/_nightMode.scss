@@ -484,9 +484,13 @@
 
 	.md code,
 	.md pre,
+	.link .md pre,
 	.content .md pre,
+	.new-comment .md pre,
+	.usertext.border .md pre,
 	.link .md :not(pre) > code,
-	.new-comment .md :not(pre) > code {
+	.new-comment .md :not(pre) > code,
+	.usertext.border .md :not(pre) > code {
 		color: inherit;
 		border-color: rgb(88, 105, 123);
 		background-color: rgb(42, 51, 64);
