@@ -29,7 +29,7 @@
 }
 
 .res-betteReddit-truncateLongLinks {
-	.link.title {
+	.link .title {
 		overflow: hidden;
 		text-overflow: ellipsis;
 		white-space: nowrap;
