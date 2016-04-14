@@ -424,3 +424,18 @@ div.madeVisible {
 		display: none !important;
 	}
 }
+
+// style expando text content in comments
+.commentarea div.usertext-body.madeVisible .md {
+	background-color: #fafafa;
+	border: 1px solid #369;
+	border-radius: 7px;
+	padding: 5px 10px;
+
+	// Nightmode styles
+	.res-nightmode & {
+		color: rgb(221, 221, 221);
+		border-color: rgb(102, 102, 102);
+		background: none;
+	}
+}
