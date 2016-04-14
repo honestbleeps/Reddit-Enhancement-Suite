@@ -300,13 +300,13 @@ div.madeVisible {
 
 // video-advanced
 .video-advanced {
+	> a.madeVisible,
 	video {
 		display: block;
 	}
 
 	.video-advanced-interface {
 		display: none;
-		background: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, .6));
 		user-select: none;
 		cursor: default;
 
@@ -387,34 +387,28 @@ div.madeVisible {
 					.video-advanced-speed {
 						font-family: monospace;
 						font-size: 11px;
-						line-height: 8px;
+						line-height: 9px;
 						width: 38px;
 						text-align: center;
 					}
 				}
 			}
 		}
-	}
 
-	video[controls] {
-		~ .video-advanced-interface {
+		&.video-advanced-push-below {
 			display: block;
 			background: rgba(52, 47, 38, 1);
 
-			// [controls]:hover has a inbuilt pause/play button
-			.video-advanced-toggle-pause {
+			.video-advanced-toggle-pause,
+			.video-advanced-position {
 				display: none;
 			}
 		}
-
-		// [controls]:hover has a inbuilt position bar
-		.video-advanced-position {
-			display: none;
-		}
 	}
 
-	&:hover > video:not([controls]) ~ .video-advanced-interface {
+	&:hover .video-advanced-interface:not(.video-advanced-push-below) {
 		display: block;
+		background: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, .6));
 		position: absolute;
 		bottom: 0;
 		width: 100%;
