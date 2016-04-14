@@ -603,12 +603,12 @@ div.usertext-edit {
 
 	tr .deleteButton,
 	.builderWrap .deleteButton {
-		opacity: 0.3;
+		opacity: .3;
 	}
 
 	tr:hover .deleteButton,
 	.builderWrap:hover > .builderTrailingControls .deleteButton {
-		opacity: 1.0;
+		opacity: 1;
 	}
 
 	.handle {
