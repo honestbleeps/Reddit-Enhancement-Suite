@@ -1,7 +1,7 @@
 #userbarToggle {
 	min-height: 22px;
 	position: absolute;
-	top: auto;
+	top: 0;
 	bottom: 0;
 	left: -5px;
 	width: 16px;
@@ -23,11 +23,12 @@
 	}
 
 	&.userbarShow {
-		min-height: 22px;
+		top: auto;
+		left: auto;
+		right: 0;
 
 		.res-navTop & {
 			top: 0;
-			bottom: auto;
 		}
 	}
 }
