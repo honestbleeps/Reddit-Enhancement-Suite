@@ -323,11 +323,14 @@
 						{{/sources}}
 					</video>
 				</a>
-				<div class="video-advanced-interface">
+				<div class="video-advanced-interface {{#controls}}video-advanced-push-below{{/controls}}">
 					<div class="video-advanced-progress">
+						{{#advancedControls}}
 						<div class="video-advanced-position"></div>
+						{{/advancedControls}}
 					</div>
 					<div class="video-advanced-main">
+						{{#advancedControls}}
 						<div hidden class="video-advanced-controls">
 							<div title="Toggle pause" class="res-icon video-advanced-button video-advanced-toggle-pause">&#xf16c;</div>
 							{{#reversable}}
@@ -342,6 +345,7 @@
 								<div title="Increase speed by 10%" class="res-icon video-advanced-button video-advanced-speed-increase">&#xf14c;</div>
 							</div>
 						</div>
+						{{/advancedControls}}
 						<div hidden class="video-advanced-error">
 							<div class="res-icon">&#xf15b</div>
 							<span>Could not load video</span>
