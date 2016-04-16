@@ -1,6 +1,7 @@
 # Reddit Enhancement Suite
 
-[![Build Status](https://travis-ci.org/honestbleeps/Reddit-Enhancement-Suite.svg?branch=master)](https://travis-ci.org/honestbleeps/Reddit-Enhancement-Suite)
+[![Travis Build Status](https://travis-ci.org/honestbleeps/Reddit-Enhancement-Suite.svg?branch=master)](https://travis-ci.org/honestbleeps/Reddit-Enhancement-Suite)
+[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/honestbleeps/Reddit-Enhancement-Suite?branch=master&svg=true)](https://ci.appveyor.com/project/honestbleeps/Reddit-Enhancement-Suite)
 [![Coverage Status](https://coveralls.io/repos/github/honestbleeps/Reddit-Enhancement-Suite/badge.svg?branch=master)](https://coveralls.io/github/honestbleeps/Reddit-Enhancement-Suite?branch=master)
 [![Code Climate](https://codeclimate.com/github/honestbleeps/Reddit-Enhancement-Suite/badges/gpa.svg)](https://codeclimate.com/github/honestbleeps/Reddit-Enhancement-Suite)
 [![devDependency Status](https://david-dm.org/honestbleeps/Reddit-Enhancement-Suite/dev-status.svg)](https://david-dm.org/honestbleeps/Reddit-Enhancement-Suite#info=devDependencies)
