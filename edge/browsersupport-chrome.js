@@ -1,4 +1,12 @@
-/* global chrome: false */
+/* global chrome: false, msBrowser: false */
+
+/* Edge Support - PREVIEW */
+
+if (typeof msBrowser !== 'undefined') {
+	chrome = msBrowser; // eslint-disable-line no-native-reassign
+} else if (typeof browser !== 'undefined') {
+	chrome = browser; // eslint-disable-line no-native-reassign
+}
 
 {
 	// via https://github.com/erikdesjardins/global-mediakeys
