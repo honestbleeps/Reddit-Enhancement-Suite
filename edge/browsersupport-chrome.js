@@ -2,10 +2,10 @@
 
 /* Edge Support - PREVIEW */
 
-if (typeof msBrowser !== 'undefined') {
-	chrome = msBrowser; // eslint-disable-line no-native-reassign
-} else if (typeof browser !== 'undefined') {
-	chrome = browser; // eslint-disable-line no-native-reassign
+if (typeof window.msBrowser !== 'undefined') {
+	window.chrome = window.msBrowser; // eslint-disable-line no-native-reassign
+} else if (typeof window.browser !== 'undefined') {
+	window.chrome = window.browser; // eslint-disable-line no-native-reassign
 }
 
 {
