@@ -6,6 +6,7 @@ import fs from 'fs';
 import path from 'path';
 import requireNew from 'require-new';
 
+import { init } from '../lib/core';
 import { storage } from '../lib/environment';
 
 const yargs = _yargs
@@ -64,7 +65,7 @@ if (yargs.storage) {
 	INFO('Using empty storage');
 }
 
-RESUtils.init.await.options
+init.loadOptions
 	.then(() => {
 		if (yargs.assertstorage) {
 			const actual = storage._mockStorage();
