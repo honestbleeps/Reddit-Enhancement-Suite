@@ -9,6 +9,11 @@ export default {
 		path: join(__dirname, 'dist'),
 		filename: 'manifest.json'
 	},
+	resolve: {
+		alias: {
+			environment$: join(__dirname, 'lib', 'environment')
+		}
+	},
 	module: {
 		loaders: [
 			{ test: /\.entry\.js$/, loaders: ['spawn?name=[name].js', 'babel'] },

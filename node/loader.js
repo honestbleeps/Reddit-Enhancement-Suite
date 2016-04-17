@@ -6,8 +6,8 @@ import fs from 'fs';
 import path from 'path';
 import requireNew from 'require-new';
 
+import { _mockStorage } from './lib/environment';
 import { init } from '../lib/core';
-import { storage } from '../lib/environment';
 
 const yargs = _yargs
 	.count('verbose')
@@ -59,8 +59,8 @@ function importFile(filename, key) {
 }
 
 if (yargs.storage) {
-	storage._mockStorage(require(`./storage/${yargs.storage}.json`)); // eslint-disable-line global-require
-	INFO('Loaded storage from', yargs.storage, ' - loaded ', Object.getOwnPropertyNames(storage._mockStorage()).length, 'items');
+	_mockStorage(require(`./storage/${yargs.storage}.json`)); // eslint-disable-line global-require
+	INFO('Loaded storage from', yargs.storage, ' - loaded ', Object.getOwnPropertyNames(_mockStorage()).length, 'items');
 } else {
 	INFO('Using empty storage');
 }
@@ -68,7 +68,7 @@ if (yargs.storage) {
 init.loadOptions
 	.then(() => {
 		if (yargs.assertstorage) {
-			const actual = storage._mockStorage();
+			const actual = _mockStorage();
 			const expected = requireNew(`./storage/${yargs.assertstorage}.json`);
 			INFO('Asserting that storage matches', yargs.assertstorage, ' - loaded ', Object.getOwnPropertyNames(expected).length, 'items');
 
