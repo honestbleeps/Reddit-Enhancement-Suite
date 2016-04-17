@@ -1,6 +1,6 @@
 /* global chrome: false, msBrowser: false */
 
-/* Edge Support - PREVIEW */
+/* Edge Support */
 
 if (typeof window.msBrowser !== 'undefined') {
 	window.chrome = window.msBrowser; // eslint-disable-line no-native-reassign
