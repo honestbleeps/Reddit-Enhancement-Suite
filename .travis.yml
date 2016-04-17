@@ -5,7 +5,8 @@ node_js:
   - "4"
 before_script: npm run external-deps
 script:
-  - npm run lint
+  - npm run eslint
+  - npm run scsslint
   - npm run coverage
   - npm run build -- node
   - node dist/node/loader.js
