@@ -31,6 +31,7 @@
 				"vendor/HTMLPasteurizer.js",
 				"vendor/snudown.js",
 				"core/utils.js",
+				"edgesupport.js",
 				"browsersupport.js",
 				"browsersupport-chrome.js",
 				"core/options.js",
@@ -180,7 +181,6 @@
 		"*.js.map"
 	],
 	"icons": {
-		"48": "icon48.png",
 		"128": "icon128.png"
 	},
 	"page_action": {
