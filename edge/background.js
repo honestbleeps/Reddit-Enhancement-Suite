@@ -30,7 +30,7 @@
 
 */
 
-/* global chrome: false, msBrowser: false */
+/* global chrome: false */
 
 /* Edge Support */
 
