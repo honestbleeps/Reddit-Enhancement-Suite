@@ -27,9 +27,7 @@
 	},
 	"globals": {
 		"modules": true,
-		"libraries": true,
-		"addModule": true,
-		"addLibrary": true
+		"addModule": true
 	},
 	"rules": {
 		"babel/generator-star-spacing": [2, { "before": false, "after": true }],
