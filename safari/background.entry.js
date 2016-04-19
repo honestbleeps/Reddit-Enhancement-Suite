@@ -4,113 +4,17 @@ import 'babel-polyfill';
 
 import Cache from '../lib/utils/Cache';
 
-const listeners = new Map();
-const waiting = new Map();
-let transaction = 0;
+import { createMessageHandler } from '../lib/environment/_helpers';
 
-/**
- * @callback MessageListener
- * @template T
- * @param {*} data The message data.
- * @param {SafariBrowserTab} tab The tab that sent the message.
- * @returns {T|Promise<T, *>} The response data, optionally wrapped in a promise.
- */
+const {
+	_handleMessage,
+	sendMessage,
+	addListener
+} = createMessageHandler((type, obj, page) => page.dispatchMessage(type, obj));
 
-/**
- * Register a listener to be invoked whenever a message of `type` is received.
- * Responses may be sent synchronously or asynchronously:
- * If `callback` returns a non-promise value, a response will be sent synchronously.
- * If `callback` returns a promise, a response will be sent asynchronously when it resolves.
- * If it rejects, an invalid response will be sent.
- * @param {string} type
- * @param {MessageListener} callback
- * @throws {Error} If a listener for `messageType` already exists.
- * @returns {void}
- */
-function addListener(type, callback) {
-	if (listeners.has(type)) {
-		throw new Error(`Listener for message type: ${type} already exists.`);
-	}
-	listeners.set(type, { callback });
-}
-
-/**
- * Sends a message to the content script proxy `page`.
- * @param {string} type
- * @param {SafariWebPageProxy} page
- * @param {*} [data]
- * @returns {Promise<*, Error>} Rejects if an invalid response is received,
- * resolves with the response data otherwise.
- */
-function sendMessage(type, page, data) {
-	++transaction;
-
-	page.dispatchMessage(type, { data, transaction });
-
-	return new Promise((resolve, reject) => waiting.set(transaction, { resolve, reject }));
-}
-
-function nonNull(callback) {
-	return new Promise(resolve => {
-		(function repeat() {
-			const val = callback;
-			if (!val) {
-				setTimeout(repeat, 1);
-				return;
-			}
-			resolve(val);
-		})();
-	});
-}
-
-safari.application.addEventListener('message', ({ name: type, message: { data, transaction, error, isResponse }, target: tab }) => {
-	if (isResponse) {
-		if (!waiting.has(transaction)) {
-			throw new Error(`No response handler for type: ${type}, transaction: ${transaction} - this should never happen.`);
-		}
-
-		const handler = waiting.get(transaction);
-		waiting.delete(transaction);
-
-		if (error) {
-			handler.reject(new Error(`Error in foreground handler for type: ${type} - message: ${error}`));
-		} else {
-			handler.resolve(data);
-		}
-
-		return;
-	}
-
-	if (!listeners.has(type)) {
-		throw new Error(`Unrecognised message type: ${type}`);
-	}
-	const listener = listeners.get(type);
-
-	async function sendResponse({ data, error }) {
-		// this is ridiculous, Safari.
-		(await nonNull(() => tab.page)).dispatchMessage(type, { data, transaction, error, isResponse: true });
-	}
-
-	let response;
-
-	try {
-		response = listener.callback(data, tab);
-	} catch (e) {
-		sendResponse({ error: e.message || e });
-		throw e;
-	}
-
-	if (response instanceof Promise) {
-		response
-			.then(data => sendResponse({ data }))
-			.catch(e => {
-				sendResponse({ error: e.message || e });
-				throw e;
-			});
-		return;
-	}
-	sendResponse({ data: response });
-}, false);
+safari.application.addEventListener('message', ({ name: type, message: obj, target: tab }) => {
+	_handleMessage(type, obj, tab.page);
+});
 
 // Listeners
 
@@ -257,6 +161,6 @@ addListener('multicast', async (request, senderTab) =>
 			.map(w => Array.from(w.tabs))
 			.reduce((acc, tabs) => acc.concat(tabs), [])
 			.filter(tab => tab !== senderTab && tab.private === senderTab.private && tab.page)
-			.map(({ page }) => sendMessage('multicast', page, request))
+			.map(({ page }) => sendMessage('multicast', request, page))
 	)
 );
