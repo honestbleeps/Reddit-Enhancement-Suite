@@ -23,7 +23,7 @@ export default {
 			{ test: /\.scss$/, loaders: ['file?name=[name].css', 'extricate?resolve=\\.js$', 'css', 'postcss', 'sass'] },
 			{ test: /\.css$/, loaders: ['file?name=[name].[ext]', 'extricate?resolve=\\.js$', 'css'] },
 			{ test: /\.html$/, loaders: ['file?name=[name].[ext]', 'extricate', 'html?attrs=link:href script:src'] },
-			{ test: /\.png$/, loader: 'url' }
+			{ test: /\.png$/, loader: 'file?name=[name].[ext]' }
 		]
 	},
 	plugins: [
