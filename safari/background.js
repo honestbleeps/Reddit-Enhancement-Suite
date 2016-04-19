@@ -2,7 +2,7 @@
 
 import 'babel-polyfill';
 
-import { Cache } from '../lib/utils';
+import Cache from '../lib/utils/Cache';
 
 const listeners = new Map();
 const waiting = new Map();

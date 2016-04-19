@@ -6,12 +6,13 @@
 
 import 'babel-polyfill';
 
+import Cache from '../lib/utils/Cache';
+
 import priv from 'sdk/private-browsing';
 import self from 'sdk/self';
 import ss from 'sdk/simple-storage';
 import tabs from 'sdk/tabs';
 import { ActionButton } from 'sdk/ui/button/action';
-import { Cache } from '../lib/utils';
 import { Cc, Ci, components } from 'chrome';
 import { PageMod } from 'sdk/page-mod';
 import { Request } from 'sdk/request';
