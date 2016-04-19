@@ -1,5 +1,5 @@
 {
-	"name": "Reddit Enhancement Suite",
+	"name": "{{prop?title!../package.json}}",
 	"version": "{{prop?version!../package.json}}",
 	"manifest_version": 2,
 	"minimum_chrome_version": "26.0",
