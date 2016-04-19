@@ -33,7 +33,7 @@
       "**/__tests__/*.js"
     ],
     "require": [
-	  "babel-polyfill",
+      "babel-polyfill",
       "babel-core/register"
     ]
   },
@@ -89,6 +89,7 @@
     "inert-entry-webpack-plugin": "1.1.3",
     "interpolate-loader": "0.0.6",
     "jsdom": "8.2.0",
+    "json-loader": "^0.5.4",
     "merge-stream": "1.0.0",
     "minimist": "1.2.0",
     "node-sass": "3.4.2",
