@@ -36,6 +36,11 @@ import 'babel-polyfill';
 
 import Cache from '../lib/utils/Cache';
 
+import cssOff from './images/css-off.png';
+import cssOffSmall from './images/css-off-small.png';
+import cssOn from './images/css-on.png';
+import cssOnSmall from './images/css-on-small.png';
+
 function apiToPromise(func) {
 	return (...args) =>
 		new Promise((resolve, reject) =>
@@ -261,12 +266,11 @@ addListener('pageAction', ({ operation, state }, { id: tabId }) => {
 	switch (operation) {
 		case 'show':
 			chrome.pageAction.show(tabId);
-			const onOff = state ? 'on' : 'off';
 			chrome.pageAction.setIcon({
 				tabId,
 				path: {
-					19: `images/css-${onOff}-small.png`,
-					38: `images/css-${onOff}.png`
+					19: state ? cssOnSmall : cssOffSmall,
+					38: state ? cssOn : cssOff
 				}
 			});
 			break;
