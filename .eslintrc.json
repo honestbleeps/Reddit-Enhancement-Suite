@@ -26,8 +26,7 @@
 		"es6": true
 	},
 	"globals": {
-		"modules": true,
-		"addModule": true
+		"modules": true
 	},
 	"rules": {
 		"babel/generator-star-spacing": [2, { "before": false, "after": true }],
