@@ -3,8 +3,10 @@ import autoprefixer from 'autoprefixer';
 import { basename, join } from 'path';
 
 const browserConfig = {
-	default: {
-		environment: 'lib/environment'
+	lint: {
+		entry: '',
+		environment: 'lib/environment',
+		output: ''
 	},
 	chrome: {
 		entry: 'chrome/manifest.json',
@@ -28,7 +30,7 @@ const browserConfig = {
 	}
 };
 
-const browser = process.env.BUILD_TARGET || 'default';
+const browser = process.env.BUILD_TARGET || 'lint';
 
 export default {
 	entry: `extricate!interpolate!./${browserConfig[browser].entry}`,
