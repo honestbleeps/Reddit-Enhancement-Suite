@@ -253,7 +253,7 @@
 		&.upmod,
 		&.down,
 		&.downmod {
-			background-image: url('https://b.thumbs.redditmedia.com/WZDoQsDzUySVTErcweuA3k2HH1HU5-BZNnBXOR4FDwc.png');
+			background-image: url('../images/nightmode/arrows.png');
 			background-repeat: no-repeat;
 		}
 
@@ -895,7 +895,7 @@
 	.multi-details .subreddits .remove-sr,
 	.multi-details .add-sr .add {
 		border-color: hsl(0, 0%, 15%);
-		background-image: url('https://b.thumbs.redditmedia.com/TItqbtZ6QLVach67LqyHqj-cCnYMempXSwW17SDlTKM.png');
+		background-image: url('../images/nightmode/addsr.png');
 		background-position: 0 0;
 	}
 
@@ -904,8 +904,8 @@
 	}
 
 	// Nightmode friendly snoo/balloons image
-	.with-listing-chooser:not(.multi-page) .footer-parent {
-		background: url('https://b.thumbs.redditmedia.com/oPSTBWXkQufBAIYbFWiN0eI2J06zBLDEmq1NMHQ-Ems.png') no-repeat 49% 0;
+	.with-listing-chooser.multi-page .footer-parent {
+		background: url('../images/nightmode/snooBalloons.png') no-repeat 49% 0;
 	}
 
 	#about-main #history .events.timeline .event:hover .event-content {
@@ -940,7 +940,7 @@
 	}
 
 	.about-page .abouttitle {
-		background-image: url('https://a.thumbs.redditmedia.com/xxM_X1OL6Lt4I4GC9F1SbNIcbeoZPXOmPIo6P1slaP4.png');
+		background-image: url('../images/nightmode/aboutHeader.png');
 	}
 
 	.policy-page .md p {
