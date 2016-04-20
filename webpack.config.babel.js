@@ -20,6 +20,11 @@ const browserConfig = {
 		entry: 'firefox/package.json',
 		environment: 'firefox/environment',
 		output: 'firefox'
+	},
+	node: {
+		entry: 'node/files.json',
+		environment: 'node/environment',
+		output: 'node'
 	}
 };
 
@@ -50,8 +55,8 @@ export default {
 			{ test: /\.png$/, include: join(__dirname, 'lib', 'images'), loader: 'url' }
 		],
 		noParse: [
-			// to use `require` in Firefox
-			/nativeRequire\.js$/
+			// to use `require` in Firefox and Node
+			/_nativeRequire\.js$/
 		]
 	},
 	plugins: [

@@ -1,9 +1,13 @@
-import _yargs from 'yargs';
-import equals from 'deep-equal';
-import requireNew from 'require-new';
+import 'babel-polyfill';
+
+import './mocks';
 
 import { _mockStorage } from './environment';
 import { init } from '../lib/core';
+import { nativeRequire } from '../lib/environment/_nativeRequire';
+
+const _yargs = nativeRequire('yargs');
+const equals = nativeRequire('deep-equal');
 
 const yargs = _yargs
 	.count('verbose')
@@ -25,7 +29,7 @@ DEBUG("Extra chatty mode");
 */
 
 if (yargs.storage) {
-	_mockStorage(require(`./storage/${yargs.storage}.json`)); // eslint-disable-line global-require
+	_mockStorage(nativeRequire(`./storage/${yargs.storage}.json`)); // eslint-disable-line global-require
 	INFO('Loaded storage from', yargs.storage, ' - loaded ', Object.getOwnPropertyNames(_mockStorage()).length, 'items');
 } else {
 	INFO('Using empty storage');
@@ -37,12 +41,12 @@ init.loadOptions
 	.then(() => {
 		if (yargs.assertstorage) {
 			const actual = _mockStorage();
-			const expected = requireNew(`./storage/${yargs.assertstorage}.json`);
+			const expected = nativeRequire(`./storage/${yargs.assertstorage}.json`);
 			INFO('Asserting that storage matches', yargs.assertstorage, ' - loaded ', Object.getOwnPropertyNames(expected).length, 'items');
 
 			let ignoredKeys = [];
 			if (yargs.ignorestorage) {
-				ignoredKeys = requireNew(`./storage/${yargs.ignorestorage}.json`);
+				ignoredKeys = nativeRequire(`./storage/${yargs.ignorestorage}.json`);
 				INFO('ignoring keys listed in', yargs.ignorestorage, ' - ignoring ', Object.getOwnPropertyNames(ignoredKeys).length, 'items');
 			}
 

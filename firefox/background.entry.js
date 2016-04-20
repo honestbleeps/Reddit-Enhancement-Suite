@@ -14,7 +14,7 @@ import resCss from '../lib/css/res.scss';
 import { createMessageHandler } from '../lib/environment/_helpers';
 import { extendDeep } from '../lib/utils/object';
 
-import { nativeRequire } from './nativeRequire';
+import { nativeRequire } from '../lib/environment/_nativeRequire';
 
 const priv = nativeRequire('sdk/private-browsing');
 const ss = nativeRequire('sdk/simple-storage');

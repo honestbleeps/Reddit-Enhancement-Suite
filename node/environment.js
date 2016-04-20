@@ -1,19 +1,7 @@
 // allow the reexports to be overridden
 /* eslint-disable import/export */
 
-import jsdom from 'jsdom';
 import { extendDeep } from '../lib/utils';
-
-global.document = jsdom.jsdom(undefined, { url: 'https://www.reddit.com/' });
-global.window = document.defaultView;
-global.location = window.location;
-global.DOMParser = window.DOMParser;
-
-global.sessionStorage = {
-	getItem() {
-		return undefined;
-	}
-};
 
 export * from '../lib/environment';
 
