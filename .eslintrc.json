@@ -183,7 +183,7 @@
 		"no-unreachable": 2,
 		"no-unused-expressions": 2,
 		"no-unused-labels": 2,
-		"no-unused-vars": [2, { "argsIgnorePattern": "^moduleID$" }],
+		"no-unused-vars": 2,
 		"no-use-before-define": [0, "nofunc"],
 		"no-useless-call": 2,
 		"no-useless-concat": 2,
