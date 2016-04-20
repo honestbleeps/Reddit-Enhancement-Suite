@@ -4,8 +4,6 @@
 import _ from 'lodash';
 import { extendDeep, waitForEvent } from '../lib/utils';
 
-export * from '../lib/environment';
-
 function apiToPromise(func) {
 	return (...args) =>
 		new Promise((resolve, reject) =>
@@ -74,6 +72,8 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 });
 
 _addListener('userGesture', () => waitForEvent(document.body, 'mousedown', 'keydown'));
+
+export * from '../lib/environment';
 
 const inProgress = new Map();
 

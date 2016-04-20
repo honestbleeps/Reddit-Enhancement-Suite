@@ -21,8 +21,6 @@ init.headReady.then(() => {
 	document.head.appendChild(linkTag);
 });
 
-export * from '../lib/environment';
-
 function _sendMessage(type, obj) {
 	safari.self.tab.dispatchMessage(type, obj);
 }
@@ -41,6 +39,8 @@ export {
 	sendMessage as _sendMessage,
 	addListener as _addListener
 };
+
+export * from '../lib/environment';
 
 export function deleteCookies(...cookieNames) {
 	for (const cookieName of cookieNames) {

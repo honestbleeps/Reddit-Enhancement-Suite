@@ -3,8 +3,6 @@
 
 import { createMessageHandler } from '../lib/environment/_helpers';
 
-export * from '../lib/environment';
-
 function _sendMessage(type, obj) {
 	self.postMessage({ ...obj, type });
 }
@@ -23,3 +21,5 @@ export {
 	sendMessage as _sendMessage,
 	addListener as _addListener
 };
+
+export * from '../lib/environment';

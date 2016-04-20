@@ -3,6 +3,9 @@
 
 import { extendDeep } from '../lib/utils';
 
+export function _sendMessage() { /* empty */ }
+export function _addListener() { /* empty */ }
+
 export * from '../lib/environment';
 
 let _storage = {};
