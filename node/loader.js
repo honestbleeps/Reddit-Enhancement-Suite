@@ -1,12 +1,8 @@
-import _eval from 'eval';
 import _yargs from 'yargs';
 import equals from 'deep-equal';
-import files from './files.json'; // eslint-disable-line
-import fs from 'fs';
-import path from 'path';
 import requireNew from 'require-new';
 
-import { _mockStorage } from './lib/environment';
+import { _mockStorage } from './environment';
 import { init } from '../lib/core';
 
 const yargs = _yargs
@@ -28,42 +24,14 @@ INFO("Showing semi-important stuff too");
 DEBUG("Extra chatty mode");
 */
 
-const skipSections = [].concat(yargs.skip);
-for (const section in files) {
-	if (skipSections.indexOf(section) !== -1) continue;
-
-	if (files[section].length) {
-		files[section].forEach(filename => importFile(filename));
-	} else if (typeof files[section] === 'object') {
-		for (const key in files[section]) {
-			if (!files[section].hasOwnProperty(key)) continue;
-			importFile(files[section][key], key);
-		}
-	}
-}
-function importFile(filename, key) {
-	filename = path.join(__dirname, 'lib/', filename);
-	const contents = fs.readFileSync(filename, 'utf8');
-	DEBUG('Loading', filename, key ? `as ${key}` : '');
-	const exported = _eval(contents, filename, {}, true);
-	if (key) {
-		global[key] = exported;
-	} else {
-		for (const key in exported) {
-			if (!exported.hasOwnProperty(key)) continue;
-			global[key] = exported[key];
-		}
-	}
-	const exportedKeys = Object.getOwnPropertyNames(exported).join(', ');
-	if (exportedKeys) DEBUG('    -->', exportedKeys);
-}
-
 if (yargs.storage) {
 	_mockStorage(require(`./storage/${yargs.storage}.json`)); // eslint-disable-line global-require
 	INFO('Loaded storage from', yargs.storage, ' - loaded ', Object.getOwnPropertyNames(_mockStorage()).length, 'items');
 } else {
 	INFO('Using empty storage');
 }
+
+init.init();
 
 init.loadOptions
 	.then(() => {

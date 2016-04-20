@@ -8,7 +8,7 @@ script:
   - npm run eslint
   - npm run scsslint
   - npm run coverage
-  - npm run build -- node
-  - node dist/node/loader.js
+  - npm run build-all
+  - node node/loader.js
 after_success:
   - npm run report-coverage

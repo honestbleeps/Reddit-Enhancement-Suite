@@ -1,17 +1,40 @@
 import InertEntryPlugin from 'inert-entry-webpack-plugin';
 import autoprefixer from 'autoprefixer';
-import { join } from 'path';
+import { basename, join } from 'path';
+
+const browserConfig = {
+	default: {
+		environment: 'lib/environment'
+	},
+	chrome: {
+		entry: 'chrome/manifest.json',
+		environment: 'chrome/environment',
+		output: 'chrome'
+	},
+	safari: {
+		entry: 'safari/info.plist',
+		environment: 'safari/environment',
+		output: 'RES.safariextension'
+	},
+	firefox: {
+		entry: 'firefox/package.json',
+		environment: 'firefox/environment',
+		output: 'firefox'
+	}
+};
+
+const browser = process.env.BUILD_TARGET || 'default';
 
 export default {
-	entry: 'extricate!interpolate!./chrome/manifest.json',
+	entry: `extricate!interpolate!./${browserConfig[browser].entry}`,
 	bail: process.env.NODE_ENV === 'production',
 	output: {
-		path: join(__dirname, 'dist'),
-		filename: 'manifest.json'
+		path: join(__dirname, 'dist', browserConfig[browser].output),
+		filename: basename(browserConfig[browser].entry)
 	},
 	resolve: {
 		alias: {
-			environment$: join(__dirname, 'lib', 'environment')
+			environment$: join(__dirname, browserConfig[browser].environment)
 		}
 	},
 	module: {
