@@ -83,7 +83,7 @@ function filterPerms(perms) {
 	return { permissions, origins };
 }
 
-export const permissions = {
+export const Permissions = {
 	async request(...perms) {
 		const key = perms.join(',');
 
@@ -146,7 +146,7 @@ const set = (key, value) => _set({ [key]: value });
 const _get = apiToPromise(::chrome.storage.local.get);
 const get = async (key, defaultValue = null) => (await _get({ [key]: defaultValue }))[key];
 
-export const storage = {
+export const Storage = {
 	get: mutex(key => get(key, null)),
 
 	set: mutex((key, value) => set(key, value)),

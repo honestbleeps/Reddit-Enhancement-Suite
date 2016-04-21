@@ -55,7 +55,7 @@ export function addURLToHistory() {
 }
 
 // Safari has no pageAction
-export const pageAction = {
+export const PageAction = {
 	show: () => Promise.resolve(),
 	hide: () => Promise.resolve(),
 	destroy: () => Promise.resolve()

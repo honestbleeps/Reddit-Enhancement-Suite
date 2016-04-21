@@ -17,7 +17,7 @@ export function _mockStorage(storage) {
 	return _storage;
 }
 
-export const storage = {
+export const Storage = {
 	get(key) {
 		try {
 			return Promise.resolve(key in _storage ? JSON.parse(_storage[key]) : null);
