@@ -2,6 +2,7 @@
 /* eslint-disable import/export */
 
 import _ from 'lodash';
+import * as Notifications from '../lib/modules/notifications';
 import { extendDeep, waitForEvent } from '../lib/utils';
 
 function apiToPromise(func) {
@@ -97,7 +98,7 @@ export const Permissions = {
 
 				if (!granted) {
 					const re = /((?:\w+\.)+\w+)(?=\/|$)/i;
-					modules['notifications'].showNotification(
+					Notifications.showNotification(
 						`<p>You clicked "Deny". RES needs permission to access the API(s) at:</p>
 							<p>${origins.map(u => `<code>${re.exec(u)[0]}</code>`).join(', ')}</p>
 							<p>Be assured RES does not access any of your information on these domains - it only accesses the API.</p>`,
