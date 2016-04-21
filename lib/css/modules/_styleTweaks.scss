@@ -13,7 +13,6 @@ blockquote.twitter-tweet {
 
 // wow, Reddit only adds a visited style for submission titles!
 // let's add visited styles to user-editable content (.md) if the user wants to.
-// else we still want visited styles on inline images.
 .res-styleTweaks-visitedStyle {
 	.md a:visited {
 		color: #551a8b; // same color as submission titles.
@@ -23,16 +22,6 @@ blockquote.twitter-tweet {
 		}
 
 		.res-nightmode.res-nightMode-coloredLinks & {
-			color: hsl(270, 50%, 65%);
-		}
-	}
-}
-
-body:not(.res-styleTweaks-visitedStyle) {
-	.md a[name^='img']:visited {
-		color: #551a8b;
-
-		.res-nightmode & {
 			color: hsl(270, 50%, 65%);
 		}
 	}
