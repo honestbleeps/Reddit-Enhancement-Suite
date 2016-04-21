@@ -2,8 +2,8 @@ import 'babel-polyfill';
 
 import './mocks';
 
+import { Init } from '../lib/core';
 import { _mockStorage } from './environment';
-import { init } from '../lib/core';
 import { nativeRequire } from '../lib/environment/_nativeRequire';
 
 const _yargs = nativeRequire('yargs');
@@ -35,9 +35,9 @@ if (yargs.storage) {
 	INFO('Using empty storage');
 }
 
-init.init();
+Init.init();
 
-init.loadOptions
+Init.loadOptions
 	.then(() => {
 		if (yargs.assertstorage) {
 			const actual = _mockStorage();
