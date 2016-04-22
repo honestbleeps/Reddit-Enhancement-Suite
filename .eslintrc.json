@@ -25,9 +25,6 @@
 		"node": true,
 		"es6": true
 	},
-	"globals": {
-		"modules": true
-	},
 	"rules": {
 		"babel/generator-star-spacing": [2, { "before": false, "after": true }],
 		"babel/new-cap": 0,
