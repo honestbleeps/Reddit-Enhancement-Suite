@@ -64,7 +64,7 @@ const browserConf = {
 		// Browser-specific files to be copied when building the extension (paths relative to project root)
 		sources: [
 			{ cwd: 'chrome/**', src: ['images/*.png'] },
-			{ src: ['edge/*.js', 'edge/*.html', 'edge/*.cmd', 'chrome/icon128.png', 'chrome/background.js', 'chrome/browsersupport-chrome.js'] }
+			{ src: ['edge/*.js', 'edge/*.html', 'edge/*.cmd', 'icon128.png', 'chrome/background.js', 'chrome/browsersupport-chrome.js'] }
 		],
 		dests: {
 			// Subdirectory of baseConf.dests.root that the sources will be copied to
