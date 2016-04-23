@@ -1,4 +1,5 @@
 import InertEntryPlugin from 'inert-entry-webpack-plugin';
+import ProgressBarPlugin from 'progress-bar-webpack-plugin';
 import autoprefixer from 'autoprefixer';
 import { basename, join } from 'path';
 
@@ -61,6 +62,7 @@ export default {
 		]
 	},
 	plugins: [
+		new ProgressBarPlugin(),
 		new InertEntryPlugin()
 	],
 	postcss() {
