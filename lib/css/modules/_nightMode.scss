@@ -996,25 +996,20 @@
 	}
 
 	// Ordering of user colors is important.
-	.tagline .friend,
-	.tagline .friend:visited {
+	.tagline .friend {
 		color: rgb(210, 90, 50);
 	}
 
-	.tagline .submitter,
-	.tagline .submitter:visited {
+	.tagline .submitter {
 		color: hsl(200, 100%, 50%);
 	}
 
-	.tagline .moderator,
-	.tagline .moderator:visited {
+	.tagline .moderator {
 		color: rgb(34, 136, 34);
 	}
 
 	.tagline .admin,
-	.tagline .admin:visited,
-	.user-distinction .admin,
-	.user-distinction .admin:visited {
+	.user-distinction .admin {
 		color: rgb(200, 20, 20);
 	}
 
