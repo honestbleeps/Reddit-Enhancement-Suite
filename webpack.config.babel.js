@@ -49,7 +49,7 @@ export default {
 		loaders: [
 			{ test: /\.entry\.js$/, loaders: ['spawn?name=[name].js', 'babel'] },
 			{ test: /\.js$/, exclude: join(__dirname, 'node_modules'), loader: 'babel' },
-			{ test: /\.js$/, include: join(__dirname, 'node_modules'), loader: 'babel', query: { plugins: ['transform-dead-code-elimination', 'transform-node-env-inline'], babelrc: false } },
+			{ test: /\.js$/, include: join(__dirname, 'node_modules'), loader: 'babel', query: { plugins: ['transform-dead-code-elimination', 'transform-node-env-inline'], compact: true, babelrc: false } },
 			{ test: /\.hbs$/, loader: 'handlebars' },
 			{ test: /\.scss$/, loaders: ['file?name=[name].css', 'extricate?resolve=\\.js$', 'css', 'postcss', 'sass'] },
 			{ test: /\.html$/, loaders: ['file?name=[name].[ext]', 'extricate', 'html?attrs=link:href script:src'] },
