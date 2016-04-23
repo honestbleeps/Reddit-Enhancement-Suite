@@ -34,7 +34,7 @@ if (browser === 'safari') {
 
 export default {
 	entry: `extricate!interpolate!./${browserConfig[browser].entry}`,
-	bail: process.env.NODE_ENV === 'production',
+	bail: process.env.NODE_ENV !== 'development',
 	output: {
 		path: join(__dirname, 'dist', browserConfig[browser].output),
 		filename: basename(browserConfig[browser].entry)
