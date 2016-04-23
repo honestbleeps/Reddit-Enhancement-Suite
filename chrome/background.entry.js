@@ -39,101 +39,15 @@ import cssOffSmall from './images/css-off-small.png';
 import cssOn from './images/css-on.png';
 import cssOnSmall from './images/css-on-small.png';
 
-function apiToPromise(func) {
-	return (...args) =>
-		new Promise((resolve, reject) =>
-			func(...args, (...results) => {
-				if (chrome.runtime.lastError) {
-					reject(new Error(chrome.runtime.lastError.message));
-				} else {
-					resolve(results.length > 1 ? results : results[0]);
-				}
-			})
-		);
-}
+import { apiToPromise, createMessageHandler } from './_helpers';
 
-const listeners = new Map();
+const {
+	_handleMessage,
+	sendMessage,
+	addListener
+} = createMessageHandler((message, tabId) => apiToPromise(chrome.tabs.sendMessage)(parseInt(tabId, 10), message));
 
-/**
- * @callback MessageListener
- * @template T
- * @param {*} data The message data.
- * @param {Tab} tab The tab object of the sender.
- * @returns {T|Promise<T, *>} The response data, optionally wrapped in a promise.
- */
-
-/**
- * Register a listener to be invoked whenever a message of `type` is received.
- * Responses may be sent synchronously or asynchronously:
- * If `callback` returns a non-promise value, a response will be sent synchronously.
- * If `callback` returns a promise, a response will be sent asynchronously when it resolves.
- * If it rejects, an invalid response will be sent to close the message channel.
- * @param {string} type
- * @param {MessageListener} callback
- * @throws {Error} If a listener for `messageType` already exists.
- * @returns {void}
- */
-function addListener(type, callback) {
-	if (listeners.has(type)) {
-		throw new Error(`Listener for message type: ${type} already exists.`);
-	}
-	listeners.set(type, { callback });
-}
-
-/**
- * Send a message to the content script at `tabId`.
- * @param {string} type
- * @param {number|string} tabId
- * @param {*} [data]
- * @returns {Promise<*, Error>} Rejects if an invalid response is received,
- * resolves with the response data otherwise.
- */
-async function sendMessage(type, tabId, data) {
-	const message = { type, data };
-	const target = parseInt(tabId, 10);
-
-	const response = await apiToPromise(chrome.tabs.sendMessage)(target, message);
-
-	if (!response) {
-		throw new Error(`Critical error in foreground handler for type: ${type}`);
-	}
-
-	if (response.error) {
-		throw new Error(`Error in foreground handler for type: ${type} - message: ${response.error}`);
-	}
-
-	return response.data;
-}
-
-chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-	const { type, data } = request;
-	const tab = sender.tab;
-
-	if (!listeners.has(type)) {
-		throw new Error(`Unrecognised message type: ${type}`);
-	}
-	const listener = listeners.get(type);
-
-	let response;
-
-	try {
-		response = listener.callback(data, tab);
-	} catch (e) {
-		sendResponse({ error: e.message || e });
-		throw e;
-	}
-
-	if (response instanceof Promise) {
-		response
-			.then(data => sendResponse({ data }))
-			.catch(e => {
-				sendResponse({ error: e.message || e });
-				throw e;
-			});
-		return true;
-	}
-	sendResponse({ data: response });
-});
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) => _handleMessage(request, sendResponse, sender.tab));
 
 // Listeners
 
@@ -175,7 +89,7 @@ addListener('permissions', async ({ operation, permissions, origins }, { id: tab
 			if (hasPermissions) {
 				return true;
 			}
-			await sendMessage('userGesture', tabId);
+			await sendMessage('userGesture', undefined, tabId);
 			return apiToPromise(chrome.permissions.request)({ permissions, origins });
 		case 'remove':
 			return apiToPromise(chrome.permissions.remove)({ permissions, origins });
@@ -257,7 +171,7 @@ addListener('XHRCache', ({ operation, key, value, maxAge }) => {
 });
 
 chrome.pageAction.onClicked.addListener(({ id: tabId }) =>
-	sendMessage('pageActionClick', tabId)
+	sendMessage('pageActionClick', undefined, tabId)
 );
 
 addListener('pageAction', ({ operation, state }, { id: tabId }) => {
@@ -285,6 +199,6 @@ addListener('multicast', async (request, { id: tabId, incognito }) =>
 	Promise.all(
 		(await apiToPromise(chrome.tabs.query)({ url: '*://*.reddit.com/*', status: 'complete' }))
 			.filter(tab => tab.id !== tabId && tab.incognito === incognito)
-			.map(({ id }) => sendMessage('multicast', id, request))
+			.map(({ id }) => sendMessage('multicast', request, id))
 	)
 );
