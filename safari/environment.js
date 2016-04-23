@@ -1,5 +1,3 @@
-// allow the reexports to be overridden
-/* eslint-disable import/export */
 /* global safari */
 
 import 'babel-polyfill';
@@ -41,8 +39,6 @@ export {
 	sendMessage as _sendMessage,
 	addListener as _addListener
 };
-
-export * from '../lib/environment';
 
 export function deleteCookies(...cookieNames) {
 	for (const cookieName of cookieNames) {

@@ -41,7 +41,7 @@ export default {
 	},
 	resolve: {
 		alias: {
-			environment$: join(__dirname, browserConfig[browser].environment)
+			browserEnvironment$: join(__dirname, browserConfig[browser].environment)
 		}
 	},
 	module: {

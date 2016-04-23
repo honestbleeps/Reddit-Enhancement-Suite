@@ -1,6 +1,3 @@
-// allow the reexports to be overridden
-/* eslint-disable import/export */
-
 import { createMessageHandler } from '../lib/environment/_helpers';
 
 function _sendMessage(type, obj) {
@@ -21,5 +18,3 @@ export {
 	sendMessage as _sendMessage,
 	addListener as _addListener
 };
-
-export * from '../lib/environment';

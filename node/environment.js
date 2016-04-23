@@ -1,12 +1,7 @@
-// allow the reexports to be overridden
-/* eslint-disable import/export */
-
 import { extendDeep } from '../lib/utils';
 
 export function _sendMessage() { /* empty */ }
 export function _addListener() { /* empty */ }
-
-export * from '../lib/environment';
 
 let _storage = {};
 

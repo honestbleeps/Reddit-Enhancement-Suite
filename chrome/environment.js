@@ -1,6 +1,3 @@
-// allow the reexports to be overridden
-/* eslint-disable import/export */
-
 import _ from 'lodash';
 import * as Notifications from '../lib/modules/notifications';
 import { apiToPromise, createMessageHandler } from './_helpers';
@@ -18,8 +15,6 @@ export {
 	sendMessage as _sendMessage,
 	addListener as _addListener
 };
-
-export * from '../lib/environment';
 
 addListener('userGesture', () => waitForEvent(document.body, 'mousedown', 'keydown'));
 
