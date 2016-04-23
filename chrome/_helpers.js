@@ -11,7 +11,7 @@ export function apiToPromise(func) {
 		);
 }
 
-export function createMessageHandler(_sendMessage) {
+export function createChromeMessageHandler(_sendMessage) {
 	const listeners = new Map();
 
 	function addListener(type, callback) {
@@ -37,7 +37,7 @@ export function createMessageHandler(_sendMessage) {
 		return response.data;
 	}
 
-	function _handleMessage(request, sendResponse, context) {
+	chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 		const { type, data } = request;
 
 		if (!listeners.has(type)) {
@@ -48,7 +48,8 @@ export function createMessageHandler(_sendMessage) {
 		let response;
 
 		try {
-			response = listener.callback(data, context);
+			// sender.tab will be undefined for background -> foreground messages
+			response = listener.callback(data, sender.tab);
 		} catch (e) {
 			sendResponse({ error: e.message || e });
 			throw e;
@@ -64,10 +65,9 @@ export function createMessageHandler(_sendMessage) {
 			return true;
 		}
 		sendResponse({ data: response });
-	}
+	});
 
 	return {
-		_handleMessage,
 		sendMessage,
 		addListener
 	};

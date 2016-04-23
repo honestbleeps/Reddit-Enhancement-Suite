@@ -39,15 +39,12 @@ import cssOffSmall from './images/css-off-small.png';
 import cssOn from './images/css-on.png';
 import cssOnSmall from './images/css-on-small.png';
 
-import { apiToPromise, createMessageHandler } from './_helpers';
+import { apiToPromise, createChromeMessageHandler } from './_helpers';
 
 const {
-	_handleMessage,
 	sendMessage,
 	addListener
-} = createMessageHandler((message, tabId) => apiToPromise(chrome.tabs.sendMessage)(parseInt(tabId, 10), message));
-
-chrome.runtime.onMessage.addListener((request, sender, sendResponse) => _handleMessage(request, sendResponse, sender.tab));
+} = createChromeMessageHandler((message, tabId) => apiToPromise(chrome.tabs.sendMessage)(parseInt(tabId, 10), message));
 
 // Listeners
 

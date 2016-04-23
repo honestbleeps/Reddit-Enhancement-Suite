@@ -1,15 +1,12 @@
 import _ from 'lodash';
 import * as Notifications from '../lib/modules/notifications';
-import { apiToPromise, createMessageHandler } from './_helpers';
+import { apiToPromise, createChromeMessageHandler } from './_helpers';
 import { extendDeep, waitForEvent } from '../lib/utils';
 
 const {
-	_handleMessage,
 	sendMessage,
 	addListener
-} = createMessageHandler(_.unary(apiToPromise(chrome.runtime.sendMessage)));
-
-chrome.runtime.onMessage.addListener((request, sender, sendResponse) => _handleMessage(request, sendResponse));
+} = createChromeMessageHandler(_.unary(apiToPromise(chrome.runtime.sendMessage)));
 
 export {
 	sendMessage as _sendMessage,
