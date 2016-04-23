@@ -2,6 +2,8 @@
 /* eslint-disable import/export */
 /* global safari */
 
+import 'babel-polyfill';
+
 import resCss from '../lib/css/res.scss';
 
 import { Init } from '../lib/core';

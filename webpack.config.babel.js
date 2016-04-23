@@ -27,6 +27,11 @@ const browserConfig = {
 
 const browser = (process.env.BUILD_TARGET = process.env.BUILD_TARGET || 'chrome');
 
+// extra transforms for Safari
+if (browser === 'safari') {
+	process.env.BABEL_ENV = 'safari';
+}
+
 export default {
 	entry: `extricate!interpolate!./${browserConfig[browser].entry}`,
 	bail: process.env.NODE_ENV === 'production',

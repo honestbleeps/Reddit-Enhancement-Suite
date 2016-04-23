@@ -1,5 +1,3 @@
-import 'babel-polyfill';
-
 import Cache from '../lib/utils/Cache';
 
 import cssDisabled from './images/css-disabled.png';

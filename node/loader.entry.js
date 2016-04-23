@@ -1,5 +1,3 @@
-import 'babel-polyfill';
-
 import './mocks';
 
 import { Init } from '../lib/core';
