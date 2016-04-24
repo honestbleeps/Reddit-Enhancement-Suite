@@ -1,11 +1,25 @@
 import _ from 'lodash';
-import { apiToPromise, createChromeMessageHandler } from './_helpers';
+import { apiToPromise } from './_helpers';
+import { createMessageHandler } from '../lib/environment/_helpers';
 import { extendDeep, waitForEvent } from '../lib/utils';
 
+const _sendMessage = apiToPromise(chrome.runtime.sendMessage);
+
 const {
+	_handleMessage,
 	sendMessage,
 	addListener
-} = createChromeMessageHandler(_.unary(apiToPromise(chrome.runtime.sendMessage)));
+} = createMessageHandler((type, { transaction, isResponse, ...obj }, sendResponse) => {
+	if (isResponse) {
+		sendResponse(obj);
+	} else {
+		_sendMessage({ ...obj, type }).then(({ type, ...obj }) => {
+			_handleMessage(type, { ...obj, transaction, isResponse: true });
+		});
+	}
+});
+
+chrome.runtime.onMessage.addListener(({ type, ...obj }, sender, sendResponse) => _handleMessage(type, obj, sendResponse));
 
 export {
 	sendMessage as _sendMessage,

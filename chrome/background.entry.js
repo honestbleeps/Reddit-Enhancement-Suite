@@ -39,12 +39,26 @@ import cssOffSmall from './images/css-off-small.png';
 import cssOn from './images/css-on.png';
 import cssOnSmall from './images/css-on-small.png';
 
-import { apiToPromise, createChromeMessageHandler } from './_helpers';
+import { apiToPromise } from './_helpers';
+import { createMessageHandler } from '../lib/environment/_helpers';
+
+const _sendMessage = apiToPromise(chrome.tabs.sendMessage);
 
 const {
+	_handleMessage,
 	sendMessage,
 	addListener
-} = createChromeMessageHandler((message, tabId) => apiToPromise(chrome.tabs.sendMessage)(parseInt(tabId, 10), message));
+} = createMessageHandler((type, { transaction, isResponse, ...obj }, { sendResponse, tabId }) => {
+	if (isResponse) {
+		sendResponse(obj);
+	} else {
+		_sendMessage(tabId, { ...obj, type }).then(({ type, ...obj }) => {
+			_handleMessage(type, { ...obj, transaction, isResponse: true });
+		});
+	}
+});
+
+chrome.runtime.onMessage.addListener(({ type, ...obj }, sender, sendResponse) => _handleMessage(type, obj, { ...sender.tab, sendResponse }));
 
 // Listeners
 
@@ -86,7 +100,7 @@ addListener('permissions', async ({ operation, permissions, origins }, { id: tab
 			if (hasPermissions) {
 				return true;
 			}
-			await sendMessage('userGesture', undefined, tabId);
+			await sendMessage('userGesture', undefined, { tabId });
 			return apiToPromise(chrome.permissions.request)({ permissions, origins });
 		case 'remove':
 			return apiToPromise(chrome.permissions.remove)({ permissions, origins });
@@ -168,7 +182,7 @@ addListener('XHRCache', ({ operation, key, value, maxAge }) => {
 });
 
 chrome.pageAction.onClicked.addListener(({ id: tabId }) =>
-	sendMessage('pageActionClick', undefined, tabId)
+	sendMessage('pageActionClick', undefined, { tabId })
 );
 
 addListener('pageAction', ({ operation, state }, { id: tabId }) => {
@@ -196,6 +210,6 @@ addListener('multicast', async (request, { id: tabId, incognito }) =>
 	Promise.all(
 		(await apiToPromise(chrome.tabs.query)({ url: '*://*.reddit.com/*', status: 'complete' }))
 			.filter(tab => tab.id !== tabId && tab.incognito === incognito)
-			.map(({ id }) => sendMessage('multicast', request, id))
+			.map(({ id: tabId }) => sendMessage('multicast', request, { tabId }))
 	)
 );
