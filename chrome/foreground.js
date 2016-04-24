@@ -1,5 +1,4 @@
 import _ from 'lodash';
-import * as Modules from '../lib/core/modules';
 import { apiToPromise, createChromeMessageHandler } from './_helpers';
 import { extendDeep, waitForEvent } from '../lib/utils';
 
@@ -15,8 +14,6 @@ export {
 
 addListener('userGesture', () => waitForEvent(document.body, 'mousedown', 'keydown'));
 
-const inProgress = new Map();
-
 function filterPerms(perms) {
 	const permissions = perms.filter(p => !p.includes('://') && p !== '<all_urls>');
 	const origins = perms.filter(p => p.includes('://') || p === '<all_urls>');
@@ -24,35 +21,17 @@ function filterPerms(perms) {
 }
 
 export const Permissions = {
-	async request(...perms) {
-		const key = perms.join(',');
-
-		if (!inProgress.has(key)) {
-			inProgress.set(key, (async () => {
-				const { permissions, origins } = filterPerms(perms);
-
-				const granted = await sendMessage('permissions', { operation: 'request', permissions, origins });
-
-				inProgress.delete(key);
-
-				if (!granted) {
-					const re = /((?:\w+\.)+\w+)(?=\/|$)/i;
-					Modules.get('notifications').showNotification(
-						`<p>You clicked "Deny". RES needs permission to access the API(s) at:</p>
-							<p>${origins.map(u => `<code>${re.exec(u)[0]}</code>`).join(', ')}</p>
-							<p>Be assured RES does not access any of your information on these domains - it only accesses the API.</p>`,
-						20000
-					);
-					throw new Error(`Permission not granted for: ${perms.join(', ')}`);
-				}
-			})());
+	request: _.memoize(async (...perms) => {
+		const { permissions, origins } = filterPerms(perms);
+		const granted = await sendMessage('permissions', { operation: 'request', permissions, origins });
+		if (!granted) {
+			throw new Error(`Permission not granted for: ${perms.join(', ')}`);
 		}
-
-		return inProgress.get(key);
-	},
+	}, (...perms) => perms.join(',')),
 
 	async remove(...perms) {
-		const removed = await sendMessage('permissions', { operation: 'remove', ...filterPerms(perms) });
+		const { permissions, origins } = filterPerms(perms);
+		const removed = await sendMessage('permissions', { operation: 'remove', permissions, origins });
 		if (!removed) {
 			throw new Error(`Permissions not removed: ${perms.join(', ')} - are you trying to remove required permissions?`);
 		}
