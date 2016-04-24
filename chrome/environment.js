@@ -13,7 +13,7 @@ const {
 	if (isResponse) {
 		sendResponse(obj);
 	} else {
-		_sendMessage({ ...obj, type }).then(({ type, ...obj }) => {
+		_sendMessage({ ...obj, type }).then(obj => {
 			_handleMessage(type, { ...obj, transaction, isResponse: true });
 		});
 	}

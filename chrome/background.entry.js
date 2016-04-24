@@ -52,7 +52,7 @@ const {
 	if (isResponse) {
 		sendResponse(obj);
 	} else {
-		_sendMessage(tabId, { ...obj, type }).then(({ type, ...obj }) => {
+		_sendMessage(tabId, { ...obj, type }).then(obj => {
 			_handleMessage(type, { ...obj, transaction, isResponse: true });
 		});
 	}
