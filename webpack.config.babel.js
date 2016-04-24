@@ -31,7 +31,7 @@ const browserConfig = {
 
 const browsers = typeof yargs.argv.browsers === 'string' ? yargs.argv.browsers.split(',') : ['chrome'];
 
-export default browsers.map(browser => {
+const configs = browsers.map(browser => {
 	// extra transforms for Safari
 	const babelConfig = {
 		...babelrc,
@@ -81,3 +81,5 @@ export default browsers.map(browser => {
 		}
 	};
 });
+
+export default (configs.length === 1 ? configs[0] : configs);
