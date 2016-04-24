@@ -9,7 +9,7 @@ script:
   - npm run scsslint
   - npm run coverage
   - npm run build-all
-  - npm run node -- build
+  - npm run build -- node
   - node dist/node/loader.entry.js
 after_success:
   - npm run report-coverage

@@ -1,6 +1,7 @@
 import InertEntryPlugin from 'inert-entry-webpack-plugin';
 import ProgressBarPlugin from 'progress-bar-webpack-plugin';
 import autoprefixer from 'autoprefixer';
+import yargs from 'yargs';
 import { basename, join } from 'path';
 
 const browserConfig = {
@@ -26,7 +27,7 @@ const browserConfig = {
 	}
 };
 
-const browser = (process.env.BUILD_TARGET = process.env.BUILD_TARGET || 'chrome');
+const browser = process.env.BUILD_TARGET = typeof yargs.argv.browser === 'string' ? yargs.argv.browser : 'chrome';
 
 // extra transforms for Safari
 if (browser === 'safari') {
