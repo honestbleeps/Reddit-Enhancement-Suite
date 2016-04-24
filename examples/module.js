@@ -1,17 +1,18 @@
 /*
 
-Creating your own module:
-
-All modules must have an ID, which is the first parameter passed into addModule.
-
-In addition, modules must have the following required properties:
+Modules must have the following required properties:
+- moduleID
 - moduleName - a "nice name" for your module
 - category - a category such as "Comments" for the module to reside under
 - description - an explanation of the module's functionality
 - include (optional) - an array of page types or regexes to match against location.href
 - exclude (optional) - an array of page types or regexes to exclude against location.href
-- beforeLoad (optional) code to run after <head> is ready and this module's options are loaded
-- go - code to run after <body> is ready. Always checks if both isEnabled() and isMatchURL(), and if so, runs your main code.
+- beforeLoad (optional) - code to run after <head> is ready and this module's options are loaded
+- always (optional) - run at the same time as beforeLoad, regardless of whether or not the module is enabled
+- go (optional) - code to run after <body> is ready
+- afterLoad (optional) - code to run after `go`
+beforeLoad, go, and afterLoad will only run if the module is enabled and the include/exclude match the current page.
+
 
 See the README for info on adding your module to the browsers' manifests.
 
@@ -19,6 +20,7 @@ See the README for info on adding your module to the browsers' manifests.
 
 export const module = {};
 
+module.moduleID = 'myModule';
 module.moduleName = 'My Module';
 module.category = 'CategoryName';
 module.description = 'This is my module!';
