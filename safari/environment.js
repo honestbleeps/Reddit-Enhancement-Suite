@@ -1,4 +1,4 @@
-/* global safari */
+/* global safari: false */
 
 import 'babel-polyfill';
 

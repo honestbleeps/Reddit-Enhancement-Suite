@@ -30,8 +30,6 @@
 
 */
 
-/* global chrome: false */
-
 import Cache from '../lib/utils/Cache';
 
 import cssOff from './images/css-off.png';
