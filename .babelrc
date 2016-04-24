@@ -1,32 +1,3 @@
 {
-	"passPerPreset": true,
-	"presets": [
-		"stage-0",
-		{ "plugins": ["transform-runtime"] },
-		{ "plugins": [
-			"transform-decorators-legacy",
-			"transform-es2015-modules-commonjs",
-			"transform-dead-code-elimination",
-			"transform-node-env-inline",
-			"lodash"
-		] }
-	],
-	"env": {
-		"safari": {
-			"presets": [
-				"es2015",
-				"stage-0",
-				{ "plugins": [
-					"transform-decorators-legacy",
-					"transform-es2015-modules-commonjs",
-					"transform-dead-code-elimination",
-					"transform-node-env-inline",
-					"lodash"
-				] }
-			]
-		},
-		"test": {
-			"sourceMaps": "inline"
-		}
-	}
+	"extends": "./.babelrc.json"
 }

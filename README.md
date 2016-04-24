@@ -104,7 +104,7 @@ Sass (`.scss`) files in `lib/` will be compiled with [Sass](http://sass-lang.com
 
 **`npm run build [-- <browsers>]`** will clean `dist/`, then build RES (release mode). Each build output will be compressed to a .zip file in `dist/zip/`.
 
-`<browsers>` is a comma-separated list of browsers to target, e.g. `chrome,firefox,safari,node`. By default, all will be targeted.
+`<browsers>` is a comma-separated list of browsers to target, e.g. `chrome,firefox,safari,node`. By default, `chrome` will be targeted.
 
 **`npm run add-module -- module.js`** will add `module.js`, a new module, to the manifest for each browser.
 

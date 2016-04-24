@@ -1,6 +1,7 @@
 import InertEntryPlugin from 'inert-entry-webpack-plugin';
 import ProgressBarPlugin from 'progress-bar-webpack-plugin';
 import autoprefixer from 'autoprefixer';
+import babelrc from './.babelrc.json';
 import webpack from 'webpack';
 import yargs from 'yargs';
 import { basename, join } from 'path';
@@ -28,51 +29,55 @@ const browserConfig = {
 	}
 };
 
-const browser = typeof yargs.argv.browser === 'string' ? yargs.argv.browser : 'chrome';
+const browsers = typeof yargs.argv.browsers === 'string' ? yargs.argv.browsers.split(',') : ['chrome'];
 
-// extra transforms for Safari
-if (browser === 'safari') {
-	process.env.BABEL_ENV = 'safari';
-}
+export default browsers.map(browser => {
+	// extra transforms for Safari
+	const babelConfig = {
+		...babelrc,
+		...(browser === 'safari' ? babelrc.env.safari : {}),
+		babelrc: false
+	};
 
-export default {
-	entry: `extricate!interpolate!./${browserConfig[browser].entry}`,
-	bail: process.env.NODE_ENV !== 'development',
-	output: {
-		path: join(__dirname, 'dist', browserConfig[browser].output),
-		filename: basename(browserConfig[browser].entry)
-	},
-	resolve: {
-		alias: {
-			browserEnvironment$: join(__dirname, browserConfig[browser].environment)
-		}
-	},
-	module: {
-		loaders: [
-			{ test: /\.entry\.js$/, loaders: ['spawn?name=[name].js', 'babel'] },
-			{ test: /\.js$/, exclude: join(__dirname, 'node_modules'), loader: 'babel' },
-			{ test: /\.js$/, include: join(__dirname, 'node_modules'), loader: 'babel', query: { plugins: ['transform-dead-code-elimination', 'transform-node-env-inline'], compact: true, babelrc: false } },
-			{ test: /\.hbs$/, loader: 'handlebars' },
-			{ test: /\.scss$/, loaders: ['file?name=[name].css', 'extricate?resolve=\\.js$', 'css', 'postcss', 'sass'] },
-			{ test: /\.html$/, loaders: ['file?name=[name].[ext]', 'extricate', 'html?attrs=link:href script:src'] },
-			{ test: /\.png$/, exclude: join(__dirname, 'lib', 'images'), loader: 'file?name=[name].[ext]' },
-			{ test: /\.png$/, include: join(__dirname, 'lib', 'images'), loader: 'url' }
-		],
-		noParse: [
-			// to use `require` in Firefox and Node
-			/_nativeRequire\.js$/
-		]
-	},
-	plugins: [
-		new ProgressBarPlugin(),
-		new webpack.DefinePlugin({
-			'process.env': {
-				BUILD_TARGET: JSON.stringify(browser)
+	return {
+		entry: `extricate!interpolate!./${browserConfig[browser].entry}`,
+		bail: process.env.NODE_ENV !== 'development',
+		output: {
+			path: join(__dirname, 'dist', browserConfig[browser].output),
+			filename: basename(browserConfig[browser].entry)
+		},
+		resolve: {
+			alias: {
+				browserEnvironment$: join(__dirname, browserConfig[browser].environment)
 			}
-		}),
-		new InertEntryPlugin()
-	],
-	postcss() {
-		return [autoprefixer];
-	}
-};
+		},
+		module: {
+			loaders: [
+				{ test: /\.entry\.js$/, loaders: ['spawn?name=[name].js', `babel?${JSON.stringify(babelConfig)}`] },
+				{ test: /\.js$/, exclude: join(__dirname, 'node_modules'), loader: 'babel', query: babelConfig },
+				{ test: /\.js$/, include: join(__dirname, 'node_modules'), loader: 'babel', query: { plugins: ['transform-dead-code-elimination', 'transform-node-env-inline'], compact: true, babelrc: false } },
+				{ test: /\.hbs$/, loader: 'handlebars' },
+				{ test: /\.scss$/, loaders: ['file?name=[name].css', 'extricate?resolve=\\.js$', 'css', 'postcss', 'sass'] },
+				{ test: /\.html$/, loaders: ['file?name=[name].[ext]', 'extricate', 'html?attrs=link:href script:src'] },
+				{ test: /\.png$/, exclude: join(__dirname, 'lib', 'images'), loader: 'file?name=[name].[ext]' },
+				{ test: /\.png$/, include: join(__dirname, 'lib', 'images'), loader: 'url' }
+			],
+			noParse: [
+				// to use `require` in Firefox and Node
+				/_nativeRequire\.js$/
+			]
+		},
+		plugins: [
+			new ProgressBarPlugin(),
+			new webpack.DefinePlugin({
+				'process.env': {
+					BUILD_TARGET: JSON.stringify(browser)
+				}
+			}),
+			new InertEntryPlugin()
+		],
+		postcss() {
+			return [autoprefixer];
+		}
+	};
+});
