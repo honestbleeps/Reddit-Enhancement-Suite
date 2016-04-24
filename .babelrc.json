@@ -8,6 +8,8 @@
 			"transform-es2015-modules-commonjs",
 			"transform-es2015-destructuring",
 			"transform-es2015-parameters",
+			"transform-es2015-block-scoped-functions",
+			"transform-es2015-block-scoping",
 			"transform-dead-code-elimination",
 			"transform-node-env-inline",
 			"lodash"
@@ -21,8 +23,6 @@
 				{ "plugins": [
 					"transform-decorators-legacy",
 					"transform-es2015-modules-commonjs",
-					"transform-es2015-destructuring",
-					"transform-es2015-parameters",
 					"transform-dead-code-elimination",
 					"transform-node-env-inline",
 					"lodash"
