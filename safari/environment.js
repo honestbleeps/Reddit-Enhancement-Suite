@@ -1,17 +1,52 @@
-export {
-	_addListener,
-	_sendMessage,
-	PageAction,
-	addURLToHistory,
-	deleteCookies
-} from './foreground';
+/* global safari */
 
-export { ajax } from '../lib/environment/ajax';
-export { isPrivateBrowsing } from '../lib/environment/privateBrowsing';
-export { multicast } from '../lib/environment/multicast';
-export { openNewTab, openNewTabs } from '../lib/environment/tabs';
-export * as PageAction from '../lib/environment/pageAction';
-export * as Permissions from '../lib/environment/permissions';
-export * as Session from '../lib/environment/session';
-export * as Storage from '../lib/environment/storage';
-export * as XhrCache from '../lib/environment/xhrCache';
+import 'babel-polyfill';
+
+import resCss from '../lib/css/res.scss';
+
+import * as Init from '../lib/core/init';
+import { createMessageHandler } from '../lib/environment/_helpers';
+
+// Safari has a ridiculous bug that causes it to lose access to safari.self.tab if you click the back button.
+// this stupid one liner fixes that.
+window.onunload = () => {};
+
+// since safari's built in extension stylesheets are treated as user stylesheets,
+// we can't inject them that way.  That makes them "user stylesheets" which would make
+// them require !important everywhere - we don't want that, so we'll inject this way instead.
+Init.headReady.then(() => {
+	const linkTag = document.createElement('link');
+	linkTag.rel = 'stylesheet';
+	linkTag.href = safari.extension.baseURI + resCss;
+	document.head.appendChild(linkTag);
+});
+
+const {
+	_handleMessage,
+	sendMessage,
+	addListener,
+	addInterceptor
+} = createMessageHandler((type, obj) => safari.self.tab.dispatchMessage(type, obj));
+
+safari.self.addEventListener('message', ({ name: type, message: obj }) => {
+	_handleMessage(type, obj);
+});
+
+export {
+	sendMessage,
+	addListener
+};
+
+addInterceptor('permissions', () => {});
+
+addInterceptor('deleteCookies', cookies => {
+	for (const { name } of cookies) {
+		document.cookie = `${name}=null;expires=${Date.now()}; path=/;domain=reddit.com`;
+	}
+});
+
+// The iframe hack doesn't work anymore, so Safari has no way to add urls to history
+addInterceptor('addURLToHistory', () => {});
+
+// Safari has no pageAction
+addInterceptor('pageAction', () => {});
