@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import { Modules } from '../lib/core';
+import * as Modules from '../lib/core/modules';
 import { apiToPromise, createChromeMessageHandler } from './_helpers';
 import { extendDeep, waitForEvent } from '../lib/utils';
 

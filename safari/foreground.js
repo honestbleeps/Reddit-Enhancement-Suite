@@ -4,7 +4,7 @@ import 'babel-polyfill';
 
 import resCss from '../lib/css/res.scss';
 
-import { Init } from '../lib/core';
+import * as Init from '../lib/core/init';
 import { createMessageHandler } from '../lib/environment/_helpers';
 
 // Safari has a ridiculous bug that causes it to lose access to safari.self.tab if you click the back button.

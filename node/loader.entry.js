@@ -1,6 +1,6 @@
 import './mocks';
 
-import { Init } from '../lib/core';
+import * as Init from '../lib/core/init';
 import { _mockStorage } from './environment';
 import { nativeRequire } from '../lib/environment/_nativeRequire';
 
