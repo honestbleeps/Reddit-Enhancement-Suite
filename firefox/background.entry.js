@@ -258,8 +258,8 @@ const pageAction = ActionButton({
 	id: 'res-styletoggle',
 	label: 'toggle subreddit CSS',
 	icon: {
-		16: cssDisabledSmall,
-		32: cssDisabled
+		16: `./../${cssDisabledSmall}`,
+		32: `./../${cssDisabled}`
 	},
 	disabled: true,
 	onClick() {
@@ -279,8 +279,8 @@ addListener('pageAction', ({ operation, state }, { tab }) => {
 			pageAction.state(tab, {
 				disabled: false,
 				icon: {
-					16: state ? cssOnSmall : cssOffSmall,
-					32: state ? cssOn : cssOff
+					16: state ? `./../${cssOnSmall}` : `./../${cssOffSmall}`,
+					32: state ? `./../${cssOn}` : `./../${cssOff}`
 				}
 			});
 			break;
@@ -288,8 +288,8 @@ addListener('pageAction', ({ operation, state }, { tab }) => {
 			pageAction.state(tab, {
 				disabled: true,
 				icon: {
-					16: cssDisabledSmall,
-					32: cssDisabled
+					16: `./../${cssDisabledSmall}`,
+					32: `./../${cssDisabled}`
 				}
 			});
 			break;
@@ -342,8 +342,8 @@ addListener('multicast', (request, worker) => {
 PageMod({
 	include: ['*.reddit.com'],
 	contentScriptWhen: 'start',
-	contentScriptFile: [mainEntry],
-	contentStyleFile: [resCss],
+	contentScriptFile: [`./../${mainEntry}`],
+	contentStyleFile: [`./../${resCss}`],
 	onAttach(worker) {
 		worker::onAttach();
 		worker.on('detach', onDetach);
