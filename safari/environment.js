@@ -37,7 +37,7 @@ export {
 	addListener
 };
 
-addInterceptor('permissions', () => {});
+addInterceptor('permissions', () => true);
 
 addInterceptor('deleteCookies', cookies => {
 	for (const { name } of cookies) {

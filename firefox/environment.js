@@ -16,4 +16,4 @@ export {
 	addListener
 };
 
-addInterceptor('permissions', () => {});
+addInterceptor('permissions', () => true);
