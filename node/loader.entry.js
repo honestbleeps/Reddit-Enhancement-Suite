@@ -1,5 +1,9 @@
 import './mocks';
 
+import expected from 'json!./storage/andytuba-4.5.4-6dffad39.json';
+import ignoredKeys from 'json!./storage/_ignore-4.5.4-6dffad39.json';
+import storage from 'json!./storage/andytuba-4.5.4.json';
+
 import * as Init from '../lib/core/init';
 import { _mockStorage } from './environment';
 import { nativeRequire } from '../lib/environment/_nativeRequire';
@@ -10,9 +14,6 @@ const equals = nativeRequire('deep-equal');
 const yargs = _yargs
 	.count('verbose')
     .alias('v', 'verbose')
-    .default('storage', 'andytuba-4.5.4')
-	.default('assertstorage', 'andytuba-4.5.4-6dffad39')
-	.default('ignorestorage', '_ignore-4.5.4-6dffad39')
 	.argv;
 
 const VERBOSE_LEVEL = yargs.verbose;
@@ -26,77 +27,66 @@ INFO("Showing semi-important stuff too");
 DEBUG("Extra chatty mode");
 */
 
-if (yargs.storage) {
-	_mockStorage(nativeRequire(`./storage/${yargs.storage}.json`)); // eslint-disable-line global-require
-	INFO('Loaded storage from', yargs.storage, ' - loaded ', Object.getOwnPropertyNames(_mockStorage()).length, 'items');
-} else {
-	INFO('Using empty storage');
-}
+_mockStorage(storage);
+INFO('Loaded storage from - loaded', Object.keys(storage).length, 'items');
 
 Init.init();
 
 Init.loadOptions
 	.then(() => {
-		if (yargs.assertstorage) {
-			const actual = _mockStorage();
-			const expected = nativeRequire(`./storage/${yargs.assertstorage}.json`);
-			INFO('Asserting that storage matches', yargs.assertstorage, ' - loaded ', Object.getOwnPropertyNames(expected).length, 'items');
+		const actual = _mockStorage();
 
-			let ignoredKeys = [];
-			if (yargs.ignorestorage) {
-				ignoredKeys = nativeRequire(`./storage/${yargs.ignorestorage}.json`);
-				INFO('ignoring keys listed in', yargs.ignorestorage, ' - ignoring ', Object.getOwnPropertyNames(ignoredKeys).length, 'items');
+		INFO('Asserting that storage matches -', Object.keys(expected).length, 'items');
+		INFO('Ignoring keys -', Object.keys(ignoredKeys).length, 'items');
+
+		const failures = [];
+
+		function addError(key, error, expected, actual) {
+			if (!error) return;
+			DEBUG(key, 'didn\'t match assert storage!', error);
+			failures.push({
+				error: typeof error === 'boolean' ? 'no match' : error,
+				key,
+				expected: JSON.stringify(expected),
+				actual: JSON.stringify(actual)
+			});
+		}
+
+		for (const key in expected) {
+			if (ignoredKeys.indexOf(key) !== -1) {
+				DEBUG('Skipping comparing key', key);
+				continue;
 			}
-
-			const failures = [];
-
-			function addError(key, error, expected, actual) {
-				if (!error) return;
-				DEBUG(key, 'didn\'t match assert storage!', error);
-				failures.push({
-					error: typeof error === 'boolean' ? 'no match' : error,
-					key,
-					expected: JSON.stringify(expected),
-					actual: JSON.stringify(actual)
-				});
-			}
-
-			for (const key in expected) {
-				if (ignoredKeys.indexOf(key) !== -1) {
-					DEBUG('Skipping comparing key', key);
-					continue;
-				}
-				DEBUG('Comparing key', key);
-				let expectedValue = 0;
-				let actualValue = -1;
-				let error = false;
-				if (key.indexOf('RESoptions.') === 0) {
-					let option;
-					try {
-						const expectedOptions = typeof expected[key] === 'string' && JSON.parse(expected[key]);
-						const actualOptions = typeof actual[key] === 'string' && JSON.parse(actual[key]);
-						for (option in expectedOptions) {
-							expectedValue = expectedOptions[option].value;
-							actualValue = (actualOptions[option] || {}).value;
-							error = !equals(expectedValue, actualValue);
-							if (error) addError(`${key}::${option}`, error, expectedValue, actualValue);
-						}
-					} catch (e) {
-						addError(`${key}::${option}`, error);
+			DEBUG('Comparing key', key);
+			let expectedValue = 0;
+			let actualValue = -1;
+			let error = false;
+			if (key.startsWith('RESoptions.')) {
+				let option;
+				try {
+					const expectedOptions = typeof expected[key] === 'string' && JSON.parse(expected[key]);
+					const actualOptions = typeof actual[key] === 'string' && JSON.parse(actual[key]);
+					for (option in expectedOptions) {
+						expectedValue = expectedOptions[option].value;
+						actualValue = (actualOptions[option] || {}).value;
+						error = !equals(expectedValue, actualValue);
+						if (error) addError(`${key}::${option}`, error, expectedValue, actualValue);
 					}
-				} else {
-					expectedValue = expected[key];
-					actualValue = actual[key];
-					error = !equals(expectedValue, actualValue);
-					if (error) addError(key, error, expectedValue, actualValue);
+				} catch (e) {
+					addError(`${key}::${option}`, error);
 				}
-			}
-			if (failures.length) {
-				WARN('[ERR] Encountered', failures.length, 'non-matching storage items');
-				console.dir(failures);
 			} else {
-				INFO('Storage passed equality assertion');
+				expectedValue = expected[key];
+				actualValue = actual[key];
+				error = !equals(expectedValue, actualValue);
+				if (error) addError(key, error, expectedValue, actualValue);
 			}
+		}
+		if (failures.length) {
+			WARN('[ERR] Encountered', failures.length, 'non-matching storage items');
+			console.dir(failures);
+		} else {
+			INFO('Storage passed equality assertion');
 		}
 
 		DEBUG('done');
