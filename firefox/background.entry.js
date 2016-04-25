@@ -28,13 +28,11 @@ const historyService = Cc['@mozilla.org/browser/history;1'].getService(Ci.mozIAs
 
 // Cookie manager for new API login
 const cookieManager = Cc['@mozilla.org/cookiemanager;1'].getService().QueryInterface(Ci.nsICookieManager2);
-components.utils.import('resource://gre/modules/NetUtil.jsm');
 
-// this function takes in a string (and optional charset, paseURI) and creates an nsURI object, which is required by historyService.addURI...
-function makeURI(aURL, aOriginCharset, aBaseURI) {
-	const ioService = Cc['@mozilla.org/network/io-service;1'].getService(Ci.nsIIOService);
-	return ioService.newURI(aURL, aOriginCharset, aBaseURI);
-}
+// for creating nsURI objects for historyService.addURI
+const ioService = Cc['@mozilla.org/network/io-service;1'].getService(Ci.nsIIOService);
+
+components.utils.import('resource://gre/modules/NetUtil.jsm');
 
 const workers = [];
 
@@ -322,7 +320,7 @@ addListener('isPrivateBrowsing', (request, worker) => priv.isPrivate(worker));
 
 addListener('addURLToHistory', url => {
 	historyService.updatePlaces({
-		uri: makeURI(url),
+		uri: ioService.newURI(url),
 		visits: [{
 			transitionType: Ci.nsINavHistoryService.TRANSITION_LINK,
 			visitDate: Date.now() * 1000
