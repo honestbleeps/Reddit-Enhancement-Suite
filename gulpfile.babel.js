@@ -1,3 +1,5 @@
+/* eslint-disable import/no-nodejs-modules */
+
 import globby from 'globby';
 import gulp from 'gulp';
 import merge from 'merge-stream';

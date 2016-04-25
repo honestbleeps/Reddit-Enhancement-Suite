@@ -1,3 +1,5 @@
+/* eslint-disable import/no-nodejs-modules */
+
 import InertEntryPlugin from 'inert-entry-webpack-plugin';
 import ProgressBarPlugin from 'progress-bar-webpack-plugin';
 import autoprefixer from 'autoprefixer';
