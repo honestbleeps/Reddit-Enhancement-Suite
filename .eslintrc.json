@@ -15,7 +15,7 @@
 	"settings": {
 		"import/ignore": [
 			"node_modules",
-			"\\.(json|png|html|scss|hbs)$"
+			"\\.(json|png|html|scss|mustache)$"
 		],
 		"import/resolver": "webpack"
 	},
