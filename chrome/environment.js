@@ -1,6 +1,6 @@
 import { apiToPromise } from './_helpers';
 import { createMessageHandler } from '../lib/environment/_helpers';
-import { extendDeep, waitForEvent } from '../lib/utils';
+import { extendDeep, keyedMutex, waitForEvent } from '../lib/utils';
 
 const _sendMessage = apiToPromise(chrome.runtime.sendMessage);
 
@@ -30,32 +30,13 @@ addListener('userGesture', () => waitForEvent(document.body, 'mousedown', 'keydo
 
 addInterceptor('isPrivateBrowsing', () => chrome.extension.inIncognitoContext);
 
-const queues = new Map();
-
-function mutex(callback) {
-	return args => {
-		const key = args[1] || '__all_keys__';
-		let tail;
-		if (queues.has(key)) {
-			tail = queues.get(key).then(() => callback(args));
-		} else {
-			tail = callback(args);
-		}
-		queues.set(key, tail);
-		tail.then(() => {
-			if (queues.get(key) === tail) queues.delete(key);
-		});
-		return tail;
-	};
-}
-
 const _set = apiToPromise(::chrome.storage.local.set);
 const set = (key, value) => _set({ [key]: value });
 
 const _get = apiToPromise(::chrome.storage.local.get);
 const get = async (key, defaultValue = null) => (await _get({ [key]: defaultValue }))[key];
 
-addInterceptor('storage', mutex(async ([operation, key, value]) => {
+addInterceptor('storage', keyedMutex(async ([operation, key, value]) => {
 	switch (operation) {
 		case 'get':
 			return get(key, null);
@@ -87,4 +68,4 @@ addInterceptor('storage', mutex(async ([operation, key, value]) => {
 		default:
 			throw new Error(`Invalid storage operation: ${operation}`);
 	}
-}));
+}, ([, key]) => key || '__all_keys__'));
