@@ -23,8 +23,6 @@
     "eslint": "eslint .",
     "scsslint": "scss-lint",
     "lint": "npm run eslint && npm run scsslint",
-    "add-module": "gulp add-module --file",
-    "add-host": "gulp add-host --file",
     "coverage": "cross-env NODE_ENV=test nyc --all --require babel-core/register ava",
     "report-coverage": "nyc report --reporter=text-lcov | coveralls"
   },

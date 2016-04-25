@@ -94,10 +94,6 @@ To load the extension into your browser, see [the sections below](#building-in-c
 
 #### Details and advanced usage
 
-JavaScript files in `lib/` (except `lib/vendor/`) will be compiled with [Babel](https://babeljs.io/).
-
-Sass (`.scss`) files in `lib/` will be compiled with [Sass](http://sass-lang.com/) and post-processed with [Autoprefixer](https://github.com/postcss/autoprefixer).
-
 **`npm start [-- <browsers>]`** will clean `dist/`, then build RES (dev mode), and start a watch task that will rebuild RES when you make changes. Only changed files will be rebuilt.
 
 **`npm run once [-- <browsers>]`** will clean `dist/`, then build RES (dev mode) a single time.
@@ -105,10 +101,6 @@ Sass (`.scss`) files in `lib/` will be compiled with [Sass](http://sass-lang.com
 **`npm run build [-- <browsers>]`** will clean `dist/`, then build RES (release mode). Each build output will be compressed to a .zip file in `dist/zip/`.
 
 `<browsers>` is a comma-separated list of browsers to target, e.g. `chrome,firefox,safari,node`. By default, `chrome` will be targeted.
-
-**`npm run add-module -- module.js`** will add `module.js`, a new module, to the manifest for each browser.
-
-**`npm run add-host -- hostname.js`** will add `hostname.js`, a new media host, to the manifest for each browser.
 
 **`npm run lint`** will verify the code style (and point out any errors) of all `.js` files in `lib/` (except `lib/vendor/`) using [ESLint](http://eslint.org/), as well as all `.scss` files with [scss-lint](https://github.com/brigade/scss-lint).
 
@@ -148,21 +140,24 @@ All that is asked is that you have at least one previous contribution to RES.
 
 ##### Modules
 
-See [`lib/modules/example.js`](https://github.com/honestbleeps/Reddit-Enhancement-Suite/blob/master/lib/modules/example.js) for an example.
+See [`examples/module.js`](https://github.com/honestbleeps/Reddit-Enhancement-Suite/blob/master/examples/module.js) for an example.
 
-Create a new `.js` file in `lib/modules`. Use [`npm run add-module`](#details-and-advanced-usage) to add the file to the browsers' manifests.
+Create a new `.js` file in `lib/modules`.
+It will automatically be loaded when the build script is restarted.
 
 ##### Inline image viewer hosts
 
 Please be sure that they support [CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) so the sites do not need to be added as additional permissions, which has caused [headaches in the past](https://www.reddit.com/r/Enhancement/comments/1jskcm/announcement_chrome_users_did_your_res_turn_off/).
 
-See [`lib/modules/hosts/example.js`](https://github.com/honestbleeps/Reddit-Enhancement-Suite/blob/master/lib/modules/hosts/example.js) for an example.
+See [`examples/host.js`](https://github.com/honestbleeps/Reddit-Enhancement-Suite/blob/master/examples/host.js) for an example.
 
-Create a new `.js` file in `lib/modules/hosts`. Use [`npm run add-host`](#details-and-advanced-usage) to add the file to the browsers' manifests.
+Create a new `.js` file in `lib/modules/hosts`.
+It will automatically be loaded when the build script is restarted.
 
 ##### Stylesheets
 
-Create a new Sass partial under `lib/css/` (with a leading underscore, e.g. `_myPartial.scss`). Import the file in `lib/css/res.scss` (i.e. `@import 'modules/myPartial';`—do not include the underscore or file extension). You do not need to add it to any browser manifests.
+Create a new Sass partial under `lib/css/` (with a leading underscore, e.g. `_myPartial.scss`).
+Import the file in `lib/css/res.scss` (i.e. `@import 'modules/myPartial';`—do not include the underscore or file extension).
 
 Body classes will be automatically added for boolean and enum options with the property `bodyClass: true`, in the form `.res-moduleId-optionKey` for boolean options (only when they're enabled), and `.res-moduleId-optionKey-optionValue` for enums.
 This is the preferred way to create optional CSS; do not use `addCSS()` unless absolutely necessary (i.e. variable color, size, etc.).
