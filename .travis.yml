@@ -8,7 +8,6 @@ script:
   - npm run eslint
   - npm run scsslint
   - npm run coverage
-  - npm run build-all
   - npm run build -- node
   - node dist/node/loader.entry.js
 after_success:
