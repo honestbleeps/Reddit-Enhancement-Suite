@@ -305,7 +305,7 @@ addListener('openNewTabs', ({ urls, focusIndex }, { tab }) => {
 	const nsWindow = viewFor(tab.window);
 	const nsTab = viewFor(tab);
 	urls.forEach((url, i) => {
-		if ('TreeStyleTabService' in nsWindow) {
+		if (nsWindow && nsTab && 'TreeStyleTabService' in nsWindow) {
 			nsWindow.TreeStyleTabService.readyToOpenChildTab(nsTab);
 		}
 		tabs.open({
