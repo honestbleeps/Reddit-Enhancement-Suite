@@ -40,6 +40,13 @@ addInterceptor('storage', keyedMutex(async ([operation, key, value]) => {
 	switch (operation) {
 		case 'get':
 			return get(key, null);
+		case 'batch':
+			const defaults = {};
+			// key is an array here
+			for (const k of key) {
+				defaults[k] = null;
+			}
+			return _get(defaults);
 		case 'set':
 			return set(key, value);
 		case 'patch':

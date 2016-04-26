@@ -30,6 +30,18 @@ addInterceptor('storage', ([operation, key, value]) => {
 				console.warn('Failed to parse:', key, 'falling back to raw string.');
 			}
 			return _storage[key];
+		case 'batch':
+			const values = {};
+			const keys = key;
+			for (const key of keys) {
+				try {
+					values[key] = key in _storage ? JSON.parse(_storage[key]) : null;
+				} catch (e) {
+					console.warn('Failed to parse:', key, 'falling back to raw string.');
+					values[key] = _storage[key];
+				}
+			}
+			return values;
 		case 'set':
 			_storage[key] = JSON.stringify(value);
 			break;

@@ -145,6 +145,26 @@ addListener('storage', ([operation, key, value]) => {
 				request.onsuccess = () => resolve(request.result ? request.result.value : null);
 				request.onerror = reject;
 			});
+		case 'batch':
+			return new Promise((resolve, reject) => {
+				const transaction = db.transaction('storage', 'readonly');
+				transaction.onerror = reject;
+				const store = transaction.objectStore('storage');
+				const keys = key;
+				function advance(i, values) {
+					if (i >= keys.length) {
+						resolve(values);
+						return;
+					}
+					const key = keys[i];
+					const request = store.get(key);
+					request.onsuccess = () => {
+						values[key] = request.result ? request.result.value : null;
+						advance(i + 1, values);
+					};
+				}
+				advance(0, {});
+			});
 		case 'set':
 			return new Promise((resolve, reject) => {
 				const request = db.transaction('storage', 'readwrite').objectStore('storage').put({ key, value });

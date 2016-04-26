@@ -71,6 +71,18 @@ addListener('storage', ([operation, key, value]) => {
 				console.warn('Failed to parse:', key, 'falling back to raw string.');
 			}
 			return localStorage.getItem(key);
+		case 'batch':
+			const values = {};
+			const keys = key;
+			for (const key of keys) {
+				try {
+					values[key] = JSON.parse(localStorage.getItem(key));
+				} catch (e) {
+					console.warn('Failed to parse:', key, 'falling back to raw string.');
+					values[key] = localStorage.getItem(key);
+				}
+			}
+			return values;
 		case 'set':
 			return localStorage.setItem(key, JSON.stringify(value));
 		case 'patch':
