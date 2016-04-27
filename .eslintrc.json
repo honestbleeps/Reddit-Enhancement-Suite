@@ -17,7 +17,9 @@
 			"node_modules",
 			"\\.(json|png|html|scss|mustache)$"
 		],
-		"import/resolver": "webpack"
+		"import/resolver": {
+			"webpack": { "config": "webpack.config.babel.js" }
+		}
 	},
 	"env": {
 		"browser": true,
