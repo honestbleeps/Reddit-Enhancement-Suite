@@ -4,8 +4,8 @@ import 'babel-polyfill';
 
 import resCss from '../lib/css/res.scss';
 
-import * as Init from '../lib/core/init';
 import { createMessageHandler } from '../lib/environment/_helpers';
+import { nonNull } from '../lib/utils';
 
 // Safari has a ridiculous bug that causes it to lose access to safari.self.tab if you click the back button.
 // this stupid one liner fixes that.
@@ -14,7 +14,7 @@ window.onunload = () => {};
 // since safari's built in extension stylesheets are treated as user stylesheets,
 // we can't inject them that way.  That makes them "user stylesheets" which would make
 // them require !important everywhere - we don't want that, so we'll inject this way instead.
-Init.headReady.then(() => {
+nonNull(() => document.head, 100).then(() => {
 	const linkTag = document.createElement('link');
 	linkTag.rel = 'stylesheet';
 	linkTag.href = safari.extension.baseURI + resCss;
