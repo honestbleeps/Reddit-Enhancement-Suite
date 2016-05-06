@@ -23,6 +23,7 @@
     "eslint": "eslint .",
     "scsslint": "scss-lint",
     "lint": "npm run eslint && npm run scsslint",
+    "lint-fix": "eslint . --fix",
     "coverage": "cross-env NODE_ENV=test nyc --all --require babel-core/register ava",
     "report-coverage": "nyc report --reporter=text-lcov | coveralls"
   },

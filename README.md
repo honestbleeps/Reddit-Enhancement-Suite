@@ -106,6 +106,8 @@ To load the extension into your browser, see [the sections below](#building-in-c
 
 Note: You will need to install [Ruby](https://www.ruby-lang.org/) and run `npm run external-deps` before using `npm run lint`.
 
+Helpful note: `npm run lint-fix` can autofix many whitespace and separator-related lint issues.
+
 **`npm test`** will run unit tests (in `__tests__` directories).
 
 ##### Building in Chrome
