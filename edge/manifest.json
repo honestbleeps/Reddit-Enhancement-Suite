@@ -1,0 +1,64 @@
+{
+	"name": "{{prop?title!../package.json}}",
+	"version": "{{prop?version!../package.json}}",
+	"minimum_edge_version": "37.14316.1000.0",
+	"description": "{{prop?description!../package.json}}",
+	"author": "Reddit Enhancement Suite",
+	"background": {
+		"page": "{{./background-edge.html}}",
+		"persistent": true
+	},
+	"homepage_url": "http://redditenhancementsuite.com",
+	"options_page": "{{../chrome/options.html}}",
+	"content_scripts": [
+		{
+			"matches": [
+				"http://redditenhancementsuite.com/*",
+				"http://reddit.com/*",
+				"https://reddit.com/*",
+				"http://*.reddit.com/*",
+				"https://*.reddit.com/*"
+			],
+			"js": [
+				"{{./edgesupport.entry.js}}",
+				"{{../lib/main.entry.js}}"
+			],
+			"css": [
+				"{{../lib/css/res.scss}}"
+			],
+			"run_at": "document_start"
+		}
+	],
+	"icons": {
+		"128": "{{../chrome/icon128.png}}"
+	},
+	"page_action": {
+		"default_icon": {
+			"19": "{{../chrome/images/css-on-small.png}}",
+			"38": "{{../chrome/images/css-on.png}}"
+		},
+		"default_title": "Subreddit Style On"
+	},
+	"permissions": [
+		"cookies",
+		"tabs",
+		"history",
+		"storage",
+		"unlimitedStorage",
+		"http://redditenhancementsuite.com/",
+		"http://reddit.com/*",
+		"https://reddit.com/*",
+		"http://*.reddit.com/*",
+		"https://*.reddit.com/*",
+		"http://min.us/api/*",
+		"http://*.flickr.com/photos/*",
+		"http://img.photobucket.com/*",
+		"http://noembed.com/embed?url=*",
+		"https://api.twitter.com/*",
+		"https://onedrive.live.com/*",
+		"http://1drv.ms/*",
+		"*://backend.deviantart.com/oembed?url=*",
+		"*://api.gyazo.com/api/oembed*",
+		"*://api.tumblr.com/v2/blog/*/posts?api_key=*&id=*"
+	]
+}
