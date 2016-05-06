@@ -1,12 +1,12 @@
 import './mocks';
 
+import * as Init from '../lib/core/init';
+import { nativeRequire } from '../lib/environment/_nativeRequire';
+import { _mockStorage } from './environment';
+
 import expected from 'json!./storage/andytuba-4.5.4-6dffad39.json';
 import ignoredKeys from 'json!./storage/_ignore-4.5.4-6dffad39.json';
 import storage from 'json!./storage/andytuba-4.5.4.json';
-
-import * as Init from '../lib/core/init';
-import { _mockStorage } from './environment';
-import { nativeRequire } from '../lib/environment/_nativeRequire';
 
 const _yargs = nativeRequire('yargs');
 const equals = nativeRequire('deep-equal');

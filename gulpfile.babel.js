@@ -1,9 +1,9 @@
 /* eslint-disable import/no-nodejs-modules */
 
+import path from 'path';
 import globby from 'globby';
 import gulp from 'gulp';
 import merge from 'merge-stream';
-import path from 'path';
 import zip from 'gulp-zip';
 
 gulp.task('zip', () =>

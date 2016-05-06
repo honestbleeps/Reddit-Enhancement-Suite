@@ -1,12 +1,14 @@
 /* eslint-disable import/no-nodejs-modules */
 
+import { basename, join } from 'path';
+
 import InertEntryPlugin from 'inert-entry-webpack-plugin';
 import ProgressBarPlugin from 'progress-bar-webpack-plugin';
 import autoprefixer from 'autoprefixer';
-import babelrc from './.babelrc.json';
 import webpack from 'webpack';
 import yargs from 'yargs';
-import { basename, join } from 'path';
+
+import babelrc from './.babelrc.json';
 
 const browserConfig = {
 	chrome: {

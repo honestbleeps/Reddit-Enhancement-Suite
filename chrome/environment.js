@@ -1,6 +1,6 @@
-import { apiToPromise } from './_helpers';
 import { createMessageHandler } from '../lib/environment/_helpers';
 import { extendDeep, keyedMutex, waitForEvent } from '../lib/utils';
+import { apiToPromise } from './_helpers';
 
 const _sendMessage = apiToPromise(chrome.runtime.sendMessage);
 

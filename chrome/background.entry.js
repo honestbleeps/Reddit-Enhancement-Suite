@@ -30,6 +30,7 @@
 
 */
 
+import { createMessageHandler } from '../lib/environment/_helpers';
 import Cache from '../lib/utils/Cache';
 
 import cssOff from './images/css-off.png';
@@ -38,7 +39,6 @@ import cssOn from './images/css-on.png';
 import cssOnSmall from './images/css-on-small.png';
 
 import { apiToPromise } from './_helpers';
-import { createMessageHandler } from '../lib/environment/_helpers';
 
 const _sendMessage = apiToPromise(chrome.tabs.sendMessage);
 
