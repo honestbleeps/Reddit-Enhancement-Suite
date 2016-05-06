@@ -48,6 +48,7 @@ const configs = browsers.map(browser => {
 			path: join(__dirname, 'dist', browserConfig[browser].output),
 			filename: basename(browserConfig[browser].entry),
 		},
+		devtool: '#cheap-module-source-map',
 		resolve: {
 			alias: {
 				browserEnvironment$: join(__dirname, browserConfig[browser].environment),
