@@ -9,7 +9,7 @@
 		"persistent": true
 	},
 	"homepage_url": "http://redditenhancementsuite.com",
-	"options_page": "{{./options.html}}",
+	"options_page": "{{../chrome/options.html}}",
 	"content_scripts": [
 		{
 			"matches": [
@@ -20,7 +20,7 @@
 				"https://*.reddit.com/*"
 			],
 			"js": [
-				"{{./edgesupport.js}}"
+				"{{./edgesupport.js}}",
 				"{{../lib/main.entry.js}}"
 			],
 			"css": [
@@ -30,12 +30,12 @@
 		}
 	],
 	"icons": {
-		"128": "{{./icon128.png}}"
+		"128": "{{../chrome/icon128.png}}"
 	},
 	"page_action": {
 		"default_icon": {
-			"19": "{{./images/css-on-small.png}}",
-			"38": "{{./images/css-on.png}}"
+			"19": "{{../chrome/images/css-on-small.png}}",
+			"38": "{{../chrome/images/css-on.png}}"
 		},
 		"default_title": "Subreddit Style On"
 	},
