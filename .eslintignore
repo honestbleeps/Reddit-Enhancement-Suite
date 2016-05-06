@@ -1,9 +1,10 @@
 # Build output
-dist
+/dist
 
 # Vendor files
-lib/vendor
+/lib/vendor/*.js
+!/lib/vendor/index.js
 
 # Antiquated
-tests
-utils
+/tests
+/utils

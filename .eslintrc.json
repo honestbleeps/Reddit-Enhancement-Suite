@@ -12,39 +12,18 @@
 		"filenames",
 		"import"
 	],
+	"settings": {
+		"import/ignore": [
+			"node_modules",
+			"\\.(json|png|html|scss|mustache)$"
+		],
+		"import/resolver": "webpack"
+	},
 	"env": {
 		"browser": true,
 		"webextensions": true,
-		"jquery": true,
+		"node": true,
 		"es6": true
-	},
-	"globals": {
-		"Favico": false,
-		"guiders": false,
-		"Hogan": false,
-		"Pasteurizer": false,
-		"Snudown": false,
-		"Konami": false,
-		"gfyObject": false,
-
-		"unsafeWindow": false,
-
-		"RESUtils": true,
-		"RESMetadata": true,
-		"modules": true,
-		"libraries": true,
-		"RESEnvironment": true,
-		"safeJSON": true,
-		"escapeHTML": true,
-		"addModule": true,
-		"addLibrary": true,
-		"perfTest": true,
-		"RESTemplates": true,
-		"BrowserDetect": true,
-		"RESOptionsMigrate": true,
-		"gdAlert": true,
-
-		"exports": true
 	},
 	"rules": {
 		"babel/generator-star-spacing": [2, { "before": false, "after": true }],
@@ -84,15 +63,22 @@
 		"filenames/filenames": [2, ".*", "match-regex-and-exported"],
 
 		"import/no-unresolved": 2,
-		"import/named": 0, // temp disabled until we have proper ES6 modules
+		"import/named": 2,
 		"import/default": 2,
 		"import/namespace": 2,
 		"import/export": 2,
 		"import/no-named-as-default": 2,
-		"import/no-commonjs": 0,
+		"import/no-named-as-default-member": 2,
+		"import/no-deprecated": 2,
+		"import/no-extraneous-dependencies": 2,
+		"import/no-commonjs": 2,
 		"import/no-amd": 2,
+		"import/no-nodejs-modules": 2,
 		"import/imports-first": 2,
 		"import/no-duplicates": 2,
+		"import/no-namespace": 0,
+		"import/extensions": [2, { "js": "never" }],
+		"import/order": 0,
 
 		"no-alert": 0,
 		"no-array-constructor": 2,
@@ -168,12 +154,12 @@
 		"no-param-reassign": 0,
 		"no-path-concat": 2,
 		"no-plusplus": 0,
-		"no-process-env": 2,
+		"no-process-env": 0,
 		"no-process-exit": 0,
 		"no-proto": 2,
 		"no-redeclare": 2,
 		"no-regex-spaces": 2,
-		"no-restricted-imports": 0,
+		"no-restricted-imports": [2, "jquery"], // import it from vendor/ instead
 		"no-restricted-modules": 0,
 		"no-restricted-syntax": [2, "ForStatement"], // use for..of or Array.prototype methods
 		"no-return-assign": 2,
@@ -201,7 +187,7 @@
 		"no-unreachable": 2,
 		"no-unused-expressions": 2,
 		"no-unused-labels": 2,
-		"no-unused-vars": [2, { "argsIgnorePattern": "^moduleID$" }],
+		"no-unused-vars": 2,
 		"no-use-before-define": [0, "nofunc"],
 		"no-useless-call": 2,
 		"no-useless-concat": 2,
@@ -223,7 +209,7 @@
 		"brace-style": [2, "1tbs", { "allowSingleLine": true }],
 		"callback-return": 0,
 		"camelcase": [2, { "properties": "never" }],
-		"comma-dangle": 2,
+		"comma-dangle": [2, "always-multiline"],
 		"comma-spacing": 2,
 		"comma-style": 2,
 		"complexity": [0, 11],
@@ -234,7 +220,7 @@
 		"curly": [2, "multi-line"],
 		"default-case": 2,
 		"dot-location": [2, "property"],
-		"dot-notation": 0,
+		"dot-notation": 2,
 		"eol-last": 2,
 		"eqeqeq": 2,
 		"func-names": 0, // all anonymous functions should be arrows (when this is turned on)

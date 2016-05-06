@@ -1,0 +1,19 @@
+<div id="quickMessageDialog" class="RESDialogSmall">
+    <h3>Send Message<a class="gearIcon" href="#!settings/quickMessage"></a></h3>
+    <div id="quickMessageDialogClose" class="RESCloseButton">×</div>
+    <div id="quickMessageDialogContents" class="RESDialogContents clear">
+        <form name="quickMessageDialogForm" action="">
+            <label for="quickMessageDialogFrom">From</label>
+            <select id="quickMessageDialogFrom"></select>
+            <label for="quickMessageDialogTo">To</label>
+            <input type="text" id="quickMessageDialogTo" value=""/>
+            <label for="quickMessageDialogSubject">Subject</label>
+            <input type="text" id="quickMessageDialogSubject" value=""/>
+            <label for="quickMessageDialogBody">Body</label>
+            <textarea id="quickMessageDialogBody"></textarea>
+            <div class="clear"></div>
+            <input type="button" id="quickMessageDialogSend" value="✓ send message"/>
+            <a href="/message/compose" class="fullMessageForm blueButton">open full message form</a>
+        </form>
+    </div>
+</div>
