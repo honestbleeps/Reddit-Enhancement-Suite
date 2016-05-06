@@ -10,22 +10,25 @@
 		<div class="video-advanced-progress">
 			{{#advancedControls}}
 			<div class="video-advanced-position"></div>
+			<div class="video-advanced-position-thumb"></div>
 			{{/advancedControls}}
 		</div>
 		<div class="video-advanced-main">
 			{{#advancedControls}}
 			<div hidden class="video-advanced-controls">
-				<div title="Toggle pause" class="res-icon video-advanced-button video-advanced-toggle-pause">&#xf16c;</div>
+				<div title="Toggle pause" class="res-icon video-advanced-button video-advanced-toggle-pause"></div>
 				{{#reversable}}
-				<div title="Reverse video" class="res-icon video-advanced-button video-advanced-reverse">&#xf169;</div>
+				<div title="Reverse video" class="res-icon video-advanced-button video-advanced-reverse"></div>
 				{{/reversable}}
-				<div class="video-advanced-controls-group">
-					<div title="Select previous frame" class="res-icon video-advanced-button video-advanced-time-decrease">&#xf168;</div>
+				<div class="video-advanced-controls-group video-advanced-current-time">
+					<div title="Select previous frame" class="res-icon video-advanced-button video-advanced-time-decrease"></div>
 					<div class="video-advanced-time">1.00s</div>
-					<div title="Select next frame" class="res-icon video-advanced-button video-advanced-time-increase">&#xf16e;</div>
-					<div title="Decrease speed by 10%" class="res-icon video-advanced-button video-advanced-speed-decrease">&#xf14d;</div>
+					<div title="Select next frame" class="res-icon video-advanced-button video-advanced-time-increase"></div>
+				</div>
+				<div class="video-advanced-controls-group video-advanced-playback-rate">
+					<div title="Decrease speed by 10%" class="res-icon video-advanced-button video-advanced-speed-decrease"></div>
 					<div class="video-advanced-speed">1.00x</div>
-					<div title="Increase speed by 10%" class="res-icon video-advanced-button video-advanced-speed-increase">&#xf14c;</div>
+					<div title="Increase speed by 10%" class="res-icon video-advanced-button video-advanced-speed-increase"></div>
 				</div>
 			</div>
 			{{/advancedControls}}
@@ -38,7 +41,7 @@
 				<a class="video-advanced-link video-advanced-source" href="{{ source }}">source</a>
 				{{/source}}
 				{{#downloadurl}}
-				<a class="video-advanced-link video-advanced-download res-icon" href="{{ downloadurl }}" title="download">&#xF02C;</a>
+				<a class="video-advanced-link video-advanced-download res-icon" href="{{ downloadurl }}" title="download"></a>
 				{{/downloadurl}}
 				<div class="res-expando-siteAttribution"></div>
 			</div>
