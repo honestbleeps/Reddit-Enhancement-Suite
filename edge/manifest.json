@@ -20,6 +20,7 @@
 				"https://*.reddit.com/*"
 			],
 			"js": [
+				"{{./edgesupport.js}}"
 				"{{../lib/main.entry.js}}"
 			],
 			"css": [
