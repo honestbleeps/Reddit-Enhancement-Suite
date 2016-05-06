@@ -53,26 +53,6 @@ const browserConf = {
 			baseSources: '/'
 		}
 	},
-	edge: {
-		// The file for addFileToManifest to modify when adding new hosts/modules
-		manifest: 'edge/manifest.json',
-		manifestReplacements: [
-			{ key: 'title', needle: /("title": ")(?:.*?)(")/ },
-			{ key: 'description', needle: /("description": ")(?:.*?)(")/ },
-			{ key: 'version', needle: /("version": ")(?:[\d\.])+(")/ }
-		],
-		// Browser-specific files to be copied when building the extension (paths relative to project root)
-		sources: [
-			{ cwd: 'chrome/**', src: ['images/*.png'] },
-			{ src: ['edge/*.js', 'edge/*.html', 'edge/*.cmd', 'icon128.png', 'chrome/background.js', 'chrome/browsersupport-chrome.js'] }
-		],
-		dests: {
-			// Subdirectory of baseConf.dests.root that the sources will be copied to
-			root: 'edge',
-			// Subdirectory of the above line that baseConf.sources will be copied to
-			baseSources: '/'
-		}
-	},
 	safari: {
 		manifest: 'safari/Info.plist',
 		manifestReplacements: [
