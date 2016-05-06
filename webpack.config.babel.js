@@ -18,7 +18,7 @@ const browserConfig = {
 	},
 	edge: {
 		entry: 'edge/manifest.json',
-		environment: 'chrome/environment',
+		environment: 'edge/environment',
 		output: 'edge',
 	},
 	safari: {
