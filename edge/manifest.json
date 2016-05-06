@@ -5,7 +5,7 @@
 	"description": "{{prop?description!../package.json}}",
 	"author": "Reddit Enhancement Suite",
 	"background": {
-		"page": "{{./background.html}}",
+		"page": "{{./background-edge.html}}",
 		"persistent": true
 	},
 	"homepage_url": "http://redditenhancementsuite.com",
