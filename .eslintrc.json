@@ -8,7 +8,6 @@
 		"consistent-return-legacy",
 		"prefer-bind-operator",
 		"prefer-spread",
-		"sort-imports-es6",
 		"filenames",
 		"import"
 	],
@@ -58,8 +57,6 @@
 
 		"prefer-spread/prefer-object-spread": 2,
 
-		"sort-imports-es6/sort-imports-es6": [2, { "memberSyntaxSortOrder": ["none", "single", "all", "multiple"] }],
-
 		"filenames/filenames": [2, ".*", "match-regex-and-exported"],
 
 		"import/no-unresolved": 2,
@@ -78,7 +75,7 @@
 		"import/no-duplicates": 2,
 		"import/no-namespace": 0,
 		"import/extensions": [2, { "js": "never" }],
-		"import/order": 0,
+		"import/order": 2,
 
 		"no-alert": 0,
 		"no-array-constructor": 2,
@@ -268,7 +265,7 @@
 		"semi": 2,
 		"semi-spacing": 2,
 		"sort-vars": 0,
-		"sort-imports": 0, // see sort-imports-es6/sort-imports-es6
+		"sort-imports": 0, // see import/order
 		"space-before-blocks": 2,
 		"space-before-function-paren": [2, "never"],
 		"space-in-parens": 2,
