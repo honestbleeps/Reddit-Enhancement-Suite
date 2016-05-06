@@ -45,7 +45,7 @@ const _sendMessage = apiToPromise(chrome.tabs.sendMessage);
 const {
 	_handleMessage,
 	sendMessage,
-	addListener
+	addListener,
 } = createMessageHandler((type, { transaction, isResponse, ...obj }, { sendResponse, tabId }) => {
 	if (isResponse) {
 		sendResponse(obj);
@@ -66,7 +66,7 @@ addListener('ajax', async ({ method, url, headers, data, credentials }) => {
 	const load = Promise.race([
 		new Promise(resolve => (request.onload = resolve)),
 		new Promise(resolve => (request.onerror = resolve))
-			.then(() => { throw new Error(`XHR error - url: ${url}`); })
+			.then(() => { throw new Error(`XHR error - url: ${url}`); }),
 	]);
 
 	request.open(method, url, true);
@@ -87,7 +87,7 @@ addListener('ajax', async ({ method, url, headers, data, credentials }) => {
 	return {
 		status: request.status,
 		responseText: request.responseText,
-		responseURL: request.responseURL
+		responseURL: request.responseURL,
 	};
 });
 
@@ -154,7 +154,7 @@ addListener('openNewTabs', ({ urls, focusIndex }, { id: tabId, index: currentInd
 		url,
 		selected: i === focusIndex,
 		index: ++currentIndex,
-		openerTabId: tabId
+		openerTabId: tabId,
 	}));
 });
 
@@ -191,8 +191,8 @@ addListener('pageAction', ({ operation, state }, { id: tabId }) => {
 				tabId,
 				path: {
 					19: state ? cssOnSmall : cssOffSmall,
-					38: state ? cssOn : cssOff
-				}
+					38: state ? cssOn : cssOff,
+				},
 			});
 			break;
 		case 'hide':

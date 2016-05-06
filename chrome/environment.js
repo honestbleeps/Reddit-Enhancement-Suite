@@ -8,7 +8,7 @@ const {
 	_handleMessage,
 	sendMessage,
 	addListener,
-	addInterceptor
+	addInterceptor,
 } = createMessageHandler((type, { transaction, isResponse, ...obj }, sendResponse) => {
 	if (isResponse) {
 		sendResponse(obj);
@@ -23,7 +23,7 @@ chrome.runtime.onMessage.addListener(({ type, ...obj }, sender, sendResponse) =>
 
 export {
 	sendMessage,
-	addListener
+	addListener,
 };
 
 addListener('userGesture', () => waitForEvent(document.body, 'mousedown', 'keydown'));

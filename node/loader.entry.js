@@ -48,7 +48,7 @@ Init.loadOptions
 				error: typeof error === 'boolean' ? 'no match' : error,
 				key,
 				expected: JSON.stringify(expected),
-				actual: JSON.stringify(actual)
+				actual: JSON.stringify(actual),
 			});
 		}
 

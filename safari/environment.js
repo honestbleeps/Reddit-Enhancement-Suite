@@ -25,7 +25,7 @@ const {
 	_handleMessage,
 	sendMessage,
 	addListener,
-	addInterceptor
+	addInterceptor,
 } = createMessageHandler((type, obj) => safari.self.tab.dispatchMessage(type, obj));
 
 safari.self.addEventListener('message', ({ name: type, message: obj }) => {
@@ -34,7 +34,7 @@ safari.self.addEventListener('message', ({ name: type, message: obj }) => {
 
 export {
 	sendMessage,
-	addListener
+	addListener,
 };
 
 addInterceptor('permissions', () => true);

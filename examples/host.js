@@ -73,5 +73,5 @@ export default {
 		optional galleryStart:
 			zero-indexed page number to open the gallery to
 		*/
-	}
+	},
 };

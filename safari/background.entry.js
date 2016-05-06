@@ -9,7 +9,7 @@ import { createMessageHandler } from '../lib/environment/_helpers';
 const {
 	_handleMessage,
 	sendMessage,
-	addListener
+	addListener,
 } = createMessageHandler((type, obj, page) => page.dispatchMessage(type, obj));
 
 safari.application.addEventListener('message', ({ name: type, message: obj, target: tab }) => {
@@ -24,7 +24,7 @@ addListener('ajax', async ({ method, url, headers, data, credentials }) => {
 	const load = Promise.race([
 		new Promise(resolve => (request.onload = resolve)),
 		new Promise(resolve => (request.onerror = resolve))
-			.then(() => { throw new Error(`XHR error - url: ${url}`); })
+			.then(() => { throw new Error(`XHR error - url: ${url}`); }),
 	]);
 
 	request.open(method, url, true);
@@ -45,7 +45,7 @@ addListener('ajax', async ({ method, url, headers, data, credentials }) => {
 	return {
 		status: request.status,
 		responseText: request.responseText,
-		responseURL: request.responseURL
+		responseURL: request.responseURL,
 	};
 });
 

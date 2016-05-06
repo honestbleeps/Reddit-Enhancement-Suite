@@ -209,7 +209,7 @@
 		"brace-style": [2, "1tbs", { "allowSingleLine": true }],
 		"callback-return": 0,
 		"camelcase": [2, { "properties": "never" }],
-		"comma-dangle": 2,
+		"comma-dangle": [2, "always-multiline"],
 		"comma-spacing": 2,
 		"comma-style": 2,
 		"complexity": [0, 11],

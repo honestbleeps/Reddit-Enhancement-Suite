@@ -9,5 +9,5 @@ global.navigator = window.navigator;
 global.DOMParser = window.DOMParser;
 
 global.sessionStorage = {
-	getItem() {}
+	getItem() {},
 };

@@ -63,7 +63,7 @@ function workerFor(tab) {
 const {
 	_handleMessage,
 	sendMessage,
-	addListener
+	addListener,
 } = createMessageHandler((type, obj, worker) => worker.postMessage({ ...obj, type }));
 
 // Listeners
@@ -79,7 +79,7 @@ addListener('ajax', ({ method, url, headers, data }) =>
 			url,
 			onComplete: resolve,
 			headers,
-			content: data
+			content: data,
 		});
 		if (method === 'POST') {
 			request.post();
@@ -88,7 +88,7 @@ addListener('ajax', ({ method, url, headers, data }) =>
 		}
 	}).then(request => ({
 		status: request.status,
-		responseText: request.text
+		responseText: request.text,
 	}))
 );
 
@@ -277,12 +277,12 @@ const pageAction = ActionButton({
 	label: 'toggle subreddit CSS',
 	icon: {
 		16: `./../${cssDisabledSmall}`,
-		32: `./../${cssDisabled}`
+		32: `./../${cssDisabled}`,
 	},
 	disabled: true,
 	onClick() {
 		sendMessage('pageActionClick', undefined, workerFor(tabs.activeTab));
-	}
+	},
 });
 let destroyed = false;
 
@@ -298,8 +298,8 @@ addListener('pageAction', ({ operation, state }, { tab }) => {
 				disabled: false,
 				icon: {
 					16: state ? `./../${cssOnSmall}` : `./../${cssOffSmall}`,
-					32: state ? `./../${cssOn}` : `./../${cssOff}`
-				}
+					32: state ? `./../${cssOn}` : `./../${cssOff}`,
+				},
 			});
 			break;
 		case 'hide':
@@ -307,8 +307,8 @@ addListener('pageAction', ({ operation, state }, { tab }) => {
 				disabled: true,
 				icon: {
 					16: `./../${cssDisabledSmall}`,
-					32: `./../${cssDisabled}`
-				}
+					32: `./../${cssDisabled}`,
+				},
 			});
 			break;
 		case 'destroy':
@@ -331,7 +331,7 @@ addListener('openNewTabs', ({ urls, focusIndex }, { tab }) => {
 		tabs.open({
 			url,
 			isPrivate,
-			inBackground: i !== focusIndex
+			inBackground: i !== focusIndex,
 		});
 	});
 });
@@ -343,8 +343,8 @@ addListener('addURLToHistory', url => {
 		uri: ioService.newURI(url),
 		visits: [{
 			transitionType: Ci.nsINavHistoryService.TRANSITION_LINK,
-			visitDate: Date.now() * 1000
-		}]
+			visitDate: Date.now() * 1000,
+		}],
 	});
 });
 
@@ -366,5 +366,5 @@ PageMod({
 		worker::onAttach();
 		worker.on('detach', onDetach);
 		worker.on('message', ({ type, ...obj }) => _handleMessage(type, obj, worker));
-	}
+	},
 });

@@ -12,23 +12,23 @@ const browserConfig = {
 	chrome: {
 		entry: 'chrome/manifest.json',
 		environment: 'chrome/environment',
-		output: 'chrome'
+		output: 'chrome',
 	},
 	safari: {
 		entry: 'safari/info.plist',
 		environment: 'safari/environment',
-		output: 'RES.safariextension'
+		output: 'RES.safariextension',
 	},
 	firefox: {
 		entry: 'firefox/package.json',
 		environment: 'firefox/environment',
-		output: 'firefox'
+		output: 'firefox',
 	},
 	node: {
 		entry: 'node/files.json',
 		environment: 'node/environment',
-		output: 'node'
-	}
+		output: 'node',
+	},
 };
 
 const browsers = typeof yargs.argv.browsers === 'string' ? yargs.argv.browsers.split(',') : ['chrome'];
@@ -38,7 +38,7 @@ const configs = browsers.map(browser => {
 	const babelConfig = {
 		...babelrc,
 		...(browser === 'safari' ? babelrc.env.safari : {}),
-		babelrc: false
+		babelrc: false,
 	};
 
 	return {
@@ -46,12 +46,12 @@ const configs = browsers.map(browser => {
 		bail: process.env.NODE_ENV !== 'development',
 		output: {
 			path: join(__dirname, 'dist', browserConfig[browser].output),
-			filename: basename(browserConfig[browser].entry)
+			filename: basename(browserConfig[browser].entry),
 		},
 		resolve: {
 			alias: {
-				browserEnvironment$: join(__dirname, browserConfig[browser].environment)
-			}
+				browserEnvironment$: join(__dirname, browserConfig[browser].environment),
+			},
 		},
 		module: {
 			loaders: [
@@ -62,25 +62,25 @@ const configs = browsers.map(browser => {
 				{ test: /\.scss$/, loaders: ['file?name=[name].css', 'extricate?resolve=\\.js$', 'css', 'postcss', 'sass'] },
 				{ test: /\.html$/, loaders: ['file?name=[name].[ext]', 'extricate', 'html?attrs=link:href script:src'] },
 				{ test: /\.png$/, exclude: join(__dirname, 'lib', 'images'), loader: 'file?name=[name].[ext]' },
-				{ test: /\.png$/, include: join(__dirname, 'lib', 'images'), loader: 'url' }
+				{ test: /\.png$/, include: join(__dirname, 'lib', 'images'), loader: 'url' },
 			],
 			noParse: [
 				// to use `require` in Firefox and Node
-				/_nativeRequire\.js$/
-			]
+				/_nativeRequire\.js$/,
+			],
 		},
 		plugins: [
 			new ProgressBarPlugin(),
 			new webpack.DefinePlugin({
 				'process.env': {
-					BUILD_TARGET: JSON.stringify(browser)
-				}
+					BUILD_TARGET: JSON.stringify(browser),
+				},
 			}),
-			new InertEntryPlugin()
+			new InertEntryPlugin(),
 		],
 		postcss() {
 			return [autoprefixer];
-		}
+		},
 	};
 });
 

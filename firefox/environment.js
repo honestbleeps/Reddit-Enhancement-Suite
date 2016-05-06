@@ -4,7 +4,7 @@ const {
 	_handleMessage,
 	sendMessage,
 	addListener,
-	addInterceptor
+	addInterceptor,
 } = createMessageHandler((type, obj) => self.postMessage({ ...obj, type }));
 
 self.on('message', ({ type, ...obj }) => {
@@ -13,7 +13,7 @@ self.on('message', ({ type, ...obj }) => {
 
 export {
 	sendMessage,
-	addListener
+	addListener,
 };
 
 addInterceptor('permissions', () => true);

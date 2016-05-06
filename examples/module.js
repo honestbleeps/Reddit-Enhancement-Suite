@@ -32,18 +32,18 @@ module.options = {
 	defaultMessage: {
 		type: 'text',
 		value: 'This is default text',
-		description: 'Explanation of what this option is for'
+		description: 'Explanation of what this option is for',
 	},
 	doSpecialStuff: {
 		type: 'boolean',
 		value: false,
-		description: 'Explanation of what this option is for'
-	}
+		description: 'Explanation of what this option is for',
+	},
 };
 
 // See RESUtils.pageType (utils.js) for other page types
 module.include = [
-	'all'
+	'all',
 ];
 module.exclude = [
 ];
