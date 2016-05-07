@@ -24,6 +24,7 @@ chrome.runtime.onMessage.addListener(({ type, ...obj }, sender, sendResponse) =>
 export {
 	sendMessage,
 	addListener,
+	addInterceptor,
 };
 
 addListener('userGesture', () => waitForEvent(document.body, 'mousedown', 'keydown'));
