@@ -27,3 +27,9 @@ deploy:
     on:
       tags: true
       node: 6
+  - provider: script
+    script: node build/deploy.js
+    skip_cleanup: true
+    on:
+      tags: true
+      node: 6
