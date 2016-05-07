@@ -3,7 +3,7 @@
 	"version": "{{prop?version!../package.json}}",
 	"minimum_edge_version": "37.14316.1000.0",
 	"description": "{{prop?description!../package.json}}",
-	"author": "Reddit Enhancement Suite",
+	"author": "{{prop?author!../package.json}}",
 	"background": {
 		"page": "{{./background-edge.html}}",
 		"persistent": true
@@ -20,7 +20,7 @@
 				"https://*.reddit.com/*"
 			],
 			"js": [
-				"{{./edgesupport.entry.js}}",
+				"{{./edge.entry.js}}",
 				"{{../lib/main.entry.js}}"
 			],
 			"css": [
