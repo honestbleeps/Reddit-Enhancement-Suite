@@ -428,9 +428,9 @@ div.madeVisible {
 			background: rgba(52, 47, 38, 1);
 
 			.video-advanced-toggle-pause,
-			.video-advanced-position-cursor,
+			.video-advanced-position-thumb,
 			.video-advanced-position {
-				display: none;
+				display: none !important;
 			}
 		}
 	}
