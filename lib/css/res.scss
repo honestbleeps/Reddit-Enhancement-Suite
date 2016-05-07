@@ -102,7 +102,7 @@ body.res-console-open {
 
 #modalOverlay {
 	visibility: hidden;
-	z-index: $zindex-modal-overlay;
+	z-index: $zindex-console-container - 1;
 	position: fixed;
 	top: 0;
 	right: 0;
@@ -488,7 +488,7 @@ div.usertext-edit {
 	width: 200px;
 	height: 40px;
 	position: absolute;
-	z-index: $zindex-keycode-modal;
+	z-index: $zindex-console-container + 1;
 	background-color: #FFF;
 	padding: 4px;
 	border: 2px solid #CCC;
