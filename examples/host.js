@@ -4,9 +4,7 @@
 		0. Fork http://github.com/honestbleeps/Reddit-Enhancement-Suite
 		1. Copy this file and create a new file: lib/modules/hosts/yourwebite.js.
 		2. Edit yourwebsite.js to change the "example" code and unstub the functions.
-		3. Add your new file to the browser manifests:   (Optional, but appreciated)
-			See the README for info on adding your module to the browsers' manifests.
-		4. Submit a pull request with your change.
+		3. Submit a pull request with your change.
 
 	Note: Media hosting sites must support CORS in order for expandos to work.
 	This policy serves to protect users by limiting RES' access to certain websites.
