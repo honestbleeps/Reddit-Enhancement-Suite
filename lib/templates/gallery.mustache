@@ -1,0 +1,27 @@
+<div class="res-gallery">
+	{{#title}}
+	<h3 class="res-gallery-title">{{title}}</h3>
+	{{/title}}
+	{{#caption}}
+	<div class="res-gallery-caption">{{{caption}}}</div>
+	{{/caption}}
+	{{#credits}}
+	<div class="res-credits">{{{credits}}}</div>
+	{{/credits}}
+	<div class="res-gallery-individual-controls">
+		<div class="res-step res-gallery-previous"></div>
+		<div class="res-step-progress">
+			<span class="res-gallery-position">1</span> of {{pieces.length}}
+		</div>
+		<div class="res-step res-gallery-next"></div>
+	</div>
+	<div class="res-gallery-pieces"></div>
+	<div class="res-gallery-below">
+		<div>
+			<div class="res-expando-siteAttribution"></div>
+			<div class="res-gallery-increase-concurrent">
+				Show in film strip mode
+			</div>
+		</div>
+	</div>
+</div>
