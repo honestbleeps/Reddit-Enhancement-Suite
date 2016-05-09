@@ -2,6 +2,7 @@
 
 $thumb-width: 100px;
 $content-offsetleft: 54px; // icon width + margins
+$page-offsetleft: 15px;
 
 .pageNavigator {
 	cursor: pointer;
@@ -14,7 +15,8 @@ $content-offsetleft: 54px; // icon width + margins
 	overflow-y: hidden;
 	position: fixed;
 	top: 0;
-	left: 15px;
+	left: $page-offsetleft;
+	max-width: calc(100% - #{2 * $page-offsetleft});
 	color: black;
 	background: hsl(0, 0%, 100%);
 	box-sizing: border-box;
