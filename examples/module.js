@@ -13,9 +13,6 @@ Modules must have the following required properties:
 - afterLoad (optional) - code to run after `go`
 beforeLoad, go, and afterLoad will only run if the module is enabled and the include/exclude match the current page.
 
-
-See the README for info on adding your module to the browsers' manifests.
-
 */
 
 export const module = {};

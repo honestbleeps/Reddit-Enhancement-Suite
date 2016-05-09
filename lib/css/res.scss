@@ -102,7 +102,7 @@ body.res-console-open {
 
 #modalOverlay {
 	visibility: hidden;
-	z-index: $zindex-modal-overlay;
+	z-index: $zindex-console-container - 1;
 	position: fixed;
 	top: 0;
 	right: 0;
@@ -488,7 +488,7 @@ div.usertext-edit {
 	width: 200px;
 	height: 40px;
 	position: absolute;
-	z-index: $zindex-keycode-modal;
+	z-index: $zindex-console-container + 1;
 	background-color: #FFF;
 	padding: 4px;
 	border: 2px solid #CCC;
@@ -1441,22 +1441,36 @@ body.RESScrollLock {
 
 #alert_message {
 	display: none;
-	opacity: 0;
-	background-color: #EFEFEF;
-	border: 1px solid black;
+	position: fixed;
+	top: 0;
+	right: 0;
+	left: 0;
+	box-sizing: border-box;
+	width: 500px;
+	max-height: 100%;
+	margin: auto;
+	padding: 10px;
 	color: black;
-	font-size: 12px;
-	padding: 20px 40px;
-	position: fixed !important;
-	width: 400px;
-	z-index: $zindex-alert-message;
 	text-align: left;
+	font-size: 12px;
+	border: 1px solid;
+	background-color: #EFEFEF;
+	overflow: auto;
+	z-index: $zindex-alert-message;
+
+	@media (max-width: 520px) {
+		width: auto;
+		left: 10px;
+		right: 10px;
+	}
+
+	@media (max-height: 520px) {
+		height: auto;
+		bottom: 10px;
+	}
 
 	input {
-		border: 1px solid black;
-		font-family: normal x-small verdana, arial, helvetica, sans-serif;
-		font-weight: bold;
-		font-size: 10px;
+		border: 1px solid;
 		padding: 6px 9px;
 		float: left;
 		background-color: #DFDFDF;
@@ -1468,7 +1482,7 @@ body.RESScrollLock {
 		}
 	}
 
-	div {
+	> div {
 		margin-bottom: 20px;
 	}
 }
@@ -1479,7 +1493,7 @@ body.RESScrollLock {
 	left: 0;
 	bottom: 0;
 	right: 0;
-	background-color: rgba(51, 51, 51, .95);
+	background-color: rgba(0, 0, 0, .7);
 	z-index: $zindex-alert-message - 1;
 }
 
