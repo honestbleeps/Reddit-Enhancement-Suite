@@ -72,3 +72,7 @@
 .res-betteReddit-showHiddenSortOptions {
 	.drop-choices .choice.hidden { display: block; }
 }
+
+.res-betteReddit-commentCollapseInInbox {
+	.message .expand { display: inline; }
+}
