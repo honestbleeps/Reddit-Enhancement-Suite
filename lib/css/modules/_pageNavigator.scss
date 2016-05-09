@@ -1,3 +1,5 @@
+@import '../zindex';
+
 $thumb-width: 100px;
 $content-offsetleft: 54px; // icon width + margins
 
@@ -18,7 +20,7 @@ $content-offsetleft: 54px; // icon width + margins
 	box-sizing: border-box;
 	box-shadow: hsla(0, 0%, 0%, .24) 0 1px 3px, hsla(0, 0%, 0%, .12) 0 3px 3px;
 	transition: all .3s;
-	z-index: 10000001;
+	z-index: $zindex-show-link-title;
 	font: 11px/1.6 verdana, sans-serif;
 
 	a {
