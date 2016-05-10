@@ -1,20 +1,22 @@
-$zindex-ner-content: 1000;
-$zindex-go-mode-panel: 1000;
-$zindex-account-switcher-dropdown: 1000;
-$zindex-key-help: 1000;
-$zindex-big-editor: 2000;
-$zindex-autocomplete-dropdown: 3000;
+@function _($i) {
+	$base: 10000000;
+	$increment: $base / 100;
+	@return $base + $i * $increment;
+}
 
-$zindex-res-hover: 10001;
+// Small popups
+$zindex-autocomplete-dropdown: _(0);
+$zindex-go-mode-panel:         _(1);
+$zindex-key-help:              _(2);
+$zindex-res-hover:             _(3);
 
-$zindex-quick-message-dialog: 100000;
+// Dialogs
+$zindex-big-editor:            _(4);
+$zindex-ner-content:           _(5);
+$zindex-quick-message-dialog:  _(6);
+$zindex-command-line-widget:   _(7);
+$zindex-console-container:     _(8);
+$zindex-notifications:         _(9);
+$zindex-alert-message:         _(10);
 
-$zindex-baconbit: 999999;
-
-$zindex-modal-overlay: 100000099;
-$zindex-console-container: 100000100;
-$zindex-notifications: 100000101;
-$zindex-command-line-widget: 100000110;
-$zindex-keycode-modal: 200000000;
-
-$zindex-alert-message: 1000000200;
+$zindex-baconbit:              _(11);
