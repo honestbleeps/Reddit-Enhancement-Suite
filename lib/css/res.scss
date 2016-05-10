@@ -190,21 +190,22 @@ body.res-console-open {
 	position: absolute;
 	list-style-type: none;
 	background-color: #5f99cf;
-	width: 180px;
+	width: 190px;
 	border-radius: 0 0 3px 3px;
 	border: 1px solid #369;
 	border-bottom: none;
 	margin: 0 !important;
+	font-size: 11px;
 
 	li {
 		position: relative;
 		cursor: pointer;
 		border-bottom: 1px solid #369;
-		height: 35px;
 		line-height: 34px;
 		font-weight: bold;
 		color: #c9def2;
 		padding-left: 10px;
+		box-sizing: content-box;
 	}
 
 	.toggleButton {
@@ -217,18 +218,22 @@ body.res-console-open {
 		}
 	}
 
-	a,
-	a:visited {
-		display: inline-block;
-		width: 100%;
-		height: 100%;
-		color: #c9def2;
+	a {
+		display: block;
+
+		&,
+		&:link,
+		&:visited {
+			color: inherit;
+			text-decoration: none;
+		}
 	}
 
 	li:hover,
-	li a:hover {
+	a:hover {
 		background-color: #9cc6ec;
 		color: #369;
+		text-decoration: none;
 	}
 }
 
