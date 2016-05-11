@@ -208,8 +208,7 @@ body:not(.res-showImages-displayImageCaptions) {
 	}
 }
 
-a.madeVisible,
-div.madeVisible {
+div.madeVisible a.madeVisible {
 	position: relative;
 
 	.RESMediaControls {
