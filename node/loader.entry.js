@@ -53,7 +53,7 @@ Init.loadOptions
 		}
 
 		for (const key in expected) {
-			if (ignoredKeys.indexOf(key) !== -1) {
+			if (ignoredKeys.includes(key)) {
 				DEBUG('Skipping comparing key', key);
 				continue;
 			}
