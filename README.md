@@ -83,7 +83,7 @@ Thinking about contributing to RES? Awesome! We just ask that you follow a few s
 
 First time installation:
 
-1. Install [node.js](http://nodejs.org) (version >= 5).
+1. Install [node.js](https://nodejs.org) (version >= 5).
 1. Install [Python 2](https://www.python.org/downloads/) (*not* version 3).
 1. Navigate to your RES folder.
 1. Run `npm install`.
@@ -134,7 +134,7 @@ Helpful note: `npm run lint-fix` can autofix many whitespace and separator-relat
 
 In addition to building your own version of RES, you can download older (or current) builds of RES for testing purposes.
 
-(Almost) every commit to master is quickly archived away at http://allthefoxes.me; if you would like access to this database, please contact [/u/allthefoxes on reddit](https://www.reddit.com/u/allthefoxes) or email [fox@allthefoxes.me](mailto:fox@allthefoxes.me).
+(Almost) every commit to master is quickly archived away at http://allthefoxes.me; if you would like access to this database, please contact [/u/allthefoxes on reddit](https://www.reddit.com/user/allthefoxes) or email [fox@allthefoxes.me](mailto:fox@allthefoxes.me).
 
 All that is asked is that you have at least one previous contribution to RES.
 
