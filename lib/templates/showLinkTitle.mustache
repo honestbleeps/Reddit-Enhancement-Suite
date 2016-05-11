@@ -1,0 +1,17 @@
+<div class="res-show-link hide">
+	{{#thumbnailSrc}}
+        <span class="res-show-link-thumb"><img src="{{thumbnailSrc}}" alt="thumbnail" /></span>
+	{{/thumbnailSrc}}
+    <a href="#{{linkId}}" class="res-icon toTop" title="Jump to title">&#xF148;</a>
+    <a href="{{settingsHash}}" class="gearIcon" title="Configure this widget"></a>
+    <div class="res-show-link-content">
+        <div class="res-show-link-header">
+            <a href="{{linkHref}}" {{#linkNewTab}}target="_blank"{{/linkNewTab}} class="res-show-link-title">{{title}}</a>
+            <a href="{{domainHref}}" class="res-show-link-domain">(<span>{{domain}}</span>)</a>
+        </div>
+        <div class="res-show-link-tagline">
+            Submitted {{time}} by
+            <a href="{{authorHref}}" class="res-show-link-author">{{author}}</a>
+        </div>
+    </div>
+</div>
