@@ -12,10 +12,6 @@
 
 	&.havemail {
 		background-image: url('https://redditstatic.s3.amazonaws.com/mail.png');
-
-		.res-colorblind & {
-			background-image: url('../images/nightmode/aboutHeader.png');
-		}
 	}
 }
 
