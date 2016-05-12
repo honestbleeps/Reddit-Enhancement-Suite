@@ -163,3 +163,4 @@ Import the file in `lib/css/res.scss` (i.e. `@import 'modules/myPartial';`—do 
 
 Body classes will be automatically added for boolean and enum options with the property `bodyClass: true`, in the form `.res-moduleId-optionKey` for boolean options (only when they're enabled), and `.res-moduleId-optionKey-optionValue` for enums.
 This is the preferred way to create optional CSS; do not use `addCSS()` unless absolutely necessary (i.e. variable color, size, etc.).
+
