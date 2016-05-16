@@ -217,6 +217,12 @@ img {
 		display: none !important;
 	}
 
+	.res-title,
+	.res-caption,
+	.res-credits {
+		max-width: 700px;
+	}
+
 	.res-title {
 		font-size: 13px;
 	}
@@ -232,18 +238,12 @@ img {
 }
 
 .res-gallery {
-	.res-gallery-title,
-	.res-gallery-caption {
-		max-width: 700px;
-	}
-
 	.res-gallery-title {
 		margin: 3px;
 		font-size: 15px;
 	}
 
 	.res-gallery-caption {
-		max-width: 700px;
 		margin-bottom: 3px;
 		font-size: 12px;
 	}
@@ -289,11 +289,6 @@ img {
 .res-image {
 	a {
 		display: inline-block;
-	}
-
-	.res-image-title,
-	.res-image-caption {
-		max-width: 700px;
 	}
 
 	.res-image-media {
