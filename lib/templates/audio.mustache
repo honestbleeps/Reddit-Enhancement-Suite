@@ -1,0 +1,5 @@
+<audio controls {{#muted}}muted{{/muted}} {{#loop}}loop{{/loop}}>
+	{{#sources}}
+	<source src="{{ file }}" {{#type}}type="{{ type }}"{{/type}}>
+	{{/sources}}
+</audio>

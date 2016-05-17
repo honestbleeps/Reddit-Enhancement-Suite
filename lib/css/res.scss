@@ -1867,3 +1867,29 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		margin: .75em 0;
 	}
 }
+
+.res-step {
+	&::after {
+		font: normal 18px/16px Batch;
+		content: '\F158';
+		cursor: pointer;
+		display: inline-block;
+		vertical-align: middle;
+		color: #90acff;
+		width: 16px;
+	}
+
+	&:hover::after {
+		color: #6286f4;
+	}
+
+	&.res-step-reverse::after {
+		transform: scaleX(-1);
+	}
+}
+
+.res-step-progress {
+	font-size: 13px;
+	min-width: 60px;
+	text-align: center;
+}

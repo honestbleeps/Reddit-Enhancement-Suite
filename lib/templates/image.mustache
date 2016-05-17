@@ -1,0 +1,14 @@
+<div class="res-image">
+	{{#title}}
+	<h4 class="res-title">{{title}}</h4>
+	{{/title}}
+	{{#caption}}
+	<div class="res-caption">{{caption}}</div>
+	{{/caption}}
+	<a class="noKeyNav" href="{{href}}" {{#openInNewWindow}}target="_blank" rel="noopener noreferrer"{{/openInNewWindow}}>
+		<img class="res-image-media" src="{{src}}">
+	</a>
+	{{#credits}}
+	<div class="res-credits">{{{credits}}}</div>
+	{{/credits}}
+</div>
