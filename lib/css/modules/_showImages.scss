@@ -186,8 +186,8 @@ img {
 		transition: opacity 300ms;
 	}
 
-	.res-media-load-error ~ & {
-		display: none;
+	.res-media-load-error & {
+		display: none !important;
 	}
 }
 
@@ -204,6 +204,10 @@ img {
 		.usertext-body &,
 		.selftext.expanded ~ * & {
 			max-width: 100%;
+		}
+
+		> * {
+			display: inline-block;
 		}
 	}
 
@@ -295,7 +299,7 @@ img {
 		display: block !important;
 		user-select: none;
 
-		&.res-media-load-error {
+		@at-root .res-media-load-error#{&} {
 			content: '';
 
 			&::after {
