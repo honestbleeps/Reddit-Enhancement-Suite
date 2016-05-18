@@ -205,10 +205,6 @@ img {
 		.selftext.expanded ~ * & {
 			max-width: 100%;
 		}
-
-		> * {
-			display: inline-block;
-		}
 	}
 
 	.res-expando-independent {
@@ -310,6 +306,8 @@ img {
 }
 
 .video-advanced {
+	display: inline-block;
+
 	.video-advanced-container {
 		overflow: hidden;
 		position: relative;
@@ -484,5 +482,43 @@ img {
 		color: rgb(221, 221, 221);
 		border-color: rgb(102, 102, 102);
 		background: none;
+	}
+}
+
+.res-showImages-captionsPosition {
+	@at-root {
+		.res-image,
+		.res-gallery {
+			display: inline-flex;
+			flex-direction: column;
+		}
+
+		// Keep these below any captions
+		.res-gallery-below,
+		.res-expando-siteAttribution,
+		.res-gallery-increase-concurrent {
+			order: 2;
+		}
+	}
+
+	&-creditsBelow {
+		.res-credits {
+			order: 1;
+		}
+	}
+
+	&-titleAbove {
+		.res-caption,
+		.res-credits {
+			order: 1;
+		}
+	}
+
+	&-allBelow {
+		.res-title,
+		.res-caption,
+		.res-credits {
+			order: 1;
+		}
 	}
 }
