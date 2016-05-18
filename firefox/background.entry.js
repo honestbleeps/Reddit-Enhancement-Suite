@@ -339,7 +339,7 @@ addListener('isPrivateBrowsing', (request, worker) => priv.isPrivate(worker));
 
 addListener('addURLToHistory', url => {
 	historyService.updatePlaces({
-		uri: ioService.newURI(url),
+		uri: ioService.newURI(url, undefined, undefined),
 		visits: [{
 			transitionType: Ci.nsINavHistoryService.TRANSITION_LINK,
 			visitDate: Date.now() * 1000,
