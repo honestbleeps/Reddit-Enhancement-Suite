@@ -186,6 +186,7 @@ img {
 		transition: opacity 300ms;
 	}
 
+	body.res-media-resizing &,
 	.res-media-load-error & {
 		display: none !important;
 	}
