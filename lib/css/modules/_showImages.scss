@@ -486,6 +486,13 @@ img {
 	}
 }
 
+body:not(.res-showImages-displayImageCaptions) {
+	.res-caption,
+	.res-credits {
+		display: none;
+	}
+}
+
 .res-showImages-captionsPosition {
 	@at-root {
 		.res-image,
