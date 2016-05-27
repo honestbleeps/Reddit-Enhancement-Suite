@@ -200,10 +200,9 @@ img {
 	}
 
 	.res-expando-media {
-		display: inline-block;
+		width: inherit;
 
-		.usertext-body &,
-		.selftext.expanded ~ * & {
+		> * {
 			max-width: 100%;
 		}
 	}
@@ -239,6 +238,15 @@ img {
 }
 
 .res-gallery {
+	&,
+	.res-gallery-pieces {
+		width: 100%;
+	}
+
+	.res-gallery-piece-block > * {
+		max-width: 100%;
+	}
+
 	.res-gallery-title {
 		margin: 3px;
 		font-size: 15px;
@@ -289,11 +297,11 @@ img {
 
 .res-image {
 	a {
-		display: inline-block;
+		// Limits width to that of child elements
+		display: table;
 	}
 
 	.res-image-media {
-		display: block !important;
 		user-select: none;
 
 		@at-root .res-media-load-error#{&} {
