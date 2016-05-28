@@ -69,8 +69,8 @@ const configs = browsers.map(browser => {
 				{ test: /\.mustache$/, loader: 'mustache' },
 				{ test: /\.scss$/, loaders: ['file?name=[name].css', 'extricate?resolve=\\.js$', 'css', 'postcss', 'sass'] },
 				{ test: /\.html$/, loaders: ['file?name=[name].[ext]', 'extricate', 'html?attrs=link:href script:src'] },
-				{ test: /\.png$/, exclude: join(__dirname, 'lib', 'images'), loader: 'file?name=[name].[ext]' },
-				{ test: /\.png$/, include: join(__dirname, 'lib', 'images'), loader: 'url' },
+				{ test: /\.(png|gif)$/, exclude: join(__dirname, 'lib', 'images'), loader: 'file?name=[name].[ext]' },
+				{ test: /\.(png|gif)$/, include: join(__dirname, 'lib', 'images'), loader: 'url' },
 			],
 			noParse: [
 				// to use `require` in Firefox and Node

@@ -1,4 +1,10 @@
-<span class="res-icon gearIcon" title="Settings" data-action="showImageSettings"></span>
-<span class="rotateLeft res-icon" title="Rotate image counter-clockwise" data-action="rotateLeft"></span>
-<span class="rotateRight res-icon" title="Rotate image clockwise" data-action="rotateRight"></span>
-<span class="imageLookup res-icon" title="Reverse image seach" data-action="imageLookup"></span>
+<div class="res-media-rotatable">
+	<div class="RESMediaControls {{position}}">
+		<span class="res-icon gearIcon" title="Settings" data-action="showImageSettings"></span>
+		<span class="rotateLeft res-icon" title="Rotate image counter-clockwise" data-action="rotateLeft"></span>
+		<span class="rotateRight res-icon" title="Rotate image clockwise" data-action="rotateRight"></span>
+		{{#lookupUrl}}
+		<span class="imageLookup res-icon" title="Reverse image seach" data-action="imageLookup"></span>
+		{{/lookupUrl}}
+	<div>
+</div>
