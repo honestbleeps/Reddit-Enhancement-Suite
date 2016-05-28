@@ -1,7 +1,7 @@
 import mainEntry from '../lib/main.entry'; // eslint-disable-line import/default
 import resCss from '../lib/css/res.scss';
 
-import { createMessageHandler } from '../lib/environment/_helpers';
+import { createMessageHandler } from '../lib/environment/_messaging';
 import { nativeRequire } from '../lib/environment/_nativeRequire';
 import Cache from '../lib/utils/Cache';
 import { extendDeep } from '../lib/utils/object';

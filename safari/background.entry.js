@@ -2,7 +2,7 @@
 
 import 'babel-polyfill';
 
-import { createMessageHandler } from '../lib/environment/_helpers';
+import { createMessageHandler } from '../lib/environment/_messaging';
 import Cache from '../lib/utils/Cache';
 import { extendDeep } from '../lib/utils/object';
 

@@ -30,7 +30,7 @@
 
 */
 
-import { createMessageHandler } from '../lib/environment/_helpers';
+import { createMessageHandler } from '../lib/environment/_messaging';
 import Cache from '../lib/utils/Cache';
 
 import cssOff from './images/css-off.png';
