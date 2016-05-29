@@ -112,74 +112,40 @@ img {
 }
 
 
-.RESMediaControls {
+.res-media-controls {
 	position: absolute;
+	display: inline-flex;
+	align-items: center;
 	z-index: 2;
-	border: none;
 	background: rgba(0, 0, 0, .3);
+	opacity: 0;
 	cursor: pointer;
 
-	// Support multiple positions. top left is default
-	&.top-left {
-		top: 10px;
-		left: 10px;
-	}
+	&-left { left: 10px; }
+	&-right { right: 10px; }
+	&-bottom { bottom: 10px; }
+	&-top { top: 10px; }
 
-	&.top-right {
-		top: 10px;
-		right: 10px;
-	}
-
-	&.bottom-right {
-		bottom: 10px;
-		right: 10px;
-	}
-
-	&.bottom-left {
-		bottom: 10px;
-		left: 10px;
-	}
-
-	span {
+	button {
+		border: none;
+		margin: 0 !important;
+		background: transparent;
 		padding: 6px;
-		vertical-align: middle;
-		font-size: 1rem;
-		color: #000;
-		cursor: pointer;
-
-		&:hover {
-			background: rgba(30, 30, 30, .3);
-		}
+		filter: saturate(0);
+		line-height: 0;
 
 		&::after {
-			// particularly for .gearIcon
+			cursor: pointer;
+			line-height: 14px;
 			color: #eee;
 		}
 
-		&:hover::after {
-			color: #fff;
-		}
-
-		&.rotateLeft {
-			transform: scaleX(-1);
-
-			&::after {
-				content: '\F0B0';
-			}
-		}
-
-		&.rotateRight::after {
-			content: '\F0B0';
-		}
-
-		&.imageLookup::after {
-			content: '\F178';
-		}
+		&:hover::after { color: #b9b9b9; }
 	}
 
-	.res-media-rotatable & {
-		opacity: 0;
-	}
+	&-lookup::after { content: '\F178'; }
+	&-rotate::after { content: '\F0B0'; }
+	&-rotate-left { transform: scaleX(-1); }
 
 	.res-media-rotatable:hover & {
 		opacity: .8;
