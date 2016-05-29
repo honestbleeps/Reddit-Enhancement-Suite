@@ -10,28 +10,28 @@ img {
 	image-orientation: from-image;
 }
 
-.commentarea .thing .usertext-body .expando-button,
-.listing-page .thing .expando-button {
-	padding: 0;
-}
-
-.profile-page .comment .parent .expando-button {
-	display: inline-block;
-	float: none;
-}
-
-.usertext-body .md .expando-button,
-.wiki-page .expando-button,
-.messages-page .expando-button {
-	float: none;
-	display: inline-block;
-	vertical-align: bottom;
-	margin-left: 4px;
-}
-
 .expando-button {
 	cursor: pointer;
 	user-select: none;
+
+	.commentarea .thing .usertext-body &,
+	.listing-page .thing & {
+		padding: 0;
+	}
+
+	.profile-page .comment .parent & {
+		display: inline-block;
+		float: none;
+	}
+
+	.usertext-body .md &,
+	.wiki-page &,
+	.messages-page & {
+		float: none;
+		display: inline-block;
+		vertical-align: bottom;
+		margin-left: 4px;
+	}
 
 	.res-showImages-highlightNSFWButton .thing.over18 &::before {
 		display: inline-block;
