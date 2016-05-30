@@ -149,7 +149,6 @@ img {
 
 	.res-media-rotatable:hover & {
 		opacity: .8;
-		transition: opacity 300ms;
 	}
 
 	body.res-media-resizing &,
@@ -181,12 +180,6 @@ img {
 	&[hidden],
 	[hidden] {
 		display: none !important;
-	}
-
-	.res-title,
-	.res-caption,
-	.res-credits {
-		max-width: 700px;
 	}
 
 	.res-title {
