@@ -8,43 +8,21 @@
 		"consistent-return-legacy",
 		"prefer-bind-operator",
 		"prefer-spread",
-		"sort-imports-es6",
 		"filenames",
 		"import"
 	],
+	"settings": {
+		"import/ignore": [
+			"node_modules",
+			"\\.(json|png|gif|html|scss|mustache)$"
+		],
+		"import/resolver": "webpack"
+	},
 	"env": {
 		"browser": true,
 		"webextensions": true,
-		"jquery": true,
+		"node": true,
 		"es6": true
-	},
-	"globals": {
-		"Favico": false,
-		"guiders": false,
-		"Hogan": false,
-		"Pasteurizer": false,
-		"Snudown": false,
-		"Konami": false,
-		"gfyObject": false,
-
-		"unsafeWindow": false,
-
-		"RESUtils": true,
-		"RESMetadata": true,
-		"modules": true,
-		"libraries": true,
-		"RESEnvironment": true,
-		"safeJSON": true,
-		"escapeHTML": true,
-		"addModule": true,
-		"addLibrary": true,
-		"perfTest": true,
-		"RESTemplates": true,
-		"BrowserDetect": true,
-		"RESOptionsMigrate": true,
-		"gdAlert": true,
-
-		"exports": true
 	},
 	"rules": {
 		"babel/generator-star-spacing": [2, { "before": false, "after": true }],
@@ -62,7 +40,9 @@
 		"ava/no-only-test": 2,
 		"ava/no-skip-assert": 1,
 		"ava/no-skip-test": 1,
+		"ava/no-statement-after-end": 2,
 		"ava/no-todo-test": 1,
+		"ava/no-unknown-modifiers": 2,
 		"ava/prefer-power-assert": 0,
 		"ava/test-ended": 2,
 		"ava/test-title": [2, "if-multiple"],
@@ -77,20 +57,25 @@
 
 		"prefer-spread/prefer-object-spread": 2,
 
-		"sort-imports-es6/sort-imports-es6": [2, { "memberSyntaxSortOrder": ["none", "single", "all", "multiple"] }],
-
 		"filenames/filenames": [2, ".*", "match-regex-and-exported"],
 
 		"import/no-unresolved": 2,
-		"import/named": 0, // temp disabled until we have proper ES6 modules
+		"import/named": 2,
 		"import/default": 2,
 		"import/namespace": 2,
 		"import/export": 2,
 		"import/no-named-as-default": 2,
-		"import/no-commonjs": 0,
+		"import/no-named-as-default-member": 2,
+		"import/no-deprecated": 2,
+		"import/no-extraneous-dependencies": 2,
+		"import/no-commonjs": 2,
 		"import/no-amd": 2,
+		"import/no-nodejs-modules": 2,
 		"import/imports-first": 2,
 		"import/no-duplicates": 2,
+		"import/no-namespace": 0,
+		"import/extensions": [2, { "js": "never" }],
+		"import/order": 2,
 
 		"no-alert": 0,
 		"no-array-constructor": 2,
@@ -113,6 +98,7 @@
 		"no-dupe-keys": 2,
 		"no-dupe-args": 2,
 		"no-duplicate-case": 2,
+		"no-duplicate-imports": 2,
 		"no-else-return": 0,
 		"no-empty": 2,
 		"no-empty-character-class": 2,
@@ -142,7 +128,7 @@
 		"no-label-var": 2,
 		"no-labels": 2,
 		"no-lone-blocks": 2,
-		"no-lonely-if": 2,
+		"no-lonely-if": 0,
 		"no-loop-func": 0,
 		"no-mixed-requires": 2,
 		"no-mixed-spaces-and-tabs": 2,
@@ -166,12 +152,13 @@
 		"no-param-reassign": 0,
 		"no-path-concat": 2,
 		"no-plusplus": 0,
-		"no-process-env": 2,
+		"no-process-env": 0,
 		"no-process-exit": 0,
 		"no-proto": 2,
 		"no-redeclare": 2,
 		"no-regex-spaces": 2,
-		"no-restricted-imports": 0,
+		"no-restricted-globals": 0,
+		"no-restricted-imports": [2, "jquery"], // import it from vendor/ instead
 		"no-restricted-modules": 0,
 		"no-restricted-syntax": [2, "ForStatement"], // use for..of or Array.prototype methods
 		"no-return-assign": 2,
@@ -197,19 +184,21 @@
 		"no-unmodified-loop-condition": 2,
 		"no-unneeded-ternary": 2,
 		"no-unreachable": 2,
+		"no-unsafe-finally": 2,
 		"no-unused-expressions": 2,
 		"no-unused-labels": 2,
-		"no-unused-vars": [2, { "argsIgnorePattern": "^moduleID$" }],
+		"no-unused-vars": 2,
 		"no-use-before-define": [0, "nofunc"],
 		"no-useless-call": 2,
+		"no-useless-computed-key": 2,
 		"no-useless-concat": 2,
 		"no-useless-constructor": 2,
+		"no-useless-escape": 2,
 		"no-void": 2,
 		"no-var": 2,
 		"no-warning-comments": 0,
 		"no-with": 2,
 		"no-magic-numbers": 0,
-
 		"array-bracket-spacing": 0, // see babel/array-bracket-spacing
 		"array-callback-return": 0,
 		"arrow-body-style": 2,
@@ -221,7 +210,7 @@
 		"brace-style": [2, "1tbs", { "allowSingleLine": true }],
 		"callback-return": 0,
 		"camelcase": [2, { "properties": "never" }],
-		"comma-dangle": 2,
+		"comma-dangle": [2, "always-multiline"],
 		"comma-spacing": 2,
 		"comma-style": 2,
 		"complexity": [0, 11],
@@ -232,7 +221,7 @@
 		"curly": [2, "multi-line"],
 		"default-case": 2,
 		"dot-location": [2, "property"],
-		"dot-notation": 0,
+		"dot-notation": 2,
 		"eol-last": 2,
 		"eqeqeq": 2,
 		"func-names": 0, // all anonymous functions should be arrows (when this is turned on)
@@ -253,11 +242,14 @@
 		"max-nested-callbacks": [2, 5],
 		"max-params": 0,
 		"max-statements": 0,
+		"max-statements-per-line": 0,
 		"new-cap": 0, // see babel/new-cap
 		"new-parens": 2,
 		"newline-after-var": [0, "never"],
+		"newline-before-return": 0,
 		"newline-per-chained-call": 0,
 		"object-curly-spacing": 0, // see babel/object-curly-spacing
+		"object-property-newline": 0,
 		"object-shorthand": 0, // see babel/object-shorthand
 		"one-var": [2, { "initialized": "never" }],
 		"one-var-declaration-per-line": [2, "initializations"],
@@ -280,7 +272,7 @@
 		"semi": 2,
 		"semi-spacing": 2,
 		"sort-vars": 0,
-		"sort-imports": 0, // see sort-imports-es6/sort-imports-es6
+		"sort-imports": 0, // see import/order
 		"space-before-blocks": 2,
 		"space-before-function-paren": [2, "never"],
 		"space-in-parens": 2,
@@ -290,7 +282,7 @@
 		"strict": [2, "never"], // Babel inserts it for us
 		"template-curly-spacing": 2,
 		"use-isnan": 2,
-		"valid-jsdoc": [2, { "requireParamDescription": false, "requireReturnDescription": false, "prefer": { "return": "returns" } }],
+		"valid-jsdoc": [2, { "requireParamDescription": false, "requireReturnDescription": false }],
 		"valid-typeof": 2,
 		"vars-on-top": 0,
 		"wrap-iife": [2, "inside"],

@@ -1,13 +1,14 @@
 sudo: false
 language: node_js
 node_js:
-  - "5"
-  - "4"
+  - 5
+  - 6
 before_script: npm run external-deps
 script:
-  - npm run lint
-  - nyc npm test
+  - npm run eslint
+  - npm run scsslint
+  - npm run coverage
   - npm run build -- node
-  - node dist/node/loader.js
+  - node dist/node/loader.entry.js
 after_success:
-  - './node_modules/.bin/nyc report --reporter=text-lcov | ./node_modules/.bin/coveralls'
+  - npm run report-coverage

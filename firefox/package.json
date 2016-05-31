@@ -1,14 +1,14 @@
 {
 	"name": "reddit-enhancement-suite",
-	"title": "Reddit Enhancement Suite",
+	"title": "{{prop?title!../package.json}}",
 	"id": "jid1-xUfzOsOFlzSOXg@jetpack",
-	"description": "A suite of tools to enhance Reddit",
+	"description": "{{prop?description!../package.json}}",
 	"author": "honestbleeps",
 	"homepage": "http://redditenhancementsuite.com/",
 	"license": "GPL-3.0",
-	"version": "9000.1",
+	"version": "{{prop?version!../package.json}}",
+	"main": "{{./background.entry.js}}",
 	"permissions": {
-		"private-browsing": true,
-		"unsafe-content-script": true
+		"private-browsing": true
 	}
 }

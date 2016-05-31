@@ -253,7 +253,7 @@
 		&.upmod,
 		&.down,
 		&.downmod {
-			background-image: url('https://b.thumbs.redditmedia.com/WZDoQsDzUySVTErcweuA3k2HH1HU5-BZNnBXOR4FDwc.png');
+			background-image: url('../images/nightmode/arrows.png');
 			background-repeat: no-repeat;
 		}
 
@@ -446,11 +446,51 @@
 		background-color: #181818;
 	}
 
+	.traffic-table tr:nth-of-type(odd).promo-traffic-live {
+		color: #181818;
+	}
+
+	.traffic-table.promocampaign-table tr.active {
+		background-color: #6D2F39;
+		border: 2px dotted #A70000;
+	}
+
+	.sponsored-page .dashboard {
+		color: hsl(0, 0%, 87%);
+	}
+
+	.sponsored-page .campaign-editor .editor-group,
+	.sponsored-page .editor-group {
+		background-color: #151515;
+	}
+
+	.sponsored-page .campaign-editor .campaign-set {
+		background-color: #666;
+	}
+
+	.sponsored-page .linefield-content textarea,
+	.sponsored-page .linefield-content input {
+		color: #181818;
+	}
+
+	.linefield .markhelp table {
+		background-color: inherit;
+	}
+
+	.content .sponsored-page textarea,
+	.content .sponsored-page input {
+		background-color: rgb(252, 252, 252);
+	}
+
 	.md code,
 	.md pre,
+	.link .md pre,
 	.content .md pre,
+	.new-comment .md pre,
+	.usertext.border .md pre,
 	.link .md :not(pre) > code,
-	.new-comment .md :not(pre) > code {
+	.new-comment .md :not(pre) > code,
+	.usertext.border .md :not(pre) > code {
 		color: inherit;
 		border-color: rgb(88, 105, 123);
 		background-color: rgb(42, 51, 64);
@@ -855,7 +895,7 @@
 	.multi-details .subreddits .remove-sr,
 	.multi-details .add-sr .add {
 		border-color: hsl(0, 0%, 15%);
-		background-image: url('https://b.thumbs.redditmedia.com/TItqbtZ6QLVach67LqyHqj-cCnYMempXSwW17SDlTKM.png');
+		background-image: url('../images/nightmode/addsr.png');
 		background-position: 0 0;
 	}
 
@@ -864,8 +904,8 @@
 	}
 
 	// Nightmode friendly snoo/balloons image
-	.with-listing-chooser:not(.multi-page) .footer-parent {
-		background: url('https://b.thumbs.redditmedia.com/oPSTBWXkQufBAIYbFWiN0eI2J06zBLDEmq1NMHQ-Ems.png') no-repeat 49% 0;
+	.with-listing-chooser.multi-page .footer-parent {
+		background: url('../images/nightmode/snooBalloons.png') no-repeat 49% 0;
 	}
 
 	#about-main #history .events.timeline .event:hover .event-content {
@@ -900,7 +940,7 @@
 	}
 
 	.about-page .abouttitle {
-		background-image: url('https://a.thumbs.redditmedia.com/xxM_X1OL6Lt4I4GC9F1SbNIcbeoZPXOmPIo6P1slaP4.png');
+		background-image: url('../images/nightmode/aboutHeader.png');
 	}
 
 	.policy-page .md p {
@@ -956,25 +996,20 @@
 	}
 
 	// Ordering of user colors is important.
-	.tagline .friend,
-	.tagline .friend:visited {
+	.tagline .friend {
 		color: rgb(210, 90, 50);
 	}
 
-	.tagline .submitter,
-	.tagline .submitter:visited {
+	.tagline .submitter {
 		color: hsl(200, 100%, 50%);
 	}
 
-	.tagline .moderator,
-	.tagline .moderator:visited {
+	.tagline .moderator {
 		color: rgb(34, 136, 34);
 	}
 
 	.tagline .admin,
-	.tagline .admin:visited,
-	.user-distinction .admin,
-	.user-distinction .admin:visited {
+	.user-distinction .admin {
 		color: rgb(200, 20, 20);
 	}
 

@@ -1,7 +1,6 @@
 environment:
   matrix:
-    - nodejs_version: '5'
-    - nodejs_version: '4'
+    - nodejs_version: '6'
 install:
   - ps: Install-Product node $env:nodejs_version
   - npm install -g npm@latest || (timeout 30 && npm install -g npm@latest)
@@ -15,4 +14,4 @@ clone_depth: 1
 test_script:
   - npm test
   - npm run build -- node
-  - node dist/node/loader.js
+  - node dist/node/loader.entry.js

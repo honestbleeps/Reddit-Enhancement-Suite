@@ -1,16 +1,16 @@
-.comment .tagline {
-	display: inline;
-}
-
 #userTaggerToolTip {
 	display: none;
 	position: absolute;
-	width: 334px;
-	height: 248px;
+	width: 336px;
+	box-sizing: border-box;
+
+	form > div {
+		clear: both;
+		margin: 5px 0;
+	}
 
 	label {
-		margin-top: 5px;
-		clear: both;
+		margin: 5px 0;
 		float: left;
 		width: 110px;
 	}
@@ -18,11 +18,8 @@
 	input[type=text],
 	select {
 		margin-top: 5px;
-		float: left;
-		width: 195px;
-		border: 1px solid #c7c7c7;
-		border-radius: 3px;
-		margin-bottom: 6px;
+		width: 200px;
+		box-sizing: border-box;
 	}
 
 	input[type=checkbox] {
@@ -31,10 +28,8 @@
 	}
 
 	input[type=submit] {
+		margin-left: auto;
 		cursor: pointer;
-		position: absolute;
-		right: 16px;
-		bottom: 16px;
 		padding: 3px 5px;
 		font-size: 12px;
 		color: #fff;
@@ -43,22 +38,42 @@
 		background-color: #5cc410;
 	}
 
-	.toggleButton {
-		margin-top: 5px;
-		margin-bottom: 5px;
-		float: left;
+	a {
+		text-decoration: none;
+
+		&:not([href]) {
+			color: inherit;
+		}
 	}
 
 	#userTaggerVoteWeight {
 		width: 30px;
 	}
+
+	h3 .res-icon {
+		color: #9BD;
+	}
+
+	.res-usertag-ignore {
+		display: flex;
+		align-items: center;
+
+		.gearIcon {
+			margin-left: auto;
+		}
+	}
+
+	.res-usertagger-footer {
+		padding-top: 5px;
+		margin-bottom: 0;
+		display: flex;
+		align-items: center;
+	}
 }
 
 #userTaggerClose {
-	position: absolute;
 	right: 7px;
 	top: 7px;
-	z-index: 11;
 }
 
 .ignoredUserComment {
@@ -79,6 +94,11 @@ a.voteWeight {
 
 	&:hover {
 		text-decoration: none;
+	}
+
+	// unselectable in comments/markdown for usability
+	.md & {
+		user-select: none;
 	}
 }
 
@@ -112,10 +132,8 @@ a.voteWeight {
 }
 
 .hoverHelp {
-	margin-left: 3px;
 	cursor: pointer;
 	color: #369;
-	text-decoration: underline;
 }
 
 .userTagLink.hasTag,
@@ -128,9 +146,14 @@ a.voteWeight {
 }
 
 #userTaggerPreview {
-	float: left;
-	height: 16px;
-	margin-bottom: 10px;
+	display: inline-block;
+	height: 1.6em;
+	line-height: 1.6em;
+	margin: 5px 0 0 0 !important;
+	box-sizing: border-box;
+	max-width: 200px;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 #userTaggerTable th {
