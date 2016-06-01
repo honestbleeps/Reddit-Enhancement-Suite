@@ -2,9 +2,9 @@
 
 import 'babel-polyfill';
 
-import Cache from '../lib/utils/Cache';
-
 import { createMessageHandler } from '../lib/environment/_helpers';
+import Cache from '../lib/utils/Cache';
+import { extendDeep } from '../lib/utils/object';
 
 const {
 	_handleMessage,
@@ -49,19 +49,6 @@ addListener('ajax', async ({ method, url, headers, data, credentials }) => {
 	};
 });
 
-// Circular references can't exist in storage, so we don't need to consider that
-// and only enumerable own properties are sent in messages
-function extend(target, source) {
-	for (const key in source) {
-		if (target[key] && source[key] && typeof target[key] === 'object' && typeof source[key] === 'object') {
-			extend(target[key], source[key]);
-		} else {
-			target[key] = source[key];
-		}
-	}
-	return target;
-}
-
 addListener('storage', ([operation, key, value]) => {
 	switch (operation) {
 		case 'get':
@@ -88,7 +75,7 @@ addListener('storage', ([operation, key, value]) => {
 		case 'patch':
 			try {
 				const stored = JSON.parse(localStorage.getItem(key)) || {};
-				localStorage.setItem(key, JSON.stringify(extend(stored, value)));
+				localStorage.setItem(key, JSON.stringify(extendDeep(stored, value)));
 			} catch (e) {
 				throw new Error(`Failed to patch: ${key} - error: ${e}`);
 			}
