@@ -1,9 +1,9 @@
 import mainEntry from '../lib/main.entry'; // eslint-disable-line import/default
 import resCss from '../lib/css/res.scss';
 
-import { createMessageHandler } from '../lib/environment/_helpers';
+import { addCommonBackgroundListeners } from '../lib/environment/_common';
+import { createMessageHandler } from '../lib/environment/_messaging';
 import { nativeRequire } from '../lib/environment/_nativeRequire';
-import Cache from '../lib/utils/Cache';
 import { extendDeep } from '../lib/utils/object';
 
 import cssDisabled from './images/css-disabled.png';
@@ -66,6 +66,8 @@ const {
 } = createMessageHandler((type, obj, worker) => worker.postMessage({ ...obj, type }));
 
 // Listeners
+
+addCommonBackgroundListeners(addListener);
 
 addListener('deleteCookies', cookies =>
 	cookies.forEach(({ name }) => cookieManager.remove('.reddit.com', name, '/', false, false))
@@ -233,41 +235,6 @@ addListener('storage', ([operation, key, value]) => {
 			});
 		default:
 			throw new Error(`Invalid storage operation: ${operation}`);
-	}
-});
-
-const session = new Map();
-
-addListener('session', ([operation, key, value]) => {
-	switch (operation) {
-		case 'get':
-			return session.get(key);
-		case 'set':
-			session.set(key, value);
-			break;
-		case 'delete':
-			return session.delete(key);
-		case 'clear':
-			return session.clear();
-		default:
-			throw new Error(`Invalid session operation: ${operation}`);
-	}
-});
-
-const cache = new Cache();
-
-addListener('XHRCache', ({ operation, key, value, maxAge }) => {
-	switch (operation) {
-		case 'set':
-			return cache.set(key, value);
-		case 'check':
-			return cache.check(key, maxAge);
-		case 'delete':
-			return cache.delete(key);
-		case 'clear':
-			return cache.clear();
-		default:
-			throw new Error(`Invalid XHRCache operation: ${operation}`);
 	}
 });
 
