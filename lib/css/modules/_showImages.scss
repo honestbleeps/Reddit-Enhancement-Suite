@@ -159,6 +159,7 @@ img {
 
 .res-expando {
 	display: block;
+	clear: both; // Necessary on some custom stylesheets where .entry .flat-list has no height
 
 	.usertext-body {
 		user-select: text; // Allow selection if is a text expando
