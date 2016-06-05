@@ -100,7 +100,7 @@ Thinking about contributing to RES? Awesome! We just ask that you follow a few s
 First time installation:
 
 1. Install [node.js](https://nodejs.org) (version >= 6).
-1. Install [git](https://git-scm.com/)
+1. Install [git](https://git-scm.com/).
 1. Install [Python 2](https://www.python.org/downloads/) (*not* version 3).
 1. Navigate to your RES folder.
 1. Run `npm install`.
@@ -135,10 +135,10 @@ Helpful note: `npm run lint-fix` can autofix many whitespace and separator-relat
   
 ##### Building in Microsoft Edge
 
-  1. Go to `about:flags` by entering it into the URL bar and tick the `Enable extension developer features` checkbox, a browser restart is required.
-  2. Set folder permissions on the extensions folder by running the following command in cmd within the directory. `icacls "%cd%" /grant "*S-1-15-2-3624051433-2125758914-1423191267-1740899205-1073925389-3782572162-737981194":"(OI)(CI)(WDAC,WO,GE)"`
-  2. Choose `Load extension` on the extensions menu and select your edge extension.
-  3. Any time you make changes to the extension, you must go back to the `Menu->Extensions` page, go to the extensions options and `Reload` the extension.
+  1. Go to `about:flags` and tick the `Enable extension developer features` checkbox.
+  2. Set the permissions on the extensions folder by running the following command in cmd within the directory. `icacls "%cd%" /grant "*S-1-15-2-3624051433-2125758914-1423191267-1740899205-1073925389-3782572162-737981194":"(OI)(CI)(WDAC,WO,GE)"`
+  3. Choose `Load extension` on the extensions menu and select your extensions folder.
+  4. Any time you make changes to the extension, you must go back to the `Menu->Extensions` page, go to the extensions settings and `Reload` the extension.
 
 ##### Building in Firefox
 
