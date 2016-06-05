@@ -1,3 +1,5 @@
+/* eslint-env webextensions */
+
 export function apiToPromise(func) {
 	return (...args) =>
 		new Promise((resolve, reject) =>

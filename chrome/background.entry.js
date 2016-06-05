@@ -30,6 +30,8 @@
 
 */
 
+/* eslint-env webextensions */
+
 import { addCommonBackgroundListeners } from '../lib/environment/_common';
 import { createMessageHandler } from '../lib/environment/_messaging';
 
