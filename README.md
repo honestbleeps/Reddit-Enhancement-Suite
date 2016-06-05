@@ -76,9 +76,8 @@ Thinking about contributing to RES? Awesome! We just ask that you follow a few s
 ##### Chrome files
 
   - `images/css-off-small.png`, `images/css-off.png`, `images/css-on-small.png`, `images/css-on.png`: icons for css disable button.
-  - `_helpers.js`: ???
   - `background.entry.js`: the "background page" for RES, necessary for Chrome extensions
-  - `environment.js`: ???
+  - `environment.js`: specific environment settings for Chrome
   - `icon.png`, `icon48.png`, `icon128.png`: icons!
   - `manifest.json`: the project manifest
   - `options.html`: options page for chrome extensions
@@ -93,16 +92,16 @@ Thinking about contributing to RES? Awesome! We just ask that you follow a few s
 ##### Firefox files
 
   - `images/css-disabled-small.png`, `images/css-disabled.png`, `images/css-off-small.png`, `images/css-off.png`, `images/css-on-small.png`, `images/css-on.png`: icons for css disable button.
-  - `background.entry.js`: ???
-  - `environment.js`: ???
+  - `background.entry.js`: the "background page" for RES, necessary for Firefox extensions
+  - `environment.js`: specific environment settings for Firefox
   - `package.json`: the project manifest for the Firefox add-on
 
 ##### Safari files
 
   - `Info.plist`: the project manifest
-  - `background-safari.html`: the "background page" for RES, necessary for Safari extensions
-  - `background.entry.js`: ???
-  - `environment.js`: ???
+  - `background-safari.html`: the "background html page" for RES, necessary for Safari extensions
+  - `background.entry.js`: the "background page" for RES, necessary for Safari extensions
+  - `environment.js`: specific environment settings for Safari
   - `icon.png`, `icon48.png`, `icon128.png`: icons!
 
 ## Building development versions of the extension
