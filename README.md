@@ -62,7 +62,6 @@ Thinking about contributing to RES? Awesome! We just ask that you follow a few s
   - `lib/modules/`: RES modules
   - `lib/templates/`: RES templates
   - `lib/utils/`: RES utilities
-  - `lib/utils/__tests__/`: unit tests
   - `lib/vendor/`: RES vendor libraries 
   - `node/`: Node files
   - `safari/`: Safari-specific RES files
@@ -72,6 +71,7 @@ Thinking about contributing to RES? Awesome! We just ask that you follow a few s
   - `gulpfile.babel.js`: post-build script for zipping folders.
   - `package.json`: package info, dependencies
   - `webpack.config.babel.js`: build script
+  - `**/__tests__`: unit tests
 
 ##### Chrome files
 
@@ -86,7 +86,7 @@ Thinking about contributing to RES? Awesome! We just ask that you follow a few s
 
   - `background-edge.html`: the "background page" for RES, necessary for Microsoft Edge extensions
   - `edge.entry.js`: shim to allow chrome extension code usage
-  - `environment.js`: allows interceptor for Microsoft Edge permissions
+  - `environment.js`: Edge-specific overrides of the Chrome environment
   - `manifest.json`: the project manifest
   
 ##### Firefox files
@@ -109,7 +109,7 @@ Thinking about contributing to RES? Awesome! We just ask that you follow a few s
 First time installation:
 
 1. Install [git](https://git-scm.com/).
-1. Install [node.js](https://nodejs.org) (version >= 6).
+1. Install [node.js](https://nodejs.org) (version >= 5).
 1. Install [Python 2](https://www.python.org/downloads/) (*not* version 3).
 1. Navigate to your RES folder.
 1. Run `npm install`.
