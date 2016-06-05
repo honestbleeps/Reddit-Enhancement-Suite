@@ -192,7 +192,7 @@ It will automatically be loaded when the build script is restarted.
 
 ##### Stylesheets
 
-Create a new Sass partial under `lib/css/` (with a leading underscore, e.g. `_myPartial.scss`).
+Create a new Sass partial under `lib/css/modules/` (with a leading underscore, e.g. `_myPartial.scss`).
 Import the file in `lib/css/res.scss` (i.e. `@import 'modules/myPartial';`—do not include the underscore or file extension).
 
 Body classes will be automatically added for boolean and enum options with the property `bodyClass: true`, in the form `.res-moduleId-optionKey` for boolean options (only when they're enabled), and `.res-moduleId-optionKey-optionValue` for enums.
