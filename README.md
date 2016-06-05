@@ -48,20 +48,30 @@ Thinking about contributing to RES? Awesome! We just ask that you follow a few s
 
 ##### Top level files and folders
 
-  - `README.md`: YOU ARE HERE, unless you're browsing on GitHub
-  - `changelog.txt`: self-explanatory
-  - `gulpfile.babel.js`: build script
-  - `package.json`: package info, dependencies
+  - `assets/`: RES logo source
+  - `chrome/`: Chrome-specific RES files
+  - `dist/`: build output
+  - `edge/`: Microsoft Edge-specific RES files
+  - `examples/`: example code for new hosts/modules
+  - `firefox/`: Firefox-specific RES files
   - `lib/`: all RES code
   - `lib/core/`: core RES code
+  - `lib/css/`: RES css
+  - `lib/environment/`: RES environment code
+  - `lib/images/`: RES images
   - `lib/modules/`: RES modules
-  - `lib/vendor/`: RES vendor libraries
-  - `chrome/`: Chrome-specific RES files
-  - `edge/`: Microsoft Edge-specific RES files
-  - `firefox/`: Firefox-specific RES files
+  - `lib/templates/`: RES templates
+  - `lib/utils/`: RES utilities
+  - `lib/utils/__tests__/`: unit tests
+  - `lib/vendor/`: RES vendor libraries 
+  - `node/`: Node files
   - `safari/`: Safari-specific RES files
-  - `dist/`: build output
-  - `**/__tests__`: unit tests
+  - `utils/`: Misc RES utilities
+  - `CHANGELOG.md`: self-explanatory 
+  - `README.md`: YOU ARE HERE, unless you're browsing on GitHub
+  - `gulpfile.babel.js`: post-build script for zipping folders.
+  - `package.json`: package info, dependencies
+  - `webpack.config.babel.js`: build script
 
 ##### Chrome files
 
