@@ -57,6 +57,7 @@ Thinking about contributing to RES? Awesome! We just ask that you follow a few s
   - `lib/modules/`: RES modules
   - `lib/vendor/`: RES vendor libraries
   - `chrome/`: Chrome-specific RES files
+  - `edge/`: Microsoft Edge-specific RES files
   - `firefox/`: Firefox-specific RES files
   - `safari/`: Safari-specific RES files
   - `dist/`: build output
@@ -64,26 +65,42 @@ Thinking about contributing to RES? Awesome! We just ask that you follow a few s
 
 ##### Chrome files
 
-  - `background.js`: the "background page" for RES, necessary for Chrome extensions
-  - `manifest.json`: the project manifest
+  - `images/css-off-small.png`, `images/css-off.png`, `images/css-on-small.png`, `images/css-on.png`: icons for css disable button.
+  - `_helpers.js`: ???
+  - `background.entry.js`: the "background page" for RES, necessary for Chrome extensions
+  - `environment.js`: ???
   - `icon.png`, `icon48.png`, `icon128.png`: icons!
+  - `manifest.json`: the project manifest
+  - `options.html`: options page for chrome extensions
 
+##### Microsoft Edge files
+
+  - `background-edge.html`: the "background page" for RES, necessary for Microsoft Edge extensions
+  - `edge.entry.js`: shim to allow chrome extension code usage
+  - `environment.js`: allows interceptor for Microsoft Edge permissions
+  - `manifest.json`: the project manifest
+  
 ##### Firefox files
 
-  - `index.js`: this is Firefox's sort of "background page" for RES, like what Chrome has, but just a JS file
+  - `images/css-disabled-small.png`, `images/css-disabled.png`, `images/css-off-small.png`, `images/css-off.png`, `images/css-on-small.png`, `images/css-on.png`: icons for css disable button.
+  - `background.entry.js`: ???
+  - `environment.js`: ???
   - `package.json`: the project manifest for the Firefox add-on
 
 ##### Safari files
 
-  - `background-safari.html`: the "background page" for RES, necessary for Safari extensions
   - `Info.plist`: the project manifest
+  - `background-safari.html`: the "background page" for RES, necessary for Safari extensions
+  - `background.entry.js`: ???
+  - `environment.js`: ???
   - `icon.png`, `icon48.png`, `icon128.png`: icons!
 
 ## Building development versions of the extension
 
 First time installation:
 
-1. Install [node.js](https://nodejs.org) (version >= 5).
+1. Install [node.js](https://nodejs.org) (version >= 6).
+1. Install [git](https://git-scm.com/)
 1. Install [Python 2](https://www.python.org/downloads/) (*not* version 3).
 1. Navigate to your RES folder.
 1. Run `npm install`.
@@ -115,6 +132,13 @@ Helpful note: `npm run lint-fix` can autofix many whitespace and separator-relat
   1. Go to `Menu->Tools->Extensions` and tick the `Developer Mode` checkbox
   2. Choose `Load unpacked extension` and point it to the `dist/chrome` folder. Make sure you only have one RES version running at a time.
   3. Any time you make changes to the script, you must go back to the `Menu->Tools->Extensions` page and `Reload` the extension.
+  
+##### Building in Microsoft Edge
+
+  1. Go to `about:flags` by entering it into the URL bar and tick the `Enable extension developer features` checkbox, a browser restart is required.
+  2. Set folder permissions on the extensions folder by running the following command in cmd within the directory. `icacls "%cd%" /grant "*S-1-15-2-3624051433-2125758914-1423191267-1740899205-1073925389-3782572162-737981194":"(OI)(CI)(WDAC,WO,GE)"`
+  2. Choose `Load extension` on the extensions menu and select your edge extension.
+  3. Any time you make changes to the extension, you must go back to the `Menu->Extensions` page, go to the extensions options and `Reload` the extension.
 
 ##### Building in Firefox
 
