@@ -1,31 +1,37 @@
+.res-showImages {
+	// Override native expando-class, since it restricts the size of inner expandos
+	.expando {
+		position: initial !important;
+	}
+}
 
 //Image Viewer
 img {
 	image-orientation: from-image;
 }
 
-.commentarea .thing .usertext-body .expando-button,
-.listing-page .thing .expando-button {
-	padding: 0;
-}
-
-.profile-page .comment .parent .expando-button {
-	display: inline-block;
-	float: none;
-}
-
-.usertext-body .md .expando-button,
-.wiki-page .expando-button,
-.messages-page .expando-button {
-	float: none;
-	display: inline-block;
-	vertical-align: bottom;
-	margin-left: 4px;
-}
-
 .expando-button {
 	cursor: pointer;
 	user-select: none;
+
+	.commentarea .thing .usertext-body &,
+	.listing-page .thing & {
+		padding: 0;
+	}
+
+	.profile-page .comment .parent & {
+		display: inline-block;
+		float: none;
+	}
+
+	.usertext-body .md &,
+	.wiki-page &,
+	.messages-page & {
+		float: none;
+		display: inline-block;
+		vertical-align: bottom;
+		margin-left: 4px;
+	}
 
 	.res-showImages-highlightNSFWButton .thing.over18 &::before {
 		display: inline-block;
@@ -72,24 +78,10 @@ img {
 	&.video-muted.expanded:hover { background-position: 0 _(11); }
 }
 
-.madeVisible {
-	clear: left;
-	display: block;
-	overflow: hidden;
-	user-select: none;
-
-	&.usertext-body {
-		user-select: text; // Allow selection if is a text expando
-	}
-
-	a.madeVisible {
-		display: inline-block;
-		overflow: hidden;
-	}
-}
-
 .res-expando-siteAttribution {
-	.madeVisible > & {
+	display: block;
+
+	.res-expando > & {
 		clear: left;
 		margin: .5em;
 
@@ -108,199 +100,197 @@ img {
 	}
 }
 
-.RESImage {
-	display: block !important;
-
-	&.loaded {
-		position: absolute;
-	}
-
-	&.RESImageError {
-		content: '';
-
-		&::after {
-			content: 'Loading of image ' attr(src) ' failed. Click to view directly';
-		}
-	}
-}
-
-.RESImagePlaceholder {
-	float: left;
-	display: block !important;
-}
-
 .RESdupeimg {
 	color: #000;
 	font-size: 10px;
 	user-select: none;
 }
 
-.RESClear {
-	clear: both;
-	margin-bottom: 10px;
-}
-
-.RESGalleryControls {
-	margin-bottom: 10px;
-
-	span {
-		line-height: 16px;
-		vertical-align: bottom;
-		padding: 0 5px;
-		font-size: 11px;
-	}
-
-	.next,
-	.previous {
-		&::after {
-			font: normal 18px/16px Batch;
-			content: '\F158';
-			cursor: pointer;
-			display: inline-block;
-			vertical-align: middle;
-			color: #90acff;
-			width: 16px;
-		}
-
-		&:hover::after {
-			color: #6286f4;
-		}
-	}
-
-	.end::after {
-		content: '\F157';
-	}
-
-	.next:not(.end)::after,
-	.previous.end::after {
-		transform: scaleX(-1);
-	}
-}
-
-.imgTitle,
-.md h3.imgTitle {
-	font-size: 13px;
-	margin: 0;
-}
-
-h4.imgCaptions,
-.md h4.imgCaptions {
-	font-size: 11px;
-	font-weight: bold;
-	margin: 0;
-}
-
-div.imgCaptions,
-.md div.imgCaptions {
-	font-size: 11px;
-	white-space: pre-wrap;
-}
-
-.imgCredits {
-	font-size: 11px;
-	padding: 2px;
-}
-
-body:not(.res-showImages-displayImageCaptions) {
-	.imgTitle,
-	.imgCaptions {
-		display: none;
-	}
-}
-
-a.madeVisible,
-div.madeVisible {
+.res-media-rotatable,
+.res-media-movable {
 	position: relative;
-
-	.RESMediaControls {
-		opacity: 0;
-	}
-
-	&:hover .RESMediaControls {
-		opacity: .8;
-		transition: opacity 300ms;
-	}
 }
 
-.RESMediaControls {
+
+.res-media-controls {
 	position: absolute;
+	display: inline-flex;
+	align-items: center;
 	z-index: 2;
-	border: none;
 	background: rgba(0, 0, 0, .3);
+	opacity: 0;
 	cursor: pointer;
 
-	// Support multiple positions. top left is default
-	&.top-left {
-		top: 10px;
-		left: 10px;
-	}
+	&-left { left: 10px; }
+	&-right { right: 10px; }
+	&-bottom { bottom: 10px; }
+	&-top { top: 10px; }
 
-	&.top-right {
-		top: 10px;
-		right: 10px;
-	}
-
-	&.bottom-right {
-		bottom: 10px;
-		right: 10px;
-	}
-
-	&.bottom-left {
-		bottom: 10px;
-		left: 10px;
-	}
-
-	span {
+	button {
+		border: none;
+		margin: 0 !important;
+		background: transparent;
 		padding: 6px;
-		vertical-align: middle;
-		font-size: 1rem;
-		color: #000;
-
-		&:hover {
-			background: rgba(30, 30, 30, .3);
-		}
+		filter: saturate(0);
+		line-height: 0;
 
 		&::after {
-			// particularly for .gearIcon
+			cursor: pointer;
+			line-height: 14px;
 			color: #eee;
 		}
 
-		&:hover::after {
-			color: #fff;
+		&:hover::after { color: #b9b9b9; }
+	}
+
+	&-lookup::after { content: '\F178'; }
+	&-rotate::after { content: '\F0B0'; }
+	&-rotate-left { transform: scaleX(-1); }
+
+	.res-media-rotatable:hover & {
+		opacity: .8;
+	}
+
+	body.res-media-resizing &,
+	.res-media-load-error & {
+		display: none !important;
+	}
+}
+
+.res-expando {
+	display: block;
+	clear: left; // Necessary on some custom stylesheets where .entry .flat-list has no height
+
+	.usertext-body {
+		user-select: text; // Allow selection if is a text expando
+	}
+
+	.res-expando-media {
+		width: inherit;
+
+		> * {
+			max-width: 100%;
+		}
+	}
+
+	.res-expando-independent {
+		z-index: 1;
+		position: absolute;
+	}
+
+	&[hidden],
+	[hidden] {
+		display: none !important;
+	}
+
+	.res-title {
+		font-size: 13px;
+	}
+
+	.res-caption {
+		font-size: 11px;
+		white-space: pre-wrap;
+	}
+
+	.res-credits {
+		font-size: 10px;
+	}
+}
+
+.res-gallery {
+	&,
+	.res-gallery-pieces {
+		width: 100%;
+	}
+
+	.res-gallery-piece-block > * {
+		max-width: 100%;
+	}
+
+	.res-gallery-title {
+		margin: 3px;
+		font-size: 15px;
+	}
+
+	.res-gallery-caption {
+		margin-bottom: 3px;
+		font-size: 12px;
+	}
+
+	.res-gallery-individual-controls {
+		display: flex;
+		align-items: center;
+		margin: 4px 0 4px 10px;
+
+		&[last-piece=true] .res-gallery-next::after,
+		&[first-piece=true] .res-gallery-previous::after {
+			content: '\F157';
 		}
 
-		&.rotateLeft {
+		&[last-piece=true] .res-gallery-next,
+		&[first-piece=true] .res-gallery-previous {
 			transform: scaleX(-1);
+		}
+	}
+
+	.res-gallery-below {
+		margin: 0 5px 5px 5px;
+		font-size: 11px;
+
+		> div {
+			display: flex;
+			justify-content: space-between;
+			padding-top: 3px;
+		}
+
+		.res-gallery-increase-concurrent {
+			cursor: pointer;
+		}
+	}
+
+	&:not(.res-gallery-slideshow) {
+		.res-gallery-individual-controls {
+			display: none;
+		}
+	}
+}
+
+.res-image {
+	a {
+		// Limits width to that of child elements
+		display: table;
+	}
+
+	.res-image-media {
+		user-select: none;
+
+		@at-root .res-media-load-error#{&} {
+			content: '';
 
 			&::after {
-				content: '\F0B0';
+				content: 'Loading of image ' attr(src) ' failed. Click to view directly';
 			}
 		}
-
-		&.rotateRight::after {
-			content: '\F0B0';
-		}
-
-		&.imageLookup::after {
-			content: '\F178';
-		}
 	}
 }
 
-.res-player {
-	position: absolute;
-
-	// Hide "lookup" button on video's
-	.RESMediaControls .imageLookup {
-		display: none;
-	}
-}
-
-// video-advanced
 .video-advanced {
-	overflow: hidden;
+	display: inline-block;
 
-	> a.madeVisible,
+	.video-advanced-container {
+		overflow: hidden;
+		position: relative;
+		display: inline-block;
+
+		&:hover .video-advanced-interface:not(.video-advanced-push-below) {
+			display: block;
+			background: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, .6));
+			position: absolute;
+			bottom: 0;
+			width: 100%;
+		}
+	}
+
 	video {
 		display: block;
 	}
@@ -377,7 +367,7 @@ div.madeVisible {
 			}
 
 			.video-advanced-error {
-				color: red;
+				color: coral;
 			}
 
 			.video-advanced-controls {
@@ -435,18 +425,6 @@ div.madeVisible {
 		}
 	}
 
-	&:hover .video-advanced-interface:not(.video-advanced-push-below) {
-		display: block;
-		background: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, .6));
-		position: absolute;
-		bottom: 0;
-		width: 100%;
-	}
-
-	[hidden] {
-		display: none !important;
-	}
-
 	&.playing .video-advanced-toggle-pause::after { content: '\f16c'; }
 	&:not(.playing) .video-advanced-toggle-pause::after { content: '\f16b'; }
 
@@ -462,7 +440,7 @@ div.madeVisible {
 }
 
 // style expando text content in comments
-.commentarea div.usertext-body.madeVisible .md {
+.commentarea .res-expando div.usertext-body .md {
 	background-color: #fafafa;
 	border: 1px solid #369;
 	border-radius: 7px;
@@ -473,5 +451,50 @@ div.madeVisible {
 		color: rgb(221, 221, 221);
 		border-color: rgb(102, 102, 102);
 		background: none;
+	}
+}
+
+body:not(.res-showImages-displayImageCaptions) {
+	.res-caption,
+	.res-credits {
+		display: none;
+	}
+}
+
+.res-showImages-captionsPosition {
+	@at-root {
+		.res-image,
+		.res-gallery {
+			display: inline-flex;
+			flex-direction: column;
+		}
+
+		// Keep these below any captions
+		.res-gallery-below,
+		.res-expando-siteAttribution,
+		.res-gallery-increase-concurrent {
+			order: 2;
+		}
+	}
+
+	&-creditsBelow {
+		.res-credits {
+			order: 1;
+		}
+	}
+
+	&-titleAbove {
+		.res-caption,
+		.res-credits {
+			order: 1;
+		}
+	}
+
+	&-allBelow {
+		.res-title,
+		.res-caption,
+		.res-credits {
+			order: 1;
+		}
 	}
 }

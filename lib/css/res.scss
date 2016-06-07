@@ -1777,58 +1777,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 	}
 }
 
-#url-field {
-	.progress-wrapper {
-		width: 500px;
-		height: 8px;
-		position: absolute;
-		top: 54px;
-		left: 10px;
-		overflow: hidden;
-
-		.progress {
-			display: block;
-			position: absolute;
-			left: 0;
-			top: 0;
-			height: 8px;
-		}
-	}
-
-	.progress {
-		animation: progressbar 1s linear infinite;
-		background-color: #149bdf;
-		background-image: linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
-		background-size: 40px 40px;
-
-		&.progress-stalled {
-			background-image: none;
-		}
-
-		&.progress-grey {
-			background-color: #888;
-		}
-
-		&.progress-green {
-			background-color: #5eb95e;
-		}
-
-		&.progress-red {
-			background-color: #ff0000;
-		}
-	}
-}
-
-@keyframes progressbar {
-	from {
-		background-position: 0 0;
-	}
-
-	to {
-		background-position: 39px 0;
-	}
-}
-
 #RESStyleSheetTipPane {
 	display: none;
 	position: relative;
@@ -1865,5 +1813,48 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 	li p {
 		margin: .75em 0;
+	}
+}
+
+.res-step {
+	&::after {
+		font: normal 18px/16px Batch;
+		content: '\F158';
+		cursor: pointer;
+		display: inline-block;
+		vertical-align: middle;
+		color: #90acff;
+		width: 16px;
+	}
+
+	&:hover::after {
+		color: #6286f4;
+	}
+
+	&.res-step-reverse::after {
+		transform: scaleX(-1);
+	}
+}
+
+.res-step-progress {
+	font-size: 13px;
+	min-width: 60px;
+	text-align: center;
+}
+
+.tabmenu li.res-tabmenu-button {
+	user-select: none;
+	display: inline-block;
+
+	label {
+		cursor: pointer;
+
+		&::after {
+			content: attr(aftercontent);
+		}
+	}
+
+	input {
+		display: none;
 	}
 }

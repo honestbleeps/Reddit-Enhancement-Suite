@@ -1,4 +1,6 @@
-import { createMessageHandler } from '../lib/environment/_helpers';
+/* eslint-env webextensions */
+
+import { createMessageHandler } from '../lib/environment/_messaging';
 import { extendDeep, keyedMutex, waitForEvent } from '../lib/utils';
 import { apiToPromise } from './_helpers';
 

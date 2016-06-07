@@ -2,9 +2,9 @@
 
 import 'babel-polyfill';
 
-import Cache from '../lib/utils/Cache';
-
-import { createMessageHandler } from '../lib/environment/_helpers';
+import { addCommonBackgroundListeners } from '../lib/environment/_common';
+import { createMessageHandler } from '../lib/environment/_messaging';
+import { extendDeep } from '../lib/utils/object';
 
 const {
 	_handleMessage,
@@ -17,6 +17,8 @@ safari.application.addEventListener('message', ({ name: type, message: obj, targ
 });
 
 // Listeners
+
+addCommonBackgroundListeners(addListener);
 
 addListener('ajax', async ({ method, url, headers, data, credentials }) => {
 	const request = new XMLHttpRequest();
@@ -49,19 +51,6 @@ addListener('ajax', async ({ method, url, headers, data, credentials }) => {
 	};
 });
 
-// Circular references can't exist in storage, so we don't need to consider that
-// and only enumerable own properties are sent in messages
-function extend(target, source) {
-	for (const key in source) {
-		if (target[key] && source[key] && typeof target[key] === 'object' && typeof source[key] === 'object') {
-			extend(target[key], source[key]);
-		} else {
-			target[key] = source[key];
-		}
-	}
-	return target;
-}
-
 addListener('storage', ([operation, key, value]) => {
 	switch (operation) {
 		case 'get':
@@ -88,7 +77,7 @@ addListener('storage', ([operation, key, value]) => {
 		case 'patch':
 			try {
 				const stored = JSON.parse(localStorage.getItem(key)) || {};
-				localStorage.setItem(key, JSON.stringify(extend(stored, value)));
+				localStorage.setItem(key, JSON.stringify(extendDeep(stored, value)));
 			} catch (e) {
 				throw new Error(`Failed to patch: ${key} - error: ${e}`);
 			}
@@ -118,24 +107,6 @@ addListener('storage', ([operation, key, value]) => {
 	}
 });
 
-const session = new Map();
-
-addListener('session', ([operation, key, value]) => {
-	switch (operation) {
-		case 'get':
-			return session.get(key);
-		case 'set':
-			session.set(key, value);
-			break;
-		case 'delete':
-			return session.delete(key);
-		case 'clear':
-			return session.clear();
-		default:
-			throw new Error(`Invalid session operation: ${operation}`);
-	}
-});
-
 addListener('openNewTabs', ({ urls, focusIndex }, tab) => {
 	// Really? No SafariBrowserTab::index?
 	let currentIndex = Array.from(tab.browserWindow.tabs).findIndex(t => t === tab);
@@ -146,23 +117,6 @@ addListener('openNewTabs', ({ urls, focusIndex }, tab) => {
 			++currentIndex
 		).url = url
 	));
-});
-
-const cache = new Cache();
-
-addListener('XHRCache', ({ operation, key, value, maxAge }) => {
-	switch (operation) {
-		case 'set':
-			return cache.set(key, value);
-		case 'check':
-			return cache.check(key, maxAge);
-		case 'delete':
-			return cache.delete(key);
-		case 'clear':
-			return cache.clear();
-		default:
-			throw new Error(`Invalid XHRCache operation: ${operation}`);
-	}
 });
 
 addListener('isPrivateBrowsing', (request, tab) => tab.private);

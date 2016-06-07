@@ -116,10 +116,16 @@
 	text-align: center;
 	padding-top: 11px;
 
+	.dashboardLoader {
+		display: inline-block;
+		width: 16px;
+		height: 16px;
+		background-image: url('../images/dashboardLoader.gif');
+	}
+
 	span {
-		position: relative;
-		top: -6px;
-		left: 5px;
+		vertical-align: middle;
+		margin: 0 5px;
 	}
 }
 

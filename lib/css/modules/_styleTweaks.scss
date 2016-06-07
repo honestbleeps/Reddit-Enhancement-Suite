@@ -48,6 +48,16 @@ blockquote.twitter-tweet {
 	.edited-timestamp { font-weight: bolder; }
 }
 
+.res-colorblind {
+	#mail,
+	#NREMail {
+		&.havemail {
+			background-image: url('../images/colorblindMail.png');
+			background-position: 0 0;
+		}
+	}
+}
+
 .res-navTop {
 	#header-bottom-right {
 		top: 19px;

@@ -48,42 +48,68 @@ Thinking about contributing to RES? Awesome! We just ask that you follow a few s
 
 ##### Top level files and folders
 
-  - `README.md`: YOU ARE HERE, unless you're browsing on GitHub
-  - `changelog.txt`: self-explanatory
-  - `gulpfile.babel.js`: build script
-  - `package.json`: package info, dependencies
+  - `assets/`: RES logo source
+  - `chrome/`: Chrome-specific RES files
+  - `dist/`: build output
+  - `edge/`: Microsoft Edge-specific RES files
+  - `examples/`: example code for new hosts/modules
+  - `firefox/`: Firefox-specific RES files
   - `lib/`: all RES code
   - `lib/core/`: core RES code
+  - `lib/css/`: RES css
+  - `lib/environment/`: RES environment code
+  - `lib/images/`: RES images
   - `lib/modules/`: RES modules
-  - `lib/vendor/`: RES vendor libraries
-  - `chrome/`: Chrome-specific RES files
-  - `firefox/`: Firefox-specific RES files
+  - `lib/templates/`: RES templates
+  - `lib/utils/`: RES utilities
+  - `lib/vendor/`: RES vendor libraries 
+  - `node/`: Node files
   - `safari/`: Safari-specific RES files
-  - `dist/`: build output
+  - `utils/`: Misc RES utilities
+  - `CHANGELOG.md`: self-explanatory 
+  - `README.md`: YOU ARE HERE, unless you're browsing on GitHub
+  - `gulpfile.babel.js`: post-build script for zipping folders.
+  - `package.json`: package info, dependencies
+  - `webpack.config.babel.js`: build script
   - `**/__tests__`: unit tests
 
 ##### Chrome files
 
-  - `background.js`: the "background page" for RES, necessary for Chrome extensions
-  - `manifest.json`: the project manifest
+  - `images/css-off-small.png`, `images/css-off.png`, `images/css-on-small.png`, `images/css-on.png`: icons for css disable button.
+  - `background.entry.js`: the "background page" for RES, necessary for Chrome extensions
+  - `environment.js`: specific environment settings for Chrome
   - `icon.png`, `icon48.png`, `icon128.png`: icons!
+  - `manifest.json`: the project manifest
+  - `options.html`: options page for chrome extensions
 
+##### Microsoft Edge files
+
+  - `background-edge.html`: the "background page" for RES, necessary for Microsoft Edge extensions
+  - `edge.entry.js`: shim to allow chrome extension code usage
+  - `environment.js`: Edge-specific overrides of the Chrome environment
+  - `manifest.json`: the project manifest
+  
 ##### Firefox files
 
-  - `index.js`: this is Firefox's sort of "background page" for RES, like what Chrome has, but just a JS file
+  - `images/css-disabled-small.png`, `images/css-disabled.png`, `images/css-off-small.png`, `images/css-off.png`, `images/css-on-small.png`, `images/css-on.png`: icons for css disable button.
+  - `background.entry.js`: the "background page" for RES, necessary for Firefox extensions
+  - `environment.js`: specific environment settings for Firefox
   - `package.json`: the project manifest for the Firefox add-on
 
 ##### Safari files
 
-  - `background-safari.html`: the "background page" for RES, necessary for Safari extensions
   - `Info.plist`: the project manifest
+  - `background-safari.html`: the "background html page" for RES, necessary for Safari extensions
+  - `background.entry.js`: the "background page" for RES, necessary for Safari extensions
+  - `environment.js`: specific environment settings for Safari
   - `icon.png`, `icon48.png`, `icon128.png`: icons!
 
 ## Building development versions of the extension
 
 First time installation:
 
-1. Install [node.js](http://nodejs.org) (version >= 5).
+1. Install [git](https://git-scm.com/).
+1. Install [node.js](https://nodejs.org) (version >= 5).
 1. Install [Python 2](https://www.python.org/downloads/) (*not* version 3).
 1. Navigate to your RES folder.
 1. Run `npm install`.
@@ -115,6 +141,13 @@ Helpful note: `npm run lint-fix` can autofix many whitespace and separator-relat
   1. Go to `Menu->Tools->Extensions` and tick the `Developer Mode` checkbox
   2. Choose `Load unpacked extension` and point it to the `dist/chrome` folder. Make sure you only have one RES version running at a time.
   3. Any time you make changes to the script, you must go back to the `Menu->Tools->Extensions` page and `Reload` the extension.
+  
+##### Building in Microsoft Edge
+
+  1. Go to `about:flags` and tick the `Enable extension developer features` checkbox.
+  2. Set the permissions on the extensions folder by running the following command in cmd within the directory. `icacls "%cd%" /grant "*S-1-15-2-3624051433-2125758914-1423191267-1740899205-1073925389-3782572162-737981194":"(OI)(CI)(WDAC,WO,GE)"`
+  3. Choose `Load extension` on the extensions menu and select your extensions folder.
+  4. Any time you make changes to the extension, you must go back to the `Menu->Extensions` page, go to the extensions settings and `Reload` the extension.
 
 ##### Building in Firefox
 
@@ -134,7 +167,7 @@ Helpful note: `npm run lint-fix` can autofix many whitespace and separator-relat
 
 In addition to building your own version of RES, you can download older (or current) builds of RES for testing purposes.
 
-(Almost) every commit to master is quickly archived away at http://allthefoxes.me; if you would like access to this database, please contact [/u/allthefoxes on reddit](https://www.reddit.com/u/allthefoxes) or email [fox@allthefoxes.me](mailto:fox@allthefoxes.me).
+(Almost) every commit to master is quickly archived away at http://allthefoxes.me; if you would like access to this database, please contact [/u/allthefoxes on reddit](https://www.reddit.com/user/allthefoxes) or email [fox@allthefoxes.me](mailto:fox@allthefoxes.me).
 
 All that is asked is that you have at least one previous contribution to RES.
 
@@ -158,7 +191,7 @@ It will automatically be loaded when the build script is restarted.
 
 ##### Stylesheets
 
-Create a new Sass partial under `lib/css/` (with a leading underscore, e.g. `_myPartial.scss`).
+Create a new Sass partial under `lib/css/modules/` (with a leading underscore, e.g. `_myPartial.scss`).
 Import the file in `lib/css/res.scss` (i.e. `@import 'modules/myPartial';`—do not include the underscore or file extension).
 
 Body classes will be automatically added for boolean and enum options with the property `bodyClass: true`, in the form `.res-moduleId-optionKey` for boolean options (only when they're enabled), and `.res-moduleId-optionKey-optionValue` for enums.
