@@ -145,9 +145,8 @@ Helpful note: `npm run lint-fix` can autofix many whitespace and separator-relat
 ##### Building in Microsoft Edge
 
   1. Go to `about:flags` and tick the `Enable extension developer features` checkbox.
-  2. Set the permissions on the extensions folder by running the following command in cmd within the directory. `icacls "%cd%" /grant "*S-1-15-2-3624051433-2125758914-1423191267-1740899205-1073925389-3782572162-737981194":"(OI)(CI)(WDAC,WO,GE)"`
-  3. Choose `Load extension` on the extensions menu and select your extensions folder.
-  4. Any time you make changes to the extension, you must go back to the `Menu->Extensions` page, go to the extensions settings and `Reload` the extension.
+  2. Choose `Load extension` on the extensions menu and select your extensions folder.
+  3. Any time you make changes to the extension, you must go back to the `Menu->Extensions` page, go to the extensions settings and `Reload` the extension.
 
 ##### Building in Firefox
 
