@@ -44,7 +44,8 @@ img {
 	}
 
 	&.image,
-	&.video-muted {
+	&.video-muted,
+	&.expando-button-loading {
 		vertical-align: top !important;
 		float: left;
 		width: 23px;
@@ -55,11 +56,25 @@ img {
 		background-image: url('../images/expandoButtons.png');
 		margin-right: 6px;
 		padding: 0;
+	}
 
-		&.commentImg {
-			float: none;
-			margin-left: 4px;
+	&.commentImg {
+		vertical-align: middle !important;
+		float: none;
+		margin: 0 4px;
+
+		+ .res-expando-box {
+			margin-top: 3px;
 		}
+
+		// Override native
+		&.selftext.expanded {
+			margin-bottom: initial;
+		}
+	}
+
+	&.expando-button-duplicate {
+		filter: sepia(1);
 	}
 
 	@function _($i) { @return $i * -24px; }
@@ -76,12 +91,13 @@ img {
 	&.video-muted.collapsed:hover { background-position: 0 _(9); }
 	&.video-muted.expanded { background-position: 0 _(10); }
 	&.video-muted.expanded:hover { background-position: 0 _(11); }
+	&.expando-button-loading { background-position: 0 _(12); }
 }
 
 .res-expando-siteAttribution {
 	display: block;
 
-	.res-expando > & {
+	.res-expando-box > & {
 		clear: left;
 		margin: .5em;
 
@@ -98,12 +114,6 @@ img {
 		max-height: 20px;
 		vertical-align: middle;
 	}
-}
-
-.RESdupeimg {
-	color: #000;
-	font-size: 10px;
-	user-select: none;
 }
 
 .res-media-keep-visible,
@@ -158,7 +168,7 @@ img {
 	}
 }
 
-.res-expando {
+.res-expando-box {
 	display: block;
 	clear: left; // Necessary on some custom stylesheets where .entry .flat-list has no height
 
@@ -441,7 +451,7 @@ img {
 }
 
 // style expando text content in comments
-.commentarea .res-expando div.usertext-body .md {
+.commentarea .res-expando-box div.usertext-body .md {
 	background-color: #fafafa;
 	border: 1px solid #369;
 	border-radius: 7px;
