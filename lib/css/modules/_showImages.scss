@@ -151,7 +151,7 @@ img {
 		opacity: .8;
 	}
 
-	body.res-media-resizing &,
+	.res-media-dragging &,
 	.res-media-load-error & {
 		display: none !important;
 	}
