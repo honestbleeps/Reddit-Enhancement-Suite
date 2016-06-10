@@ -316,7 +316,6 @@ addListener('addURLToHistory', url => {
 
 addListener('isURLVisited', url =>
 	new Promise(resolve => {
-		/* eslint no-unused-vars: ["error", { "args": "none" }] */
 		historyService.isURIVisited(ioService.newURI(url, undefined, undefined), (aURI, visited) => {
 			resolve(visited);
 		});
