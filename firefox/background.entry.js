@@ -314,6 +314,14 @@ addListener('addURLToHistory', url => {
 	});
 });
 
+addListener('isURLVisited', url =>
+	new Promise(resolve => {
+		historyService.isURIVisited(ioService.newURI(url, undefined, undefined), (aURI, visited) => {
+			resolve(visited);
+		});
+	})
+);
+
 addListener('multicast', (request, worker) => {
 	const isPrivate = priv.isPrivate(worker);
 	return Promise.all(

@@ -148,6 +148,10 @@ addListener('addURLToHistory', url => {
 	chrome.history.addUrl({ url });
 });
 
+addListener('isURLVisited', async url =>
+	(await apiToPromise(chrome.history.getVisits)({ url })).length > 0
+);
+
 chrome.pageAction.onClicked.addListener(({ id: tabId }) =>
 	sendMessage('pageActionClick', undefined, { tabId })
 );

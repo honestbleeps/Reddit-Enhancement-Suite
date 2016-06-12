@@ -48,5 +48,8 @@ addInterceptor('deleteCookies', cookies => {
 // The iframe hack doesn't work anymore, so Safari has no way to add urls to history
 addInterceptor('addURLToHistory', () => {});
 
+// XXX Not implemented; default to not visited to avoid potenial side-effects
+addInterceptor('isURLVisited', () => false);
+
 // Safari has no pageAction
 addInterceptor('pageAction', () => {});
