@@ -409,13 +409,13 @@ img {
 						text-align: center;
 					}
 
-					@at-root :not(.playing)#{&} {
+					@at-root #{selector-append(':not(.playing)', &)} {
 						&.video-advanced-playback-rate {
 							display: none;
 						}
 					}
 
-					@at-root .playing#{&} {
+					@at-root #{selector-append('.playing', &)} {
 						&.video-advanced-current-time {
 							display: none;
 						}
