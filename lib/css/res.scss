@@ -844,7 +844,7 @@ a.RESConsoleButton {
 		background: #225599;
 	}
 
-	&::-moz-focus-inner { // scss-lint:disable PseudoElement
+	&::-moz-focus-inner {
 		border: none;
 		padding: 0;
 	}

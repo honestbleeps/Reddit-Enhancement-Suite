@@ -128,11 +128,9 @@ To load the extension into your browser, see [the sections below](#building-in-c
 
 `<browsers>` is a comma-separated list of browsers to target, e.g. `chrome,firefox,safari,node`. By default, `chrome` will be targeted.
 
-**`npm run lint`** will verify the code style (and point out any errors) of all `.js` files in `lib/` (except `lib/vendor/`) using [ESLint](http://eslint.org/), as well as all `.scss` files with [scss-lint](https://github.com/brigade/scss-lint).
+**`npm run lint`** will verify the code style (and point out any errors) of all `.js` files in `lib/` (except `lib/vendor/`) using [ESLint](http://eslint.org/), as well as all `.scss` files with [sass-lint](https://github.com/sasstools/sass-lint).
 
-Note: You will need to install [Ruby](https://www.ruby-lang.org/) and run `npm run external-deps` before using `npm run lint`.
-
-Helpful note: `npm run lint-fix` can autofix many whitespace and separator-related lint issues.
+**`npm run lint-fix`** will autofix any [fixable](http://eslint.org/docs/user-guide/command-line-interface#fix) lint issues.
 
 **`npm test`** will run unit tests (in `__tests__` directories).
 

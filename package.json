@@ -12,7 +12,6 @@
     "url": "https://github.com/honestbleeps/Reddit-Enhancement-Suite.git"
   },
   "scripts": {
-    "external-deps": "gem install scss_lint",
     "preinstall": "npm -v && node -v && python --version && git rev-parse HEAD && git status --porcelain",
     "prestart": "rimraf dist",
     "start": "cross-env NODE_ENV=development webpack --watch --browsers",
@@ -23,8 +22,8 @@
     "postbuild": "gulp zip",
     "test": "ava",
     "eslint": "eslint .",
-    "scsslint": "scss-lint",
-    "lint": "npm run eslint && npm run scsslint",
+    "sass-lint": "sass-lint -v -q",
+    "lint": "npm run eslint && npm run sass-lint",
     "lint-fix": "eslint . --fix",
     "coverage": "cross-env NODE_ENV=test nyc --all --require babel-core/register ava",
     "report-coverage": "nyc report --reporter=text-lcov | coveralls"
@@ -109,6 +108,7 @@
     "progress-bar-webpack-plugin": "1.6.0",
     "prop-loader": "0.0.5",
     "rimraf": "2.5.2",
+    "sass-lint": "1.8.0",
     "sass-loader": "3.2.0",
     "spawn-loader": "0.1.0",
     "url-loader": "0.5.7",
