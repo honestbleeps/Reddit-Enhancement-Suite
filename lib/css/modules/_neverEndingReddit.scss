@@ -71,7 +71,8 @@
 
 // hide next/prev page and random subreddit indicators
 .res-ner-listing {
-	~ .nextprev, // for /about/log
+	// for /about/log
+	~ .nextprev,
 	div.nav-buttons,
 	.nav-buttons .nextprev {
 		display: none;

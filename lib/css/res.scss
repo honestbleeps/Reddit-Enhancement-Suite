@@ -144,7 +144,7 @@ body.res-console-open {
 
 	&::before,
 	&::after {
-		font: normal 14px/1 "Batch";
+		font: normal 14px/1 'Batch';
 		vertical-align: middle;
 	}
 
@@ -536,15 +536,15 @@ div.usertext-edit {
 	border-color: #000;
 }
 
-%warningIcon {
+%warning-icon {
 	content: '\F15A';
 	margin-left: 3px;
 	color: rgb(230, 30, 30);
-	font: normal 11px "Batch";
+	font: normal 11px 'Batch';
 }
 
 #RESAllOptionsSpan::after {
-	@extend %warningIcon;
+	@extend %warning-icon;
 }
 
 .optionContainer {
@@ -579,7 +579,7 @@ div.usertext-edit {
 	}
 
 	&.advanced .optionTitle::before {
-		@extend %warningIcon;
+		@extend %warning-icon;
 		margin: 0 4px 0 -15px; // 4+(-15) = 11 == Batch font-size
 	}
 
@@ -841,10 +841,10 @@ a.RESConsoleButton {
 	}
 
 	&.optionsSaved::before {
-		background: #225599;
+		background: #259;
 	}
 
-	&::-moz-focus-inner { // scss-lint:disable PseudoElement
+	&::-moz-focus-inner {
 		border: none;
 		padding: 0;
 	}
@@ -1582,8 +1582,8 @@ div.RESSortPlaceholder::after {
 		}
 	}
 
-	input[type="text"],
-	input[type="checkbox"] {
+	input[type='text'],
+	input[type='checkbox'] {
 		float: none;
 		margin-left: initial;
 		width: auto;
@@ -1617,7 +1617,7 @@ div.RESSortPlaceholder::after {
 	.durationField {
 		display: inline-block;
 
-		input[type="number"] {
+		input[type='number'] {
 			width: 3em;
 			//margin-left: 1ex;
 		}
@@ -1680,7 +1680,7 @@ div.RESSortPlaceholder::after {
 .checkset {
 	display: inline-block;
 
-	input[type="checkbox"] {
+	input[type='checkbox'] {
 		display: none;
 	}
 
@@ -1707,7 +1707,7 @@ div.RESSortPlaceholder::after {
 	}
 }
 
-/*
+/*!
 (cs)spinner.css - http://jh3y.github.io/-cs-spinner
 Licensed under the MIT license
 
@@ -1731,7 +1731,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		right: 0;
 		bottom: 0;
 		left: 0;
-		background-color: #999999;
+		background-color: #999;
 		opacity: .6;
 	}
 
@@ -1746,7 +1746,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		margin: -24px 0 0 -24px;
 		transition: all .75s ease 0s;
 		border-radius: 100%;
-		border-top: 4px solid #555555;
+		border-top: 4px solid #555;
 		animation: fadeIn 2s 1 cubic-bezier(.3, .25, .7, .15), standard .75s infinite linear;
 		transform-origin: center;
 	}
