@@ -34,7 +34,8 @@
     ],
     "require": [
       "babel-core/register"
-    ]
+    ],
+    "babel": "inherit"
   },
   "nyc": {
     "exclude": [
