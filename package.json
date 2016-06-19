@@ -20,7 +20,7 @@
     "prebuild": "rimraf dist",
     "build": "cross-env NODE_ENV=production webpack --browsers",
     "postbuild": "gulp zip",
-    "test": "ava",
+    "test": "cross-env NODE_ENV=test ava",
     "eslint": "eslint .",
     "sass-lint": "sass-lint -v -q",
     "lint": "npm run eslint && npm run sass-lint",
@@ -34,7 +34,8 @@
     ],
     "require": [
       "babel-core/register"
-    ]
+    ],
+    "babel": "inherit"
   },
   "nyc": {
     "exclude": [
