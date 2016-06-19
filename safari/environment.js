@@ -1,7 +1,5 @@
 /* global safari: false */
 
-import 'babel-polyfill';
-
 import resCss from '../lib/css/res.scss';
 
 import { createMessageHandler } from '../lib/environment/_messaging';

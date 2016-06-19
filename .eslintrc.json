@@ -56,7 +56,9 @@
 
 		"prefer-spread/prefer-object-spread": 2,
 
-		"filenames/filenames": [2, ".*", "match-regex-and-exported"],
+		"filenames/match-regex": 0,
+		"filenames/match-exported": 2,
+		"filenames/no-index": 0,
 
 		"import/no-unresolved": 2,
 		"import/named": 2,

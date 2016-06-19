@@ -1,7 +1,5 @@
 /* global safari: false */
 
-import 'babel-polyfill';
-
 import { addCommonBackgroundListeners } from '../lib/environment/_common';
 import { createMessageHandler } from '../lib/environment/_messaging';
 import { extendDeep } from '../lib/utils/object';
