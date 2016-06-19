@@ -1395,44 +1395,20 @@ body.RESScrollLock {
 	content: attr(data-text);
 }
 
-.RESThrobber,
-.RESThrobber::before,
-.RESThrobber::after {
-	font-size: 0;
-	position: relative;
+.RESLoadingSpinner {
+	color: hsl(210, 80%, 50%);
+	font-size: inherit; // Determines size of the icon.
 	display: inline-block;
-	background: #ccf;
-	height: 30px;
-	width: 30px;
+	vertical-align: text-bottom;
+	width: 1em;
+	height: .5em;
+	border-bottom: .5em solid;
 	border-radius: 50%;
-	box-shadow: inset 0 0 5px 1px #222;
-	animation: RESThrobber 1400ms 400ms infinite linear;
+	animation: spin 1000ms 0ms infinite linear;
 }
 
-.RESThrobber {
-	margin: 0 35px -7.5px;
-}
-
-.RESThrobber::before {
-	left: -115%;
-	animation-delay: 200ms;
-}
-
-.RESThrobber::after {
-	left: 115%;
-	animation-delay: 600ms;
-}
-
-.RESThrobber::before,
-.RESThrobber::after {
-	content: '';
-	position: absolute;
-	top: 0;
-}
-
-@keyframes RESThrobber {
-	30% { background: transparent; }
-	70% { background: transparent; }
+@keyframes spin {
+	100% { transform: rotate(360deg); }
 }
 
 // Handle multireddit bar on savedComments page
