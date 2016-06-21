@@ -1793,6 +1793,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 }
 
 .res-step {
+	user-select: none;
+
 	&::after {
 		font: normal 18px/16px Batch;
 		content: '\F158';
