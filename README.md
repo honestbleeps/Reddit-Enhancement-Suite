@@ -109,7 +109,7 @@ Thinking about contributing to RES? Awesome! We just ask that you follow a few s
 First time installation:
 
 1. Install [git](https://git-scm.com/).
-1. Install [node.js](https://nodejs.org) (version >= 5).
+1. Install [node.js](https://nodejs.org) (version >= 6).
 1. Install [Python 2](https://www.python.org/downloads/) (*not* version 3).
 1. Navigate to your RES folder.
 1. Run `npm install`.
