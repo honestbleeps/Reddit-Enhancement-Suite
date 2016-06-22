@@ -54,6 +54,7 @@ Thinking about contributing to RES? Awesome! We just ask that you follow a few s
   - `edge/`: Microsoft Edge-specific RES files
   - `examples/`: example code for new hosts/modules
   - `firefox/`: Firefox-specific RES files
+  - `images/`: Images for RES logo and CSS icons
   - `lib/`: all RES code
   - `lib/core/`: core RES code
   - `lib/css/`: RES css
@@ -78,7 +79,6 @@ Thinking about contributing to RES? Awesome! We just ask that you follow a few s
   - `images/css-off-small.png`, `images/css-off.png`, `images/css-on-small.png`, `images/css-on.png`: icons for css disable button.
   - `background.entry.js`: the "background page" for RES, necessary for Chrome extensions
   - `environment.js`: specific environment settings for Chrome
-  - `icon.png`, `icon48.png`, `icon128.png`: icons!
   - `manifest.json`: the project manifest
   - `options.html`: options page for chrome extensions
 
@@ -102,7 +102,6 @@ Thinking about contributing to RES? Awesome! We just ask that you follow a few s
   - `background-safari.html`: the "background html page" for RES, necessary for Safari extensions
   - `background.entry.js`: the "background page" for RES, necessary for Safari extensions
   - `environment.js`: specific environment settings for Safari
-  - `icon.png`, `icon48.png`, `icon128.png`: icons!
 
 ## Building development versions of the extension
 
