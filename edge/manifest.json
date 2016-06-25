@@ -8,7 +8,6 @@
 		"page": "{{./background-edge.html}}",
 		"persistent": true
 	},
-	"homepage_url": "http://redditenhancementsuite.com",
 	"options_page": "{{../chrome/options.html}}",
 	"content_scripts": [
 		{
@@ -42,9 +41,7 @@
 	"permissions": [
 		"cookies",
 		"tabs",
-		"history",
 		"storage",
-		"unlimitedStorage",
 		"http://redditenhancementsuite.com/",
 		"http://reddit.com/*",
 		"https://reddit.com/*",
