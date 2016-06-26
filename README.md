@@ -54,6 +54,7 @@ Thinking about contributing to RES? Awesome! We just ask that you follow a few s
   - `edge/`: Microsoft Edge-specific RES files
   - `examples/`: example code for new hosts/modules
   - `firefox/`: Firefox-specific RES files
+  - `images/`: Images for RES logo and CSS icons
   - `lib/`: all RES code
   - `lib/core/`: core RES code
   - `lib/css/`: RES css
@@ -75,7 +76,6 @@ Thinking about contributing to RES? Awesome! We just ask that you follow a few s
 
 ##### Chrome files
 
-  - `images/css-off-small.png`, `images/css-off.png`, `images/css-on-small.png`, `images/css-on.png`: icons for css disable button.
   - `background.entry.js`: the "background page" for RES, necessary for Chrome extensions
   - `environment.js`: specific environment settings for Chrome
   - `icon.png`, `icon48.png`, `icon128.png`: icons!
@@ -91,7 +91,6 @@ Thinking about contributing to RES? Awesome! We just ask that you follow a few s
   
 ##### Firefox files
 
-  - `images/css-disabled-small.png`, `images/css-disabled.png`, `images/css-off-small.png`, `images/css-off.png`, `images/css-on-small.png`, `images/css-on.png`: icons for css disable button.
   - `background.entry.js`: the "background page" for RES, necessary for Firefox extensions
   - `environment.js`: specific environment settings for Firefox
   - `package.json`: the project manifest for the Firefox add-on

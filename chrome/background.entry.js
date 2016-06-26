@@ -35,10 +35,10 @@
 import { addCommonBackgroundListeners } from '../lib/environment/_common';
 import { createMessageHandler } from '../lib/environment/_messaging';
 
-import cssOff from './images/css-off.png';
-import cssOffSmall from './images/css-off-small.png';
-import cssOn from './images/css-on.png';
-import cssOnSmall from './images/css-on-small.png';
+import cssOff from '../images/css-off.png';
+import cssOffSmall from '../images/css-off-small.png';
+import cssOn from '../images/css-on.png';
+import cssOnSmall from '../images/css-on-small.png';
 
 import { apiToPromise } from './_helpers';
 
