@@ -1178,20 +1178,15 @@ a.RESConsoleButton {
 }
 
 .RES-spoiler {
-	font-style: italic;
-	text-decoration: dotted underline;
-	cursor: help;
-}
+	.RES-spoiler-title {
+		font-style: italic;
+		text-decoration: dotted underline;
+		cursor: help;
+	}
 
-.RES-spoiler-contents {
-	display: none;
-}
-
-.RES-spoiler:hover + .RES-spoiler-contents,
-.RES-spoiler:active + .RES-spoiler-contents,
-.RES-spoiler-contents:active,
-.RES-spoiler-contents:hover {
-	display: inline-block;
+	&:not(:hover):not(:active) .RES-spoiler-contents {
+		display: none;
+	}
 }
 
 .guider dl {
