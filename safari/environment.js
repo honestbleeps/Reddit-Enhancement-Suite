@@ -5,6 +5,10 @@ import resCss from '../lib/css/res.scss';
 import { createMessageHandler } from '../lib/environment/_messaging';
 import { nonNull } from '../lib/utils';
 
+// DOM Collection iteration
+NodeList.prototype[Symbol.iterator] = Array.prototype[Symbol.iterator];
+HTMLCollection.prototype[Symbol.iterator] = Array.prototype[Symbol.iterator];
+
 // Safari has a ridiculous bug that causes it to lose access to safari.self.tab if you click the back button.
 // this stupid one liner fixes that.
 window.onunload = () => {};
