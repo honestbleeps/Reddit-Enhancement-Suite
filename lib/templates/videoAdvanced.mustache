@@ -2,19 +2,11 @@
 	<div class="video-advanced-container">
 		{{^controls}}
 		<a class="noKeyNav" href="{{href}}" {{#openInNewWindow}}target="_blank" rel="noopener noreferrer"{{/openInNewWindow}}>
-			<video {{#muted}}muted{{/muted}} {{#loop}}loop{{/loop}} poster="{{ poster }}">
-				{{#sources}}
-				<source src="{{ source }}" {{#type}}type="{{ type }}"{{/type}} {{#reverse}}data-reverse="{{ reverse }}"{{/reverse}}>
-				{{/sources}}
-			</video>
+			<video {{#muted}}muted{{/muted}} {{#loop}}loop{{/loop}} poster="{{ poster }}"></video>
 		</a>
 		{{/controls}}
 		{{#controls}}
-		<video controls {{#muted}}muted{{/muted}} {{#loop}}loop{{/loop}} poster="{{ poster }}">
-			{{#sources}}
-			<source src="{{ source }}" {{#type}}type="{{ type }}"{{/type}} {{#reverse}}data-reverse="{{ reverse }}"{{/reverse}}>
-			{{/sources}}
-		</video>
+		<video controls {{#muted}}muted{{/muted}} {{#loop}}loop{{/loop}} poster="{{ poster }}"></video>
 		{{/controls}}
 		<div class="video-advanced-interface {{#controls}}video-advanced-push-below{{/controls}}">
 			<div class="video-advanced-progress">

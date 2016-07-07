@@ -32,7 +32,6 @@
 
 .keyNavAnnotation {
 	font-size: 9px;
-	position: relative;
-	top: -6px;
-	user-select: none;
+	line-height: 0;
+	vertical-align: super;
 }

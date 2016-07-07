@@ -176,15 +176,7 @@ img {
 		user-select: text; // Allow selection if is a text expando
 	}
 
-	.res-expando-media {
-		width: inherit;
-
-		> * {
-			max-width: 100%;
-		}
-	}
-
-	.res-expando-independent {
+	.res-media-independent {
 		z-index: 25;
 		position: absolute;
 	}
@@ -209,15 +201,6 @@ img {
 }
 
 .res-gallery {
-	&,
-	.res-gallery-pieces {
-		width: 100%;
-	}
-
-	.res-gallery-piece-block > * {
-		max-width: 100%;
-	}
-
 	.res-gallery-title {
 		margin: 3px;
 		font-size: 15px;
