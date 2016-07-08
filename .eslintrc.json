@@ -66,7 +66,15 @@
 		"import/named": 2,
 		"import/default": 2,
 		"import/namespace": 2,
-		"import/no-restricted-paths": 0,
+		"import/no-restricted-paths": [2, { "zones": [
+			{ "target": "./lib/core", "from": "./lib/modules" },
+			{ "target": "./lib/environment", "from": "./lib/modules" },
+			{ "target": "./lib/environment", "from": "./lib/core" },
+			{ "target": "./lib/utils", "from": "./lib/modules" },
+			{ "target": "./lib/utils", "from": "./lib/core" },
+			{ "target": "./lib/vendor", "from": "./lib/modules" },
+			{ "target": "./lib/vendor", "from": "./lib/core" }
+		] }],
 		"import/export": 2,
 		"import/no-named-as-default": 2,
 		"import/no-named-as-default-member": 2,
