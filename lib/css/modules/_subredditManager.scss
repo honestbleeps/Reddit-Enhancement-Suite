@@ -135,13 +135,11 @@
 	}
 
 	// Fix a Firefox alignment quirk with -moz-focus-inner
-	// scss-lint:disable PseudoElement
 	#sortButton::-moz-focus-inner,
 	#shortcut-subreddit::-moz-focus-inner {
 		border: none;
 		padding: 0;
 	}
-	// scss-lint:enable PseudoElement
 
 	[name=shortcut-save] {
 		float: right;

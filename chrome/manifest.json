@@ -30,13 +30,13 @@
 		}
 	],
 	"icons": {
-		"48": "{{./icon48.png}}",
-		"128": "{{./icon128.png}}"
+		"48": "{{../images/icon48.png}}",
+		"128": "{{../images/icon128.png}}"
 	},
 	"page_action": {
 		"default_icon": {
-			"19": "{{./images/css-on-small.png}}",
-			"38": "{{./images/css-on.png}}"
+			"19": "{{../images/css-on-small.png}}",
+			"38": "{{../images/css-on.png}}"
 		},
 		"default_title": "Subreddit Style On"
 	},
@@ -59,7 +59,7 @@
 	"optional_permissions": [
 		"https://api.twitter.com/*",
 		"https://onedrive.live.com/*",
-		"http://1drv.ms/*",
+		"*://1drv.ms/*",
 		"*://backend.deviantart.com/oembed?url=*",
 		"*://api.gyazo.com/api/oembed*",
 		"*://codepen.io/api/oembed*",

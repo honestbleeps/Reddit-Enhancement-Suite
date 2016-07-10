@@ -1,12 +1,10 @@
 sudo: false
 language: node_js
 node_js:
-  - 5
   - 6
-before_script: npm run external-deps
 script:
   - npm run eslint
-  - npm run scsslint
+  - npm run sass-lint
   - npm run coverage
   - npm run build -- node
   - node dist/node/loader.entry.js

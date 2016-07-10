@@ -6,12 +6,12 @@ import { createMessageHandler } from '../lib/environment/_messaging';
 import { nativeRequire } from '../lib/environment/_nativeRequire';
 import { extendDeep } from '../lib/utils/object';
 
-import cssDisabled from './images/css-disabled.png';
-import cssDisabledSmall from './images/css-disabled-small.png';
-import cssOff from './images/css-off.png';
-import cssOffSmall from './images/css-off-small.png';
-import cssOn from './images/css-on.png';
-import cssOnSmall from './images/css-on-small.png';
+import cssDisabled from '../images/css-disabled.png';
+import cssDisabledSmall from '../images/css-disabled-small.png';
+import cssOff from '../images/css-off.png';
+import cssOffSmall from '../images/css-off-small.png';
+import cssOn from '../images/css-on.png';
+import cssOnSmall from '../images/css-on-small.png';
 
 const priv = nativeRequire('sdk/private-browsing');
 const ss = nativeRequire('sdk/simple-storage');
@@ -313,6 +313,14 @@ addListener('addURLToHistory', url => {
 		}],
 	});
 });
+
+addListener('isURLVisited', url =>
+	new Promise(resolve => {
+		historyService.isURIVisited(ioService.newURI(url, undefined, undefined), (aURI, visited) => {
+			resolve(visited);
+		});
+	})
+);
 
 addListener('multicast', (request, worker) => {
 	const isPrivate = priv.isPrivate(worker);

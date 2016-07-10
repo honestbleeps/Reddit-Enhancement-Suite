@@ -318,8 +318,8 @@
 		background-color: #369;
 	}
 
-	input[type="text"],
-	input[type="password"],
+	input[type='text'],
+	input[type='password'],
 	.c-form-control {
 		color: #ccc;
 		border: 1px solid hsl(0, 0%, 30%);
@@ -341,7 +341,8 @@
 	.unfriend-button .option,
 	.RESDashboardComponent .widgetPath,
 	.entry .buttons li.reported-stamp,
-	.pretty-button {
+	.pretty-button,
+	.report-reasons {
 		color: #000;
 	}
 
@@ -403,20 +404,15 @@
 		background-color: transparent;
 	}
 
-	.RESdupeimg {
-		color: #eee;
-		font-size: 10px;
-	}
-
 	#sr-autocomplete-area {
 		z-index: 1;
 	}
 
 	button,
 	submit,
-	input[type="button"],
-	input[type="submit"],
-	input[type="reset"] {
+	input[type='button'],
+	input[type='submit'],
+	input[type='reset'] {
 		color: #fff;
 		border: 1px outset hsl(0, 0%, 50%);
 		background-color: hsl(0, 0%, 30%);
@@ -496,8 +492,8 @@
 		background-color: rgb(42, 51, 64);
 	}
 
-	.comment .md p a[href="/spoiler"],
-	.comment .md p a[href="#spoiler"] {
+	.comment .md p a[href='/spoiler'],
+	.comment .md p a[href='#spoiler'] {
 		background-color: #000;
 		color: #000;
 	}
@@ -530,7 +526,7 @@
 		background-color: #aaa;
 	}
 
-	#search input[type="text"] {
+	#search input[type='text'] {
 		color: rgb(255, 255, 255) !important;
 	}
 
@@ -575,7 +571,7 @@
 	.side a,
 	.link .score.dislikes,
 	.linkcompressed .score.dislikes,
-	a[rel="tag"],
+	a[rel='tag'],
 	.dsq-help,
 	#authorInfoToolTip h3 a,
 	.reddiquette,
@@ -625,7 +621,7 @@
 		border-color: hsl(0, 0%, 10%);
 	}
 
-	.flaircell input[type="text"] {
+	.flaircell input[type='text'] {
 		border: 1px solid #555;
 	}
 
@@ -987,11 +983,11 @@
 		background: hsl(0, 0%, 15%);
 	}
 
-	.snoovatar-page .checkbox-label [type="checkbox"] + .proxy-checkbox {
+	.snoovatar-page .checkbox-label [type='checkbox'] + .proxy-checkbox {
 		background: #f00;
 	}
 
-	.snoovatar-page .checkbox-label [type="checkbox"]:checked + .proxy-checkbox {
+	.snoovatar-page .checkbox-label [type='checkbox']:checked + .proxy-checkbox {
 		background: rgb(10, 128, 46);
 	}
 
@@ -1116,10 +1112,10 @@
 		border-color: hsl(0, 0%, 30%);
 	}
 
-	.comment .md p a[href="/spoiler"]:hover,
-	.comment .md p a[href="/spoiler"]:active,
-	.comment .md p a[href="#spoiler"]:hover,
-	.comment .md p a[href="#spoiler"]:active,
+	.comment .md p a[href='/spoiler']:hover,
+	.comment .md p a[href='/spoiler']:active,
+	.comment .md p a[href='#spoiler']:hover,
+	.comment .md p a[href='#spoiler']:active,
 	.addNewWidget,
 	.editWidget,
 	#authorInfoToolTip .option,
@@ -1199,8 +1195,8 @@
 		border-color: rgb(60, 60, 60);
 	}
 
-	#RESConsoleContainer input[type="text"],
-	#RESConsoleContainer input[type="password"],
+	#RESConsoleContainer input[type='text'],
+	#RESConsoleContainer input[type='password'],
 	#RESConsoleContainer .c-form-control,
 	ul.token-input-list-facebook,
 	#RESConsoleContainer textarea {
@@ -1306,7 +1302,7 @@
 		background-color: rgba(255, 255, 0, .4);
 	}
 
-	.hover-bubble.multi-selector .create-multi input[type="text"] {
+	.hover-bubble.multi-selector .create-multi input[type='text'] {
 		color: rgb(192, 78, 81);
 		background-color: inherit;
 	}

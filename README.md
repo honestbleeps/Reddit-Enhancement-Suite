@@ -54,6 +54,7 @@ Thinking about contributing to RES? Awesome! We just ask that you follow a few s
   - `edge/`: Microsoft Edge-specific RES files
   - `examples/`: example code for new hosts/modules
   - `firefox/`: Firefox-specific RES files
+  - `images/`: Images for RES logo and CSS icons
   - `lib/`: all RES code
   - `lib/core/`: core RES code
   - `lib/css/`: RES css
@@ -75,10 +76,8 @@ Thinking about contributing to RES? Awesome! We just ask that you follow a few s
 
 ##### Chrome files
 
-  - `images/css-off-small.png`, `images/css-off.png`, `images/css-on-small.png`, `images/css-on.png`: icons for css disable button.
   - `background.entry.js`: the "background page" for RES, necessary for Chrome extensions
   - `environment.js`: specific environment settings for Chrome
-  - `icon.png`, `icon48.png`, `icon128.png`: icons!
   - `manifest.json`: the project manifest
   - `options.html`: options page for chrome extensions
 
@@ -91,7 +90,6 @@ Thinking about contributing to RES? Awesome! We just ask that you follow a few s
   
 ##### Firefox files
 
-  - `images/css-disabled-small.png`, `images/css-disabled.png`, `images/css-off-small.png`, `images/css-off.png`, `images/css-on-small.png`, `images/css-on.png`: icons for css disable button.
   - `background.entry.js`: the "background page" for RES, necessary for Firefox extensions
   - `environment.js`: specific environment settings for Firefox
   - `package.json`: the project manifest for the Firefox add-on
@@ -102,14 +100,13 @@ Thinking about contributing to RES? Awesome! We just ask that you follow a few s
   - `background-safari.html`: the "background html page" for RES, necessary for Safari extensions
   - `background.entry.js`: the "background page" for RES, necessary for Safari extensions
   - `environment.js`: specific environment settings for Safari
-  - `icon.png`, `icon48.png`, `icon128.png`: icons!
 
 ## Building development versions of the extension
 
 First time installation:
 
 1. Install [git](https://git-scm.com/).
-1. Install [node.js](https://nodejs.org) (version >= 5).
+1. Install [node.js](https://nodejs.org) (version >= 6).
 1. Install [Python 2](https://www.python.org/downloads/) (*not* version 3).
 1. Navigate to your RES folder.
 1. Run `npm install`.
@@ -128,11 +125,9 @@ To load the extension into your browser, see [the sections below](#building-in-c
 
 `<browsers>` is a comma-separated list of browsers to target, e.g. `chrome,firefox,safari,node`. By default, `chrome` will be targeted.
 
-**`npm run lint`** will verify the code style (and point out any errors) of all `.js` files in `lib/` (except `lib/vendor/`) using [ESLint](http://eslint.org/), as well as all `.scss` files with [scss-lint](https://github.com/brigade/scss-lint).
+**`npm run lint`** will verify the code style (and point out any errors) of all `.js` files in `lib/` (except `lib/vendor/`) using [ESLint](http://eslint.org/), as well as all `.scss` files with [sass-lint](https://github.com/sasstools/sass-lint).
 
-Note: You will need to install [Ruby](https://www.ruby-lang.org/) and run `npm run external-deps` before using `npm run lint`.
-
-Helpful note: `npm run lint-fix` can autofix many whitespace and separator-related lint issues.
+**`npm run lint-fix`** will autofix any [fixable](http://eslint.org/docs/user-guide/command-line-interface#fix) lint issues.
 
 **`npm test`** will run unit tests (in `__tests__` directories).
 
@@ -145,9 +140,8 @@ Helpful note: `npm run lint-fix` can autofix many whitespace and separator-relat
 ##### Building in Microsoft Edge
 
   1. Go to `about:flags` and tick the `Enable extension developer features` checkbox.
-  2. Set the permissions on the extensions folder by running the following command in cmd within the directory. `icacls "%cd%" /grant "*S-1-15-2-3624051433-2125758914-1423191267-1740899205-1073925389-3782572162-737981194":"(OI)(CI)(WDAC,WO,GE)"`
-  3. Choose `Load extension` on the extensions menu and select your extensions folder.
-  4. Any time you make changes to the extension, you must go back to the `Menu->Extensions` page, go to the extensions settings and `Reload` the extension.
+  2. Choose `Load extension` on the extensions menu and select your extensions folder.
+  3. Any time you make changes to the extension, you must go back to the `Menu->Extensions` page, go to the extensions settings and `Reload` the extension.
 
 ##### Building in Firefox
 

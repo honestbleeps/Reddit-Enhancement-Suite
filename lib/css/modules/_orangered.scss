@@ -7,11 +7,11 @@
 	background: center center no-repeat;
 
 	&.nohavemail {
-		background-image: url('https://redditstatic.s3.amazonaws.com/mailgray.png');
+		background-image: url('../images/mailgray.png');
 	}
 
 	&.havemail {
-		background-image: url('https://redditstatic.s3.amazonaws.com/mail.png');
+		background-image: url('../images/mail.png');
 	}
 }
 

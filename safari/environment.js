@@ -1,11 +1,13 @@
 /* global safari: false */
 
-import 'babel-polyfill';
-
 import resCss from '../lib/css/res.scss';
 
 import { createMessageHandler } from '../lib/environment/_messaging';
 import { nonNull } from '../lib/utils';
+
+// DOM Collection iteration
+NodeList.prototype[Symbol.iterator] = Array.prototype[Symbol.iterator];
+HTMLCollection.prototype[Symbol.iterator] = Array.prototype[Symbol.iterator];
 
 // Safari has a ridiculous bug that causes it to lose access to safari.self.tab if you click the back button.
 // this stupid one liner fixes that.
@@ -47,6 +49,9 @@ addInterceptor('deleteCookies', cookies => {
 
 // The iframe hack doesn't work anymore, so Safari has no way to add urls to history
 addInterceptor('addURLToHistory', () => {});
+
+// XXX Not implemented; default to not visited to avoid potenial side-effects
+addInterceptor('isURLVisited', () => false);
 
 // Safari has no pageAction
 addInterceptor('pageAction', () => {});

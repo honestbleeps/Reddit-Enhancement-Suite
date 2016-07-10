@@ -4,7 +4,7 @@
 @import 'zindex';
 @import 'fonts/batch';
 @import 'modules/nightMode';
-@import 'modules/commentBoxes';
+@import 'modules/commentStyle';
 @import 'modules/showParent';
 @import 'modules/quickMessage';
 @import 'modules/accountSwitcher';
@@ -17,6 +17,7 @@
 @import 'modules/newCommentCount';
 @import 'modules/noParticipation';
 @import 'modules/filteReddit';
+@import 'modules/floater';
 @import 'modules/hover';
 @import 'modules/keyboardNav';
 @import 'modules/neverEndingReddit';
@@ -144,7 +145,7 @@ body.res-console-open {
 
 	&::before,
 	&::after {
-		font: normal 14px/1 "Batch";
+		font: normal 14px/1 'Batch';
 		vertical-align: middle;
 	}
 
@@ -536,15 +537,15 @@ div.usertext-edit {
 	border-color: #000;
 }
 
-%warningIcon {
+%warning-icon {
 	content: '\F15A';
 	margin-left: 3px;
 	color: rgb(230, 30, 30);
-	font: normal 11px "Batch";
+	font: normal 11px 'Batch';
 }
 
 #RESAllOptionsSpan::after {
-	@extend %warningIcon;
+	@extend %warning-icon;
 }
 
 .optionContainer {
@@ -579,7 +580,7 @@ div.usertext-edit {
 	}
 
 	&.advanced .optionTitle::before {
-		@extend %warningIcon;
+		@extend %warning-icon;
 		margin: 0 4px 0 -15px; // 4+(-15) = 11 == Batch font-size
 	}
 
@@ -841,10 +842,10 @@ a.RESConsoleButton {
 	}
 
 	&.optionsSaved::before {
-		background: #225599;
+		background: #259;
 	}
 
-	&::-moz-focus-inner { // scss-lint:disable PseudoElement
+	&::-moz-focus-inner {
 		border: none;
 		padding: 0;
 	}
@@ -1178,20 +1179,15 @@ a.RESConsoleButton {
 }
 
 .RES-spoiler {
-	font-style: italic;
-	text-decoration: dotted underline;
-	cursor: help;
-}
+	.RES-spoiler-title {
+		font-style: italic;
+		text-decoration: dotted underline;
+		cursor: help;
+	}
 
-.RES-spoiler-contents {
-	display: none;
-}
-
-.RES-spoiler:hover + .RES-spoiler-contents,
-.RES-spoiler:active + .RES-spoiler-contents,
-.RES-spoiler-contents:active,
-.RES-spoiler-contents:hover {
-	display: inline-block;
+	&:not(:hover):not(:active) .RES-spoiler-contents {
+		display: none;
+	}
 }
 
 .guider dl {
@@ -1395,44 +1391,20 @@ body.RESScrollLock {
 	content: attr(data-text);
 }
 
-.RESThrobber,
-.RESThrobber::before,
-.RESThrobber::after {
-	font-size: 0;
-	position: relative;
+.RESLoadingSpinner {
+	color: hsl(210, 80%, 50%);
+	font-size: inherit; // Determines size of the icon.
 	display: inline-block;
-	background: #ccf;
-	height: 30px;
-	width: 30px;
+	vertical-align: text-bottom;
+	width: 1em;
+	height: .5em;
+	border-bottom: .5em solid;
 	border-radius: 50%;
-	box-shadow: inset 0 0 5px 1px #222;
-	animation: RESThrobber 1400ms 400ms infinite linear;
+	animation: spin 1000ms 0ms infinite linear;
 }
 
-.RESThrobber {
-	margin: 0 35px -7.5px;
-}
-
-.RESThrobber::before {
-	left: -115%;
-	animation-delay: 200ms;
-}
-
-.RESThrobber::after {
-	left: 115%;
-	animation-delay: 600ms;
-}
-
-.RESThrobber::before,
-.RESThrobber::after {
-	content: '';
-	position: absolute;
-	top: 0;
-}
-
-@keyframes RESThrobber {
-	30% { background: transparent; }
-	70% { background: transparent; }
+@keyframes spin {
+	100% { transform: rotate(360deg); }
 }
 
 // Handle multireddit bar on savedComments page
@@ -1582,8 +1554,8 @@ div.RESSortPlaceholder::after {
 		}
 	}
 
-	input[type="text"],
-	input[type="checkbox"] {
+	input[type='text'],
+	input[type='checkbox'] {
 		float: none;
 		margin-left: initial;
 		width: auto;
@@ -1617,7 +1589,7 @@ div.RESSortPlaceholder::after {
 	.durationField {
 		display: inline-block;
 
-		input[type="number"] {
+		input[type='number'] {
 			width: 3em;
 			//margin-left: 1ex;
 		}
@@ -1680,7 +1652,7 @@ div.RESSortPlaceholder::after {
 .checkset {
 	display: inline-block;
 
-	input[type="checkbox"] {
+	input[type='checkbox'] {
 		display: none;
 	}
 
@@ -1707,7 +1679,7 @@ div.RESSortPlaceholder::after {
 	}
 }
 
-/*
+/*!
 (cs)spinner.css - http://jh3y.github.io/-cs-spinner
 Licensed under the MIT license
 
@@ -1731,7 +1703,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		right: 0;
 		bottom: 0;
 		left: 0;
-		background-color: #999999;
+		background-color: #999;
 		opacity: .6;
 	}
 
@@ -1746,7 +1718,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		margin: -24px 0 0 -24px;
 		transition: all .75s ease 0s;
 		border-radius: 100%;
-		border-top: 4px solid #555555;
+		border-top: 4px solid #555;
 		animation: fadeIn 2s 1 cubic-bezier(.3, .25, .7, .15), standard .75s infinite linear;
 		transform-origin: center;
 	}
@@ -1817,6 +1789,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 }
 
 .res-step {
+	user-select: none;
+
 	&::after {
 		font: normal 18px/16px Batch;
 		content: '\F158';

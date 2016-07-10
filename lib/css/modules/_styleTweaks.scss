@@ -28,7 +28,7 @@ blockquote.twitter-tweet {
 }
 
 .res-styleTweaks-showExpandos {
-	.compressed .expando-button { display: block; }
+	.link.compressed .expando-button { display: block; }
 }
 
 .res-styleTweaks-hideUnvotable {
@@ -55,6 +55,13 @@ blockquote.twitter-tweet {
 			background-image: url('../images/colorblindMail.png');
 			background-position: 0 0;
 		}
+	}
+}
+
+.res-styleTweaks-scrollSubredditDropdown {
+	.drop-choices.srdrop {
+		overflow-y: scroll;
+		max-height: 95vh;
 	}
 }
 

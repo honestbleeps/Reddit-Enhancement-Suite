@@ -118,17 +118,13 @@ a.voteWeight {
 
 .RESUserTagImage::after {
 	content: '\F0AC';
-	font: normal 14px/8px "Batch";
+	font: normal 14px/8px 'Batch';
 	vertical-align: middle;
 	color: #9BD;
 }
 
-.userTagLink {
-	display: inline-block;
-
-	&.RESUserTagImage:hover {
-		text-decoration: none;
-	}
+.userTagLink.RESUserTagImage:hover {
+	text-decoration: none;
 }
 
 .hoverHelp {
@@ -138,7 +134,6 @@ a.voteWeight {
 
 .userTagLink.hasTag,
 #userTaggerPreview {
-	display: inline-block;
 	padding: 0 4px;
 	line-height: normal;
 	border: 1px solid #c7c7c7;
