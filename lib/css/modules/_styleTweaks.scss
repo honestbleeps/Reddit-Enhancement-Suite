@@ -58,6 +58,13 @@ blockquote.twitter-tweet {
 	}
 }
 
+.res-styleTweaks-scrollSubredditDropdown {
+	.drop-choices.srdrop {
+		overflow-y: scroll;
+		max-height: 95vh;
+	}
+}
+
 .res-navTop {
 	#header-bottom-right {
 		top: 19px;
