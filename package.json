@@ -20,12 +20,12 @@
     "prebuild": "rimraf dist",
     "build": "cross-env NODE_ENV=production webpack --browsers",
     "postbuild": "gulp zip",
-    "test": "cross-env NODE_ENV=test ava",
     "eslint": "eslint .",
     "sass-lint": "sass-lint -v -q",
     "lint": "npm run eslint && npm run sass-lint",
     "lint-fix": "eslint . --fix",
-    "coverage": "cross-env NODE_ENV=test nyc --all --require babel-core/register ava",
+    "test": "cross-env NODE_ENV=test ava",
+    "coverage": "cross-env NODE_ENV=test nyc ava",
     "report-coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "ava": {
@@ -38,10 +38,14 @@
     "babel": "inherit"
   },
   "nyc": {
+    "all": true,
     "exclude": [
       "dist",
       "lib/vendor",
       "**/__tests__"
+    ],
+    "require": [
+      "babel-core/register"
     ]
   },
   "dependencies": {
