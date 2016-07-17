@@ -245,8 +245,12 @@ body.res-console-open {
 }
 
 #RESLogo {
+	display: inline-block;
 	margin-right: 5px;
 	vertical-align: middle;
+	width: 60px;
+	height: 30px;
+	background-image: url('../images/icon60x30.png');
 }
 
 .RESDialogTopBar {
