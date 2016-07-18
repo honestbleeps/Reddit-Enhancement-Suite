@@ -14,8 +14,10 @@ export default {
 	moduleID: 'example',
 	name: 'Example Media Host',
 
-	// Root domain only, subdomains are ignored
-	domains: ['example.com', 'example.org'],
+	domains: [
+		'example.com', // any subdomain of `example.com`
+		'www.example.org', // only the `www` subdomain of `example.org`
+	],
 
 	// Optional logo, for showing site attribution on the content
 	logo: '//example.com/favicon.ico',
