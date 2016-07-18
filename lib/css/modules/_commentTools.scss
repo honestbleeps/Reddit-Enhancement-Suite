@@ -159,3 +159,11 @@
 	color: #fff;
 	background-color: #5f99cf;
 }
+
+.res-commentTools-showInputLength {
+	// reddit's "use suggested title" is `position: absolute` and overlaps our char count
+	#newlink-with-image-upload #suggest-title {
+		top: 2px; // move it up for better alignment with our counter
+		right: 80px;
+	}
+}
