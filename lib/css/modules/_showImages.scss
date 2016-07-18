@@ -116,9 +116,11 @@ img {
 	}
 
 	.gearIcon {
-		opacity: 0.3;
-		&:hover, &:active {
-			opacity: 1.0;
+		opacity: .3;
+		
+		&:hover, 
+		&:active {
+			opacity: 1;
 		}
 	}
 }
