@@ -114,6 +114,15 @@ img {
 		max-height: 20px;
 		vertical-align: middle;
 	}
+
+	.gearIcon {
+		opacity: .3;
+
+		&:hover,
+		&:active {
+			opacity: 1;
+		}
+	}
 }
 
 .res-media-keep-visible,
