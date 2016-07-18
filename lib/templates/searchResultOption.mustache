@@ -2,8 +2,9 @@
     <span class="SearchRES-result-title">{{title}}</span>
 				<span class="SearchRES-breadcrumb">RES settings console
 					&gt; {{category}}
-                    &gt; {{moduleName}} ({{moduleID}})
-					{{#optionKey}} &gt; {{optionKey}}{{/optionKey}}
+			        &gt; {{moduleName}} ({{moduleID}})
+					{{#optionName}} &gt; {{optionName}} ({{optionKey}}){{/optionName}}
+					{{^optionName}}{{#optionKey}} &gt; {{optionKey}}{{/optionKey}}{{/optionName}}
 				</span>
 </div>
 <div class="SearchRES-result-description">
