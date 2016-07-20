@@ -13,5 +13,5 @@ version: '{build}'
 clone_depth: 1
 test_script:
   - npm test
-  - npm run build -- node
+  - npm run build -- all
   - node dist/node/loader.entry.js
