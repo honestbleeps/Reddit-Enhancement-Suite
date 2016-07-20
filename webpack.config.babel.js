@@ -38,7 +38,11 @@ const browserConfig = {
 	},
 };
 
-const browsers = typeof yargs.argv.browsers === 'string' ? yargs.argv.browsers.split(',') : ['chrome'];
+const browsers = (
+	typeof yargs.argv.browsers !== 'string' ? ['chrome'] :
+	yargs.argv.browsers === 'all' ? Object.keys(browserConfig) :
+	yargs.argv.browsers.split(',')
+);
 
 const configs = browsers.map(browser => {
 	// extra transforms for Safari

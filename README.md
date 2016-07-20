@@ -123,7 +123,7 @@ To load the extension into your browser, see [the sections below](#building-in-c
 
 **`npm run build [-- <browsers>]`** will clean `dist/`, then build RES (release mode). Each build output will be compressed to a .zip file in `dist/zip/`.
 
-`<browsers>` is a comma-separated list of browsers to target, e.g. `chrome,firefox,safari,node`. By default, `chrome` will be targeted.
+`<browsers>` is a comma-separated list of browsers to target, e.g. `chrome,firefox,safari,node`. `all` will build all targets. By default, `chrome` will be targeted.
 
 **`npm run lint`** will verify the code style (and point out any errors) of all `.js` files in `lib/` (except `lib/vendor/`) using [ESLint](http://eslint.org/), as well as all `.scss` files with [sass-lint](https://github.com/sasstools/sass-lint).
 
