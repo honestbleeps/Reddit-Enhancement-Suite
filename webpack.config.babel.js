@@ -22,7 +22,7 @@ const browserConfig = {
 		output: 'edge',
 	},
 	safari: {
-		entry: 'safari/info.plist',
+		entry: 'safari/Info.plist',
 		environment: 'safari/environment',
 		output: 'RES.safariextension',
 	},
