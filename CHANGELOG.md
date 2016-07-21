@@ -14,7 +14,7 @@ Highlights:
 - Contributions from many other members in the community
 
 See [all pull requests merged](https://github.com/honestbleeps/Reddit-Enhancement-Suite/pulls?utf8=%E2%9C%93&q=merged%3A2015-12-05..2016-07-20%20base%3Amaster) for this version (300+) or browse by 
-[commit](https://github.com/honestbleeps/reddit-enhancement-suite/compare/d35986d871577be6422b3ef445fb4f0c4bd30fcf...v4.7.1) (1100+).
+[commit](https://github.com/honestbleeps/reddit-enhancement-suite/compare/d35986d871577be6422b3ef445fb4f0c4bd30fcf...v4.7.1) (1400+).
 
 ### New Features and Enhancements
 
