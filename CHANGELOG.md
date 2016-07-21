@@ -1,5 +1,184 @@
 # Changelog
 
+## [v4.7.1](https://github.com/honestbleeps/Reddit-Enhancement-Suite/releases/v4.7.1)
+
+Highlights:
+
+- Microsoft Edge Support (huge thanks @BenMcGarry and @erikdesjardins)
+- Massive infrastructure overhauls towards faster development, faster startup times (massive thanks @erikdesjardins, @mc10)
+- IndexedDB storage for Firefox: more stable than simple-storage (thanks @erikdesjardins)
+- Chrome storage improvements: increased performance and unlimited capacity (previously 5 MB) (thanks @erikdesjardins)
+- Show Images overhaul (huge thanks @larsjohnsen)
+- i.redd.it and redditmedia image support
+- A ridiculous amount of hard work from @erikdesjardins, @mc10, @larsjohnsen, @githue, @matheod, @thybag
+- Contributions from many other members in the community
+
+See [all pull requests merged](https://github.com/honestbleeps/Reddit-Enhancement-Suite/pulls?utf8=%E2%9C%93&q=merged%3A2015-12-05..2016-07-20%20base%3Amaster) for this version (300+) or browse by 
+[commit](https://github.com/honestbleeps/reddit-enhancement-suite/compare/d35986d871577be6422b3ef445fb4f0c4bd30fcf...v4.7.1) (1100+).
+
+### New Features and Enhancements
+
+- Custom comment depth (per subreddit) (thanks @bmalnad, @erikdesjardins)
+- Link to xpost subreddits in post taglines (thanks @br4nnigan)
+- Show a preview of the link title when scrolling up on comments pages (thanks @githue)
+- Media hosts:
+	- Twitch.tv (thanks @erikdesjardins)
+	- Twitch.tv clips (thanks @BenMcGarry, @erikdesjardins)
+	- deviantART stash (thanks @erikdesjardins)
+	- I.redd.it (thanks @andytuba, @erikdesjardins)
+	- Redditmedia (thanks @erikdesjardins)
+	- Reddituploads (thanks @erikdesjardins)
+	- Dailymotion (thanks @erikdesjardins)
+	- JSFiddle  (thanks @erikdesjardins)
+	- Instagram (thanks @erikdesjardins)
+	- Gyazo (thanks @erikdesjardins)
+	- Bime.io (thanks @yoannmoinet)
+	- Vidlit (thanks @billmalarky)
+	- Simplecove (thanks @SimpleCove)
+	- Twimg (links to twitter images; may end with :large) (thanks @erikdesjardins)
+	- Graphiq (thanks @iampueroo, @thybag)
+	- Pixpit (thanks @kingreza)
+	- Spotify (thanks @anhallbe, @erikdesjardins)
+	- Strawpoll.me (thanks @thybag)
+	- iloopit (thanks @rapkin)
+	- Derpibooru (thanks @Ajedi23)
+	- Radd.it improvements (thanks @listentous)
+	- Giphy video/code improvements (thanks @empyrical)
+	- Flickr improvements (thanks @Saturate)
+	- YouTube improvements (thanks @corylulu)
+	- Soundcloud improvements (thanks @corylulu)
+	- Xkcd (thanks @thybag)
+	- Wikipedia (thanks @thybag)
+	- Codepen (thanks @erikdesjardins)
+	- Oddshot improvements (thanks @pmlocek)
+	- Gifv inside imgur albums (thanks @larsjohnsen and @erikdesjardins)
+	- Option to load lower-resolution imgur images (for slow/metered connections) (thanks @erikdesjardins)
+- Show Media UI enhancements
+	- Playback controls (play/pause, progress bar, seek) (thanks @larsjohnsen)
+	- Host branding and settings link (thanks @andytuba)
+	- Rotate and image search tools (thanks @thybag, @andytuba)
+- Optionally show all comment sort options  (thanks @erikdesjardins)
+- Tidier settings console deep links (thanks @corylulu)
+- Filter a subreddit from command line (thanks @erikdesjardins)
+- Quick Link navigation menu from multireddit navigation bar (thanks @andytuba)
+- Option to hide “subscribe to thread” button for New Comments Count (thanks @jkcchan)
+- Custom filter by logged in user (thanks @morgil)
+- Option to truncate long titles to one line (thanks @jkcchan)
+- Option to show the comment collapse button in the inbox (thanks @erikdesjardins)
+- Add orangered and periwinkle (cornflowerblue) user tag colors (thanks @erikdesjardins)
+- Add a button to quickly filter visited links on a page (thanks @larsjohnsen)
+- Allow custom destinations for the reddit logo link (thanks @andytuba)
+- Option to navigate comments by tagged users (thanks @dzamie)
+- The subreddit hover info now appears for full links (thanks @rageandqq)
+- Allow max media width and height to be defined as a percentage of viewport size (thanks @larsjohnsen)
+- Vote Enhancements will now interpolate custom score colors (thanks @erikdesjardins)
+- Keyboard Nav non-linear scroll style (moving to parent, siblings, etc.) can now be customized (thanks @erikdesjardins, @larsjohnsen)
+- RES will now warn you if it detects multiple instances of itself running (thanks @andytuba)
+- New Keyboard Nav shortcut “moveDownParentSibling” to move to the parent’s next sibling (thanks @larsjohnsen)
+- New “middle” Keyboard Nav scroll style (thanks @larsjohnsen)
+
+### Bug Fixes
+
+- Hovering over “Commenting as [username]” shows user info (thanks @erikdesjardins) 
+- New troubleshooting tools (thanks @erikdesjardins) 
+- Fix vote weights being selectable in comment text (thanks @empyrical)
+- Fix live preview not linking u/username and erroneously rendering some HTML entities (thanks @erikdesjardins)
+- Localized dates and timezones improved (thanks @erikdesjardins)
+- Fix character limits on ban messages being inaccurate after a reddit change (thanks @erikdesjardins)
+- YouTube video times work again (thanks @erikdesjardins)
+- Fix occasionally adding multiple “view images” tabmenu items (thanks @githue)
+- Fix the nightmode background color of permalinked posts (thanks @ScoreUnder)
+- Fix “new comments” notification not appearing (thanks @andytuba)
+- Fix account switcher dropdown arrow misalignment (thanks @thybag)
+- Fix “clippy” option (“drag to expand” tooltip) couldn’t be disabled (thanks @DrLeh)
+- Mitigate the effect of accidental drags on dashboard widgets (thanks @educcjr)
+- Fix expandos not appearing for spotlighted posts (thanks @thybag)
+- Fix nightmode styles in self-serve ad area (thanks @TimHarrison)
+- Fix highlightFirseCommenter not working for newly loaded comments (thanks @brandonpatrick)
+- Fix some image captions not being displayed (thanks @Ajedi32)
+- Fix visitedStyle option couldn’t be fully disabled (thanks @githue)
+- Fix Never Ending Reddit banner message not updating when paused after a refresh (thanks @erikdesjardins)
+- Fix table sorting bugging out when table headers contained complex markdown (thanks @githue)
+- Prevent commentHoverBorder from shifting comments around on hover (thanks @Zunon, @erikdesjardins)
+- Fix the toggleChildren keyboard shortcut automatically triggering followLink on comments pages when the post was selected (thanks @erikdesjardins)
+- Prevent new comment counts from duplicating (thanks @thybag)
+- Fix Context module not applying to modqueue-like pages (thanks @erikdesjardins)
+- Fix the inbox / back to top buttons overlapping the Big Editor window (thanks @erikdesjardins)
+- Fix the ignored icon on the User Tagger table on the dashboard (thanks @erikdesjardins)
+- Fix pinHeader calculating incorrect header heights in some subreddits (thanks @githue)
+- Fix spacing between estimated upvote count and label (thanks @corylulu)
+- Fix User Tagger dialog layout issues (thanks @githue)
+- Fix scrollStyle: ‘top’ not scrolling far enough near the bottom of the page (thanks @larsjohnsen)
+- Fix images opening in a new tab after resizing in some situations (thanks @larsjohnsen)
+- Remove an unneeded style on `.userTagLink` causing problems in some subreddits (thanks @erikdesjardins)
+- Fix pages being detected as search pages if the link title started with “search” (thanks @erikdesjardins)
+- Fix reports being unreadable in nightmode (thanks @githue, @erikdesjardins)
+- Fix autocompletion not working with u/ and r/ prefixes (thanks @Antrikshy)
+- Fix radd.it embed links including an extra slash (thanks @listentous)
+- Fix the hide keyboard shortcut not working to unhide posts (thanks @erikdesjardins)
+- Fix “source” buttons being added to the same comment multiple times (thanks @andytuba)
+- RES now respects the non-looping flag for imgur .gifv (thanks @erikdesjardins)
+- Fix No Participation warning notification “more details” not staying open when hovered upon (thanks @erikdesjardins)
+- Fix creating invalid image links for some giphy.com URLs (thanks @erikdesjardins)
+- Fix “use selected title” overlapping with the comment count on the submit page (thanks @erikdesjardins)
+
+###Housekeeping / Other
+
+- Code infrastructure overhaul, massive thanks @erikdesjardins and @mc10
+	- Start-up speed improvements
+	- ES6+ all the code (async functions <3)
+	- Webpack all the modules
+	- SCSS for nearly all the CSS
+	- Templates for nearly all the HTML
+	- Consolidate build/run scripts into npm
+	- Automated linting/testing
+- Dynamically throttle DOM operations based on browser performance (thanks @LiterallyWTH)
+- Snudown-js upgrade (thanks @erikdesjardins)
+- Brand new icons (thanks @erikdesjardins)
+- Fix date tests (thanks @MrP)
+- Create expandos for more imgur URLs (thanks @erikdesjardins, @andytuba)
+- Clean up some module and option descriptions (thanks @githue)
+- User tagger gracefully handles some badly-formatted username links (thanks @githue)
+- Change an `alt` attribute to `title` to fix a spec violation (thanks @ljcl)
+- Correctly remove the size prefix from all imgur image links
+- Never Ending Reddit will unpause when clicking “open next page” (not when loading a new page inline) (thanks @helarqjsc)
+- Clean up some unnecessary CSS rules that could make it harder to style RES (thanks @githue)
+- Improve efficiency of Show Images conserveMemory (thanks @thybag, @larsjohnsen)
+- Improve performance of “view images” initial toggle (thanks @larsjohnsen)
+- Cleanup and make more consistent the CSS for RES menus (thanks @githue)
+- Ensure that RES custom alert messages stay on screen and scrollable (thanks @githue)
+- Tidy up and simplify Never Ending Reddit notifications (thanks @githue)
+- Fix numerous Edge bugs before release (thanks @BenMcGarry)
+- Improve smoothness of image resizing when dragging (thanks @larsjohnsen)
+- Tweak doNoCtrlF option description (thanks @andytuba)
+- Apply doNoCtrlF to “comments” links in sidebar (thanks @andytuba)
+- Support more YouTube link formats (thanks @corylulu)
+- Remove now-unused `unsafe-content-script` permission in Firefox (thanks @erikdesjardins)
+- Add `.res-hasNewComments` to `.thing` containing `.newComments` for ease of styling (thanks @erikdesjardins)
+- Replace some loading icons with a simpler spinner icon (thanks @githue)
+- Update to jQuery 3 (thanks @erikdesjardins)
+- Simplify No Participation module and harden against malformed URLs (thanks @erikdesjardins)
+- Clean up readme (thanks @BenMcGarry)
+- Centralize RES logo and CSS button icons (thanks @BenMcGarry)
+- Move commentBoxes into a new module (thanks @githue)
+- Reduce latency of removing subreddit styles on pageload (thanks @erikdesjardins)
+- Eliminate Ruby dependency for Sass/SCSS linting (thanks @erikdesjardins)
+- Apply a body class `.res-userHighlight` when User Highlighter is enabled, so subreddit themes can conditionally style usernames (thanks @erikdesjardins)
+- Updating naming “link karma” -> “post karma” in light of recent reddit changes (thanks @BenMcGarry)
+- Add help/info to reddit help/beta submit page (thanks @andytuba)
+- The [l=c] button on post taglines is now hidden by default (thanks @andytuba)
+
+### Microsoft Edge Known Issues:
+
+[No orangered in tab when user has message. (Edge bug, awaiting fix)](https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/7480412) - [GH #2855](https://github.com/honestbleeps/Reddit-Enhancement-Suite/issues/2855)
+
+[Backup does not properly name the file. (Edge bug, awaiting fix)](https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/7260192) - [GH #2864](https://github.com/honestbleeps/Reddit-Enhancement-Suite/issues/2864)
+
+[Stylesheets not loaded correctly on first load of extension. (Edge bug, awaiting fix)](https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/7996816)
+
+[RES does not add URLs to history to change link colour. (Edge limitation, awaiting feature implementation)](https://developer.microsoft.com/en-us/microsoft-edge/platform/documentation/extensions/extension-api-roadmap/)
+
+
 ## [v4.6.1](https://github.com/honestbleeps/Reddit-Enhancement-Suite/releases/v4.6.1)
 
 Highlights:
