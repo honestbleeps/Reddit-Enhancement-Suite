@@ -41,7 +41,7 @@ See [all pull requests merged](https://github.com/honestbleeps/Reddit-Enhancemen
 	- Spotify (thanks @anhallbe, @erikdesjardins)
 	- Strawpoll.me (thanks @thybag)
 	- iloopit (thanks @rapkin)
-	- Derpibooru (thanks @Ajedi23)
+	- Derpibooru (thanks @Ajedi32)
 	- Radd.it improvements (thanks @listentous)
 	- Giphy video/code improvements (thanks @empyrical)
 	- Flickr improvements (thanks @Saturate)
