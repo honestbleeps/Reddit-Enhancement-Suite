@@ -121,6 +121,7 @@ See [all pull requests merged](https://github.com/honestbleeps/Reddit-Enhancemen
 - Fix No Participation warning notification “more details” not staying open when hovered upon (thanks @erikdesjardins)
 - Fix creating invalid image links for some giphy.com URLs (thanks @erikdesjardins)
 - Fix “use selected title” overlapping with the comment count on the submit page (thanks @erikdesjardins)
+- Fix filteReddit allowNSFW option doing nothing (thanks @larsjohnsen)
 
 ###Housekeeping / Other
 
