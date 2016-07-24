@@ -22,7 +22,7 @@
     "postbuild": "gulp zip",
     "eslint": "eslint .",
     "sass-lint": "sass-lint -v -q",
-    "lint": "npm run eslint && npm run sass-lint",
+    "lint": "npm run -s eslint && npm run -s sass-lint",
     "lint-fix": "eslint . --fix",
     "test": "cross-env NODE_ENV=test ava",
     "coverage": "cross-env NODE_ENV=test nyc ava",
