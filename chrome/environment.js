@@ -1,7 +1,7 @@
 /* eslint-env webextensions */
 
 import { createMessageHandler } from '../lib/environment/_messaging';
-import { extendDeep, keyedMutex, waitForEvent } from '../lib/utils';
+import { extendDeep, keyedMutex } from '../lib/utils';
 import { apiToPromise } from './_helpers';
 
 const _sendMessage = apiToPromise(chrome.runtime.sendMessage);
@@ -28,8 +28,6 @@ export {
 	addListener,
 	addInterceptor,
 };
-
-addListener('userGesture', () => waitForEvent(document.body, 'mousedown', 'keydown'));
 
 addInterceptor('isPrivateBrowsing', () => chrome.extension.inIncognitoContext);
 
