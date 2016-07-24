@@ -174,9 +174,9 @@
 		"no-prototype-builtins": 0,
 		"no-redeclare": 2,
 		"no-regex-spaces": 2,
-		"no-restricted-globals": 0,
+		"no-restricted-globals": [2, "alert"],
 		"no-restricted-imports": [2, "jquery"], // import it from vendor/ instead
-		"no-restricted-modules": 0,
+		"no-restricted-modules": 0, // see import/no-nodejs-modules
 		"no-restricted-syntax": [2, "ForStatement"], // use for..of or Array.prototype methods
 		"no-return-assign": 2,
 		"no-script-url": 2,
