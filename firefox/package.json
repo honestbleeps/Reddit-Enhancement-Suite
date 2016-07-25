@@ -6,7 +6,7 @@
 	"author": "honestbleeps",
 	"homepage": "http://redditenhancementsuite.com/",
 	"license": "GPL-3.0",
-	"version": "{{prop?version!../package.json}}",
+	"version": "{{to-string!./getVersion}}",
 	"main": "{{./background.entry.js}}",
 	"permissions": {
 		"private-browsing": true
