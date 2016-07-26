@@ -1,5 +1,21 @@
 # Changelog
 
+## [v4.7.2](https://github.com/honestbleeps/Reddit-Enhancement-Suite/releases/v4.7.2)
+
+### Bug Fixes
+
+- Fix post type and 'is NSFW' custom filters (thanks @erikdesjardins)
+- Fix description of subredditStyleBrowserToolbarButton referring to the Chrome omnibar (thanks @honestbleeps, @BenMcGarry)
+- Fix a bug preventing RES from opening new tabs in Safari, which could cause a crash in some versions (thanks @int3h)
+
+### Housekeeping / Other
+
+- Improve Chrome permissions messages - RES now warns you about a permission before asking, instead of popping up a dialog out of nowhere (thanks @erikdesjardins)
+- Minor improvements to Troubleshooter testEnvironment (thanks @erikdesjardins)
+- Move large assets out of the repo (thanks @erikdesjardins)
+- Show an alert in Firefox when IndexedDB storage cannot be initialized (thanks @erikdesjardins)
+- Automate Chrome release deployment (thanks @erikdesjardins)
+
 ## [v4.7.1](https://github.com/honestbleeps/Reddit-Enhancement-Suite/releases/v4.7.1)
 
 Highlights:
