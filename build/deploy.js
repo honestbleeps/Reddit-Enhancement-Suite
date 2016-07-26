@@ -43,7 +43,7 @@ function deployChromeStable() {
 		clientSecret: process.env.CHROME_CLIENT_SECRET,
 		refreshToken: process.env.CHROME_REFRESH_TOKEN,
 		id: 'kbmfpngjjgdllneeigpgjifpgocmfgmb',
-//		zip: fs.readFileSync(path.join(__dirname, '../dist/zip/chrome.zip')),
+		zip: fs.readFileSync(path.join(__dirname, '../dist/zip/chrome.zip')),
 	}).then(() => {
 		console.log('Chrome stable deployment complete!');
 	}, err => {
