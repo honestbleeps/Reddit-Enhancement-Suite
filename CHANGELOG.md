@@ -1,5 +1,11 @@
 # Changelog
 
+## [v4.7.3](https://github.com/honestbleeps/Reddit-Enhancement-Suite/releases/v4.7.3)
+
+### Bug Fixes
+
+- Fix Microsoft Edge migration issue with max size (thanks @larsjohnsen)
+
 ## [v4.7.2](https://github.com/honestbleeps/Reddit-Enhancement-Suite/releases/v4.7.2)
 
 ### Bug Fixes
