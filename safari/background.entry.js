@@ -8,10 +8,10 @@ const {
 	_handleMessage,
 	sendMessage,
 	addListener,
-} = createMessageHandler((type, obj, page) => page.dispatchMessage(type, obj));
+} = createMessageHandler((type, obj, tab) => tab.page.dispatchMessage(type, obj));
 
 safari.application.addEventListener('message', ({ name: type, message: obj, target: tab }) => {
-	_handleMessage(type, obj, tab.page);
+	_handleMessage(type, obj, tab);
 });
 
 // Listeners
@@ -125,6 +125,6 @@ addListener('multicast', async (request, senderTab) =>
 			.map(w => Array.from(w.tabs))
 			.reduce((acc, tabs) => acc.concat(tabs), [])
 			.filter(tab => tab !== senderTab && tab.private === senderTab.private && tab.page)
-			.map(({ page }) => sendMessage('multicast', request, page))
+			.map(tab => sendMessage('multicast', request, tab))
 	)
 );
