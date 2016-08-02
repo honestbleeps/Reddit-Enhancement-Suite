@@ -45,7 +45,7 @@ module.include = [
 module.exclude = [
 ];
 
-module.go = function() {
+module.go = () => {
 	// Do stuff now!
 	// This is where your code goes...
 };
