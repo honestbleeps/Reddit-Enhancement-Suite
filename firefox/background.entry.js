@@ -35,12 +35,20 @@ components.utils.import('resource://gre/modules/NetUtil.jsm');
 
 const workers = [];
 
+/**
+ * @this {Worker}
+ * @returns {void}
+ */
 function onAttach() {
 	// prepend to array so the correct worker will be used when navigating forwards
 	// but all bets are off for going back (see workerFor() comments)
 	workers.unshift(this);
 }
 
+/**
+ * @this {Worker}
+ * @returns {void}
+ */
 function onDetach() {
 	const index = workers.indexOf(this);
 	if (index !== -1) {
