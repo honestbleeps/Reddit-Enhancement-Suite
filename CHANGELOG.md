@@ -1,5 +1,21 @@
 # Changelog
 
+## [v4.7.4](https://github.com/honestbleeps/Reddit-Enhancement-Suite/releases/v4.7.4)
+
+### Bug Fixes
+
+- Fix drag-to-resize in Safari (thanks @larsjohnsen)
+- Fix albums not correctly switching to slideshow mode from filmstrip mode in some situations (thanks @larsjohnsen)
+- Fix NSFWQuickToggle still appearing when disabled (thanks @erikdesjardins)
+- Fix styleTweaks reapplying subreddit style when it was disabled natively (thanks @erikdesjardins)
+
+### Housekeeping / Other
+
+- Support new streamable.com URL format (thanks @erikdesjardins)
+- Firefox release is now correctly limited to Firefox 48 and up (thanks @erikdesjardins)
+- Update cookie deletion (i.e. account switcher) to work with Firefox 48 (thanks @erikdesjardins)
+- Clean up some options code (thanks @erikdesjardins)
+
 ## [v4.7.3](https://github.com/honestbleeps/Reddit-Enhancement-Suite/releases/v4.7.3)
 
 ### Bug Fixes
