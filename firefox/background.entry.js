@@ -59,6 +59,17 @@ function workerFor(tab) {
 	return worker;
 }
 
+/**
+ * @this {nsISimpleEnumerator}
+ * @param {nsIJSIID} iface
+ * @returns {Generator}
+ */
+function* asGenerator(iface) {
+	while (this.hasMoreElements()) {
+		yield this.getNext().QueryInterface(iface);
+	}
+}
+
 const {
 	_handleMessage,
 	sendMessage,
@@ -69,9 +80,17 @@ const {
 
 addCommonBackgroundListeners(addListener);
 
-addListener('deleteCookies', cookies =>
-	cookies.forEach(({ name }) => cookieManager.remove('.reddit.com', name, '/', false, false))
-);
+addListener('deleteCookies', cookies => {
+	for (const { host, name, path, originAttributes } of cookieManager.enumerator::asGenerator(Ci.nsICookie)) {
+		if (
+			host === '.reddit.com' &&
+			path === '/' &&
+			cookies.some(c => c.name === name)
+		) {
+			cookieManager.remove(host, name, path, false, originAttributes);
+		}
+	}
+});
 
 addListener('ajax', ({ method, url, headers, data }) =>
 	// not using async/await here since the polyfill doesn't work with Firefox's backend
