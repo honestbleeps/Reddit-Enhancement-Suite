@@ -78,7 +78,7 @@
 }
 
 #header-bottom-right.res-floating-userbar {
-	position: fixed;
+	position: fixed !important;
 	z-index: 10000;
 	top: 0 !important;
 	bottom: auto !important;
