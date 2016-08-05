@@ -14,19 +14,16 @@
 	],
 	"env": {
 		"safari": {
-			"passPerPreset": true,
 			"presets": [
 				"es2015",
-				"stage-0",
-				{ "plugins": [
-					"transform-runtime",
-					"transform-es2015-modules-commonjs",
-					"transform-dead-code-elimination",
-					"transform-node-env-inline",
-					"lodash"
-				] }
+				"stage-0"
 			],
-			"plugins": []
+			"plugins": [
+				"transform-runtime",
+				"transform-dead-code-elimination",
+				"transform-node-env-inline",
+				"lodash"
+			]
 		},
 		"test": {
 			"sourceMaps": "inline"

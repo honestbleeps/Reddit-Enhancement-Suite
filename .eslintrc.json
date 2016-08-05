@@ -188,6 +188,7 @@
 		"no-spaced-func": 2,
 		"no-sparse-arrays": 2,
 		"no-sync": 0,
+		"no-tabs": 0,
 		"no-ternary": 0,
 		"no-this-before-super": 2,
 		"no-throw-literal": 2,
@@ -264,6 +265,7 @@
 		"max-params": 0,
 		"max-statements": 0,
 		"max-statements-per-line": 0,
+		"multiline-ternary": 0,
 		"new-cap": 0, // see babel/new-cap
 		"new-parens": 2,
 		"newline-after-var": [0, "never"],
