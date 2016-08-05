@@ -76,3 +76,20 @@
 .res-betteReddit-commentCollapseInInbox {
 	.message .expand { display: inline; }
 }
+
+#header-bottom-right.res-floating-userbar {
+	position: fixed;
+	z-index: 10000;
+	top: 0 !important;
+	bottom: auto !important;
+	opacity: .6;
+	transition: opacity .3s ease-in;
+
+	&:hover {
+		opacity: 1;
+	}
+
+	.pinHeader-subanduser & {
+		top: 19px !important;
+	}
+}
