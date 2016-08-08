@@ -1,5 +1,31 @@
 # Changelog
 
+## [v4.7.6](https://github.com/honestbleeps/Reddit-Enhancement-Suite/releases/v4.7.6)
+
+### Bug Fixes
+
+- Fix negative karma numbers being displayed as positive (thanks @erikdesjardins)
+- Fix NaN karma, etc. in user hover info for suspended accounts (thanks @erikdesjardins)
+- Fix Tumblr host ignoring URLs ending with a #hash (thanks @erikdesjardins)
+- Fix subredditStyleBrowserToolbarButton option being hidden in Edge (thanks @erikdesjardins)
+- Fix `scrollStyle: middle` occasionally scrolling opposite of the desired direction (thanks @larsjohnsen)
+- Fix a minor style issue with top border of user tags getting cut off (thanks @erikdesjardins)
+- Fix media resizing getting too sensitive when an image was automatically moved left (thanks @larsjohnsen)
+- Fix scrollOnExpando not respecting header height when pinHeader was enabled (thanks @larsjohnsen)
+- Fix subreddit manager icons causing a scrollbar when zoomed in (thanks @larsjohnsen)
+- Fix duplicate user tag icon next to commenting as username (thanks @erikdesjardins)
+- Fix {{escaped}} placeholder not escaping >quotes at the beginning of lines (thanks @erikdesjardins)
+- Fix a bug where the floatingSidebar would show/hide every scroll (like the userbar in 4.7.5) (thanks @erikdesjardins)
+- Tentatively fix a race causing nightmode/disabled subreddit styles to not be respected (thanks @erikdesjardins)
+
+### Housekeeping / Other
+
+- Clean up some media host detection logic (thanks @erikdesjardins)
+- Backup filenames now end with the RES version number (thanks @erikdesjardins)
+- Clean up ESLint config (thanks @erikdesjardins)
+- Simplify Chrome->Edge shim (thanks @BenMcGarry)
+- Minor tidying of some options (thanks @erikdesjardins)
+
 ## [v4.7.5](https://github.com/honestbleeps/Reddit-Enhancement-Suite/releases/v4.7.5)
 
 ### New Features
