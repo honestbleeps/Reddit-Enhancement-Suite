@@ -177,7 +177,6 @@
 	margin-left: -5px;
 
 	> .RESShortcutsEditButtons {
-		border-top: 1px rgba(0, 0, 0, .5) solid;
 
 		.res-icon {
 			color: black;
@@ -205,6 +204,7 @@
 		overflow-y: auto;
 		max-width: 300px;
 		max-height: 500px;
+		border-bottom: 1px rgba(0, 0, 0, .5) solid;
 
 		li {
 			padding: 0;
