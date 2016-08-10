@@ -222,6 +222,10 @@
 		&:empty {
 			display: none;
 		}
+
+		&:only-child {
+			border-bottom-width: 0;
+		}
 	}
 }
 
