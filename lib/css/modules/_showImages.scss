@@ -14,25 +14,6 @@ img {
 	cursor: pointer;
 	user-select: none;
 
-	.commentarea .thing .usertext-body &,
-	.listing-page .thing & {
-		padding: 0;
-	}
-
-	.profile-page .comment .parent & {
-		display: inline-block;
-		float: none;
-	}
-
-	.usertext-body .md &,
-	.wiki-page &,
-	.messages-page & {
-		float: none;
-		display: inline-block;
-		vertical-align: bottom;
-		margin-left: 4px;
-	}
-
 	.res-showImages-highlightNSFWButton .thing.over18 &::before {
 		display: inline-block;
 		content: ' ';
@@ -40,7 +21,6 @@ img {
 		height: 100%;
 		pointer-events: none;
 		background-image: linear-gradient(45deg, rgba(255, 0, 0, .15) 25%, transparent 25%, transparent 50%, rgba(255, 0, 0, .15) 50%, rgba(255, 0, 0, .15) 75%, transparent 75%, transparent);
-
 	}
 
 	&.image,
@@ -58,6 +38,7 @@ img {
 		padding: 0;
 	}
 
+	.comment > .parent > &.linkImg,
 	&.commentImg {
 		vertical-align: middle !important;
 		float: none;
@@ -73,7 +54,11 @@ img {
 		}
 	}
 
-	&.expando-button-duplicate {
+	.comment > .parent > &.linkImg {
+		margin-left: 0;
+	}
+
+	&-duplicate {
 		filter: sepia(1);
 	}
 
