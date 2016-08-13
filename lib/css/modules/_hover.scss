@@ -7,6 +7,11 @@
 	z-index: $zindex-res-hover;
 }
 
+.RESHoverLoadIndicator {
+	display: flex;
+	justify-content: center;
+}
+
 .RESHoverInfoCard {
 	&::before {
 		content: '';
