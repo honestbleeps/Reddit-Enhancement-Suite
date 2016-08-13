@@ -42,6 +42,7 @@ img {
 	&.commentImg {
 		vertical-align: middle !important;
 		float: none;
+		display: inline-block;
 		margin: 0 4px;
 
 		+ .res-expando-box {
