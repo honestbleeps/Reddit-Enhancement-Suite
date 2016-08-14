@@ -1,5 +1,20 @@
 # Changelog
 
+## [v4.7.7](https://github.com/honestbleeps/Reddit-Enhancement-Suite/releases/v4.7.7)
+
+### Bug Fixes
+
+- Fix description of New Comment Count's subscriptionLength option incorrectly stating that `0` would keep subscriptions indefinitely (thanks @darkred, @erikdesjardins)
+- Nix extra space appearing above subreddit manager edit buttons for non-multireddit shortcuts (thanks @pltarun)
+- Fix single-image gifv album expandos having a video icon instead of a gifv (muted video) icon (thanks @larsjohnsen)
+- Fix another race causing stylesheets to occasionally not be disabled in nightmode (thanks @erikdesjardins)
+
+### Housekeeping / Other
+
+- "Welcome to RES" tip now has links to donation/contributing page (thanks @andytuba)
+- Clean up expando button CSS (thanks @larsjohnsen)
+- GitHub releases automatically marked as prereleases (thanks @erikdesjardins)
+
 ## [v4.7.6](https://github.com/honestbleeps/Reddit-Enhancement-Suite/releases/v4.7.6)
 
 ### Bug Fixes
