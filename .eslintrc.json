@@ -165,6 +165,7 @@
 		"quotes": [2, "single"],
 		"require-jsdoc": 0,
 		"sort-imports": 0, // see import/order
+		"sort-keys": 0,
 		"sort-vars": 0,
 		"space-before-function-paren": [2, "never"],
 		"strict": [2, "never"], // Babel inserts it for us
