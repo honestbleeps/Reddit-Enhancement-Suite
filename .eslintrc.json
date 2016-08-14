@@ -23,7 +23,7 @@
 		"node": true,
 		"es6": true
 	},
-	"extends": ["eslint:all"],
+	"extends": ["eslint:all", "plugin:ava/recommended"],
 	"rules": {
 		"babel/generator-star-spacing": [2, { "before": false, "after": true }],
 		"babel/new-cap": 0,
@@ -34,20 +34,6 @@
 		"babel/no-await-in-loop": 2,
 		"babel/flow-object-type": 0,
 		"babel/func-params-comma-dangle": 2,
-
-		"ava/max-asserts": 0,
-		"ava/no-cb-test": 2,
-		"ava/no-identical-title": 2,
-		"ava/no-invalid-end": 2,
-		"ava/no-only-test": 2,
-		"ava/no-skip-assert": 1,
-		"ava/no-skip-test": 1,
-		"ava/no-statement-after-end": 2,
-		"ava/no-todo-test": 1,
-		"ava/no-unknown-modifiers": 2,
-		"ava/prefer-power-assert": 0,
-		"ava/test-ended": 2,
-		"ava/test-title": [2, "if-multiple"],
 
 		"dollar-sign/dollar-sign": [2, "ignoreProperties"],
 
