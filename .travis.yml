@@ -2,6 +2,9 @@ sudo: false
 language: node_js
 node_js:
   - 6
+cache:
+  directories:
+    - $HOME/.npm
 script:
   - npm run eslint
   - npm run sass-lint
