@@ -1,10 +1,10 @@
-/* eslint-disable import/no-commonjs, import/no-nodejs-modules */
+/* eslint-disable import/no-nodejs-modules */
 
-import { version, repository } from '../package.json';
 import { execSync } from 'child_process';
-import fs from 'fs-extra';
 import path from 'path';
+import fs from 'fs-extra';
 import prependFile from 'prepend-file';
+import { version, repository } from '../package.json';
 
 const dir = 'changelog';
 const unreleasedChangelog = changelogPath('UNRELEASED.md');
