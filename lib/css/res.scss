@@ -156,19 +156,6 @@ body.res-console-open {
 		text-shadow: 0 0 1px #3d6da5, 0 0 1px #3d6da5, 0 0 1px #3d6da5, 0 0 1px #3d6da5, 0 0 1px #3d6da5, 0 0 1px #3d6da5, 0 0 1px #3d6da5, 0 0 1px #3d6da5;
 	}
 
-	&.newNotification::before {
-		content: '\F15B';
-		color: orangered;
-		position: absolute;
-		bottom: 25%;
-		left: 25%;
-		animation: fadeIn .5s ease-out 7 alternate;
-	}
-
-	&.newNotification.important::before {
-		animation: gearIconPop 1s ease-out infinite alternate;
-	}
-
 	#header-bottom-right & {
 		cursor: default; // firefox
 
@@ -178,7 +165,19 @@ body.res-console-open {
 	}
 }
 
-@keyframes gearIconPop {
+#RESAnnouncementAlert {
+	display: inline-block;
+	vertical-align: bottom;
+	margin-left: .5em;
+	color: orangered;
+	animation: fadeIn .5s ease-out 7 alternate;
+
+	.important {
+		animation: pop 1s ease-out infinite alternate;
+	}
+}
+
+@keyframes pop {
 	from { transform: scale(0, 0); }
 	to { transform: scale(1.5, 1.5); }
 }
