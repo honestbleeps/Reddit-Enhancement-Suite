@@ -1,4 +1,3 @@
-## [VERSION](https://github.com/honestbleeps/Reddit-Enhancement-Suite/releases/VERSION)
 
 ### New Features
 
