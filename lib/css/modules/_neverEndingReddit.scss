@@ -16,7 +16,8 @@
 	top: 40px;
 	z-index: $zindex-ner-content;
 	width: 570px;
-	left: calc(50% - 285px);
+	left: 50%;
+	transform: translateX(-50%);
 	background-color: #FFF;
 	color: #000;
 	padding: 10px;
@@ -32,7 +33,6 @@
 
 #NERFail {
 	min-height: 30px;
-	width: 95%;
 	font-size: 14px;
 	border: 1px solid #999;
 	border-radius: 10px;
