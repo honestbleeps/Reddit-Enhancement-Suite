@@ -252,6 +252,7 @@ img {
 	.res-expando-link {
 		// Limits width to that of child elements
 		display: table;
+		line-height: 0;
 	}
 
 	.res-image-media {
