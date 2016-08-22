@@ -7,7 +7,6 @@
 - Fix MutationObservers (used for loading images in Never Ending Reddit) in Safari (thanks @andytuba)
 - A few fixes and improvements to the Orangered module (thanks @andytuba)
 - Fix media resize keyboard shortcut resizing more than one image at once (thanks @larsjohnsen)
-- Fix spec non-compliance breaking the extension in Edge (thanks @BenMcGarry)
 - Prevent RES from setting `<body>` to `position: relative` and breaking stylesheets (thanks @erikdesjardins)
 
 ### Housekeeping / Other
