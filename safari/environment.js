@@ -1,9 +1,11 @@
 /* global safari: false */
 
+import _ from 'lodash';
+
 import resCss from '../lib/css/res.scss';
 
 import { createMessageHandler } from '../lib/environment/_messaging';
-import { nonNull } from '../lib/utils';
+import * as Init from '../lib/core/init';
 
 // DOM Collection iteration
 NodeList.prototype[Symbol.iterator] = Array.prototype[Symbol.iterator];
@@ -16,12 +18,12 @@ window.onunload = () => {};
 // since safari's built in extension stylesheets are treated as user stylesheets,
 // we can't inject them that way.  That makes them "user stylesheets" which would make
 // them require !important everywhere - we don't want that, so we'll inject this way instead.
-nonNull(() => document.head, 100).then(() => {
+_.defer(() => Init.headReady.then(() => {
 	const linkTag = document.createElement('link');
 	linkTag.rel = 'stylesheet';
 	linkTag.href = safari.extension.baseURI + resCss;
 	document.head.appendChild(linkTag);
-});
+}));
 
 const {
 	_handleMessage,
