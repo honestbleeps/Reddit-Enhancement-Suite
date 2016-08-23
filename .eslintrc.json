@@ -2,6 +2,7 @@
 	"parser": "babel-eslint",
 	"plugins": [
 		"babel",
+		"flowtype",
 		"ava",
 		"dollar-sign",
 		"no-useless-assign",
@@ -34,6 +35,26 @@
 		"babel/no-await-in-loop": 2,
 		"babel/flow-object-type": 0,
 		"babel/func-params-comma-dangle": 2,
+
+		"flowtype/boolean-style": 2,
+		"flowtype/define-flow-type": 2,
+		"flowtype/delimiter-dangle": [2, "always-multiline"],
+		"flowtype/generic-spacing": 2,
+		"flowtype/no-dupe-keys": 2,
+		"flowtype/no-weak-types": [2, { "any": false }],
+		"flowtype/require-parameter-type": 0,
+		"flowtype/require-return-type": 0,
+		"flowtype/require-valid-file-annotation": 2,
+		"flowtype/semi": 2,
+		"flowtype/sort-keys": 0,
+		"flowtype/space-after-type-colon": 2,
+		"flowtype/space-before-generic-bracket": 2,
+		"flowtype/space-before-type-colon": 2,
+		"flowtype/type-id-match": [2, "^([A-Z][a-z0-9]+)+$"],
+		"flowtype/union-intersection-spacing": 2,
+		"flowtype/use-flow-type": 0, // this doesn't seem to be necessary, except in flow/ where they aren't used directly
+		"flowtype/valid-syntax": 2,
+
 		"ava/prefer-async-await": 0,
 
 		"dollar-sign/dollar-sign": [2, "ignoreProperties"],
@@ -179,6 +200,7 @@
 		"sort-keys": 0,
 		"sort-vars": 0,
 		"space-before-function-paren": [2, "never"],
+		"spaced-comment": [2, "always", { "markers": [":", "::"] }],
 		"strict": [2, "never"], // Babel inserts it for us
 		"valid-jsdoc": [2, { "requireParamDescription": false, "requireReturnDescription": false }],
 		"valid-typeof": [2, { "requireStringLiterals": true }],
