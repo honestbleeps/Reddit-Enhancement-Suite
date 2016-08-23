@@ -1329,4 +1329,14 @@
 	.subreddit-rule-item:hover {
 		background-color: hsl(0, 0%, 17%);
 	}
+
+	#keyHelp {
+		border-color: #999;
+		background-color: #aaa;
+		color: #333;
+
+		td {
+			border-color: #999;
+		}
+	}
 }
