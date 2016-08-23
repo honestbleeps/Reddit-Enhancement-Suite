@@ -157,6 +157,19 @@ img {
 	&-rotate::after { content: '\F0B0'; }
 	&-rotate-left { transform: scaleX(-1); }
 
+	&-clippy {
+		color: white;
+		font-family: normal 16px verdana, arial, helvetica, sans-serif;
+		white-space: nowrap;
+
+		&::after {
+			content: '\2139';
+			padding: 0 2px;
+		}
+
+		&-expanded::after { content: '\2713'; }
+	}
+
 	.res-media-rotatable:hover & {
 		opacity: .8;
 	}
