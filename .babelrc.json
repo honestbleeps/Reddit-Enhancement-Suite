@@ -11,6 +11,7 @@
 		"transform-es2015-destructuring",
 		"transform-es2015-parameters",
 		"transform-es2015-block-scoping",
+		"transform-flow-strip-types",
 		"transform-dead-code-elimination",
 		"transform-node-env-inline",
 		"lodash"
@@ -29,6 +30,7 @@
 				"transform-exponentiation-operator",
 				"transform-object-rest-spread",
 				"transform-runtime",
+				"transform-flow-strip-types",
 				"transform-dead-code-elimination",
 				"transform-node-env-inline",
 				"lodash"

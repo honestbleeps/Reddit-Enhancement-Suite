@@ -130,6 +130,8 @@ To load the extension into your browser, see [the sections below](#building-in-c
 
 **`npm run lint-fix`** will autofix any [fixable](http://eslint.org/docs/user-guide/command-line-interface#fix) lint issues.
 
+**`npm run flow`** will run [Flow](https://flowtype.org/) type checking, and start the Flow server so future runs will complete faster. Use `npm run flow -- stop` to stop the server, or `npm run flow -- check` to run Flow once without starting the server.
+
 **`npm test`** will run unit tests (in `__tests__` directories) using [Ava](https://github.com/avajs/ava).
 
 **`npm run test-integration -- <browsers>`** will run integration tests (in `tests/`) using [Nightwatch.js](http://nightwatchjs.org/).

@@ -23,6 +23,8 @@ addons:
     # SAUCE_ACCESS_KEY=<secure>
     secure: hHF06xHY6pLdxscwYhUHdSRuUH2CPA61AUrvPiW54lnMwwkDvCQakR+aY5HbjptFIfOwkWsS4xoqXH4pZTfhMOji32S/+ELT+AqLdkIgnLYDfBj4RcsZoXyvuiLx29i4PVCnGMikctBp4dM6wORgfd1tu3uwhcoQrBjxCMW1qmY=
 matrix:
+  allow_failures:
+    - env: RES_JOB=flow
   exclude:
     - node_js: 7 # exclude default job https://github.com/travis-ci/travis-ci/issues/4681
   include:
@@ -60,3 +62,6 @@ matrix:
           skip_cleanup: true
           on:
             tags: true
+    - env: RES_JOB=flow
+      script:
+        - npm run flow -- check --show-all-errors
