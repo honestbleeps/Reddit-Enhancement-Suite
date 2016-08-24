@@ -1,7 +1,6 @@
 @import '../zindex';
 
 #NERModal {
-	display: none;
 	z-index: $zindex-ner-content - 1;
 	position: fixed;
 	top: 0;
@@ -13,26 +12,27 @@
 }
 
 #NERContent {
-	display: none;
 	position: fixed;
 	top: 40px;
 	z-index: $zindex-ner-content;
-	width: 720px;
+	width: 570px;
+	left: 50%;
+	transform: translateX(-50%);
 	background-color: #FFF;
 	color: #000;
 	padding: 10px;
 	font-size: 12px;
+
+	.RESCenteredLoadIndicator { margin-top: 20px; }
 }
 
 #NERModalClose {
-	position: absolute;
-	top: 3px;
-	right: 3px;
+	float: right;
+	position: static;
 }
 
 #NERFail {
 	min-height: 30px;
-	width: 95%;
 	font-size: 14px;
 	border: 1px solid #999;
 	border-radius: 10px;
