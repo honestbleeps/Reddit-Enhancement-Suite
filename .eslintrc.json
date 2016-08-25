@@ -113,6 +113,7 @@
 		"no-confusing-arrow": 0,
 		"no-console": 0,
 		"no-continue": 0,
+		"no-duplicate-imports": 0, // see import/no-duplicates (ESLint's rule doesn't handle Flow `import type`)
 		"no-else-return": 0,
 		"no-empty-function": [2, { "allow": ["arrowFunctions", "methods"] }],
 		"no-extra-parens": [2, "functions"], // "all" conflicts with no-return-assign and some other rules, unfortunately
