@@ -34,10 +34,10 @@ export {
 
 addInterceptor('isPrivateBrowsing', () => chrome.extension.inIncognitoContext);
 
-const _set = apiToPromise(::chrome.storage.local.set);
+const _set = apiToPromise((items, callback) => chrome.storage.local.set(items, callback));
 const set = (key, value) => _set({ [key]: value });
 
-const _get = apiToPromise(::chrome.storage.local.get);
+const _get = apiToPromise((keys, callback) => chrome.storage.local.get(keys, callback));
 const get = async (key, defaultValue = null) => (await _get({ [key]: defaultValue }))[key];
 
 addInterceptor('storage', keyedMutex(async ([operation, key, value]) => {
@@ -68,14 +68,14 @@ addInterceptor('storage', keyedMutex(async ([operation, key, value]) => {
 				throw new Error(`Failed to delete path: ${value} on key: ${key} - error: ${e}`);
 			}
 		case 'delete':
-			return apiToPromise(::chrome.storage.local.remove)(key);
+			return apiToPromise((keys, callback) => chrome.storage.local.remove(keys, callback))(key);
 		case 'has':
 			const sentinel = Math.random();
 			return (await get(key, sentinel)) !== sentinel;
 		case 'keys':
 			return Object.keys(await _get(null));
 		case 'clear':
-			return apiToPromise(::chrome.storage.local.clear)();
+			return apiToPromise(callback => chrome.storage.local.clear(callback))();
 		default:
 			throw new Error(`Invalid storage operation: ${operation}`);
 	}
