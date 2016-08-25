@@ -18,7 +18,7 @@ window.onunload = () => {};
 // since safari's built in extension stylesheets are treated as user stylesheets,
 // we can't inject them that way.  That makes them "user stylesheets" which would make
 // them require !important everywhere - we don't want that, so we'll inject this way instead.
-_.defer(() => Init.headReady.then(() => {
+_.defer(() => Init.headReady.then(() => { // deferred because of the circular dependency between init and environment
 	const linkTag = document.createElement('link');
 	linkTag.rel = 'stylesheet';
 	linkTag.href = safari.extension.baseURI + resCss;
