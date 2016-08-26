@@ -19,6 +19,7 @@ esproposal.export_star_as=enable
 suppress_type=$FlowIssue
 suppress_type=$FlowIgnore
 suppress_comment=\\(.\\|\n\\)*\\$FlowIssue
+suppress_comment=\\(.\\|\n\\)*\\$FlowIgnore
 
 unsafe.enable_getters_and_setters=true
 
