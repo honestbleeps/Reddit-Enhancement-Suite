@@ -8,6 +8,9 @@
 - A few fixes and improvements to the Orangered module (thanks @andytuba)
 - Fix media resize keyboard shortcut resizing more than one image at once (thanks @larsjohnsen)
 - Prevent RES from setting `<body>` to `position: relative` and breaking stylesheets (thanks @erikdesjardins)
+- Style Keyboard Nav help panel in nightmode (thanks @andytuba)
+- Fix Never Ending Reddit endlessly loading at the end of a listing (thanks @larsjohnsen)
+- Fix submitHelper "already submitted" warning always appearing when switching from text to link posting (thanks @erikdesjardins)
 
 ### Housekeeping / Other
 
@@ -21,3 +24,4 @@
 - Slightly improve Never Ending Reddit loading performance (thanks @erikdesjardins)
 - Add a more advanced per-module profiling tool (thanks @erikdesjardins)
 - Add an option to disable voteEnhancements score color interpolation (thanks @erikdesjardins)
+- Integrate Clippy with media controls (thanks @larsjohnsen)
