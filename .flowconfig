@@ -11,6 +11,8 @@
 [options]
 module.use_strict=true
 
+module.name_mapper='^json!.+$'->'<PROJECT_ROOT>/flow/stub/json.js'
+
 esproposal.export_star_as=enable
 
 suppress_type=$FlowIssue
