@@ -22,6 +22,7 @@ deploy:
     prerelease: true
     file:
       - dist/zip/chrome.zip
+      - dist/zip/edge.zip
       - dist/zip/firefox.zip
       - dist/zip/RES.safariextension.zip
     skip_cleanup: true
