@@ -165,7 +165,7 @@ See [all pull requests merged](https://github.com/honestbleeps/Reddit-Enhancemen
 - Make localDate work within the sidebar (thanks @thybag)
 - NER: Do not restore page on reload (thanks @larsjohnsen)
 
-###Housekeeping / Other
+### Housekeeping / Other
 
 - Code infrastructure overhaul, massive thanks @erikdesjardins and @mc10
 	- Start-up speed improvements
