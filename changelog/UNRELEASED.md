@@ -1,4 +1,4 @@
-Contains changes from beta versions 4.7.1 through 4.7.8.
+Contains changes from 4.6.1 and through beta 4.7.1 to 4.7.8.
 
 Highlights:
 
