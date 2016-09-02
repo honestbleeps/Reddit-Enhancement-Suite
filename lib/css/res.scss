@@ -1829,16 +1829,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 	user-select: none;
 	display: inline-block;
 
-	label {
+	a {
 		cursor: pointer;
 
 		&::after {
 			content: attr(aftercontent);
 		}
-	}
-
-	input {
-		display: none;
 	}
 }
 
