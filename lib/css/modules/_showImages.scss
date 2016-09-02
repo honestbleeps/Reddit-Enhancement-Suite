@@ -38,6 +38,21 @@ img {
 		padding: 0;
 	}
 
+	&-requires-permission {
+		&::after {
+			content: '\F0C2';
+			font: normal 16px/1 'Batch';
+			margin-left: 3px;
+			vertical-align: middle;
+			line-height: 23px;
+			color: black;
+		}
+
+		&:hover::after {
+			content: '\F0C3';
+		}
+	}
+
 	.comment > .parent > &.linkImg,
 	&.commentImg {
 		vertical-align: middle !important;
