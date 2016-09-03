@@ -41,15 +41,16 @@ img {
 	&-requires-permission {
 		&::after {
 			content: '\F0C2';
-			font: normal 16px/1 'Batch';
-			margin-left: 3px;
-			vertical-align: middle;
-			line-height: 23px;
-			color: black;
+			font: normal 12px/1 'Batch';
+			line-height: 18px;
+			vertical-align: top;
+			margin-left: 2px;
+			color: #369;
 		}
 
 		&:hover::after {
 			content: '\F0C3';
+			color: #FFF;
 		}
 	}
 
@@ -93,6 +94,8 @@ img {
 	&.video-muted.expanded { background-position: 0 _(10); }
 	&.video-muted.expanded:hover { background-position: 0 _(11); }
 	&.expando-button-loading { background-position: 0 _(12); }
+	&.expando-button-requires-permission { background-position: 0 _(13); }
+	&.expando-button-requires-permission:hover { background-position: 0 _(14); }
 }
 
 .res-expando-siteAttribution {
