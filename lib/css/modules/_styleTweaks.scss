@@ -121,6 +121,7 @@ blockquote.twitter-tweet {
 	body.with-listing-chooser .listing-chooser {
 		position: fixed;
 		top: 0;
+		overflow-y: scroll;
 
 		.contents {
 			margin-top: 65px;
