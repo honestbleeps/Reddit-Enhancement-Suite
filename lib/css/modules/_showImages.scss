@@ -25,7 +25,8 @@ img {
 
 	&.image,
 	&.video-muted,
-	&.expando-button-loading {
+	&.expando-button-loading,
+	&.expando-button-requires-permission {
 		vertical-align: top !important;
 		float: left;
 		width: 23px;
