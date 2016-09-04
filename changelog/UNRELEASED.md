@@ -1,29 +1,12 @@
 
 ### New Features
 
-- gather.wizards.com card images media host (thanks @alexvanolst)
+- None (thanks nobody)
 
 ### Bug Fixes
 
-- Fix posts not being selected on mousedown, causing loss of Never Ending Reddit position (thanks @larsjohnsen) 
-- Fix minor typo in media controls hover text (thanks @BenMcGarry)
-- Fix error when hiding posts with fixHideLinks disabled (thanks @alexvanolst)
-- Fix onHideMoveDown changing scroll position on hide with fixHideLinks disabled (thanks @alexvanolst)
-- Fix a bug with caching causing things to be cached for longer than intended (thanks @erikdesjardins)
-- Fix expandos continuing to play after their containing post was hidden (thanks @larsjohnsen)
-- Fix expandos not working on wiki pages (thanks @larsjohnsen)
-- Fix albums not remembering resize width when navigating to the next image (thanks @larsjohnsen)
-- Fix comments listings (/r/reddit.com/comments) being recognised as comments pages (thanks @larsjohnsen)
-- Fix floating multireddit sidebar not scrolling on overflow (thanks @erikdesjardins)
-- Fix Never Ending Reddit paused notification occasionally appearing twice (thanks @larsjohnsen)
-- Fix Never Ending Reddit pauseAfterEvery actually pausing at pauseAfterEvery + 1 pages (thanks @larsjohnsen)
-- Fix YouTube playlists continuing to play after closing the expando (thanks @larsjohnsen)
-- Fix search options being unstyled in night mode (thanks @thybag)
-- Fix User Tagger dialog appearing behind expandos (thanks @thybag)
+- None (thanks nobody)
 
 ### Housekeeping / Other
 
-- Rework permissions to only ask when trying to open an expando, usability improvements (big thanks @larsjohnsen)
-- Disable i.redd.it image expanding by default (API calls were causing too much stress on reddit). This can be reenabled with the expandoCommentRedirects option.
-- Update karma every 10 minutes instead of every hour (thanks @erikdesjardins)
-- Always show a count on the "show images" button, even when there is nothing to expand (i.e. "0") (thanks @larsjohnsen)
+- None (thanks nobody)
