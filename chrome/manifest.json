@@ -2,7 +2,7 @@
 	"name": "{{prop?title!../package.json}}",
 	"version": "{{prop?version!../package.json}}",
 	"manifest_version": 2,
-	"minimum_chrome_version": "51",
+	"minimum_chrome_version": "53",
 	"description": "{{prop?description!../package.json}}",
 	"background": {
 		"scripts": [
