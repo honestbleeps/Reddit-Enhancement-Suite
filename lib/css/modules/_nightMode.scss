@@ -535,12 +535,12 @@
 		color: hsl(0, 0%, 10%);
 	}
 
-	ul.res-search-tabs li {
-		background: linear-gradient(to top, rgb(60, 60, 60), rgb(45, 45, 45));
+	ul.res-search-tabs li a {
+		background-color: rgb(57, 57, 57);
 	}
 
-	ul.res-search-tabs li.res-search-tab-active,
-	.combined-search-page #previoussearch .res-search-pane,
+	&.res-searchHelper-searchPageTabs ul.res-search-tabs li.res-search-tab-active a,
+	&.res-searchHelper-searchPageTabs .combined-search-page #previoussearch .res-search-pane,
 	#RESConsoleContainer,
 	#SearchRES-results-container li,
 	#SearchRES-results-container li:hover,
@@ -554,11 +554,12 @@
 		border-color: #444;
 	}
 
-	.combined-search-page .search-result .search-expando.collapsed::before {
+	
+	&.res-searchHelper-searchPageTabs .combined-search-page .search-result .search-expando.collapsed::before {
 		background: linear-gradient(to bottom, rgba(34, 34, 34, 0) 0%, rgb(34, 34, 34) 100%);
 	}
 
-	.combined-search-page .search-result-group .search-result-group-header {
+	&.res-searchHelper-searchPageTabs .combined-search-page .search-result-group .search-result-group-header {
 		border-bottom-color: rgb(128, 128, 128);
 	}
 
