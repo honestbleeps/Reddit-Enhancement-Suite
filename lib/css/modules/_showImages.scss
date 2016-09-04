@@ -506,16 +506,16 @@ body:not(.res-showImages-displayImageCaptions) {
 	}
 }
 
-/* Extras for certain text expando's */
+// Extras for certain text expando's
 .res-expando-host-wikipedia {
 	.md {
 		padding: 5px;
-		max-width:none;
+		max-width: none;
 
 		table {
 			width: 45%;
-			max-width:300px;
-			border: 0;
+			max-width: 300px;
+			border: none;
 			background: #eee;
 			margin: 8px;
 
@@ -535,11 +535,12 @@ body:not(.res-showImages-displayImageCaptions) {
 		}
 	}
 	.res-text-media {
-		&:before, &:after {
-			content: "";
+		&::before, &::after {
+			content: '';
 			display: table;
 		}
-		&:after {
+
+		&::after {
 			clear: both;
 		}
 	}
