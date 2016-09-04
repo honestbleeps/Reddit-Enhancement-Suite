@@ -39,22 +39,6 @@ img {
 		padding: 0;
 	}
 
-	&-requires-permission {
-		&::after {
-			content: '\F0C2';
-			font: normal 12px/1 'Batch';
-			line-height: 18px;
-			vertical-align: top;
-			margin-left: 2px;
-			color: #369;
-		}
-
-		&:hover::after {
-			content: '\F0C3';
-			color: #FFF;
-		}
-	}
-
 	.comment > .parent > &.linkImg,
 	&.commentImg {
 		vertical-align: middle !important;
