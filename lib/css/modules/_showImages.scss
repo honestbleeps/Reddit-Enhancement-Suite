@@ -515,10 +515,13 @@ body:not(.res-showImages-displayImageCaptions) {
 		table {
 			width: 45%;
 			max-width:300px;
-			float: right;
 			border: 0;
 			background: #eee;
 			margin: 8px;
+
+			&:first-of-type {
+				float: right;
+			}
 		}
 
 		p {
