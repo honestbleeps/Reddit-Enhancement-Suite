@@ -534,9 +534,10 @@ body:not(.res-showImages-displayImageCaptions) {
 			font-size: .9rem;
 		}
 	}
+
 	.res-text-media {
 
-		&::before, 
+		&::before,
 		&::after {
 			content: '';
 			display: table;
