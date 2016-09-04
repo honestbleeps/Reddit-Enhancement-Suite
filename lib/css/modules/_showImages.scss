@@ -25,7 +25,8 @@ img {
 
 	&.image,
 	&.video-muted,
-	&.expando-button-loading {
+	&.expando-button-loading,
+	&.expando-button-requires-permission {
 		vertical-align: top !important;
 		float: left;
 		width: 23px;
@@ -78,6 +79,8 @@ img {
 	&.video-muted.expanded { background-position: 0 _(10); }
 	&.video-muted.expanded:hover { background-position: 0 _(11); }
 	&.expando-button-loading { background-position: 0 _(12); }
+	&.expando-button-requires-permission { background-position: 0 _(13); }
+	&.expando-button-requires-permission:hover { background-position: 0 _(14); }
 }
 
 .res-expando-siteAttribution {
