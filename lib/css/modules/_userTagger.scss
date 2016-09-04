@@ -3,6 +3,7 @@
 	position: absolute;
 	width: 336px;
 	box-sizing: border-box;
+	z-index: $zindex-res-hover;
 
 	form > div {
 		clear: both;
