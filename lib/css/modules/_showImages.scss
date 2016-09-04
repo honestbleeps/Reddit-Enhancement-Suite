@@ -505,3 +505,38 @@ body:not(.res-showImages-displayImageCaptions) {
 		}
 	}
 }
+
+/* Extras for certain text expando's */
+.res-expando-host-wikipedia {
+	.md {
+		padding: 5px;
+		max-width:none;
+
+		table {
+			width: 45%;
+			max-width:300px;
+			float: right;
+			border: 0;
+			background: #eee;
+			margin: 8px;
+		}
+
+		p {
+			line-height: 1.2rem;
+			font-size: .9rem;
+		}
+	}
+	.res-text-media {
+		&:before, &:after {
+			content: "";
+			display: table;
+		}
+		&:after {
+			clear: both;
+		}
+	}
+}
+.res-nightmode .res-expando-host-wikipedia .md table {
+	color: rgb(221, 221, 221);
+	background: rgb(57, 57, 57);;
+}
