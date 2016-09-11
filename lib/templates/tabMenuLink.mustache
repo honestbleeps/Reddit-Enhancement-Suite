@@ -1,8 +1,3 @@
-<li class="res-tabmenu-button">
-	<a class="{{ className }}" {{#title}}title="{{ title }}"{{/title}}>
-	<label>
-		<input type="checkbox" {{checked}}>
-		{{text}}
-	</label>
-	</a>
+<li class="res-tabmenu-button {{#checked}}selected{{/checked}} {{ className }}">
+	<a {{#title}}title="{{ title }}"{{/title}} {{#aftercontent}}aftercontent="{{aftercontent}}"{{/aftercontent}}>{{text}}</a>
 </li>

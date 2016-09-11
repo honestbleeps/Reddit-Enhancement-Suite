@@ -374,3 +374,21 @@ ul.widgetStateButtons {
 #userTaggerTable tr:hover .deleteIcon {
 	color: #369;
 }
+
+.res-dashboard {
+	.tabmenu li:not(.res-tabmenu-button),
+	.pagename {
+		display: none;
+	}
+
+	.tabmenu.res-dashboard-tabmenu-ready { display: inline-block; }
+
+	.res-dashboard-tab {
+		font-variant: small-caps;
+		font-size: 1.2em;
+		vertical-align: bottom;
+
+		// We want the tabs to act as a radio, i.e. don't allow deselect the currently selected
+		&.selected { pointer-events: none; }
+	}
+}
