@@ -168,13 +168,9 @@
 #editSearchFormContainer {
 	width: auto;
 	min-width: 550px;
-	height: 28px;
+	min-height: 28px;
 	float: right;
 	text-align: right;
-}
-
-#addRedditFormContainer {
-	height: auto;
 }
 
 #editRedditFormContainer,
