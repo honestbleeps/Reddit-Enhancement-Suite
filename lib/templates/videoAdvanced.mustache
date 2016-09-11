@@ -8,15 +8,13 @@
 		{{#controls}}
 		<video controls {{#muted}}muted{{/muted}} {{#loop}}loop{{/loop}} poster="{{ poster }}"></video>
 		{{/controls}}
+		{{#advancedControls}}
 		<div class="video-advanced-interface {{#controls}}video-advanced-push-below{{/controls}}">
 			<div class="video-advanced-progress">
-				{{#advancedControls}}
 				<div class="video-advanced-position"></div>
 				<div class="video-advanced-position-thumb"></div>
-				{{/advancedControls}}
 			</div>
 			<div class="video-advanced-main">
-				{{#advancedControls}}
 				<div class="video-advanced-controls">
 					<div title="Toggle pause" class="res-icon video-advanced-button video-advanced-toggle-pause"></div>
 					{{#reversable}}
@@ -33,10 +31,8 @@
 						<div title="Increase speed by 10%" class="res-icon video-advanced-button video-advanced-speed-increase"></div>
 					</div>
 				</div>
-				{{/advancedControls}}
 				<div hidden class="video-advanced-error">
 					<div class="res-icon">&#xf15b</div>
-					<span>Could not load video</span>
 				</div>
 				<div class="video-advanced-info">
 					{{#source}}
@@ -49,5 +45,11 @@
 				</div>
 			</div>
 		</div>
+		{{/advancedControls}}
+		{{^advancedControls}}
+		<div hidden class="video-advanced-error">
+			<div class="res-icon">&#xf15b</div>
+		</div>
+		{{/advancedControls}}
 	</div>
 </div>
