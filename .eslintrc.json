@@ -35,7 +35,7 @@
 		"babel/flow-object-type": 0,
 		"babel/func-params-comma-dangle": 2,
 		"ava/prefer-async-await": 0,
-		
+
 		"dollar-sign/dollar-sign": [2, "ignoreProperties"],
 
 		"no-useless-assign/no-useless-assign": 2,
@@ -123,6 +123,7 @@
 		"brace-style": [2, "1tbs", { "allowSingleLine": true }],
 		"callback-return": 0,
 		"camelcase": [2, { "properties": "never" }],
+		"class-methods-use-this": 0,
 		"comma-dangle": [2, "always-multiline"],
 		"complexity": [0, 11],
 		"consistent-return": 0, // see consistent-return-legacy/consistent-return-legacy
@@ -139,6 +140,7 @@
 		"indent": [2, "tab", { "SwitchCase": 1 }],
 		"init-declarations": 0,
 		"linebreak-style": 0,
+		"line-comment-position": 0,
 		"lines-around-comment": [0, { "allowBlockStart": true }],
 		"max-depth": 0,
 		"max-len": 0,
