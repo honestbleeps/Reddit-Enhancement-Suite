@@ -135,7 +135,7 @@ a.voteWeight {
 
 .userTagLink.hasTag,
 #userTaggerPreview {
-	display: inline-block;
+	display: inline;
 	padding: 0 4px;
 	line-height: normal;
 	border: 1px solid #c7c7c7;
@@ -165,8 +165,4 @@ a.voteWeight {
 	&:hover {
 		color: #333;
 	}
-}
-
-.userTagged {
-	margin-right: 5px;
 }
