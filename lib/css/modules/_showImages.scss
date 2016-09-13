@@ -541,6 +541,12 @@ body:not(.res-showImages-displayImageCaptions) {
 			font-weight: bold;
 			font-size: 1rem;
 		}
+
+		// Hide citations
+		> div > ol:last-child,
+		sup > a[href^="#cite"] {
+			display: none;
+		}
 	}
 
 	.res-text-media {
