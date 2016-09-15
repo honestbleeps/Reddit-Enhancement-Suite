@@ -157,6 +157,7 @@ img {
 	}
 
 	&-lookup::after { content: '\F178'; }
+	&-download::after { content: '\F058'; }
 	&-rotate::after { content: '\F0B0'; }
 	&-rotate-left { transform: scaleX(-1); }
 
@@ -440,8 +441,6 @@ img {
 
 	&.reversed .video-advanced-reverse::after { content: '\f16d'; }
 	&:not(.reversed) .video-advanced-reverse::after { content: '\f169'; }
-
-	.video-advanced-download::after { content: '\f02c'; }
 
 	.video-advanced-time-decrease::after { content: '\f168'; }
 	.video-advanced-time-increase::after { content: '\f16e'; }
