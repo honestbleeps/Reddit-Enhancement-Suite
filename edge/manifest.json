@@ -5,7 +5,10 @@
 	"description": "{{prop?description!../package.json}}",
 	"author": "{{prop?author!../package.json}}",
 	"background": {
-		"page": "{{./background-edge.html}}",
+		"scripts": [
+			"{{./edge.entry.js}}",
+			"{{../chrome/background.entry.js}}"
+		],
 		"persistent": true
 	},
 	"options_page": "{{../chrome/options.html}}",
