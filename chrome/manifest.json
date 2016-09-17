@@ -4,6 +4,7 @@
 	"manifest_version": 2,
 	"minimum_chrome_version": "53",
 	"description": "{{prop?description!../package.json}}",
+	"default_locale": "en",
 	"background": {
 		"scripts": [
 			"{{./background.entry.js}}"

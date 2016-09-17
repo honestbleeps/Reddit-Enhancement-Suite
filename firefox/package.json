@@ -3,6 +3,7 @@
 	"title": "{{prop?title!../package.json}}",
 	"id": "jid1-xUfzOsOFlzSOXg@jetpack",
 	"description": "{{prop?description!../package.json}}",
+	"default_locale": "en",
 	"author": "honestbleeps",
 	"homepage": "http://redditenhancementsuite.com/",
 	"license": "GPL-3.0",
