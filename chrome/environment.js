@@ -9,6 +9,7 @@ const _sendMessage = apiToPromise(chrome.runtime.sendMessage);
 const {
 	_handleMessage,
 	sendMessage,
+	sendSynchronous,
 	addListener,
 	addInterceptor,
 } = createMessageHandler((type, { transaction, isResponse, ...obj }, sendResponse) => {
@@ -25,6 +26,7 @@ chrome.runtime.onMessage.addListener(({ type, ...obj }, sender, sendResponse) =>
 
 export {
 	sendMessage,
+	sendSynchronous,
 	addListener,
 	addInterceptor,
 };

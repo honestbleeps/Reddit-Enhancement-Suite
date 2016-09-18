@@ -3,12 +3,14 @@ import { extendDeep } from '../lib/utils';
 
 const {
 	sendMessage,
+	sendSynchronous,
 	addListener,
 	addInterceptor,
 } = createMessageHandler(() => {});
 
 export {
 	sendMessage,
+	sendSynchronous,
 	addListener,
 };
 
