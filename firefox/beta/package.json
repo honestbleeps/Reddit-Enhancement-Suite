@@ -1,13 +1,13 @@
 {
 	"name": "reddit-enhancement-suite",
-	"title": "{{prop?title!../package.json}}",
+	"title": "{{prop?title!../../package.json}}",
 	"id": "jid1-xUfzOsOFlzSOXg@jetpack",
-	"description": "{{prop?description!../package.json}}",
+	"description": "{{prop?description!../../package.json}}",
 	"author": "honestbleeps",
 	"homepage": "http://redditenhancementsuite.com/",
 	"license": "GPL-3.0",
-	"version": "{{prop?version!../package.json}}",
-	"main": "{{./background.entry.js}}",
+	"version": "{{prop?version!../../package.json}}beta",
+	"main": "{{../background.entry.js}}",
 	"engines": {
 		"firefox": ">=48.0"
 	},
