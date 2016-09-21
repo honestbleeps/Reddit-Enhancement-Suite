@@ -11,13 +11,14 @@ if (isBetaVersion(version)) {
 	console.log(`Deploying ${version} beta release...`);
 
 	deployChromeBeta();
-	deployFirefox();
+	deployFirefoxBeta();
 } else {
 	console.log(`Deploying ${version} stable release...`);
 
 	deployChromeBeta();
 	deployChromeStable();
-	deployFirefox();
+	deployFirefoxBeta();
+	deployFirefoxStable();
 }
 
 function deployChromeBeta() {
@@ -55,8 +56,25 @@ function deployChromeStable() {
 	});
 }
 
-function deployFirefox() {
-	console.log('Deploying Firefox...');
+function deployFirefoxBeta() {
+	console.log('Deploying Firefox beta...');
+
+	firefoxDeploy({
+		issuer: process.env.FIREFOX_ISSUER,
+		secret: process.env.FIREFOX_SECRET,
+		id: 'jid1-xUfzOsOFlzSOXg@jetpack',
+		version: require('../dist/firefox-beta/package.json').version, // eslint-disable-line global-require,
+		src: fs.createReadStream(path.join(__dirname, '../dist/firefox-beta/reddit-enhancement-suite.xpi')),
+	}).then(() => {
+		console.log('Firefox beta deployment complete!');
+	}, err => {
+		console.error('Firefox beta failed:', err);
+		process.exitCode = 1;
+	});
+}
+
+function deployFirefoxStable() {
+	console.log('Deploying Firefox stable...');
 
 	firefoxDeploy({
 		issuer: process.env.FIREFOX_ISSUER,
@@ -65,9 +83,9 @@ function deployFirefox() {
 		version: require('../dist/firefox/package.json').version, // eslint-disable-line global-require,
 		src: fs.createReadStream(path.join(__dirname, '../dist/firefox/reddit-enhancement-suite.xpi')),
 	}).then(() => {
-		console.log('Firefox deployment complete!');
+		console.log('Firefox stable deployment complete!');
 	}, err => {
-		console.error('Firefox failed:', err);
+		console.error('Firefox stable failed:', err);
 		process.exitCode = 1;
 	});
 }

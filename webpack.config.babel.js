@@ -12,26 +12,37 @@ import babelrc from './.babelrc.json';
 
 const browserConfig = {
 	chrome: {
+		target: 'chrome',
 		entry: 'chrome/manifest.json',
 		environment: 'chrome/environment',
 		output: 'chrome',
 	},
 	edge: {
+		target: 'edge',
 		entry: 'edge/manifest.json',
 		environment: 'edge/environment',
 		output: 'edge',
 	},
 	safari: {
+		target: 'safari',
 		entry: 'safari/Info.plist',
 		environment: 'safari/environment',
 		output: 'RES.safariextension',
 	},
 	firefox: {
+		target: 'firefox',
 		entry: 'firefox/package.json',
 		environment: 'firefox/environment',
 		output: 'firefox',
 	},
+	firefoxbeta: {
+		target: 'firefox',
+		entry: 'firefox/beta/package.json',
+		environment: 'firefox/environment',
+		output: 'firefox-beta',
+	},
 	node: {
+		target: 'node',
 		entry: 'node/files.json',
 		environment: 'node/environment',
 		output: 'node',
@@ -44,25 +55,25 @@ const browsers = (
 	yargs.argv.browsers.split(',')
 );
 
-const configs = browsers.map(browser => {
+const configs = browsers.map(b => browserConfig[b]).map(({ target, entry, environment, output }) => {
 	// extra transforms for Safari
 	const babelConfig = {
 		...babelrc,
-		...(browser === 'safari' ? babelrc.env.safari : {}),
+		...(target === 'safari' ? babelrc.env.safari : {}),
 		babelrc: false,
 	};
 
 	return {
-		entry: `extricate!interpolate!./${browserConfig[browser].entry}`,
+		entry: `extricate!interpolate!./${entry}`,
 		bail: process.env.NODE_ENV !== 'development',
 		output: {
-			path: join(__dirname, 'dist', browserConfig[browser].output),
-			filename: basename(browserConfig[browser].entry),
+			path: join(__dirname, 'dist', output),
+			filename: basename(entry),
 		},
 		devtool: '#cheap-module-source-map',
 		resolve: {
 			alias: {
-				browserEnvironment$: join(__dirname, browserConfig[browser].environment),
+				browserEnvironment$: join(__dirname, environment),
 			},
 		},
 		module: {
@@ -85,7 +96,7 @@ const configs = browsers.map(browser => {
 			new ProgressBarPlugin(),
 			new webpack.DefinePlugin({
 				'process.env': {
-					BUILD_TARGET: JSON.stringify(browser),
+					BUILD_TARGET: JSON.stringify(target),
 				},
 			}),
 			new InertEntryPlugin(),
