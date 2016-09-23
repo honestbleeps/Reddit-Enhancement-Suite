@@ -16,6 +16,8 @@
 	<string>{{prop?version!../package.json}}</string>
 	<key>CFBundleVersion</key>
 	<string>{{prop?version!../package.json}}</string>
+	<!-- Icon -->
+	<!-- {{!file?name=Icon.png!../images/icon128.png}} -->
 	<key>Chrome</key>
 	<dict>
 		<key>Database Quota</key>
