@@ -1,5 +1,10 @@
 <!--
-Please report bugs by submitting to /r/RESissues before posting GitHub issues. If you really want to submit a GitHub issue:
+
+Bug report?                   https://RESissues.reddit.com/
+Feature request or question?  https://Enhancement.reddit.com/
+Security issue?               https://www.reddit.com/message/compose?to=/r/Enhancement
+
+If you've already looked in /r/Enhancement and /r/RESissues, then you can submit a GitHub issue:
 -->
 
 - My browser (copy from https://www.whatismybrowser.com):
