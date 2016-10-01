@@ -48,7 +48,9 @@ Thinking about contributing to RES? Awesome! We just ask that you follow a few s
 
 ##### Top level files and folders
 
-  - `assets/`: RES logo source
+  - `.github/`: Github templates
+  - `build/`: Files handling automated browser deployments
+  - `changelog/`: Release changelogs
   - `chrome/`: Chrome-specific RES files
   - `dist/`: build output
   - `edge/`: Microsoft Edge-specific RES files
@@ -83,7 +85,6 @@ Thinking about contributing to RES? Awesome! We just ask that you follow a few s
 
 ##### Microsoft Edge files
 
-  - `background-edge.html`: the "background page" for RES, necessary for Microsoft Edge extensions
   - `edge.entry.js`: shim to allow chrome extension code usage
   - `environment.js`: Edge-specific overrides of the Chrome environment
   - `manifest.json`: the project manifest
