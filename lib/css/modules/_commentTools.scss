@@ -48,6 +48,18 @@
 	}
 }
 
+// Hide the edit bar
+.markdownEditor-wrapper.slide {
+	overflow: hidden;
+	max-height: 0;
+	transition: max-height .25s ease;
+}
+
+// Show the edit bar
+.markdownEditor-wrapper.slide-show {
+	max-height: 100vh;
+}
+
 // Macros
 .RESMacroDropdownTitle {
 	cursor: pointer;
