@@ -76,6 +76,7 @@
 		"import/imports-first": 2,
 		"import/no-duplicates": 2,
 		"import/no-namespace": 0,
+		"import/no-unassigned-import": 0,
 		"import/no-webpack-loader-syntax": 0,
 		"import/extensions": [2, { "js": "never" }],
 		"import/order": 2,
@@ -84,7 +85,6 @@
 		"import/unambiguous": 0,
 
 		"no-alert": 0,
-		"no-unassigned-import": 0,
 		"no-bitwise": 0,
 		"no-case-declarations": 0,
 		"no-confusing-arrow": 0,
@@ -178,7 +178,7 @@
 		"sort-keys": 0,
 		"sort-vars": 0,
 		"space-before-function-paren": [2, "never"],
-		"strict": [2, "never"], // Babel inserts it for us	
+		"strict": [2, "never"], // Babel inserts it for us
 		"valid-jsdoc": [2, { "requireParamDescription": false, "requireReturnDescription": false }],
 		"valid-typeof": [2, { "requireStringLiterals": true }],
 		"vars-on-top": 0,
