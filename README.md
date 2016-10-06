@@ -108,7 +108,7 @@ First time installation:
 
 1. Install [git](https://git-scm.com/).
 1. Install [node.js](https://nodejs.org) (version >= 6).
-1. Install [Python 2](https://www.python.org/downloads/) (*not* version 3).
+1. Install [Python 2](https://www.python.org/downloads/) (*not* version 3). On Windows, please install the "Add python.exe to path" feature on the customize screen.
 1. Navigate to your RES folder.
 1. Run `npm install`.
 
