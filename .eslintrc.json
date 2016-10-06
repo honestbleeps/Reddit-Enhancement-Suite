@@ -76,10 +76,12 @@
 		"import/imports-first": 2,
 		"import/no-duplicates": 2,
 		"import/no-namespace": 0,
+		"import/no-webpack-loader-syntax": 2,
 		"import/extensions": [2, { "js": "never" }],
 		"import/order": 2,
 		"import/newline-after-import": 2,
 		"import/prefer-default-export": 0,
+		"import/unambiguous": 2,
 
 		"no-alert": 0,
 		"no-unassigned-import": 0,
@@ -122,7 +124,6 @@
 		"no-underscore-dangle": 0,
 		"no-use-before-define": [0, "nofunc"],
 		"no-warning-comments": 0,
-		"no-webpack-loader-syntax": 2,
 		"array-bracket-spacing": 0, // see babel/array-bracket-spacing
 		"array-callback-return": 0,
 		"arrow-parens": 0, // see babel/arrow-parens
@@ -178,7 +179,6 @@
 		"sort-vars": 0,
 		"space-before-function-paren": [2, "never"],
 		"strict": [2, "never"], // Babel inserts it for us	
-		"unambiguous": 2,
 		"valid-jsdoc": [2, { "requireParamDescription": false, "requireReturnDescription": false }],
 		"valid-typeof": [2, { "requireStringLiterals": true }],
 		"vars-on-top": 0,
