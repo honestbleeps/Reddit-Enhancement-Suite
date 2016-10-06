@@ -82,17 +82,20 @@
 		"import/prefer-default-export": 0,
 
 		"no-alert": 0,
+		"no-unassigned-import": 0,
 		"no-bitwise": 0,
 		"no-case-declarations": 0,
 		"no-confusing-arrow": 0,
 		"no-console": 0,
 		"no-continue": 0,
+		"no-dynamic-require": 0,
 		"no-else-return": 0,
 		"no-empty-function": [2, { "allow": ["arrowFunctions", "methods"] }],
 		"no-extra-parens": [2, "functions"], // "all" conflicts with no-return-assign and some other rules, unfortunately
 		"no-implicit-coercion": [0, { "boolean": false }],
 		"no-inline-comments": 0,
 		"no-inner-declarations": 0, // ES6 has block-scoped functions
+		"no-internal-modules": 0,
 		"no-invalid-this": 0,
 		"no-lonely-if": 0,
 		"no-loop-func": 0,
@@ -119,6 +122,7 @@
 		"no-underscore-dangle": 0,
 		"no-use-before-define": [0, "nofunc"],
 		"no-warning-comments": 0,
+		"no-webpack-loader-syntax": 2,
 		"array-bracket-spacing": 0, // see babel/array-bracket-spacing
 		"array-callback-return": 0,
 		"arrow-parens": 0, // see babel/arrow-parens
@@ -173,7 +177,8 @@
 		"sort-keys": 0,
 		"sort-vars": 0,
 		"space-before-function-paren": [2, "never"],
-		"strict": [2, "never"], // Babel inserts it for us
+		"strict": [2, "never"], // Babel inserts it for us	
+		"unambiguous": 2,
 		"valid-jsdoc": [2, { "requireParamDescription": false, "requireReturnDescription": false }],
 		"valid-typeof": [2, { "requireStringLiterals": true }],
 		"vars-on-top": 0,
