@@ -1,8 +1,12 @@
 {
-	"presets": [
-		"stage-0"
-	],
 	"plugins": [
+		"transform-function-bind",
+		"transform-export-extensions",
+		"transform-class-properties",
+		"syntax-trailing-function-commas",
+		"transform-async-to-generator",
+		"transform-exponentiation-operator",
+		"transform-object-rest-spread",
 		"transform-runtime",
 		"transform-es2015-modules-commonjs",
 		"transform-es2015-destructuring",
@@ -15,10 +19,16 @@
 	"env": {
 		"safari": {
 			"presets": [
-				"es2015",
-				"stage-0"
+				"es2015"
 			],
 			"plugins": [
+				"transform-function-bind",
+				"transform-export-extensions",
+				"transform-class-properties",
+				"syntax-trailing-function-commas",
+				"transform-async-to-generator",
+				"transform-exponentiation-operator",
+				"transform-object-rest-spread",
 				"transform-runtime",
 				"transform-dead-code-elimination",
 				"transform-node-env-inline",
