@@ -1,30 +1,12 @@
 
 ### New Features
 
-- Add download button to media controls (thanks @thesbros)
+- None (thanks nobody)
 
 ### Bug Fixes
 
-- Fix some occurences of Never Ending Reddit not returning to the same position when navigating back (thanks @larsjohnsen)
-- Fix media drag-to-resize eating the next click if the drag ends off of the media (thanks @larsjohnsen)
-- Fix Never Ending Reddit loading a new page after selecting the last post when paused (thanks @larsjohnsen)
-- Fix thread subscription button not working the first time a post is loaded (thanks @erikdesjardins)
-- Fix links to YouTube channels being recognised as YouTube videos (thanks @thesbros)
-- Fix modules staying disabled if they were previously disabled, even when marked as "always enabled" (notably Backup & Restore) (thanks @erikdesjardins)
-- Fix Derpibooru expandos (the derpiboo.ru domain was deprecated) (thanks @Ajedi32)
-- Fix Multireddit Navigation settings button link (thanks @Princesseuh)
-- Fix Night Mode and other styles breaking reddit.com/advertising (thanks @andytuba)
-- Fix thread subscriptions erroneously being pruned with comment counts (thanks @ssonal)
+- None (thanks nobody)
 
 ### Housekeeping / Other
 
-- Improve positioning of floating icons (thanks @larsjohnsen)
-- Nicely format and localize the Account Switcher gold expiry date (thanks @bruno207)
-- Update the domain of vidgif.com (née swirl.xyz) expandos (thanks @klpl)
-- Add a CSS class to notifications containing their corresponding module ID and notification ID (thanks @jvtrigueros)
-- Update some dependencies (thanks @BenMcGarry)
-- Remove explicit Edge background HTML page (thanks @erikdesjardins)
-- Clean up some overly-permissive null checks (thanks @erikdesjardins)
-- Avoid generating the Quick Message and Command Line dialogs until they're used (thanks @erikdesjardins)
-- Update some documentation (thanks @BenMcGarry)
-- Avoid some forced layout reflows to lessen scrolling jankiness (thanks @larsjohnsen)
+- None (thanks nobody)
