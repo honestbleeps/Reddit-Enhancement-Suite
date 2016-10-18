@@ -508,6 +508,22 @@ body:not(.res-showImages-displayImageCaptions) {
 	}
 }
 
+.res-iframe-expando {
+	.drag-handle {
+		cursor: nwse-resize;
+		box-sizing: border-box;
+		background-color: #fff;
+		padding: 4px;
+		text-align: right;
+		display: block;
+
+		&::after {
+			content: '\F0A5';
+			transform: scaleX(-1);
+		}
+	}
+}
+
 // Extras for certain text expando's
 .res-media-host-wikipedia {
 	.md {
