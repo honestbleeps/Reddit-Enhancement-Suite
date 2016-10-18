@@ -520,6 +520,7 @@ body:not(.res-showImages-displayImageCaptions) {
 		&::after {
 			content: '\F0A5';
 			transform: scaleX(-1);
+			display: inline-block;
 		}
 	}
 }
