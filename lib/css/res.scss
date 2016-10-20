@@ -151,7 +151,7 @@ body.res-console-open {
 	}
 
 	&::after {
-		content: '\F04D';
+		content: '\F04D' !important;
 		color: #a0e0fd;
 		text-shadow: 0 0 1px #3d6da5, 0 0 1px #3d6da5, 0 0 1px #3d6da5, 0 0 1px #3d6da5, 0 0 1px #3d6da5, 0 0 1px #3d6da5, 0 0 1px #3d6da5, 0 0 1px #3d6da5;
 	}
@@ -1834,6 +1834,21 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 		&::after {
 			content: attr(aftercontent);
+		}
+	}
+
+	&.selected a {
+		&:first-child {
+			border-right: none;
+		}
+
+		&:last-child {
+			border-left: none;
+		}
+
+		&:only-child {
+			border-left: 1px solid #5f99cf;
+			border-right: 1px solid #5f99cf;
 		}
 	}
 }
