@@ -13,18 +13,6 @@
 	}
 }
 
-.BELeft.swapped {
-	left: auto !important;
-	right: 0 !important;
-	margin-left: 0 !important;
-}
-
-.BERight.swapped {
-	right: auto !important;
-	left: 0 !important;
-	margin-right: 0 !important;
-}
-
 #banned {
 	position: relative;
 
@@ -36,6 +24,20 @@
 		float: none;
 		left: 410px;
 		position: absolute;
+	}
+}
+
+.res-commentPreview-swapBigEditorLayout #BigEditor {
+	.BELeft {
+		left: auto;
+		right: 0;
+		margin-left: 0;
+	}
+
+	.BERight {
+		right: auto;
+		left: 0;
+		margin-right: 0;
 	}
 }
 
