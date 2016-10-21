@@ -1837,18 +1837,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		}
 	}
 
-	&.selected a {
+	&.selected a:not(:only-child) {
 		&:first-child {
 			border-right: none;
 		}
 
 		&:last-child {
 			border-left: none;
-		}
-
-		&:only-child {
-			border-left: 1px solid #5f99cf;
-			border-right: 1px solid #5f99cf;
 		}
 	}
 }
