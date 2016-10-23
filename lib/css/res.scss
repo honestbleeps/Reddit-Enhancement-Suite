@@ -188,6 +188,13 @@ body.res-console-open {
 	display: inline-block;
 }
 
+#RESSettingsButton {
+	user-select: none;
+	font-size: 0;
+	border: none;
+	background-color: transparent;
+}
+
 .RESDropdownList {
 	position: absolute;
 	list-style-type: none;
@@ -303,6 +310,7 @@ body.res-console-open {
 	text-align: center;
 	width: 24px;
 	height: 24px;
+	padding: 0;
 	z-index: 1000;
 	cursor: pointer;
 	box-sizing: border-box;
@@ -523,6 +531,10 @@ div.usertext-edit {
 		cursor: pointer;
 		border-top: 1px solid rgb(230, 230, 230);
 		font-weight: normal;
+
+		a {
+			color: inherit;
+		}
 	}
 
 	li:first-child h3 {
@@ -599,6 +611,9 @@ div.usertext-edit {
 		margin-left: 2px;
 		margin-right: 2px;
 		opacity: .4;
+		padding: 0;
+		border: none;
+		background: transparent;
 
 		&:hover {
 			opacity: 1;
@@ -610,16 +625,6 @@ div.usertext-edit {
 		width: 100%;
 		margin-top: 20px;
 		margin-bottom: 10px;
-	}
-
-	tr .deleteButton,
-	.builderWrap .deleteButton {
-		opacity: .3;
-	}
-
-	tr:hover .deleteButton,
-	.builderWrap:hover > .builderTrailingControls .deleteButton {
-		opacity: 1;
 	}
 
 	.handle {
@@ -674,14 +679,21 @@ div.usertext-edit {
 	small {
 		display: block;
 	}
+
+	& a {
+		font: inherit;
+		color: inherit;
+	}
 }
 
 .toggleButton {
-
 	position: relative;
 	display: inline-flex;
 	cursor: pointer;
 	white-space: nowrap;
+	background: transparent;
+	padding: 0;
+	border: none;
 
 	.toggleThumb {
 		cursor: pointer;
@@ -774,6 +786,9 @@ div.usertext-edit {
 .moduleToggle {
 	display: inline-flex; // removes white space
 	vertical-align: middle;
+	background: transparent;
+	padding: 0;
+	border: none;
 }
 
 .moduleName {
@@ -1837,6 +1852,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 .res-step {
 	cursor: pointer;
 	user-select: none;
+	font-size: 0;
+	border: none;
+	background-color: transparent;
 
 	&::after {
 		font: normal 18px/16px Batch;

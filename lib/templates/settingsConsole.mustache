@@ -4,12 +4,10 @@
             <div id="RESLogo"/>
             <h1>{{name}}</h1>
             <div id="RESConsoleVersionDisplay">v{{version}}</div>
-
-
             <button id="moduleOptionsSave">save options</button>
             <div id="moduleOptionsSaveStatus" class="saveStatus" style="display: none;">Options have been saved...</div>
             <a id="RESConsoleSubredditLink" href="/r/Enhancement" alt="The RES Subreddit">/r/Enhancement</a>
-            <span id="RESClose" class="RESCloseButton">×</span>
+            <button id="RESClose" class="RESCloseButton" aria-label="Close RES settings console">×</button>
         </div>
     </div>
 
@@ -27,10 +25,10 @@
         <div id="RESConfigPanelOptions">
             <div class="moduleHeader">
                 <span class="moduleName">Module Name</span>
-                <div class="moduleToggle toggleButton enabled" moduleID="moduleID">
+                <button class="moduleToggle toggleButton enabled" moduleID="moduleID">
                     <span class="toggleThumb"></span>
                     <div class="toggleLabel" data-enabled-text="{{toggleOnText}}" data-disabled-text="{{toggleOffText}}"></div>
-                </div>
+                </button>
 
                 <div class="moduleDescription"></div>
             </div>
