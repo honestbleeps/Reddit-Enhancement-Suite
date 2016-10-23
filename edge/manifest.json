@@ -3,6 +3,7 @@
 	"version": "{{prop?version!../package.json}}",
 	"minimum_edge_version": "38.14393.0.0",
 	"description": "{{prop?description!../package.json}}",
+	"default_locale": "en",
 	"author": "{{prop?author!../package.json}}",
 	"background": {
 		"scripts": [
@@ -41,7 +42,7 @@
 			"19": "{{../images/css-on-small.png}}",
 			"38": "{{../images/css-on.png}}"
 		},
-		"default_title": "Subreddit Style On"
+		"default_title": "__MSG_defaultTitle__"
 	},
 	"permissions": [
 		"cookies",

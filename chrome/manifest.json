@@ -4,6 +4,7 @@
 	"manifest_version": 2,
 	"minimum_chrome_version": "54",
 	"description": "{{prop?description!../package.json}}",
+	"default_locale": "en",
 	"background": {
 		"scripts": [
 			"{{./background.entry.js}}"
@@ -38,7 +39,7 @@
 			"19": "{{../images/css-on-small.png}}",
 			"38": "{{../images/css-on.png}}"
 		},
-		"default_title": "Subreddit Style On"
+		"default_title": "__MSG_defaultTitle__"
 	},
 	"permissions": [
 		"cookies",
