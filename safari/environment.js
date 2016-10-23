@@ -28,6 +28,7 @@ _.defer(() => Init.headReady.then(() => { // deferred because of the circular de
 const {
 	_handleMessage,
 	sendMessage,
+	sendSynchronous,
 	addListener,
 	addInterceptor,
 } = createMessageHandler((type, obj) => safari.self.tab.dispatchMessage(type, obj));
@@ -38,6 +39,7 @@ safari.self.addEventListener('message', ({ name: type, message: obj }) => {
 
 export {
 	sendMessage,
+	sendSynchronous,
 	addListener,
 };
 
