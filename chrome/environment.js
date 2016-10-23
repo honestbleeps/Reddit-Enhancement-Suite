@@ -1,5 +1,6 @@
 /* eslint-env webextensions */
 
+import '../locales/asChromeI18n';
 import { createMessageHandler } from '../lib/environment/_messaging';
 import { extendDeep, keyedMutex } from '../lib/utils';
 import { apiToPromise } from './_helpers';
@@ -79,3 +80,5 @@ addInterceptor('storage', keyedMutex(async ([operation, key, value]) => {
 			throw new Error(`Invalid storage operation: ${operation}`);
 	}
 }, ([, key]) => key || '__all_keys__'));
+
+addInterceptor('i18n', ([messageName, substitutions]) => chrome.i18n.getMessage(messageName, substitutions));
