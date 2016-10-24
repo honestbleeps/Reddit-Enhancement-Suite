@@ -64,7 +64,10 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-## IntelliJ
+# IntelliJ
 .idea
 *.iml
 .nyc_output
+
+# Visual Studio Code
+.vscode
