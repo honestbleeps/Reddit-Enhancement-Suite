@@ -1798,12 +1798,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 }
 
 .res-step {
+	cursor: pointer;
 	user-select: none;
 
 	&::after {
 		font: normal 18px/16px Batch;
 		content: '\F158';
-		cursor: pointer;
 		display: inline-block;
 		vertical-align: middle;
 		color: #90acff;
