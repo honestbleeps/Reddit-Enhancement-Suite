@@ -8,10 +8,6 @@ import { createMessageHandler } from '../lib/environment/_messaging';
 import { getMessage } from '../lib/environment/_mockI18n';
 import * as Init from '../lib/core/init';
 
-// DOM Collection iteration
-NodeList.prototype[Symbol.iterator] = Array.prototype[Symbol.iterator];
-HTMLCollection.prototype[Symbol.iterator] = Array.prototype[Symbol.iterator];
-
 // Safari has a ridiculous bug that causes it to lose access to safari.self.tab if you click the back button.
 // this stupid one liner fixes that.
 window.onunload = () => {};
