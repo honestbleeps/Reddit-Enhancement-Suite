@@ -20,8 +20,7 @@
     "preonce": "rimraf dist",
     "once": "cross-env NODE_ENV=development webpack --browsers",
     "prebuild": "rimraf dist",
-    "build": "cross-env NODE_ENV=production webpack --browsers",
-    "postbuild": "gulp zip",
+    "build": "cross-env NODE_ENV=production webpack --zip --browsers",
     "jpm": "jpm --addon-dir=dist/firefox",
     "jpm-beta": "jpm --addon-dir=dist/firefox-beta",
     "eslint": "eslint .",
@@ -106,16 +105,12 @@
     "extricate-loader": "0.0.2",
     "file-loader": "0.9.0",
     "firefox-extension-deploy": "0.0.2",
-    "globby": "6.0.0",
-    "gulp": "3.9.1",
-    "gulp-zip": "3.2.0",
     "html-loader": "0.4.4",
-    "inert-entry-webpack-plugin": "1.1.3",
+    "inert-entry-webpack-plugin": "1.1.4",
     "interpolate-loader": "0.0.6",
     "jpm": "1.2.2",
     "jsdom": "9.6.0",
     "json-loader": "0.5.4",
-    "merge-stream": "1.0.0",
     "mustache-loader": "0.4.0",
     "node-sass": "3.10.1",
     "nyc": "8.3.1",
@@ -129,6 +124,7 @@
     "spawn-loader": "0.1.0",
     "url-loader": "0.5.7",
     "webpack": "1.13.2",
-    "yargs": "6.0.0"
+    "yargs": "6.0.0",
+    "zip-webpack-plugin": "0.1.0"
   }
 }
