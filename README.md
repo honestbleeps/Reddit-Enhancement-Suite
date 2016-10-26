@@ -71,7 +71,6 @@ Thinking about contributing to RES? Awesome! We just ask that you follow a few s
   - `utils/`: Misc RES utilities
   - `CHANGELOG.md`: self-explanatory 
   - `README.md`: YOU ARE HERE, unless you're browsing on GitHub
-  - `gulpfile.babel.js`: post-build script for zipping folders.
   - `package.json`: package info, dependencies
   - `webpack.config.babel.js`: build script
   - `**/__tests__`: unit tests
