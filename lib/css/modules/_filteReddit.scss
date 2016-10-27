@@ -184,8 +184,6 @@ body.hideOver18 {
 		align-items: center;
 
 		input { min-width: 15px; }
-		input:checked ~ [hide-when-checked] { display: none; }
-		input:not(:checked) ~ [hide-when-unchecked] { display: none; }
 	}
 
 	&-export-customfilters {
