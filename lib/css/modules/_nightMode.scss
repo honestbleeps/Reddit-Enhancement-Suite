@@ -599,6 +599,15 @@
 		}
 	}
 
+	.thing .source-url {
+		color: hsl(0, 0%, 80%);
+
+		.res-nightMode-coloredLinks & {
+			color: hsl(210, 60%, 50%);
+		}
+	}
+
+
 	.tagline a {
 		color: hsl(200, 30%, 55%);
 	}
@@ -615,6 +624,14 @@
 
 		.res-nightMode-coloredLinks & {
 			color: hsl(270, 50%, 65%);
+		}
+	}
+
+	.thing .source-url:visited {
+		color: hsl(0, 0%, 60%);
+
+		.res-nightMode-coloredLinks & {
+			color: hsl(270, 50%, 58%);
 		}
 	}
 
