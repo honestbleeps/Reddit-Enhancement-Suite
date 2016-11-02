@@ -2,6 +2,13 @@ sudo: false
 language: node_js
 node_js:
   - 6
+env:
+  global:
+    - SAUCE_USERNAME=RES-Auto
+addons:
+  jwt:
+    # SAUCE_ACCESS_KEY=<secure>
+    secure: hHF06xHY6pLdxscwYhUHdSRuUH2CPA61AUrvPiW54lnMwwkDvCQakR+aY5HbjptFIfOwkWsS4xoqXH4pZTfhMOji32S/+ELT+AqLdkIgnLYDfBj4RcsZoXyvuiLx29i4PVCnGMikctBp4dM6wORgfd1tu3uwhcoQrBjxCMW1qmY=
 script:
   - npm run eslint
   - npm run sass-lint
@@ -10,6 +17,11 @@ script:
   - npm run jpm -- xpi
   - npm run jpm-beta -- xpi
   - node dist/node/loader.entry.js
+  # do not run integration tests on deploy builds
+  - |
+      if [ -z "$TRAVIS_TAG" ]; then
+        npm run test-integration
+      fi
 after_success:
   - npm run report-coverage
 branches:
