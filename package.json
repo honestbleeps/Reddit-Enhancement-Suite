@@ -30,7 +30,7 @@
     "test": "cross-env NODE_ENV=test ava",
     "coverage": "cross-env NODE_ENV=test nyc ava",
     "report-coverage": "nyc report --reporter=text-lcov | coveralls",
-    "test-integration": "nightwatch",
+    "test-integration": "nightwatch --env",
     "version": "node build/version.js"
   },
   "ava": {
@@ -113,6 +113,7 @@
     "jpm": "1.2.2",
     "jsdom": "9.6.0",
     "json-loader": "0.5.4",
+    "jszip": "2.6.0",
     "mustache-loader": "0.4.0",
     "nightwatch": "0.9.8",
     "node-sass": "3.10.1",
