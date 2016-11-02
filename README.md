@@ -132,7 +132,8 @@ To load the extension into your browser, see [the sections below](#building-in-c
 
 **`npm test`** will run unit tests (in `__tests__` directories) using [Ava](https://github.com/avajs/ava).
 
-**`npm run test-integration`** will run integration tests (in `tests/`) using [Nightwatch.js](http://nightwatchjs.org/).
+**`npm run test-integration -- <browsers>`** will run integration tests (in `tests/`) using [Nightwatch.js](http://nightwatchjs.org/).
+Currently just `chrome` and `firefox` can be targeted.
 To run integration tests locally, you must change `selenium_host`, `selenium_port`, `username`, and `access_key` in `nightwatch.conf.js` to correspond to your Selenium server.
 
 ##### Building in Chrome

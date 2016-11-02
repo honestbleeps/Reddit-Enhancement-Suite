@@ -1,10 +1,9 @@
 /* eslint-disable import/no-commonjs, import/no-nodejs-modules */
 
 const fs = require('fs');
-
+const JSZip = require('jszip');
 const chromeManifest = require('./chrome/manifest.json');
-
-const chromePackage = fs.readFileSync('dist/zip/chrome.zip').toString('base64');
+const firefoxManifest = require('./firefox/package.json');
 
 module.exports = {
 	src_folders: ['tests'],
@@ -14,14 +13,34 @@ module.exports = {
 			selenium_port: 80,
 			username: process.env.SAUCE_USERNAME,
 			access_key: process.env.SAUCE_ACCESS_KEY,
+		},
+		chrome: {
 			desiredCapabilities: {
 				browserName: 'chrome',
 				version: chromeManifest.minimum_chrome_version,
 				chromeOptions: {
 					args: ['--no-sandbox'],
-					extensions: [chromePackage],
+					extensions: [getChromePackage()],
 				},
+			},
+		},
+		firefox: {
+			desiredCapabilities: {
+				browserName: 'firefox',
+				version: 'dev',
+				firefox_profile: getFirefoxProfile(),
 			},
 		},
 	},
 };
+
+function getChromePackage() {
+	return fs.readFileSync('dist/zip/chrome.zip').toString('base64');
+}
+
+function getFirefoxProfile() {
+	const zip = new JSZip();
+	zip.file(`extensions/${firefoxManifest.id}.xpi`, fs.readFileSync('dist/firefox/reddit-enhancement-suite.xpi'));
+	zip.file('prefs.js', 'user_pref("xpinstall.signatures.required", false);');
+	return zip.generate({ type: 'base64' });
+}

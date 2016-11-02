@@ -19,7 +19,7 @@ script:
   # do not run integration tests on deploy builds
   - |
       if [ -z "$TRAVIS_TAG" ]; then
-        npm run test-integration
+        npm run test-integration -- chrome,firefox
       fi
 after_success:
   - npm run report-coverage
