@@ -1,3 +1,6 @@
+build: off
+version: '{build}'
+clone_depth: 1
 environment:
   matrix:
     - nodejs_version: '6'
@@ -6,9 +9,6 @@ install:
   - npm install -g npm@latest || (timeout 30 && npm install -g npm@latest)
   - set PATH=%APPDATA%\npm;%PATH%
   - npm install || (timeout 30 && npm install)
-build: off
-version: '{build}'
-clone_depth: 1
 test_script:
   - npm test
   - npm run build -- all
