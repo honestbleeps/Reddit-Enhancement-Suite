@@ -29,6 +29,7 @@
     "lint-fix": "eslint . --fix",
     "test": "cross-env NODE_ENV=test ava",
     "coverage": "cross-env NODE_ENV=test nyc ava",
+    "test-integration": "nightwatch",
     "report-coverage": "nyc report --reporter=text-lcov | coveralls",
     "version": "node build/version.js"
   },
@@ -112,6 +113,7 @@
     "jsdom": "9.6.0",
     "json-loader": "0.5.4",
     "mustache-loader": "0.4.0",
+    "nightwatch": "0.9.8",
     "node-sass": "3.10.1",
     "nyc": "8.3.1",
     "postcss-loader": "0.13.0",
