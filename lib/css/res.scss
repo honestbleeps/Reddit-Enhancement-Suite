@@ -673,6 +673,10 @@ div.usertext-edit {
 	&.active {
 		font-weight: bold;
 	}
+
+	small {
+		display: block;
+	}
 }
 
 .toggleButton {
