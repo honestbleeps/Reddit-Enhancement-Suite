@@ -29,8 +29,8 @@
     "lint-fix": "eslint . --fix",
     "test": "cross-env NODE_ENV=test ava",
     "coverage": "cross-env NODE_ENV=test nyc ava",
-    "test-integration": "nightwatch",
     "report-coverage": "nyc report --reporter=text-lcov | coveralls",
+    "test-integration": "nightwatch",
     "version": "node build/version.js"
   },
   "ava": {
