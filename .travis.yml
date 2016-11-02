@@ -1,7 +1,6 @@
 sudo: false
 language: node_js
-node_js:
-  - 6
+node_js: 6
 env:
   global:
     - SAUCE_USERNAME=RES-Auto
@@ -41,10 +40,8 @@ deploy:
     skip_cleanup: true
     on:
       tags: true
-      node: 6
   - provider: script
     script: node build/deploy.js
     skip_cleanup: true
     on:
       tags: true
-      node: 6
