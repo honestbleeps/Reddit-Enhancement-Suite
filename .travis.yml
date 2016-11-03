@@ -1,6 +1,10 @@
 sudo: false
 language: node_js
 node_js: 7
+branches:
+  only:
+    - master
+    - /^v[0-9]/
 env:
   global:
     - SAUCE_USERNAME=RES-Auto
@@ -8,40 +12,41 @@ addons:
   jwt:
     # SAUCE_ACCESS_KEY=<secure>
     secure: hHF06xHY6pLdxscwYhUHdSRuUH2CPA61AUrvPiW54lnMwwkDvCQakR+aY5HbjptFIfOwkWsS4xoqXH4pZTfhMOji32S/+ELT+AqLdkIgnLYDfBj4RcsZoXyvuiLx29i4PVCnGMikctBp4dM6wORgfd1tu3uwhcoQrBjxCMW1qmY=
-script:
-  - npm run eslint
-  - npm run sass-lint
-  - npm run coverage
-  - npm run build -- all
-  - npm run jpm -- xpi
-  - npm run jpm-beta -- xpi
-  - node dist/node/loader.entry.js
-  # do not run integration tests on deploy builds
-  - |
-      if [ -z "$TRAVIS_TAG" ]; then
-        npm run test-integration -- chrome,firefox
-      fi
-after_success:
-  - npm run report-coverage
-branches:
-  only:
-    - master
-    - /^v[0-9]/
-deploy:
-  - provider: releases
-    api_key:
-      secure: F0CNYZBoZbLiZDm+KkIpX/FjWhwUKMQs4O+bg6EUT32GOb17ed1HBS1Dw9DCTClyydEkhtCMZTFHQUbfNhlU7xkZxy8J/Ac9UykngVmjJBz3+ZKmbGsokjwCm8r08VCMzB0AJrvIodRwegzg9J5muXvMGNBzKxi7Q7XiNsxLNDc=
-    prerelease: true
-    file:
-      - dist/zip/chrome.zip
-      - dist/zip/edge.zip
-      - dist/zip/firefox.zip
-      - dist/zip/RES.safariextension.zip
-    skip_cleanup: true
-    on:
-      tags: true
-  - provider: script
-    script: node build/deploy.js
-    skip_cleanup: true
-    on:
-      tags: true
+matrix:
+  exclude:
+    - node_js: 7 # exclude default job https://github.com/travis-ci/travis-ci/issues/4681
+  include:
+    - env: RES_JOB=lint
+      script:
+        - npm run eslint
+        - npm run sass-lint
+    - env: RES_JOB=test
+      script:
+        - npm run build -- chrome,firefox,node
+        - npm run jpm -- xpi
+        - npm run coverage && npm run report-coverage
+        - node dist/node/loader.entry.js
+        - npm run test-integration -- chrome,firefox
+    - env: RES_JOB=build_deploy
+      script:
+        - npm run build -- all
+        - npm run jpm -- xpi
+        - npm run jpm-beta -- xpi
+      deploy:
+        - provider: releases
+          api_key:
+            secure: F0CNYZBoZbLiZDm+KkIpX/FjWhwUKMQs4O+bg6EUT32GOb17ed1HBS1Dw9DCTClyydEkhtCMZTFHQUbfNhlU7xkZxy8J/Ac9UykngVmjJBz3+ZKmbGsokjwCm8r08VCMzB0AJrvIodRwegzg9J5muXvMGNBzKxi7Q7XiNsxLNDc=
+          prerelease: true
+          file:
+            - dist/zip/chrome.zip
+            - dist/zip/edge.zip
+            - dist/zip/firefox.zip
+            - dist/zip/RES.safariextension.zip
+          skip_cleanup: true
+          on:
+            tags: true
+        - provider: script
+          script: node build/deploy.js
+          skip_cleanup: true
+          on:
+            tags: true
