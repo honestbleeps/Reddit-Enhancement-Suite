@@ -2,26 +2,80 @@
 
 // General Extension Details
   "extensionName": {
-    "message": "Reddit Enhancement Suite",
-    "description": "Name of the extension."
+    "message": "Reddit Enhancement Suite"
   },
 
   "extensionAuthor": {
-    "message": "Reddit Enhancement Suite",
-    "description": "Author of the extension."
+    "message": "Reddit Enhancement Suite"
   },
 
   "extensionDescription": {
-    "message": "A suite of modules that enhance your Reddit browsing experience.",
-    "description": "Description of the extension."
+    "message": "A suite of modules that enhance your Reddit browsing experience."
   },
 
 // Browser Manifests
 
   "defaultTitle": {
-    "message": "Subreddit Style On",
-    "description": "Default title for RES CSS toggle."
+    "message": "Subreddit Style On"
   },
 
+// Modules
 
+// about.js
+
+  "aboutName": {
+    "message": "About"
+  },
+
+  "aboutCategory": {
+    "message": "About RES"
+  },
+
+  "aboutOptionsPresets": {
+    "message": "Quickly customize RES with various presets."
+  },
+
+  "aboutOptionsBackup": {
+    "message": "Back up and restore your RES settings."
+  },
+
+  "aboutOptionsSearchSettings": {
+    "message": "Find RES settings."
+  },
+
+  "aboutOptionsAnnouncements": {
+    "message": "Read the latest at /r/RESAnnouncements."
+  },
+
+  "aboutOptionsDonate": {
+    "message": "Support further RES development."
+  },
+
+  "aboutOptionsBugs": {
+    "message": "If something isn't working right, visit /r/RESissues for help."
+  },
+
+  "aboutOptionsSuggestions": {
+    "message": "If you have an idea for RES or want to chat with other users, visit /r/Enhancement."
+  },
+
+  "aboutOptionsFAQ": {
+    "message": "Learn more about RES on the /r/Enhancement wiki."
+  },
+
+  "aboutOptionsCode": {
+    "message": "You can improve RES with your code, designs, and ideas! RES is an open-source project on GitHub."
+  },
+
+  "aboutOptionsContributors": {
+    "message": "<a target="_blank" rel="noopener noreferer" href="http://www.honestbleeps.com/">Steve Sobel</a> (<a target="_blank" rel="noopener noreferer" href="/user/honestbleeps/">/u/honestbleeps</a>) and a slew of community members have contributed code, design and/or great ideas to RES."
+  },
+
+  "aboutOptionsPrivacy": {
+    "message": "Read about RES\'s privacy policy.'"
+  },
+
+  "aboutOptionsLicense": {
+    "message": "Reddit Enhancement Suite is released under the GPL v3.0 license."
+  }
 }
