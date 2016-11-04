@@ -1,5 +1,27 @@
 {
-  "temp": {
-    "message": "temp"
-  }
+
+// General Extension Details
+  "extensionName": {
+    "message": "Reddit Enhancement Suite",
+    "description": "Name of the extension."
+  },
+
+  "extensionAuthor": {
+    "message": "Reddit Enhancement Suite",
+    "description": "Author of the extension."
+  },
+
+  "extensionDescription": {
+    "message": "A suite of modules that enhance your Reddit browsing experience.",
+    "description": "Description of the extension."
+  },
+
+// Browser Manifests
+
+  "defaultTitle": {
+    "message": "Subreddit Style On",
+    "description": "Default title for RES CSS toggle."
+  },
+
+
 }
