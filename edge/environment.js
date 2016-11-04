@@ -1,7 +1,8 @@
-import { sendMessage, addListener, addInterceptor } from '../chrome/environment';
+import { sendMessage, sendSynchronous, addListener, addInterceptor } from '../chrome/environment';
 
 export {
 	sendMessage,
+	sendSynchronous,
 	addListener,
 };
 
