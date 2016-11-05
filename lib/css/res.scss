@@ -922,7 +922,7 @@ a.RESConsoleButton {
 
 // Universal subreddit toggle button (subscribe, filter, shortcut, etc)
 // Borrowed from fancy-toggle-button
-.res-fancy-toggle-button {
+%res-fancy-toggle-button {
 	font-weight: bold;
 	font-size: 10px;
 	color: white;
@@ -933,17 +933,20 @@ a.RESConsoleButton {
 	background-image: linear-gradient(to bottom, rgb(123, 184, 80), rgb(117, 168, 73));
 	border-radius: 3px;
 	cursor: pointer;
+}
+
+.res-fancy-toggle-button {
+	@extend %res-fancy-toggle-button;
 
 	&.remove {
 		background-image: linear-gradient(to bottom, rgb(207, 97, 101), rgb(190, 94, 96));
 	}
 }
 
-span.active.multi-count {
-  background-color: #FF7500;
-  position: relative;
-  top: -5px;
-  left: -5px;
+span.multi-count {
+	@extend %res-fancy-toggle-button;
+	background: #FF7500;
+	color: white;
 }
 
 .SearchRES-result-header {
