@@ -1,8 +1,10 @@
 #RESAccountSwitcherDropdown {
-	min-width: 110px;
-	width: auto;
 	display: none;
+	height: 400px;
+	min-width: 110px;
+	overflow: scroll;
 	position: absolute;
+	width: auto;
 	z-index: 1000;
 
 	li {
