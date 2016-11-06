@@ -157,11 +157,196 @@
   },
 
   "accountSwitcherWrongPW": {
-    "message": "Could not log in as <b>${username}</b> because either the username or password is wrong. <p>Check your settings?</p>"
+    "message": "Could not log in as <b>$1</b> because either the username or password is wrong. <p>Check your settings?</p>"
   },
 
   "accountSwitcherRateLim": {
-    "message": "Could not log in as <b>${username}</b> because reddit is seeing too many requests from you too quickly. Perhaps you've been trying to log in using the wrong username or password? <p>Check your settings?</p>"
+    "message": "Could not log in as <b>$1</b> because reddit is seeing too many requests from you too quickly. Perhaps you've been trying to log in using the wrong username or password? <p>Check your settings?</p>"
   },
 
+  "accountSwitcherHowever": {
+    "message": "However, you haven't finished posting on this page as /u/$1."
+  },
+
+  "accountSwitcherComplete": {
+    "message": "You switched to /u/$1."
+  },
+
+  "accountSwitcherComplete2": {
+    "message": "You have been logged out."
+  },
+
+   "announcementsName": {
+    "message": "RES Announcements"
+  },
+
+   "announcementsCategory": {
+    "message": "Core"
+  }, 
+
+   "announcementsDesc": {
+    "message": "Keep up with important news"
+  }, 
+
+   "announcementsNewPost": {
+    "message": "A new post has been made to /r/$1$2 ` by /u/$2"
+  }, 
+
+   "announcementsNew": {
+    "message": "new announcement!"
+  }, 
+
+   "backupName": {
+    "message": "Backup & Restore"
+  }, 
+
+   "backupCategory": {
+    "message": "About RES"
+  }, 
+
+   "backupDesc": {
+    "message": "Backup and restore your Reddit Enhancement Suite settings."
+  }, 
+
+   "backupBackupDesc": {
+    "message": "Download a backup of your current RES settings."
+  }, 
+
+   "backupRestoreDesc": {
+    "message": "Restore a backup of your RES settings. Warning: This will overwrite your current settings."
+  }, 
+
+   "backupRestorePrompt": {
+    "message": "<p>Restoring a .resbackup file will <strong>permanently</strong> overwrite your current settings. Are you sure you want to do this?</p>"
+  }, 
+
+   "backupRestoreDone": {
+    "message": "Your RES settings have been imported. Reloading reddit."
+  }, 
+
+   "backupRestoreInvalid": {
+    "message": "The file you uploaded did not appear to be a valid RES backup."
+  }, 
+
+   "betteRedditName": {
+    "message": "betteReddit"
+  }, 
+
+   "betteRedditCategory": {
+    "message": "Appearance"
+  }, 
+
+   "betteRedditDesc": {
+    "message": "Adds a number of interface enhancements to Reddit, such as \"full comments\" links, the ability to unhide accidentally hidden posts, and more"
+  },  
+
+   "betteRedditcommentsLinksNewTabs": {
+    "message": "Open links found in comments in a new tab."
+  }, 
+
+   "betteRedditfixHideLinks": {
+    "message": "Changes \"hide\" links to read as \"hide\" or \"unhide\" depending on the hide state. Also adds a 5 second delay prior to hiding the link."
+  }, 
+
+   "betteRedditvideoTimes": {
+    "message": "Show lengths of videos when possible"
+  }, 
+
+   "betteRedditvideoUploaded": {
+    "message": "Show upload date of videos when possible"
+  }, 
+
+   "betteRedditvideoViewed": {
+    "message": "Show number of views for a video when possible"
+  }, 
+
+   "betteRedditPHnone": {
+    "message": "none"
+  }, 
+
+   "betteRedditSBonly": {
+    "message": "Subreddit Bar only"
+  }, 
+
+   "betteRedditUsrBar": {
+    "message": "User Bar"
+  }, 
+
+   "betteRedditSrbUsrBar": {
+    "message": "Subreddit Bar and User bar"
+  }, 
+
+   "betteRedditFullHead": {
+    "message": "Full Header"
+  }, 
+
+   "betteRedditPHDesc": {
+    "message": "Pin the subreddit bar, user menu, or header to top, floating down as you scroll."
+  }, 
+
+   "betteRedditShowLastEditedTimestamp": {
+    "message": "Show the time that a text post/comment was edited, without having to hover the timestamp."
+  }, 
+
+   "betteRedditScoreHiddenTimeLeft": {
+    "message": "When hovering [score hidden] show time left instead of hide duration."
+  }, 
+
+   "betteRedditShowTimestampPosts": {
+    "message": "Show the precise date (Sun Nov 16 20:14:56 2014 UTC) instead of a relative date (7 days ago), for posts."
+  }, 
+
+   "betteRedditShowTimestampComments": {
+    "message": "Show the precise date for comments / messages."
+  }, 
+ 
+   "betteRedditShowTimestampSidebar": {
+    "message": "Show the precise date in the sidebar."
+  }, 
+ 
+   "betteRedditShowTimestampWiki": {
+    "message": "Show the precise date in the wiki."
+  }, 
+ 
+   "betteRedditShowTimestampModerationLog": {
+    "message": "Show the precise date in the moderation log (/r/mod/about/log)."
+  }, 
+
+   "betteRedditRestoreSavedTab": {
+    "message": "The saved tab is now located in the multireddit sidebar. This will restore a \"saved\" link to the header (next to the \"hot\", \"new\", etc. tabs)."
+  }, 
+
+   "betteRedditDoNoCtrlF": {
+    "message": "When using the browser's Ctrl+F/Cmd+F \"find text\", only search comment/post text and not navigation links (\"permalink source save...\"). Disabled by default due to a slight performance impact."
+  }, 
+
+   "betteRedditShowHiddenSortOptions": {
+    "message": "Reddit hides some comment sorting options (random, etc.) on most pages. This option reveals them."
+  }, 
+
+   "betteRedditTruncateLongLinks": {
+    "message": "Truncates long post titles (greater than 1 line) with an ellipsis."
+  }, 
+
+   "betteRedditCommentCollapseInInbox": {
+    "message": "Show the [-] collapse button in the inbox."
+  }, 
+
+   "betteRedditScoreRev": {
+    "message": "score will be revealed in $1 minute$1 > 1 ? 's' : ''}"
+  }, 
+
+   "betteRedditScoreRel": {
+    "message": "reload page to reveal score"
+  }, 
+
+   "betteRedditComSince": {
+    "message": "a community since "
+  }, 
+
+   "betteRedditErr": {
+    "message": "Sorry, there was an error trying to $1 your submission. Try clicking again."
+  }
+  
 }
+
