@@ -6,5 +6,5 @@ module.exports = {
 			.waitForElementVisible('#header', 1000)
 			.waitForElementVisible('#RESSettingsButton', 1000)
 			.end();
-	}
+	},
 };
