@@ -161,3 +161,10 @@
 .guider_contents td code {
 	white-space: nowrap;
 }
+.guiders_buttons_container label {
+	display: flex;
+	align-items: center;
+}
+.guiders_buttons_container label input[type=checkbox] {
+	margin-right: 5px;
+}
