@@ -1,23 +1,12 @@
 
 ### New Features
 
-- archive.is preview screenshot expandos (thanks @thybag)
-- tenor.co expandos (thanks @SeanHayes)
-- getyarn.io expandos (thanks @thybag)
-- Add hideLinkFadeDelay option to configure delay before hiding posts (thanks @tyler-m-dunn)
+- None (thanks nobody)
 
 ### Bug Fixes
 
-- Switch to XKCD's own API so that title text is properly parsed (thanks @Overv)
-- Fix nightmode styling of reddit's experimental source URLs (thanks @andytuba)
-- Fix page navigator on ads pages (thanks @andytuba)
-- Fix settings links opening in a new tab when commentsLinksNewTabs is enabled (thanks @ssonal)
-- Fix issue where the wrong post would be selected by Never Ending Reddit behind-the-scenes (thanks @larsjohnsen)
-- Fix Multireddit Navigation links having an extra slash (thanks @erikdesjardins)
-- Fix Account Switcher dropdown not scrolling when going off screen (thanks @jontonsoup4)
-- Fix YouTube expandos in Edge (thanks @erikdesjardins)
-- Fix post flair being used for user flair in some places internally (thanks @larsjohnsen)
+- None (thanks nobody)
 
 ### Housekeeping / Other
 
-- Improved handing of Giphy expandos (load HTML5 videos instead of gifs) (thanks @dhensche)
+- None (thanks nobody)
