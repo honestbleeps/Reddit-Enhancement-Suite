@@ -13,6 +13,12 @@ module.exports = {
 			selenium_port: 80,
 			username: process.env.SAUCE_USERNAME,
 			access_key: process.env.SAUCE_ACCESS_KEY,
+			globals: {
+				afterEach(browser, done) {
+					console.log('View results:', `https://saucelabs.com/tests/${browser.capabilities['webdriver.remote.sessionid']}/`);
+					done();
+				},
+			},
 		},
 		chrome: {
 			desiredCapabilities: {
