@@ -17,7 +17,7 @@ HTMLCollection.prototype[Symbol.iterator] = Array.prototype[Symbol.iterator];
 window.onunload = () => {};
 
 // since safari's built in extension stylesheets are treated as user stylesheets,
-// we can't inject them that way.  That makes them "user stylesheets" which would make
+// we can't inject them that way. That makes them "user stylesheets" which would make
 // them require !important everywhere - we don't want that, so we'll inject this way instead.
 _.defer(() => Init.headReady.then(() => { // deferred because of the circular dependency between init and environment
 	const linkTag = document.createElement('link');
