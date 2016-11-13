@@ -1,7 +1,7 @@
 {
   "title": "Reddit Enhancement Suite",
   "name": "reddit-enhancement-suite",
-  "version": "5.0.3",
+  "version": "5.1.1",
   "description": "A suite of modules that enhance your Reddit browsing experience",
   "author": "Reddit Enhancement Suite",
   "license": "GPL-3.0",
@@ -20,8 +20,7 @@
     "preonce": "rimraf dist",
     "once": "cross-env NODE_ENV=development webpack --browsers",
     "prebuild": "rimraf dist",
-    "build": "cross-env NODE_ENV=production webpack --browsers",
-    "postbuild": "gulp zip",
+    "build": "cross-env NODE_ENV=production webpack --zip --browsers",
     "jpm": "jpm --addon-dir=dist/firefox",
     "jpm-beta": "jpm --addon-dir=dist/firefox-beta",
     "eslint": "eslint .",
@@ -31,7 +30,8 @@
     "test": "cross-env NODE_ENV=test ava",
     "coverage": "cross-env NODE_ENV=test nyc ava",
     "report-coverage": "nyc report --reporter=text-lcov | coveralls",
-    "version": "babel-node build/version.js"
+    "test-integration": "nightwatch --env",
+    "version": "node build/version.js"
   },
   "ava": {
     "files": [
@@ -57,6 +57,7 @@
   "dependencies": {
     "babel-runtime": "6.11.6",
     "element-resize-detector": "1.1.9",
+    "escape-string-regexp": "1.0.5",
     "favico.js": "0.3.10",
     "jquery": "3.1.1",
     "jquery-sortable": "0.9.13",
@@ -68,7 +69,6 @@
   "devDependencies": {
     "autoprefixer": "6.5.1",
     "ava": "0.15.2",
-    "babel-cli": "6.16.0",
     "babel-core": "6.17.0",
     "babel-eslint": "7.0.0",
     "babel-loader": "6.2.5",
@@ -107,22 +107,18 @@
     "extricate-loader": "0.0.2",
     "file-loader": "0.9.0",
     "firefox-extension-deploy": "0.0.2",
-    "fs-extra": "0.30.0",
-    "globby": "6.0.0",
-    "gulp": "3.9.1",
-    "gulp-zip": "3.2.0",
     "html-loader": "0.4.4",
-    "inert-entry-webpack-plugin": "1.1.3",
+    "inert-entry-webpack-plugin": "1.1.4",
     "interpolate-loader": "0.0.6",
     "jpm": "1.2.2",
     "jsdom": "9.6.0",
     "json-loader": "0.5.4",
-    "merge-stream": "1.0.0",
+    "jszip": "2.6.0",
     "mustache-loader": "0.4.0",
+    "nightwatch": "0.9.8",
     "node-sass": "3.10.1",
     "nyc": "8.3.1",
     "postcss-loader": "0.13.0",
-    "prepend-file": "1.3.0",
     "progress-bar-webpack-plugin": "1.9.0",
     "prop-loader": "0.0.5",
     "rimraf": "2.5.4",
@@ -132,6 +128,7 @@
     "spawn-loader": "0.1.0",
     "url-loader": "0.5.7",
     "webpack": "1.13.2",
-    "yargs": "6.0.0"
+    "yargs": "6.0.0",
+    "zip-webpack-plugin": "0.1.0"
   }
 }
