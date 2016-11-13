@@ -114,28 +114,29 @@
 
 #NREPause {
 	cursor: pointer;
-}
 
-#NREPause::after {
-	font: normal 100% Batch;
-	color: #888;
-	display: block;
-	width: 10px;
-	height: 10px;
-	padding: 0 2px 4px;
-	margin: 3px;
-	border: 1px solid #888;
-	border-radius: 50%;
-}
+	&::after {
+		font: normal 100% Batch;
+		color: #888;
+		display: flex;
+		align-items: center;
+		width: 10px;
+		height: 10px;
+		border: 1px solid #888;
+		border-radius: 50%;
+	}
 
-#NREPause::after,
-#NREPause.paused.reversePause::after {
-	content: '\F16C';
-}
+	&::after,
+	&.paused.reversePause::after {
+		content: '\F16C';
+		padding: 2px;
+	}
 
-#NREPause.paused::after,
-#NREPause.reversePause::after {
-	content: '\F16B';
+	&.paused::after,
+	&.reversePause::after {
+		content: '\F16B';
+		padding: 2px 1px 2px 3px;
+	}
 }
 
 .res-neverEndingReddit-showServerInfo {
