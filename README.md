@@ -68,10 +68,10 @@ Thinking about contributing to RES? Awesome! We just ask that you follow a few s
   - `lib/vendor/`: RES vendor libraries 
   - `node/`: Node files
   - `safari/`: Safari-specific RES files
+  - `tests/`: integration tests
   - `utils/`: Misc RES utilities
   - `CHANGELOG.md`: self-explanatory 
   - `README.md`: YOU ARE HERE, unless you're browsing on GitHub
-  - `gulpfile.babel.js`: post-build script for zipping folders.
   - `package.json`: package info, dependencies
   - `webpack.config.babel.js`: build script
   - `**/__tests__`: unit tests
@@ -130,7 +130,11 @@ To load the extension into your browser, see [the sections below](#building-in-c
 
 **`npm run lint-fix`** will autofix any [fixable](http://eslint.org/docs/user-guide/command-line-interface#fix) lint issues.
 
-**`npm test`** will run unit tests (in `__tests__` directories).
+**`npm test`** will run unit tests (in `__tests__` directories) using [Ava](https://github.com/avajs/ava).
+
+**`npm run test-integration -- <browsers>`** will run integration tests (in `tests/`) using [Nightwatch.js](http://nightwatchjs.org/).
+Currently just `chrome` and `firefox` can be targeted.
+To run integration tests locally, you must change `selenium_host`, `selenium_port`, `username`, and `access_key` in `nightwatch.conf.js` to correspond to your Selenium server.
 
 ##### Building in Chrome
 

@@ -1,10 +1,198 @@
-.RESFiltered {
-	display: none !important;
-}
-
 body.hideOver18 {
 	.thing.over18:not(.allowOver18),
 	.search-result.over18:not(.allowOver18) {
 		display: none !important;
+	}
+}
+
+.thing.RESFiltered,
+.search-result.RESFiltered {
+	// For some reason does the scss linter complain on body:not()
+	body.res:not(.res-show-filter-reason) & {
+		// !important since many custom stylesheets overrides it otherwise
+		display: none !important;
+	}
+
+	body.res-show-filter-reason & {
+		opacity: .7;
+
+		&::before {
+			content: attr(filter-reason);
+		}
+	}
+
+	.res-filter-remove-entry {
+		cursor: pointer;
+
+		&::after {
+			content: ' — click here to remove matching filter entry';
+		}
+	}
+}
+
+@mixin filterline-basic-layout {
+	position: relative;
+	display: flex;
+	z-index: 40;
+	min-height: 16px;
+	margin-bottom: 1px;
+	background-color: rgba(255, 255, 255, .9);
+	clear: left;
+}
+
+.res-filteReddit-filterline-pad-until-ready {
+	.listing-page .content[role=main] > .spacer:nth-of-type(2)::before {
+		@include filterline-basic-layout
+		content: ' ';
+	}
+}
+
+.res-filterline {
+	body:not(.res-filteReddit-show-filterline) & {
+		display: none;
+	}
+
+	@include filterline-basic-layout
+
+	> * {
+		font: normal 12px sans-serif, arial;
+		color: gray;
+	}
+
+	&-preamble::before {
+		content: '∀';
+		margin: 0 2px;
+	}
+
+	&-filter {
+		display: inline-block;
+		cursor: pointer;
+		margin: 0 3px;
+		border-bottom: 1px solid #efefef;
+		padding-bottom: 1px;
+
+		&:hover { border-bottom: 1px solid #bfbfbf; }
+
+		&-active,
+		&-active:hover {
+			border-bottom: 2px solid greenyellow;
+			padding-bottom: 0;
+			color: black;
+		}
+
+		&-name::before {
+			content: attr(name);
+		}
+
+		&-name[criterion]::after {
+			content: attr(criterion);
+			margin-left: 2px;
+			line-height: 0;
+		}
+	}
+
+	&-dropdown {
+		position: relative;
+		margin-left: 2px;
+
+		& > span {
+			cursor: pointer;
+
+			&::before { content: 'more'; }
+
+			&::after {
+				content: '»';
+				display: inline-block;
+				margin-left: 2px;
+				transform: rotate(90deg);
+			}
+		}
+
+		&-container {
+			display: none;
+			position: absolute;
+			width: 130px;
+			right: 0;
+			background-color: floralwhite;
+			border-radius: 0 2px 2px 2px;
+			box-shadow: darkgrey 1px 2px 4px;
+		}
+
+		&:hover &-container { display: block; }
+	}
+
+	&-external-filter {
+		line-height: 22px;
+		cursor: pointer;
+		padding: 0 4px;
+
+		&:hover {
+			background-color: antiquewhite;
+		}
+
+		> a {
+			position: absolute;
+			width: 100%;
+		}
+
+		> div {
+			margin-left: 20px;
+		}
+
+		&[matches-count]::before {
+			float: right;
+			content: attr(matches-count);
+		}
+	}
+
+	&-other {
+		margin: 2px 4px;
+		line-height: 16px;
+
+		.res-filterline-filter-new {
+			cursor: pointer;
+			display: flex;
+			align-items: center;
+
+			&::before {
+				content: '+';
+				margin-right: 3px;
+				font-weight: bold;
+				color: darkblue;
+			}
+
+			body.res-entry-is-selected &-from-selected {
+				margin-left: auto;
+				padding-left: 3px;
+
+				&::after {
+					content: '=';
+					font-weight: bold;
+					color: darkblue;
+				}
+
+				&:hover::after {
+					color: lightblue;
+				}
+			}
+		}
+	}
+
+	&-option-toggle {
+		margin: 4px;
+		display: inline-flex;
+		align-items: center;
+
+		input { min-width: 15px; }
+	}
+
+	&-export-customfilters {
+		text-align: center;
+		padding: 2px 0;
+		cursor: pointer;
+	}
+
+	.res-filterline-beta-warning {
+		padding: 10px;
 	}
 }

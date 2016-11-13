@@ -1,4 +1,4 @@
-## General
+## General ##
 node_modules/
 
 # Browser extensions and certs
@@ -17,7 +17,7 @@ node_modules/
 /tests/selenium/opera-profile-patch/
 /tests/selenium/opera-profile-clean/
 
-## OS X
+## OS X ##
 .DS_Store
 .AppleDouble
 .LSOverride
@@ -44,7 +44,7 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
-## Windows
+## Windows ##
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
@@ -64,10 +64,11 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-# IntelliJ
+## IntelliJ ##
 .idea
 *.iml
 .nyc_output
 
-# Visual Studio Code
+## Visual Studio ##
 .vscode
+.vs
