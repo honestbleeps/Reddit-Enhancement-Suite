@@ -518,10 +518,30 @@ body:not(.res-showImages-displayImageCaptions) {
 }
 
 .res-iframe-expando {
+	position: relative;
+
+	iframe {
+		border: none;
+		min-width: '100px';
+		max-width: initial;
+	}
+
+	.res-iframe-expando-helper {
+		pointer-events: none;
+		position: absolute;
+		top: 0;
+		z-index: 999;
+	}
+
+	.res-expando-siteAttribution {
+		display: inline-block;
+		position: relative;
+		top: -18px;
+	}
+
 	.drag-handle {
 		cursor: nwse-resize;
 		box-sizing: border-box;
-		background-color: #fff;
 		padding: 4px;
 		text-align: right;
 		display: block;
