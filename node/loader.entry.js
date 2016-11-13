@@ -13,7 +13,7 @@ const equals = nativeRequire('deep-equal');
 
 const yargs = _yargs
 	.count('verbose')
-    .alias('v', 'verbose')
+	.alias('v', 'verbose')
 	.argv;
 
 const VERBOSE_LEVEL = yargs.verbose;

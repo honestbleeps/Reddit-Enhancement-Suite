@@ -13,7 +13,7 @@
 
 	I can't legally hold you to any of this - I'm just asking out of courtesy.
 
-	Thanks, I appreciate your consideration.  Without further ado, the all-important GPL Statement:
+	Thanks, I appreciate your consideration. Without further ado, the all-important GPL Statement:
 
 	This program is free software: you can redistribute it and/or modify
 	it under the terms of the GNU General Public License as published by
@@ -22,11 +22,11 @@
 
 	This program is distributed in the hope that it will be useful,
 	but WITHOUT ANY WARRANTY; without even the implied warranty of
-	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 	GNU General Public License for more details.
 
 	You should have received a copy of the GNU General Public License
-	along with this program.  If not, see <http://www.gnu.org/licenses/>.
+	along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
