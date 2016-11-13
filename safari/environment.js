@@ -5,6 +5,7 @@ import _ from 'lodash';
 import resCss from '../lib/css/res.scss';
 
 import { createMessageHandler } from '../lib/environment/_messaging';
+import { getMessage } from '../lib/environment/_mockI18n';
 import * as Init from '../lib/core/init';
 
 // DOM Collection iteration
@@ -28,6 +29,7 @@ _.defer(() => Init.headReady.then(() => { // deferred because of the circular de
 const {
 	_handleMessage,
 	sendMessage,
+	sendSynchronous,
 	addListener,
 	addInterceptor,
 } = createMessageHandler((type, obj) => safari.self.tab.dispatchMessage(type, obj));
@@ -38,6 +40,7 @@ safari.self.addEventListener('message', ({ name: type, message: obj }) => {
 
 export {
 	sendMessage,
+	sendSynchronous,
 	addListener,
 };
 
@@ -57,3 +60,5 @@ addInterceptor('isURLVisited', () => false);
 
 // Safari has no pageAction
 addInterceptor('pageAction', () => {});
+
+addInterceptor('i18n', ([messageName, substitutions]) => getMessage(messageName, substitutions));

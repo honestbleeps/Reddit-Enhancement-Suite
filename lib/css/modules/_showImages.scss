@@ -216,6 +216,15 @@ img {
 	}
 }
 
+.res-expando-restore-position {
+	cursor: pointer;
+
+	&::after {
+		content: '« return to originating expando »';
+		font-size: 9px;
+	}
+}
+
 .res-gallery {
 	.res-gallery-title {
 		margin: 3px;

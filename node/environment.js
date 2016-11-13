@@ -1,14 +1,17 @@
 import { createMessageHandler } from '../lib/environment/_messaging';
+import { getMessage } from '../lib/environment/_mockI18n';
 import { extendDeep } from '../lib/utils';
 
 const {
 	sendMessage,
+	sendSynchronous,
 	addListener,
 	addInterceptor,
 } = createMessageHandler(() => {});
 
 export {
 	sendMessage,
+	sendSynchronous,
 	addListener,
 };
 
@@ -79,3 +82,5 @@ addInterceptor('storage', ([operation, key, value]) => {
 			throw new Error(`Invalid storage operation: ${operation}`);
 	}
 });
+
+addInterceptor('i18n', ([messageName, substitutions]) => getMessage(messageName, substitutions));

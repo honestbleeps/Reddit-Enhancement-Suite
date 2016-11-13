@@ -385,6 +385,6 @@ ul.widgetStateButtons {
 		vertical-align: bottom;
 
 		// We want the tabs to act as a radio, i.e. don't allow deselect the currently selected
-		&.selected { pointer-events: none; }
+		&.selected a:first-child { pointer-events: none; }
 	}
 }

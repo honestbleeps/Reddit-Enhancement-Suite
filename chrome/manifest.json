@@ -4,6 +4,7 @@
 	"manifest_version": 2,
 	"minimum_chrome_version": "54",
 	"description": "{{prop?description!../package.json}}",
+	"default_locale": "en",
 	"background": {
 		"scripts": [
 			"{{./background.entry.js}}"
@@ -63,6 +64,7 @@
 		"*://backend.deviantart.com/oembed?url=*",
 		"*://api.gyazo.com/api/oembed*",
 		"*://codepen.io/api/oembed*",
-		"*://api.tumblr.com/v2/blog/*/posts?api_key=*&id=*"
+		"*://api.tumblr.com/v2/blog/*/posts?api_key=*&id=*",
+		"https://xkcd.com/*/info.0.json"
 	]
 }

@@ -13,6 +13,7 @@
 #srList {
 	position: absolute;
 	top: 18px;
+	max-height: calc(100vh - 40px);
 	left: 0;
 	z-index: 9999;
 	display: none;
