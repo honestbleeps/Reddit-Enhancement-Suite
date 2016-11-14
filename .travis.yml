@@ -36,7 +36,7 @@ matrix:
         - npm run jpm -- xpi
         - npm run coverage && npm run report-coverage
         - node dist/node/loader.entry.js
-        - npm run test-integration -- chrome,firefox
+        - npm run test-integration -- chrome && npm run test-integration -- firefox
     - env: RES_JOB=build_deploy
       script:
         - npm run build -- all
