@@ -7,6 +7,10 @@ const firefoxManifest = require('./firefox/package.json');
 
 module.exports = {
 	src_folders: ['tests'],
+	test_workers: {
+		enabled: true,
+		workers: 5,
+	},
 	test_settings: {
 		default: {
 			selenium_host: 'ondemand.saucelabs.com',
