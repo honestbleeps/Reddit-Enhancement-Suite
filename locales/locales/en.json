@@ -16,11 +16,47 @@
     "message": "Subreddit Style On"
   },
 
-  "aboutName": {
+  "aboutCategory": {
     "message": "About RES"
   },
 
-  "aboutCategory": {
+  "myAccountCategory": {
+    "Message": "my account"
+  },
+
+  "usersCategory": {
+    "Message": "Users"
+  },
+
+  "commentsCategory": {
+    "Message": "Comments"
+  },
+
+  "submissionsCategory": {
+    "Message": "Submissions"
+  },
+
+  "subredditsCategory": {
+    "Message": "Subreddits"
+  },
+
+  "appearanceCategory": {
+    "Message": "Appearance"
+  },
+
+  "browsingCategory": {
+    "Message": "Browsing"
+  },
+
+  "productivityCategory": {
+    "Message": "Productivity"
+  },
+
+  "coreCategory": {
+    "Message": "Core"
+  },
+
+  "aboutName": {
     "message": "About RES"
   },
 
@@ -60,10 +96,6 @@
     "message": "You can improve RES with your code, designs, and ideas! RES is an open-source project on GitHub."
   },
 
-  "aboutOptionsContributors": {
-    "message": "<a target=\"_blank\" rel=\"noopener noreferer\" href=\"http://www.honestbleeps.com/\">Steve Sobel</a> (<a target=\"_blank\" rel=\"noopener noreferer\" href=\"/user/honestbleeps/\">/u/honestbleeps</a>) and a slew of community members have contributed code, design and/or great ideas to RES."
-  },
-
   "aboutOptionsPrivacy": {
     "message": "Read about RES's privacy policy."
   },
@@ -76,10 +108,6 @@
     "message": "Account Switcher"
   },
 
-  "accountSwitcherCategory": {
-    "message": "My account"
-  },
-
   "accountSwitcherDescription": {
     "message": "Store username/password pairs and switch accounts instantly while browsing Reddit! \n\n<br><br> If you forget a password which is stored in Account Switcher, <a href=\"/r/Enhancement/wiki/faq/passwords\">you can recover them from RES settings</a>. Be aware that RES offers very little protection for stored passwords, so be careful when sharing your computer or settings!"
   },
@@ -87,10 +115,6 @@
    "announcementsName": {
     "message": "RES Announcements"
   },
-
-   "announcementsCategory": {
-    "message": "Core"
-  }, 
 
    "announcementsDesc": {
     "message": "Keep up with important news"
@@ -100,20 +124,12 @@
     "message": "Backup & Restore"
   }, 
 
-   "backupCategory": {
-    "message": "About RES"
-  }, 
-
    "backupDesc": {
     "message": "Backup and restore your Reddit Enhancement Suite settings."
   }, 
 
    "betteRedditName": {
     "message": "betteReddit"
-  }, 
-
-   "betteRedditCategory": {
-    "message": "Appearance"
   }, 
 
    "betteRedditDesc": {
@@ -128,28 +144,16 @@
     "message": "Command line for navigating reddit, toggling RES settings, and debugging RES"
   },
 
-   "commandLineCategory": {
-    "message": "Core"
-  },
-
    "commandDepthName": {
     "message": "Custom Comment Depth"
   },
 
-   "commandDepthCategory": {
-    "message": "Comments"
-  },
-
    "commandDepthDesc": {
-    "message": "Allows you to set the preferred depth of comments you wish to see when clicking on comments links.<br><br>	0 = Everything, 1 = Root level, 2 = Responses to root level, 3 = Responses to responses to root level, etc."
+    "message": "Allows you to set the preferred depth of comments you wish to see when clicking on comments links.<br><br> 0 = Everything, 1 = Root level, 2 = Responses to root level, 3 = Responses to responses to root level, etc."
   },
 
    "commandHidePerName": {
     "message": "Comment Hide Persistor"
-  },
-
-   "commandHidePerCategory": {
-    "message": "Comments"
   },
 
    "commandHidePerDesc": {
@@ -160,20 +164,12 @@
     "message": "Comment Navigator"
   },
 
-   "commandNavCategory": {
-    "message": "Comments"
-  },
-
    "commandNavDesc": {
     "message": "Provides a comment navigation tool to easily find comments by OP, mod, etc."
   },
 
    "commentPrevName": {
     "message": "Live Preview"
-  },
-
-   "commentPrevCategory": {
-    "message": "Comments"
   },
 
    "commentPrevDesc": {
@@ -184,20 +180,12 @@
     "message": "Comment Style"
   },
 
-   "commentStyleCategory": {
-    "message": "Appearance"
-  },
-
    "commentStyleDesc": {
     "message": "Add readability enhancements to comments."
   },
 
    "commentToolsName": {
     "message": "Editing Tools"
-  },
-
-   "commentToolsCategory": {
-    "message": "Comments"
   },
 
    "commentToolsDesc": {
@@ -208,10 +196,6 @@
     "message": "Context"
   },
 
-   "contextCategory": {
-    "message": "Comments"
-  },
-
    "contextDesc": {
     "message": "Adds a link to the yellow infobar to view deeply linked comments in their full context."
   },
@@ -220,16 +204,8 @@
     "message": "Donate and Contribute"
   },
 
-   "contributeCategory": {
-    "message": "About RES"
-  },
-
-   "customTogglesName": {
+    "customTogglesName": {
     "message": "Custom Toggles"
-  },
-
-   "customTogglesCategory": {
-    "message": "Core"
   },
 
    "customTogglesDesc": {
@@ -240,20 +216,12 @@
     "message": "RES Dashboard"
   },
 
-   "dashboardCategory": {
-    "message": "Productivity"
-  },
-
    "dashboardDesc": {
     "message": "The RES Dashboard is home to a number of features including widgets and other useful tools"
   },
 
    "easterEggName": {
     "message": "Easter Egg"
-  },
-
-   "easterEggCategory": {
-    "message": "Core"
   },
 
    "easterEggDesc": {
@@ -264,20 +232,12 @@
     "message": "filteReddit"
   },
 
-   "filteRedditCategory": {
-    "message": "Submissions"
-  },
-
    "filteRedditDesc": {
     "message": "Filter out NSFW content, or links by keyword, domain (use User Tagger to ignore by user) or subreddit (for /r/all or /domain/*)."
   },
 
    "floaterName": {
     "message": "Floating Islands"
-  },
-
-   "floaterCategory": {
-    "message": "Productivity"
   },
 
    "floaterDesc": {
@@ -288,20 +248,12 @@
     "message": "Hide All Child Comments"
   },
 
-   "hideChildCommentsCategory": {
-    "message": "Comments"
-  },
-
    "hideChildCommentsDesc": {
     "message": "Allows you to hide all comments except for replies to the OP for easier reading."
   },
 
    "hoverName": {
     "message": "RES Pop-up Hover"
-  },
-
-   "hoverCategory": {
-    "message": "Core"
   },
 
    "hoverDesc": {
@@ -312,20 +264,12 @@
     "message": "Keyboard Navigation"
   },
 
-   "keyboardNavCategory": {
-    "message": "Browsing"
-  },
-
    "keyboardNavDesc": {
     "message": "Keyboard navigation for reddit!"
   },
 
    "localDateName": {
     "message": "Local Date"
-  },
-
-   "localDateCategory": {
-    "message": "My account"
   },
 
    "localDateDesc": {
@@ -336,10 +280,6 @@
     "message": "Logo Link"
   },
 
-   "logoLinkCategory": {
-    "message": "Browsing"
-  },
-
    "logoLinkDesc": {
     "message": "Allow you to change the link on the reddit logo."
   },
@@ -348,20 +288,8 @@
     "message": "RES Menu"
   },
 
-   "menuCategory": {
-    "message": "Core"
-  },
-
-   "menuDesc": {
-    "message": "The <span class=\"gearIcon\"></span> dropdown menu to manage RES settings and quick options"
-  },
-
    "messageMenuName": {
     "message": "Message Menu"
-  },
-
-   "messageMenuCategory": {
-    "message": "Browsing"
   },
 
    "messageMenuDesc": {
@@ -372,20 +300,12 @@
     "message": "Mod Helper"
   },
 
-   "modhelperCategory": {
-    "message": "Core"
-  },
-
    "modhelperDesc": {
     "message": "Helps moderators via tips and tricks for playing nice with RES"
   },
 
    "multiredditNavbarName": {
     "message": "Multireddit Navigation"
-  },
-
-   "multiredditNavbarCategory": {
-    "message": "Subreddits"
   },
 
    "multiredditNavbarDesc": {
@@ -396,20 +316,12 @@
     "message": "Never Ending Reddit"
   },
 
-   "nerCategory": {
-    "message": "Browsing"
-  },
-
    "nerDesc": {
     "message": "Inspired by modules like River of Reddit and Auto Pager - gives you a never ending stream of reddit goodness."
   },
 
    "newCommentCountName": {
     "message": "New Comment Count"
-  },
-
-   "newCommentCountCategory": {
-    "message": "Submissions"
   },
 
    "newCommentCountDesc": {
@@ -420,32 +332,12 @@
     "message": "Night Mode"
   },
 
-   "nightModeCategory": {
-    "message": "Appearance"
-  },
-
-   "nightModeDesc": {
-    "message": "A darker, more eye-friendly version of Reddit suited for night browsing.<br><br>Note: Using this on/off switch will disable all features of the night mode module completely.<br>To simply turn off night mode, use the nightModeOn switch below."
-  },
-
    "noPartName": {
     "message": "No Participation"
   },
 
-   "noPartCategory": {
-    "message": "Subreddits"
-  },
-
-   "noPartDesc": {
-    "message": "Helps discourage brigading and helps you avoid getting banned, by warning against voting or commenting when following \"No Participation\" (np) links, and by providing options to prevent you fromaccidentally participating. <p><a href=\"${urls.moreinfo}\" target=\"_blank\" rel=\"noopener noreferer\">Find out more about \"No Participation\".</a></p>"
-  },
-
    "notificationsName": {
     "message": "RES Notifications"
-  },
-
-   "notificationsCategory": {
-    "message": "Core"
   },
 
    "noPartnotificationsDesc": {
@@ -456,20 +348,12 @@
     "message": "RES Welcome Wagon"
   },
 
-   "onboardingCategory": {
-    "message": "About RES"
-  },
-
    "onboardingDesc": {
     "message": "Learn more about RES at /r/Enhancement"
   },
 
    "orangeredName": {
     "message": "Unread Messages"
-  },
-
-   "orangeredCategory": {
-    "message": "My account"
   },
 
    "orangeredDesc": {
@@ -480,20 +364,12 @@
     "message": "Page Navigator"
   },
 
-   "pageNavCategory": {
-    "message": "Browsing"
-  },
-
    "pageNavDesc": {
     "message": "Provides tools for getting around the page."
   },
 
    "presetsName": {
     "message": "Presets"
-  },
-
-   "presetsCategory": {
-    "message": "Core"
   },
 
    "presetsDesc": {
@@ -504,20 +380,12 @@
     "message": "Quick Message"
   },
 
-   "quickMessageCategory": {
-    "message": "Users"
-  },
-
    "quickMessageDesc": {
     "message": "A pop-up dialog that allows you to send messages from anywhere on reddit. Messages can be sent from the quick message dialog by pressing control-enter or command-enter."
   },
 
    "resTipsName": {
     "message": "RES Tips and Tricks"
-  },
-
-   "resTipsCategory": {
-    "message": "About RES"
   },
 
    "resTipsDesc": {
@@ -528,28 +396,12 @@
     "message": "Save Comments"
   },
 
-   "saveCommentsCategory": {
-    "message": "Comments"
-  },
-
-   "saveCommentsDesc": {
-    "message": "You can save comments with RES: click the <em>save-RES</em> button below the comment. You can view these comments on your user page under the \"saved - RES\" tab (reddit.com/user/MyUsername/saved#comments). If you use ${SettingsNavigation.makeUrlHashLink(KeyboardNav.module.moduleID)}, you can press ${niceKeyCode(KeyboardNav.module.options.toggleCmdLine.value)} to open the RES command line, then type in <code>me/sc</code> to see saved-RES comments.<br><br>Saving with RES saves a comment locally in your browser. This means that you can see the comment you saved<i>as it looked when you saved it</i>, even if it is later edited or deleted.You can save comments with RES if you are not logged in, or if you are logged in to any account—all the comments will be visible in one location. You will only be able to view saved RES comments on whichever browser you have RES installed on.<br><br> When saving comments with reddit, you must be logged into an account; the comment is saved specifically for that account; it won't be shown if you switch to a different account or log out. You can view these comments whenever you are logged into the reddit account you saved them from, including on other browsers or devices.<br><br> Visually, saving comments with reddit looks the same as saving with RES—but the text is not saved locally,so the saved comment text shows the <i>current</i> state of the comment. If the comment has been edited or deleted since you saved it, the text that displays on your account's \"saved\" page will look different then it looked when you saved it.<br><br> If you have <a href=\"/gold/about\">reddit gold</a> on an account, you can add a category/tag to comments you have saved with reddit, then filter saved comments/posts by category. (You cannot sort or filter comments saved with RES.)"
-  },
-
    "searchName": {
     "message": "Search RES Settings"
   },
 
-   "searchCategory": {
-    "message": "About RES"
-  },
-
    "searchHelperName": {
     "message": "Search Helper"
-  },
-
-   "searchHelperCategory": {
-    "message": "Browsing"
   },
 
    "searchHelperDesc": {
@@ -560,20 +412,12 @@
     "message": "Selected Entry"
   },
 
-   "selectedEntryCategory": {
-    "message": "Browsing"
-  },
-
    "selectedEntryDesc": {
     "message": "Style the currently selected submission or comment. For use with Keyboard Navigation."
   },
 
    "settingsConsoleName": {
     "message": "Settings Console"
-  },
-
-   "settingsConsoleCategory": {
-    "message": "Core"
   },
 
    "settingsConsoleDesc": {
@@ -584,20 +428,12 @@
     "message": "RES Settings Navigation"
   },
 
-   "settingsNavCategory": {
-    "message": "Core"
-  },
-
    "settingsNavDesc": {
     "message": "Helping you get around the RES Settings Console with greater ease"
   },
 
    "showImagesName": {
     "message": "Inline Image Viewer"
-  },
-
-   "showImagesCategory": {
-    "message": "Productvity"
   },
 
    "showImagesDesc": {
@@ -608,20 +444,12 @@
     "message": "Show Karma"
   },
 
-   "showKarmaCategory": {
-    "message": "My account"
-  },
-
    "showKarmaDesc": {
     "message": "Add more info and tweaks to the karma next to your username in the user menu bar."
   },
 
    "showParentName": {
     "message": "Show Parent on Hover"
-  },
-
-   "showParentCategory": {
-    "message": "My account"
   },
 
    "showParentDesc": {
@@ -632,20 +460,12 @@
     "message": "Single Click Opener"
   },
 
-   "singleClickCategory": {
-    "message": "Browsing"
-  },
-
    "singleClickDesc": {
     "message": "Adds an [l+c] link that opens a link and the comments page in new tabs for you in one click."
   },
 
    "sourceSnoodownName": {
     "message": "Show Snudown Source"
-  },
-
-   "sourceSnoodownCategory": {
-    "message": "Comments"
   },
 
    "sourceSnoodownDesc": {
@@ -656,20 +476,12 @@
     "message": "Spam Button"
   },
 
-   "spamButtonCategory": {
-    "message": "Submissions"
-  },
-
    "spamButtonDesc": {
     "message": "Adds a Spam button to posts for easy reporting."
   },
 
    "spoilerTagsName": {
     "message": "Global Spoiler Tags"
-  },
-
-   "spoilerTagsCategory": {
-    "message": "Appearance"
   },
 
    "spoilerTagsDesc": {
@@ -680,10 +492,6 @@
     "message": "Stylesheet Loader"
   },
 
-   "stylesheetCategory": {
-    "message": "Appearance"
-  },
-
    "stylesheetDesc": {
     "message": "Load extra stylesheets or your own CSS snippets.Hide spoilers on user profile pages."
   },
@@ -692,20 +500,8 @@
     "message": "Style Tweaks"
   },
 
-   "styleTweaksCategory": {
-    "message": "Appearance"
-  },
-
-   "styleTweaksDesc": {
-    "message": "Provides a number of style tweaks to the Reddit interface. Also allow you to disable specific subreddit style (the <a href=\"/prefs/#show_stylesheets\">global setting</a> must be on)."
-  },
-
    "submitHelperName": {
     "message": "Submission Helper"
-  },
-
-   "submitHelperCategory": {
-    "message": "Submissions"
   },
 
    "submitHelperDesc": {
@@ -716,20 +512,8 @@
     "message": "Submit an Issue"
   },
 
-   "submitIssueCategory": {
-    "message": "About RES"
-  },
-
-   "submitIssueDesc": {
-    "message": "If you have any problems with RES, visit <a href=\"/r/RESissues\">/r/RESissues</a>. If you have any requests or questions, visit <a href=\"/r/Enhancement\">/r/Enhancement</a>."
-  },
-
    "subredditInfoName": {
     "message": "Subreddit Info"
-  },
-
-   "subredditInfoCategory": {
-    "message": "Subreddits"
   },
 
    "subredditInfoDesc": {
@@ -740,20 +524,12 @@
     "message": "Subreddit Manager"
   },
 
-   "subredditManCategory": {
-    "message": "Subreddits"
-  },
-
    "subredditManDesc": {
     "message": "Allows you to customize the top bar with your own subreddit shortcuts, including dropdown menus of multi-reddits and more."
   },
 
    "subredditTaggerName": {
     "message": "Subreddit Tagger"
-  },
-
-   "subredditTaggerCategory": {
-    "message": "Subreddits"
   },
 
    "subredditTaggerDesc": {
@@ -764,10 +540,6 @@
     "message": "Table Tools"
   },
 
-   "tableToolsCategory": {
-    "message": "Productivity"
-  },
-
    "tableToolsDesc": {
     "message": "Include additional functionality to Reddit Markdown tables (only sorting at the moment)."
   },
@@ -776,20 +548,8 @@
     "message": "Troubleshooter"
   },
 
-   "troubleshooterCategory": {
-    "message": "About RES"
-  },
-
-   "troubleshooterDesc": {
-    "message": "Resolve common problems and clean/clear unwanted settings data.<br/><br/>Your first line of defence against browser crashes/updates, or potential issues with RES, is a frequent backup.<br/><br/> See <a href=\"/r/Enhancement/wiki/where_is_res_data_stored\">here</a> for the location of the RES settings file for your browser/OS."
-  },
-
    "userbarHiderName": {
     "message": "User Bar Hider"
-  },
-
-   "userbarHiderCategory": {
-    "message": "My account"
   },
 
    "userbarHiderDesc": {
@@ -800,20 +560,12 @@
     "message": "User Highlighter"
   },
 
-   "userHighlightCategory": {
-    "message": "Users"
-  },
-
    "userHighlightDesc": {
     "message": "Highlights certain users in comment threads: OP, Admin, Friends, Mod - contributed by MrDerk"
   },
 
    "userInfoName": {
     "message": "User Info"
-  },
-
-   "userInfoCategory": {
-    "message": "Users"
   },
 
    "userInfoDesc": {
@@ -824,10 +576,6 @@
     "message": "Username Hider"
   },
 
-   "usernameHiderCategory": {
-    "message": "My account"
-  },
-
    "usernameHiderDesc": {
     "message": "Username hider hides your username from displaying on your screen when you're logged in to reddit. This way, if someone looks over your shoulder at work, or if you take a screenshot, your reddit username is not shown. This only affects your screen. There is no way to post or comment on reddit without your post being linked to the account you made it from."
   },
@@ -836,20 +584,8 @@
     "message": "User Tagger"
   },
 
-   "userTaggerCategory": {
-    "message": "Users"
-  },
-
-   "userTaggerDesc": {
-    "message": "Adds a great deal of customization around users - tagging them, ignoring them, and more. You can manage tagged users on <a href=\"/r/Dashboard/#userTaggerContents\">Manage User Tags</a>."
-  },
-
    "versionName": {
     "message": "Version Manager"
-  },
-
-   "versionCategory": {
-    "message": "About RES"
   },
 
    "versionDesc": {
@@ -858,10 +594,6 @@
 
    "voteEnhancementsName": {
     "message": "Vote Enhancements"
-  },
-
-   "voteEnhancementsCategory": {
-    "message": "Appearance"
   },
 
    "voteEnhancementsDesc": {
