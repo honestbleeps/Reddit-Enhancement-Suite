@@ -534,6 +534,350 @@
 
    "saveCommentsDesc": {
     "message": "You can save comments with RES: click the <em>save-RES</em> button below the comment. You can view these comments on your user page under the \"saved - RES\" tab (reddit.com/user/MyUsername/saved#comments). If you use ${SettingsNavigation.makeUrlHashLink(KeyboardNav.module.moduleID)}, you can press ${niceKeyCode(KeyboardNav.module.options.toggleCmdLine.value)} to open the RES command line, then type in <code>me/sc</code> to see saved-RES comments.<br><br>Saving with RES saves a comment locally in your browser. This means that you can see the comment you saved<i>as it looked when you saved it</i>, even if it is later edited or deleted.You can save comments with RES if you are not logged in, or if you are logged in to any account—all the comments will be visible in one location. You will only be able to view saved RES comments on whichever browser you have RES installed on.<br><br> When saving comments with reddit, you must be logged into an account; the comment is saved specifically for that account; it won't be shown if you switch to a different account or log out. You can view these comments whenever you are logged into the reddit account you saved them from, including on other browsers or devices.<br><br> Visually, saving comments with reddit looks the same as saving with RES—but the text is not saved locally,so the saved comment text shows the <i>current</i> state of the comment. If the comment has been edited or deleted since you saved it, the text that displays on your account's \"saved\" page will look different then it looked when you saved it.<br><br> If you have <a href=\"/gold/about\">reddit gold</a> on an account, you can add a category/tag to comments you have saved with reddit, then filter saved comments/posts by category. (You cannot sort or filter comments saved with RES.)"
-  }
+  },
+
+   "searchName": {
+    "message": "Search RES Settings"
+  },
+
+   "searchCategory": {
+    "message": "About RES"
+  },
+
+   "searchHelperName": {
+    "message": "Search Helper"
+  },
+
+   "searchHelperCategory": {
+    "message": "Browsing"
+  },
+
+   "searchHelperDesc": {
+    "message": "Provide help with the use of search."
+  },
+
+   "selectedEntryName": {
+    "message": "Selected Entry"
+  },
+
+   "selectedEntryCategory": {
+    "message": "Browsing"
+  },
+
+   "selectedEntryDesc": {
+    "message": "Style the currently selected submission or comment. For use with Keyboard Navigation."
+  },
+
+   "settingsConsoleName": {
+    "message": "Settings Console"
+  },
+
+   "settingsConsoleCategory": {
+    "message": "Core"
+  },
+
+   "settingsConsoleDesc": {
+    "message": "Manage your RES settings and preferences"
+  },
+
+   "settingsNavName": {
+    "message": "RES Settings Navigation"
+  },
+
+   "settingsNavCategory": {
+    "message": "Core"
+  },
+
+   "settingsNavDesc": {
+    "message": "Helping you get around the RES Settings Console with greater ease"
+  },
+
+   "showImagesName": {
+    "message": "Inline Image Viewer"
+  },
+
+   "showImagesCategory": {
+    "message": "Productvity"
+  },
+
+   "showImagesDesc": {
+    "message": "Opens images inline in your browser with the click of a button. Also has configuration options, check it out!"
+  },
+
+   "showKarmaName": {
+    "message": "Show Karma"
+  },
+
+   "showKarmaCategory": {
+    "message": "My account"
+  },
+
+   "showKarmaDesc": {
+    "message": "Add more info and tweaks to the karma next to your username in the user menu bar."
+  },
+
+   "showParentName": {
+    "message": "Show Parent on Hover"
+  },
+
+   "showParentCategory": {
+    "message": "My account"
+  },
+
+   "showParentDesc": {
+    "message": "Shows the parent comments when hovering over the \"parent\" link of a comment."
+  },
+
+   "singleClickName": {
+    "message": "Single Click Opener"
+  },
+
+   "singleClickCategory": {
+    "message": "Browsing"
+  },
+
+   "singleClickDesc": {
+    "message": "Adds an [l+c] link that opens a link and the comments page in new tabs for you in one click."
+  },
+
+   "sourceSnoodownName": {
+    "message": "Show Snudown Source"
+  },
+
+   "sourceSnoodownCategory": {
+    "message": "Comments"
+  },
+
+   "sourceSnoodownDesc": {
+    "message": "Add tool to show the original text on posts and comments, before reddit formats the text."
+  },
+
+   "spamButtonName": {
+    "message": "Spam Button"
+  },
+
+   "spamButtonCategory": {
+    "message": "Submissions"
+  },
+
+   "spamButtonDesc": {
+    "message": "Adds a Spam button to posts for easy reporting."
+  },
+
+   "spoilerTagsName": {
+    "message": "Global Spoiler Tags"
+  },
+
+   "spoilerTagsCategory": {
+    "message": "Appearance"
+  },
+
+   "spoilerTagsDesc": {
+    "message": "Hide spoilers on user profile pages."
+  },
+
+   "stylesheetName": {
+    "message": "Stylesheet Loader"
+  },
+
+   "stylesheetCategory": {
+    "message": "Appearance"
+  },
+
+   "stylesheetDesc": {
+    "message": "Load extra stylesheets or your own CSS snippets.Hide spoilers on user profile pages."
+  },
+
+   "styleTweaksName": {
+    "message": "Style Tweaks"
+  },
+
+   "styleTweaksCategory": {
+    "message": "Appearance"
+  },
+
+   "styleTweaksDesc": {
+    "message": "Provides a number of style tweaks to the Reddit interface. Also allow you to disable specific subreddit style (the <a href=\"/prefs/#show_stylesheets\">global setting</a> must be on)."
+  },
+
+   "submitHelperName": {
+    "message": "Submission Helper"
+  },
+
+   "submitHelperCategory": {
+    "message": "Submissions"
+  },
+
+   "submitHelperDesc": {
+    "message": "Provides utilities to help with submitting a post."
+  },
+
+   "submitIssueName": {
+    "message": "Submit an Issue"
+  },
+
+   "submitIssueCategory": {
+    "message": "About RES"
+  },
+
+   "submitIssueDesc": {
+    "message": "If you have any problems with RES, visit <a href=\"/r/RESissues\">/r/RESissues</a>. If you have any requests or questions, visit <a href=\"/r/Enhancement\">/r/Enhancement</a>."
+  },
+
+   "subredditInfoName": {
+    "message": "Subreddit Info"
+  },
+
+   "subredditInfoCategory": {
+    "message": "Subreddits"
+  },
+
+   "subredditInfoDesc": {
+    "message": "Adds a hover tooltip to subreddits"
+  },
+
+   "subredditManName": {
+    "message": "Subreddit Manager"
+  },
+
+   "subredditManCategory": {
+    "message": "Subreddits"
+  },
+
+   "subredditManDesc": {
+    "message": "Allows you to customize the top bar with your own subreddit shortcuts, including dropdown menus of multi-reddits and more."
+  },
+
+   "subredditTaggerName": {
+    "message": "Subreddit Tagger"
+  },
+
+   "subredditTaggerCategory": {
+    "message": "Subreddits"
+  },
+
+   "subredditTaggerDesc": {
+    "message": "Add custom text to the beginning of submission titles on your front page and /r/all. Useful for adding context to submissions."
+  },
+
+   "tableToolsName": {
+    "message": "Table Tools"
+  },
+
+   "tableToolsCategory": {
+    "message": "Productivity"
+  },
+
+   "tableToolsDesc": {
+    "message": "Include additional functionality to Reddit Markdown tables (only sorting at the moment)."
+  },
+
+   "troubleshooterName": {
+    "message": "Troubleshooter"
+  },
+
+   "troubleshooterCategory": {
+    "message": "About RES"
+  },
+
+   "troubleshooterDesc": {
+    "message": "Resolve common problems and clean/clear unwanted settings data.<br/><br/>Your first line of defence against browser crashes/updates, or potential issues with RES, is a frequent backup.<br/><br/> See <a href=\"/r/Enhancement/wiki/where_is_res_data_stored\">here</a> for the location of the RES settings file for your browser/OS."
+  },
+
+   "userbarHiderName": {
+    "message": "User Bar Hider"
+  },
+
+   "userbarHiderCategory": {
+    "message": "My account"
+  },
+
+   "userbarHiderDesc": {
+    "message": "Add a toggle button to show or hide the user bar."
+  },
+
+   "userHighlightName": {
+    "message": "User Highlighter"
+  },
+
+   "userHighlightCategory": {
+    "message": "Users"
+  },
+
+   "userHighlightDesc": {
+    "message": "Highlights certain users in comment threads: OP, Admin, Friends, Mod - contributed by MrDerk"
+  },
+
+   "userInfoName": {
+    "message": "User Info"
+  },
+
+   "userInfoCategory": {
+    "message": "Users"
+  },
+
+   "userInfoDesc": {
+    "message": "Adds a hover tooltip to users"
+  },
+
+   "usernameHiderName": {
+    "message": "Username Hider"
+  },
+
+   "usernameHiderCategory": {
+    "message": "My account"
+  },
+
+   "usernameHiderDesc": {
+    "message": "Username hider hides your username from displaying on your screen when you're logged in to reddit. This way, if someone looks over your shoulder at work, or if you take a screenshot, your reddit username is not shown. This only affects your screen. There is no way to post or comment on reddit without your post being linked to the account you made it from."
+  },
+
+   "userTaggerName": {
+    "message": "User Tagger"
+  },
+
+   "userTaggerCategory": {
+    "message": "Users"
+  },
+
+   "userTaggerDesc": {
+    "message": "Adds a great deal of customization around users - tagging them, ignoring them, and more. You can manage tagged users on <a href=\"/r/Dashboard/#userTaggerContents\">Manage User Tags</a>."
+  },
+
+   "versionName": {
+    "message": "Version Manager"
+  },
+
+   "versionCategory": {
+    "message": "About RES"
+  },
+
+   "versionDesc": {
+    "message": "Handle current/previous version checks"
+  },
+
+   "voteEnhancementsName": {
+    "message": "Vote Enhancements"
+  },
+
+   "voteEnhancementsCategory": {
+    "message": "Appearance"
+  },
+
+   "voteEnhancementsDesc": {
+    "message": "Format or show additional information about votes on posts and comments."
+  },
+
+   "xPostLinksName": {
+    "message": "X-post Links"
+  },
+
+   "xPostLinksCategory": {
+    "message": "Submissions"
+  },
+
+   "xPostLinksDesc": {
+    "message": "Create links to x-posted subreddits in post taglines."
+  },
 
 }
