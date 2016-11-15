@@ -6,7 +6,6 @@
 		"ava",
 		"dollar-sign",
 		"no-useless-assign",
-		"consistent-return-legacy",
 		"prefer-spread",
 		"filenames",
 		"import"
@@ -59,8 +58,6 @@
 		"dollar-sign/dollar-sign": [2, "ignoreProperties"],
 
 		"no-useless-assign/no-useless-assign": 2,
-
-		"consistent-return-legacy/consistent-return": 2,
 
 		"prefer-spread/prefer-object-spread": 2,
 
@@ -153,7 +150,7 @@
 		"class-methods-use-this": 0,
 		"comma-dangle": [2, "always-multiline"],
 		"complexity": [0, 11],
-		"consistent-return": 0, // see consistent-return-legacy/consistent-return-legacy
+		"consistent-return": 0, // Flow effectively does this, and does a better job
 		"consistent-this": [2, "this"], // do not alias `this`, use arrow functions
 		"curly": [2, "multi-line"],
 		"dot-location": [2, "property"],
