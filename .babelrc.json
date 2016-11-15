@@ -1,6 +1,5 @@
 {
 	"plugins": [
-		"transform-function-bind",
 		"transform-export-extensions",
 		"transform-class-properties",
 		"syntax-trailing-function-commas",
@@ -22,7 +21,6 @@
 				"es2015"
 			],
 			"plugins": [
-				"transform-function-bind",
 				"transform-export-extensions",
 				"transform-class-properties",
 				"syntax-trailing-function-commas",
