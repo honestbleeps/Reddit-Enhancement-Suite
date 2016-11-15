@@ -520,26 +520,14 @@ body:not(.res-showImages-displayImageCaptions) {
 .res-iframe-expando {
 	position: relative;
 
-	iframe {
-		border: none;
-		min-width: '100px';
-		max-width: initial;
-	}
-
-	.res-iframe-expando-helper {
+	&-helper {
 		pointer-events: none;
 		position: absolute;
 		top: 0;
 		z-index: 999;
 	}
 
-	.res-expando-siteAttribution {
-		display: inline-block;
-		position: relative;
-		top: -18px;
-	}
-
-	.drag-handle {
+	&-drag-handle {
 		cursor: nwse-resize;
 		box-sizing: border-box;
 		padding: 4px;
@@ -551,6 +539,18 @@ body:not(.res-showImages-displayImageCaptions) {
 			transform: scaleX(-1);
 			display: inline-block;
 		}
+	}
+
+	iframe {
+		border: none;
+		min-width: '100px';
+		max-width: initial;
+	}
+
+	.res-expando-siteAttribution {
+		display: inline-block;
+		position: relative;
+		top: -18px;
 	}
 }
 
