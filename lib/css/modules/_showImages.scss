@@ -520,19 +520,13 @@ body:not(.res-showImages-displayImageCaptions) {
 .res-iframe-expando {
 	position: relative;
 
-	&-helper {
-		pointer-events: none;
-		position: absolute;
-		top: 0;
-		z-index: 999;
-	}
-
 	&-drag-handle {
 		cursor: nwse-resize;
 		box-sizing: border-box;
 		padding: 4px;
 		text-align: right;
 		display: block;
+		width: 100%;
 
 		&::after {
 			content: '\F0A5';
@@ -544,11 +538,11 @@ body:not(.res-showImages-displayImageCaptions) {
 	iframe {
 		border: none;
 		min-width: '100px';
+		width: 100%;
 		max-width: initial;
 	}
 
 	.res-expando-siteAttribution {
-		display: inline-block;
 		position: relative;
 		top: -18px;
 	}
