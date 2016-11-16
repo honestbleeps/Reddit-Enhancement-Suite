@@ -168,10 +168,9 @@ let db;
 function storageFailureAlert(worker) {
 	sendMessage('alert', `
 		<p><b>An error occurred while creating the IndexedDB database.</b></p>
-		<p>Reddit Enhancement Suite will not function.</p>
-		<p>Your Firefox profile may be corrupted (<a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1236557">Bug 1236557</a> or <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=944918">Bug 944918</a>).</p>
+		<p>Reddit Enhancement Suite cannot function.</p>
 		<br>
-		<p>Please report this to the relevant beta thread or /r/RESissues.</p>
+		<p><a href="https://www.reddit.com/r/Enhancement/wiki/faq/indexeddb_failure">See this wiki page for solutions.</a></p>
 	`, worker);
 }
 
