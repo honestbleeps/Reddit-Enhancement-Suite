@@ -4,10 +4,9 @@ module.exports = {
 			.url('https://www.reddit.com/r/RESIntegrationTests/comments/5cmspt/')
 			.waitForElementVisible('#siteTable', 1000)
 			.click('.thing.link .viewSource a')
-			.waitForElementVisible(`.thing.link .viewSource textarea`, 5000)
-			.assert.containsText(`.thing.link .viewSource textarea`, 'Self post text')
+			.waitForElementVisible('.thing.link .viewSource textarea', 5000)
+			.assert.containsText('.thing.link .viewSource textarea', 'Self post text')
 			.end();
-
 	},
 	'can use source button more than once on a page': browser => {
 		const first = '.thing.id-t1_d9xbmol';
