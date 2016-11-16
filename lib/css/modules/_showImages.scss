@@ -518,7 +518,6 @@ body:not(.res-showImages-displayImageCaptions) {
 }
 
 .res-iframe-expando {
-	position: relative;
 
 	&-drag-handle {
 		cursor: nwse-resize;
@@ -545,6 +544,8 @@ body:not(.res-showImages-displayImageCaptions) {
 	.res-expando-siteAttribution {
 		position: relative;
 		top: -18px;
+		display: inline-block;
+		z-index: 99;
 	}
 }
 
