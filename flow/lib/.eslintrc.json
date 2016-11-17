@@ -1,0 +1,6 @@
+{
+	"rules": {
+		"flowtype/boolean-style": 0, // lib files may be generated from TS so boolean style may differ
+		"flowtype/type-id-match": 0 // type names in this dir are dictated by the API names, so we can't change them
+	}
+}

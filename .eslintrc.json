@@ -2,11 +2,10 @@
 	"parser": "babel-eslint",
 	"plugins": [
 		"babel",
+		"flowtype",
 		"ava",
 		"dollar-sign",
 		"no-useless-assign",
-		"consistent-return-legacy",
-		"prefer-bind-operator",
 		"prefer-spread",
 		"filenames",
 		"import"
@@ -34,15 +33,31 @@
 		"babel/no-await-in-loop": 2,
 		"babel/flow-object-type": 0,
 		"babel/func-params-comma-dangle": 2,
+
+		"flowtype/boolean-style": 2,
+		"flowtype/define-flow-type": 2,
+		"flowtype/delimiter-dangle": [2, "always-multiline"],
+		"flowtype/generic-spacing": 2,
+		"flowtype/no-dupe-keys": 2,
+		"flowtype/no-weak-types": [2, { "any": false }],
+		"flowtype/require-parameter-type": 0,
+		"flowtype/require-return-type": 0,
+		"flowtype/require-valid-file-annotation": 2,
+		"flowtype/semi": 2,
+		"flowtype/sort-keys": 0,
+		"flowtype/space-after-type-colon": 2,
+		"flowtype/space-before-generic-bracket": 2,
+		"flowtype/space-before-type-colon": 2,
+		"flowtype/type-id-match": [2, "^([A-Z][a-z0-9]+)+$"],
+		"flowtype/union-intersection-spacing": 2,
+		"flowtype/use-flow-type": 0, // this doesn't seem to be necessary, except in flow/ where they aren't used directly
+		"flowtype/valid-syntax": 2,
+
 		"ava/prefer-async-await": 0,
 
 		"dollar-sign/dollar-sign": [2, "ignoreProperties"],
 
 		"no-useless-assign/no-useless-assign": 2,
-
-		"consistent-return-legacy/consistent-return": 2,
-
-		"prefer-bind-operator/prefer-bind-operator": 2,
 
 		"prefer-spread/prefer-object-spread": 2,
 
@@ -92,6 +107,7 @@
 		"no-confusing-arrow": 0,
 		"no-console": 0,
 		"no-continue": 0,
+		"no-duplicate-imports": 0, // see import/no-duplicates (ESLint's rule doesn't handle Flow `import type`)
 		"no-else-return": 0,
 		"no-empty-function": [2, { "allow": ["arrowFunctions", "methods"] }],
 		"no-extra-parens": [2, "functions"], // "all" conflicts with no-return-assign and some other rules, unfortunately
@@ -134,7 +150,7 @@
 		"class-methods-use-this": 0,
 		"comma-dangle": [2, "always-multiline"],
 		"complexity": [0, 11],
-		"consistent-return": 0, // see consistent-return-legacy/consistent-return-legacy
+		"consistent-return": 0, // Flow effectively does this, and does a better job
 		"consistent-this": [2, "this"], // do not alias `this`, use arrow functions
 		"curly": [2, "multi-line"],
 		"dot-location": [2, "property"],
@@ -179,6 +195,7 @@
 		"sort-keys": 0,
 		"sort-vars": 0,
 		"space-before-function-paren": [2, "never"],
+		"spaced-comment": [2, "always", { "markers": [":", "::"] }],
 		"strict": [2, "never"], // Babel inserts it for us
 		"valid-jsdoc": [2, { "requireParamDescription": false, "requireReturnDescription": false }],
 		"valid-typeof": [2, { "requireStringLiterals": true }],

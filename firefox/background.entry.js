@@ -68,13 +68,13 @@ function workerFor(tab) {
 }
 
 /**
- * @this {nsISimpleEnumerator}
+ * @param {nsISimpleEnumerator} enumerator
  * @param {nsIJSIID} iface
  * @returns {Generator}
  */
-function* asGenerator(iface) {
-	while (this.hasMoreElements()) {
-		yield this.getNext().QueryInterface(iface);
+function* asGenerator(enumerator, iface) {
+	while (enumerator.hasMoreElements()) {
+		yield enumerator.getNext().QueryInterface(iface);
 	}
 }
 
@@ -89,7 +89,7 @@ const {
 addCommonBackgroundListeners(addListener);
 
 addListener('deleteCookies', cookies => {
-	for (const { host, name, path, originAttributes } of cookieManager.enumerator::asGenerator(Ci.nsICookie)) {
+	for (const { host, name, path, originAttributes } of asGenerator(cookieManager.enumerator, Ci.nsICookie)) {
 		if (
 			host === '.reddit.com' &&
 			path === '/' &&
@@ -135,7 +135,7 @@ let db;
 		db = request.result;
 		runMigration();
 	};
-	request.onerror = ::console.error;
+	request.onerror = e => console.error(e);
 
 	const MIGRATED_TO_INDEXEDDB = 'MIGRATED_TO_INDEXEDDB';
 
@@ -144,7 +144,7 @@ let db;
 			const transaction = db.transaction('storage', 'readwrite');
 
 			transaction.oncomplete = () => (ss.storage[MIGRATED_TO_INDEXEDDB] = MIGRATED_TO_INDEXEDDB);
-			transaction.onerror = ::console.error;
+			transaction.onerror = e => console.error(e);
 
 			const store = transaction.objectStore('storage');
 
@@ -376,7 +376,7 @@ PageMod({
 	contentScriptFile: [`./../${mainEntry}`],
 	contentStyleFile: [`./../${resCss}`],
 	onAttach(worker) {
-		worker::onAttach();
+		Reflect.apply(onAttach, worker, []);
 		worker.on('detach', onDetach);
 		worker.on('message', ({ type, ...obj }) => _handleMessage(type, obj, worker));
 	},
