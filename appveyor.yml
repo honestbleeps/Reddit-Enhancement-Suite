@@ -3,10 +3,14 @@ version: '{build}'
 clone_depth: 1
 environment:
   nodejs_version: 7
+cache:
+  - '%LOCALAPPDATA%/Yarn'
 install:
   - ps: Install-Product node $env:nodejs_version
-  - npm install
+  - npm install -g yarn
+  - yarn install --pure-lockfile
+  - yarn check --integrity
 test_script:
-  - npm test
-  - npm run build -- all
+  - yarn test
+  - yarn run build -- all
   - node dist/node/loader.entry.js

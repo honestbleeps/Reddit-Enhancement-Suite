@@ -22,6 +22,13 @@ addons:
   jwt:
     # SAUCE_ACCESS_KEY=<secure>
     secure: hHF06xHY6pLdxscwYhUHdSRuUH2CPA61AUrvPiW54lnMwwkDvCQakR+aY5HbjptFIfOwkWsS4xoqXH4pZTfhMOji32S/+ELT+AqLdkIgnLYDfBj4RcsZoXyvuiLx29i4PVCnGMikctBp4dM6wORgfd1tu3uwhcoQrBjxCMW1qmY=
+cache:
+  directories:
+    - $HOME/.cache/yarn
+install:
+  - npm i -g yarn
+  - yarn install --pure-lockfile
+  - yarn check --integrity
 matrix:
   allow_failures:
     - env: RES_JOB=flow
@@ -30,20 +37,20 @@ matrix:
   include:
     - env: RES_JOB=lint
       script:
-        - npm run eslint
-        - npm run sass-lint
+        - yarn run eslint
+        - yarn run sass-lint
     - env: RES_JOB=test
       script:
-        - npm run build -- chrome,firefox,node
-        - npm run jpm -- xpi
-        - npm run coverage && npm run report-coverage
+        - yarn run build -- chrome,firefox,node
+        - yarn run jpm -- xpi
+        - yarn run coverage && yarn run report-coverage
         - node dist/node/loader.entry.js
-        - npm run test-integration -- chrome && npm run test-integration -- firefox
+        - yarn run test-integration -- chrome && yarn run test-integration -- firefox
     - env: RES_JOB=build_deploy
       script:
-        - npm run build -- all
-        - npm run jpm -- xpi
-        - npm run jpm-beta -- xpi
+        - yarn run build -- all
+        - yarn run jpm -- xpi
+        - yarn run jpm-beta -- xpi
       deploy:
         - provider: releases
           api_key:
@@ -64,4 +71,4 @@ matrix:
             tags: true
     - env: RES_JOB=flow
       script:
-        - npm run flow -- check --show-all-errors
+        - yarn run flow -- check --show-all-errors
