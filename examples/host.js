@@ -10,8 +10,11 @@
 	This policy serves to protect users by limiting RES' access to certain websites.
 */
 
-export default {
-	moduleID: 'example',
+/* @flow */
+
+import { Host } from '../../core/host';
+
+export default new Host('example', {
 	name: 'Example Media Host',
 
 	domains: [
@@ -61,4 +64,4 @@ export default {
 			zero-indexed page number to open the gallery to
 		*/
 	},
-};
+});

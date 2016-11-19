@@ -109,7 +109,7 @@ addListener('permissions', ({ operation, permissions, origins }) => {
 });
 
 (async () => {
-	const _set = apiToPromise(::chrome.storage.local.set);
+	const _set = apiToPromise((items, callback) => chrome.storage.local.set(items, callback));
 	const set = (key, value) => _set({ [key]: value });
 
 	const MIGRATED_TO_CHROME_STORAGE = 'MIGRATED_TO_CHROME_STORAGE';
