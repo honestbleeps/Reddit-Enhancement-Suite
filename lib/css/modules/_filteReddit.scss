@@ -158,7 +158,6 @@ body.hideOver18 {
 				content: '+';
 				margin-right: 3px;
 				font-weight: bold;
-				color: darkblue;
 			}
 
 			body.res-entry-is-selected &-from-selected {
@@ -168,7 +167,7 @@ body.hideOver18 {
 				&::after {
 					content: '=';
 					font-weight: bold;
-					color: darkblue;
+					color: #73adad;
 				}
 
 				&:hover::after {
@@ -183,7 +182,10 @@ body.hideOver18 {
 		display: inline-flex;
 		align-items: center;
 
-		input { min-width: 15px; }
+		input {
+			min-width: 15px;
+			margin: 0 3px;
+		}
 	}
 
 	&-export-customfilters {
