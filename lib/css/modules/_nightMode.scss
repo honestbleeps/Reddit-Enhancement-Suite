@@ -1358,7 +1358,23 @@
 		}
 	}
 
+	&.res-filteReddit-filterline-pad-until-ready .listing-page .content[role=main] > .spacer:nth-of-type(2)::before,
 	.res-filterline {
-		filter: invert(100%) hue-rotate(180deg);
+		background-color: rgba(38, 38, 38, .9);
+	}
+
+	.res-filterline {
+		&-filter {
+			border-bottom-color: #383838;
+
+			&-active,
+			&-active:hover {
+				border-bottom-color: #e4e4e4;
+				color: #e4e4e4;
+			}
+		}
+
+		&-dropdown-container { background-color: #313131; }
+		&-external-filter:hover { background-color: #444; }
 	}
 }
