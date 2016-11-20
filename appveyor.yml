@@ -7,7 +7,6 @@ cache:
   - '%LOCALAPPDATA%/Yarn'
 install:
   - ps: Install-Product node $env:nodejs_version
-  - npm install -g yarn
   - yarn install --pure-lockfile
   - yarn check --integrity
 test_script:
