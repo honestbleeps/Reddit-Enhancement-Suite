@@ -1,4 +1,4 @@
-, # Localization
+# Localization
 
 **Do not edit the files in this directory, they are automatically generated.**
 
