@@ -66,6 +66,7 @@ Thinking about contributing to RES? Awesome! We just ask that you follow a few s
   - `lib/templates/`: RES templates
   - `lib/utils/`: RES utilities
   - `lib/vendor/`: RES vendor libraries 
+  - `locales`: RES i18n translations  
   - `node/`: Node files
   - `safari/`: Safari-specific RES files
   - `tests/`: integration tests
@@ -180,6 +181,8 @@ See [`examples/module.js`](https://github.com/honestbleeps/Reddit-Enhancement-Su
 
 Create a new `.js` file in `lib/modules`.
 It will automatically be loaded when the build script is restarted.
+
+All modules must now have i18n implementations. Please see [here](https://github.com/honestbleeps/Reddit-Enhancement-Suite/blob/master/locales/locales/README.md) for details.
 
 ##### Inline image viewer hosts
 
