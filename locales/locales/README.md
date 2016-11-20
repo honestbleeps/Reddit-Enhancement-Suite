@@ -10,7 +10,7 @@ New strings should be added to `en.json` and only that file.
 
 ## Translating Modules
 
-Currently only module names, categories and descriptions are translatable. Please see [this](https://github.com/honestbleeps/Reddit-Enhancement-Suite/blob/master/lib/modules/commentHidePersistor.js) module for an example of how its implemented.
+Currently only module names, categories and descriptions are translatable. Please see [this](https://github.com/honestbleeps/Reddit-Enhancement-Suite/blob/master/lib/modules/commentHidePersistor.js) module for an example of how it's implemented.
 
 These strings can be found in `en.json` which then translate to the English string. A list of categories can also be found near the top of `en.json`. 
 
