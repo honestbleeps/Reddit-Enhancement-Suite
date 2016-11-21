@@ -14,6 +14,7 @@ $page-offsetleft: 15px;
 .res-show-link {
 	overflow-y: hidden;
 	position: fixed;
+	will-change: transform;
 	top: 0;
 	left: $page-offsetleft;
 	max-width: calc(100% - #{2 * $page-offsetleft});

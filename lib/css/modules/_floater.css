@@ -1,5 +1,6 @@
 .res-floater-visibleAfterScroll {
 	position: fixed;
+	will-change: transform;
 	z-index: 10000000;
 	right: 8px;
 	display: block;
