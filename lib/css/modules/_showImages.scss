@@ -96,6 +96,7 @@ img {
 	}
 
 	a {
+		vertical-align: middle;
 		color: inherit;
 	}
 
@@ -513,6 +514,30 @@ body:not(.res-showImages-displayImageCaptions) {
 		.res-caption,
 		.res-credits {
 			order: 1;
+		}
+	}
+}
+
+.res-iframe-expando {
+
+	iframe {
+		border: none;
+		width: 100%;
+	}
+
+	&-drag-handle {
+		box-sizing: border-box;
+		display: flex;
+		flex-direction: row-reverse;
+		justify-content: space-between;
+		align-items: center;
+		cursor: nwse-resize;
+
+		.res-icon::before {
+			content: '\F0A5';
+			transform: scaleX(-1);
+			display: inline-block;
+			padding: 4px;
 		}
 	}
 }
