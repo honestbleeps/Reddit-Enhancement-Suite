@@ -197,7 +197,7 @@
 		"space-before-function-paren": [2, "never"],
 		"spaced-comment": [2, "always", { "markers": [":", "::"] }],
 		"strict": [2, "never"], // Babel inserts it for us
-		"valid-jsdoc": [2, { "requireParamDescription": false, "requireReturnDescription": false }],
+		"valid-jsdoc": 0,
 		"valid-typeof": [2, { "requireStringLiterals": true }],
 		"vars-on-top": 0,
 		"wrap-iife": [2, "inside"]
