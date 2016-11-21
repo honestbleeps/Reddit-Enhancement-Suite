@@ -525,21 +525,18 @@ body:not(.res-showImages-displayImageCaptions) {
 	}
 
 	&-drag-handle {
-		cursor: nwse-resize;
 		box-sizing: border-box;
-		padding: 4px;
-
-		&::after {
-			content: '\F0A5';
-			transform: scaleX(-1);
-			display: inline-block;
-		}
-	}
-
-	&-footer {
 		display: flex;
 		flex-direction: row-reverse;
 		justify-content: space-between;
+		cursor: nwse-resize;
+
+		.res-icon::before {
+			content: '\F0A5';
+			transform: scaleX(-1);
+			display: inline-block;
+			padding: 4px;
+		}
 	}
 }
 
