@@ -537,6 +537,14 @@ body:not(.res-showImages-displayImageCaptions) {
 			display: inline-block;
 			padding: 4px;
 		}
+
+		.res-expando-siteAttribution {
+			line-height: 18px;
+
+			a {
+			    vertical-align: middle;
+			}
+		}
 	}
 }
 
