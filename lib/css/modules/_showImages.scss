@@ -96,6 +96,7 @@ img {
 	}
 
 	a {
+		vertical-align: middle;
 		color: inherit;
 	}
 
@@ -529,6 +530,7 @@ body:not(.res-showImages-displayImageCaptions) {
 		display: flex;
 		flex-direction: row-reverse;
 		justify-content: space-between;
+		align-items: center;
 		cursor: nwse-resize;
 
 		.res-icon::before {
@@ -536,14 +538,6 @@ body:not(.res-showImages-displayImageCaptions) {
 			transform: scaleX(-1);
 			display: inline-block;
 			padding: 4px;
-		}
-
-		.res-expando-siteAttribution {
-			line-height: 18px;
-
-			a {
-				vertical-align: middle;
-			}
 		}
 	}
 }
