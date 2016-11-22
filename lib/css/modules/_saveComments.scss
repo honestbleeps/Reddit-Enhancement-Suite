@@ -2,25 +2,32 @@
 	cursor: help;
 }
 
-.savedComment.entry {
-	padding: 5px 8px;
-	font-size: 12px;
-	margin-bottom: 20px;
-	margin-left: 25px;
-	margin-right: 10px;
-	border: 1px solid #CCC;
-	border-radius: 10px;
-	width: auto;
-}
+#res-saveComments {
+	padding: 0 10px;
+	font-size: small;
 
-.savedCommentHeader {
-	margin-bottom: 8px;
-}
+	.res-module-description {
+		max-width: 60em;
+		margin-bottom: 15px;
+	}
 
-.savedCommentBody {
-	margin-bottom: 8px;
-}
+	.res-saveComments-tip {
+		font-size: small;
+		margin-top: 10px;
+		margin-bottom: 10px;
+	}
 
-#savedLinksList {
-	margin-top: 10px;
+	.res-savedComment {
+		margin: 10px 0;
+		padding: 10px 0;
+
+		&.md {
+			font-size: small;
+			max-width: none;
+		}
+
+		.savedCommentFooter {
+			font-size: x-small;
+		}
+	}
 }
