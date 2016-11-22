@@ -545,22 +545,6 @@ declare module 'lodash/fp' {
 
 	declare function filter<A>(fn: (a: A) => ?boolean, ...args: void[]): Curry1<A[], A[]>;
 
-	declare function sortBy<A>(fn: (a: A) => string | number, ...args: void[]): Curry1<A[], A[]>;
-
-	declare function join<S: string>(s: string, ...args: void[]): Curry1<S[], string>;
-
-	declare function keyBy<T, K>(fn: (x: T) => K, ...args: void[]): Curry1<T[], { [key: K]: T }>;
-	declare function keyBy<KA, KB, T>(fn: (x: T) => KB, ...args: void[]): Curry1<{ [key: KA]: T }, { [key: KB]: T }>;
-
-	declare function groupBy<T, K>(fn: (x: T) => K, ...args: void[]): Curry1<T[], { [key: K]: T[] }>;
-
-	declare function map<A, B, K>(fn: (x: A) => B, ...args: void[]): Curry1<A[], B[]> & Curry1<{ [key: K]: A }, { [key: K]: B }>;
-
-	declare function mapValues<A, B, K>(fn: (x: A) => B, ...args: void[]): Curry1<{ [key: K]: A }, { [key: K]: B }>;
-
-	declare function zip<A, B>(a: A[], ...args: void[]): Curry1<B[], Array<[A, B]>>;
-	declare function zip<A, B>(a: A[], b: B[], ...args: void[]): Array<[A, B]>;
-
 	declare function flow<A1, A2, A3, A4, R, F1: (a1: A1, a2: A2, a3: A3, a4: A4) => R>
 		(f1: F1, ...args: void[]): (a1: A1, a2: A2, a3: A3, a4: A4) => R;
 	declare function flow<A1, A2, A3, A4, B, R, F1: (a1: A1, a2: A2, a3: A3, a4: A4) => B, F2: (b: B) => R>
@@ -573,4 +557,20 @@ declare module 'lodash/fp' {
 		(f1: F1, f2: F2, f3: F3, f4: F4, f5: F5, ...args: void[]): (a1: A1, a2: A2, a3: A3, a4: A4) => R;
 	declare function flow<A1, A2, A3, A4, B, C, D, E, F, R, F1: (a1: A1, a2: A2, a3: A3, a4: A4) => B, F2: (b: B) => C, F3: (c: C) => D, F4: (d: D) => E, F5: (e: E) => F, F6: (f: F) => R>
 		(f1: F1, f2: F2, f3: F3, f4: F4, f5: F5, f6: F6, ...args: void[]): (a1: A1, a2: A2, a3: A3, a4: A4) => R;
+
+	declare function groupBy<T, K>(fn: (x: T) => K, ...args: void[]): Curry1<T[], { [key: K]: T[] }>;
+
+	declare function join<S: string>(s: string, ...args: void[]): Curry1<S[], string>;
+
+	declare function keyBy<T, K>(fn: (x: T) => K, ...args: void[]): Curry1<T[], { [key: K]: T }>;
+	declare function keyBy<KA, KB, T>(fn: (x: T) => KB, ...args: void[]): Curry1<{ [key: KA]: T }, { [key: KB]: T }>;
+
+	declare function map<A, B, K>(fn: (x: A) => B, ...args: void[]): Curry1<A[], B[]> & Curry1<{ [key: K]: A }, { [key: K]: B }>;
+
+	declare function mapValues<A, B, K>(fn: (x: A) => B, ...args: void[]): Curry1<{ [key: K]: A }, { [key: K]: B }>;
+
+	declare function sortBy<A>(fn: (a: A) => string | number, ...args: void[]): Curry1<A[], A[]>;
+
+	declare function zip<A, B>(a: A[], ...args: void[]): Curry1<B[], Array<[A, B]>>;
+	declare function zip<A, B>(a: A[], b: B[], ...args: void[]): Array<[A, B]>;
 }
