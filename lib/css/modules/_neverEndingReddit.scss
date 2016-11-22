@@ -79,21 +79,13 @@
 	}
 }
 
-.NERdupe p.title::after {
-	color: #000;
-	font-size: 10px;
-	content: ' (duplicate from previous page)';
-}
+.NERdupe {
+	opacity: .3;
 
-.res-neverEndingReddit-hideDupes-fade {
-	.NERdupe {
-		opacity: .3;
-	}
-}
-
-.res-neverEndingReddit-hideDupes-hide {
-	.NERdupe {
-		display: none;
+	p.title::after {
+		color: #000;
+		font-size: 10px;
+		content: ' (duplicate from previous page)';
 	}
 }
 
