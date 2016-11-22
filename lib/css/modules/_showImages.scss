@@ -152,6 +152,7 @@ img {
 			cursor: pointer;
 			line-height: 14px;
 			color: #eee;
+			vertical-align: baseline;
 		}
 
 		&:hover::after { color: #b9b9b9; }
