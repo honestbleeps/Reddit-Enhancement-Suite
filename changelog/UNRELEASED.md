@@ -1,4 +1,12 @@
 
+### New Features
+
+- None (thanks nobody)
+
 ### Bug Fixes
 
-- Fix stylesheet snippets depending on custom toggles (thanks @erikdesjardins)
+- None (thanks nobody)
+
+### Housekeeping / Other
+
+- None (thanks nobody)
