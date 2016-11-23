@@ -1,16 +1,12 @@
 
 ### New Features
 
-- Easier drag-and-drop to remove subreddit shortcuts (thanks @githue)
+- None (thanks nobody)
 
 ### Bug Fixes
 
-- Minor showImages fixes (thanks @larsjohnsen)
-- Fix floating icons never hiding in Firefox (thanks @larsjohnsen)
-- Fix Stylesheet Loader not working intermittently (thanks @erikdesjardins)
-- Fix user tags overflowing from comment taglines (thanks @erikdesjardins)
+- None (thanks nobody)
 
 ### Housekeeping / Other
 
-- Duplicate posts are completely removed instead of hidden from view (thanks @TheRook)
-- Cleanup styling and implementation of saved-RES tab (thanks @githue)
+- None (thanks nobody)
