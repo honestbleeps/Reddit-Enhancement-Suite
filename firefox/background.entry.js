@@ -17,7 +17,7 @@ const priv = nativeRequire('sdk/private-browsing');
 const ss = nativeRequire('sdk/simple-storage');
 const tabs = nativeRequire('sdk/tabs');
 const { ActionButton } = nativeRequire('sdk/ui/button/action');
-const { Cc, Ci, components } = nativeRequire('chrome');
+const { Cc, Ci } = nativeRequire('chrome');
 const { PageMod } = nativeRequire('sdk/page-mod');
 const { Request } = nativeRequire('sdk/request');
 const { indexedDB } = nativeRequire('sdk/indexed-db');
@@ -30,8 +30,6 @@ const cookieManager = Cc['@mozilla.org/cookiemanager;1'].getService().QueryInter
 
 // for creating nsURI objects for historyService.addURI
 const ioService = Cc['@mozilla.org/network/io-service;1'].getService(Ci.nsIIOService);
-
-components.utils.import('resource://gre/modules/NetUtil.jsm');
 
 const workers = [];
 
