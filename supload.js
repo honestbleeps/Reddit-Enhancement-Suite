@@ -10,7 +10,7 @@ export default new Host('supload', {
 	logo: '//supload.com/favicon.ico',
 	detect: ({ pathname }) => (/^\/([A-Za-z0-9_-]+)?/i).exec(pathname),
 	async handleLink(href, [, id]) {
-		const data = await ajax({ // eslint-disable-line no-undef
+		const data = await ajax({
 			url: `https://www.supload.com/oembed?url=https://supload.com/${id}&format=json`,
 			type: 'json',
 			cacheFor: DAY,
