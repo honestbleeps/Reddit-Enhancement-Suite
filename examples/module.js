@@ -2,11 +2,11 @@
 
 import { Module } from '../core/module';
 
-export const module: Module<*> = new Module('moduleId');
+export const module: Module<*> = new Module('myModule');
 
-module.moduleName = 'Readable module name';
-module.category = 'CategoryName';
-module.description = 'This is my module!';
+module.moduleName = 'myModuleName'; // add the friendly name to locales/locales/en.js for i18n
+module.category = 'browsingCategory'; // categories from locales/locales/en.js
+module.description = 'myModuleDesc'; // i18n
 module.options = {
 	// Any configurable options go here.
 	// Options must have a type and a value..
@@ -15,12 +15,12 @@ module.options = {
 	defaultMessage: {
 		type: 'text',
 		value: 'This is default text',
-		description: 'Explanation of what this option is for',
+		description: 'myModuleDefaultMessageDesc', // i18n
 	},
 	doSpecialStuff: {
 		type: 'boolean',
 		value: false,
-		description: 'Explanation of what this option is for',
+		description: 'myModuleDoSpecialStuffDesc', // i18n
 	},
 };
 
