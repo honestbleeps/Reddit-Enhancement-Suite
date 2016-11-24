@@ -57,6 +57,7 @@ const browsers = (
 );
 
 const shouldZip = !!yargs.argv.zip;
+const isProduction = process.env.NODE_ENV !== 'development';
 
 const configs = browsers.map(b => browserConfig[b]).map(({ target, entry, environment, output }) => {
 	// extra transforms for Safari
@@ -68,12 +69,12 @@ const configs = browsers.map(b => browserConfig[b]).map(({ target, entry, enviro
 
 	return {
 		entry: `extricate!interpolate!./${entry}`,
-		bail: process.env.NODE_ENV !== 'development',
+		bail: isProduction,
 		output: {
 			path: join(__dirname, 'dist', output),
 			filename: basename(entry),
 		},
-		devtool: '#cheap-module-source-map',
+		devtool: isProduction ? '#source-map' : '#cheap-source-map',
 		resolve: {
 			alias: {
 				browserEnvironment$: join(__dirname, environment),
