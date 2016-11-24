@@ -9,6 +9,10 @@
 		padding: 5px 8px 5px 5px !important;
 		overflow: hidden;
 
+		&.spam {
+			background-image: linear-gradient(hsl(0, 70%, 80%), hsl(0, 70%, 80%));
+		}
+
 		.comment {
 			margin-right: 0 !important;
 		}

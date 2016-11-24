@@ -750,6 +750,10 @@
 
 	&.res-commentBoxes .comment {
 		border-color: hsl(0, 0%, 20%) !important;
+
+		&.spam {
+			background-image: linear-gradient(hsl(0, 30%, 30%), hsl(0, 30%, 30%));
+		}
 	}
 
 	&.res-commentBoxes.res-commentHoverBorder .comment:hover {
