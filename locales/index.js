@@ -1,6 +1,6 @@
 import _ from 'lodash';
 
-const localesContext = require.context('json!./locales', false, /\.json$/);
+const localesContext = require.context('./locales', false, /\.json$/);
 const validLocaleKeys = localesContext.keys();
 
 const DEFAULT_TRANSIFEX_LOCALE = 'en';

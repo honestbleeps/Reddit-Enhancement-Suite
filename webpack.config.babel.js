@@ -1,12 +1,11 @@
 /* eslint-disable import/no-nodejs-modules */
 
-import { basename, join } from 'path';
+import path from 'path';
 
 import InertEntryPlugin from 'inert-entry-webpack-plugin';
 import ProgressBarPlugin from 'progress-bar-webpack-plugin';
 import ZipPlugin from 'zip-webpack-plugin';
 import webpack from 'webpack';
-import yargs from 'yargs';
 
 import babelrc from './.babelrc.json';
 
@@ -39,74 +38,136 @@ const browserConfig = {
 	},
 };
 
-const browsers = (
-	typeof yargs.argv.browsers !== 'string' ? ['chrome'] :
-	yargs.argv.browsers === 'all' ? Object.keys(browserConfig) :
-	yargs.argv.browsers.split(',')
-);
+export default (env = {}) => {
+	const browsers = (
+		typeof env.browsers !== 'string' ? ['chrome'] :
+		env.browsers === 'all' ? Object.keys(browserConfig) :
+		env.browsers.split(',')
+	);
 
-const shouldZip = !!yargs.argv.zip;
-const isProduction = process.env.NODE_ENV !== 'development';
+	const isProduction = process.env.NODE_ENV !== 'development';
 
-const configs = browsers.map(b => browserConfig[b]).map(({ target, entry, environment, outputFilename, output, noZip }) => {
-	const babelConfig = {
-		...babelrc,
-		babelrc: false,
-	};
+	const configs = browsers.map(b => browserConfig[b]).map(conf => {
+		const babelConfig = {
+			...babelrc,
+			babelrc: false,
+		};
 
-	if (target === 'edge') {
-		// Edge has problems with destructuring in arrow functions:
-		// In Edge 14, object destructuring with default values in arrow functions doesn't parse
-		// In Edge 15 this is fixed, but there are other issues with destructuring (soon fixed)
-		babelConfig.plugins.push('transform-es2015-arrow-functions');
-	} else if (target === 'firefox') {
-		// The Firefox API can't deal with normal array destructuring
-		babelConfig.plugins.push('transform-es2015-destructuring');
-	}
+		if (conf.target === 'edge') {
+			// Edge has problems with destructuring in arrow functions:
+			// In Edge 14, object destructuring with default values in arrow functions doesn't parse
+			// In Edge 15 this is fixed, but there are other issues with destructuring (soon fixed)
+			babelConfig.plugins.push('transform-es2015-arrow-functions');
+		} else if (conf.target === 'firefox') {
+			// The Firefox API can't deal with normal array destructuring
+			babelConfig.plugins.push('transform-es2015-destructuring');
+		}
 
-	return {
-		entry: `extricate!interpolate!./${entry}`,
-		bail: isProduction,
-		output: {
-			path: join(__dirname, 'dist', output),
-			filename: outputFilename || basename(entry),
-		},
-		devtool: isProduction ? '#source-map' : '#cheap-source-map',
-		resolve: {
-			alias: {
-				browserEnvironment$: join(__dirname, environment),
+		return {
+			entry: `extricate-loader!interpolate-loader!./${conf.entry}`,
+			output: {
+				path: path.join(__dirname, 'dist', conf.output),
+				filename: conf.outputFilename || path.basename(conf.entry),
 			},
-		},
-		module: {
-			loaders: [
-				{ test: /\.entry\.js$/, loaders: ['spawn?name=[name].js', `babel?${JSON.stringify(babelConfig)}`] },
-				{ test: /\.js$/, exclude: join(__dirname, 'node_modules'), loader: 'babel', query: babelConfig },
-				{ test: /\.js$/, include: join(__dirname, 'node_modules'), loader: 'babel', query: { plugins: ['transform-dead-code-elimination', 'transform-node-env-inline'], compact: true, babelrc: false } },
-				{ test: /\.mustache$/, loader: 'mustache' },
-				{ test: /\.scss$/, loaders: ['file?name=[name].css', 'extricate?resolve=\\.js$', 'css', 'postcss', 'sass'] },
-				{ test: /\.html$/, loaders: ['file?name=[name].[ext]', 'extricate', 'html?attrs=link:href script:src'] },
-				{ test: /\.(png|gif)$/, exclude: join(__dirname, 'lib', 'images'), loader: 'file?name=[name].[ext]' },
-				{ test: /\.(png|gif)$/, include: join(__dirname, 'lib', 'images'), loader: 'url' },
-			],
-			noParse: [
-				// to use `require` in Firefox
-				/nativeRequire\.js$/,
-			],
-		},
-		plugins: [
-			new ProgressBarPlugin(),
-			new webpack.DefinePlugin({
-				'process.env': {
-					BUILD_TARGET: JSON.stringify(target),
+			devtool: isProduction ? 'source-map' : 'cheap-source-map',
+			bail: isProduction,
+			performance: false,
+			resolve: {
+				alias: {
+					browserEnvironment$: path.join(__dirname, conf.environment),
 				},
-			}),
-			new InertEntryPlugin(),
-			(shouldZip && !noZip && new ZipPlugin({
-				path: join('..', 'zip'),
-				filename: output,
-			})),
-		].filter(x => x),
-	};
-});
+			},
+			module: {
+				rules: [{
+					test: /\.entry\.js$/,
+					use: [{
+						loader: 'spawn-loader',
+						options: { name: '[name].js' },
+					}, {
+						loader: 'babel-loader',
+						options: babelConfig,
+					}],
+				}, {
+					test: /\.js$/,
+					exclude: path.join(__dirname, 'node_modules'),
+					use: [{
+						loader: 'babel-loader',
+						options: babelConfig,
+					}],
+				}, {
+					test: /\.js$/,
+					include: path.join(__dirname, 'node_modules'),
+					use: [{
+						loader: 'babel-loader',
+						options: {
+							plugins: ['transform-dead-code-elimination', 'transform-node-env-inline'],
+							compact: true,
+							babelrc: false,
+						},
+					}],
+				}, {
+					test: /\.mustache$/,
+					use: [{
+						loader: 'mustache-loader',
+					}],
+				}, {
+					test: /\.scss$/,
+					use: [{
+						loader: 'file-loader',
+						options: { name: '[name].css' },
+					}, {
+						loader: 'extricate-loader',
+						options: { resolve: '\\.js$' },
+					}, {
+						loader: 'css-loader',
+					}, {
+						loader: 'postcss-loader',
+					}, {
+						loader: 'sass-loader',
+					}],
+				}, {
+					test: /\.html$/,
+					use: [{
+						loader: 'file-loader',
+						options: { name: '[name].[ext]' },
+					}, {
+						loader: 'extricate-loader',
+					}, {
+						loader: 'html-loader',
+						options: { attrs: ['link:href', 'script:src'] },
+					}],
+				}, {
+					test: /\.(png|gif)$/,
+					exclude: path.join(__dirname, 'lib', 'images'),
+					use: [{
+						loader: 'file-loader',
+						options: { name: '[name].[ext]' },
+					}],
+				}, {
+					test: /\.(png|gif)$/,
+					include: path.join(__dirname, 'lib', 'images'),
+					use: [{ loader: 'url-loader' }],
+				}],
+				noParse: [
+					// to use `require` in Firefox
+					/nativeRequire\.js$/,
+				],
+			},
+			plugins: [
+				new ProgressBarPlugin(),
+				new webpack.DefinePlugin({
+					'process.env': {
+						BUILD_TARGET: JSON.stringify(conf.target),
+					},
+				}),
+				new InertEntryPlugin(),
+				(env.zip && !conf.noZip && new ZipPlugin({
+					path: path.join('..', 'zip'),
+					filename: conf.output,
+				})),
+			].filter(x => x),
+		};
+	});
 
-export default (configs.length === 1 ? configs[0] : configs);
+	return (configs.length === 1 ? configs[0] : configs);
+};
