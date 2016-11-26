@@ -3315,5 +3315,25 @@
 
     "resPenaltyBoxFeaturesDesc": {
         "message": "Track usage of different features."
+    },
+
+    "resPenaltyBoxSuspendFeaturesNotificationHeader": {
+        "message": "Suspended Feature"
+    },
+
+    "resPenaltyBoxSuspendFeaturesNotificationMessage": {
+        "message": "$1 will be turned off due to lack of use. You can enable it again later in the RES settings console."
+    },
+
+    "resPenaltyBoxSuspendFeaturesUndoButton": {
+        "message": "Enable this feature again"
+    },
+
+    "resPenaltyBoxSuspendFeaturesRevertNotificationHeader": {
+        "message": "Pardoned Feature"
+    },
+
+    "resPenaltyBoxSuspendFeaturesRevertNotificationMessage": {
+        "message": "$1 has been turned back on. This feature will not be throttled or automatically disabled again."
     }
 }
