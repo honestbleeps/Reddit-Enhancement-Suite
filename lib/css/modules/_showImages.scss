@@ -121,6 +121,9 @@ img {
 	position: relative;
 }
 
+.res-media-dragging {
+	pointer-events: none;
+}
 
 .res-media-rotatable {
 	min-height: 46px;
