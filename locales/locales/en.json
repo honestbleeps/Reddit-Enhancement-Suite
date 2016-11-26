@@ -3291,5 +3291,29 @@
 
     "userTaggerVWTooltipDesc": {
         "message": "Show the vote weight tooltip on hover (i.e. \"your votes for...\")"
+    },
+
+    "profileNavigatorFadeSpeedDesc": {
+      "message": "Fade animation's speed (in seconds)."
+    },
+
+    "resPenaltyBoxName": {
+        "message": "RES Feature Throttle"
+    },
+
+    "resPenaltyBoxDesc": {
+        "message": "Automatically delay or disable RES features which go unused."
+    },
+
+    "resPenaltyBoxDelayFeaturesDesc": {
+        "message": "Throttle showing features which have a high penalty."
+    },
+
+    "resPenaltyBoxSuspendFeaturesDesc": {
+        "message": "Turn off features which exceed the maximum penalty."
+    },
+
+    "resPenaltyBoxFeaturesDesc": {
+        "message": "Track usage of different features."
     }
 }
