@@ -5,7 +5,6 @@ import { basename, join } from 'path';
 import InertEntryPlugin from 'inert-entry-webpack-plugin';
 import ProgressBarPlugin from 'progress-bar-webpack-plugin';
 import ZipPlugin from 'zip-webpack-plugin';
-import autoprefixer from 'autoprefixer';
 import webpack from 'webpack';
 import yargs from 'yargs';
 
@@ -109,9 +108,6 @@ const configs = browsers.map(b => browserConfig[b]).map(({ target, entry, enviro
 				filename: output,
 			})),
 		].filter(x => x),
-		postcss() {
-			return [autoprefixer];
-		},
 	};
 });
 
