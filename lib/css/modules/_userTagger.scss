@@ -77,16 +77,46 @@
 	top: 7px;
 }
 
-.ignoredUserComment {
-	color: #CACACA;
-	padding: 3px;
-	font-size: 10px;
+.res-ignored-message {
+	color: rgb(170, 170, 170);
+	cursor: default;
+
+	.comment & {
+		line-height: 2;
+	}
+
+	.res-icon {
+		font-size: inherit;
+	}
 }
 
-.ignoredUserPost {
-	color: #CACACA;
-	padding: 3px;
-	font-size: 10px;
+.res-ignored-content {
+	&.link {
+		a.title,
+		.expando-button,
+		.expando {
+			display: none !important;
+		}
+
+		.thumbnail {
+			visibility: hidden !important;
+		}
+	}
+
+	&.comment > .entry {
+		.md {
+			display: none !important;
+		}
+	}
+
+	&.search-result {
+		a.search-title,
+		.search-expando,
+		.search-expando-button,
+		.search-result-footer {
+			display: none !important;
+		}
+	}
 }
 
 a.voteWeight {
