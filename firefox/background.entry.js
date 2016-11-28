@@ -369,6 +369,7 @@ addListener('multicast', (request, worker) => {
 
 PageMod({
 	include: ['*.reddit.com'],
+	attachTo: ['top'],
 	contentScriptWhen: 'start',
 	contentScriptFile: [`./../${mainEntry}`],
 	contentStyleFile: [`./../${resCss}`],
