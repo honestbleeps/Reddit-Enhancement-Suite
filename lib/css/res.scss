@@ -151,7 +151,7 @@ body.res-console-open {
 	}
 
 	&::after {
-		content: '\F04D' !important;
+		content: '\F04D';
 		color: #a0e0fd;
 		text-shadow: 0 0 1px #3d6da5, 0 0 1px #3d6da5, 0 0 1px #3d6da5, 0 0 1px #3d6da5, 0 0 1px #3d6da5, 0 0 1px #3d6da5, 0 0 1px #3d6da5, 0 0 1px #3d6da5;
 	}
@@ -1842,7 +1842,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 	a {
 		cursor: pointer;
 
-		&::after {
+		&[aftercontent]::after {
 			content: attr(aftercontent);
 		}
 	}
