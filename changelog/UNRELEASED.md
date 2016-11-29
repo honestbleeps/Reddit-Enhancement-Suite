@@ -1,24 +1,12 @@
 
 ### New Features
 
-- supload.com expandos (thanks @rizzles)
-- Automatic nightmode checks every five minutes, even if you don't load a new page (thanks @erikdesjardins)
-- New showIgnored option to prevent revealing ignored posts and comments (thanks @githue)
+- None (thanks nobody)
 
 ### Bug Fixes
 
-- Fix media galleries in filmstrip mode (thanks @larsjohnsen)
-- Restore pink background for removed comments in nightmode with commentBoxes (thanks @githue)
-- Fix various issues with numerical subreddit names (thanks @erikdesjardins)
-- Work around an issue in Firefox nightly where `performance` may be null (thanks @erikdesjardins, @larsjohnsen)
-- Fix RES gear icon and Account Switcher icon having too much specificity, breaking some subreddits (thanks @erikdesjardins)
-- Fix vertical alignment of text on subreddit style toggle checkbox (thanks @larsjohnsen)
+- None (thanks nobody)
 
 ### Housekeeping / Other
 
-- Minor improvements to ignoring users (thanks @githue)
-- Improve i18n documentation (thanks @BenMcGarry)
-- Remove unnecessarily imported Firefox util (thanks @erikdesjardins)
-- Tweak Filterline disabled filter discarding (thanks @larsjohnsen)
-- Ship higher-quality sourcemaps (thanks @erikdesjardins)
-- Slightly optimize filtering (thanks @erikdesjardins)
+- None (thanks nobody)
