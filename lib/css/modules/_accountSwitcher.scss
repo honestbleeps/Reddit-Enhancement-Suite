@@ -27,7 +27,8 @@
 		width: 12px;
 		vertical-align: middle;
 		height: 16px;
-		background: url('../images/accountSwitcherSnoo.png') no-repeat;
+		background-image: url('../images/accountSwitcherSnoo.png');
+	 	background-repeat: no-repeat;
 	}
 
 	#RESAccountSwitcherIconOverlay {
