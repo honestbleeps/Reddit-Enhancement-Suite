@@ -1,6 +1,12 @@
 
+### New Features
+
+- None (thanks nobody)
+
+### Bug Fixes
+
+- None (thanks nobody)
+
 ### Housekeeping / Other
 
-- Update expando icons for new color scheme
-- Minor storage refactoring (thanks @erikdesjardins)
-- Minor filterline optimization (thanks @erikdesjardins)
+- None (thanks nobody)
