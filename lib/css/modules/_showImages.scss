@@ -66,21 +66,17 @@ img {
 
 	@function _($i) { @return $i * -24px; }
 
-	&.image.collapsedExpando { background-position: 0 _(0); }
-	&.image.collapsedExpando:hover { background-position: 0 _(1); }
-	&.image.expanded { background-position: 0 _(2); }
-	&.image.expanded:hover { background-position: 0 _(3); }
-	&.image.gallery.collapsedExpando { background-position: 0 _(4); }
-	&.image.gallery.collapsedExpando:hover { background-position: 0 _(5); }
-	&.image.gallery.expanded { background-position: 0 _(6); }
-	&.image.gallery.expanded:hover { background-position: 0 _(7); }
-	&.video-muted.collapsed { background-position: 0 _(8); }
-	&.video-muted.collapsed:hover { background-position: 0 _(9); }
-	&.video-muted.expanded { background-position: 0 _(10); }
-	&.video-muted.expanded:hover { background-position: 0 _(11); }
-	&.expando-button-loading { background-position: 0 _(12); }
-	&.expando-button-requires-permission { background-position: 0 _(13); }
-	&.expando-button-requires-permission:hover { background-position: 0 _(14); }
+	&.image.collapsed { background-position: 0 _(0); }
+	&.image.collapsed:hover { background-position: 0 _(1); }
+	&.image.gallery.collapsed { background-position: 0 _(2); }
+	&.image.gallery.collapsed:hover { background-position: 0 _(3); }
+	&.video-muted.collapsed { background-position: 0 _(4); }
+	&.video-muted.collapsed:hover { background-position: 0 _(5); }
+	&.expando-button-requires-permission { background-position: 0 _(6); }
+	&.expando-button-requires-permission:hover { background-position: 0 _(7); }
+	&.expando-button-loading { background-position: 0 _(8); }
+	&.expanded { background-position: 0 _(9); }
+	&.expanded:hover { background-position: 0 _(10); }
 }
 
 .res-expando-siteAttribution {
