@@ -908,15 +908,9 @@
 		background-color: #777;
 	}
 
-	.multi-details .subreddits .remove-sr,
-	.multi-details .add-sr .add {
-		border-color: hsl(0, 0%, 15%);
-		background-image: url('../images/nightmode/addsr.png');
-		background-position: 0 0;
-	}
-
-	.multi-details .subreddits .remove-sr {
-		background-position: -3px -15px;
+	.subreddits .remove-sr,
+	.add-sr .add {
+		filter: invert(80%);
 	}
 
 	// Nightmode friendly snoo/balloons image
