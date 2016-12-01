@@ -483,6 +483,7 @@ body:not(.res-showImages-displayImageCaptions) {
 .res-showImages-captionsPosition {
 	@at-root {
 		.res-image,
+		.video-advanced,
 		.res-gallery {
 			display: inline-flex;
 			flex-direction: column;
