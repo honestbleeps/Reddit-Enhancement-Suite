@@ -1,9 +1,12 @@
 
 ### New Features
 
-- loophouse.tv expandos (thanks @mubashariqbal)
+- None (thanks nobody)
 
 ### Bug Fixes
 
-- Fix captions not appearing for video expandos (thanks @erikdesjardins)
-- Fix /r/all filtered subreddit remove button nightmode style (thanks @erikdesjardins)
+- None (thanks nobody)
+
+### Housekeeping / Other
+
+- None (thanks nobody)
