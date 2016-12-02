@@ -6,9 +6,9 @@
 
 declare class Object {
 	static (o: ?void): {[key: any]: any};
-	static (o: boolean): Boolean;
-	static (o: number): Number;
-	static (o: string): String;
+	static (o: boolean): Boolean; // eslint-disable-line flowtype/no-primitive-constructor-types
+	static (o: number): Number; // eslint-disable-line flowtype/no-primitive-constructor-types
+	static (o: string): String; // eslint-disable-line flowtype/no-primitive-constructor-types
 	static <T: Object>(o: T): T;
 	static assign: Object$Assign;
 	static create(o: any, properties?: any): any; // compiler magic
@@ -36,5 +36,5 @@ declare class Object {
 	toLocaleString(): string;
 	toString(): string;
 	valueOf(): Object;
-	[key:any]: any;
+	[key: any]: any;
 }

@@ -301,7 +301,7 @@ declare module 'lodash' {
 		cloneDeep<T>(value: T): T;
 		cloneDeepWith<T, U>(value: T, customizer?: ?(value: T, key: number | string, object: T, stack: any) => U): U;
 		cloneWith<T, U>(value: T, customizer?: ?(value: T, key: number | string, object: T, stack: any) => U): U;
-		conformsTo<T:{[key:string]:mixed}>(source: T, predicates: T & {[key:string]:(x: any)=>boolean}): boolean;
+		conformsTo<T: { [key: string]: mixed }>(source: T, predicates: T & { [key: string]: (x: any) => boolean }): boolean;
 		eq(value: any, other: any): bool;
 		gt(value: any, other: any): bool;
 		gte(value: any, other: any): bool;
