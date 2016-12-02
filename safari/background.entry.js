@@ -119,7 +119,7 @@ addListener('openNewTabs', ({ urls, focusIndex }, tab) => {
 
 addListener('isPrivateBrowsing', (request, tab) => tab.private);
 
-addListener('multicast', async (request, senderTab) =>
+addListener('multicast', (request, senderTab) =>
 	Promise.all(
 		Array.from(safari.application.browserWindows)
 			.map(w => Array.from(w.tabs))
