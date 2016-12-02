@@ -14,5 +14,6 @@
 	"permissions": {
 		"private-browsing": true,
 		"multiprocess": true
-	}
+	},
+	"changes": "{{file?name=CHANGES!extricate!exec!../../build/getChanges}}"
 }
