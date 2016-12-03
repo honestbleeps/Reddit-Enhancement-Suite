@@ -2,7 +2,6 @@
 	"plugins": [
 		"transform-export-extensions",
 		"transform-class-properties",
-		"syntax-trailing-function-commas",
 		"transform-async-to-generator",
 		"transform-exponentiation-operator",
 		["transform-object-rest-spread", { "useBuiltIns": true }],
@@ -23,7 +22,6 @@
 			"plugins": [
 				"transform-export-extensions",
 				"transform-class-properties",
-				"syntax-trailing-function-commas",
 				"transform-async-to-generator",
 				"transform-exponentiation-operator",
 				"transform-object-rest-spread",
