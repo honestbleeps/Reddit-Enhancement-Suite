@@ -55,7 +55,7 @@ body.hideOver18 {
 }
 
 .res-toggle-filterline-visibility a::after {
-	@extend .res-filterline-icon;
+	@extend %res-filterline-icon;
 }
 
 .res-filterline {
@@ -71,7 +71,7 @@ body.hideOver18 {
 	}
 
 	&-preamble::before {
-		@extend .res-filterline-icon;
+		@extend %res-filterline-icon;
 		margin: 0 2px;
 	}
 
