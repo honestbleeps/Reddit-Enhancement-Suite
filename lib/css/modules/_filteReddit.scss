@@ -47,6 +47,17 @@ body.hideOver18 {
 	}
 }
 
+.res-filterline-icon {
+	display: inline-block;
+	transform: rotate(180deg);
+	font-family: 'Batch';
+	content: '\F051';
+}
+
+.res-toggle-filterline-visibility a::after {
+	@extend .res-filterline-icon;
+}
+
 .res-filterline {
 	body:not(.res-filteReddit-show-filterline) & {
 		display: none;
@@ -60,7 +71,7 @@ body.hideOver18 {
 	}
 
 	&-preamble::before {
-		content: '∀';
+		@extend .res-filterline-icon;
 		margin: 0 2px;
 	}
 
