@@ -11,7 +11,7 @@ const lastStableTag = execSync('git tag -l', { encoding: 'utf8' })
 	.trim()
 	.split(/[\r\n]+/)
 	.map(s => s.trim())
-	.filter(s => semver.valid(s))
+	.filter(s => semver.valid(s) && s !== currentTag)
 	.reverse()
 	.find(v => !isBetaVersion(v));
 
