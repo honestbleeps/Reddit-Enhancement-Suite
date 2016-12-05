@@ -54,7 +54,7 @@ body.hideOver18 {
 	content: '\F051';
 }
 
-.res-toggle-filterline-visibility a::after {
+.res-toggle-filterline-visibility a::before {
 	@extend %res-filterline-icon;
 }
 
