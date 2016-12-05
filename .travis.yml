@@ -30,13 +30,12 @@ install:
   - yarn install --pure-lockfile
   - yarn check --integrity
 matrix:
-  allow_failures:
-    - env: RES_JOB=flow
   exclude:
     - node_js: 7 # exclude default job https://github.com/travis-ci/travis-ci/issues/4681
   include:
-    - env: RES_JOB=lint
+    - env: RES_JOB=lint_flow
       script:
+        - yarn run flow -- check --show-all-errors
         - yarn run eslint
         - yarn run sass-lint
     - env: RES_JOB=test
@@ -69,6 +68,3 @@ matrix:
           skip_cleanup: true
           on:
             tags: true
-    - env: RES_JOB=flow
-      script:
-        - yarn run flow -- check --show-all-errors
