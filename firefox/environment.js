@@ -1,5 +1,4 @@
 import { createMessageHandler } from '../lib/environment/_messaging';
-import { getMessage } from '../lib/environment/_mockI18n';
 
 const {
 	_handleMessage,
@@ -20,4 +19,3 @@ export {
 };
 
 addInterceptor('permissions', () => true);
-addInterceptor('i18n', ([messageName, substitutions]) => getMessage(messageName, substitutions));
