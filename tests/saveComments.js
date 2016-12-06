@@ -13,7 +13,7 @@ module.exports = {
 
 			.refresh()
 			.waitForElementVisible('.commentarea', 1000)
-			.assert.elementPresent(`${first} .RES-saved`)
+			.waitForElementVisible(`${first} .RES-saved`, 1000)
 
 			// save second comment
 			.click(`${second} .saveComments`)
@@ -21,7 +21,7 @@ module.exports = {
 
 			.refresh()
 			.waitForElementVisible('.commentarea', 1000)
-			.assert.elementPresent(`${second} .RES-saved`)
+			.waitForElementVisible(`${second} .RES-saved`, 1000)
 
 			.end();
 	},
