@@ -634,5 +634,356 @@
 
     "profileNavigatorFadeSpeedDesc": {
       "message": "Fade animation's speed (in seconds)."
+    },
+
+    "accountSwitcherKeepLoggedInDesc": {
+        "message": "Keep me logged in when I restart my browser."
+    },
+
+    "accountSwitcherAccountsDesc": {
+        "message": "Set your usernames and passwords below. They are only stored in RES preferences."
+    },
+
+    "accountSwitcherUpdateOtherTabsDesc": {
+        "message": "After switching accounts, show a warning in other tabs."
+    },
+
+    "accountSwitcherReloadOtherTabsDesc": {
+        "message": "After switching accounts, automatically reload other tabs."
+    },
+    
+    "accountSwitcherShowCurrentUserNameDesc": {
+        "message": "Show my current user name in the Account Switcher."
+    },
+    
+    "accountSwitcherDropDownStyleDesc": {
+        "message": "Use the \"snoo\" icon, or older style dropdown?"
+    },
+    
+    "accountSwitcherShowUserDetailsDesc": {
+        "message": "Show details of each account in the Account Switcher, such as karma or gold status."
+    },
+
+    "accountSwitcherShowKarmaDesc": {
+        "message": "Show the post and comment karma of each account in the Account Switcher."
+    },
+
+    "accountSwitcherShowGoldDesc": {
+        "message": "Show the gold status of each account in the Account Switcher."
+    },
+
+    "accountSwitcherDropDownStyleDesc": {
+        "message": "Use the \"snoo\" icon, or older style dropdown?"
+    },
+
+    "backupAndRestoreBackupDesc": {
+        "message": "Download a backup of your current RES settings."
+    },
+
+    "backupAndRestoreRestoreDesc": {
+        "message": "Restore a backup of your RES settings. Warning: This will overwrite your current settings."
+    },
+
+    "betteRedditCommentsLinksNewTabDesc": {
+        "message": "Open links found in comments in a new tab."
+    },
+
+    "betteRedditFixHideLinksDesc": {
+        "message": "Changes \"hide\" links to read as \"hide\" or \"unhide\" depending on the hide state."
+    },
+
+    "betteRedditHideLinkFadeDelayDesc": {
+        "message": "Delay, in milliseconds, before a hidden link fades."
+    },
+
+    "betteRedditVideoTimesDesc": {
+        "message": "Show lengths of videos when possible."
+    },
+
+    "betteRedditVideoUploadedDesc": {
+        "message": "Show upload date of videos when possible."
+    },
+
+    "betteRedditVideoViewedDesc": {
+        "message": "Show number of views for a video when possible."
+    },
+
+    "betteRedditPinHeaderDesc": {
+        "message": "Pin the subreddit bar, user menu, or header to top, floating down as you scroll."
+    },
+
+    "betteRedditShowLastEditedTimestampDesc": {
+        "message": "Show the time that a text post/comment was edited, without having to hover over the timestamp."
+    },
+
+    "betteRedditScoreHiddenTimeleftDesc": {
+        "message": "When hovering over [score hidden] show time left instead of hide duration."
+    },
+
+    "betteRedditShowTimestapPostsDesc": {
+        "message": "Show the precise date (Sun Nov 16 20:14:56 2014 UTC) instead of a relative date (7 days ago), for posts."
+    },
+
+    "betteRedditShowTimestampCommentsDesc": {
+        "message": "Show the precise date for comments / messages."
+    },
+
+    "betteRedditShowTimestampSidebarDesc": {
+        "message": "Show the precise date in the sidebar."
+    },
+
+    "betteRedditShowTimestampWikiDesc": {
+        "message": "Show the precise date in the wiki."
+    },
+
+    "betteRedditShowTimestampModerationLogDesc": {
+        "message": "Show the precise date in the moderation log (/r/mod/about/log)."
+    },
+
+    "betteRedditRestoreSavedTabDesc": {
+        "message": "The saved tab is now located in the multireddit sidebar. This will restore a \"saved\" link to the header (next to the \"hot\", \"new\", etc. tabs)."
+    },
+
+    "betteRedditDoNoCtrlFDesc": {
+        "message": "When using the browser's Ctrl+F/Cmd+F \"find text\", only search comment/post text and not navigation links (\"permalink source save...\"). Disabled by default due to a slight performance impact."
+    },
+
+    "betteRedditShowHiddenSortOptionsDesc": {
+        "message": "Reddit hides some comment sorting options (random, etc.) on most pages. This option reveals them."
+    },
+
+    "betteRedditTruncateLongLinksDesc": {
+        "message": "Truncates long post titles (greater than 1 line) with an ellipsis."
+    },
+
+    "betteRedditCommentCollapseInInboxDesc": {
+        "message": "Show the [-] collapse button in the inbox."
+    },
+
+    "commentDepthDefaultCommentDepthDesc": {
+        "message": "Default depth to use for all subreddits not listed below."
+    },
+
+    "commentDepthCommentPermaLinksDesc": {
+        "message": "Set depth on links to particular comments."
+    },
+
+    "commentDepthCommentPermalinksContextDesc": {
+        "message": "Set depth on links to particular comments with context."
+    },
+
+    "commentDepthSubredditCommentDepthsDesc": {
+        "message": "Subreddit-specific comment depths."
+    },
+
+    "commentPreviewEnableBigEditorDesc": {
+        "message": "Enable the 2 column editor."
+    },
+
+    "commentPreviewSwapBigEditorLayoutDesc": {
+        "message": "Swap the preview and editor (so preview is on left and editor is on right)"
+    },
+
+    "commentPreviewOpenBigEditorDesc": {
+        "message": "Open the current markdown field in the big editor. (Only when a markdown form is focused)"
+    },
+
+    "commentPreviewDraftStyleDesc": {
+        "message": "Apply a 'draft' style background to the preview to differentiate it from the comment textarea."
+    },
+
+    "commentPreviewEnableForCommentsDesc": {
+        "message": "Show preview for comments."
+    },
+
+    "commentPreviewEnableForPostsDesc": {
+        "message": "Show preview for posts."
+    },
+
+    "commentPreviewEnableForWikiDesc": {
+        "message": "Show preview for wiki pages."
+    },
+
+    "commentPreviewEnableForSubredditConfigDesc": {
+        "message": "Show preview for editing subreddit settings."
+    },
+
+    "commentPreviewEnableForBanMessagesDesc": {
+        "message": "Show preview for ban notes."
+    },
+
+    "commentPreviewSidebarPreviewDesc": {
+        "message": "Show the markdown live preview directly in the sidebar when editing."
+    },
+
+    "commentStyleCommentBoxesDesc": {
+        "message": "Highlights comment boxes for easier reading / placefinding in large threads."
+    },
+
+    "commentStyleCommentRoundedDesc": {
+        "message": "Round corners of comment boxes."
+    },
+
+    "commentStyleCommentHoverBorderDesc": {
+        "message": "Highlight comment box hierarchy on hover (turn off for faster performance)."
+    },
+
+    "commentStyleCommentIndentDesc": {
+        "message": "Indent comments by [x] pixels (only enter the number, no 'px')."
+    },
+
+    "commentStyleContinuityDesc": {
+        "message": "Show comment continuity lines."
+    },
+
+    "commentToolsUserAutoCompleteDesc": {
+        "message": "Show user autocomplete tool when typing in posts, comments, and replies."
+    },
+
+    "commentToolsSubredditAutocompleteDesc": {
+        "message": "Show subreddit autocomplete tool when typing in posts, comments, and replies."
+    },
+
+    "commentToolsFormattingToolButtonsDesc": {
+        "message": "Show formatting tools (bold, italic, tables, etc.) to the edit form for posts, comments, and other snudown/markdown areas."
+    },
+
+    "commentToolsKeyboardShortcutsDesc": {
+        "message": "Use keyboard shortcuts to apply styles to selected text."
+    },
+
+    "commentToolsBoldKeyDesc": {
+        "message": "Keyboard shortcut to make text bold."
+    },
+
+    "commentToolsItalicKeyDesc": {
+        "message": "Keyboard shortcut to make text italic."
+    },
+
+    "commentToolsStrikeKeyDesc": {
+        "message": "Keyboard shortcut to add a strikethrough."
+    },
+
+    "commentToolsSuperKeyDesc": {
+        "message": "Keyboard shortcut to make text superscript."
+    },
+
+    "commentToolsLinkKeyDesc": {
+        "message": "Keyboard shortcut to add a link."
+    },
+
+    "commentToolsQuoteKeyDesc": {
+        "message": "Keyboard shortcut to quote text."
+    },
+
+    "commentToolsCtrlEnterSubmitsCommentsDesc": {
+        "message": "Pressing Ctrl+Enter or Cmd+Enter will submit your comment/wiki edit."
+    },
+    "commentToolsCtrlEnterSavesLiveThreadsDesc": {
+        "message": "Pressing Ctrl+Enter or Cmd+Enter will save updates to your live thread."
+    },
+
+    "commentToolsCtrolEnterSubmitsPostsDesc": {
+        "message": "Pressing Ctrl+Enter or Cmd+Enter will submit your post."
+    },
+
+    "commentToolsCommentingAsDesc": {
+        "message": "Shows your currently logged in username to avoid posting from the wrong account."
+    },
+
+    "commentToolsHighlightIfAltAccountDesc": {
+        "message": "Put in bold the \"Commenting As\" part if you are using an alt account. The first account in the Account Switcher module is considered as your main account."
+    },
+
+    "commentToolsShowInputLengthDesc": {
+        "message": "When submitting, display the number of characters entered in the title and text fields and indicate when you go over the 300 character limit for titles."
+    },
+
+    "commentToolsMacroButtonsDesc": {
+        "message": "Add macro buttons to the edit form for posts, comments, and other snudown/markdown text areas."
+    },
+
+    "commentToolsMacrosDesc": {
+        "message": "Add buttons to insert frequently used snippets of text."
+    },
+
+    "commentToolsKeepMacroListOpenDesc": {
+        "message": "After selecting a macro from the dropdown list, do not hide the list."
+    },
+
+    "commentToolsEnableOnBanMessagesDesc": {
+        "message": "Show the comment tools on the ban note textbox."
+    },
+
+    "contextViewFullContextDesc": {
+        "message": "Add a \"View the Full Context\" link when on a comment link."
+    },
+
+    "contextDefaultContextDesc": {
+        "message": "Change the default context value on context link."
+    },
+
+    "customTogglesToggleDesc": {
+        "message": "Enable or disable everything connected to this toggle; and optionally add a toggle to the RES gear dropdown menu."
+    },
+
+    "dashboardMenuItemDesc": {
+        "message": "Show link to my dashboard in RES menu."
+    },
+
+    "dashboardDefaultPostsDesc": {
+        "message": "Number of posts to show by default in each widget."
+    },
+
+    "dashboardDefaultSortDesc": {
+        "message": "Default sort method for new widgets."
+    },
+
+    "dashboardDeashboardShortcutDesc": {
+        "message": "Show +dashboard shortcut in sidebar for easy addition of dashboard widgets."
+    },
+
+    "filteRedditNSFWfilterDesc": {
+        "message": "Filters all links labelled NSFW."
+    },
+
+    "filteRedditNSFWQuickToggleDesc": {
+        "message": "Add a quick NSFW on/off toggle to the gear menu."
+    },
+
+    "filteRedditShowFilterlineDesc": {
+        "message": "Show filterline controls by default."
+    },
+
+    "filteRedditExcludeOwnPostsDesc": {
+        "message": "Don't filter your own posts."
+    },
+
+    "filteRedditExcludeCommentsPageDesc": {
+        "message": "When visiting the comments page for a filtered link, allow the link/expando to be shown."
+    },
+
+    "filteRedditExcludeModqueueDesc": {
+        "message": "Don't filter anything on modqueue pages (modqueue, reports, spam, etc.)."
+    },
+
+    "filteRedditExcludeUserPagesDesc": {
+        "message": "Don't filter anything on users' profile pages."
+    },
+
+    "filteRedditFilterSubredditsFromDesc": {
+        "message": "When filtering subreddits with the above option, where should they be filtered?"
+    },
+
+    "filteRedditUseRedditFiltersDesc": {
+        "message": "Overwrite and automatically sync your native /r/all filters with your first 100 non-RegExp filtered subreddits."
+    },
+
+    "filteRedditForceSyncFiltersDesc": {
+        "message": "Immediately overwrite your native /r/all filters (same as the previous option)."
+    },
+
+    "filteRedditAllowNSFWDesc": {
+        "message": "Don't hide NSFW posts from certain subreddits when the NSFW filter is turned on."
     }
 }
