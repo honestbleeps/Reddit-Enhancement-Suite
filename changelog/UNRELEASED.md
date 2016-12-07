@@ -1,25 +1,12 @@
 
 ### New Features
 
-- New displayMultiCounts option to disable showing multireddit count badges next to subscribe buttons (thanks @erikdesjardins)
-- Add captions and attribution to Flickr direct links (thanks @alex-seville)
+- None (thanks nobody)
 
 ### Bug Fixes
 
-- Fix Vote Enhancements not working on profile pages (thanks @erikdesjardins)
-- Fix Filterline "(active)" text appearing upside down (thanks @larsjohnsen)
-- Fix being unable to pause videos without advanced controls (thanks @larsjohnsen)
-- Fix filters which apply only to specific subreddits (thanks @larsjohnsen)
-- Fix enterFilterCommandLine shortcut working even when FilterReddit is disabled (thanks @larsjohnsen)
-- Fix multireddit navbar not working on all pages that have the multireddit sidebar (thanks @erikdesjardins)
-- Fix collapsed expandos reopening when loading a Never Ending Reddit page with "show images" enabled (thanks @larsjohnsen)
-- Fix some features not working with reddit's new "56.8k" score display (thanks @andytuba, @erikdesjardins)
+- None (thanks nobody)
 
 ### Housekeeping / Other
 
-- Updated the localization files
-- Add integration tests for RES-saving comments (thanks @erikdesjardins)
-- Add hover text to multi count to make it more obvious what it represents (thanks @erikdesjardins)
-- Make announcement notification less scary (thanks @andytuba, @erikdesjardins)
-- Don't display gold icon in user bar by default (turn it back on with the showGold option) (thanks @andytuba)
-- Update i18n and installation docs (thanks @roshkins)
+- None (thanks nobody)
