@@ -651,15 +651,15 @@
     "accountSwitcherReloadOtherTabsDesc": {
         "message": "After switching accounts, automatically reload other tabs."
     },
-    
+
     "accountSwitcherShowCurrentUserNameDesc": {
         "message": "Show my current user name in the Account Switcher."
     },
-    
+
     "accountSwitcherDropDownStyleDesc": {
         "message": "Use the \"snoo\" icon, or older style dropdown?"
     },
-    
+
     "accountSwitcherShowUserDetailsDesc": {
         "message": "Show details of each account in the Account Switcher, such as karma or gold status."
     },
@@ -985,5 +985,9 @@
 
     "filteRedditAllowNSFWDesc": {
         "message": "Don't hide NSFW posts from certain subreddits when the NSFW filter is turned on."
+    },
+
+    "subredditManagerMultiCountTitle": {
+		  "message": "/r/$1 is in $2 multireddits"
     }
 }
