@@ -142,25 +142,25 @@ To run integration tests locally, you must change `selenium_host`, `selenium_por
 ##### Building in Chrome
 
   1. Go to `Menu->Tools->Extensions` and tick the `Developer Mode` checkbox
-  2. Choose `Load unpacked extension` and point it to the `dist/chrome` folder. Make sure you only have one RES version running at a time.
+  2. Choose `Load unpacked extension` and point it to the `/dist/chrome` folder (not the `/chrome` folder). Make sure you only have one RES version running at a time.
   3. Any time you make changes to the script, you must go back to the `Menu->Tools->Extensions` page and `Reload` the extension.
-  
+
 ##### Building in Microsoft Edge
 
   1. Go to `about:flags` and tick the `Enable extension developer features` checkbox.
-  2. Choose `Load extension` on the extensions menu and select your extensions folder.
+  2. Choose `Load extension` on the extensions menu and select the `/dist/edge` folder (not the `/edge` folder).
   3. Any time you make changes to the extension, you must go back to the `Menu->Extensions` page, go to the extensions settings and `Reload` the extension.
 
 ##### Building in Firefox
 
   1. Install [jpm](https://developer.mozilla.org/en-US/Add-ons/SDK/Tools/jpm) using `npm`: `npm install -g jpm`
-  2. Navigate to `dist/firefox` and run the command `jpm run`, which should launch a new Firefox browser using a temporary profile with only RES installed.
+  2. Navigate to the `/dist/firefox` folder (not the `/firefox` folder) and run the command `jpm run`, which should launch a new Firefox browser using a temporary profile with only RES installed.
 
 ##### Building in Safari (assumes Mac)
 
   1. Open the `Preferences` by going to `Safari->Preferences` or pressing `⌘,`, then go to `Advanced` and check the checkbox for `Show Develop menu in menu bar`.
   2. Navigate to `Develop->Show Extension Builder` to open the extensions builder. Add a new extension by pressing the `+` in the bottom left and choosing `Add Extension`.
-  3. Navigate to the `dist/RES.safariextension` folder for RES and select it.
+  3. Navigate to the `/dist/RES.safariextension` folder (not the `/safari` folder) for RES and select it.
   4. If you are using Safari 9+, you should be able to install the extension without enrolling in the [Apple Developer Program](https://developer.apple.com/programs/); however, the extension will be auto-uninstalled when you quit Safari.
 
   If you use an older version of Safari or find the auto-uninstall annoying, you need to purchase a proper certificate by signing up for the [Apple Developer Program](https://developer.apple.com/programs/) (currently $99/yr).
