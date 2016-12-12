@@ -376,300 +376,612 @@
         "message": "Keyboard navigation for reddit!"
     },
 
+    "keyboardNavMediaBrowseModeTitle": {
+        "message": "Media Browse Mode"
+    },
+
     "keyboardNavMediaBrowseModeDesc": {
         "message": "If media is open on the currently selected post when moving up/down one post, open media on the next post."
+    },
+
+    "keyboardNavScrollOnExpandoTitle": {
+        "message": "Scroll On Expando"
+    },
+
+    "keyboardNavLinearScrollStyleTitle": {
+        "message": "Linear Scroll Style"
+    },
+
+    "keyboardNavNonLinearScrollStyleTitle": {
+        "message": "Non-linear Scroll Style"
     },
 
     "keyboardNavNonLinearScrollStyleDesc": {
         "message": "When jumping to a entry (moveUpThread/moveDownThread, moveUpSibling/moveDownSibling, moveToParent, and moveDownParentSibling), when and how should RES scroll the window?"
     },
 
+    "keyboardNavCommentsLinkNumbersTitle": {
+        "message": "Comments Link Numbers"
+    },
+
     "keyboardNavCommentsLinkNumbersDesc": {
         "message": "Assign number keys (e.g. [1]) to links within selected comment."
+    },
+
+    "keyboardNavCommentsLinkNumberPositionTitle": {
+        "message": "Comments Link Number Position"
     },
 
     "keyboardNavCommentsLinkNumberPositionDesc": {
         "message": "Which side commentsLinkNumbers are displayed."
     },
 
+    "keyboardNavCommentsLinkToggleExpandoTitle": {
+        "message": "Comments Link Toggle Expando"
+    },
+
     "keyboardNavCommentsLinkToggleExpandoDesc": {
         "message": "When a link has an expando, toggle it instead of opening the link. Holding alt inverts this action."
+    },
+
+    "keyboardNavCommentsLinkNewTabTitle": {
+        "message": "Comments Link New Tab"
     },
 
     "keyboardNavCommentsLinkNewTabDesc": {
         "message": "Open number key links in a new tab."
     },
 
+    "keyboardNavOnHideMoveDownTitle": {
+        "message": "On Hide Move Down"
+    },
+
     "keyboardNavOnHideMoveDownDesc": {
         "message": "After hiding a link, automatically select the next link."
+    },
+
+    "keyboardNavOnVoteMoveDownTitle": {
+        "message": "On Vote Move Down"
     },
 
     "keyboardNavOnVoteMoveDownDesc": {
         "message": "After voting on a link, automatically select the next link."
     },
 
+    "keyboardNavOnVoteCommentMoveDownTitle": {
+        "message": "On Vote Comment Move Down"
+    },
+
     "keyboardNavOnVoteCommentMoveDownDesc": {
         "message": "After voting on a comment, automatically select the next comment."
+    },
+
+    "keyboardNavUseGoModeTitle": {
+        "message": "Use Go Mode"
     },
 
     "keyboardNavUseGoModeDesc": {
         "message": "Require initiating goMode before using \"go to\" shortcuts."
     },
 
+    "keyboardNavFollowLinkNewTabFocusTitle": {
+        "message": "Follow Link New Tab Focus"
+    },
+
     "keyboardNavFollowLinkNewTabFocusDesc": {
         "message": "When following a link in new tab - focus the tab?"
+    },
+
+    "keyboardNavToggleHelpTitle": {
+        "message": "Toggle Help"
     },
 
     "keyboardNavToggleHelpDesc": {
         "message": "Show help for keyboard shortcuts."
     },
 
+    "keyboardNavToggleCmdLineTitle": {
+        "message": "Toggle Cmd Line"
+    },
+
     "keyboardNavToggleCmdLineDesc": {
         "message": "Launch RES command line."
+    },
+
+    "keyboardNavEnterFilterCommandLineTitle": {
+        "message": "Enter Filter Command Line"
     },
 
     "keyboardNavEnterFilterCommandLineDesc": {
         "message": "Launch filter command line."
     },
 
+    "keyboardNavHideTitle": {
+        "message": "Hide"
+    },
+
     "keyboardNavHideDesc": {
         "message": "Hide link."
+    },
+
+    "keyboardNavMoveUpTitle": {
+        "message": "Move Up"
     },
 
     "keyboardNavMoveUpDesc": {
         "message": "Move up to the previous link or comment in flat lists."
     },
 
+    "keyboardNavMoveDownTitle": {
+        "message": "Move Down"
+    },
+
     "keyboardNavMoveDownDesc": {
         "message": "Move down to the next link or comment in flat lists."
+    },
+
+    "keyboardNavMoveUpCommentTitle": {
+        "message": "Move Up Comment"
     },
 
     "keyboardNavMoveUpCommentDesc": {
         "message": "Move up to the previous comment on threaded comment pages."
     },
 
+    "keyboardNavMoveDownCommentTitle": {
+        "message": "Move Down Comment"
+    },
+
     "keyboardNavMoveDownCommentDesc": {
         "message": "Move down to the next comment on threaded comment pages."
+    },
+
+    "keyboardNavMoveTopTitle": {
+        "message": "Move Top"
     },
 
     "keyboardNavMoveTopDesc": {
         "message": "Move to top of list (on link pages)."
     },
 
+    "keyboardNavMoveBottomTitle": {
+        "message": "Move Bottom"
+    },
+
     "keyboardNavMoveBottomDesc": {
         "message": "Move to bottom of list (on link pages)."
+    },
+
+    "keyboardNavMoveUpSiblingTitle": {
+        "message": "Move Up Sibling"
     },
 
     "keyboardNavMoveUpSiblingDesc": {
         "message": "Move to previous sibling (in comments) - skips to previous sibling at the same depth."
     },
 
+    "keyboardNavMoveDownSiblingTitle": {
+        "message": "Move Down Sibling"
+    },
+
     "keyboardNavMoveDownSiblingDesc": {
         "message": "Move to next sibling (in comments) - skips to next sibling at the same depth."
+    },
+
+    "keyboardNavMoveDownParentSiblingTitle": {
+        "message": "Move Down Parent Sibling"
     },
 
     "keyboardNavMoveDownParentSiblingDesc": {
         "message": "Move to parent's next sibling (in comments)."
     },
 
+    "keyboardNavMoveUpThreadTitle": {
+        "message": "Move Up Thread"
+    },
+
     "keyboardNavMoveUpThreadDesc": {
         "message": "Move to the topmost comment of the previous thread (in comments)."
+    },
+
+    "keyboardNavMoveDownThreadTitle": {
+        "message": "Move Down Thread"
     },
 
     "keyboardNavMoveDownThreadDesc": {
         "message": "Move to the topmost comment of the next thread (in comments)."
     },
 
+    "keyboardNavMoveToTopCommentTitle": {
+        "message": "Move To Top Comment"
+    },
+
     "keyboardNavMoveToTopCommentDesc": {
         "message": "Move to the topmost comment of the current thread (in comments)."
+    },
+
+    "keyboardNavMoveToParentTitle": {
+        "message": "Move To Parent"
     },
 
     "keyboardNavMoveToParentDesc": {
         "message": "Move to parent (in comments)."
     },
 
+    "keyboardNavShowParentsTitle": {
+        "message": "Show Parents"
+    },
+
     "keyboardNavShowParentsDesc": {
         "message": "Display parent comments."
+    },
+
+    "keyboardNavFollowLinkTitle": {
+        "message": "Follow Link"
     },
 
     "keyboardNavFollowLinkDesc": {
         "message": "Follow link (link pages only)."
     },
 
+    "keyboardNavFollowLinkNewTabTitle": {
+        "message": "Follow Link New Tab"
+    },
+
     "keyboardNavFollowLinkNewTabDesc": {
         "message": "Follow link in new tab (link pages only)."
+    },
+
+    "keyboardNavToggleExpandoTitle": {
+        "message": "Toggle Expando"
     },
 
     "keyboardNavToggleExpandoDesc": {
         "message": "Toggle expando (image/text/video)."
     },
 
+    "keyboardNavImageSizeUpTitle": {
+        "message": "Image Size Up"
+    },
+
     "keyboardNavImageSizeUpDesc": {
         "message": "Increase the size of image(s) in the highlighted post area."
+    },
+
+    "keyboardNavImageSizeDownTitle": {
+        "message": "Image Size Down"
     },
 
     "keyboardNavImageSizeDownDesc": {
         "message": "Decrease the size of image(s) in the highlighted post area."
     },
 
+    "keyboardNavImageSizeUpFineTitle": {
+        "message": "Image Size Up Fine"
+    },
+
     "keyboardNavImageSizeUpFineDesc": {
         "message": "Increase the size of image(s) in the highlighted post area (finer control)."
+    },
+
+    "keyboardNavImageSizeDownFineTitle": {
+        "message": "Image Size Down Fine"
     },
 
     "keyboardNavImageSizeDownFineDesc": {
         "message": "Decrease the size of image(s) in the highlighted post area (finer control)."
     },
 
+    "keyboardNavImageSizeAnyHeightTitle": {
+        "message": "Image Size Any Height"
+    },
+
     "keyboardNavImageSizeAnyHeightDesc": {
         "message": "Removes the height restriction of image(s) in the highlighted post area."
+    },
+
+    "keyboardNavImageMoveUpTitle": {
+        "message": "Image Move Up"
     },
 
     "keyboardNavImageMoveUpDesc": {
         "message": "Move the image(s) in the highlighted post area up."
     },
 
+    "keyboardNavImageMoveDownTitle": {
+        "message": "Image Move Down"
+    },
+
     "keyboardNavImageMoveDownDesc": {
         "message": "Move the image(s) in the highlighted post area down."
+    },
+
+    "keyboardNavImageMoveLeftTitle": {
+        "message": "Image Move Left"
     },
 
     "keyboardNavImageMoveLeftDesc": {
         "message": "Move the image(s) in the highlighted post area left."
     },
 
+    "keyboardNavImageMoveRightTitle": {
+        "message": "Image Move Right"
+    },
+
     "keyboardNavImageMoveRightDesc": {
         "message": "Move the image(s) in the highlighted post area right."
+    },
+
+    "keyboardNavPreviousGalleryImageTitle": {
+        "message": "Previous Gallery Image"
     },
 
     "keyboardNavPreviousGalleryImageDesc": {
         "message": "View the previous image of an inline gallery."
     },
 
+    "keyboardNavNextGalleryImageTitle": {
+        "message": "Next Gallery Image"
+    },
+
     "keyboardNavNextGalleryImageDesc": {
         "message": "View the next image of an inline gallery."
+    },
+
+    "keyboardNavToggleViewImagesTitle": {
+        "message": "Toggle View Images"
+    },
+
+    "keyboardNavToggleChildrenTitle": {
+        "message": "Toggle Children"
     },
 
     "keyboardNavToggleChildrenDesc": {
         "message": "Expand/collapse comments (comments pages only)."
     },
 
+    "keyboardNavFollowCommentsTitle": {
+        "message": "Follow Comments"
+    },
+
     "keyboardNavFollowCommentsDesc": {
         "message": "View comments for link (shift opens them in a new tab)."
+    },
+
+    "keyboardNavFollowCommentsNewTabTitle": {
+        "message": "Follow Comments New Tab"
     },
 
     "keyboardNavFollowCommentsNewTabDesc": {
         "message": "View comments for link in a new tab."
     },
 
+    "keyboardNavFollowLinkAndCommentsNewTabTitle": {
+        "message": "Follow Link And Comments New Tab"
+    },
+
     "keyboardNavFollowLinkAndCommentsNewTabDesc": {
         "message": "View link and comments in new tabs."
+    },
+
+    "keyboardNavFollowLinkAndCommentsNewTabBGTitle": {
+        "message": "Follow Link And Comments New Tab BG"
     },
 
     "keyboardNavFollowLinkAndCommentsNewTabBGDesc": {
         "message": "View link and comments in new background tabs."
     },
 
+    "keyboardNavUpVoteTitle": {
+        "message": "Up Vote"
+    },
+
     "keyboardNavUpVoteDesc": {
         "message": "Upvote selected link or comment (or remove the upvote)."
+    },
+
+    "keyboardNavDownVoteTitle": {
+        "message": "Down Vote"
     },
 
     "keyboardNavDownVoteDesc": {
         "message": "Downvote selected link or comment (or remove the downvote)."
     },
 
+    "keyboardNavUpVoteWithoutTogglingTitle": {
+        "message": "Up Vote Without Toggling"
+    },
+
     "keyboardNavUpVoteWithoutTogglingDesc": {
         "message": "Upvote selected link or comment (but don't remove the upvote)."
+    },
+
+    "keyboardNavDownVoteWithoutTogglingTitle": {
+        "message": "Down Vote Without Toggling"
     },
 
     "keyboardNavDownVoteWithoutTogglingDesc": {
         "message": "Downvote selected link or comment (but don't remove the downvote)."
     },
 
+    "keyboardNavSavePostTitle": {
+        "message": "Save Post"
+    },
+
     "keyboardNavSavePostDesc": {
         "message": "Save the current post to your reddit account. This is accessible from anywhere that you're logged in, but does not preserve the original text if it's edited or deleted."
+    },
+
+    "keyboardNavSaveCommentTitle": {
+        "message": "Save Comment"
     },
 
     "keyboardNavSaveCommentDesc": {
         "message": "Save the current comment to your reddit account. This is accessible from anywhere that you're logged in, but does not preserve the original text if it's edited or deleted."
     },
 
+    "keyboardNavSaveRESTitle": {
+        "message": "Save RES"
+    },
+
     "keyboardNavSaveRESDesc": {
         "message": "Save the current comment with RES. This does preserve the original text of the comment, but is only saved locally."
+    },
+
+    "keyboardNavReplyTitle": {
+        "message": "Reply"
     },
 
     "keyboardNavReplyDesc": {
         "message": "Reply to current comment (comment pages only)."
     },
 
+    "keyboardNavFollowPermalinkTitle": {
+        "message": "Follow Permalink"
+    },
+
     "keyboardNavFollowPermalinkDesc": {
         "message": "Open the current comment's permalink (comment pages only)."
+    },
+
+    "keyboardNavFollowPermalinkNewTabTitle": {
+        "message": "Follow Permalink New Tab"
     },
 
     "keyboardNavFollowPermalinkNewTabDesc": {
         "message": "Open the current comment's permalink in a new tab (comment pages only)."
     },
 
+    "keyboardNavFollowSubredditTitle": {
+        "message": "Follow Subreddit"
+    },
+
     "keyboardNavFollowSubredditDesc": {
         "message": "Go to subreddit of selected link (link pages only)."
+    },
+
+    "keyboardNavFollowSubredditNewTabTitle": {
+        "message": "Follow Subreddit New Tab"
     },
 
     "keyboardNavFollowSubredditNewTabDesc": {
         "message": "Go to subreddit of selected link in a new tab (link pages only)."
     },
 
+    "keyboardNavGoModeTitle": {
+        "message": "Go Mode"
+    },
+
     "keyboardNavGoModeDesc": {
         "message": "Enter \"goMode\" (necessary before using any of the below \"go to\" shortcuts)."
+    },
+
+    "keyboardNavInboxTitle": {
+        "message": "Inbox"
     },
 
     "keyboardNavInboxDesc": {
         "message": "Go to inbox."
     },
 
+    "keyboardNavInboxNewTabTitle": {
+        "message": "Inbox New Tab"
+    },
+
     "keyboardNavInboxNewTabDesc": {
         "message": "Go to inbox in a new tab."
+    },
+
+    "keyboardNavModmailTitle": {
+        "message": "Modmail"
     },
 
     "keyboardNavModmailDesc": {
         "message": "Go to modmail."
     },
 
+    "keyboardNavModmailNewTabTitle": {
+        "message": "Modmail New Tab"
+    },
+
     "keyboardNavModmailNewTabDesc": {
         "message": "Go to modmail in a new tab."
+    },
+
+    "keyboardNavProfileTitle": {
+        "message": "Profile"
     },
 
     "keyboardNavProfileDesc": {
         "message": "Go to profile."
     },
 
+    "keyboardNavProfileNewTabTitle": {
+        "message": "Profile New Tab"
+    },
+
     "keyboardNavProfileNewTabDesc": {
         "message": "Go to profile in a new tab."
+    },
+
+    "keyboardNavFrontPageTitle": {
+        "message": "Front Page"
     },
 
     "keyboardNavFrontPageDesc": {
         "message": "Go to front page."
     },
 
+    "keyboardNavsSubredditFrontPageTitle": {
+        "message": "Subreddit Front Page"
+    },
+
     "keyboardNavsSubredditFrontPageDesc": {
         "message": "Go to subreddit front page."
+    },
+
+    "keyboardNavRandomTitle": {
+        "message": "Random"
     },
 
     "keyboardNavRandomDesc": {
         "message": "Go to a random subreddit."
     },
 
+    "keyboardNavNextPageTitle": {
+        "message": "Next Page"
+    },
+
     "keyboardNavNextPageDesc": {
         "message": "Go to next page (link list pages only)."
+    },
+
+    "keyboardNavPrevPageTitle": {
+        "message": "Prev Page"
     },
 
     "keyboardNavPrevPageDesc": {
         "message": "Go to previous page (link list pages only)."
     },
 
+    "keyboardNavToggleCommentNavigatorTitle": {
+        "message": "Toggle Comment Navigator"
+    },
+
     "keyboardNavToggleCommentNavigatorDesc": {
         "message": "Open Comment Navigator."
     },
 
+    "keyboardNavCommentNavigatorMoveUpTitle": {
+        "message": "Comment Navigator Move Up"
+    },
+
     "keyboardNavCommentNavigatorMoveUpDesc": {
         "message": "Move up using Comment Navigator."
+    },
+
+    "keyboardNavCommentNavigatorMoveDownTitle": {
+        "message": "Comment Navigator Move Down"
     },
 
     "keyboardNavCommentNavigatorMoveDownDesc": {
