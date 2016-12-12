@@ -1664,48 +1664,116 @@
         "message": "Tags Per Page"
     },
 
+    "filteRedditNSFWfilterTitle": {
+        "message": "NSFW Filter"
+    },
+
     "filteRedditNSFWfilterDesc": {
         "message": "Filters all links labelled NSFW."
+    },
+
+    "filteRedditNSFWQuickToggleTitle": {
+        "message": "NSFW Quick Toggle"
     },
 
     "filteRedditNSFWQuickToggleDesc": {
         "message": "Add a quick NSFW on/off toggle to the gear menu."
     },
 
+    "filteRedditShowFilterlineTitle": {
+        "message": "Show Filterline"
+    },
+
     "filteRedditShowFilterlineDesc": {
         "message": "Show filterline controls by default."
+    },
+
+    "filteRedditExcludeOwnPostsTitle": {
+        "message": "Exclude Own Posts"
     },
 
     "filteRedditExcludeOwnPostsDesc": {
         "message": "Don't filter your own posts."
     },
 
+    "filteRedditExcludeCommentsPageTitle": {
+        "message": "Exclude Comments Page"
+    },
+
     "filteRedditExcludeCommentsPageDesc": {
         "message": "When visiting the comments page for a filtered link, allow the link/expando to be shown."
+    },
+
+    "filteRedditExcludeModqueueTitle": {
+        "message": "Exclude Modqueue"
     },
 
     "filteRedditExcludeModqueueDesc": {
         "message": "Don't filter anything on modqueue pages (modqueue, reports, spam, etc.)."
     },
 
+    "filteRedditExcludeUserPagesTitle": {
+        "message": "Exclude User Pages"
+    },
+
     "filteRedditExcludeUserPagesDesc": {
         "message": "Don't filter anything on users' profile pages."
+    },
+
+    "filteRedditRegexpFiltersTitle": {
+        "message": "Regexp Filters"
+    },
+
+    "filteRedditKeywordsTitle": {
+        "message": "Keywords"
+    },
+
+    "filteRedditSubredditsTitle": {
+        "message": "Subreddits"
+    },
+
+    "filteRedditFilterSubredditsFromTitle": {
+        "message": "Filter Subreddits From"
     },
 
     "filteRedditFilterSubredditsFromDesc": {
         "message": "When filtering subreddits with the above option, where should they be filtered?"
     },
 
+    "filteRedditUseRedditFiltersTitle": {
+        "message": "Use Reddit Filters"
+    },
+
     "filteRedditUseRedditFiltersDesc": {
         "message": "Overwrite and automatically sync your native /r/all filters with your first 100 non-RegExp filtered subreddits."
+    },
+
+    "filteRedditForceSyncFiltersTitle": {
+        "message": "Force Sync Filters"
     },
 
     "filteRedditForceSyncFiltersDesc": {
         "message": "Immediately overwrite your native /r/all filters (same as the previous option)."
     },
 
+    "filteRedditDomainsTitle": {
+        "message": "Domains"
+    },
+
+    "filteRedditFlairTitle": {
+        "message": "Flair"
+    },
+
+    "filteRedditAllowNSFWTitle": {
+        "message": "Allow NSFW"
+    },
+
     "filteRedditAllowNSFWDesc": {
         "message": "Don't hide NSFW posts from certain subreddits when the NSFW filter is turned on."
+    },
+
+    "filteRedditCustomFiltersTitle": {
+        "message": "Custom Filters"
     },
 
     "subredditManagerMultiCountTitle": {
