@@ -1128,76 +1128,152 @@
         "message": "Restore a backup of your RES settings. Warning: This will overwrite your current settings."
     },
 
+    "betteRedditCommentsLinksNewTabTitle": {
+        "message": "Comments Links New Tabs"
+    },
+
     "betteRedditCommentsLinksNewTabDesc": {
         "message": "Open links found in comments in a new tab."
+    },
+
+    "betteRedditFixHideLinksTitle": {
+        "message": "Fix Hide Links"
     },
 
     "betteRedditFixHideLinksDesc": {
         "message": "Changes \"hide\" links to read as \"hide\" or \"unhide\" depending on the hide state."
     },
 
+    "betteRedditHideLinkFadeDelayTitle": {
+        "message": "Hide Link Fade Delay"
+    },
+
     "betteRedditHideLinkFadeDelayDesc": {
         "message": "Delay, in milliseconds, before a hidden link fades."
+    },
+
+    "betteRedditVideoTimesTitle": {
+        "message": "Video Times"
     },
 
     "betteRedditVideoTimesDesc": {
         "message": "Show lengths of videos when possible."
     },
 
+    "betteRedditVideoUploadedTitle": {
+        "message": "Video Uploaded"
+    },
+
     "betteRedditVideoUploadedDesc": {
         "message": "Show upload date of videos when possible."
+    },
+
+    "betteRedditVideoViewedTitle": {
+        "message": "Video Viewed"
     },
 
     "betteRedditVideoViewedDesc": {
         "message": "Show number of views for a video when possible."
     },
 
+    "betteRedditPinHeaderTitle": {
+        "message": "Pin Header"
+    },
+
     "betteRedditPinHeaderDesc": {
         "message": "Pin the subreddit bar, user menu, or header to top, floating down as you scroll."
+    },
+
+    "betteRedditShowLastEditedTimestampTitle": {
+        "message": "Show Last Edited Timestamp"
     },
 
     "betteRedditShowLastEditedTimestampDesc": {
         "message": "Show the time that a text post/comment was edited, without having to hover over the timestamp."
     },
 
+    "betteRedditScoreHiddenTimeLeftTitle": {
+        "message": "Score Hidden Time Left"
+    },
+
     "betteRedditScoreHiddenTimeLeftDesc": {
         "message": "When hovering over [score hidden] show time left instead of hide duration."
+    },
+
+    "betteRedditShowTimestampPostsTitle": {
+        "message": "Show Timestamp Posts"
     },
 
     "betteRedditShowTimestampPostsDesc": {
         "message": "Show the precise date (Sun Nov 16 20:14:56 2014 UTC) instead of a relative date (7 days ago), for posts."
     },
 
+    "betteRedditShowTimestampCommentsTitle": {
+        "message": "Show Timestamps Comments"
+    },
+
     "betteRedditShowTimestampCommentsDesc": {
         "message": "Show the precise date for comments / messages."
+    },
+
+    "betteRedditShowTimestampSidebarTitle": {
+        "message": "Show Timestamp Sidebar"
     },
 
     "betteRedditShowTimestampSidebarDesc": {
         "message": "Show the precise date in the sidebar."
     },
 
+    "betteRedditShowTimestampWikiTitle": {
+        "message": "Show Timestamp Wiki"
+    },
+
     "betteRedditShowTimestampWikiDesc": {
         "message": "Show the precise date in the wiki."
+    },
+
+    "betteRedditShowTimestampModerationLogTitle": {
+        "message": "Show Timestamp Moderation Log"
     },
 
     "betteRedditShowTimestampModerationLogDesc": {
         "message": "Show the precise date in the moderation log (/r/mod/about/log)."
     },
 
+    "betteRedditRestoreSavedTabTitle": {
+        "message": "Restore Saved Tab"
+    },
+
     "betteRedditRestoreSavedTabDesc": {
         "message": "The saved tab is now located in the multireddit sidebar. This will restore a \"saved\" link to the header (next to the \"hot\", \"new\", etc. tabs)."
+    },
+
+    "betteRedditDoNoCtrlFTitle": {
+        "message": "Do No Ctrl+F"
     },
 
     "betteRedditDoNoCtrlFDesc": {
         "message": "When using the browser's Ctrl+F/Cmd+F \"find text\", only search comment/post text and not navigation links (\"permalink source save...\"). Disabled by default due to a slight performance impact."
     },
 
+    "betteRedditShowHiddenSortOptionsTitle": {
+        "message": "Show Hidden Sort Options"
+    },
+
     "betteRedditShowHiddenSortOptionsDesc": {
         "message": "Reddit hides some comment sorting options (random, etc.) on most pages. This option reveals them."
     },
 
+    "betteRedditTruncateLongLinksTitle": {
+        "message": "Truncate Long Links"
+    },
+
     "betteRedditTruncateLongLinksDesc": {
         "message": "Truncates long post titles (greater than 1 line) with an ellipsis."
+    },
+
+    "betteRedditCommentCollapseInInboxTitle": {
+        "message": "Comment Colapse In Inbox"
     },
 
     "betteRedditCommentCollapseInInboxDesc": {
