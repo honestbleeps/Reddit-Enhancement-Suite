@@ -344,24 +344,56 @@
         "message": "Customize the behavior of the large informational pop-ups which appear when you hover your mouse over certain elements."
     },
 
+    "hoverInstancesTitle": {
+        "message": "Instances"
+    },
+
     "hoverInstancesDesc": {
         "message": "Manage particular pop-ups"
+    },
+
+    "hoverInstancesName": {
+        "message": "name"
+    },
+
+    "hoverInstancesEnabled": {
+        "message": "enabled"
+    },
+
+    "hoverOpenDelayTitle": {
+        "message": "Open Delay"
     },
 
     "hoverOpenDelayDesc": {
         "message": "Default delay between mouseover and the popup opening."
     },
 
+    "hoverFadeDelayTitle": {
+        "message": "Fade Delay"
+    },
+
     "hoverFadeDelayDesc": {
         "message": "Default delay before the popup fades after mouseout."
+    },
+
+    "hoverFadeSpeedTitle": {
+        "message": "Fade Speed"
     },
 
     "hoverFadeSpeedDesc": {
         "message": "Fade speed (in seconds)."
     },
 
+    "hoverWidthTitle": {
+        "message": "Width"
+    },
+
     "hoverWidthDesc": {
         "message": "Default popup width."
+    },
+
+    "hoverCloseOnMouseOutTitle": {
+        "message": "Close On Mouse Out"
     },
 
     "hoverCloseOnMouseOutDesc": {
@@ -1008,6 +1040,50 @@
         "message": "Allow you to change the link on the reddit logo."
     },
 
+    "logoLinkRedditLogoDestinationTitle": {
+        "message": "Reddit Logo Destination"
+    },
+
+    "logoLinkRedditLogoDestinationDesc": {
+        "message": "Location when you click on the reddit logo."
+    },
+
+    "logoLinkFrontpage": {
+        "message": "Frontpage"
+    },
+
+    "logoLinkAll": {
+        "message": "/r/all"
+    },
+
+    "logoLinkDashboard": {
+        "message": "Dashboard"
+    },
+
+    "logoLinkCurrent": {
+        "message": "Current subreddit/multireddit"
+    },
+
+    "logoLinkMyUserPage": {
+        "message": "My user page"
+    },
+
+    "logoLinkInbox": {
+        "message": "Inbox"
+    },
+
+    "logoLinkCustom": {
+        "message": "Custom"
+    },
+
+    "logoLinkCustomDestinationTitle": {
+        "message": "Custom Destination"
+    },
+
+    "logoLinkCustomDestinationDesc": {
+        "message": "If redditLogoDestination is set to custom, link here"
+    },
+
     "menuName": {
         "message": "RES Menu"
     },
@@ -1018,6 +1094,58 @@
 
     "messageMenuDesc": {
         "message": "Hover over the mail icon to access different types of messages or to compose a new message."
+    },
+
+    "messageMenuAddShortcut": {
+        "message": "+add shortcut"
+    },
+
+    "messageMenuLabel": {
+        "message": "label"
+    },
+
+    "messageMenuUrl": {
+        "message": "url"
+    },
+
+    "messageMenuLinksTitle": {
+        "message": "Links"
+    },
+
+    "messageMenuLinksDesc": {
+        "message": "Links to show in the mail icon drop down menu."
+    },
+
+    "messageMenuUseQuickMessageTitle": {
+        "message": "Use Quick Message"
+    },
+
+    "messageMenuUseQuickMessageDesc": {
+        "message": "Use Quick Message pop-up when composing a new message."
+    },
+
+    "messageMenuHoverDelayTitle": {
+        "message": "Hover Delay"
+    },
+
+    "messageMenuHoverDelayDesc": {
+        "message": "Delay, in milliseconds, before hover tooltip loads. Default is 1000."
+    },
+
+    "messageMenuFadeDelayTitle": {
+        "message": "Fade Delay"
+    },
+
+    "messageMenuFadeDelayDesc": {
+        "message": "Delay, in milliseconds, before hover tooltip fades away. Default is 200."
+    },
+
+    "messageMenuFadeSpeedTitle": {
+        "message": "Fade Speed"
+    },
+
+    "messageMenufadeSpeedDesc": {
+        "message": "Fade animation's speed (in seconds). Default is 0.7."
     },
 
     "modhelperName": {
@@ -1640,6 +1768,18 @@
         "message": "Subreddit-specific comment depths."
     },
 
+    "commentDepthAddSubreddit": {
+        "message": "+add subreddit"
+    },
+
+    "commentDepthSubreddit": {
+        "message": "subreddit"
+    },
+
+    "commentDepthCommentDepth": {
+        "message": "comment depth"
+    },
+
     "commentPreviewEnableBigEditorTitle": {
         "message": "Enable Big Editor"
     },
@@ -1902,6 +2042,26 @@
 
     "commentToolsMacrosDesc": {
         "message": "Add buttons to insert frequently used snippets of text."
+    },
+
+    "commentToolsAddShortcut": {
+        "message": "+add shortcut"
+    },
+
+    "commentToolsLabel": {
+        "message": "label"
+    },
+
+    "commentToolsText": {
+        "message": "text"
+    },
+
+    "commentToolsCategory": {
+        "message": "category"
+    },
+
+    "commentToolsKey": {
+        "message": "key"
     },
 
     "commentToolsKeepMacroListOpenTitle": {
