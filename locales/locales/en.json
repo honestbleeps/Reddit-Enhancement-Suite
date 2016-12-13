@@ -2374,5 +2374,91 @@
 
     "userInfoUnignore": {
         "message": "Unignore"
+    },
+
+    "userTaggerMyUserTags": {
+        "message": "My User Tags"
+    },
+
+    "userTaggerShow": {
+        "message": "Show",
+        "description": "As in 'Show tagged users' or 'Show all users'"
+    },
+
+    "userTaggerTaggedUsers": {
+        "message": "tagged users"
+    },
+
+    "userTaggerAllUsers": {
+        "message": "all users"
+    },
+
+    "userTaggerPage": {
+        "message": "Page",
+        "description": "As in 'page 1', 'page 2'"
+    },
+
+    "userTaggerUsername": {
+        "message": "Username"
+    },
+
+    "userTaggerTag": {
+        "message": "Tag"
+    },
+
+    "userTaggerIgnored": {
+        "message": "Ignored"
+    },
+
+    "userTaggerColor": {
+        "message": "Color"
+    },
+
+    "userTaggerVoteWeight": {
+        "message": "Vote Weight"
+    },
+
+    "userTaggerCommandLineDescription": {
+        "message": "tags author of currently selected link/comment"
+    },
+
+    "userTaggerTagUser": {
+        "message": "tag user $1"
+    },
+
+    "userTaggerTagUserAs": {
+        "message": "tag user $1 as: $2"
+    },
+
+    "userTaggerTagCanNotSetTag": {
+        "message": "can't set tag - no post/comment selected"
+    },
+
+    "userTaggerPageXOfY": {
+        "message": "$1 of $2",
+        "description": "As in 'page 1 of 5'"
+    },
+
+    "userTaggerSetATag": {
+        "message": "set a tag"
+    },
+
+    "userTaggerAreYouSureYouWantToDeleteTag": {
+        "message": "Are you sure you want to delete the tag for user: $1?"
+    },
+
+    "userTaggerIgnoredPlaceholder": {
+        "message": "ignored.",
+        "description": "Replaces the content of ignored comments."
+    },
+
+    "userTaggerShowAnyway": {
+        "message": "show anyway?",
+        "description": "for showing ignored comments"
+    },
+
+    "userTaggerYourVotesFor": {
+        "message": "your votes for $1: $2",
+        "description": "As in `your votes for username: 42`"
     }
 }
