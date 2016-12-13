@@ -60,7 +60,7 @@ const getLookupFunction = _.memoize(localeName => {
 
 // Behaves like https://developer.chrome.com/extensions/i18n#method-getMessage
 // if it accepted a locale name
-export function getMessage(localeName: string, messageName: string, substitutions: string[]): string {
+export function getMessage(localeName: string, messageName: string, substitutions: Array<string | number>): string {
 	// Transifex will fill in missing translations from partially-translated languages
 	// with strings from the base locale (en).
 	// So we don't need to do multiple checks here.
