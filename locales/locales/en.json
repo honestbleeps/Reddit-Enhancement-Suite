@@ -8,6 +8,14 @@
         "message": "A suite of modules that enhance your Reddit browsing experience."
     },
 
+    "yes": {
+        "message": "Yes"
+    },
+
+    "no": {
+        "message": "No"
+    },
+
     "defaultTitle": {
         "message": "Subreddit Style On"
     },
@@ -2266,6 +2274,139 @@
 
     "toggleOff": {
 		  "message": "off"
+    },
+
+    "styleTweaksRedditPrefsMessage": {
+        "message": "RES allows you to disable specific subreddit styles!"
+    },
+
+    "styleTweaksClickToLearnMore": {
+        "message": "Click here to learn more"
+    },
+
+    "styleTweaksCommandLineDescription": {
+        "message": "toggle subreddit style on/off (if no subreddit is specified, uses current subreddit)"
+    },
+
+    "styleTweaksToggleSubredditStyle": {
+        "message": "toggle subreddit style"
+    },
+
+    "styleTweaksToggleSubredditStyleOnOff": {
+        "message": "toggle subreddit style $1",
+        "description": "As in 'toggle subreddit style off'"
+    },
+
+    "styleTweaksToggleSubredditStyleOnOffFor": {
+        "message": "toggle subreddit style $1 for: $2",
+        "description": "As in 'toggle subreddit style off for: subreddit'"
+    },
+
+    "styleTweaksNoSubredditSpecified": {
+        "message": "No subreddit specified."
+    },
+
+    "styleTweaksYouMustSpecifyXOrY": {
+        "message": "You must specify \"$1\" or \"$2\"."
+    },
+
+    "styleTweaksSubredditStyle": {
+        "message": "Subreddit Style"
+    },
+
+    "styleTweaksSubredditStyleEnabled": {
+        "message": "Subreddit style enabled for subreddit: $1."
+    },
+
+    "styleTweaksSubredditStyleDisabled": {
+        "message": "Subreddit style disabled for subreddit: $1."
+    },
+
+    "styleTweaksUseSubredditStyle": {
+        "message": "Use subreddit style"
+    },
+
+    "submitHelperTimeAgo": {
+        "message": "$1 ago",
+        "description": "As in '1 day ago'"
+    },
+
+    "subredditInfoErrorLoadingSubredditInfo": {
+        "message": "Error loading subreddit info."
+    },
+
+    "subredditInfoSubredditNotFound": {
+        "message": "Subreddit not found."
+    },
+
+    "subredditInfoSubredditCreated": {
+        "message": "Subreddit created:"
+    },
+
+    "subredditInfoSubscribers": {
+        "message": "Subscribers:"
+    },
+
+    "subredditInfoTitle": {
+        "message": "Title:"
+    },
+
+    "subredditInfoOver18": {
+        "message": "Over 18:"
+    },
+
+    "subredditInfoAddRemoveShortcut": {
+        "message": "shortcut",
+        "description": "as in '+shortcut' or '-shortcut'"
+    },
+
+    "subredditInfoRemoveThisSubredditFromShortcuts": {
+        "message": "Remove this subreddit from your shortcut bar"
+    },
+
+    "subredditInfoAddThisSubredditToShortcuts": {
+        "message": "Add this subreddit to your shortcut bar"
+    },
+
+    "subredditInfoAddRemoveDashboard": {
+        "message": "dashboard",
+        "description": "as in '+dashboard' or '-dashboard'"
+    },
+
+    "subredditInfoRemoveThisSubredditFromDashboard": {
+        "message": "Remove this subreddit from your dashboard"
+    },
+
+    "subredditInfoAddThisSubredditToDashboard": {
+        "message": "Add this subreddit to your dashboard"
+    },
+
+    "subredditInfoAddRemoveFilter": {
+        "message": "filter"
+    },
+
+    "subredditInfoStopFilteringFromAllAndDomain": {
+        "message": "Stop filtering from /r/all and /domain/*"
+    },
+
+    "subredditInfoFilterFromAllAndDomain": {
+        "message": "Filter this subreddit from /r/all and /domain/*"
+    },
+
+    "subredditInfoStopFilteringThisSubredditFromAllAndDomain": {
+        "message": "Stop filtering this subreddit from /r/all and /domain/*"
+    },
+
+    "subredditInfoFilterThisSubredditFromAllAndDomain": {
+        "message": "Filter this subreddit from /r/all and /domain/*"
+    },
+
+    "subredditInfoSubscribe": {
+        "message": "subscribe"
+    },
+
+    "subredditInfoUnsubscribe": {
+        "message": "unsubscribe"
     },
 
     "troubleshooterCachesCleared": {
