@@ -8,6 +8,14 @@
         "message": "A suite of modules that enhance your Reddit browsing experience."
     },
 
+    "yes": {
+        "message": "Yes"
+    },
+
+    "no": {
+        "message": "No"
+    },
+
     "defaultTitle": {
         "message": "Subreddit Style On"
     },
@@ -2321,6 +2329,84 @@
     "submitHelperTimeAgo": {
         "message": "$1 ago",
         "description": "As in '1 day ago'"
+    },
+
+    "subredditInfoErrorLoadingSubredditInfo": {
+        "message": "Error loading subreddit info."
+    },
+
+    "subredditInfoSubredditNotFound": {
+        "message": "Subreddit not found."
+    },
+
+    "subredditInfoSubredditCreated": {
+        "message": "Subreddit created:"
+    },
+
+    "subredditInfoSubscribers": {
+        "message": "Subscribers:"
+    },
+
+    "subredditInfoTitle": {
+        "message": "Title:"
+    },
+
+    "subredditInfoOver18": {
+        "message": "Over 18:"
+    },
+
+    "subredditInfoAddRemoveShortcut": {
+        "message": "shortcut",
+        "description": "as in '+shortcut' or '-shortcut'"
+    },
+
+    "subredditInfoRemoveThisSubredditFromShortcuts": {
+        "message": "Remove this subreddit from your shortcut bar"
+    },
+
+    "subredditInfoAddThisSubredditToShortcuts": {
+        "message": "Add this subreddit to your shortcut bar"
+    },
+
+    "subredditInfoAddRemoveDashboard": {
+        "message": "dashboard",
+        "description": "as in '+dashboard' or '-dashboard'"
+    },
+
+    "subredditInfoRemoveThisSubredditFromDashboard": {
+        "message": "Remove this subreddit from your dashboard"
+    },
+
+    "subredditInfoAddThisSubredditToDashboard": {
+        "message": "Add this subreddit to your dashboard"
+    },
+
+    "subredditInfoAddRemoveFilter": {
+        "message": "filter"
+    },
+
+    "subredditInfoStopFilteringFromAllAndDomain": {
+        "message": "Stop filtering from /r/all and /domain/*"
+    },
+
+    "subredditInfoFilterFromAllAndDomain": {
+        "message": "Filter this subreddit from /r/all and /domain/*"
+    },
+
+    "subredditInfoStopFilteringThisSubredditFromAllAndDomain": {
+        "message": "Stop filtering this subreddit from /r/all and /domain/*"
+    },
+
+    "subredditInfoFilterThisSubredditFromAllAndDomain": {
+        "message": "Filter this subreddit from /r/all and /domain/*"
+    },
+
+    "subredditInfoSubscribe": {
+        "message": "subscribe"
+    },
+
+    "subredditInfoUnsubscribe": {
+        "message": "unsubscribe"
     },
 
     "troubleshooterCachesCleared": {
