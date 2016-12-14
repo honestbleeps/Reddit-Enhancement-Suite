@@ -2268,6 +2268,56 @@
 		  "message": "off"
     },
 
+    "styleTweaksRedditPrefsMessage": {
+        "message": "RES allows you to disable specific subreddit styles!"
+    },
+
+    "styleTweaksClickToLearnMore": {
+        "message": "Click here to learn more"
+    },
+
+    "styleTweaksCommandLineDescription": {
+        "message": "toggle subreddit style on/off (if no subreddit is specified, uses current subreddit)"
+    },
+
+    "styleTweaksToggleSubredditStyle": {
+        "message": "toggle subreddit style"
+    },
+
+    "styleTweaksToggleSubredditStyleOnOff": {
+        "message": "toggle subreddit style $1",
+        "description": "As in 'toggle subreddit style off'"
+    },
+
+    "styleTweaksToggleSubredditStyleOnOffFor": {
+        "message": "toggle subreddit style $1 for: $2",
+        "description": "As in 'toggle subreddit style off for: subreddit'"
+    },
+
+    "styleTweaksNoSubredditSpecified": {
+        "message": "No subreddit specified."
+    },
+
+    "styleTweaksYouMustSpecifyXOrY": {
+        "message": "You must specify \"$1\" or \"$2\"."
+    },
+
+    "styleTweaksSubredditStyle": {
+        "message": "Subreddit Style"
+    },
+
+    "styleTweaksSubredditStyleEnabled": {
+        "message": "Subreddit style enabled for subreddit: $1."
+    },
+
+    "styleTweaksSubredditStyleDisabled": {
+        "message": "Subreddit style disabled for subreddit: $1."
+    },
+
+    "styleTweaksUseSubredditStyle": {
+        "message": "Use subreddit style"
+    },
+
     "troubleshooterCachesCleared": {
         "message": "All caches cleared."
     },
