@@ -42,18 +42,21 @@ const getLocale = _.memoize(localeName => {
 
 const getLookupFunction = _.memoize(localeName => {
 	const transifexLocale = redditLocaleToTransifexLocale(localeName);
-	const locale = (
+	const locales = _.compact([
 		// 1. Exact match (en_CA -> en_CA)
-		getLocale(transifexLocale) ||
+		getLocale(transifexLocale),
 		// 2. Match without region (en_CA -> en)
-		getLocale(transifexLocale.slice(0, transifexLocale.indexOf('_'))) ||
+		getLocale(transifexLocale.slice(0, transifexLocale.indexOf('_'))),
 		// 3. Default (en)
-		getLocale(DEFAULT_TRANSIFEX_LOCALE)
-	);
+		getLocale(DEFAULT_TRANSIFEX_LOCALE),
+	]);
 
 	return messageName => {
-		if (locale[messageName]) {
-			return locale[messageName].message;
+		for (let i = 0; i < locales.length; ++i) { // eslint-disable-line no-restricted-syntax
+			const entry = locales[i][messageName];
+			if (entry) {
+				return entry.message;
+			}
 		}
 	};
 });
