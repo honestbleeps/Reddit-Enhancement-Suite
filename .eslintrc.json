@@ -1,7 +1,6 @@
 {
 	"parser": "babel-eslint",
 	"plugins": [
-		"babel",
 		"flowtype",
 		"ava",
 		"dollar-sign",
@@ -24,16 +23,6 @@
 	},
 	"extends": ["eslint:all", "plugin:ava/recommended"],
 	"rules": {
-		"babel/generator-star-spacing": [2, { "before": false, "after": true }],
-		"babel/new-cap": 0,
-		"babel/array-bracket-spacing": 2,
-		"babel/object-curly-spacing": [2, "always"],
-		"babel/object-shorthand": 2,
-		"babel/arrow-parens": [2, "as-needed"],
-		"babel/no-await-in-loop": 2,
-		"babel/flow-object-type": 0,
-		"babel/func-params-comma-dangle": 2,
-
 		"flowtype/boolean-style": 2,
 		"flowtype/define-flow-type": 2,
 		"flowtype/delimiter-dangle": [2, "always-multiline"],
@@ -144,9 +133,8 @@
 		"no-use-before-define": [0, "nofunc"],
 		"no-useless-escape": 0,
 		"no-warning-comments": 0,
-		"array-bracket-spacing": 0, // see babel/array-bracket-spacing
 		"array-callback-return": 0,
-		"arrow-parens": 0, // see babel/arrow-parens
+		"arrow-parens": [2, "as-needed"],
 		"brace-style": [2, "1tbs", { "allowSingleLine": true }],
 		"callback-return": 0,
 		"camelcase": [2, { "properties": "never" }],
@@ -160,7 +148,7 @@
 		"dot-location": [2, "property"],
 		"func-names": 0, // all anonymous functions should be arrows (when this is turned on)
 		"func-style": [2, "declaration", { "allowArrowFunctions": true }],
-		"generator-star-spacing": 0, // see babel/generator-star-spacing
+		"generator-star-spacing": [2, { "before": false, "after": true }],
 		"guard-for-in": 0,
 		"id-blacklist": 0,
 		"id-length": 0,
@@ -178,14 +166,13 @@
 		"max-statements": 0,
 		"max-statements-per-line": 0,
 		"multiline-ternary": 0,
-		"new-cap": 0, // see babel/new-cap
+		"new-cap": 0,
 		"newline-after-var": [0, "never"],
 		"newline-before-return": 0,
 		"newline-per-chained-call": 0,
 		"object-curly-newline": 0,
-		"object-curly-spacing": 0, // see babel/object-curly-spacing
+		"object-curly-spacing": [2, "always"],
 		"object-property-newline": [2, { "allowMultiplePropertiesPerLine": true }],
-		"object-shorthand": 0, // see babel/object-shorthand
 		"one-var": [2, { "initialized": "never" }],
 		"one-var-declaration-per-line": [2, "initializations"],
 		"operator-assignment": [2, "always"],
