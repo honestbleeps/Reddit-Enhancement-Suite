@@ -1152,7 +1152,7 @@
         "message": "Fade Speed"
     },
 
-    "messageMenufadeSpeedDesc": {
+    "messageMenuFadeSpeedDesc": {
         "message": "Fade animation's speed (in seconds). Default is 0.7."
     },
 
@@ -1172,6 +1172,58 @@
         "message": "Enhance the navigation bar shown on the left side of the frontpage."
     },
 
+    "multiredditNavbarSectionMenuTitle": {
+        "message": "Section Menu"
+    },
+
+    "multiredditNavbarSectionMenuDesc": {
+        "message": "Show a menu linking to various sections of the multireddit when hovering your mouse over the link."
+    },
+
+    "multiredditNavbarSectionLinksTitle": {
+        "message": "Section Links"
+    },
+
+    "multiredditNavbarSectionLinksDesc": {
+        "message": "Links to display in the dropdown."
+    },
+
+    "multiredditNavbarAddShortcut": {
+        "message": "+add multireddit section shortcut"
+    },
+
+    "multiredditNavbarLabel": {
+        "message": "label"
+    },
+
+    "multiredditNavbarUrl": {
+        "message": "url"
+    },
+
+    "multiredditNavbarHoverDelayTitle": {
+        "message": "Hover Delay"
+    },
+
+    "multiredditNavbarHoverDelayDesc": {
+        "message": "Delay, in milliseconds, before hover tooltip loads. Default is 1000."
+    },
+
+    "multiredditNavbarFadeDelayTitle": {
+        "message": "Fade Delay"
+    },
+
+    "multiredditNavbarFadeDelayDesc": {
+        "message": "Delay, in milliseconds, before hover tooltip fades away. Default is 200."
+    },
+
+    "multiredditNavbarFadeSpeedTitle": {
+        "message": "Fade Speed"
+    },
+
+    "multiredditNavbarFadeSpeedDesc": {
+        "message": "Fade animation's speed (in seconds). Default is 0.7."
+    },
+
     "nerName": {
         "message": "Never Ending Reddit"
     },
@@ -1180,12 +1232,108 @@
         "message": "Inspired by modules like River of Reddit and Auto Pager - gives you a never ending stream of reddit goodness."
     },
 
+    "nerReturnToPrevPageTitle": {
+        "message": "Return To Previous Page"
+    },
+
+    "nerReturnToPrevPageDesc": {
+        "message": "Return to the page you were last on when hitting \"back\" button?"
+    },
+
+    "nerAutoLoadTitle": {
+        "message": "Auto Load"
+    },
+
+    "nerAutoLoadDesc": {
+        "message": "Automatically load new page on scroll (if off, you click to load)."
+    },
+
+    "nerPauseAfterEveryTitle": {
+        "message": "Pause After Every"
+    },
+
+    "nerReversePauseIconTitle": {
+        "message": "Reverse Pause Icon"
+    },
+
+    "nerReversePauseIconDesc": {
+        "message": "Show \"paused\" bars icon when auto-load is paused and \"play\" wedge icon when active."
+    },
+
+    "nerHideDupesTitle": {
+        "message": "Hide Dupes"
+    },
+
+    "nerHideDupesDesc": {
+        "message": "Fade or completely hide duplicate posts already showing on the page."
+    },
+
+    "nerHideDupesHide": {
+        "message": "Hide"
+    },
+
+    "nerHideDupesFade": {
+        "message": "Fade"
+    },
+
+    "nerHideDupesDontHide": {
+        "message": "Do not hide"
+    },
+
+    "nerShowServerInfoTitle": {
+        "message": "Show Server Info"
+    },
+
+    "nerShowServerInfoDesc": {
+        "message": "Show the π server / debug details next to the floating Never-Ending Reddit tools."
+    },
+
     "newCommentCountName": {
         "message": "New Comment Count"
     },
 
     "newCommentCountDesc": {
         "message": "Tells you how many comments have been posted since you last viewed a thread."
+    },
+
+    "newCommentCountCleanCommentsTitle": {
+        "message": "Clean Comments"
+    },
+
+    "newCommentCountCleanCommentsDesc": {
+        "message": "Number of days before RES stops keeping track of a viewed thread."
+    },
+
+    "newCommentCountSubscriptionLengthTitle": {
+        "message": "Count Subscription Length"
+    },
+
+    "newCommentCountSubscriptionLengthDesc": {
+        "message": "Number of days before thread subscriptions expire."
+    },
+
+    "newCommentCountShowSubscribeButtonTitle": {
+        "message": "Show Subscribe Button"
+    },
+
+    "newCommentCountShowSubscribeButtonDesc": {
+        "message": "Show the Subscribe button?"
+    },
+
+    "newCommentCountMonitorPostsVisitedTitle": {
+        "message": "Monitor Posts Visited"
+    },
+
+    "newCommentCountMonitorPostsVisitedDesc": {
+        "message": "Monitor the number of comments on posts you have visited."
+    },
+
+    "newCommentCountMonitorPostsVisitedIncognitoTitle": {
+        "message": "Monitor Posts Visited Incognito"
+    },
+
+    "newCommentCountMonitorPostsVisitedIncognitoDesc": {
+        "message": "Monitor the number of comments on posts you have visited while browsing in incognito/private mode."
     },
 
     "nightModeName": {
