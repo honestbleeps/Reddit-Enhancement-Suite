@@ -3135,7 +3135,19 @@
     },
 
     "nightModeAutomaticNightModeDesc": {
-        "message": "Enable automatic night mode - night mode automatically starts and stops at the times configured below.\n\nFor the times below, a 24-hour clock (\"military time\") from 0:00 to 23:59 is used.\ne.g. the time 8:20pm would be written as 20:20, and 12:30am would be written as 00:30 or 0:30.\n\nTo temporarily override automatic night mode, manually flip the night mode switch.\nConfigure how long the override lasts below."
+        "message": "Enable automatic night mode.\n\nIn automatic mode, you will be prompted to share your location. Your location will not be sent anywhere and will be used locally to calculate sunrise & sunset times, which will be used respectively for disabling and enabling night mode.\n\nIn user-defined hours mode, night mode automatically starts and stops at the times configured below.\n\nFor the times below, a 24-hour clock (\"military time\") from 0:00 to 23:59 is used.\ne.g. the time 8:20pm would be written as 20:20, and 12:30am would be written as 00:30 or 0:30.\n\nTo temporarily override automatic night mode, manually flip the night mode switch.\nConfigure how long the override lasts below."
+    },
+
+    "nightModeAutomaticNightModeNone": {
+        "message": "Disabled"
+    },
+
+    "nightModeAutomaticNightModeAutomatic": {
+        "message": "Automatic"
+    },
+
+    "nightModeAutomaticNightModeUser": {
+        "message": "User-defined hours"
     },
 
     "nightModeNightModeStartTitle": {
