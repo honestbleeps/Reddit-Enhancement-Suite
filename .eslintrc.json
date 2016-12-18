@@ -148,7 +148,7 @@
 		"dot-location": [2, "property"],
 		"func-names": 0, // all anonymous functions should be arrows (when this is turned on)
 		"func-style": [2, "declaration", { "allowArrowFunctions": true }],
-		"generator-star-spacing": [2, { "before": false, "after": true }],
+		"generator-star-spacing": [0, { "before": false, "after": true }], // disabled pending https://github.com/eslint/eslint/issues/6195
 		"guard-for-in": 0,
 		"id-blacklist": 0,
 		"id-length": 0,
