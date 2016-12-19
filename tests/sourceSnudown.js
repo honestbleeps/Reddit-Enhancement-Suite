@@ -26,4 +26,14 @@ module.exports = {
 
 			.end();
 	},
+	'unicode permalinks': browser => {
+		const comment = '.thing.id-t1_dbdw7vk';
+
+		browser
+			.url('https://www.reddit.com/r/RESIntegrationTests/comments/5j7fmf/handling_of_unicode_characters_%E0%B8%94%E0%B8%94%E0%B8%94/')
+			.waitForElementVisible('.commentarea', 1000)
+			.click(`${comment} .viewSource a`)
+			.waitForElementVisible(`${comment} .viewSource textarea`, 5000)
+			.assert.containsText(`${comment} .viewSource textarea`, 'Source of first comment');
+	},
 };
