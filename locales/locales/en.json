@@ -2675,5 +2675,37 @@
 
     "gfycatUseMobileGfycatTitle": {
         "message": "Use Mobile Gfycat"
+    },
+
+    "userTaggerShowTaggingIconDesc": {
+        "message": "Always show a tag tool icon after every username."
+    },
+
+    "userTaggerHardIgnoreDesc": {
+        "message": "Completely remove links and comments posted by ignored users. If an ignored comment has replies, collapse it and hide its contents instead of removing it."
+    },
+
+    "userTaggerShowIgnoredDesc": {
+        "message": "Provide a link to reveal an ignored link or comment. The hardIgnore option overrides this."
+    },
+
+    "userTaggerStoreSourceLinkDesc": {
+        "message": "By default, store a link to the link/comment you tagged a user on"
+    },
+
+    "userTaggerUseCommentsLinkAsSourceDesc": {
+        "message": "By default, store a link to the comments when tagging a user in a link post. Otherwise, the link (that the post refers to) will be used."
+    },
+
+    "userTaggerTrackVoteWeightDesc": {
+        "message": "Store counts of cumulative upvotes / downvotes given to each user and replace the tag icon with a vote weight count displaying this number."
+    },
+
+    "userTaggerVWNumberDesc": {
+        "message": "Show the number (i.e. [+6]) rather than [vw]"
+    },
+
+    "userTaggerVWTooltipDesc": {
+        "message": "Show the vote weight tooltip on hover (i.e. \"your votes for...\")"
     }
 }
