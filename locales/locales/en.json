@@ -1152,7 +1152,7 @@
         "message": "Fade Speed"
     },
 
-    "messageMenufadeSpeedDesc": {
+    "messageMenuFadeSpeedDesc": {
         "message": "Fade animation's speed (in seconds). Default is 0.7."
     },
 
@@ -1172,12 +1172,120 @@
         "message": "Enhance the navigation bar shown on the left side of the frontpage."
     },
 
+    "multiredditNavbarSectionMenuTitle": {
+        "message": "Section Menu"
+    },
+
+    "multiredditNavbarSectionMenuDesc": {
+        "message": "Show a menu linking to various sections of the multireddit when hovering your mouse over the link."
+    },
+
+    "multiredditNavbarSectionLinksTitle": {
+        "message": "Section Links"
+    },
+
+    "multiredditNavbarSectionLinksDesc": {
+        "message": "Links to display in the dropdown."
+    },
+
+    "multiredditNavbarAddShortcut": {
+        "message": "+add multireddit section shortcut"
+    },
+
+    "multiredditNavbarLabel": {
+        "message": "label"
+    },
+
+    "multiredditNavbarUrl": {
+        "message": "url"
+    },
+
+    "multiredditNavbarHoverDelayTitle": {
+        "message": "Hover Delay"
+    },
+
+    "multiredditNavbarHoverDelayDesc": {
+        "message": "Delay, in milliseconds, before hover tooltip loads. Default is 1000."
+    },
+
+    "multiredditNavbarFadeDelayTitle": {
+        "message": "Fade Delay"
+    },
+
+    "multiredditNavbarFadeDelayDesc": {
+        "message": "Delay, in milliseconds, before hover tooltip fades away. Default is 200."
+    },
+
+    "multiredditNavbarFadeSpeedTitle": {
+        "message": "Fade Speed"
+    },
+
+    "multiredditNavbarFadeSpeedDesc": {
+        "message": "Fade animation's speed (in seconds). Default is 0.7."
+    },
+
     "nerName": {
         "message": "Never Ending Reddit"
     },
 
     "nerDesc": {
         "message": "Inspired by modules like River of Reddit and Auto Pager - gives you a never ending stream of reddit goodness."
+    },
+
+    "nerReturnToPrevPageTitle": {
+        "message": "Return To Previous Page"
+    },
+
+    "nerReturnToPrevPageDesc": {
+        "message": "Return to the page you were last on when hitting \"back\" button?"
+    },
+
+    "nerAutoLoadTitle": {
+        "message": "Auto Load"
+    },
+
+    "nerAutoLoadDesc": {
+        "message": "Automatically load new page on scroll (if off, you click to load)."
+    },
+
+    "nerPauseAfterEveryTitle": {
+        "message": "Pause After Every"
+    },
+
+    "nerReversePauseIconTitle": {
+        "message": "Reverse Pause Icon"
+    },
+
+    "nerReversePauseIconDesc": {
+        "message": "Show \"paused\" bars icon when auto-load is paused and \"play\" wedge icon when active."
+    },
+
+    "nerHideDupesTitle": {
+        "message": "Hide Dupes"
+    },
+
+    "nerHideDupesDesc": {
+        "message": "Fade or completely hide duplicate posts already showing on the page."
+    },
+
+    "nerHideDupesHide": {
+        "message": "Hide"
+    },
+
+    "nerHideDupesFade": {
+        "message": "Fade"
+    },
+
+    "nerHideDupesDontHide": {
+        "message": "Do not hide"
+    },
+
+    "nerShowServerInfoTitle": {
+        "message": "Show Server Info"
+    },
+
+    "nerShowServerInfoDesc": {
+        "message": "Show the π server / debug details next to the floating Never-Ending Reddit tools."
     },
 
     "newCommentCountName": {
@@ -1188,6 +1296,46 @@
         "message": "Tells you how many comments have been posted since you last viewed a thread."
     },
 
+    "newCommentCountCleanCommentsTitle": {
+        "message": "Clean Comments"
+    },
+
+    "newCommentCountCleanCommentsDesc": {
+        "message": "Number of days before RES stops keeping track of a viewed thread."
+    },
+
+    "newCommentCountSubscriptionLengthTitle": {
+        "message": "Count Subscription Length"
+    },
+
+    "newCommentCountSubscriptionLengthDesc": {
+        "message": "Number of days before thread subscriptions expire."
+    },
+
+    "newCommentCountShowSubscribeButtonTitle": {
+        "message": "Show Subscribe Button"
+    },
+
+    "newCommentCountShowSubscribeButtonDesc": {
+        "message": "Show the Subscribe button?"
+    },
+
+    "newCommentCountMonitorPostsVisitedTitle": {
+        "message": "Monitor Posts Visited"
+    },
+
+    "newCommentCountMonitorPostsVisitedDesc": {
+        "message": "Monitor the number of comments on posts you have visited."
+    },
+
+    "newCommentCountMonitorPostsVisitedIncognitoTitle": {
+        "message": "Monitor Posts Visited Incognito"
+    },
+
+    "newCommentCountMonitorPostsVisitedIncognitoDesc": {
+        "message": "Monitor the number of comments on posts you have visited while browsing in incognito/private mode."
+    },
+
     "nightModeName": {
         "message": "Night Mode"
     },
@@ -1196,12 +1344,112 @@
         "message": "No Participation"
     },
 
+    "noPartDisableVoteButtonsTitle": {
+        "message": "Disable Vote Buttons"
+    },
+
+    "noPartDisableVoteButtonsDesc": {
+        "message": "Hide vote buttons. If you have already visited the page and voted, your prior votes will still be visible."
+    },
+
+    "noPartDisableCommentTextareaTitle": {
+        "message": "Disable Comment Textarea"
+    },
+
+    "noPartDisableCommentTextareaDesc": {
+        "message": "Disable commenting."
+    },
+
+    "noPartEvenIfSubscriberTitle": {
+        "message": "Even If Subscriber"
+    },
+
+    "noPartEvenIfSubscriberDesc": {
+        "message": "Enable NP mode in subreddits where you're a subscriber."
+    },
+
+    "noPartEscapeNPTitle": {
+        "message": "Escape NP"
+    },
+
+    "noPartEscapeNPDesc": {
+        "message": "Remove np mode when leaving a No-Participation page."
+    },
+
     "notificationsName": {
         "message": "RES Notifications"
     },
 
-    "noPartnotificationsDesc": {
+    "notificationsDesc": {
         "message": "Manage pop-up notifications for RES functions."
+    },
+
+    "notificationStickyTitle": {
+        "message": "Sticky"
+    },
+
+    "notificationStickyDesc": {
+        "message": "Sticky notifications remain visible until you click the close button."
+    },
+
+    "notificationsPerNotificationType": {
+        "message": "per notification type"
+    },
+
+    "notificationsAlwaysSticky": {
+        "message": "always sticky"
+    },
+
+    "notificationsNeverSticky": {
+        "message": "never sticky"
+    },
+
+    "notificationCloseDelayTitle": {
+        "message": "Close Delay"
+    },
+
+    "notificationCloseDelayDesc": {
+        "message": "In milliseconds, length of time until a notification begins to disappear."
+    },
+
+    "notificationFadeOutLengthTitle": {
+        "message": "Fade Out Length"
+    },
+
+    "notificationFadeOutLengthDesc": {
+        "message": "In milliseconds, length of time available to stop a notification from disappearing."
+    },
+
+    "notificationNotificationTypesTitle": {
+        "message": "Notification Types"
+    },
+
+    "notificationNotificationTypesDesc": {
+        "message": "Manage different types of notifications."
+    },
+
+    "notificationsAddNotificationType": {
+        "message": "manually register notification type"
+    },
+
+    "notificationsModuleID": {
+        "message": "module ID"
+    },
+
+    "notificationsNotificationID": {
+        "message": "notification ID"
+    },
+
+    "notificationsEnabled": {
+        "message": "enabled"
+    },
+
+    "notificationsSticky": {
+        "message": "sticky"
+    },
+
+    "notificationsCooldown": {
+        "message": "cooldown"
     },
 
     "onboardingName": {
@@ -1220,12 +1468,116 @@
         "message": "Helping you get your daily dose of orangereds."
     },
 
+    "orangeredOpenMailInNewTabTitle": {
+        "message": "Open Mail In New Tab"
+    },
+
+    "orangeredOpenMailInNewTabDesc": {
+        "message": "When clicking the mail envelope or modmail icon, open mail in a new tab?"
+    },
+
+    "orangeredUpdateCurrentTabTitle": {
+        "message": "Update Current Tab"
+    },
+
+    "orangeredUpdateCurrentTabDesc": {
+        "message": "Update mail buttons on current tab when RES checks for orangereds."
+    },
+
+    "orangeredUpdateOtherTabsTitle": {
+        "message": "Update Other Tabs"
+    },
+
+    "orangeredUpdateOtherTabsDesc": {
+        "message": "Update all open tabs when RES checks for orangereds."
+    },
+
+    "orangeredShowFloatingEnvelopeTitle": {
+        "message": "Show Floating Envelope"
+    },
+
+    "orangeredShowFloatingEnvelopeDesc": {
+        "message": "Show an envelope (inbox) icon in the top right corner."
+    },
+
+    "orangeredRetroUnreadCountTitle": {
+        "message": "Retro Unread Count"
+    },
+
+    "orangeredRetroUnreadCountDesc": {
+        "message": "If you dislike the unread count provided by native reddit, you can replace it with the RES-style bracketed unread count."
+    },
+
+    "orangeredShowUnreadCountInTitleTitle": {
+        "message": "Show Unread Count In Title"
+    },
+
+    "orangeredShowUnreadCountInTitleDesc": {
+        "message": "Show unread message count in page/tab title?"
+    },
+
+    "orangeredShowUnreadCountInFaviconTitle": {
+        "message": "Show Unread Count In Favicon"
+    },
+
+    "orangeredShowUnreadCountInFaviconDesc": {
+        "message": "Show unread message count in favicon?"
+    },
+
+    "orangeredResetFaviconOnLeaveTitle": {
+        "message": "Reset Favicon On Leave"
+    },
+
+    "orangeredResetFaviconOnLeaveDesc": {
+        "message": "Reset the favicon before leaving the page.\n\nThis prevents the unread badge from appearing in bookmarks, but may hurt browser caching."
+    },
+
+    "orangeredUnreadLinksToInboxTitle": {
+        "message": "Unread Links To Inbox"
+    },
+
+    "orangeredUnreadLinksToInboxDesc": {
+        "message": "Always go to the inbox, not unread messages, when clicking on orangered."
+    },
+
+    "orangeredHideModMailTitle": {
+        "message": "Hide Mod Mail"
+    },
+
+    "orangeredHideModMailDesc": {
+        "message": "Hide the mod mail button in user bar."
+    },
+
     "pageNavName": {
         "message": "Page Navigator"
     },
 
     "pageNavDesc": {
         "message": "Provides tools for getting around the page."
+    },
+
+    "pageNavToTopTitle": {
+        "message": "To Top"
+    },
+
+    "pageNavToTopDesc": {
+        "message": "Add an icon to every page that takes you to the top when clicked."
+    },
+
+    "pageNavShowLinkTitle": {
+        "message": "Show Link"
+    },
+
+    "pageNavShowLinkDesc": {
+        "message": "Show information about the submission when scrolling up on comments pages."
+    },
+
+    "pageNavShowLinkNewTabTitle": {
+        "message": "Show Link New Tab"
+    },
+
+    "pageNavShowLinkNewTabDesc": {
+        "message": "Open link in new tab."
     },
 
     "presetsName": {
@@ -2637,43 +2989,79 @@
         "message": "A darker, more eye-friendly version of Reddit suited for night browsing.\n\nNote: Using this on/off switch will disable all features of the night mode module completely.\nTo simply turn off night mode, use the nightModeOn switch below."
     },
 
+    "nightModeNightModeOnTitle": {
+        "message": "Night Mode On"
+    },
+
     "nightModeNightModeOnDesc": {
         "message": "Enable/disable night mode."
+    },
+
+    "nightModeNightSwitchTitle": {
+        "message": "Night Switch"
     },
 
     "nightModeNightSwitchDesc": {
         "message": "Enable night switch, a toggle between day and night reddit located in the Settings dropdown menu."
     },
 
+    "nightModeAutomaticNightModeTitle": {
+        "message": "Automatic Night Mode"
+    },
+
     "nightModeAutomaticNightModeDesc": {
         "message": "Enable automatic night mode - night mode automatically starts and stops at the times configured below.\n\nFor the times below, a 24-hour clock (\"military time\") from 0:00 to 23:59 is used.\ne.g. the time 8:20pm would be written as 20:20, and 12:30am would be written as 00:30 or 0:30.\n\nTo temporarily override automatic night mode, manually flip the night mode switch.\nConfigure how long the override lasts below."
+    },
+
+    "nightModeNightModeStartTitle": {
+        "message": "Night Mode Start"
     },
 
     "nightModeNightModeStartDesc": {
         "message": "Time that automatic night mode starts. Default is 20:00 (8:00pm)."
     },
 
+    "nightModeNightModeEndTitle": {
+        "message": "Night Mode End"
+    },
+
     "nightModeNightModeEndDesc": {
         "message": "Time that automatic night mode ends. Default is 6:00 (6:00am)."
+    },
+
+    "nightModeNightModeOverrideHoursTitle": {
+        "message": "Night Mode Override Hours"
     },
 
     "nightModeNightModeOverrideHoursDesc": {
         "message": "Number of hours that the automatic night mode override lasts. Default is 8 (hours).\nYou can use a decimal number of hours here as well; e.g. 0.1 hours (which is 6 min)."
     },
 
+    "nightModeUseSubredditStylesTitle": {
+        "message": "Use Subreddit Styles"
+    },
+
+    "nightModeSubredditStylesWhitelistTitle": {
+        "message": "Subreddit Styles Whitelist"
+    },
+
     "nightModeSubredditStylesWhitelistDesc": {
         "message": "Allow the subreddits listed to display subreddit styles during night mode if useSubredditStyles is disabled."
+    },
+
+    "nightModeColoredLinksTitle": {
+        "message": "Colored Links"
     },
 
     "nightModeColoredLinksDesc": {
         "message": "Color links blue and purple."
     },
 
-    "gfycatUseMobileGfycatDesc": {
-        "message": "Use mobile (lower resolution) gifs from gfycat."
-    },
-
     "gfycatUseMobileGfycatTitle": {
         "message": "Use Mobile Gfycat"
+    },
+
+    "gfycatUseMobileGfycatDesc": {
+        "message": "Use mobile (lower resolution) gifs from gfycat."
     }
 }
