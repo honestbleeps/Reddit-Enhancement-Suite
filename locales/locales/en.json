@@ -2675,5 +2675,49 @@
 
     "gfycatUseMobileGfycatTitle": {
         "message": "Use Mobile Gfycat"
+    },
+
+    "multiredditNavbarSectionMenuDesc": {
+        "message": "Show a menu linking to various sections of the multireddit when hovering your mouse over the link."
+    },
+
+    "multiredditNavbarSectionLinksDesc": {
+        "message": "Links to display in the dropdown."
+    },
+
+    "multiredditNavbarHoverDelayDesc": {
+        "message": "Delay, in milliseconds, before hover tooltip loads. Default is 1000."
+    },
+
+    "multiredditNavbarFadeDelayDesc": {
+        "message": "Delay, in milliseconds, before hover tooltip fades away. Default is 200."
+    },
+
+    "multiredditNavbarFadeSpeedDesc": {
+        "message": "Fade animation's speed (in seconds). Default is 0.7."
+    },
+
+    "neverEndingRedditReturnToPrevPageDesc": {
+        "message": "Return to the page you were last on when hitting \"back\" button?"
+    },
+
+    "neverEndingRedditAutoLoadDesc": {
+        "message": "Automatically load new page on scroll (if off, you click to load)"
+    },
+
+    "neverEndingRedditPauseAfterEveryDesc": {
+        "message": "After auto-loading a certain number of pages, pause the auto-loader\n\n0 or a negative number means Never-Ending Reddit will only pause when you click the play/pause button in the top right corner."
+    },
+
+    "neverEndingRedditReversePauseIconDesc": {
+        "message": "Show \"paused\" bars icon when auto-load is paused and \"play\" wedge icon when active"
+    },
+
+    "neverEndingRedditHideDupesDesc": {
+        "message": "Fade or completely hide duplicate posts already showing on the page."
+    },
+
+    "neverEndingRedditShowServerInfoDesc": {
+        "message": "Show the π server / debug details next to the floating Never-Ending Reddit tools"
     }
 }
