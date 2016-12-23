@@ -3340,5 +3340,14 @@
 
     "resPenaltyBoxSuspendFeaturesRevertNotificationMessage": {
         "message": "$1 has been turned back on. This feature will not be throttled or automatically disabled again."
-    }
+    },
+
+    "resPenaltyBoxFeaturesMonitoring": {
+        "message": "monitoring"
+    },
+
+    "resPenaltyBoxFeaturesPenalty": {
+        "message": "penalty",
+        "description": "How heavily the feature is penalized (0-100)"
+    },
 }
