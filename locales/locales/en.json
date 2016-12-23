@@ -3302,51 +3302,51 @@
       "message": "Fade animation's speed (in seconds)."
     },
 
-    "resPenaltyBoxName": {
+    "penaltyBoxName": {
         "message": "RES Feature Throttle"
     },
 
-    "resPenaltyBoxDesc": {
+    "penaltyBoxDesc": {
         "message": "Automatically delay or disable RES features which go unused."
     },
 
-    "resPenaltyBoxDelayFeaturesDesc": {
+    "penaltyBoxDelayFeaturesDesc": {
         "message": "Throttle showing features which have a high penalty."
     },
 
-    "resPenaltyBoxSuspendFeaturesDesc": {
+    "penaltyBoxSuspendFeaturesDesc": {
         "message": "Turn off features which exceed the maximum penalty."
     },
 
-    "resPenaltyBoxFeaturesDesc": {
+    "penaltyBoxFeaturesDesc": {
         "message": "Track usage of different features."
     },
 
-    "resPenaltyBoxSuspendFeaturesNotificationHeader": {
+    "penaltyBoxSuspendFeaturesNotificationHeader": {
         "message": "Suspended Feature"
     },
 
-    "resPenaltyBoxSuspendFeaturesNotificationMessage": {
+    "penaltyBoxSuspendFeaturesNotificationMessage": {
         "message": "$1 will be turned off due to lack of use. You can enable it again later in the RES settings console."
     },
 
-    "resPenaltyBoxSuspendFeaturesUndoButton": {
+    "penaltyBoxSuspendFeaturesUndoButton": {
         "message": "Enable this feature again"
     },
 
-    "resPenaltyBoxSuspendFeaturesRevertNotificationHeader": {
+    "penaltyBoxSuspendFeaturesRevertNotificationHeader": {
         "message": "Pardoned Feature"
     },
 
-    "resPenaltyBoxSuspendFeaturesRevertNotificationMessage": {
+    "penaltyBoxSuspendFeaturesRevertNotificationMessage": {
         "message": "$1 has been turned back on. This feature will not be throttled or automatically disabled again."
     },
 
-    "resPenaltyBoxFeaturesMonitoring": {
+    "penaltyBoxFeaturesMonitoring": {
         "message": "monitoring"
     },
 
-    "resPenaltyBoxFeaturesPenalty": {
+    "penaltyBoxFeaturesPenalty": {
         "message": "penalty",
         "description": "How heavily the feature is penalized (0-100)"
     },
