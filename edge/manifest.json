@@ -43,6 +43,9 @@
 		},
 		"default_title": "Subreddit Style On"
 	},
+	"web_accessible_resources": [
+		"*.json"
+	],
 	"permissions": [
 		"cookies",
 		"tabs",

@@ -4,6 +4,7 @@ import _ from 'lodash';
 
 import resCss from '../lib/css/res.scss';
 
+import { makeGetMessage } from '../locales/embedded';
 import { createMessageHandler } from '../lib/environment/_messaging';
 import * as Init from '../lib/core/init';
 
@@ -59,3 +60,11 @@ addInterceptor('isURLVisited', () => false);
 
 // Safari has no pageAction
 addInterceptor('pageAction', () => {});
+
+let getMessage;
+
+addInterceptor('i18n-load', userLocale => {
+	getMessage = makeGetMessage(userLocale);
+});
+
+addInterceptor('i18n', ([messageName, substitutions]) => getMessage(messageName, substitutions));
