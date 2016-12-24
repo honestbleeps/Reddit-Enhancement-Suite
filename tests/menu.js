@@ -3,15 +3,15 @@ module.exports = {
 		browser
 			// lightweight page that still has the userbar
 			.url('https://www.reddit.com/wiki/pages')
-			.waitForElementVisible('#header', 1000)
-			.waitForElementVisible('#RESSettingsButton', 1000)
+			.waitForElementVisible('#header')
+			.waitForElementVisible('#RESSettingsButton')
 			.end();
 	},
 	'open settings console via menu': browser => {
 		browser
 			.url('https://www.reddit.com/wiki/pages')
-			.waitForElementVisible('#header', 1000)
-			.waitForElementVisible('#RESSettingsButton', 1000)
+			.waitForElementVisible('#header')
+			.waitForElementVisible('#RESSettingsButton')
 			// geckodriver doesn't support moveto https://github.com/mozilla/geckodriver/issues/159
 			.execute(`
 				document.querySelector('#RESSettingsButton')
@@ -19,7 +19,7 @@ module.exports = {
 			`)
 			.pause(1000)
 			.click('#SettingsConsole')
-			.waitForElementVisible('#RESConsoleContainer', 1000)
+			.waitForElementVisible('#RESConsoleContainer')
 			.end();
 	},
 };
