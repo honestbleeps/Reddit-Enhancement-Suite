@@ -3163,5 +3163,61 @@
 
     "searchHelperTransitionSearchTabsDesc": {
         "message": "Play a transition when you open and close tabs."
+    },
+
+    "selectedEntryAutoSelectOnScrollDesc": {
+        "message": "Automatically select the topmost item while scrolling"
+    },
+
+    "selectedEntrySelectThingOnLoadDesc": {
+        "message": "Automatically select a post/comment when the page loads"
+    },
+
+    "selectedEntrySelectLastThingOnLoadDesc": {
+        "message": "Automatically select the last thing you had selected"
+    },
+
+    "selectedEntryScrollToSelectedThingOnLoadDesc": {
+        "message": "Automatically scroll to the post/comment that is selected when the page loads"
+    },
+
+    "selectedEntrySelectOnClickDesc": {
+        "message": "Allows you to click on an item to select it"
+    },
+
+    "selectedEntryAddFocusBGColorDesc": {
+        "message": "Use a background color"
+    },
+
+    "selectedEntryFocusBGColorDesc": {
+        "message": "The background color"
+    },
+
+    "selectedEntryFocusBGColorNightDesc": {
+        "message": "The background color while using Night Mode"
+    },
+
+    "selectedEntryFocusFGColorNightDesc": {
+        "message": "The text color while using Night Mode"
+    },
+
+    "selectedEntryAddFocusBorderDesc": {
+        "message": "Use a border"
+    },
+
+    "selectedEntryFocusBorderDesc": {
+        "message": "Border appearance. E.g. `1px dashed gray` (CSS)"
+    },
+
+    "selectedEntryFocusBorderNightDesc": {
+        "message": "Border appearance using Night Mode (as above)"
+    },
+
+    "settingsNavigationShowAllOptionsDesc": {
+        "message": "All options are displayed by default. Uncheck this box if you would like to hide advanced options."
+    },
+
+    "settingsNavigationShowAllOptionsAlertDesc": {
+        "message": "If a user clicks on a link to an advanced option while advanced options are hidden, should an alert be shown?"
     }
 }
