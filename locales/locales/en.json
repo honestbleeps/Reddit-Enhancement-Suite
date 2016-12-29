@@ -3087,5 +3087,81 @@
 
     "gfycatUseMobileGfycatDesc": {
         "message": "Use mobile (lower resolution) gifs from gfycat."
+    },
+
+    "presetsLiteDesc": {
+        "message": "RES Lite: just the popular stuff"
+    },
+
+    "presetsCleanSlateDesc": {
+        "message": "Turn off all the RES modules"
+    },
+
+    "presetsNoPopupsDesc": {
+        "message": "Turn off notifications and hover pop-ups"
+    },
+
+    "quickMessageOpenQuickMessageDesc": {
+        "message": "Keyboard shortcut to open the quick message dialog."
+    },
+
+    "quickMessageDefaultSubjectDesc": {
+        "message": "Text that will automatically be inserted into the subject field, unless it is auto-filled by context."
+    },
+
+    "quickMessageSendAsDesc": {
+        "message": "The default user or subreddit to select when the \"from\" field is unspecified.\nReverts to the current user if the selected option can't be used (i.e. you aren't a moderator of the current subreddit)."
+    },
+
+    "quickMessageHandleContentLinksDesc": {
+        "message": "Open the quick message dialog when clicking on reddit.com/message/compose links in comments, selftext, or wiki pages."
+    },
+
+    "quickMessageHandleSideLinksDesc": {
+        "message": "Open the quick message dialog when clicking on reddit.com/message/compose links in the sidebar. (e.g. \"message the moderators\")"
+    },
+
+    "quickMessageLinkToCurrentPageDesc": {
+        "message": "Automatically start with a link to the current page in the message body (or, if opened from the user info popup, a link to the current post or comment)."
+    },
+
+    "RESTipsDailyTipDesc": {
+        "message": "Show a random tip once every 24 hours."
+    },
+
+    "searchHelperAddSearchOptionsDesc": {
+        "message": "Allow you to choose sorting and time range on the search form of the side panel."
+    },
+
+    "searchHelperLegacySearchDesc": {
+        "message": "Request the \"legacy layout\" feature for reddit search.\n\n\nThis will only be available for a limited time."
+    },
+
+    "searchHelperToggleSearchOptionsDesc": {
+        "message": "Add a button to hide search options while searching."
+    },
+
+    "searchHelperHideSearchOptionsDesc": {
+        "message": "Automatically hide search options and suggestions on the search page."
+    },
+
+    "searchHelperUserFilterBySubredditDesc": {
+        "message": "When on a user profile, offer to search user's post from the subreddit or multireddit we come from."
+    },
+
+    "searchHelperSearchByFlairDesc": {
+        "message": "When clicking on a post's flair, search its subreddit for that flair.\nMay not work in some subreddits that hide the actual flair and add pseudo-flair with CSS (only workaround is to disable subreddit style)."
+    },
+
+    "searchHelperSearchPageTabsDesc": {
+        "message": "Add tabs to the search page."
+    },
+
+    "searchHelperDefaultSearchTabDesc": {
+        "message": "The tab that will be expanded each time you search."
+    },
+
+    "searchHelperTransitionSearchTabsDesc": {
+        "message": "Play a transition when you open and close tabs."
     }
 }
