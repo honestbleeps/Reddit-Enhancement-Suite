@@ -1,34 +1,12 @@
 
 ### New Features
 
-- Make more strings localizable (big thanks @wojtekmaj, @BenMcGarry, @jakewilson, @knorssman, @erikdesjardins, @larsjohnsen, @mc10)
-- Translate many more strings in many languages (big thanks to our [150+ translators](https://www.transifex.com/reddit-enhancement-suite/reddit-enhancement-suite/)!)
-- New useMobileGfycat option to view lower-resolution Gfycat videos (thanks @leveneg)
-- New Page Navigator button to scroll to and focus the new comment textarea (thanks @dhensche)
-- RES Settings Console search is updated as-you-type, performance improvements (thanks @wojtekmaj)
-- New defaultMinimumComments option to only enable Comment Depth when there are sufficient comments (thanks @dhensche)
-- Add `data-host` attribute to expando buttons (thanks @larsjohnsen)
+- None (thanks nobody)
 
 ### Bug Fixes
 
-- Fix Show Images maxWidth on comments pages (thanks @larsjohnsen)
-- Fix empty custom toggles overlapping other toggles (thanks @erikdesjardins)
-- Fix crash related to customFilters postAge (thanks @larsjohnsen)
-- Fix comment permalinks containing non-ASCII characters being treated as post permalinks (thanks @erikdesjardins)
-- Fix Account Switcher not switching accounts in new modmail (thanks @erikdesjardins)
-- Fix Streamable attribution icon (thanks @BenMcGarry)
-- Fix Never Ending Reddit not reselecting the last post on page 2+ (thanks @larsjohnsen)
-- Fix Never Ending Reddit "return to previous page" modal sometimes not appearing (thanks @larsjohnsen)
-- Fix Vote Enhancements not applying to newly loaded comments (thanks @erikdesjardins)
+- None (thanks nobody)
 
 ### Housekeeping / Other
 
-- Logged in user is now extracted from the profile URL, not text (which may be changed by other extensions) (thanks @preethamrn)
-- Add ability to add additional search keywords to modules and options (thanks @wojtekmaj)
-- Minor cleanup to version module (thanks @erikdesjardins)
-- Update CodeClimate config (thanks @mc10)
-- Cleanup ajax requests in Dashboard (thanks @mc10)
-- Tweak init timing (thanks @erikdesjardins)
-- Avoid forced synchronous layout when initializing Page Navigator showLink (thanks @larsjohnsen)
-- Update dependencies (thanks @erikdesjardins)
-- Enable/disable some keyboard shortcuts with more precise criteria (thanks @larsjohnsen)
+- None (thanks nobody)
