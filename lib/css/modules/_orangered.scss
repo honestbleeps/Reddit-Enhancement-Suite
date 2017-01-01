@@ -1,9 +1,7 @@
 #NREMail {
-	display: inline-block;
-	margin-bottom: -2px;
-	margin-top: 5px;
 	width: 15px;
 	height: 10px;
+	margin-left: 4px;
 	background: center center no-repeat;
 
 	&.nohavemail {
@@ -17,7 +15,7 @@
 
 #NREMailCount {
 	line-height: 12px;
-	margin-top: 4px;
+	margin: 0 0 0 1px;
 }
 
 .res-orangered-hideModMail {
