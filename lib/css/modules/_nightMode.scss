@@ -1374,4 +1374,11 @@
 		&-dropdown-container { background-color: #313131; }
 		&-external-filter:hover { background-color: #444; }
 	}
+
+	.res-commentNavToggle {
+		&-choices {
+			background-color: rgba(0, 0, 0, .9);
+			box-shadow: rgb(49, 49, 49) 1px 2px 4px;
+		}
+	}
 }
