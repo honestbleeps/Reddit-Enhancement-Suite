@@ -21,11 +21,11 @@ module.exports = {
 
 			.url('https://www.reddit.com/r/RESIntegrationTests/comments/5jmvjf/vote_enhancements/')
 			// root level comment, visible at start
-			.waitForElementVisible(rootComment, 1000)
+			.waitForElementVisible(`${rootComment} > .entry > .tagline`, 1000)
 			.assert.cssProperty(`${rootComment} > .entry > .tagline .score.unvoted`, 'color', color)
 			// reveal child of stickied comment
 			.click('#more_t1_dbhdj53')
-			.waitForElementVisible(childComment, 1000)
+			.waitForElementVisible(`${childComment} > .entry > .tagline`, 1000)
 			.assert.cssProperty(`${childComment} > .entry > .tagline .score.unvoted`, 'color', color)
 
 			.end();
