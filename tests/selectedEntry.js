@@ -11,6 +11,17 @@ module.exports = {
 		const loadMoreChildrenOfSticky = `${childOfStickiedComment1} .morecomments a`;
 
 		browser
+			// Geckodriver has this wonderful issue where it doesn't support manually moving the mouse
+			// (the moveTo command), but after the click command it continues to hover on the same spot
+			// that was clicked.
+			// In this test, that behaviour causes the user hover info to appear after loading more comments,
+			// which breaks everything by covering up the comments we need to click on.
+			// It's too difficult to work around, so just disable user info entirely.
+			.url('https://www.reddit.com/wiki/pages#res:settings/userInfo')
+			.waitForElementVisible('#RESConsoleContainer')
+			.click('.moduleToggle')
+
+			// Run the actual test...
 			.url('https://www.reddit.com/r/RESIntegrationTests/comments/5lfy0v/selected_entry_selecting_comments/?limit=1')
 
 			.waitForElementVisible(parentPost)
