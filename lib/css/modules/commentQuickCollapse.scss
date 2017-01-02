@@ -26,6 +26,13 @@
 		transition: color .15s,
 		background-color .15s;
 	}
+	.thing .RES-keyNav-activeElement {
+			position: static !important;
+	}
+	.comment.gilded p.tagline {
+  	position: static;
+	}
+
 }
 
 .res-commentQuickCollapse-hideCollapseButton {
