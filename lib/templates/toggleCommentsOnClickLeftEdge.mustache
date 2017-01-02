@@ -1,41 +1,14 @@
-.comment  {
-/*
-	box-shadow: 0px 1px 5px rgba(0,0,0,.16) !important;
-	margin-bottom: 10px !important;
-	margin-left: 0px !important;
-*/
-	position: relative;
+
+#siteTable ~ .commentarea .comment  {
 	padding-left: {{widthO}}em!important;
 }
-.comment .collapsed>.entry>.tagline>.expand{
+#siteTable ~ .commentarea .comment .collapsed>.entry>.tagline>.expand{
 	background-color: {{cColor}} !important;
-	{{#cButton}}
-		color: transparent !important;
-	{{/cButton}}
 }
-.comment >.entry>.tagline>.expand:hover {
-	text-decoration: none; background-image: none !important;
+#siteTable ~ .commentarea .comment >.entry>.tagline>.expand:hover {
 	background-color: {{hColor}};
-	{{#cButton}}
-		color: transparent !important;
-	{{/cButton}}
 }
-.comment >.entry>.tagline>.expand {
-	margin-right: 3px !important;
-	padding: 1px !important;
-	height: 100% !important;
-	background-image: none !important;
-	position: absolute !important;
-	top: 0 !important;
-	left: 0 !important;
-	bottom: 0 !important;
+#siteTable ~ .commentarea .comment >.entry>.tagline>.expand {
 	width: {{widthI}}em !important;
-	text-align: center !important;
 	background-color: {{bColor}};
-	{{#cButton}}
-		color: transparent !important;
-	{{/cButton}}
-	font-size: 10px !important;
-	transition: color .15s,
-	background-color .15s;
 }
