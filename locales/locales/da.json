@@ -24,7 +24,7 @@
         "description": ""
     },
     "userInfoUserHasRedditGold": {
-        "message": "User has Reddit Gold",
+        "message": "Bruger har Reddit Guld",
         "description": ""
     },
     "keyboardNavMoveUpSiblingTitle": {
@@ -39,12 +39,16 @@
         "message": "↑ ↑ ↓ ↓ ← → ← → B A.",
         "description": ""
     },
+    "presetsCleanSlateDesc": {
+        "message": "Turn off all the RES modules",
+        "description": ""
+    },
     "betteRedditShowTimestampModerationLogDesc": {
         "message": "Show the precise date in the moderation log (/r/mod/about/log).",
         "description": ""
     },
     "keyboardNavRandomTitle": {
-        "message": "Random",
+        "message": "Tilfældig",
         "description": ""
     },
     "messageMenuUrl": {
@@ -64,15 +68,19 @@
         "description": ""
     },
     "orangeredName": {
-        "message": "Unread Messages",
+        "message": "Ulæste Beskeder",
+        "description": ""
+    },
+    "RESTipsDailyTipDesc": {
+        "message": "Show a random tip once every 24 hours.",
         "description": ""
     },
     "filteRedditKeywordsTitle": {
-        "message": "Keywords",
+        "message": "Nøgleord",
         "description": ""
     },
     "filteRedditAllowNSFWTitle": {
-        "message": "Allow NSFW",
+        "message": "Tillad NSFW",
         "description": ""
     },
     "hoverOpenDelayTitle": {
@@ -80,11 +88,11 @@
         "description": ""
     },
     "keyboardNavNextPageTitle": {
-        "message": "Next Page",
+        "message": "Næste Side",
         "description": ""
     },
     "commentToolsSuperKeyTitle": {
-        "message": "Super Key",
+        "message": "Super Tast",
         "description": ""
     },
     "logoLinkCustomDestinationTitle": {
@@ -100,7 +108,7 @@
         "description": ""
     },
     "orangeredHideModMailDesc": {
-        "message": "Hide the mod mail button in user bar.",
+        "message": "Skjul mod post nappen i brugerbaren.",
         "description": ""
     },
     "orangeredRetroUnreadCountDesc": {
@@ -119,6 +127,10 @@
         "message": "Comment Navigator Move Down",
         "description": ""
     },
+    "searchHelperToggleSearchOptionsDesc": {
+        "message": "Add a button to hide search options while searching.",
+        "description": ""
+    },
     "keyboardNavCommentNavigatorMoveUpDesc": {
         "message": "Move up using Comment Navigator.",
         "description": ""
@@ -128,7 +140,7 @@
         "description": ""
     },
     "commentToolsKeepMacroListOpenTitle": {
-        "message": "Keep Macro List Open",
+        "message": "Hold Makro Listen Åben",
         "description": ""
     },
     "keyboardNavToggleCommentNavigatorTitle": {
@@ -136,7 +148,7 @@
         "description": ""
     },
     "commentToolsKeyboardShortcutsTitle": {
-        "message": "Keyboard Shortcuts",
+        "message": "Tastaturgenveje",
         "description": ""
     },
     "keyboardNavFollowLinkNewTabDesc": {
@@ -148,7 +160,7 @@
         "description": ""
     },
     "onboardingDesc": {
-        "message": "Learn more about RES at /r/Enhancement.",
+        "message": "Lær mere om RES hos /r/Enhancement",
         "description": ""
     },
     "filteRedditNSFWfilterTitle": {
@@ -160,11 +172,11 @@
         "description": ""
     },
     "commentToolsLinkKeyTitle": {
-        "message": "Link Key",
+        "message": "Link Tast",
         "description": ""
     },
     "commentToolsAddShortcut": {
-        "message": "+add shortcut",
+        "message": "+tilføj genvej",
         "description": ""
     },
     "keyboardNavsSubredditFrontPageTitle": {
@@ -172,11 +184,11 @@
         "description": ""
     },
     "keyboardNavFollowSubredditTitle": {
-        "message": "Follow Subreddit",
+        "message": "Følg Subreddit",
         "description": ""
     },
     "accountSwitcherShowGoldTitle": {
-        "message": "Show Gold",
+        "message": "Vis Guld",
         "description": ""
     },
     "stylesheetName": {
@@ -188,11 +200,11 @@
         "description": ""
     },
     "userInfoIgnore": {
-        "message": "Ignore",
+        "message": "Ignorer",
         "description": ""
     },
     "dashboardMenuItemTitle": {
-        "message": "Menu Item",
+        "message": "Menupunkt",
         "description": ""
     },
     "nightModeSubredditStylesWhitelistTitle": {
@@ -204,11 +216,11 @@
         "description": ""
     },
     "messageMenuAddShortcut": {
-        "message": "+add shortcut",
+        "message": "+tilføj genvej",
         "description": ""
     },
     "troubleshooterName": {
-        "message": "Troubleshooter",
+        "message": "Fejlfinder",
         "description": ""
     },
     "orangeredRetroUnreadCountTitle": {
@@ -220,7 +232,7 @@
         "description": ""
     },
     "keyboardNavInboxNewTabTitle": {
-        "message": "Inbox New Tab",
+        "message": "Indbakke Ny Fane",
         "description": ""
     },
     "keyboardNavFollowPermalinkNewTabDesc": {
@@ -232,7 +244,7 @@
         "description": ""
     },
     "onboardingName": {
-        "message": "RES Welcome Wagon",
+        "message": "RES Velkomstkomiteen",
         "description": ""
     },
     "subredditInfoStopFilteringFromAllAndDomain": {
@@ -248,15 +260,23 @@
         "description": ""
     },
     "commentPreviewEnableForCommentsTitle": {
-        "message": "Enable For Comments",
+        "message": "Slå til for Kommentarer",
         "description": ""
     },
     "spamButtonDesc": {
         "message": "Adds a Spam button to posts for easy reporting.",
         "description": ""
     },
+    "userTaggerHardIgnoreDesc": {
+        "message": "Completely remove links and comments posted by ignored users. If an ignored comment has replies, collapse it and hide its contents instead of removing it.",
+        "description": ""
+    },
     "commentToolsLabel": {
         "message": "label",
+        "description": ""
+    },
+    "quickMessageDefaultSubjectDesc": {
+        "message": "Text that will automatically be inserted into the subject field, unless it is auto-filled by context.",
         "description": ""
     },
     "newCommentCountMonitorPostsVisitedDesc": {
@@ -268,15 +288,19 @@
         "description": ""
     },
     "nightModeNightModeOnTitle": {
-        "message": "Night Mode On",
+        "message": "Nat Tilstand Til",
         "description": ""
     },
     "myAccountCategory": {
         "message": "Min Konto",
         "description": ""
     },
+    "commentDepthDefaultMinimumCommentsTitle": {
+        "message": "Default Minimum Comments",
+        "description": ""
+    },
     "yes": {
-        "message": "Yes",
+        "message": "Ja",
         "description": ""
     },
     "filteRedditName": {
@@ -292,11 +316,11 @@
         "description": ""
     },
     "userTaggerPageXOfY": {
-        "message": "$1 of $2",
+        "message": "$1 af $2",
         "description": "As in 'page 1 of 5'"
     },
     "userTaggerMyUserTags": {
-        "message": "My User Tags",
+        "message": "Mine Bruger Tags",
         "description": ""
     },
     "pageNavShowLinkNewTabDesc": {
@@ -336,7 +360,7 @@
         "description": ""
     },
     "subredditInfoTitle": {
-        "message": "Title:",
+        "message": "Titel:",
         "description": ""
     },
     "keyboardNavFollowLinkAndCommentsNewTabBGDesc": {
@@ -380,7 +404,7 @@
         "description": ""
     },
     "searchName": {
-        "message": "Search RES Settings",
+        "message": "Søg RES Indstillinger",
         "description": ""
     },
     "orangeredResetFaviconOnLeaveTitle": {
@@ -388,7 +412,7 @@
         "description": ""
     },
     "pageNavName": {
-        "message": "Page Navigator",
+        "message": "Side Navigator",
         "description": ""
     },
     "keyboardNavFollowLinkDesc": {
@@ -420,7 +444,7 @@
         "description": ""
     },
     "nightModeNightModeStartTitle": {
-        "message": "Night Mode Start",
+        "message": "Nat Tilstand Start",
         "description": ""
     },
     "userbarHiderUserBarHidden": {
@@ -488,7 +512,7 @@
         "description": ""
     },
     "backupAndRestoreBackupDesc": {
-        "message": "Download a backup of your current RES settings.",
+        "message": "Hent en backup af dine nuværende RES indstillinger.",
         "description": ""
     },
     "keyboardNavEnterFilterCommandLineTitle": {
@@ -515,8 +539,16 @@
         "message": "Use subreddit style",
         "description": ""
     },
+    "selectedEntryFocusBorderNightDesc": {
+        "message": "Border appearance using Night Mode (as above)",
+        "description": ""
+    },
     "voteEnhancementsUpvote": {
         "message": "upvote",
+        "description": ""
+    },
+    "quickMessageLinkToCurrentPageDesc": {
+        "message": "Automatically start with a link to the current page in the message body (or, if opened from the user info popup, a link to the current post or comment).",
         "description": ""
     },
     "subredditInfoAddThisSubredditToDashboard": {
@@ -560,7 +592,7 @@
         "description": ""
     },
     "resTipsDesc": {
-        "message": "Adds tips/tricks help to RES console.",
+        "message": "Tilføjer tips/tricks hjælp til RES konsollen.",
         "description": ""
     },
     "keyboardNavMoveUpSiblingDesc": {
@@ -600,7 +632,7 @@
         "description": ""
     },
     "styleTweaksClickToLearnMore": {
-        "message": "Click here to learn more",
+        "message": "Klik her for at lære mere",
         "description": ""
     },
     "keyboardNavCommentsLinkNumberPositionDesc": {
@@ -612,11 +644,11 @@
         "description": ""
     },
     "commentPreviewEnableForSubredditConfigDesc": {
-        "message": "Show preview for editing subreddit settings.",
+        "message": "Vis forhåndsvisning for redigering af subreddit indstillinger.",
         "description": ""
     },
     "userTaggerAllUsers": {
-        "message": "all users",
+        "message": "alle brugere",
         "description": ""
     },
     "pageNavToTopDesc": {
@@ -636,11 +668,11 @@
         "description": ""
     },
     "betteRedditShowTimestampWikiDesc": {
-        "message": "Show the precise date in the wiki.",
+        "message": "Vis den præcise dato i wiki.",
         "description": ""
     },
     "logoLinkInbox": {
-        "message": "Inbox",
+        "message": "Indbakke",
         "description": ""
     },
     "searchHelperDesc": {
@@ -660,7 +692,7 @@
         "description": ""
     },
     "presetsName": {
-        "message": "Presets",
+        "message": "Prædefinerede",
         "description": ""
     },
     "styleTweaksName": {
@@ -692,7 +724,7 @@
         "description": ""
     },
     "accountSwitcherShowKarmaTitle": {
-        "message": "Show Karma",
+        "message": "Vis Karma",
         "description": ""
     },
     "nightModeAutomaticNightModeTitle": {
@@ -724,11 +756,15 @@
         "description": ""
     },
     "noPartName": {
-        "message": "No Participation",
+        "message": "Ingen Deltagelse",
         "description": ""
     },
     "presetsDesc": {
         "message": "Select from various preset RES configurations. Each preset turns on or off various modules/options, but does not reset your entire configuration.",
+        "description": ""
+    },
+    "commentDepthDefaultMinimumCommentsDesc": {
+        "message": "Default minimum number of comments required to apply custom depth.",
         "description": ""
     },
     "commentToolsEnableOnBanMessagesDesc": {
@@ -740,11 +776,11 @@
         "description": ""
     },
     "styleTweaksSubredditStyle": {
-        "message": "Subreddit Style",
+        "message": "Subreddit Stil",
         "description": ""
     },
     "keyboardNavDownVoteTitle": {
-        "message": "Down Vote",
+        "message": "Nedstem",
         "description": ""
     },
     "keyboardNavMoveDownTitle": {
@@ -768,11 +804,15 @@
         "description": ""
     },
     "commentToolsHighlightIfAltAccountTitle": {
-        "message": "Highlight If Alt Account",
+        "message": "Highlight hvis Alt Konto",
         "description": ""
     },
     "userInfoDesc": {
         "message": "Adds a hover tooltip to users.",
+        "description": ""
+    },
+    "userTaggerUseCommentsLinkAsSourceDesc": {
+        "message": "By default, store a link to the comments when tagging a user in a link post. Otherwise, the link (that the post refers to) will be used.",
         "description": ""
     },
     "notificationCloseDelayTitle": {
@@ -781,6 +821,10 @@
     },
     "logoLinkDesc": {
         "message": "Tillader dig at ændre linket på redditlogoet",
+        "description": ""
+    },
+    "quickMessageOpenQuickMessageDesc": {
+        "message": "Keyboard shortcut to open the quick message dialog.",
         "description": ""
     },
     "dashboardDefaultPostsDesc": {
@@ -800,7 +844,7 @@
         "description": ""
     },
     "commentToolsStrikeKeyTitle": {
-        "message": "Strike Key",
+        "message": "Gennemstreg Tast",
         "description": ""
     },
     "multiredditNavbarHoverDelayDesc": {
@@ -812,7 +856,7 @@
         "description": ""
     },
     "keyboardNavSaveRESTitle": {
-        "message": "Save RES",
+        "message": "Gem RES",
         "description": ""
     },
     "keyboardNavOnHideMoveDownTitle": {
@@ -824,11 +868,11 @@
         "description": ""
     },
     "profileNavigatorName": {
-        "message": "Profile Navigator",
+        "message": "Profil Navigator",
         "description": ""
     },
     "no": {
-        "message": "No",
+        "message": "Nej",
         "description": ""
     },
     "notificationFadeOutLengthTitle": {
@@ -845,6 +889,10 @@
     },
     "aboutOptionsPresets": {
         "message": "Skift hurtigt instillinger i RES med forskellige forudinstillinger.",
+        "description": ""
+    },
+    "settingsNavigationShowAllOptionsAlertDesc": {
+        "message": "If a user clicks on a link to an advanced option while advanced options are hidden, should an alert be shown?",
         "description": ""
     },
     "commentHidePerName": {
@@ -879,8 +927,12 @@
         "message": "Your username, karma, preferences, RES gear, and so on are hidden. You can show them again by clicking the $1 button in the top right corner.",
         "description": ""
     },
+    "selectedEntryAutoSelectOnScrollDesc": {
+        "message": "Automatically select the topmost item while scrolling",
+        "description": ""
+    },
     "keyboardNavFollowLinkTitle": {
-        "message": "Follow Link",
+        "message": "Følg Link",
         "description": ""
     },
     "keyboardNavMoveBottomDesc": {
@@ -908,7 +960,7 @@
         "description": ""
     },
     "commentPreviewEnableForPostsDesc": {
-        "message": "Show preview for posts.",
+        "message": "Vis forhåndsvisning for indlæg.",
         "description": ""
     },
     "keyboardNavImageMoveRightTitle": {
@@ -932,11 +984,11 @@
         "description": ""
     },
     "userInfoCommentKarma": {
-        "message": "Comment Karma:",
+        "message": "Kommentar Karma:",
         "description": ""
     },
     "settingsConsoleDesc": {
-        "message": "Manage your RES settings and preferences.",
+        "message": "Håndter dine RES indstillinger og præferencer-",
         "description": ""
     },
     "messageMenuLinksTitle": {
@@ -972,11 +1024,11 @@
         "description": ""
     },
     "dashboardDashboardShortcutTitle": {
-        "message": "Dashboard Shortcut",
+        "message": "Instrumentbræt",
         "description": ""
     },
     "keyboardNavHideTitle": {
-        "message": "Hide",
+        "message": "Skjul",
         "description": ""
     },
     "userInfoLink": {
@@ -984,19 +1036,19 @@
         "description": ""
     },
     "submitHelperTimeAgo": {
-        "message": "$1 ago",
+        "message": "$1 siden",
         "description": "As in '1 day ago'"
     },
     "betteRedditVideoTimesDesc": {
-        "message": "Show lengths of videos when possible.",
+        "message": "Vis længde af videoer hvis muligt.",
         "description": ""
     },
     "userTaggerIgnoredPlaceholder": {
-        "message": "ignored.",
+        "message": "ignoreret.",
         "description": "Replaces the content of ignored comments."
     },
     "keyboardNavReplyTitle": {
-        "message": "Reply",
+        "message": "Svar",
         "description": ""
     },
     "accountSwitcherSimpleArrow": {
@@ -1012,7 +1064,15 @@
         "description": ""
     },
     "userTaggerCommandLineDescription": {
-        "message": "tags author of currently selected link/comment.",
+        "message": "tagger forfatteren af nuværende valgte link/kommentar",
+        "description": ""
+    },
+    "selectedEntryFocusBorderDesc": {
+        "message": "Border appearance. E.g. `1px dashed gray` (CSS)",
+        "description": ""
+    },
+    "settingsNavigationShowAllOptionsDesc": {
+        "message": "All options are displayed by default. Uncheck this box if you would like to hide advanced options.",
         "description": ""
     },
     "betteRedditFixHideLinksTitle": {
@@ -1027,12 +1087,16 @@
         "message": "Open Comment Navigator.",
         "description": ""
     },
+    "presetsLiteDesc": {
+        "message": "RES Lite: just the popular stuff",
+        "description": ""
+    },
     "commentToolsCtrlEnterSubmitsCommentsDesc": {
         "message": "Pressing Ctrl+Enter or Cmd+Enter will submit your comment/wiki edit.",
         "description": ""
     },
     "filteRedditShowFilterlineTitle": {
-        "message": "Show Filterline",
+        "message": "Vis Filterlinje",
         "description": ""
     },
     "multiredditNavbarSectionLinksTitle": {
@@ -1044,7 +1108,7 @@
         "description": ""
     },
     "userTaggerSetATag": {
-        "message": "set a tag",
+        "message": "sæt et tag",
         "description": ""
     },
     "submitHelperName": {
@@ -1056,7 +1120,7 @@
         "description": ""
     },
     "dashboardDefaultSortTitle": {
-        "message": "Default Sort",
+        "message": "Standard Sortering",
         "description": ""
     },
     "commentStyleCommentRoundedTitle": {
@@ -1108,11 +1172,15 @@
         "description": ""
     },
     "keyboardNavUpVoteTitle": {
-        "message": "Up Vote",
+        "message": "Opstem",
         "description": ""
     },
     "notificationNotificationTypesDesc": {
         "message": "Manage different types of notifications.",
+        "description": ""
+    },
+    "quickMessageHandleContentLinksDesc": {
+        "message": "Open the quick message dialog when clicking on reddit.com/message/compose links in comments, selftext, or wiki pages.",
         "description": ""
     },
     "orangeredUpdateCurrentTabDesc": {
@@ -1147,12 +1215,20 @@
         "message": "Tastatur navigation til reddit!",
         "description": ""
     },
+    "userTaggerVWNumberDesc": {
+        "message": "Show the number (i.e. [+6]) rather than [vw]",
+        "description": ""
+    },
+    "pageNavToCommentTitle": {
+        "message": "To New Comment Area",
+        "description": ""
+    },
     "keyboardNavMoveToParentDesc": {
         "message": "Move to parent (in comments).",
         "description": ""
     },
     "xPostLinksCategory": {
-        "message": "Submissions",
+        "message": "Indlæg",
         "description": ""
     },
     "keyboardNavGoModeDesc": {
@@ -1188,7 +1264,7 @@
         "description": ""
     },
     "keyboardNavFollowPermalinkNewTabTitle": {
-        "message": "Follow Permalink New Tab",
+        "message": "Følg Permalink i Ny Fane",
         "description": ""
     },
     "keyboardNavImageSizeAnyHeightDesc": {
@@ -1196,15 +1272,23 @@
         "description": ""
     },
     "userTaggerTagUser": {
-        "message": "tag user $1",
+        "message": "tag bruger $1",
+        "description": ""
+    },
+    "searchHelperLegacySearchDesc": {
+        "message": "Request the \"legacy layout\" feature for reddit search.\n\n\nThis will only be available for a limited time.",
         "description": ""
     },
     "submitIssueName": {
-        "message": "Submit an Issue",
+        "message": "Indsend et Problem",
         "description": ""
     },
     "aboutOptionsFAQTitle": {
         "message": "FAQ",
+        "description": ""
+    },
+    "selectedEntryAddFocusBGColorDesc": {
+        "message": "Use a background color",
         "description": ""
     },
     "accountSwitcherShowUserDetailsTitle": {
@@ -1228,7 +1312,7 @@
         "description": ""
     },
     "keyboardNavProfileDesc": {
-        "message": "Go to profile.",
+        "message": "Gå til profil.",
         "description": ""
     },
     "keyboardNavFollowLinkAndCommentsNewTabDesc": {
@@ -1260,7 +1344,7 @@
         "description": ""
     },
     "toggleOff": {
-        "message": "off",
+        "message": "fra",
         "description": ""
     },
     "commentToolsSubredditAutocompleteDesc": {
@@ -1280,7 +1364,7 @@
         "description": ""
     },
     "keyboardNavProfileTitle": {
-        "message": "Profile",
+        "message": "Profil",
         "description": ""
     },
     "filteRedditFilterSubredditsFromTitle": {
@@ -1288,7 +1372,7 @@
         "description": ""
     },
     "userTaggerShowAnyway": {
-        "message": "show anyway?",
+        "message": "vis alligevel?",
         "description": "for showing ignored comments"
     },
     "accountSwitcherAddAccount": {
@@ -1304,7 +1388,7 @@
         "description": ""
     },
     "subredditInfoSubscribers": {
-        "message": "Subscribers:",
+        "message": "Abonnementer:",
         "description": ""
     },
     "keyboardNavMoveUpThreadDesc": {
@@ -1324,11 +1408,11 @@
         "description": ""
     },
     "betteRedditVideoUploadedDesc": {
-        "message": "Show upload date of videos when possible.",
+        "message": "Vis upload datoen for videoer hvis muligt.",
         "description": ""
     },
     "saveCommentsName": {
-        "message": "Save Comments",
+        "message": "Gem Kommentarer",
         "description": ""
     },
     "hoverFadeSpeedDesc": {
@@ -1348,7 +1432,11 @@
         "description": ""
     },
     "keyboardNavSavePostTitle": {
-        "message": "Save Post",
+        "message": "Gem Indlæg",
+        "description": ""
+    },
+    "searchHelperSearchByFlairDesc": {
+        "message": "When clicking on a post's flair, search its subreddit for that flair.\nMay not work in some subreddits that hide the actual flair and add pseudo-flair with CSS (only workaround is to disable subreddit style).",
         "description": ""
     },
     "subredditInfoDesc": {
@@ -1383,6 +1471,10 @@
         "message": "Logolink",
         "description": ""
     },
+    "userTaggerVWTooltipDesc": {
+        "message": "Show the vote weight tooltip on hover (i.e. \"your votes for...\")",
+        "description": ""
+    },
     "aboutOptionsBugs": {
         "message": "Hvis nogen ikke virker korrekt, besøg /r/RESissues for hjælp.",
         "description": ""
@@ -1396,7 +1488,7 @@
         "description": ""
     },
     "commentPreviewEnableForWikiTitle": {
-        "message": "Enable For Wiki",
+        "message": "Slå til For Wiki",
         "description": ""
     },
     "filteRedditExcludeUserPagesTitle": {
@@ -1408,7 +1500,7 @@
         "description": ""
     },
     "showImagesName": {
-        "message": "Inline Image Viewer",
+        "message": "Inline Billede Viser",
         "description": ""
     },
     "commentStyleCommentIndentDesc": {
@@ -1420,11 +1512,11 @@
         "description": ""
     },
     "userInfoRedditorSince": {
-        "message": "Redditor since:",
+        "message": "Redditor siden:",
         "description": ""
     },
     "userTaggerShow": {
-        "message": "Show",
+        "message": "Vis",
         "description": "As in 'Show tagged users' or 'Show all users'"
     },
     "hoverFadeSpeedTitle": {
@@ -1452,7 +1544,7 @@
         "description": ""
     },
     "accountSwitcherAccountsTitle": {
-        "message": "Accounts",
+        "message": "Konti",
         "description": ""
     },
     "spoilerTagsDesc": {
@@ -1476,11 +1568,11 @@
         "description": ""
     },
     "keyboardNavPreviousGalleryImageTitle": {
-        "message": "Previous Gallery Image",
+        "message": "Forrige Galleri Billede",
         "description": ""
     },
     "userTaggerTaggedUsers": {
-        "message": "tagged users",
+        "message": "taggede brugere",
         "description": ""
     },
     "keyboardNavMoveUpThreadTitle": {
@@ -1504,11 +1596,15 @@
         "description": ""
     },
     "dashboardTagsPerPageTitle": {
-        "message": "Tags Per Page",
+        "message": "Tags Per Side",
         "description": ""
     },
     "betteRedditShowTimestampModerationLogTitle": {
         "message": "Show Timestamp Moderation Log",
+        "description": ""
+    },
+    "userTaggerStoreSourceLinkDesc": {
+        "message": "By default, store a link to the link/comment you tagged a user on",
         "description": ""
     },
     "multiredditNavbarDesc": {
@@ -1516,19 +1612,23 @@
         "description": ""
     },
     "commentToolsQuoteKeyTitle": {
-        "message": "Quote Key",
+        "message": "Citat Tast",
         "description": ""
     },
     "keyboardNavHideDesc": {
-        "message": "Hide link.",
+        "message": "Skjul link.",
         "description": ""
     },
     "commentToolsBoldKeyTitle": {
-        "message": "Bold Key",
+        "message": "Fed Tast",
         "description": ""
     },
     "xPostLinksName": {
         "message": "X-post Links",
+        "description": ""
+    },
+    "userTaggerShowTaggingIconDesc": {
+        "message": "Always show a tag tool icon after every username.",
         "description": ""
     },
     "commentPreviewDraftStyleDesc": {
@@ -1544,7 +1644,7 @@
         "description": ""
     },
     "userTaggerColor": {
-        "message": "Color",
+        "message": "Farve",
         "description": ""
     },
     "newCommentCountCleanCommentsTitle": {
@@ -1556,7 +1656,7 @@
         "description": ""
     },
     "userInfoComments": {
-        "message": "Comments",
+        "message": "Kommentarer",
         "description": ""
     },
     "filteRedditForceSyncFiltersTitle": {
@@ -1580,15 +1680,15 @@
         "description": ""
     },
     "filteRedditRegexpFiltersTitle": {
-        "message": "Regexp Filters",
+        "message": "Regexp Filtre",
         "description": ""
     },
     "subredditInfoAddRemoveShortcut": {
-        "message": "shortcut",
+        "message": "genvej",
         "description": "as in '+shortcut' or '-shortcut'"
     },
     "userInfoSendMessage": {
-        "message": "send message",
+        "message": "send besked",
         "description": ""
     },
     "noPartDisableVoteButtonsTitle": {
@@ -1603,8 +1703,12 @@
         "message": "Move Up Comment",
         "description": ""
     },
+    "searchHelperUserFilterBySubredditDesc": {
+        "message": "When on a user profile, offer to search user's post from the subreddit or multireddit we come from.",
+        "description": ""
+    },
     "userTaggerPage": {
-        "message": "Page",
+        "message": "Side",
         "description": "As in 'page 1', 'page 2'"
     },
     "contextDefaultContextDesc": {
@@ -1613,6 +1717,10 @@
     },
     "keyboardNavImageSizeUpFineTitle": {
         "message": "Image Size Up Fine",
+        "description": ""
+    },
+    "pageNavToCommentDesc": {
+        "message": "Add an icon to every page that takes you to the new comment area when clicked.",
         "description": ""
     },
     "orangeredShowUnreadCountInFaviconDesc": {
@@ -1624,7 +1732,7 @@
         "description": ""
     },
     "searchHelperName": {
-        "message": "Search Helper",
+        "message": "Søge hjælper",
         "description": ""
     },
     "keyboardNavNextGalleryImageDesc": {
@@ -1632,7 +1740,7 @@
         "description": ""
     },
     "nightModeName": {
-        "message": "Night Mode",
+        "message": "Nat Tilstand",
         "description": ""
     },
     "filteRedditExcludeModqueueTitle": {
@@ -1644,11 +1752,11 @@
         "description": ""
     },
     "userTaggerTagCanNotSetTag": {
-        "message": "can't set tag - no post/comment selected.",
+        "message": "kan ikke sætte tag - ingen post/kommentar valgt.",
         "description": ""
     },
     "toggleOn": {
-        "message": "on",
+        "message": "til",
         "description": ""
     },
     "contextDesc": {
@@ -1664,7 +1772,7 @@
         "description": ""
     },
     "userTaggerIgnored": {
-        "message": "Ignored",
+        "message": "Ignoreret",
         "description": ""
     },
     "commentToolsCommentingAsDesc": {
@@ -1672,11 +1780,11 @@
         "description": ""
     },
     "keyboardNavFollowLinkNewTabTitle": {
-        "message": "Follow Link New Tab",
+        "message": "Følg Link i Ny Fane",
         "description": ""
     },
     "customTogglesToggleTitle": {
-        "message": "Toggle",
+        "message": "Skifter",
         "description": ""
     },
     "accountSwitcherUpdateOtherTabsDesc": {
@@ -1704,11 +1812,11 @@
         "description": ""
     },
     "userInfoUnignore": {
-        "message": "Unignore",
+        "message": "Ignorer ikke længere",
         "description": ""
     },
     "commentToolsMacrosTitle": {
-        "message": "Macros",
+        "message": "Makroer",
         "description": ""
     },
     "nightModeAutomaticNightModeDesc": {
@@ -1717,6 +1825,10 @@
     },
     "subredditInfoFilterFromAllAndDomain": {
         "message": "Filter this subreddit from /r/all and /domain/*",
+        "description": ""
+    },
+    "searchCopyResultForComment": {
+        "message": "copy this for a comment",
         "description": ""
     },
     "orangeredShowUnreadCountInTitleDesc": {
@@ -1752,7 +1864,7 @@
         "description": ""
     },
     "singleClickName": {
-        "message": "Single Click Opener",
+        "message": "Enkelt Klik Åbner",
         "description": ""
     },
     "newCommentCountCleanCommentsDesc": {
@@ -1788,7 +1900,7 @@
         "description": ""
     },
     "commentToolsKey": {
-        "message": "key",
+        "message": "tast",
         "description": ""
     },
     "commentStyleName": {
@@ -1796,7 +1908,15 @@
         "description": ""
     },
     "keyboardNavFrontPageTitle": {
-        "message": "Front Page",
+        "message": "Forside",
+        "description": ""
+    },
+    "selectedEntryScrollToSelectedThingOnLoadDesc": {
+        "message": "Automatically scroll to the post/comment that is selected when the page loads",
+        "description": ""
+    },
+    "commentQuickCollapseDesc": {
+        "message": "Toggles comment collapse when the header is double clicked.",
         "description": ""
     },
     "orangeredOpenMailInNewTabDesc": {
@@ -1804,7 +1924,7 @@
         "description": ""
     },
     "commentToolsText": {
-        "message": "text",
+        "message": "tekst",
         "description": ""
     },
     "notificationStickyTitle": {
@@ -1828,7 +1948,7 @@
         "description": ""
     },
     "keyboardNavPrevPageTitle": {
-        "message": "Prev Page",
+        "message": "Forrige Side",
         "description": ""
     },
     "commentStyleCommentBoxesDesc": {
@@ -1887,6 +2007,10 @@
         "message": "Changes \"hide\" links to read as \"hide\" or \"unhide\" depending on the hide state.",
         "description": ""
     },
+    "commentQuickCollapseName": {
+        "message": "Comment Quick Collapse",
+        "description": ""
+    },
     "troubleshooterEntriesRemoved": {
         "message": "$1 entries removed.",
         "description": ""
@@ -1903,8 +2027,12 @@
         "message": "Immediately overwrite your native /r/all filters (same as the previous option).",
         "description": ""
     },
+    "searchHelperSearchPageTabsDesc": {
+        "message": "Add tabs to the search page.",
+        "description": ""
+    },
     "commentToolsCtrlEnterSavesLiveThreadsTitle": {
-        "message": "Ctrl+Enter Saves Live Threads",
+        "message": "Ctrl+Enter Gemmer Direkte Tråde",
         "description": ""
     },
     "commentDepthSubredditCommentDepthsTitle": {
@@ -1928,7 +2056,7 @@
         "description": ""
     },
     "filteRedditNSFWQuickToggleTitle": {
-        "message": "NSFW Quick Toggle",
+        "message": "NSFW Hurtig Skifter",
         "description": ""
     },
     "filteRedditAllowNSFWDesc": {
@@ -1944,7 +2072,7 @@
         "description": ""
     },
     "commentToolsMacroButtonsTitle": {
-        "message": "Macro Buttons",
+        "message": "Makro Knapper",
         "description": ""
     },
     "filteRedditExcludeOwnPostsDesc": {
@@ -1964,7 +2092,7 @@
         "description": ""
     },
     "voteEnhancementsName": {
-        "message": "Vote Enhancements",
+        "message": "Stemme Forbedringer",
         "description": ""
     },
     "betteRedditShowHiddenSortOptionsTitle": {
@@ -1976,7 +2104,7 @@
         "description": ""
     },
     "subredditInfoAddRemoveDashboard": {
-        "message": "dashboard",
+        "message": "Instrumentbræt",
         "description": "as in '+dashboard' or '-dashboard'"
     },
     "commentToolsUserAutoCompleteTitle": {
@@ -1996,7 +2124,7 @@
         "description": ""
     },
     "userTaggerUsername": {
-        "message": "Username",
+        "message": "Brugernavn",
         "description": ""
     },
     "keyboardNavImageMoveUpDesc": {
@@ -2024,7 +2152,7 @@
         "description": ""
     },
     "keyboardNavFollowPermalinkTitle": {
-        "message": "Follow Permalink",
+        "message": "Følg Permalink",
         "description": ""
     },
     "hoverDesc": {
@@ -2032,7 +2160,15 @@
         "description": ""
     },
     "modhelperName": {
-        "message": "Mod Helper",
+        "message": "Moderator Hjælper",
+        "description": ""
+    },
+    "selectedEntryAddFocusBorderDesc": {
+        "message": "Use a border",
+        "description": ""
+    },
+    "selectedEntryFocusBGColorDesc": {
+        "message": "The background color",
         "description": ""
     },
     "multiredditNavbarUrl": {
@@ -2052,7 +2188,7 @@
         "description": ""
     },
     "pageNavToTopTitle": {
-        "message": "To Top",
+        "message": "Til Toppen",
         "description": ""
     },
     "keyboardNavScrollOnExpandoTitle": {
@@ -2069,6 +2205,10 @@
     },
     "nerReversePauseIconTitle": {
         "message": "Reverse Pause Icon",
+        "description": ""
+    },
+    "userTaggerTrackVoteWeightDesc": {
+        "message": "Store counts of cumulative upvotes / downvotes given to each user and replace the tag icon with a vote weight count displaying this number.",
         "description": ""
     },
     "subredditInfoRemoveThisSubredditFromDashboard": {
@@ -2092,7 +2232,7 @@
         "description": ""
     },
     "keyboardNavSaveCommentTitle": {
-        "message": "Save Comment",
+        "message": "Gem Kommentar",
         "description": ""
     },
     "nerPauseAfterEveryTitle": {
@@ -2103,12 +2243,20 @@
         "message": "Kommandolinje til at navigere reddit, slå RES indstillinger til/ fra og debugge RES.",
         "description": ""
     },
+    "quickMessageHandleSideLinksDesc": {
+        "message": "Open the quick message dialog when clicking on reddit.com/message/compose links in the sidebar. (e.g. \"message the moderators\")",
+        "description": ""
+    },
     "keyboardNavPreviousGalleryImageDesc": {
         "message": "View the previous image of an inline gallery.",
         "description": ""
     },
     "userInfoInvalidUsernameLink": {
-        "message": "Invalid username link.",
+        "message": "Ugyldigt brugernavn link.",
+        "description": ""
+    },
+    "searchHelperAddSearchOptionsDesc": {
+        "message": "Allow you to choose sorting and time range on the search form of the side panel.",
         "description": ""
     },
     "keyboardNavCommentNavigatorMoveDownDesc": {
@@ -2116,11 +2264,11 @@
         "description": ""
     },
     "nightModeNightModeEndTitle": {
-        "message": "Night Mode End",
+        "message": "Nat Tilstand Slut",
         "description": ""
     },
     "userTaggerVoteWeight": {
-        "message": "Vote Weight",
+        "message": "Stemme Vægt",
         "description": ""
     },
     "voteEnhancementsDownvotes": {
@@ -2135,8 +2283,16 @@
         "message": "Escape NP",
         "description": ""
     },
+    "searchHelperDefaultSearchTabDesc": {
+        "message": "The tab that will be expanded each time you search.",
+        "description": ""
+    },
     "coreCategory": {
         "message": "Kerne",
+        "description": ""
+    },
+    "commentDepthMinimumComments": {
+        "message": "minimum comments",
         "description": ""
     },
     "aboutOptionsCode": {
@@ -2172,19 +2328,19 @@
         "description": ""
     },
     "newCommentCountName": {
-        "message": "New Comment Count",
+        "message": "Ny Kommentar Tælling",
         "description": ""
     },
     "keyboardNavShowParentsTitle": {
-        "message": "Show Parents",
+        "message": "Vis Forældre",
         "description": ""
     },
     "logoLinkFrontpage": {
-        "message": "Frontpage",
+        "message": "Forside",
         "description": ""
     },
     "commentToolsCategory": {
-        "message": "category",
+        "message": "kategori",
         "description": ""
     },
     "betteRedditScoreHiddenTimeLeftDesc": {
@@ -2200,7 +2356,7 @@
         "description": ""
     },
     "keyboardNavNextGalleryImageTitle": {
-        "message": "Next Gallery Image",
+        "message": "Næste Galleri Billede",
         "description": ""
     },
     "styleTweaksSubredditStyleEnabled": {
@@ -2216,7 +2372,7 @@
         "description": ""
     },
     "betteRedditCommentCollapseInInboxDesc": {
-        "message": "Show the [-] collapse button in the inbox.",
+        "message": "Vis [-] kollaps knappen i indbakken.",
         "description": ""
     },
     "noPartEvenIfSubscriberTitle": {
@@ -2243,12 +2399,20 @@
         "message": "Udseende",
         "description": ""
     },
+    "userTaggerShowIgnoredDesc": {
+        "message": "Provide a link to reveal an ignored link or comment. The hardIgnore option overrides this.",
+        "description": ""
+    },
     "commentToolsItalicKeyTitle": {
-        "message": "Italic Key",
+        "message": "Kursiv Tast",
         "description": ""
     },
     "filteRedditUseRedditFiltersTitle": {
         "message": "Use Reddit Filters",
+        "description": ""
+    },
+    "selectedEntrySelectLastThingOnLoadDesc": {
+        "message": "Automatically select the last thing you had selected",
         "description": ""
     },
     "aboutOptionsPresetsTitle": {
@@ -2292,11 +2456,15 @@
         "description": ""
     },
     "betteRedditShowTimestampSidebarDesc": {
-        "message": "Show the precise date in the sidebar.",
+        "message": "Vis den præcise dato i sidebaren.",
         "description": ""
     },
     "keyboardNavUpVoteDesc": {
-        "message": "Upvote selected link or comment (or remove the upvote).",
+        "message": "Opstem valgte link eller kommentar (eller fjern opstemme)",
+        "description": ""
+    },
+    "selectedEntryFocusFGColorNightDesc": {
+        "message": "The text color while using Night Mode",
         "description": ""
     },
     "messageMenuHoverDelayDesc": {
@@ -2319,6 +2487,10 @@
         "message": "View comments for link in a new tab.",
         "description": ""
     },
+    "selectedEntrySelectThingOnLoadDesc": {
+        "message": "Automatically select a post/comment when the page loads",
+        "description": ""
+    },
     "backupAndRestoreBackupTitle": {
         "message": "Backup",
         "description": ""
@@ -2328,7 +2500,7 @@
         "description": ""
     },
     "styleTweaksRedditPrefsMessage": {
-        "message": "RES allows you to disable specific subreddit styles!",
+        "message": "RES tillader dig at deaktivere specifikke subreddit styles.",
         "description": ""
     },
     "customTogglesDesc": {
@@ -2348,7 +2520,7 @@
         "description": ""
     },
     "commentPreviewEnableForWikiDesc": {
-        "message": "Show preview for wiki pages.",
+        "message": "Vis forhåndsvisning for wiki sider.",
         "description": ""
     },
     "keyboardNavImageMoveUpTitle": {
@@ -2364,7 +2536,7 @@
         "description": ""
     },
     "usernameHiderName": {
-        "message": "Username Hider",
+        "message": "Brugernavn Skjuler",
         "description": ""
     },
     "notificationsEnabled": {
@@ -2372,11 +2544,11 @@
         "description": ""
     },
     "tableToolsName": {
-        "message": "Table Tools",
+        "message": "Tabel Værktøjer",
         "description": ""
     },
     "userInfoUserNotFound": {
-        "message": "User not found.",
+        "message": "Bruger ikke fundet.",
         "description": ""
     },
     "betteRedditTruncateLongLinksTitle": {
@@ -2416,7 +2588,7 @@
         "description": ""
     },
     "pageNavShowLinkNewTabTitle": {
-        "message": "Show Link New Tab",
+        "message": "Vis Link I Ny Fane",
         "description": ""
     },
     "keyboardNavNonLinearScrollStyleTitle": {
@@ -2444,11 +2616,19 @@
         "description": ""
     },
     "messageMenuDesc": {
-        "message": "Hover over the mail icon to access different types of messages or to compose a new message.",
+        "message": "Hold markøren over post ikonet for at, få adgang til forskellige typer beskeder eller skrive en ny besked.",
         "description": ""
     },
     "multiredditNavbarSectionMenuDesc": {
         "message": "Show a menu linking to various sections of the multireddit when hovering your mouse over the link.",
+        "description": ""
+    },
+    "selectedEntryFocusBGColorNightDesc": {
+        "message": "The background color while using Night Mode",
+        "description": ""
+    },
+    "searchHelperTransitionSearchTabsDesc": {
+        "message": "Play a transition when you open and close tabs.",
         "description": ""
     },
     "keyboardNavOnHideMoveDownDesc": {
@@ -2464,7 +2644,7 @@
         "description": ""
     },
     "commentToolsCommentingAsTitle": {
-        "message": "Commenting As",
+        "message": "Kommentere Som",
         "description": ""
     },
     "keyboardNavImageSizeUpDesc": {
@@ -2496,7 +2676,7 @@
         "description": ""
     },
     "keyboardNavReplyDesc": {
-        "message": "Reply to current comment (comment pages only).",
+        "message": "Svar nuværende kommentar (kun kommentar-sider).",
         "description": ""
     },
     "notificationsAddNotificationType": {
@@ -2504,7 +2684,7 @@
         "description": ""
     },
     "notificationsName": {
-        "message": "RES Notifications",
+        "message": "RES Notifikationer",
         "description": ""
     },
     "keyboardNavCommentsLinkNewTabDesc": {
@@ -2520,7 +2700,7 @@
         "description": ""
     },
     "keyboardNavProfileNewTabTitle": {
-        "message": "Profile New Tab",
+        "message": "Profil Ny Fane",
         "description": ""
     },
     "keyboardNavFollowLinkAndCommentsNewTabTitle": {
@@ -2536,7 +2716,7 @@
         "description": ""
     },
     "showKarmaName": {
-        "message": "Show Karma",
+        "message": "Vis Karma",
         "description": ""
     },
     "commentToolsSubredditAutocompleteTitle": {
@@ -2544,7 +2724,7 @@
         "description": ""
     },
     "settingsNavName": {
-        "message": "RES Settings Navigation",
+        "message": "RES Indstillings Navigation",
         "description": ""
     },
     "contributeName": {
@@ -2612,7 +2792,7 @@
         "description": ""
     },
     "keyboardNavInboxDesc": {
-        "message": "Go to inbox.",
+        "message": "Gå til indbakke.",
         "description": ""
     },
     "gfycatUseMobileGfycatDesc": {
@@ -2636,7 +2816,7 @@
         "description": ""
     },
     "commentToolsShowInputLengthTitle": {
-        "message": "Show Input Length",
+        "message": "Vis Indtastnings-længde",
         "description": ""
     },
     "keyboardNavSaveRESDesc": {
@@ -2656,7 +2836,7 @@
         "description": ""
     },
     "backupAndRestoreRestoreTitle": {
-        "message": "Restore",
+        "message": "Genskab",
         "description": ""
     },
     "logoLinkCustom": {
@@ -2684,11 +2864,11 @@
         "description": ""
     },
     "dashboardDefaultPostsTitle": {
-        "message": "Default Posts",
+        "message": "Standard Indlæg",
         "description": ""
     },
     "contextViewFullContextTitle": {
-        "message": "View Full Context",
+        "message": "Vis Fuld Kontekst",
         "description": ""
     },
     "aboutOptionsPrivacyTitle": {
@@ -2720,7 +2900,7 @@
         "description": ""
     },
     "settingsConsoleName": {
-        "message": "Settings Console",
+        "message": "Indstillings Konsol",
         "description": ""
     },
     "commentDepthSubredditCommentDepthsDesc": {
@@ -2744,15 +2924,15 @@
         "description": ""
     },
     "nightModeColoredLinksTitle": {
-        "message": "Colored Links",
+        "message": "Farvede Links",
         "description": ""
     },
     "modhelperDesc": {
-        "message": "Helps moderators via tips and tricks for playing nice with RES.",
+        "message": "Hjælper moderatore via tips og tricks, for nemmere håndtering af RES.",
         "description": ""
     },
     "quickMessageName": {
-        "message": "Quick Message",
+        "message": "Hurtig Besked",
         "description": ""
     },
     "noPartEscapeNPDesc": {
@@ -2772,11 +2952,15 @@
         "description": ""
     },
     "userInfoAddRemoveFriends": {
-        "message": "$1 friends",
+        "message": "$1 venner",
         "description": ""
     },
     "nightModeNightModeOverrideHoursDesc": {
         "message": "Number of hours that the automatic night mode override lasts. Default is 8 (hours).\nYou can use a decimal number of hours here as well; e.g. 0.1 hours (which is 6 min).",
+        "description": ""
+    },
+    "presetsNoPopupsDesc": {
+        "message": "Turn off notifications and hover pop-ups",
         "description": ""
     },
     "messageMenuName": {
@@ -2788,11 +2972,15 @@
         "description": ""
     },
     "userbarHiderName": {
-        "message": "User Bar Hider",
+        "message": "Brugerbar Skjuler",
         "description": ""
     },
     "keyboardNavNonLinearScrollStyleDesc": {
         "message": "When jumping to a entry (moveUpThread/moveDownThread, moveUpSibling/moveDownSibling, moveToParent, and moveDownParentSibling), when and how should RES scroll the window?",
+        "description": ""
+    },
+    "selectedEntrySelectOnClickDesc": {
+        "message": "Allows you to click on an item to select it",
         "description": ""
     },
     "troubleshooterCachesCleared": {
@@ -2844,23 +3032,23 @@
         "description": ""
     },
     "subredditInfoSubscribe": {
-        "message": "subscribe",
+        "message": "Abonner",
         "description": ""
     },
     "keyboardNavDownVoteDesc": {
-        "message": "Downvote selected link or comment (or remove the downvote).",
+        "message": "Nestem valgte link eller kommentar (eller fjern nestemme).",
         "description": ""
     },
     "commentToolsCtrlEnterSubmitsCommentsTitle": {
-        "message": "Ctrl+Enter Submits Comments",
+        "message": "Ctrl+Enter Indsender Kommentare",
         "description": ""
     },
     "commentToolsCtrolEnterSubmitsPostsTitle": {
-        "message": "Ctrl+Enter Submits Posts",
+        "message": "Ctrl+Enter Indsender Indlæg",
         "description": ""
     },
     "subredditInfoSubredditCreated": {
-        "message": "Subreddit created:",
+        "message": "Subreddit oprettet:",
         "description": ""
     },
     "multiredditNavbarLabel": {
@@ -2884,7 +3072,7 @@
         "description": ""
     },
     "subredditInfoSubredditNotFound": {
-        "message": "Subreddit not found.",
+        "message": "Subreddit ikke fundet.",
         "description": ""
     },
     "logoLinkCustomDestinationDesc": {
@@ -2892,7 +3080,7 @@
         "description": ""
     },
     "resTipsName": {
-        "message": "RES Tips and Tricks",
+        "message": "RES Tips og Tricks",
         "description": ""
     },
     "keyboardNavToggleCmdLineTitle": {
@@ -2928,7 +3116,7 @@
         "description": ""
     },
     "userTaggerTagUserAs": {
-        "message": "tag user $1 as: $2",
+        "message": "tag bruger $1 som: $2",
         "description": ""
     },
     "keyboardNavMoveDownSiblingTitle": {
@@ -2944,7 +3132,7 @@
         "description": ""
     },
     "keyboardNavProfileNewTabDesc": {
-        "message": "Go to profile in a new tab.",
+        "message": "Gå til profil i ny fane.",
         "description": ""
     },
     "aboutCategory": {
@@ -2955,8 +3143,12 @@
         "message": "If media is open on the currently selected post when moving up/down one post, open media on the next post.",
         "description": ""
     },
+    "quickMessageSendAsDesc": {
+        "message": "The default user or subreddit to select when the \"from\" field is unspecified.\nReverts to the current user if the selected option can't be used (i.e. you aren't a moderator of the current subreddit).",
+        "description": ""
+    },
     "userInfoGiftRedditGold": {
-        "message": "Gift Reddit Gold",
+        "message": "Giv Reddit Guld Gave",
         "description": ""
     },
     "backupAndRestoreRestoreDesc": {
@@ -2964,11 +3156,11 @@
         "description": ""
     },
     "commentPreviewEnableForCommentsDesc": {
-        "message": "Show preview for comments.",
+        "message": "Vis forhåndsvisning for kommentarer.",
         "description": ""
     },
     "spamButtonName": {
-        "message": "Spam Button",
+        "message": "Spam Knap",
         "description": ""
     },
     "hoverInstancesTitle": {
@@ -2981,6 +3173,10 @@
     },
     "commentToolsKeyboardShortcutsDesc": {
         "message": "Use keyboard shortcuts to apply styles to selected text.",
+        "description": ""
+    },
+    "searchHelperHideSearchOptionsDesc": {
+        "message": "Automatically hide search options and suggestions on the search page.",
         "description": ""
     },
     "notificationsDesc": {
@@ -2996,7 +3192,7 @@
         "description": ""
     },
     "userInfoName": {
-        "message": "User Info",
+        "message": "Bruger Info",
         "description": ""
     },
     "extensionNameAuthor": {
@@ -3004,11 +3200,11 @@
         "description": ""
     },
     "filteRedditDomainsTitle": {
-        "message": "Domains",
+        "message": "Domæner",
         "description": ""
     },
     "orangeredHideModMailTitle": {
-        "message": "Hide Mod Mail",
+        "message": "Skjul Mod Post",
         "description": ""
     },
     "commentNavigatorOpenOnHighlightUserTitle": {
@@ -3032,7 +3228,7 @@
         "description": ""
     },
     "userTaggerAreYouSureYouWantToDeleteTag": {
-        "message": "Are you sure you want to delete the tag for user: $1?",
+        "message": "Er du sikker på at du vil fjerne tagget for brugeren: $1?",
         "description": ""
     },
     "keyboardNavMoveDownThreadTitle": {
@@ -3040,7 +3236,7 @@
         "description": ""
     },
     "keyboardNavInboxTitle": {
-        "message": "Inbox",
+        "message": "Indbakke",
         "description": ""
     },
     "userInfoUnhighlight": {

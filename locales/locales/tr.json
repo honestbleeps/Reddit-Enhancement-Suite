@@ -39,6 +39,10 @@
         "message": "↑ ↑ ↓ ↓ ← → ← → B A.",
         "description": ""
     },
+    "presetsCleanSlateDesc": {
+        "message": "Turn off all the RES modules",
+        "description": ""
+    },
     "betteRedditShowTimestampModerationLogDesc": {
         "message": "Show the precise date in the moderation log (/r/mod/about/log).",
         "description": ""
@@ -65,6 +69,10 @@
     },
     "orangeredName": {
         "message": "Okunmamış Mesajlar",
+        "description": ""
+    },
+    "RESTipsDailyTipDesc": {
+        "message": "Show a random tip once every 24 hours.",
         "description": ""
     },
     "filteRedditKeywordsTitle": {
@@ -117,6 +125,10 @@
     },
     "keyboardNavCommentNavigatorMoveDownTitle": {
         "message": "Comment Navigator Move Down",
+        "description": ""
+    },
+    "searchHelperToggleSearchOptionsDesc": {
+        "message": "Add a button to hide search options while searching.",
         "description": ""
     },
     "keyboardNavCommentNavigatorMoveUpDesc": {
@@ -255,8 +267,16 @@
         "message": "Adds a Spam button to posts for easy reporting.",
         "description": ""
     },
+    "userTaggerHardIgnoreDesc": {
+        "message": "Completely remove links and comments posted by ignored users. If an ignored comment has replies, collapse it and hide its contents instead of removing it.",
+        "description": ""
+    },
     "commentToolsLabel": {
         "message": "label",
+        "description": ""
+    },
+    "quickMessageDefaultSubjectDesc": {
+        "message": "Text that will automatically be inserted into the subject field, unless it is auto-filled by context.",
         "description": ""
     },
     "newCommentCountMonitorPostsVisitedDesc": {
@@ -273,6 +293,10 @@
     },
     "myAccountCategory": {
         "message": "Hesabım",
+        "description": ""
+    },
+    "commentDepthDefaultMinimumCommentsTitle": {
+        "message": "Default Minimum Comments",
         "description": ""
     },
     "yes": {
@@ -515,8 +539,16 @@
         "message": "Subreddit stilini kullan",
         "description": ""
     },
+    "selectedEntryFocusBorderNightDesc": {
+        "message": "Border appearance using Night Mode (as above)",
+        "description": ""
+    },
     "voteEnhancementsUpvote": {
         "message": "olumlu oy",
+        "description": ""
+    },
+    "quickMessageLinkToCurrentPageDesc": {
+        "message": "Automatically start with a link to the current page in the message body (or, if opened from the user info popup, a link to the current post or comment).",
         "description": ""
     },
     "subredditInfoAddThisSubredditToDashboard": {
@@ -731,6 +763,10 @@
         "message": "Select from various preset RES configurations. Each preset turns on or off various modules/options, but does not reset your entire configuration.",
         "description": ""
     },
+    "commentDepthDefaultMinimumCommentsDesc": {
+        "message": "Default minimum number of comments required to apply custom depth.",
+        "description": ""
+    },
     "commentToolsEnableOnBanMessagesDesc": {
         "message": "Show the comment tools on the ban note textbox.",
         "description": ""
@@ -775,12 +811,20 @@
         "message": "Adds a hover tooltip to users.",
         "description": ""
     },
+    "userTaggerUseCommentsLinkAsSourceDesc": {
+        "message": "By default, store a link to the comments when tagging a user in a link post. Otherwise, the link (that the post refers to) will be used.",
+        "description": ""
+    },
     "notificationCloseDelayTitle": {
         "message": "Close Delay",
         "description": ""
     },
     "logoLinkDesc": {
         "message": "Reddit logosundaki linki değiştirmenizi sağlar.",
+        "description": ""
+    },
+    "quickMessageOpenQuickMessageDesc": {
+        "message": "Keyboard shortcut to open the quick message dialog.",
         "description": ""
     },
     "dashboardDefaultPostsDesc": {
@@ -847,6 +891,10 @@
         "message": "RES'i çeşitli ön ayarlarla çabucak kişiselleştirin.",
         "description": ""
     },
+    "settingsNavigationShowAllOptionsAlertDesc": {
+        "message": "If a user clicks on a link to an advanced option while advanced options are hidden, should an alert be shown?",
+        "description": ""
+    },
     "commentHidePerName": {
         "message": "Comment Hide Persistor",
         "description": ""
@@ -877,6 +925,10 @@
     },
     "userbarHiderContentHiddenNotification": {
         "message": "Your username, karma, preferences, RES gear, and so on are hidden. You can show them again by clicking the $1 button in the top right corner.",
+        "description": ""
+    },
+    "selectedEntryAutoSelectOnScrollDesc": {
+        "message": "Automatically select the topmost item while scrolling",
         "description": ""
     },
     "keyboardNavFollowLinkTitle": {
@@ -1015,6 +1067,14 @@
         "message": "tags author of currently selected link/comment.",
         "description": ""
     },
+    "selectedEntryFocusBorderDesc": {
+        "message": "Border appearance. E.g. `1px dashed gray` (CSS)",
+        "description": ""
+    },
+    "settingsNavigationShowAllOptionsDesc": {
+        "message": "All options are displayed by default. Uncheck this box if you would like to hide advanced options.",
+        "description": ""
+    },
     "betteRedditFixHideLinksTitle": {
         "message": "Fix Hide Links",
         "description": ""
@@ -1025,6 +1085,10 @@
     },
     "keyboardNavToggleCommentNavigatorDesc": {
         "message": "Yorum Kılavuzu'nu aç.",
+        "description": ""
+    },
+    "presetsLiteDesc": {
+        "message": "RES Lite: just the popular stuff",
         "description": ""
     },
     "commentToolsCtrlEnterSubmitsCommentsDesc": {
@@ -1115,6 +1179,10 @@
         "message": "Manage different types of notifications.",
         "description": ""
     },
+    "quickMessageHandleContentLinksDesc": {
+        "message": "Open the quick message dialog when clicking on reddit.com/message/compose links in comments, selftext, or wiki pages.",
+        "description": ""
+    },
     "orangeredUpdateCurrentTabDesc": {
         "message": "Update mail buttons on current tab when RES checks for orangereds.",
         "description": ""
@@ -1145,6 +1213,14 @@
     },
     "keyboardNavDesc": {
         "message": "Reddit'te klavye ile gezinti!",
+        "description": ""
+    },
+    "userTaggerVWNumberDesc": {
+        "message": "Show the number (i.e. [+6]) rather than [vw]",
+        "description": ""
+    },
+    "pageNavToCommentTitle": {
+        "message": "To New Comment Area",
         "description": ""
     },
     "keyboardNavMoveToParentDesc": {
@@ -1199,12 +1275,20 @@
         "message": "$1 kullanıcısını etiketle",
         "description": ""
     },
+    "searchHelperLegacySearchDesc": {
+        "message": "Request the \"legacy layout\" feature for reddit search.\n\n\nThis will only be available for a limited time.",
+        "description": ""
+    },
     "submitIssueName": {
         "message": "Sorun Bildir",
         "description": ""
     },
     "aboutOptionsFAQTitle": {
         "message": "SSS",
+        "description": ""
+    },
+    "selectedEntryAddFocusBGColorDesc": {
+        "message": "Use a background color",
         "description": ""
     },
     "accountSwitcherShowUserDetailsTitle": {
@@ -1351,6 +1435,10 @@
         "message": "Gönderiyi Kaydet",
         "description": ""
     },
+    "searchHelperSearchByFlairDesc": {
+        "message": "When clicking on a post's flair, search its subreddit for that flair.\nMay not work in some subreddits that hide the actual flair and add pseudo-flair with CSS (only workaround is to disable subreddit style).",
+        "description": ""
+    },
     "subredditInfoDesc": {
         "message": "Adds a hover tooltip to subreddits.",
         "description": ""
@@ -1381,6 +1469,10 @@
     },
     "logoLinkName": {
         "message": "Logo Linki",
+        "description": ""
+    },
+    "userTaggerVWTooltipDesc": {
+        "message": "Show the vote weight tooltip on hover (i.e. \"your votes for...\")",
         "description": ""
     },
     "aboutOptionsBugs": {
@@ -1511,6 +1603,10 @@
         "message": "Show Timestamp Moderation Log",
         "description": ""
     },
+    "userTaggerStoreSourceLinkDesc": {
+        "message": "By default, store a link to the link/comment you tagged a user on",
+        "description": ""
+    },
     "multiredditNavbarDesc": {
         "message": "Enhance the navigation bar shown on the left side of the frontpage.",
         "description": ""
@@ -1529,6 +1625,10 @@
     },
     "xPostLinksName": {
         "message": "Çapraz Gönderi Linkleri",
+        "description": ""
+    },
+    "userTaggerShowTaggingIconDesc": {
+        "message": "Always show a tag tool icon after every username.",
         "description": ""
     },
     "commentPreviewDraftStyleDesc": {
@@ -1603,6 +1703,10 @@
         "message": "Move Up Comment",
         "description": ""
     },
+    "searchHelperUserFilterBySubredditDesc": {
+        "message": "When on a user profile, offer to search user's post from the subreddit or multireddit we come from.",
+        "description": ""
+    },
     "userTaggerPage": {
         "message": "Sayfa",
         "description": "As in 'page 1', 'page 2'"
@@ -1613,6 +1717,10 @@
     },
     "keyboardNavImageSizeUpFineTitle": {
         "message": "Image Size Up Fine",
+        "description": ""
+    },
+    "pageNavToCommentDesc": {
+        "message": "Add an icon to every page that takes you to the new comment area when clicked.",
         "description": ""
     },
     "orangeredShowUnreadCountInFaviconDesc": {
@@ -1719,6 +1827,10 @@
         "message": "Filter this subreddit from /r/all and /domain/*",
         "description": ""
     },
+    "searchCopyResultForComment": {
+        "message": "copy this for a comment",
+        "description": ""
+    },
     "orangeredShowUnreadCountInTitleDesc": {
         "message": "Show unread message count in page/tab title?",
         "description": ""
@@ -1797,6 +1909,14 @@
     },
     "keyboardNavFrontPageTitle": {
         "message": "Ön Sayfa",
+        "description": ""
+    },
+    "selectedEntryScrollToSelectedThingOnLoadDesc": {
+        "message": "Automatically scroll to the post/comment that is selected when the page loads",
+        "description": ""
+    },
+    "commentQuickCollapseDesc": {
+        "message": "Toggles comment collapse when the header is double clicked.",
         "description": ""
     },
     "orangeredOpenMailInNewTabDesc": {
@@ -1887,6 +2007,10 @@
         "message": "Changes \"hide\" links to read as \"hide\" or \"unhide\" depending on the hide state.",
         "description": ""
     },
+    "commentQuickCollapseName": {
+        "message": "Comment Quick Collapse",
+        "description": ""
+    },
     "troubleshooterEntriesRemoved": {
         "message": "$1 entries removed.",
         "description": ""
@@ -1901,6 +2025,10 @@
     },
     "filteRedditForceSyncFiltersDesc": {
         "message": "Immediately overwrite your native /r/all filters (same as the previous option).",
+        "description": ""
+    },
+    "searchHelperSearchPageTabsDesc": {
+        "message": "Add tabs to the search page.",
         "description": ""
     },
     "commentToolsCtrlEnterSavesLiveThreadsTitle": {
@@ -2035,6 +2163,14 @@
         "message": "Mod Yardımcısı",
         "description": ""
     },
+    "selectedEntryAddFocusBorderDesc": {
+        "message": "Use a border",
+        "description": ""
+    },
+    "selectedEntryFocusBGColorDesc": {
+        "message": "The background color",
+        "description": ""
+    },
     "multiredditNavbarUrl": {
         "message": "url",
         "description": ""
@@ -2071,6 +2207,10 @@
         "message": "Reverse Pause Icon",
         "description": ""
     },
+    "userTaggerTrackVoteWeightDesc": {
+        "message": "Store counts of cumulative upvotes / downvotes given to each user and replace the tag icon with a vote weight count displaying this number.",
+        "description": ""
+    },
     "subredditInfoRemoveThisSubredditFromDashboard": {
         "message": "Bu subredditi panonuzdan kaldırın",
         "description": ""
@@ -2103,12 +2243,20 @@
         "message": "Command line for navigating reddit, toggling RES settings, and debugging RES.",
         "description": ""
     },
+    "quickMessageHandleSideLinksDesc": {
+        "message": "Open the quick message dialog when clicking on reddit.com/message/compose links in the sidebar. (e.g. \"message the moderators\")",
+        "description": ""
+    },
     "keyboardNavPreviousGalleryImageDesc": {
         "message": "View the previous image of an inline gallery.",
         "description": ""
     },
     "userInfoInvalidUsernameLink": {
         "message": "Geçersiz kullanıcı adı bağlantısı.",
+        "description": ""
+    },
+    "searchHelperAddSearchOptionsDesc": {
+        "message": "Allow you to choose sorting and time range on the search form of the side panel.",
         "description": ""
     },
     "keyboardNavCommentNavigatorMoveDownDesc": {
@@ -2135,8 +2283,16 @@
         "message": "Escape NP",
         "description": ""
     },
+    "searchHelperDefaultSearchTabDesc": {
+        "message": "The tab that will be expanded each time you search.",
+        "description": ""
+    },
     "coreCategory": {
         "message": "Core",
+        "description": ""
+    },
+    "commentDepthMinimumComments": {
+        "message": "minimum comments",
         "description": ""
     },
     "aboutOptionsCode": {
@@ -2243,12 +2399,20 @@
         "message": "Görünüş",
         "description": ""
     },
+    "userTaggerShowIgnoredDesc": {
+        "message": "Provide a link to reveal an ignored link or comment. The hardIgnore option overrides this.",
+        "description": ""
+    },
     "commentToolsItalicKeyTitle": {
         "message": "Italic Key",
         "description": ""
     },
     "filteRedditUseRedditFiltersTitle": {
         "message": "Reddit Filtrelerini Kullan",
+        "description": ""
+    },
+    "selectedEntrySelectLastThingOnLoadDesc": {
+        "message": "Automatically select the last thing you had selected",
         "description": ""
     },
     "aboutOptionsPresetsTitle": {
@@ -2299,6 +2463,10 @@
         "message": "Seçili bağlantıya veya yoruma olumlu oy ver (ya da olumlu oyu kaldır).",
         "description": ""
     },
+    "selectedEntryFocusFGColorNightDesc": {
+        "message": "The text color while using Night Mode",
+        "description": ""
+    },
     "messageMenuHoverDelayDesc": {
         "message": "Delay, in milliseconds, before hover tooltip loads. Default is 1000.",
         "description": ""
@@ -2317,6 +2485,10 @@
     },
     "keyboardNavFollowCommentsNewTabDesc": {
         "message": "View comments for link in a new tab.",
+        "description": ""
+    },
+    "selectedEntrySelectThingOnLoadDesc": {
+        "message": "Automatically select a post/comment when the page loads",
         "description": ""
     },
     "backupAndRestoreBackupTitle": {
@@ -2449,6 +2621,14 @@
     },
     "multiredditNavbarSectionMenuDesc": {
         "message": "Show a menu linking to various sections of the multireddit when hovering your mouse over the link.",
+        "description": ""
+    },
+    "selectedEntryFocusBGColorNightDesc": {
+        "message": "The background color while using Night Mode",
+        "description": ""
+    },
+    "searchHelperTransitionSearchTabsDesc": {
+        "message": "Play a transition when you open and close tabs.",
         "description": ""
     },
     "keyboardNavOnHideMoveDownDesc": {
@@ -2779,6 +2959,10 @@
         "message": "Number of hours that the automatic night mode override lasts. Default is 8 (hours).\nYou can use a decimal number of hours here as well; e.g. 0.1 hours (which is 6 min).",
         "description": ""
     },
+    "presetsNoPopupsDesc": {
+        "message": "Turn off notifications and hover pop-ups",
+        "description": ""
+    },
     "messageMenuName": {
         "message": "Mesaj Menüsü",
         "description": ""
@@ -2793,6 +2977,10 @@
     },
     "keyboardNavNonLinearScrollStyleDesc": {
         "message": "When jumping to a entry (moveUpThread/moveDownThread, moveUpSibling/moveDownSibling, moveToParent, and moveDownParentSibling), when and how should RES scroll the window?",
+        "description": ""
+    },
+    "selectedEntrySelectOnClickDesc": {
+        "message": "Allows you to click on an item to select it",
         "description": ""
     },
     "troubleshooterCachesCleared": {
@@ -2955,6 +3143,10 @@
         "message": "If media is open on the currently selected post when moving up/down one post, open media on the next post.",
         "description": ""
     },
+    "quickMessageSendAsDesc": {
+        "message": "The default user or subreddit to select when the \"from\" field is unspecified.\nReverts to the current user if the selected option can't be used (i.e. you aren't a moderator of the current subreddit).",
+        "description": ""
+    },
     "userInfoGiftRedditGold": {
         "message": "Reddit Altını hediye et",
         "description": ""
@@ -2981,6 +3173,10 @@
     },
     "commentToolsKeyboardShortcutsDesc": {
         "message": "Klavye kısayollarını kullanarak seçili yazıya stil uygula.",
+        "description": ""
+    },
+    "searchHelperHideSearchOptionsDesc": {
+        "message": "Automatically hide search options and suggestions on the search page.",
         "description": ""
     },
     "notificationsDesc": {
