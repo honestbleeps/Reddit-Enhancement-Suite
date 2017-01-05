@@ -25,11 +25,8 @@ addons:
     # SAUCE_ACCESS_KEY=<secure>
     secure: hHF06xHY6pLdxscwYhUHdSRuUH2CPA61AUrvPiW54lnMwwkDvCQakR+aY5HbjptFIfOwkWsS4xoqXH4pZTfhMOji32S/+ELT+AqLdkIgnLYDfBj4RcsZoXyvuiLx29i4PVCnGMikctBp4dM6wORgfd1tu3uwhcoQrBjxCMW1qmY=
 cache:
-  directories:
-    - $HOME/.cache/yarn
+  yarn: true
 install:
-  - npm i -g yarn
-  - yarn install --pure-lockfile
   - yarn check --integrity
 matrix:
   exclude:
