@@ -29,3 +29,7 @@ steve@honestbleeps.com
 ## Contributing to RES
 
 See [CONTRIBUTING.md](/CONTRIBUTING.md).
+
+## Changelogs
+
+See the [`changelog/`](/changelog) directory.
