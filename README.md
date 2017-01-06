@@ -32,17 +32,13 @@ Thinking about contributing to RES? Awesome! We just ask that you follow a few s
 
 1. RES has grown quite large, so we do have to pick and choose what features we should add. Code bloat is always a concern, and RES is already rather hefty. If you're unsure if your feature would appeal to a wide audience, please post about it on [/r/Enhancement](https://www.reddit.com/r/Enhancement/) or [contact @honestbleeps](https://www.reddit.com/message/compose/?to=honestbleeps) directly to ask.
 
-2. There are a few features we have made a conscious choice not to add to RES, so make sure whatever you'd like to contribute [isn't on that list](https://www.reddit.com/r/Enhancement/wiki/rejectedfeaturerequests).
+1. There are a few features we have made a conscious choice not to add to RES, so make sure whatever you'd like to contribute [isn't on that list](https://www.reddit.com/r/Enhancement/wiki/rejectedfeaturerequests).
 
-3. It would be greatly appreciated if you could stick to a few style guidelines:
+1. To build the extension, see [Building development versions of the extension](#building-development-versions-of-the-extension).
 
-  - please use tabs for indentation
-  - please use spaces in your `if` statements, e.g. `if (foo === bar)`, not `if(foo===bar)`
-  - please use single quotes `'` and not double quotes `"` for strings
-  - please comment your code!
-  - please consider using `npm run lint` ([see below](#details-and-advanced-usage)) to verify your code style
+1. If you're adding new modules or hosts, see [Adding new files](#adding-new-files).
 
-4. If you're adding new modules or hosts, [see below](#adding-new-files).
+1. Code style is enforced with ESLint and sass-lint. For commands to check code style and autofix common errors, see [Details and advanced usage](#details-and-advanced-usage).
 
 ## Project structure
 
