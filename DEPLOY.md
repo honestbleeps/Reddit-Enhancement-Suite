@@ -1,58 +1,38 @@
+# All browsers
 
+1. Run `npm run build` for the desired browser
 
-#Chrome
-
-`gulp build -b chrome` > `/dist/chrome`
-
-**Upload at:** https://chrome.google.com/webstore/developer/dashboard
+## Chrome
 
 Info: https://developer.chrome.com/webstore/publish
 
-#Firefox
+1. Upload `chrome.zip` to https://chrome.google.com/webstore/developer/dashboard
 
-`gulp build -b firefox` > `/dist/firefox`
-
-Upload at: https://addons.mozilla.org/en-US/developers/addon/submit/1
+## Firefox
 
 Info: https://developer.mozilla.org/en-US/Add-ons/Distribution
 
-#Safari
+1. Run `npm run jpm xpi` or `npm run jpm-beta xpi` for stable/beta
+1. Upload `reddit-enhancement-suite.xpi` to https://addons.mozilla.org/en-US/developers/addon/submit/1
+
+## Safari
+
 Info: https://developer.apple.com/library/safari/documentation/Tools/Conceptual/SafariExtensionGuide/DistributingYourExtension/DistributingYourExtension.html
 
-# Safari 8 - Self-distribute
-
-`gulp build -b safari` > `/dist/RES.safariextension`
+#### Safari 8 - Self-distribute
 
 1. Safari > Develop > Show extension builder
 1. Build package
-1. Upload .safariextz package to redditenhancementsuite.com
+1. Upload `.safariextz` package to redditenhancementsuite.com
 1. Update the redditnehancementsuite.com update manifest.
 
-# Safari 9+ - Gallery
+#### Safari 9+ - Gallery
 
-Follow Safari 8 rules, then submit to gallery:
-https://developer.apple.com/safari/extensions/submission/
+1. Follow Safari 8 rules
+1. Upload `.safariextz` to https://developer.apple.com/safari/extensions/submission/
 
+## Opera 
 
-#Opera 
+Info: https://dev.opera.com/extensions/publishing-guidelines/
 
-https://addons.opera.com/developer/
-
-# Opera 20+
-
-https://addons.opera.com/developer/
-
-`gulp build -b oblink` > `/dist/oblink`
-
-Opera20 does have a "Pack extension" button on the extensions page, next to "Load unpacked extension"
-
-"Navigator" is Opera's internal name for Opera20+
-
-# Opera 12.17
-
-https://addons.opera.com/developer/
-
-`gulp build -b opera` > `/dist/opera`
-
-
-"Opera" is Opera's internal name for Opera12
+1. Upload `chrome.zip` to https://addons.opera.com/developer/
