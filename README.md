@@ -161,14 +161,6 @@ To run integration tests locally, you must change `selenium_host`, `selenium_por
 
   If you use an older version of Safari or find the auto-uninstall annoying, you need to purchase a proper certificate by signing up for the [Apple Developer Program](https://developer.apple.com/programs/) (currently $99/yr).
 
-#### Accessing nightly builds
-
-In addition to building your own version of RES, you can download older (or current) builds of RES for testing purposes.
-
-(Almost) every commit to master is quickly archived away at http://allthefoxes.me; if you would like access to this database, please contact [/u/allthefoxes on reddit](https://www.reddit.com/user/allthefoxes) or email [fox@allthefoxes.me](mailto:fox@allthefoxes.me).
-
-All that is asked is that you have at least one previous contribution to RES.
-
 ## Adding new files
 
 ##### Modules
