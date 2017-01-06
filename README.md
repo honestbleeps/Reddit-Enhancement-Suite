@@ -42,7 +42,7 @@ Thinking about contributing to RES? Awesome! We just ask that you follow a few s
 
 ## Project structure
 
-##### Top level files and folders
+#### Top level files and folders
 
   - `.github/`: Github templates
   - `build/`: Files handling automated browser deployments
@@ -73,26 +73,26 @@ Thinking about contributing to RES? Awesome! We just ask that you follow a few s
   - `webpack.config.babel.js`: build script
   - `**/__tests__`: unit tests
 
-##### Chrome files
+##### Chrome (`chrome/`)
 
   - `background.entry.js`: the "background page" for RES, necessary for Chrome extensions
   - `environment.js`: specific environment settings for Chrome
   - `manifest.json`: the project manifest
   - `options.html`: options page for chrome extensions
 
-##### Microsoft Edge files
+##### Microsoft Edge (`edge/`)
 
   - `edge.entry.js`: shim to allow chrome extension code usage
   - `environment.js`: Edge-specific overrides of the Chrome environment
   - `manifest.json`: the project manifest
   
-##### Firefox files
+##### Firefox (`firefox/`)
 
   - `background.entry.js`: the "background page" for RES, necessary for Firefox extensions
   - `environment.js`: specific environment settings for Firefox
   - `package.json`: the project manifest for the Firefox add-on
 
-##### Safari files
+##### Safari (`safari/`)
 
   - `Info.plist`: the project manifest
   - `background-safari.html`: the "background html page" for RES, necessary for Safari extensions
@@ -167,7 +167,7 @@ To run integration tests locally, you must change `selenium_host`, `selenium_por
 
 ## Adding new files
 
-##### Modules
+#### Modules
 
 See [`examples/module.js`](https://github.com/honestbleeps/Reddit-Enhancement-Suite/blob/master/examples/module.js) for an example.
 
@@ -176,7 +176,7 @@ It will automatically be loaded when the build script is restarted.
 
 All modules must now have i18n implementations. Please see [here](https://github.com/honestbleeps/Reddit-Enhancement-Suite/blob/master/locales/locales/README.md) for details.
 
-##### Inline image viewer hosts
+#### Media hosts
 
 Please be sure that they support [CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) so the sites do not need to be added as additional permissions, which has caused [headaches in the past](https://www.reddit.com/r/Enhancement/comments/1jskcm/announcement_chrome_users_did_your_res_turn_off/).
 
@@ -185,7 +185,7 @@ See [`examples/host.js`](https://github.com/honestbleeps/Reddit-Enhancement-Suit
 Create a new `.js` file in `lib/modules/hosts`.
 It will automatically be loaded when the build script is restarted.
 
-##### Stylesheets
+#### Stylesheets
 
 Create a new Sass partial under `lib/css/modules/` (with a leading underscore, e.g. `_myPartial.scss`).
 Import the file in `lib/css/res.scss` (i.e. `@import 'modules/myPartial';`—do not include the underscore or file extension).
