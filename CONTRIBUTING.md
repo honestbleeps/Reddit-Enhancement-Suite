@@ -1,4 +1,4 @@
-## Contributor guidelines
+# Contributor guidelines
 
 Thinking about contributing to RES? Awesome! We just ask that you follow a few simple guidelines:
 
