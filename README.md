@@ -38,7 +38,7 @@ Thinking about contributing to RES? Awesome! We just ask that you follow a few s
 
 1. If you're adding new modules or hosts, see [Adding new files](#adding-new-files).
 
-1. Code style is enforced with ESLint and sass-lint. For commands to check code style and autofix common errors, see [Details and advanced usage](#details-and-advanced-usage).
+1. Code style is enforced with ESLint and sass-lint. To check code style and autofix common errors, see [Lint and test commands](#lint-and-test-commands).
 
 ## Project structure
 
@@ -101,7 +101,7 @@ Thinking about contributing to RES? Awesome! We just ask that you follow a few s
 
 ## Building development versions of the extension
 
-First time installation:
+#### First time installation
 
 1. Install [git](https://git-scm.com/).
 1. Install [node.js](https://nodejs.org) (version >= 6).
@@ -109,11 +109,11 @@ First time installation:
 1. Navigate to your RES folder.
 1. Run `npm install`.
 
-Once done, you can build the extension by running `npm start`. This will also start a watch task that will rebuild RES when you make changes (see [Advanced Usage](#details-and-advanced-usage) for more details).
+Once done, you can build the extension by running `npm start` (see [Build commands](#build-commands)).
 
-To load the extension into your browser, see [the sections below](#building-in-chrome).
+To load the extension into your browser, see [Loading RES into your browser](#loading-res-into-your-browser).
 
-#### Details and advanced usage
+#### Build commands
 
 **`npm start [-- <browsers>]`** will clean `dist/`, then build RES (dev mode), and start a watch task that will rebuild RES when you make changes. Only changed files will be rebuilt.
 
@@ -122,6 +122,8 @@ To load the extension into your browser, see [the sections below](#building-in-c
 **`npm run build [-- <browsers>]`** will clean `dist/`, then build RES (release mode). Each build output will be compressed to a .zip file in `dist/zip/`.
 
 `<browsers>` is a comma-separated list of browsers to target, e.g. `chrome,firefox,safari,node`. `all` will build all targets. By default, `chrome` will be targeted.
+
+#### Lint and test commands
 
 **`npm run lint`** will verify the code style (and point out any errors) of all `.js` files in `lib/` (except `lib/vendor/`) using [ESLint](http://eslint.org/), as well as all `.scss` files with [sass-lint](https://github.com/sasstools/sass-lint).
 
@@ -135,24 +137,26 @@ To load the extension into your browser, see [the sections below](#building-in-c
 Currently just `chrome` and `firefox` can be targeted.
 To run integration tests locally, you must change `selenium_host`, `selenium_port`, `username`, and `access_key` in `nightwatch.conf.js` to correspond to your Selenium server.
 
-##### Building in Chrome
+#### Loading RES into your browser
+
+##### Chrome
 
   1. Go to `Menu->Tools->Extensions` and tick the `Developer Mode` checkbox
   2. Choose `Load unpacked extension` and point it to the `/dist/chrome` folder (not the `/chrome` folder). Make sure you only have one RES version running at a time.
   3. Any time you make changes to the script, you must go back to the `Menu->Tools->Extensions` page and `Reload` the extension.
 
-##### Building in Microsoft Edge
+##### Microsoft Edge
 
   1. Go to `about:flags` and tick the `Enable extension developer features` checkbox.
   2. Choose `Load extension` on the extensions menu and select the `/dist/edge` folder (not the `/edge` folder).
   3. Any time you make changes to the extension, you must go back to the `Menu->Extensions` page, go to the extensions settings and `Reload` the extension.
 
-##### Building in Firefox
+##### Firefox
 
   1. Install [jpm](https://developer.mozilla.org/en-US/Add-ons/SDK/Tools/jpm) using `npm`: `npm install -g jpm`
   2. Navigate to the `/dist/firefox` folder (not the `/firefox` folder) and run the command `jpm run`, which should launch a new Firefox browser using a temporary profile with only RES installed.
 
-##### Building in Safari (assumes Mac)
+##### Safari
 
   1. Open the `Preferences` by going to `Safari->Preferences` or pressing `⌘,`, then go to `Advanced` and check the checkbox for `Show Develop menu in menu bar`.
   2. Navigate to `Develop->Show Extension Builder` to open the extensions builder. Add a new extension by pressing the `+` in the bottom left and choosing `Add Extension`.
