@@ -26,10 +26,10 @@ Thanks!
 Steve Sobel
 steve@honestbleeps.com
 
-## Contributing to RES
+## Contributing
 
 See [CONTRIBUTING.md](/CONTRIBUTING.md).
 
-## Changelogs
+## Changelog
 
-See the [`changelog/`](/changelog) directory.
+See the [`changelog/`](/changelog) directory for individual versions or https://redditenhancementsuite.com/releases/ for all versions.
