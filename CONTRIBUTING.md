@@ -33,17 +33,15 @@ Thinking about contributing to RES? Awesome! We just ask that you follow a few s
   - `lib/modules/`: RES modules
   - `lib/templates/`: RES templates
   - `lib/utils/`: RES utilities
-  - `lib/vendor/`: RES vendor libraries 
-  - `locales`: RES i18n translations  
+  - `lib/vendor/`: RES vendor libraries (old libs not on npm)
+  - `lib/**/__tests__`: unit tests
+  - `locales`: RES i18n translations
   - `node/`: Node files
   - `safari/`: Safari-specific RES files
   - `tests/`: integration tests
-  - `utils/`: Misc RES utilities
-  - `CHANGELOG.md`: self-explanatory 
-  - `README.md`: YOU ARE HERE, unless you're browsing on GitHub
+  - `utils/`: Misc RES utilities 
   - `package.json`: package info, dependencies
   - `webpack.config.babel.js`: build script
-  - `**/__tests__`: unit tests
 
 ##### Chrome (`chrome/`)
 
