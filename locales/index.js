@@ -42,25 +42,28 @@ const getLocale = _.memoize(localeName => {
 
 const getLookupFunction = _.memoize(localeName => {
 	const transifexLocale = redditLocaleToTransifexLocale(localeName);
-	const locale = (
+	const locales = _.compact([
 		// 1. Exact match (en_CA -> en_CA)
-		getLocale(transifexLocale) ||
+		getLocale(transifexLocale),
 		// 2. Match without region (en_CA -> en)
-		getLocale(transifexLocale.slice(0, transifexLocale.indexOf('_'))) ||
+		getLocale(transifexLocale.slice(0, transifexLocale.indexOf('_'))),
 		// 3. Default (en)
-		getLocale(DEFAULT_TRANSIFEX_LOCALE)
-	);
+		getLocale(DEFAULT_TRANSIFEX_LOCALE),
+	]);
 
 	return messageName => {
-		if (locale[messageName]) {
-			return locale[messageName].message;
+		for (let i = 0; i < locales.length; ++i) { // eslint-disable-line no-restricted-syntax
+			const entry = locales[i][messageName];
+			if (entry) {
+				return entry.message;
+			}
 		}
 	};
 });
 
 // Behaves like https://developer.chrome.com/extensions/i18n#method-getMessage
 // if it accepted a locale name
-export function getMessage(localeName: string, messageName: string, substitutions: string[]): string {
+export function getMessage(localeName: string, messageName: string, substitutions: Array<string | number>): string {
 	// Transifex will fill in missing translations from partially-translated languages
 	// with strings from the base locale (en).
 	// So we don't need to do multiple checks here.
@@ -68,7 +71,7 @@ export function getMessage(localeName: string, messageName: string, substitution
 
 	// Replace direct references to substitutions, e.g. `First substitution: $1`
 	// Maximum of 9 substitutions allowed, i.e. only one number after the `$`
-	return message.replace(/\$(\d)\b(?!\$)/g, (match, number) => substitutions[number - 1] || '');
+	return message.replace(/\$(\d)\b(?!\$)/g, (match, number) => substitutions[number - 1]);
 
 	// Chrome also supports named placeholders, e.g. `Error: $error_message$`
 	// but Transifex does not create the `placeholders` field in exported JSON
