@@ -115,6 +115,10 @@
 #NREPause {
 	cursor: pointer;
 
+	.res-neverEndingReddit-hideFloatingPauseButton & {
+	    display: none;
+	}
+
 	&::after {
 		font: normal 100% Batch;
 		color: #888;
