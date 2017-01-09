@@ -18,6 +18,7 @@ rules:
 
   # Disallows
   no-attribute-selectors: 0
+  no-color-hex: 0
   no-color-keywords: 0
   no-color-literals: 0
   no-combinators: 0
@@ -41,6 +42,7 @@ rules:
   no-trailing-zero: 2
   no-transition-all: 0
   no-universal-selectors: 0
+  no-url-domains: 2
   no-url-protocols: 2
   no-vendor-prefixes:
     - 2
@@ -49,6 +51,7 @@ rules:
   property-units: 2
 
   # Nesting
+  declarations-before-nesting: 2
   force-attribute-nesting: 0
   force-element-nesting: 0
   force-pseudo-nesting: 0
@@ -78,6 +81,8 @@ rules:
     -
       size: 'tab'
   leading-zero: 2
+  max-line-length: 0
+  max-file-line-count: 0
   nesting-depth: 0
   property-sort-order: 0
   pseudo-element: 2
