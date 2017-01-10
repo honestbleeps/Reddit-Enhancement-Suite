@@ -124,4 +124,40 @@ module.exports = {
 			.assert.value('#accounts_accountSwitcherUsername_0', 'test')
 			.end();
 	},
+	'drag to reorder table options': browser => {
+		if (browser.options.desiredCapabilities.browserName === 'firefox') {
+			// geckodriver doesn't support moveto https://github.com/mozilla/geckodriver/issues/159
+			browser.end();
+			return;
+		}
+
+		browser
+			.url('https://www.reddit.com/#res:settings/accountSwitcher')
+			.waitForElementVisible('#RESConsoleContainer')
+
+			// add rows
+			.click('#optionContainer-accountSwitcher-accounts .addRowButton')
+			.click('#optionContainer-accountSwitcher-accounts .addRowButton')
+			.setValue('#accounts_accountSwitcherUsername_1', ['first'])
+			.setValue('#accounts_accountSwitcherUsername_2', ['second'])
+			.click('#moduleOptionsSave')
+
+			// reorder
+			.refresh()
+			.waitForElementVisible('#RESConsoleContainer')
+			.assert.cssClassPresent('#moduleOptionsSave', 'optionsSaved', 'options not staged')
+			.moveToElement('#optionContainer-accountSwitcher-accounts tr:nth-child(1) .handle', 0, 0)
+			.mouseButtonDown()
+			.moveTo(null, 0, 50)
+			.mouseButtonUp()
+			.assert.cssClassNotPresent('#moduleOptionsSave', 'optionsSaved', 'options staged')
+
+			// ensure that changes get saved
+			.click('#moduleOptionsSave')
+			.refresh()
+			.waitForElementVisible('#RESConsoleContainer')
+			.assert.value('#accounts_accountSwitcherUsername_0', 'second')
+			.assert.value('#accounts_accountSwitcherUsername_1', 'first')
+			.end();
+	},
 };
