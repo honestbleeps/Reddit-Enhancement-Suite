@@ -1,0 +1,44 @@
+.res-commentQuickCollapse-toggleCommentsOnClickLeftEdge #siteTable ~ .commentarea {
+	.comment  {
+	/*
+		box-shadow: 0px 1px 5px rgba(0,0,0,.16) !important;
+		margin-bottom: 10px !important;
+		margin-left: 0px !important;
+	*/
+		position: relative;
+	}
+
+	.comment >.entry>.tagline>.expand:hover {
+		text-decoration: none;
+		background-image: none !important;
+	}
+	.comment >.entry>.tagline>.expand {
+		margin-right: 3px !important;
+		padding: 1px !important;
+		height: 100% !important;
+		background-image: none !important;
+		position: absolute !important;
+		top: 0 !important;
+		left: 0 !important;
+		bottom: 0 !important;
+		text-align: center !important;
+		font-size: 10px !important;
+		transition: color .15s,
+		background-color .15s;
+	}
+	.thing .RES-keyNav-activeElement {
+		position: static !important;
+	}
+	.comment.gilded p.tagline {
+		position: static;
+	}
+
+}
+
+.res-commentQuickCollapse-hideCollapseButton {
+	.comment .collapsed>.entry>.tagline>.expand,
+	.comment >.entry>.tagline>.expand:hover,
+	.comment >.entry>.tagline>.expand {
+		color: transparent !important;
+	}
+}
