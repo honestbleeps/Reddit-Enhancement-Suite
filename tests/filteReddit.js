@@ -83,7 +83,7 @@ module.exports = {
 			// self post domain (and case insensitivity)
 			.perform(editSettings(() => browser
 				.click('#optionContainer-filteReddit-domains .addRowButton')
-				.setValue('#optionContainer-filteReddit-domains input', ['self.resintegrationtests'])
+				.setValue('#optionContainer-filteReddit-domains input', ['sElf.resinTegrAtiontEsts'])
 			))
 			.url(byId(POST.ABC, POST.youtubeDomain))
 			.waitForElementNotVisible(thing(POST.ABC))
@@ -127,7 +127,7 @@ module.exports = {
 			// case insensitivity
 			.perform(editSettings(() => browser
 				.clearValue('#optionContainer-filteReddit-subreddits input')
-				.setValue('#optionContainer-filteReddit-subreddits input', ['resintegrationtests'])
+				.setValue('#optionContainer-filteReddit-subreddits input', ['resinTegrAtiontEsts'])
 			))
 			.url(byId(POST.ABC, POST.restests))
 			.waitForElementNotVisible(thing(POST.ABC))
@@ -247,7 +247,7 @@ module.exports = {
 			// case insensitivity (only these subreddits)
 			.perform(editSettings(() => browser
 				.execute(`
-					document.querySelector('#optionContainer-filteReddit-keywords input#keywords_subreddits_0').value = 'resintegrationtests';
+					document.querySelector('#optionContainer-filteReddit-keywords input#keywords_subreddits_0').value = 'resinTegrAtiontEsts';
 				`)
 				.click('#optionContainer-filteReddit-keywords input#keywords_applyTo_0-2' /* only on */)
 			))
