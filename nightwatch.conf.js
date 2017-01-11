@@ -9,7 +9,7 @@ module.exports = {
 	src_folders: ['tests'],
 	test_workers: {
 		enabled: true,
-		workers: 5,
+		workers: 10,
 	},
 	test_settings: {
 		default: {
