@@ -164,12 +164,6 @@ module.exports = {
 			.end();
 	},
 	'regex filters': browser => {
-		if (browser.end) {
-			// skip this test because master handles it incorrectly; will be fixed in #3604
-			browser.end();
-			return;
-		}
-
 		browser
 			// basic title regex filter
 			.perform(editSettings(() => browser
@@ -185,7 +179,7 @@ module.exports = {
 				.clearValue('#optionContainer-filteReddit-keywords input')
 				.click('#optionContainer-filteReddit-subreddits .addRowButton')
 				.clearValue('#optionContainer-filteReddit-subreddits input')
-				.setValue('#optionContainer-filteReddit-subreddits input', ['/\wIntegrationTests(?!2)/'])
+				.setValue('#optionContainer-filteReddit-subreddits input', ['/\\wIntegrationTests(?!2)/'])
 			))
 			.url(byId(POST.B, POST.RESIntegrationTests2))
 			.waitForElementNotVisible(thing(POST.B))
