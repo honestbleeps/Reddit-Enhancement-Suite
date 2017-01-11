@@ -25,6 +25,13 @@
 	}
 }
 
+.res-orangered-hideEmptyModmailButton {
+	#modmail.nohavemail,
+	#modmail.nohavemail + .separator {
+	    display: none;
+	}
+}
+
 .res-orangered-retroUnreadCount {
 	.message-count {
 		background: none;
