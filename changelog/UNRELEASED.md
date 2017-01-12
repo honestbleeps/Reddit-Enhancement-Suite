@@ -1,12 +1,22 @@
 
 ### New Features
 
-- None (thanks nobody)
+- Media browse by wheel: hover on the grey widget in the floater and scroll to select the next/previous post and navigate through albums (thanks @larsjohnsen)
+- Added short descriptions for each module in the Settings Console sidebar (thanks @dhensche)
+- FilteReddit useRedditFilters now chooses the 100 most popular subreddits to sync (thanks @erikdesjardins)
+- Expandos for YouTube livestreams of the format youtube.com/channel/CHANNELID/live (thanks @WilliamChiu)
 
 ### Bug Fixes
 
-- None (thanks nobody)
+- Fix case-sensitive RegExp filters containing uppercase letters not matching anything (thanks @dhensche)
+- Fix video expandos with non-default playback rate displaying the incorrect playback rate initially (thanks @WilliamChiu)
+- Fix command line settings search (thanks @erikdesjardins)
+- Fix reordering a table option not dirtying the settings console (thanks @erikdesjardins)
+- Fix ctrl-enter to submit for link posts (thanks @erikdesjardins)
 
 ### Housekeeping / Other
 
-- None (thanks nobody)
+- Integration tests for Comment Quick Collapse, Keyboard Nav goMode, FilteReddit (thanks @erikdesjardins)
+- Switch old-style filters over to a common framework (thanks @dhensche)
+- Change method of watching for media resizing to reduce initialization jank (thanks @larsjohnsen)
+- Clean up some Show Images logic (thanks @larsjohnsen)
