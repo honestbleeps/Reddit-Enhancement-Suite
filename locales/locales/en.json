@@ -3269,8 +3269,8 @@
         "message": "Show the vote weight tooltip on hover (i.e. \"your votes for...\")"
     },
 
-    "leftBarScrollOnCollapseDesc": {
-        "message": "Scrolls to next comment if the top part of the collapsed comment is outside the screen"
+    "scrollOnCollapseDesc": {
+        "message": "Scrolls to next comment when a comment is collapsed."
     },
 
     "toggleCommentsOnClickLeftEdgeDesc": {
@@ -3314,7 +3314,13 @@
     "toggleCommentsLeftEdgeHideButtonTitle": {
       "message": "Toggle Comments Left Edge Hide Button"
     },
-    "leftBarScrollOnCollapseTitle": {
-      "message": "Left Bar Scroll On Collapse"
+    "scrollOnCollapseTitle": {
+      "message": "Scroll On Collapse"
+    },
+    "scrollOnCollapsePositionDesc": {
+      "message": "How far  it scroll to next comment when a comment is collapsed. Note this only takes effect if Scroll on collapse in enabled."
+    },
+    "scrollOnCollapsePositionTitle": {
+      "message": "Scroll On Collapse Position"
     }
 }
