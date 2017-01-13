@@ -1,12 +1,5 @@
 
-### New Features
-
-- None (thanks nobody)
-
 ### Bug Fixes
 
-- None (thanks nobody)
-
-### Housekeeping / Other
-
-- None (thanks nobody)
+- Fix performance regression from filter changes (thanks @larsjohnsen)
+- Fix YouTube expandos not working with autoplay or start/end params (thanks @erikdesjardins)
