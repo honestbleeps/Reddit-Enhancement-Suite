@@ -1,0 +1,14 @@
+.res-noParticipation {
+	&.res-noParticipation-disableVoteButtons {
+		.arrow.up:not(.upmod),
+		.arrow.down:not(.downmod) {
+			visibility: hidden;
+		}
+	}
+
+	&.res-noParticipation-disableCommentTextarea {
+		.usertext textarea[disabled] {
+			background-color: #ccc;
+		}
+	}
+}

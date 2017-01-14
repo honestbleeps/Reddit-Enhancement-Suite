@@ -1,0 +1,38 @@
+#userbarToggle {
+	min-height: 22px;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: -5px;
+	width: 16px;
+	padding-right: 3px;
+	height: auto;
+	font-size: 15px;
+	border-radius: 4px 0 0 4px;
+	color: #a1bcd6;
+	display: inline-block;
+	background-color: #dfecf9;
+	border-right: 1px solid #cee3f8;
+	cursor: pointer;
+	text-align: right;
+	line-height: 20px;
+
+	.res-nightmode & {
+		background-color: rgb(73, 80, 93);
+		border-right-color: rgb(118, 133, 148);
+	}
+
+	&.userbarShow {
+		top: auto;
+		left: auto;
+		right: 0;
+
+		.res-navTop & {
+			top: 0;
+		}
+	}
+}
+
+#header-bottom-right.res-userbar-toggle > .user {
+	margin-left: 16px;
+}

@@ -1,0 +1,105 @@
+#RESAccountSwitcherDropdown {
+	display: none;
+	max-height: calc(100vh - 80px);
+	min-width: 110px;
+	overflow-x: hidden;
+	overflow-y: auto;
+	position: absolute;
+	width: auto;
+	z-index: 1000;
+
+	li {
+		height: auto;
+		line-height: 20px;
+		padding: 2px 5px 2px 10px;
+
+		span {
+			margin-left: 8px;
+		}
+	}
+
+	.linkIcon {
+		display: inline;
+		float: right;
+		font-size: .9rem;
+		padding-top: 3px;
+		margin-left: 8px;
+
+		&::before {
+			content: '\F02E';
+		}
+	}
+}
+
+.res-accountSwitcher-dropDownStyle-alien {
+	#RESAccountSwitcherIcon {
+		cursor: pointer;
+		margin-left: 3px;
+		display: inline-block;
+		width: 12px;
+		vertical-align: middle;
+		height: 16px;
+		background-image: url('../images/accountSwitcherSnoo.png');
+		background-repeat: no-repeat;
+	}
+
+	#RESAccountSwitcherIconOverlay {
+		cursor: pointer;
+		position: absolute;
+		display: none;
+		width: 11px;
+		height: 22px;
+		padding-left: 2px;
+		padding-right: 2px;
+		padding-top: 3px;
+		border: 1px solid #369;
+		border-bottom: 1px solid #5f99cf;
+		border-radius: 3px 3px 0 0;
+		z-index: 100;
+		background: #5f99cf url('../images/accountSwitcherSnoo.png') no-repeat 2px 3px;
+	}
+}
+
+.res-accountSwitcher-dropDownStyle-arrow {
+	#RESAccountSwitcherIcon .downArrow::after,
+	#RESAccountSwitcherIconOverlay .downArrow::after {
+		content: '\25BC';
+		line-height: 10px;
+		font-size: 14px;
+	}
+
+	#RESAccountSwitcherIcon {
+		display: inline-block;
+		vertical-align: middle;
+		margin-left: 3px;
+
+		.downArrow::after {
+			cursor: pointer;
+			margin-top: 2px;
+			display: block;
+			width: 16px;
+			color: #aabfff;
+		}
+	}
+
+	#RESAccountSwitcherIconOverlay {
+		cursor: pointer;
+		position: absolute;
+		display: none;
+		width: 20px;
+		height: 22px;
+		z-index: 100;
+		border: 1px solid #369;
+		border-bottom: 1px solid #5f99cf;
+		background-color: #5f99cf;
+		border-radius: 3px 3px 0 0;
+
+		.downArrow::after {
+			margin-top: 6px;
+			margin-left: 3px;
+			display: inline-block;
+			width: 18px;
+			color: #829ff9;
+		}
+	}
+}

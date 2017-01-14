@@ -1,0 +1,144 @@
+// For firefox, we need to style tweet expandos because they can't take advantage of twitter.com's widget.js
+// doesn't affect other browsers (tweets are in iframes)
+blockquote.twitter-tweet {
+	padding: 15px;
+	border-left: 5px solid #ccc;
+	font-size: 14px;
+	line-height: 20px;
+
+	p {
+		margin-bottom: 15px;
+	}
+}
+
+// wow, Reddit only adds a visited style for submission titles!
+// let's add visited styles to user-editable content (.md) if the user wants to.
+.res-styleTweaks-visitedStyle {
+	.md a:visited {
+		color: #551a8b; // same color as submission titles.
+
+		.res-nightmode & {
+			color: hsl(0, 0%, 65%);
+		}
+
+		.res-nightmode.res-nightMode-coloredLinks & {
+			color: hsl(270, 50%, 65%);
+		}
+	}
+}
+
+.res-styleTweaks-showExpandos {
+	.link.compressed .expando-button { display: block; }
+}
+
+.res-styleTweaks-hideUnvotable {
+	.unvoted .arrow.archived { visibility: hidden; }
+	.voted .arrow.archived { cursor: default; }
+}
+
+.res-styleTweaks-showFullLinkFlair-hover {
+	.linkflairlabel:hover { max-width: none; }
+}
+
+.res-styleTweaks-showFullLinkFlair-always {
+	.linkflairlabel { max-width: none; }
+}
+
+.res-styleTweaks-highlightEditedTime {
+	.edited-timestamp { font-weight: bolder; }
+}
+
+.res-colorblind {
+	#mail,
+	#NREMail {
+		&.havemail {
+			background-image: url('../images/colorblindMail.png');
+			background-position: 0 0;
+		}
+	}
+}
+
+.res-styleTweaks-scrollSubredditDropdown {
+	.drop-choices.srdrop {
+		overflow-y: scroll;
+		max-height: 95vh;
+	}
+}
+
+.res-navTop {
+	#header-bottom-right {
+		top: 19px;
+		border-radius: 0 0 0 3px;
+		bottom: auto;
+	}
+
+	.beta-notice {
+		top: 48px;
+	}
+}
+
+.res-styleTweaks-disableAnimations {
+	// This CSS is engineered to disable most animations without making the selector completely ridiculous.
+	// If they get too obnoxious, then use the "disable subreddit style" hammer.
+	#header::before,
+	#header::after,
+	#header *,
+	#header *::before,
+	#header *::after,
+	#header ~ *,
+	#header ~ *::before,
+	#header ~ *::after,
+	#header ~ * *,
+	#header ~ * *::before,
+	#header ~ * *::after,
+	#header ~ * #siteTable *,
+	#header ~ * #siteTable *::before,
+	#header ~ * #siteTable *::after {
+		animation: none !important;
+	}
+}
+
+.res-styleTweaks-postTitleCapitalization-title {
+	.entry a.title { text-transform: capitalize; }
+}
+
+.res-styleTweaks-postTitleCapitalization-sentence {
+	.entry a.title {
+		text-transform: lowercase;
+		display: inline-block;
+
+		&::first-letter {
+			text-transform: uppercase;
+		}
+	}
+}
+
+.res-styleTweaks-postTitleCapitalization-lowercase {
+	.entry a.title { text-transform: lowercase; }
+}
+
+.res-styleTweaks-floatingSideBar {
+	body.with-listing-chooser .listing-chooser {
+		position: fixed;
+		top: 0;
+		overflow-y: auto;
+
+		.contents {
+			margin-top: 65px;
+		}
+	}
+}
+
+.res-srstyle-disabled {
+	#header-img-a {
+		display: inline-block;
+		width: 120px;
+		height: 40px;
+		overflow: hidden;
+	}
+}
+
+.res-sr-style-toggle {
+	display: flex;
+	align-items: center;
+}

@@ -1,0 +1,69 @@
+{
+	"name": "{{prop?title!../package.json}}",
+	"version": "{{prop?version!../package.json}}",
+	"minimum_edge_version": "38.14393.0.0",
+	"description": "{{prop?description!../package.json}}",
+	"author": "{{prop?author!../package.json}}",
+	"background": {
+		"scripts": [
+			"{{./edge.entry.js}}",
+			"{{../chrome/background.entry.js}}"
+		],
+		"persistent": true
+	},
+	"options_page": "{{../chrome/options.html}}",
+	"content_scripts": [
+		{
+			"matches": [
+				"http://redditenhancementsuite.com/*",
+				"http://reddit.com/*",
+				"https://reddit.com/*",
+				"http://*.reddit.com/*",
+				"https://*.reddit.com/*"
+			],
+			"js": [
+				"{{./edge.entry.js}}",
+				"{{../lib/main.entry.js}}"
+			],
+			"css": [
+				"{{../lib/css/res.scss}}"
+			],
+			"run_at": "document_start"
+		}
+	],
+	"icons": {
+		"128": "{{../images/icon128.png}}",
+		"48": "{{../images/icon48.png}}",
+		"16": "{{../images/icon16.png}}"
+	},
+	"page_action": {
+		"default_icon": {
+			"19": "{{../images/css-on-small.png}}",
+			"38": "{{../images/css-on.png}}"
+		},
+		"default_title": "Subreddit Style On"
+	},
+	"permissions": [
+		"cookies",
+		"tabs",
+		"storage",
+		"unlimitedStorage",
+		"http://redditenhancementsuite.com/",
+		"http://reddit.com/*",
+		"https://reddit.com/*",
+		"http://*.reddit.com/*",
+		"https://*.reddit.com/*",
+		"http://min.us/api/*",
+		"http://*.flickr.com/photos/*",
+		"http://img.photobucket.com/*",
+		"http://noembed.com/embed?url=*",
+		"https://api.twitter.com/*",
+		"https://onedrive.live.com/*",
+		"*://1drv.ms/*",
+		"*://backend.deviantart.com/oembed?url=*",
+		"*://api.gyazo.com/api/oembed*",
+		"*://codepen.io/api/oembed*",
+		"*://api.tumblr.com/v2/blog/*/posts?api_key=*&id=*",
+		"https://xkcd.com/*/info.0.json"
+	]
+}

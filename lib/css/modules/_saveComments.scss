@@ -1,0 +1,33 @@
+.RES-save {
+	cursor: help;
+}
+
+#res-saveComments {
+	padding: 0 10px;
+	font-size: small;
+
+	.res-module-description {
+		max-width: 60em;
+		margin-bottom: 15px;
+	}
+
+	.res-saveComments-tip {
+		font-size: small;
+		margin-top: 10px;
+		margin-bottom: 10px;
+	}
+
+	.res-savedComment {
+		margin: 10px 0;
+		padding: 10px 0;
+
+		&.md {
+			font-size: small;
+			max-width: none;
+		}
+
+		.savedCommentFooter {
+			font-size: x-small;
+		}
+	}
+}

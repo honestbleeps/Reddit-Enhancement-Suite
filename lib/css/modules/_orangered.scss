@@ -1,0 +1,39 @@
+#NREMail {
+	width: 15px;
+	height: 10px;
+	margin-left: 4px;
+	background: center center no-repeat;
+
+	&.nohavemail {
+		background-image: url('../images/mailgray.png');
+	}
+
+	&.havemail {
+		background-image: url('../images/mail.png');
+	}
+}
+
+#NREMailCount {
+	line-height: 12px;
+	margin: 0 0 0 1px;
+}
+
+.res-orangered-hideModMail {
+	#modmail,
+	#modmail + .separator {
+		display: none;
+	}
+}
+
+.res-orangered-retroUnreadCount {
+	.message-count {
+		background: none;
+		padding: 0;
+		color: inherit;
+		font-size: inherit;
+		font-weight: normal;
+
+		&::before { content: '['; }
+		&::after { content: ']'; }
+	}
+}

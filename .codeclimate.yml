@@ -1,2 +1,18 @@
+engines:
+  eslint:
+    enabled: true
+    channel: "eslint-3"
+  duplication:
+    enabled: true
+    config:
+      languages:
+      - javascript
+  fixme:
+    enabled: true
+
+ratings:
+  paths:
+  - "**.js"
+
 exclude_paths:
 - "lib/vendor/*"

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Author</key>
+	<string>Steve Sobel</string>
+	<key>Builder Version</key>
+	<string>10601.3.9</string>
+	<key>CFBundleDisplayName</key>
+	<string>{{prop?title!../package.json}}</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.honestbleeps.redditenhancementsuite</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleShortVersionString</key>
+	<string>{{prop?version!../package.json}}</string>
+	<key>CFBundleVersion</key>
+	<string>{{prop?version!../package.json}}</string>
+	<!-- Icon -->
+	<!-- {{!file?name=Icon.png!../images/icon128.png}} -->
+	<key>Chrome</key>
+	<dict>
+		<key>Database Quota</key>
+		<real>10485760</real>
+		<key>Global Page</key>
+		<string>{{./background-safari.html}}</string>
+	</dict>
+	<key>Content</key>
+	<dict>
+		<key>Scripts</key>
+		<dict>
+			<key>Start</key>
+			<array>
+				<string>{{../lib/main.entry.js}}</string>
+			</array>
+		</dict>
+	</dict>
+	<key>Description</key>
+	<string>{{prop?description!../package.json}}</string>
+	<key>DeveloperIdentifier</key>
+	<string>63DT2C85Z6</string>
+	<key>ExtensionInfoDictionaryVersion</key>
+	<string>1.0</string>
+	<key>Permissions</key>
+	<dict>
+		<key>Website Access</key>
+		<dict>
+			<key>Allowed Domains</key>
+			<array>
+				<string>reddit.com</string>
+				<string>*.reddit.com</string>
+				<string>api.twitter.com</string>
+				<string>api.imgur.com</string>
+				<string>min.us</string>
+				<string>*.flickr.com</string>
+				<string>img.photobucket.com</string>
+				<string>gdata.youtube.com</string>
+				<string>redditenhancementsuite.com</string>
+				<string>backend.deviantart.com</string>
+				<string>api.tumblr.com</string>
+				<string>noembed.com</string>
+				<string>miiverse.nintendo.net</string>
+				<string>api.gyazo.com</string>
+				<string>codepen.io</string>
+				<string>xkcd.com</string>
+			</array>
+			<key>Include Secure Pages</key>
+			<true/>
+			<key>Level</key>
+			<string>Some</string>
+		</dict>
+	</dict>
+	<key>Update Manifest URL</key>
+	<string>http://redditenhancementsuite.com/update-safari.plist</string>
+	<key>Website</key>
+	<string>http://redditenhancementsuite.com/</string>
+</dict>
+</plist>
