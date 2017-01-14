@@ -1,7 +1,7 @@
 .commentarea {
 	.comment {
 		&.noncollapsed {
-			.entry.RES-keyNav-activeElement{
+			>.entry.RES-keyNav-activeElement{
 				padding-bottom: 20px;
 				.flat-list.buttons{
 					opacity: 1;
