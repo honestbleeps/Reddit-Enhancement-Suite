@@ -1,0 +1,22 @@
+.commentarea {
+	.comment {
+		&.noncollapsed {
+			.entry.RES-keyNav-activeElement{
+				padding-bottom: 20px;
+				.flat-list.buttons{
+					opacity: 1;
+					left: auto;
+				}
+			}
+		}
+		.entry{
+			transition: padding-bottom 200ms ease;
+		}
+		.flat-list.buttons{
+			position: absolute;
+			left: -9999px;
+			opacity: 0;
+			transition: 200ms;
+		}
+	}
+}
