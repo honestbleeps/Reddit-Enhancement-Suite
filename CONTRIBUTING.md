@@ -105,7 +105,10 @@ To load the extension into your browser, see [Loading RES into your browser](#lo
 
 **`npm run test-integration -- <browsers>`** will run integration tests (in `tests/`) using [Nightwatch.js](http://nightwatchjs.org/).
 Currently just `chrome` and `firefox` can be targeted.
-To run integration tests locally, you must change `selenium_host`, `selenium_port`, `username`, and `access_key` in `nightwatch.conf.js` to correspond to your Selenium server.
+
+To run integration tests locally, you need to run an instance of [Selenium Standalone Server](http://www.seleniumhq.org/download/) and have either [ChromeDriver](https://sites.google.com/a/chromium.org/chromedriver/home) or [GeckoDriver](https://github.com/mozilla/geckodriver) on your `PATH`.
+The [`selenium-standalone`](https://www.npmjs.com/package/selenium-standalone) package may help with this.
+The default host and port (`localhost` and `4444`) should work for most local installations, but if necessary they can be overridden with the `SELENIUM_HOST` and `SELENIUM_PORT` environment variables.
 
 #### Loading RES into your browser
 

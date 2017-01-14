@@ -18,6 +18,8 @@ env:
     # FIREFOX_SECRET
     - secure: dY750kjkoKhqQL7a4E2JnncvMwC4uRkHSP8UzHX92tXbRgKyTFgfekzVExq3gMyNESO/WQh7jUZE5zCM5QnL1q+Xv8hyueHV+piP9imCbw/126Zm0pCsrHVNsBAauqf2CQCE0DyIMADvnPgyANLGe2scz5KuNVZBF/yOJTFK9Kc=
     - SAUCE_USERNAME=RES-Auto
+    - SELENIUM_HOST=ondemand.saucelabs.com
+    - SELENIUM_PORT=80
 addons:
   jwt:
     # SAUCE_ACCESS_KEY=<secure>
