@@ -1,37 +1,41 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Package 
+<!-- Create generationInfo.json for manifoldjs -->
+<!-- {{file?name=../../generationInfo.json!./generationInfo.json}} -->
+<Package
 	xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
 	xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
 	xmlns:uap3="http://schemas.microsoft.com/appx/manifest/uap/windows10/3"
 	IgnorableNamespaces="uap3">
 
-	<Identity 
-		Name="" 
-		Publisher=""
-		Version="5.2.3.0" />
+	<Identity
+		Name="37237honestbleeps.RedditEnhancementSuite"
+		Publisher="CN=06113351-FEB0-4D01-9D90-6FD3B2F39AB5"
+		Version="{{prop?version!../package.json}}.0" />
 
-	<Properties> 
-		<DisplayName>Reddit Enhancement Suite</DisplayName>
+	<Properties>
+		<DisplayName>{{prop?title!../package.json}}</DisplayName>
 		<PublisherDisplayName>honestbleeps</PublisherDisplayName>
-		<Logo>Assets\icon50.png</Logo>
-	</Properties> 
+		<Logo>Assets\icon50.png</Logo> <!-- {{!file?name=../Assets/icon50.png!../images/icon50.png}} -->
+	</Properties>
 
-	<Dependencies> 
+	<Dependencies>
 		<TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.14393.0" MaxVersionTested="10.0.15007.0" />
-	</Dependencies> 
+	</Dependencies>
 
 	<Resources>
 		<Resource Language="en-us" />
-	</Resources> 
+	</Resources>
 
-	<Applications> 
+	<Applications>
 		<Application Id="App">
+			<!-- {{!file?name=../Assets/icon150.png!../images/icon150.png}} -->
+			<!-- {{!file?name=../Assets/icon44.png!../images/icon44.png}} -->
 			<uap:VisualElements
 				AppListEntry="none"
-				DisplayName="Reddit Enhancement Suite"
+				DisplayName="{{prop?title!../package.json}}"
 				Square150x150Logo="Assets\icon150.png"
 				Square44x44Logo="Assets\icon44.png"
-				Description="A suite of modules that enhance your Reddit browsing experience"
+				Description="{{prop?description!../package.json}}"
 				BackgroundColor="transparent">
 			</uap:VisualElements>
 			<Extensions>
@@ -39,10 +43,12 @@
 					<uap3:AppExtension Name="com.microsoft.edge.extension"
 						Id="EdgeExtension"
 						PublicFolder="Extension"
-						DisplayName="Reddit Enhancement Suite">
+						DisplayName="{{prop?title!../package.json}}">
+						<!-- Generate extension -->
+						<!-- {{file?name=manifest.json!extricate!interpolate!./manifest.json}} -->
 					</uap3:AppExtension>
 				</uap3:Extension>
 			</Extensions>
-		</Application> 
+		</Application>
 	</Applications>
 </Package>

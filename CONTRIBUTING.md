@@ -121,7 +121,7 @@ The default host and port (`localhost` and `4444`) should work for most local in
 ##### Microsoft Edge
 
   1. Go to `about:flags` and tick the `Enable extension developer features` checkbox.
-  2. Choose `Load extension` on the extensions menu and select the `/dist/edge` folder (not the `/edge` folder).
+  2. Choose `Load extension` on the extensions menu and select the `/dist/edgeextension/manifest/Extension` folder.
   3. Any time you make changes to the extension, you must go back to the `Menu->Extensions` page, go to the extensions settings and `Reload` the extension.
 
 ##### Firefox

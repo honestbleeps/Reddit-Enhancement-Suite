@@ -19,9 +19,10 @@ const browserConfig = {
 	},
 	edge: {
 		target: 'edge',
-		entry: 'edge/manifest.json',
+		entry: 'edge/appxmanifest.xml',
 		environment: 'edge/environment',
-		output: 'edge',
+		output: 'edgeextension/manifest/Extension',
+		outputFilename: '../appxmanifest.xml',
 	},
 	safari: {
 		target: 'safari',
@@ -58,7 +59,7 @@ const browsers = (
 const shouldZip = !!yargs.argv.zip;
 const isProduction = process.env.NODE_ENV !== 'development';
 
-const configs = browsers.map(b => browserConfig[b]).map(({ target, entry, environment, output }) => {
+const configs = browsers.map(b => browserConfig[b]).map(({ target, entry, environment, outputFilename, output }) => {
 	// extra transforms for Safari
 	const babelConfig = {
 		...babelrc,
@@ -71,7 +72,7 @@ const configs = browsers.map(b => browserConfig[b]).map(({ target, entry, enviro
 		bail: isProduction,
 		output: {
 			path: join(__dirname, 'dist', output),
-			filename: basename(entry),
+			filename: outputFilename || basename(entry),
 		},
 		devtool: isProduction ? '#source-map' : '#cheap-source-map',
 		resolve: {
