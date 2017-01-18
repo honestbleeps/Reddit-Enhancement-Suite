@@ -41,7 +41,6 @@ function parseModule(str, matchPos) {
   // debugger;
   var jsonText = str.slice(braceLocations[0], braceLocations[1] + 1);
   var jsonTextClean = changeTicksAndEscapeNewLines(jsonText);
-  fs.writeFileSync('./json', jsonTextClean);
   return eval("a = " + jsonTextClean); //Must be assigned to a variable for eval to return an object. JS!
 }
 
@@ -98,7 +97,7 @@ function serializeEverything() {
   JSON.stringify(moduleOptionsObject) +
   moduleOptionsStr.slice(braceLocs[1]);
 
-  fs.writeFile('./'+ moduleID +'.js', JSON.stringify(langObject), (err) =>
+  fs.writeFile('./'+ moduleID +'.js', outputModule, (err) =>
   {
     if (err) throw err;
     console.log('./'+ moduleID +'.js saved, please review for correctness!')

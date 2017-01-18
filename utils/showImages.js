@@ -1,1 +1,1812 @@
-{"extensionNameAuthor":{"message":"Reddit Enhancement Suite"},"extensionDescription":{"message":"A suite of modules that enhance your Reddit browsing experience."},"yes":{"message":"Yes"},"no":{"message":"No"},"defaultTitle":{"message":"Subreddit Style On"},"aboutCategory":{"message":"About RES"},"myAccountCategory":{"message":"My Account"},"usersCategory":{"message":"Users"},"commentsCategory":{"message":"Comments"},"submissionsCategory":{"message":"Submissions"},"subredditsCategory":{"message":"Subreddits"},"appearanceCategory":{"message":"Appearance"},"browsingCategory":{"message":"Browsing"},"productivityCategory":{"message":"Productivity"},"coreCategory":{"message":"Core"},"aboutName":{"message":"About RES"},"aboutOptionsPresetsTitle":{"message":"Presets"},"aboutOptionsPresets":{"message":"Quickly customize RES with various presets."},"aboutOptionsBackupTitle":{"message":"Backup"},"aboutOptionsBackup":{"message":"Back up and restore your RES settings."},"aboutOptionsSearchSettingsTitle":{"message":"Search Settings"},"aboutOptionsSearchSettings":{"message":"Find RES settings."},"aboutOptionsAnnouncementsTitle":{"message":"Announcements"},"aboutOptionsAnnouncements":{"message":"Read the latest at /r/RESAnnouncements."},"aboutOptionsDonateTitle":{"message":"Donate"},"aboutOptionsDonate":{"message":"Support further RES development."},"aboutOptionsBugsTitle":{"message":"Bugs"},"aboutOptionsBugs":{"message":"If something isn't working right, visit /r/RESissues for help."},"aboutOptionsSuggestionsTitle":{"message":"Suggestions"},"aboutOptionsSuggestions":{"message":"If you have an idea for RES or want to chat with other users, visit /r/Enhancement."},"aboutOptionsFAQTitle":{"message":"FAQ"},"aboutOptionsFAQ":{"message":"Learn more about RES on the /r/Enhancement wiki."},"aboutOptionsCodeTitle":{"message":"Code"},"aboutOptionsCode":{"message":"You can improve RES with your code, designs, and ideas! RES is an open-source project on GitHub."},"aboutOptionsContributorsTitle":{"message":"Contributors"},"aboutOptionsPrivacyTitle":{"message":"Privacy"},"aboutOptionsPrivacy":{"message":"Read about RES's privacy policy."},"aboutOptionsLicenseTitle":{"message":"License"},"aboutOptionsLicense":{"message":"Reddit Enhancement Suite is released under the GPL v3.0 license."},"accountSwitcherName":{"message":"Account Switcher"},"accountSwitcherAddAccount":{"message":"+add account"},"accountSwitcherUsername":{"message":"username"},"accountSwitcherPassword":{"message":"password"},"accountSwitcherSnoo":{"message":"snoo (alien)"},"accountSwitcherSimpleArrow":{"message":"simple arrow"},"announcementsName":{"message":"RES Announcements"},"announcementsDesc":{"message":"Keep up with important news."},"backupName":{"message":"Backup & Restore"},"backupDesc":{"message":"Backup and restore your Reddit Enhancement Suite settings."},"betteRedditName":{"message":"betteReddit"},"betteRedditDesc":{"message":"Adds a number of interface enhancements to Reddit, such as \"full comments\" links, the ability to unhide accidentally hidden posts, and more."},"commandLineName":{"message":"RES Command Line"},"commandLineDesc":{"message":"Command line for navigating reddit, toggling RES settings, and debugging RES."},"commentDepthName":{"message":"Custom Comment Depth"},"commentDepthDesc":{"message":"Allows you to set the preferred depth of comments you wish to see when clicking on comments links.\n 0 = Everything, 1 = Root level, 2 = Responses to root level, 3 = Responses to responses to root level, etc."},"commentHidePerName":{"message":"Comment Hide Persistor"},"commentHidePerDesc":{"message":"Saves the state of hidden comments across page views."},"commentNavName":{"message":"Comment Navigator"},"commentNavDesc":{"message":"Provides a comment navigation tool to easily find comments by OP, mod, etc."},"commentNavigatorShowByDefaultTitle":{"message":"Show By Default"},"commentNavigatorShowByDefaultDesc":{"message":"Display Comment Navigator by default."},"commentNavigatorOpenOnHighlightUserTitle":{"message":"Open On Highlight User"},"commentNavigatorOpenOnHighlightUserDesc":{"message":"Display Comment Navigator when a user is highlighted."},"commentPrevName":{"message":"Live Preview"},"commentPrevDesc":{"message":"Provides a live preview while editing comments, text submissions, messages, wiki pages, and other markdown text areas; as well as a two column editor for writing walls of text."},"commentQuickCollapseName":{"message":"Comment Quick Collapse"},"commentQuickCollapseDesc":{"message":"Toggles comment collapse when the header is double clicked."},"commentStyleName":{"message":"Comment Style"},"commentStyleDesc":{"message":"Add readability enhancements to comments."},"commentToolsName":{"message":"Editing Tools"},"commentToolsDesc":{"message":"Provides tools and shortcuts for composing comments, text posts, wiki pages, and other markdown text areas."},"contextName":{"message":"Context"},"contextDesc":{"message":"Adds a link to the yellow infobar to view deeply linked comments in their full context."},"contributeName":{"message":"Donate and Contribute"},"customTogglesName":{"message":"Custom Toggles"},"customTogglesDesc":{"message":"Set up custom on/off switches for various parts of RES."},"dashboardName":{"message":"RES Dashboard"},"dashboardDesc":{"message":"The RES Dashboard is home to a number of features including widgets and other useful tools."},"easterEggName":{"message":"Easter Egg"},"easterEggDesc":{"message":"↑ ↑ ↓ ↓ ← → ← → B A."},"filteRedditName":{"message":"filteReddit"},"filteRedditDesc":{"message":"Filter out NSFW content, or links by keyword, domain (use User Tagger to ignore by user) or subreddit (for /r/all or /domain/*)."},"floaterName":{"message":"Floating Islands"},"floaterDesc":{"message":"Managing free-floating RES elements."},"hideChildCommentsName":{"message":"Hide All Child Comments"},"hideChildCommentsDesc":{"message":"Allows you to hide all comments except for replies to the OP for easier reading."},"hideChildCommentsAutomaticTitle":{"message":"Automatic"},"hideChildCommentsAutomaticDesc":{"message":"Automatically hide all but parent comments, or provide a link to hide them all?"},"hoverName":{"message":"RES Pop-up Hover"},"hoverDesc":{"message":"Customize the behavior of the large informational pop-ups which appear when you hover your mouse over certain elements."},"hoverInstancesTitle":{"message":"Instances"},"hoverInstancesDesc":{"message":"Manage particular pop-ups"},"hoverInstancesName":{"message":"name"},"hoverInstancesEnabled":{"message":"enabled"},"hoverOpenDelayTitle":{"message":"Open Delay"},"hoverOpenDelayDesc":{"message":"Default delay between mouseover and the popup opening."},"hoverFadeDelayTitle":{"message":"Fade Delay"},"hoverFadeDelayDesc":{"message":"Default delay before the popup fades after mouseout."},"hoverFadeSpeedTitle":{"message":"Fade Speed"},"hoverFadeSpeedDesc":{"message":"Fade speed (in seconds)."},"hoverWidthTitle":{"message":"Width"},"hoverWidthDesc":{"message":"Default popup width."},"hoverCloseOnMouseOutTitle":{"message":"Close On Mouse Out"},"hoverCloseOnMouseOutDesc":{"message":"Whether to close the popup on mouseout in addition to the close button."},"keyboardNavName":{"message":"Keyboard Navigation"},"keyboardNavDesc":{"message":"Keyboard navigation for reddit!"},"keyboardNavMediaBrowseModeTitle":{"message":"Media Browse Mode"},"keyboardNavMediaBrowseModeDesc":{"message":"If media is open on the currently selected post when moving up/down one post, open media on the next post."},"keyboardNavScrollOnExpandoTitle":{"message":"Scroll On Expando"},"keyboardNavScrollOnExpandoDesc":{"message":"Scroll window to top of link when expando key is used (to keep pics etc in view)."},"keyboardNavLinearScrollStyleTitle":{"message":"Linear Scroll Style"},"keyboardNavNonLinearScrollStyleTitle":{"message":"Non-linear Scroll Style"},"keyboardNavNonLinearScrollStyleDesc":{"message":"When jumping to a entry (moveUpThread/moveDownThread, moveUpSibling/moveDownSibling, moveToParent, and moveDownParentSibling), when and how should RES scroll the window?"},"keyboardNavCommentsLinkNumbersTitle":{"message":"Comments Link Numbers"},"keyboardNavCommentsLinkNumbersDesc":{"message":"Assign number keys (e.g. [1]) to links within selected comment."},"keyboardNavCommentsLinkNumberPositionTitle":{"message":"Comments Link Number Position"},"keyboardNavCommentsLinkNumberPositionDesc":{"message":"Which side commentsLinkNumbers are displayed."},"keyboardNavCommentsLinkToggleExpandoTitle":{"message":"Comments Link Toggle Expando"},"keyboardNavCommentsLinkToggleExpandoDesc":{"message":"When a link has an expando, toggle it instead of opening the link. Holding alt inverts this action."},"keyboardNavCommentsLinkNewTabTitle":{"message":"Comments Link New Tab"},"keyboardNavCommentsLinkNewTabDesc":{"message":"Open number key links in a new tab."},"keyboardNavOnHideMoveDownTitle":{"message":"On Hide Move Down"},"keyboardNavOnHideMoveDownDesc":{"message":"After hiding a link, automatically select the next link."},"keyboardNavOnVoteMoveDownTitle":{"message":"On Vote Move Down"},"keyboardNavOnVoteMoveDownDesc":{"message":"After voting on a link, automatically select the next link."},"keyboardNavOnVoteCommentMoveDownTitle":{"message":"On Vote Comment Move Down"},"keyboardNavOnVoteCommentMoveDownDesc":{"message":"After voting on a comment, automatically select the next comment."},"keyboardNavUseGoModeTitle":{"message":"Use Go Mode"},"keyboardNavUseGoModeDesc":{"message":"Require initiating goMode before using \"go to\" shortcuts."},"keyboardNavFollowLinkNewTabFocusTitle":{"message":"Follow Link New Tab Focus"},"keyboardNavFollowLinkNewTabFocusDesc":{"message":"When following a link in new tab - focus the tab?"},"keyboardNavToggleHelpTitle":{"message":"Toggle Help"},"keyboardNavToggleHelpDesc":{"message":"Show help for keyboard shortcuts."},"keyboardNavToggleCmdLineTitle":{"message":"Toggle Cmd Line"},"keyboardNavToggleCmdLineDesc":{"message":"Launch RES command line."},"keyboardNavEnterFilterCommandLineTitle":{"message":"Enter Filter Command Line"},"keyboardNavEnterFilterCommandLineDesc":{"message":"Launch filter command line."},"keyboardNavHideTitle":{"message":"Hide"},"keyboardNavHideDesc":{"message":"Hide link."},"keyboardNavMoveUpTitle":{"message":"Move Up"},"keyboardNavMoveUpDesc":{"message":"Move up to the previous link or comment in flat lists."},"keyboardNavMoveDownTitle":{"message":"Move Down"},"keyboardNavMoveDownDesc":{"message":"Move down to the next link or comment in flat lists."},"keyboardNavMoveUpCommentTitle":{"message":"Move Up Comment"},"keyboardNavMoveUpCommentDesc":{"message":"Move up to the previous comment on threaded comment pages."},"keyboardNavMoveDownCommentTitle":{"message":"Move Down Comment"},"keyboardNavMoveDownCommentDesc":{"message":"Move down to the next comment on threaded comment pages."},"keyboardNavMoveTopTitle":{"message":"Move Top"},"keyboardNavMoveTopDesc":{"message":"Move to top of list (on link pages)."},"keyboardNavMoveBottomTitle":{"message":"Move Bottom"},"keyboardNavMoveBottomDesc":{"message":"Move to bottom of list (on link pages)."},"keyboardNavMoveUpSiblingTitle":{"message":"Move Up Sibling"},"keyboardNavMoveUpSiblingDesc":{"message":"Move to previous sibling (in comments) - skips to previous sibling at the same depth."},"keyboardNavMoveDownSiblingTitle":{"message":"Move Down Sibling"},"keyboardNavMoveDownSiblingDesc":{"message":"Move to next sibling (in comments) - skips to next sibling at the same depth."},"keyboardNavMoveDownParentSiblingTitle":{"message":"Move Down Parent Sibling"},"keyboardNavMoveDownParentSiblingDesc":{"message":"Move to parent's next sibling (in comments)."},"keyboardNavMoveUpThreadTitle":{"message":"Move Up Thread"},"keyboardNavMoveUpThreadDesc":{"message":"Move to the topmost comment of the previous thread (in comments)."},"keyboardNavMoveDownThreadTitle":{"message":"Move Down Thread"},"keyboardNavMoveDownThreadDesc":{"message":"Move to the topmost comment of the next thread (in comments)."},"keyboardNavMoveToTopCommentTitle":{"message":"Move To Top Comment"},"keyboardNavMoveToTopCommentDesc":{"message":"Move to the topmost comment of the current thread (in comments)."},"keyboardNavMoveToParentTitle":{"message":"Move To Parent"},"keyboardNavMoveToParentDesc":{"message":"Move to parent (in comments)."},"keyboardNavShowParentsTitle":{"message":"Show Parents"},"keyboardNavShowParentsDesc":{"message":"Display parent comments."},"keyboardNavFollowLinkTitle":{"message":"Follow Link"},"keyboardNavFollowLinkDesc":{"message":"Follow link (link pages only)."},"keyboardNavFollowLinkNewTabTitle":{"message":"Follow Link New Tab"},"keyboardNavFollowLinkNewTabDesc":{"message":"Follow link in new tab (link pages only)."},"keyboardNavToggleExpandoTitle":{"message":"Toggle Expando"},"keyboardNavToggleExpandoDesc":{"message":"Toggle expando (image/text/video)."},"keyboardNavImageSizeUpTitle":{"message":"Image Size Up"},"keyboardNavImageSizeUpDesc":{"message":"Increase the size of image(s) in the highlighted post area."},"keyboardNavImageSizeDownTitle":{"message":"Image Size Down"},"keyboardNavImageSizeDownDesc":{"message":"Decrease the size of image(s) in the highlighted post area."},"keyboardNavImageSizeUpFineTitle":{"message":"Image Size Up Fine"},"keyboardNavImageSizeUpFineDesc":{"message":"Increase the size of image(s) in the highlighted post area (finer control)."},"keyboardNavImageSizeDownFineTitle":{"message":"Image Size Down Fine"},"keyboardNavImageSizeDownFineDesc":{"message":"Decrease the size of image(s) in the highlighted post area (finer control)."},"keyboardNavImageSizeAnyHeightTitle":{"message":"Image Size Any Height"},"keyboardNavImageSizeAnyHeightDesc":{"message":"Removes the height restriction of image(s) in the highlighted post area."},"keyboardNavImageMoveUpTitle":{"message":"Image Move Up"},"keyboardNavImageMoveUpDesc":{"message":"Move the image(s) in the highlighted post area up."},"keyboardNavImageMoveDownTitle":{"message":"Image Move Down"},"keyboardNavImageMoveDownDesc":{"message":"Move the image(s) in the highlighted post area down."},"keyboardNavImageMoveLeftTitle":{"message":"Image Move Left"},"keyboardNavImageMoveLeftDesc":{"message":"Move the image(s) in the highlighted post area left."},"keyboardNavImageMoveRightTitle":{"message":"Image Move Right"},"keyboardNavImageMoveRightDesc":{"message":"Move the image(s) in the highlighted post area right."},"keyboardNavPreviousGalleryImageTitle":{"message":"Previous Gallery Image"},"keyboardNavPreviousGalleryImageDesc":{"message":"View the previous image of an inline gallery."},"keyboardNavNextGalleryImageTitle":{"message":"Next Gallery Image"},"keyboardNavNextGalleryImageDesc":{"message":"View the next image of an inline gallery."},"keyboardNavToggleViewImagesTitle":{"message":"Toggle View Images"},"keyboardNavToggleChildrenTitle":{"message":"Toggle Children"},"keyboardNavToggleChildrenDesc":{"message":"Expand/collapse comments (comments pages only)."},"keyboardNavFollowCommentsTitle":{"message":"Follow Comments"},"keyboardNavFollowCommentsDesc":{"message":"View comments for link (shift opens them in a new tab)."},"keyboardNavFollowCommentsNewTabTitle":{"message":"Follow Comments New Tab"},"keyboardNavFollowCommentsNewTabDesc":{"message":"View comments for link in a new tab."},"keyboardNavFollowLinkAndCommentsNewTabTitle":{"message":"Follow Link And Comments New Tab"},"keyboardNavFollowLinkAndCommentsNewTabDesc":{"message":"View link and comments in new tabs."},"keyboardNavFollowLinkAndCommentsNewTabBGTitle":{"message":"Follow Link And Comments New Tab BG"},"keyboardNavFollowLinkAndCommentsNewTabBGDesc":{"message":"View link and comments in new background tabs."},"keyboardNavUpVoteTitle":{"message":"Up Vote"},"keyboardNavUpVoteDesc":{"message":"Upvote selected link or comment (or remove the upvote)."},"keyboardNavDownVoteTitle":{"message":"Down Vote"},"keyboardNavDownVoteDesc":{"message":"Downvote selected link or comment (or remove the downvote)."},"keyboardNavUpVoteWithoutTogglingTitle":{"message":"Up Vote Without Toggling"},"keyboardNavUpVoteWithoutTogglingDesc":{"message":"Upvote selected link or comment (but don't remove the upvote)."},"keyboardNavDownVoteWithoutTogglingTitle":{"message":"Down Vote Without Toggling"},"keyboardNavDownVoteWithoutTogglingDesc":{"message":"Downvote selected link or comment (but don't remove the downvote)."},"keyboardNavSavePostTitle":{"message":"Save Post"},"keyboardNavSavePostDesc":{"message":"Save the current post to your reddit account. This is accessible from anywhere that you're logged in, but does not preserve the original text if it's edited or deleted."},"keyboardNavSaveCommentTitle":{"message":"Save Comment"},"keyboardNavSaveCommentDesc":{"message":"Save the current comment to your reddit account. This is accessible from anywhere that you're logged in, but does not preserve the original text if it's edited or deleted."},"keyboardNavSaveRESTitle":{"message":"Save RES"},"keyboardNavSaveRESDesc":{"message":"Save the current comment with RES. This does preserve the original text of the comment, but is only saved locally."},"keyboardNavReplyTitle":{"message":"Reply"},"keyboardNavReplyDesc":{"message":"Reply to current comment (comment pages only)."},"keyboardNavFollowPermalinkTitle":{"message":"Follow Permalink"},"keyboardNavFollowPermalinkDesc":{"message":"Open the current comment's permalink (comment pages only)."},"keyboardNavFollowPermalinkNewTabTitle":{"message":"Follow Permalink New Tab"},"keyboardNavFollowPermalinkNewTabDesc":{"message":"Open the current comment's permalink in a new tab (comment pages only)."},"keyboardNavFollowSubredditTitle":{"message":"Follow Subreddit"},"keyboardNavFollowSubredditDesc":{"message":"Go to subreddit of selected link (link pages only)."},"keyboardNavFollowSubredditNewTabTitle":{"message":"Follow Subreddit New Tab"},"keyboardNavFollowSubredditNewTabDesc":{"message":"Go to subreddit of selected link in a new tab (link pages only)."},"keyboardNavGoModeTitle":{"message":"Go Mode"},"keyboardNavGoModeDesc":{"message":"Enter \"goMode\" (necessary before using any of the below \"go to\" shortcuts)."},"keyboardNavInboxTitle":{"message":"Inbox"},"keyboardNavInboxDesc":{"message":"Go to inbox."},"keyboardNavInboxNewTabTitle":{"message":"Inbox New Tab"},"keyboardNavInboxNewTabDesc":{"message":"Go to inbox in a new tab."},"keyboardNavModmailTitle":{"message":"Modmail"},"keyboardNavModmailDesc":{"message":"Go to modmail."},"keyboardNavModmailNewTabTitle":{"message":"Modmail New Tab"},"keyboardNavModmailNewTabDesc":{"message":"Go to modmail in a new tab."},"keyboardNavProfileTitle":{"message":"Profile"},"keyboardNavProfileDesc":{"message":"Go to profile."},"keyboardNavProfileNewTabTitle":{"message":"Profile New Tab"},"keyboardNavProfileNewTabDesc":{"message":"Go to profile in a new tab."},"keyboardNavFrontPageTitle":{"message":"Front Page"},"keyboardNavFrontPageDesc":{"message":"Go to front page."},"keyboardNavsSubredditFrontPageTitle":{"message":"Subreddit Front Page"},"keyboardNavsSubredditFrontPageDesc":{"message":"Go to subreddit front page."},"keyboardNavRandomTitle":{"message":"Random"},"keyboardNavRandomDesc":{"message":"Go to a random subreddit."},"keyboardNavNextPageTitle":{"message":"Next Page"},"keyboardNavNextPageDesc":{"message":"Go to next page (link list pages only)."},"keyboardNavPrevPageTitle":{"message":"Prev Page"},"keyboardNavPrevPageDesc":{"message":"Go to previous page (link list pages only)."},"keyboardNavToggleCommentNavigatorTitle":{"message":"Toggle Comment Navigator"},"keyboardNavToggleCommentNavigatorDesc":{"message":"Open Comment Navigator."},"keyboardNavCommentNavigatorMoveUpTitle":{"message":"Comment Navigator Move Up"},"keyboardNavCommentNavigatorMoveUpDesc":{"message":"Move up using Comment Navigator."},"keyboardNavCommentNavigatorMoveDownTitle":{"message":"Comment Navigator Move Down"},"keyboardNavCommentNavigatorMoveDownDesc":{"message":"Move down using Comment Navigator."},"localDateName":{"message":"Local Date"},"localDateDesc":{"message":"Shows date in your local time zone when you hover over a relative date."},"logoLinkName":{"message":"Logo Link"},"logoLinkDesc":{"message":"Allow you to change the link on the reddit logo."},"logoLinkRedditLogoDestinationTitle":{"message":"Reddit Logo Destination"},"logoLinkRedditLogoDestinationDesc":{"message":"Location when you click on the reddit logo."},"logoLinkFrontpage":{"message":"Frontpage"},"logoLinkAll":{"message":"/r/all"},"logoLinkDashboard":{"message":"Dashboard"},"logoLinkCurrent":{"message":"Current subreddit/multireddit"},"logoLinkMyUserPage":{"message":"My user page"},"logoLinkInbox":{"message":"Inbox"},"logoLinkCustom":{"message":"Custom"},"logoLinkCustomDestinationTitle":{"message":"Custom Destination"},"logoLinkCustomDestinationDesc":{"message":"If redditLogoDestination is set to custom, link here."},"menuName":{"message":"RES Menu"},"messageMenuName":{"message":"Message Menu"},"messageMenuDesc":{"message":"Hover over the mail icon to access different types of messages or to compose a new message."},"messageMenuAddShortcut":{"message":"+add shortcut"},"messageMenuLabel":{"message":"label"},"messageMenuUrl":{"message":"url"},"messageMenuLinksTitle":{"message":"Links"},"messageMenuLinksDesc":{"message":"Links to show in the mail icon drop down menu."},"messageMenuUseQuickMessageTitle":{"message":"Use Quick Message"},"messageMenuUseQuickMessageDesc":{"message":"Use Quick Message pop-up when composing a new message."},"messageMenuHoverDelayTitle":{"message":"Hover Delay"},"messageMenuHoverDelayDesc":{"message":"Delay, in milliseconds, before hover tooltip loads. Default is 1000."},"messageMenuFadeDelayTitle":{"message":"Fade Delay"},"messageMenuFadeDelayDesc":{"message":"Delay, in milliseconds, before hover tooltip fades away. Default is 200."},"messageMenuFadeSpeedTitle":{"message":"Fade Speed"},"messageMenuFadeSpeedDesc":{"message":"Fade animation's speed (in seconds). Default is 0.7."},"modhelperName":{"message":"Mod Helper"},"modhelperDesc":{"message":"Helps moderators via tips and tricks for playing nice with RES."},"multiredditNavbarName":{"message":"Multireddit Navigation"},"multiredditNavbarDesc":{"message":"Enhance the navigation bar shown on the left side of the frontpage."},"multiredditNavbarSectionMenuTitle":{"message":"Section Menu"},"multiredditNavbarSectionMenuDesc":{"message":"Show a menu linking to various sections of the multireddit when hovering your mouse over the link."},"multiredditNavbarSectionLinksTitle":{"message":"Section Links"},"multiredditNavbarSectionLinksDesc":{"message":"Links to display in the dropdown."},"multiredditNavbarAddShortcut":{"message":"+add multireddit section shortcut"},"multiredditNavbarLabel":{"message":"label"},"multiredditNavbarUrl":{"message":"url"},"multiredditNavbarHoverDelayTitle":{"message":"Hover Delay"},"multiredditNavbarHoverDelayDesc":{"message":"Delay, in milliseconds, before hover tooltip loads. Default is 1000."},"multiredditNavbarFadeDelayTitle":{"message":"Fade Delay"},"multiredditNavbarFadeDelayDesc":{"message":"Delay, in milliseconds, before hover tooltip fades away. Default is 200."},"multiredditNavbarFadeSpeedTitle":{"message":"Fade Speed"},"multiredditNavbarFadeSpeedDesc":{"message":"Fade animation's speed (in seconds). Default is 0.7."},"nerName":{"message":"Never Ending Reddit"},"nerDesc":{"message":"Inspired by modules like River of Reddit and Auto Pager - gives you a never ending stream of reddit goodness."},"nerReturnToPrevPageTitle":{"message":"Return To Previous Page"},"nerReturnToPrevPageDesc":{"message":"Return to the page you were last on when hitting \"back\" button?"},"nerAutoLoadTitle":{"message":"Auto Load"},"nerAutoLoadDesc":{"message":"Automatically load new page on scroll (if off, you click to load)."},"nerPauseAfterEveryTitle":{"message":"Pause After Every"},"nerReversePauseIconTitle":{"message":"Reverse Pause Icon"},"nerReversePauseIconDesc":{"message":"Show \"paused\" bars icon when auto-load is paused and \"play\" wedge icon when active."},"nerHideDupesTitle":{"message":"Hide Dupes"},"nerHideDupesDesc":{"message":"Fade or completely hide duplicate posts already showing on the page."},"nerHideDupesHide":{"message":"Hide"},"nerHideDupesFade":{"message":"Fade"},"nerHideDupesDontHide":{"message":"Do not hide"},"nerShowServerInfoTitle":{"message":"Show Server Info"},"nerShowServerInfoDesc":{"message":"Show the π server / debug details next to the floating Never-Ending Reddit tools."},"newCommentCountName":{"message":"New Comment Count"},"newCommentCountDesc":{"message":"Tells you how many comments have been posted since you last viewed a thread."},"newCommentCountCleanCommentsTitle":{"message":"Clean Comments"},"newCommentCountCleanCommentsDesc":{"message":"Number of days before RES stops keeping track of a viewed thread."},"newCommentCountSubscriptionLengthTitle":{"message":"Count Subscription Length"},"newCommentCountSubscriptionLengthDesc":{"message":"Number of days before thread subscriptions expire."},"newCommentCountShowSubscribeButtonTitle":{"message":"Show Subscribe Button"},"newCommentCountShowSubscribeButtonDesc":{"message":"Show the Subscribe button?"},"newCommentCountMonitorPostsVisitedTitle":{"message":"Monitor Posts Visited"},"newCommentCountMonitorPostsVisitedDesc":{"message":"Monitor the number of comments on posts you have visited."},"newCommentCountMonitorPostsVisitedIncognitoTitle":{"message":"Monitor Posts Visited Incognito"},"newCommentCountMonitorPostsVisitedIncognitoDesc":{"message":"Monitor the number of comments on posts you have visited while browsing in incognito/private mode."},"nightModeName":{"message":"Night Mode"},"noPartName":{"message":"No Participation"},"noPartDisableVoteButtonsTitle":{"message":"Disable Vote Buttons"},"noPartDisableVoteButtonsDesc":{"message":"Hide vote buttons. If you have already visited the page and voted, your prior votes will still be visible."},"noPartDisableCommentTextareaTitle":{"message":"Disable Comment Textarea"},"noPartDisableCommentTextareaDesc":{"message":"Disable commenting."},"noPartEvenIfSubscriberTitle":{"message":"Even If Subscriber"},"noPartEvenIfSubscriberDesc":{"message":"Enable NP mode in subreddits where you're a subscriber."},"noPartEscapeNPTitle":{"message":"Escape NP"},"noPartEscapeNPDesc":{"message":"Remove np mode when leaving a No-Participation page."},"notificationsName":{"message":"RES Notifications"},"notificationsDesc":{"message":"Manage pop-up notifications for RES functions."},"notificationStickyTitle":{"message":"Sticky"},"notificationStickyDesc":{"message":"Sticky notifications remain visible until you click the close button."},"notificationsPerNotificationType":{"message":"per notification type"},"notificationsAlwaysSticky":{"message":"always sticky"},"notificationsNeverSticky":{"message":"never sticky"},"notificationCloseDelayTitle":{"message":"Close Delay"},"notificationCloseDelayDesc":{"message":"In milliseconds, length of time until a notification begins to disappear."},"notificationFadeOutLengthTitle":{"message":"Fade Out Length"},"notificationFadeOutLengthDesc":{"message":"In milliseconds, length of time available to stop a notification from disappearing."},"notificationNotificationTypesTitle":{"message":"Notification Types"},"notificationNotificationTypesDesc":{"message":"Manage different types of notifications."},"notificationsAddNotificationType":{"message":"manually register notification type"},"notificationsModuleID":{"message":"module ID"},"notificationsNotificationID":{"message":"notification ID"},"notificationsEnabled":{"message":"enabled"},"notificationsSticky":{"message":"sticky"},"notificationsCooldown":{"message":"cooldown"},"onboardingName":{"message":"RES Welcome Wagon"},"onboardingDesc":{"message":"Learn more about RES at /r/Enhancement."},"orangeredName":{"message":"Unread Messages"},"orangeredDesc":{"message":"Helping you get your daily dose of orangereds."},"orangeredOpenMailInNewTabTitle":{"message":"Open Mail In New Tab"},"orangeredOpenMailInNewTabDesc":{"message":"When clicking the mail envelope or modmail icon, open mail in a new tab?"},"orangeredUpdateCurrentTabTitle":{"message":"Update Current Tab"},"orangeredUpdateCurrentTabDesc":{"message":"Update mail buttons on current tab when RES checks for orangereds."},"orangeredUpdateOtherTabsTitle":{"message":"Update Other Tabs"},"orangeredUpdateOtherTabsDesc":{"message":"Update all open tabs when RES checks for orangereds."},"orangeredShowFloatingEnvelopeTitle":{"message":"Show Floating Envelope"},"orangeredShowFloatingEnvelopeDesc":{"message":"Show an envelope (inbox) icon in the top right corner."},"orangeredRetroUnreadCountTitle":{"message":"Retro Unread Count"},"orangeredRetroUnreadCountDesc":{"message":"If you dislike the unread count provided by native reddit, you can replace it with the RES-style bracketed unread count."},"orangeredShowUnreadCountInTitleTitle":{"message":"Show Unread Count In Title"},"orangeredShowUnreadCountInTitleDesc":{"message":"Show unread message count in page/tab title?"},"orangeredShowUnreadCountInFaviconTitle":{"message":"Show Unread Count In Favicon"},"orangeredShowUnreadCountInFaviconDesc":{"message":"Show unread message count in favicon?"},"orangeredResetFaviconOnLeaveTitle":{"message":"Reset Favicon On Leave"},"orangeredResetFaviconOnLeaveDesc":{"message":"Reset the favicon before leaving the page.\n\nThis prevents the unread badge from appearing in bookmarks, but may hurt browser caching."},"orangeredUnreadLinksToInboxTitle":{"message":"Unread Links To Inbox"},"orangeredUnreadLinksToInboxDesc":{"message":"Always go to the inbox, not unread messages, when clicking on orangered."},"orangeredHideModMailTitle":{"message":"Hide Mod Mail"},"orangeredHideModMailDesc":{"message":"Hide the mod mail button in user bar."},"pageNavName":{"message":"Page Navigator"},"pageNavDesc":{"message":"Provides tools for getting around the page."},"pageNavToTopTitle":{"message":"To Top"},"pageNavToTopDesc":{"message":"Add an icon to every page that takes you to the top when clicked."},"pageNavToCommentTitle":{"message":"To New Comment Area"},"pageNavToCommentDesc":{"message":"Add an icon to every page that takes you to the new comment area when clicked."},"pageNavShowLinkTitle":{"message":"Show Link"},"pageNavShowLinkDesc":{"message":"Show information about the submission when scrolling up on comments pages."},"pageNavShowLinkNewTabTitle":{"message":"Show Link New Tab"},"pageNavShowLinkNewTabDesc":{"message":"Open link in new tab."},"presetsName":{"message":"Presets"},"presetsDesc":{"message":"Select from various preset RES configurations. Each preset turns on or off various modules/options, but does not reset your entire configuration."},"quickMessageName":{"message":"Quick Message"},"quickMessageDesc":{"message":"A pop-up dialog that allows you to send messages from anywhere on reddit. Messages can be sent from the quick message dialog by pressing control-enter or command-enter."},"resTipsName":{"message":"RES Tips and Tricks"},"resTipsDesc":{"message":"Adds tips/tricks help to RES console."},"saveCommentsName":{"message":"Save Comments"},"searchName":{"message":"Search RES Settings"},"searchHelperName":{"message":"Search Helper"},"searchHelperDesc":{"message":"Provide help with the use of search."},"searchCopyResultForComment":{"message":"copy this for a comment"},"selectedEntryName":{"message":"Selected Entry"},"selectedEntryDesc":{"message":"Style the currently selected submission or comment. For use with Keyboard Navigation."},"settingsConsoleName":{"message":"Settings Console"},"settingsConsoleDesc":{"message":"Manage your RES settings and preferences."},"settingsConsoleDefaultAddRowText":{"message":"Add Row"},"settingsNavName":{"message":"RES Settings Navigation"},"settingsNavDesc":{"message":"Helping you get around the RES Settings Console with greater ease."},"showImagesName":{"message":"Inline Image Viewer"},"showImagesDesc":{"message":"Opens images inline in your browser with the click of a button. Also has configuration options, check it out!"},"showKarmaName":{"message":"Show Karma"},"showKarmaDesc":{"message":"Add more info and tweaks to the karma next to your username in the user menu bar."},"showParentName":{"message":"Show Parent on Hover"},"showParentDesc":{"message":"Shows the parent comments when hovering over the \"parent\" link of a comment."},"singleClickName":{"message":"Single Click Opener"},"singleClickDesc":{"message":"Adds an [l+c] link that opens a link and the comments page in new tabs for you in one click."},"sourceSnudownName":{"message":"Show Snudown Source"},"sourceSnudownDesc":{"message":"Add tool to show the original text on posts and comments, before reddit formats the text."},"spamButtonName":{"message":"Spam Button"},"spamButtonDesc":{"message":"Adds a Spam button to posts for easy reporting."},"spoilerTagsName":{"message":"Global Spoiler Tags"},"spoilerTagsDesc":{"message":"Hide spoilers on user profile pages."},"stylesheetName":{"message":"Stylesheet Loader"},"stylesheetDesc":{"message":"Load extra stylesheets or your own CSS snippets."},"styleTweaksName":{"message":"Style Tweaks"},"submitHelperName":{"message":"Submission Helper"},"submitHelperDesc":{"message":"Provides utilities to help with submitting a post."},"submitIssueName":{"message":"Submit an Issue"},"subredditInfoName":{"message":"Subreddit Info"},"subredditInfoDesc":{"message":"Adds a hover tooltip to subreddits."},"subredditManName":{"message":"Subreddit Manager"},"subredditManDesc":{"message":"Allows you to customize the top bar with your own subreddit shortcuts, including dropdown menus of multi-reddits and more."},"subredditTaggerName":{"message":"Subreddit Tagger"},"subredditTaggerDesc":{"message":"Add custom text to the beginning of submission titles on your front page and /r/all. Useful for adding context to submissions."},"tableToolsName":{"message":"Table Tools"},"tableToolsDesc":{"message":"Include additional functionality to Reddit Markdown tables (only sorting at the moment)."},"troubleshooterName":{"message":"Troubleshooter"},"userbarHiderName":{"message":"User Bar Hider"},"userbarHiderDesc":{"message":"Add a toggle button to show or hide the user bar."},"userHighlightName":{"message":"User Highlighter"},"userHighlightDesc":{"message":"Highlights certain users in comment threads: OP, Admin, Friends, Mod - contributed by MrDerk."},"userInfoName":{"message":"User Info"},"userInfoDesc":{"message":"Adds a hover tooltip to users."},"usernameHiderName":{"message":"Username Hider"},"usernameHiderDesc":{"message":"Username hider hides your username from displaying on your screen when you're logged in to reddit. This way, if someone looks over your shoulder at work, or if you take a screenshot, your reddit username is not shown. This only affects your screen. There is no way to post or comment on reddit without your post being linked to the account you made it from."},"userTaggerName":{"message":"User Tagger"},"versionName":{"message":"Version Manager"},"versionDesc":{"message":"Handle current/previous version checks."},"voteEnhancementsName":{"message":"Vote Enhancements"},"voteEnhancementsDesc":{"message":"Format or show additional information about votes on posts and comments."},"wheelBrowseName":{"message":"Browse by Wheel"},"wheelBrowseDesc":{"message":"Browse entries and galleries by scrolling inside the grey floater."},"xPostLinksName":{"message":"X-post Links"},"xPostLinksCategory":{"message":"Submissions"},"xPostLinksDesc":{"message":"Create links to x-posted subreddits in post taglines."},"profileNavigatorName":{"message":"Profile Navigator"},"profileNavigatorDesc":{"message":"Enhance getting to various parts of your user page."},"profileNavigatorSectionMenuDesc":{"message":"Show a menu linking to various sections of the current user's profile when hovering your mouse over the username link in the top right corner."},"profileNavigatorSectionLinksDesc":{"message":"Links to display in the profile hover menu."},"profileNavigatorHoverDelayDesc":{"message":"Delay, in milliseconds, before hover tooltip loads."},"profileNavigatorFadeDelayDesc":{"message":"Delay, in milliseconds, before hover tooltip fades away."},"profileNavigatorFadeSpeedDesc":{"message":"Fade animation's speed (in seconds)."},"accountSwitcherKeepLoggedInTitle":{"message":"Keep Logged In"},"accountSwitcherKeepLoggedInDesc":{"message":"Keep me logged in when I restart my browser."},"accountSwitcherAccountsTitle":{"message":"Accounts"},"accountSwitcherAccountsDesc":{"message":"Set your usernames and passwords below. They are only stored in RES preferences."},"accountSwitcherUpdateOtherTabsTitle":{"message":"Update Other Tabs"},"accountSwitcherUpdateOtherTabsDesc":{"message":"After switching accounts, show a warning in other tabs."},"accountSwitcherReloadOtherTabsTitle":{"message":"Reload Other Tabs"},"accountSwitcherReloadOtherTabsDesc":{"message":"After switching accounts, automatically reload other tabs."},"accountSwitcherShowCurrentUserNameTitle":{"message":"Show Current User Name"},"accountSwitcherShowCurrentUserNameDesc":{"message":"Show my current user name in the Account Switcher."},"accountSwitcherShowUserDetailsTitle":{"message":"Show User Details"},"accountSwitcherShowUserDetailsDesc":{"message":"Show details of each account in the Account Switcher, such as karma or gold status."},"accountSwitcherShowKarmaTitle":{"message":"Show Karma"},"accountSwitcherShowKarmaDesc":{"message":"Show the post and comment karma of each account in the Account Switcher."},"accountSwitcherShowGoldTitle":{"message":"Show Gold"},"accountSwitcherShowGoldDesc":{"message":"Show the gold status of each account in the Account Switcher."},"accountSwitcherDropDownStyleTitle":{"message":"Drop Down Style"},"accountSwitcherDropDownStyleDesc":{"message":"Use the \"snoo\" icon, or older style dropdown?"},"backupAndRestoreBackupTitle":{"message":"Backup"},"backupAndRestoreBackupDesc":{"message":"Download a backup of your current RES settings."},"backupAndRestoreRestoreTitle":{"message":"Restore"},"backupAndRestoreRestoreDesc":{"message":"Restore a backup of your RES settings. Warning: This will overwrite your current settings."},"betteRedditCommentsLinksNewTabTitle":{"message":"Comments Links New Tabs"},"betteRedditCommentsLinksNewTabDesc":{"message":"Open links found in comments in a new tab."},"betteRedditFixHideLinksTitle":{"message":"Fix Hide Links"},"betteRedditFixHideLinksDesc":{"message":"Changes \"hide\" links to read as \"hide\" or \"unhide\" depending on the hide state."},"betteRedditHideLinkFadeDelayTitle":{"message":"Hide Link Fade Delay"},"betteRedditHideLinkFadeDelayDesc":{"message":"Delay, in milliseconds, before a hidden link fades."},"betteRedditVideoTimesTitle":{"message":"Video Times"},"betteRedditVideoTimesDesc":{"message":"Show lengths of videos when possible."},"betteRedditVideoUploadedTitle":{"message":"Video Uploaded"},"betteRedditVideoUploadedDesc":{"message":"Show upload date of videos when possible."},"betteRedditVideoViewedTitle":{"message":"Video Viewed"},"betteRedditVideoViewedDesc":{"message":"Show number of views for a video when possible."},"betteRedditPinHeaderTitle":{"message":"Pin Header"},"betteRedditPinHeaderDesc":{"message":"Pin the subreddit bar, user menu, or header to top, floating down as you scroll."},"betteRedditShowLastEditedTimestampTitle":{"message":"Show Last Edited Timestamp"},"betteRedditShowLastEditedTimestampDesc":{"message":"Show the time that a text post/comment was edited, without having to hover over the timestamp."},"betteRedditScoreHiddenTimeLeftTitle":{"message":"Score Hidden Time Left"},"betteRedditScoreHiddenTimeLeftDesc":{"message":"When hovering over [score hidden] show time left instead of hide duration."},"betteRedditShowTimestampPostsTitle":{"message":"Show Timestamp Posts"},"betteRedditShowTimestampPostsDesc":{"message":"Show the precise date (Sun Nov 16 20:14:56 2014 UTC) instead of a relative date (7 days ago), for posts."},"betteRedditShowTimestampCommentsTitle":{"message":"Show Timestamps Comments"},"betteRedditShowTimestampCommentsDesc":{"message":"Show the precise date for comments / messages."},"betteRedditShowTimestampSidebarTitle":{"message":"Show Timestamp Sidebar"},"betteRedditShowTimestampSidebarDesc":{"message":"Show the precise date in the sidebar."},"betteRedditShowTimestampWikiTitle":{"message":"Show Timestamp Wiki"},"betteRedditShowTimestampWikiDesc":{"message":"Show the precise date in the wiki."},"betteRedditShowTimestampModerationLogTitle":{"message":"Show Timestamp Moderation Log"},"betteRedditShowTimestampModerationLogDesc":{"message":"Show the precise date in the moderation log (/r/mod/about/log)."},"betteRedditRestoreSavedTabTitle":{"message":"Restore Saved Tab"},"betteRedditRestoreSavedTabDesc":{"message":"The saved tab is now located in the multireddit sidebar. This will restore a \"saved\" link to the header (next to the \"hot\", \"new\", etc. tabs)."},"betteRedditDoNoCtrlFTitle":{"message":"Do No Ctrl+F"},"betteRedditDoNoCtrlFDesc":{"message":"When using the browser's Ctrl+F/Cmd+F \"find text\", only search comment/post text and not navigation links (\"permalink source save...\"). Disabled by default due to a slight performance impact."},"betteRedditShowHiddenSortOptionsTitle":{"message":"Show Hidden Sort Options"},"betteRedditShowHiddenSortOptionsDesc":{"message":"Reddit hides some comment sorting options (random, etc.) on most pages. This option reveals them."},"betteRedditTruncateLongLinksTitle":{"message":"Truncate Long Links"},"betteRedditTruncateLongLinksDesc":{"message":"Truncates long post titles (greater than 1 line) with an ellipsis."},"betteRedditCommentCollapseInInboxTitle":{"message":"Comment Collapse In Inbox"},"betteRedditCommentCollapseInInboxDesc":{"message":"Show the [-] collapse button in the inbox."},"commentDepthDefaultCommentDepthTitle":{"message":"Default Comment Depth"},"commentDepthDefaultCommentDepthDesc":{"message":"Default depth to use for all subreddits not listed below."},"commentDepthDefaultMinimumCommentsTitle":{"message":"Default Minimum Comments"},"commentDepthDefaultMinimumCommentsDesc":{"message":"Default minimum number of comments required to apply custom depth."},"commentDepthCommentPermaLinksTitle":{"message":"Comment Permalinks"},"commentDepthCommentPermaLinksDesc":{"message":"Set depth on links to particular comments."},"commentDepthCommentPermalinksContextTitle":{"message":"Comment Permalinks Context"},"commentDepthCommentPermalinksContextDesc":{"message":"Set depth on links to particular comments with context."},"commentDepthSubredditCommentDepthsTitle":{"message":"Subreddit Comment Depths"},"commentDepthSubredditCommentDepthsDesc":{"message":"Subreddit-specific comment depths."},"commentDepthAddSubreddit":{"message":"+add subreddit"},"commentDepthSubreddit":{"message":"subreddit"},"commentDepthCommentDepth":{"message":"comment depth"},"commentDepthMinimumComments":{"message":"minimum comments"},"commentPreviewEnableBigEditorTitle":{"message":"Enable Big Editor"},"commentPreviewEnableBigEditorDesc":{"message":"Enable the 2 column editor."},"commentPreviewSwapBigEditorLayoutTitle":{"message":"Swap Big Editor Layout"},"commentPreviewSwapBigEditorLayoutDesc":{"message":"Swap the preview and editor (so preview is on left and editor is on right)."},"commentPreviewOpenBigEditorTitle":{"message":"Open Big Editor"},"commentPreviewOpenBigEditorDesc":{"message":"Open the current markdown field in the big editor. (Only when a markdown form is focused)."},"commentPreviewDraftStyleTitle":{"message":"Draft Style"},"commentPreviewDraftStyleDesc":{"message":"Apply a 'draft' style background to the preview to differentiate it from the comment textarea."},"commentPreviewEnableForCommentsTitle":{"message":"Enable For Comments"},"commentPreviewEnableForCommentsDesc":{"message":"Show preview for comments."},"commentPreviewEnableForPostsTitle":{"message":"Enable For Posts"},"commentPreviewEnableForPostsDesc":{"message":"Show preview for posts."},"commentPreviewEnableForWikiTitle":{"message":"Enable For Wiki"},"commentPreviewEnableForWikiDesc":{"message":"Show preview for wiki pages."},"commentPreviewEnableForSubredditConfigTitle":{"message":"Enable For Subreddit Config"},"commentPreviewEnableForSubredditConfigDesc":{"message":"Show preview for editing subreddit settings."},"commentPreviewEnableForBanMessagesTitle":{"message":"Enable For Ban Messages"},"commentPreviewEnableForBanMessagesDesc":{"message":"Show preview for ban notes."},"commentPreviewSidebarPreviewTitle":{"message":"Sidebar Preview"},"commentPreviewSidebarPreviewDesc":{"message":"Show the markdown live preview directly in the sidebar when editing."},"commentStyleCommentBoxesTitle":{"message":"Comment Boxes"},"commentStyleCommentBoxesDesc":{"message":"Highlights comment boxes for easier reading / placefinding in large threads."},"commentStyleCommentRoundedTitle":{"message":"Comment Rounded"},"commentStyleCommentRoundedDesc":{"message":"Round corners of comment boxes."},"commentStyleCommentHoverBorderTitle":{"message":"Comment Hover Border"},"commentStyleCommentHoverBorderDesc":{"message":"Highlight comment box hierarchy on hover (turn off for faster performance)."},"commentStyleCommentIndentTitle":{"message":"Comment Indent"},"commentStyleCommentIndentDesc":{"message":"Indent comments by [x] pixels (only enter the number, no 'px')."},"commentStyleContinuityTitle":{"message":"Continuity"},"commentStyleContinuityDesc":{"message":"Show comment continuity lines."},"commentToolsUserAutoCompleteTitle":{"message":"User Autocomplete"},"commentToolsUserAutoCompleteDesc":{"message":"Show user autocomplete tool when typing in posts, comments, and replies."},"commentToolsSubredditAutocompleteTitle":{"message":"Subreddit Autocomplete"},"commentToolsSubredditAutocompleteDesc":{"message":"Show subreddit autocomplete tool when typing in posts, comments, and replies."},"commentToolsFormattingToolButtonsTitle":{"message":"Formatting Tool Buttons"},"commentToolsFormattingToolButtonsDesc":{"message":"Show formatting tools (bold, italic, tables, etc.) to the edit form for posts, comments, and other snudown/markdown areas."},"commentToolsKeyboardShortcutsTitle":{"message":"Keyboard Shortcuts"},"commentToolsKeyboardShortcutsDesc":{"message":"Use keyboard shortcuts to apply styles to selected text."},"commentToolsBoldKeyTitle":{"message":"Bold Key"},"commentToolsBoldKeyDesc":{"message":"Keyboard shortcut to make text bold."},"commentToolsItalicKeyTitle":{"message":"Italic Key"},"commentToolsItalicKeyDesc":{"message":"Keyboard shortcut to make text italic."},"commentToolsStrikeKeyTitle":{"message":"Strike Key"},"commentToolsStrikeKeyDesc":{"message":"Keyboard shortcut to add a strikethrough."},"commentToolsSuperKeyTitle":{"message":"Super Key"},"commentToolsSuperKeyDesc":{"message":"Keyboard shortcut to make text superscript."},"commentToolsLinkKeyTitle":{"message":"Link Key"},"commentToolsLinkKeyDesc":{"message":"Keyboard shortcut to add a link."},"commentToolsQuoteKeyTitle":{"message":"Quote Key"},"commentToolsQuoteKeyDesc":{"message":"Keyboard shortcut to quote text."},"commentToolsCtrlEnterSubmitsCommentsTitle":{"message":"Ctrl+Enter Submits Comments"},"commentToolsCtrlEnterSubmitsCommentsDesc":{"message":"Pressing Ctrl+Enter or Cmd+Enter will submit your comment/wiki edit."},"commentToolsCtrlEnterSavesLiveThreadsTitle":{"message":"Ctrl+Enter Saves Live Threads"},"commentToolsCtrlEnterSavesLiveThreadsDesc":{"message":"Pressing Ctrl+Enter or Cmd+Enter will save updates to your live thread."},"commentToolsCtrolEnterSubmitsPostsTitle":{"message":"Ctrl+Enter Submits Posts"},"commentToolsCtrolEnterSubmitsPostsDesc":{"message":"Pressing Ctrl+Enter or Cmd+Enter will submit your post."},"commentToolsCommentingAsTitle":{"message":"Commenting As"},"commentToolsCommentingAsDesc":{"message":"Shows your currently logged in username to avoid posting from the wrong account."},"commentToolsHighlightIfAltAccountTitle":{"message":"Highlight If Alt Account"},"commentToolsHighlightIfAltAccountDesc":{"message":"Put in bold the \"Commenting As\" part if you are using an alt account. The first account in the Account Switcher module is considered as your main account."},"commentToolsShowInputLengthTitle":{"message":"Show Input Length"},"commentToolsShowInputLengthDesc":{"message":"When submitting, display the number of characters entered in the title and text fields and indicate when you go over the 300 character limit for titles."},"commentToolsMacroButtonsTitle":{"message":"Macro Buttons"},"commentToolsMacroButtonsDesc":{"message":"Add macro buttons to the edit form for posts, comments, and other snudown/markdown text areas."},"commentToolsMacrosTitle":{"message":"Macros"},"commentToolsMacrosDesc":{"message":"Add buttons to insert frequently used snippets of text."},"commentToolsAddShortcut":{"message":"+add shortcut"},"commentToolsLabel":{"message":"label"},"commentToolsText":{"message":"text"},"commentToolsCategory":{"message":"category"},"commentToolsKey":{"message":"key"},"commentToolsKeepMacroListOpenTitle":{"message":"Keep Macro List Open"},"commentToolsKeepMacroListOpenDesc":{"message":"After selecting a macro from the dropdown list, do not hide the list."},"commentToolsMacroPlaceholdersTitle":{"message":"Macro Placeholders"},"commentToolsEnableOnBanMessagesTitle":{"message":"Enable On Ban Messages"},"commentToolsEnableOnBanMessagesDesc":{"message":"Show the comment tools on the ban note textbox."},"contextViewFullContextTitle":{"message":"View Full Context"},"contextViewFullContextDesc":{"message":"Add a \"View the Full Context\" link when on a comment link."},"contextDefaultContextTitle":{"message":"Default Context"},"contextDefaultContextDesc":{"message":"Change the default context value on context link."},"customTogglesToggleTitle":{"message":"Toggle"},"customTogglesToggleDesc":{"message":"Enable or disable everything connected to this toggle; and optionally add a toggle to the RES gear dropdown menu."},"dashboardMenuItemTitle":{"message":"Menu Item"},"dashboardMenuItemDesc":{"message":"Show link to my dashboard in RES menu."},"dashboardDefaultPostsTitle":{"message":"Default Posts"},"dashboardDefaultPostsDesc":{"message":"Number of posts to show by default in each widget."},"dashboardDefaultSortTitle":{"message":"Default Sort"},"dashboardDefaultSortDesc":{"message":"Default sort method for new widgets."},"dashboardDashboardShortcutTitle":{"message":"Dashboard Shortcut"},"dashboardDashboardShortcutDesc":{"message":"Show +dashboard shortcut in sidebar for easy addition of dashboard widgets."},"dashboardTagsPerPageTitle":{"message":"Tags Per Page"},"filteRedditNSFWfilterTitle":{"message":"NSFW Filter"},"filteRedditNSFWfilterDesc":{"message":"Filters all links labelled NSFW."},"filteRedditNSFWQuickToggleTitle":{"message":"NSFW Quick Toggle"},"filteRedditNSFWQuickToggleDesc":{"message":"Add a quick NSFW on/off toggle to the gear menu."},"filteRedditShowFilterlineTitle":{"message":"Show Filterline"},"filteRedditShowFilterlineDesc":{"message":"Show filterline controls by default."},"filteRedditExcludeOwnPostsTitle":{"message":"Exclude Own Posts"},"filteRedditExcludeOwnPostsDesc":{"message":"Don't filter your own posts."},"filteRedditExcludeCommentsPageTitle":{"message":"Exclude Comments Page"},"filteRedditExcludeCommentsPageDesc":{"message":"When visiting the comments page for a filtered link, allow the link/expando to be shown."},"filteRedditExcludeModqueueTitle":{"message":"Exclude Modqueue"},"filteRedditExcludeModqueueDesc":{"message":"Don't filter anything on modqueue pages (modqueue, reports, spam, etc.)."},"filteRedditExcludeUserPagesTitle":{"message":"Exclude User Pages"},"filteRedditExcludeUserPagesDesc":{"message":"Don't filter anything on users' profile pages."},"filteRedditRegexpFiltersTitle":{"message":"Regexp Filters"},"filteRedditKeywordsTitle":{"message":"Keywords"},"filteRedditSubredditsTitle":{"message":"Subreddits"},"filteRedditFilterSubredditsFromTitle":{"message":"Filter Subreddits From"},"filteRedditFilterSubredditsFromDesc":{"message":"When filtering subreddits with the above option, where should they be filtered?"},"filteRedditUseRedditFiltersTitle":{"message":"Use Reddit Filters"},"filteRedditUseRedditFiltersDesc":{"message":"Overwrite your native /r/all filters with the 100 most popular filtered subreddits."},"filteRedditForceSyncFiltersTitle":{"message":"Force Sync Filters"},"filteRedditForceSyncFiltersDesc":{"message":"Immediately overwrite your native /r/all filters (same as the previous option)."},"filteRedditDomainsTitle":{"message":"Domains"},"filteRedditFlairTitle":{"message":"Flair"},"filteRedditAllowNSFWTitle":{"message":"Allow NSFW"},"filteRedditAllowNSFWDesc":{"message":"Don't hide NSFW posts from certain subreddits when the NSFW filter is turned on."},"filteRedditCustomFiltersTitle":{"message":"Custom Filters"},"subredditManagerMultiCountTitle":{"message":"/r/$1 is in $2 multireddits"},"toggleOn":{"message":"on"},"toggleOff":{"message":"off"},"styleTweaksRedditPrefsMessage":{"message":"RES allows you to disable specific subreddit styles!"},"styleTweaksClickToLearnMore":{"message":"Click here to learn more"},"styleTweaksCommandLineDescription":{"message":"toggle subreddit style on/off (if no subreddit is specified, uses current subreddit)."},"styleTweaksToggleSubredditStyle":{"message":"toggle subreddit style"},"styleTweaksToggleSubredditStyleOnOff":{"message":"toggle subreddit style $1","description":"As in 'toggle subreddit style off'"},"styleTweaksToggleSubredditStyleOnOffFor":{"message":"toggle subreddit style $1 for: $2","description":"As in 'toggle subreddit style off for: subreddit'"},"styleTweaksNoSubredditSpecified":{"message":"No subreddit specified."},"styleTweaksYouMustSpecifyXOrY":{"message":"You must specify \"$1\" or \"$2\"."},"styleTweaksSubredditStyle":{"message":"Subreddit Style"},"styleTweaksSubredditStyleEnabled":{"message":"Subreddit style enabled for subreddit: $1."},"styleTweaksSubredditStyleDisabled":{"message":"Subreddit style disabled for subreddit: $1."},"styleTweaksUseSubredditStyle":{"message":"Use subreddit style"},"submitHelperTimeAgo":{"message":"$1 ago","description":"As in '1 day ago'"},"subredditInfoErrorLoadingSubredditInfo":{"message":"Error loading subreddit info."},"subredditInfoSubredditNotFound":{"message":"Subreddit not found."},"subredditInfoSubredditCreated":{"message":"Subreddit created:"},"subredditInfoSubscribers":{"message":"Subscribers:"},"subredditInfoTitle":{"message":"Title:"},"subredditInfoOver18":{"message":"Over 18:"},"subredditInfoAddRemoveShortcut":{"message":"shortcut","description":"as in '+shortcut' or '-shortcut'"},"subredditInfoRemoveThisSubredditFromShortcuts":{"message":"Remove this subreddit from your shortcut bar"},"subredditInfoAddThisSubredditToShortcuts":{"message":"Add this subreddit to your shortcut bar"},"subredditInfoAddRemoveDashboard":{"message":"dashboard","description":"as in '+dashboard' or '-dashboard'"},"subredditInfoRemoveThisSubredditFromDashboard":{"message":"Remove this subreddit from your dashboard"},"subredditInfoAddThisSubredditToDashboard":{"message":"Add this subreddit to your dashboard"},"subredditInfoAddRemoveFilter":{"message":"filter"},"subredditInfoStopFilteringFromAllAndDomain":{"message":"Stop filtering from /r/all and /domain/*"},"subredditInfoFilterFromAllAndDomain":{"message":"Filter this subreddit from /r/all and /domain/*"},"subredditInfoStopFilteringThisSubredditFromAllAndDomain":{"message":"Stop filtering this subreddit from /r/all and /domain/*"},"subredditInfoFilterThisSubredditFromAllAndDomain":{"message":"Filter this subreddit from /r/all and /domain/*"},"subredditInfoSubscribe":{"message":"subscribe"},"subredditInfoUnsubscribe":{"message":"unsubscribe"},"troubleshooterCachesCleared":{"message":"All caches cleared."},"troubleshooterAreYouPositive":{"message":"Are you positive?"},"troubleshooterEntriesRemoved":{"message":"$1 entries removed."},"troubleshooterNoActionTaken":{"message":"No action was taken."},"troubleshooterThisWillKillYourSettings":{"message":"This will kill all your settings and saved data. If you're certain, type in \"$1\"."},"troubleshooterSettingsReset":{"message":"All settings reset. Reload to see the result."},"userbarHiderUserBarHidden":{"message":"User Bar Hidden"},"userbarHiderContentHiddenNotification":{"message":"Your username, karma, preferences, RES gear, and so on are hidden. You can show them again by clicking the $1 button in the top right corner."},"userbarHiderToggleUserbar":{"message":"Toggle Userbar"},"userHighlightColorCouldNotBeGenerated":{"message":"Some hover colors couldn't be generated. This is probably due to the use of colors in a special format.","description":"hover/highlight discrepancy is intended; the module is named 'userHighlight'"},"userInfoInvalidUsernameLink":{"message":"Invalid username link."},"userInfoUserNotFound":{"message":"User not found."},"userInfoUserSuspended":{"message":"User suspended."},"userInfoLinks":{"message":"Links"},"userInfoComments":{"message":"Comments"},"userInfoAddRemoveFriends":{"message":"$1 friends"},"userInfoRedditorSince":{"message":"Redditor since:"},"userInfoPostKarma":{"message":"Post Karma:"},"userInfoCommentKarma":{"message":"Comment Karma:"},"userInfoLink":{"message":"Link:"},"userInfoSendMessage":{"message":"send message"},"userInfoUserHasRedditGold":{"message":"User has Reddit Gold"},"userInfoGiftRedditGold":{"message":"Gift Reddit Gold"},"userInfoHighlight":{"message":"Highlight"},"userInfoUnhighlight":{"message":"Unhighlight"},"userInfoIgnore":{"message":"Ignore"},"userInfoUnignore":{"message":"Unignore"},"userTaggerMyUserTags":{"message":"My User Tags"},"userTaggerShow":{"message":"Show","description":"As in 'Show tagged users' or 'Show all users'"},"userTaggerTaggedUsers":{"message":"tagged users"},"userTaggerAllUsers":{"message":"all users"},"userTaggerPage":{"message":"Page","description":"As in 'page 1', 'page 2'"},"userTaggerUsername":{"message":"Username"},"userTaggerTag":{"message":"Tag"},"userTaggerIgnored":{"message":"Ignored"},"userTaggerColor":{"message":"Color"},"userTaggerVoteWeight":{"message":"Vote Weight"},"userTaggerCommandLineDescription":{"message":"tags author of currently selected link/comment."},"userTaggerTagUser":{"message":"tag user $1"},"userTaggerTagUserAs":{"message":"tag user $1 as: $2"},"userTaggerTagCanNotSetTag":{"message":"can't set tag - no post/comment selected."},"userTaggerPageXOfY":{"message":"$1 of $2","description":"As in 'page 1 of 5'"},"userTaggerSetATag":{"message":"set a tag"},"userTaggerAreYouSureYouWantToDeleteTag":{"message":"Are you sure you want to delete the tag for user: $1?"},"userTaggerIgnoredPlaceholder":{"message":"ignored.","description":"Replaces the content of ignored comments."},"userTaggerShowAnyway":{"message":"show anyway?","description":"for showing ignored comments"},"userTaggerYourVotesFor":{"message":"your votes for $1: $2","description":"As in 'your votes for username: 42'"},"voteEnhancementsUpvote":{"message":"upvote"},"voteEnhancementsUpvotes":{"message":"upvotes"},"voteEnhancementsDownvote":{"message":"downvote"},"voteEnhancementsDownvotes":{"message":"downvotes"},"voteEnhancementsVote":{"message":"vote"},"voteEnhancementsVotes":{"message":"votes"},"xPostLinksXpostedFrom":{"message":"x-posted from","description":"As in 'x-posted from /r/subreddit'"},"nightModeDesc":{"message":"A darker, more eye-friendly version of Reddit suited for night browsing.\n\nNote: Using this on/off switch will disable all features of the night mode module completely.\nTo simply turn off night mode, use the nightModeOn switch below."},"nightModeNightModeOnTitle":{"message":"Night Mode On"},"nightModeNightModeOnDesc":{"message":"Enable/disable night mode."},"nightModeNightSwitchTitle":{"message":"Night Switch"},"nightModeNightSwitchDesc":{"message":"Enable night switch, a toggle between day and night reddit located in the Settings dropdown menu."},"nightModeAutomaticNightModeTitle":{"message":"Automatic Night Mode"},"nightModeAutomaticNightModeDesc":{"message":"Enable automatic night mode - night mode automatically starts and stops at the times configured below.\n\nFor the times below, a 24-hour clock (\"military time\") from 0:00 to 23:59 is used.\ne.g. the time 8:20pm would be written as 20:20, and 12:30am would be written as 00:30 or 0:30.\n\nTo temporarily override automatic night mode, manually flip the night mode switch.\nConfigure how long the override lasts below."},"nightModeNightModeStartTitle":{"message":"Night Mode Start"},"nightModeNightModeStartDesc":{"message":"Time that automatic night mode starts. Default is 20:00 (8:00pm)."},"nightModeNightModeEndTitle":{"message":"Night Mode End"},"nightModeNightModeEndDesc":{"message":"Time that automatic night mode ends. Default is 6:00 (6:00am)."},"nightModeNightModeOverrideHoursTitle":{"message":"Night Mode Override Hours"},"nightModeNightModeOverrideHoursDesc":{"message":"Number of hours that the automatic night mode override lasts. Default is 8 (hours).\nYou can use a decimal number of hours here as well; e.g. 0.1 hours (which is 6 min)."},"nightModeUseSubredditStylesTitle":{"message":"Use Subreddit Styles"},"nightModeSubredditStylesWhitelistTitle":{"message":"Subreddit Styles Whitelist"},"nightModeSubredditStylesWhitelistDesc":{"message":"Allow the subreddits listed to display subreddit styles during night mode if useSubredditStyles is disabled."},"nightModeColoredLinksTitle":{"message":"Colored Links"},"nightModeColoredLinksDesc":{"message":"Color links blue and purple."},"gfycatUseMobileGfycatTitle":{"message":"Use Mobile Gfycat"},"gfycatUseMobileGfycatDesc":{"message":"Use mobile (lower resolution) gifs from gfycat."},"presetsLiteDesc":{"message":"RES Lite: just the popular stuff"},"presetsCleanSlateDesc":{"message":"Turn off all the RES modules"},"presetsNoPopupsDesc":{"message":"Turn off notifications and hover pop-ups"},"quickMessageOpenQuickMessageDesc":{"message":"Keyboard shortcut to open the quick message dialog."},"quickMessageDefaultSubjectDesc":{"message":"Text that will automatically be inserted into the subject field, unless it is auto-filled by context."},"quickMessageSendAsDesc":{"message":"The default user or subreddit to select when the \"from\" field is unspecified.\nReverts to the current user if the selected option can't be used (i.e. you aren't a moderator of the current subreddit)."},"quickMessageHandleContentLinksDesc":{"message":"Open the quick message dialog when clicking on reddit.com/message/compose links in comments, selftext, or wiki pages."},"quickMessageHandleSideLinksDesc":{"message":"Open the quick message dialog when clicking on reddit.com/message/compose links in the sidebar. (e.g. \"message the moderators\")"},"quickMessageLinkToCurrentPageDesc":{"message":"Automatically start with a link to the current page in the message body (or, if opened from the user info popup, a link to the current post or comment)."},"RESTipsDailyTipDesc":{"message":"Show a random tip once every 24 hours."},"searchHelperAddSearchOptionsDesc":{"message":"Allow you to choose sorting and time range on the search form of the side panel."},"searchHelperLegacySearchDesc":{"message":"Request the \"legacy layout\" feature for reddit search.\n\n\nThis will only be available for a limited time."},"searchHelperToggleSearchOptionsDesc":{"message":"Add a button to hide search options while searching."},"searchHelperHideSearchOptionsDesc":{"message":"Automatically hide search options and suggestions on the search page."},"searchHelperUserFilterBySubredditDesc":{"message":"When on a user profile, offer to search user's post from the subreddit or multireddit we come from."},"searchHelperSearchByFlairDesc":{"message":"When clicking on a post's flair, search its subreddit for that flair.\nMay not work in some subreddits that hide the actual flair and add pseudo-flair with CSS (only workaround is to disable subreddit style)."},"searchHelperSearchPageTabsDesc":{"message":"Add tabs to the search page."},"searchHelperDefaultSearchTabDesc":{"message":"The tab that will be expanded each time you search."},"searchHelperTransitionSearchTabsDesc":{"message":"Play a transition when you open and close tabs."},"selectedEntryAutoSelectOnScrollDesc":{"message":"Automatically select the topmost item while scrolling"},"selectedEntrySelectThingOnLoadDesc":{"message":"Automatically select a post/comment when the page loads"},"selectedEntrySelectLastThingOnLoadDesc":{"message":"Automatically select the last thing you had selected"},"selectedEntryScrollToSelectedThingOnLoadDesc":{"message":"Automatically scroll to the post/comment that is selected when the page loads"},"selectedEntrySelectOnClickDesc":{"message":"Allows you to click on an item to select it"},"selectedEntryAddFocusBGColorDesc":{"message":"Use a background color"},"selectedEntryFocusBGColorDesc":{"message":"The background color"},"selectedEntryFocusBGColorNightDesc":{"message":"The background color while using Night Mode"},"selectedEntryFocusFGColorNightDesc":{"message":"The text color while using Night Mode"},"selectedEntryAddFocusBorderDesc":{"message":"Use a border"},"selectedEntryFocusBorderDesc":{"message":"Border appearance. E.g. '1px dashed gray' (CSS)"},"selectedEntryFocusBorderNightDesc":{"message":"Border appearance using Night Mode (as above)"},"settingsNavigationShowAllOptionsDesc":{"message":"All options are displayed by default. Uncheck this box if you would like to hide advanced options."},"settingsNavigationShowAllOptionsAlertDesc":{"message":"If a user clicks on a link to an advanced option while advanced options are hidden, should an alert be shown?"},"userTaggerShowTaggingIconDesc":{"message":"Always show a tag tool icon after every username."},"userTaggerHardIgnoreDesc":{"message":"Completely remove links and comments posted by ignored users. If an ignored comment has replies, collapse it and hide its contents instead of removing it."},"userTaggerShowIgnoredDesc":{"message":"Provide a link to reveal an ignored link or comment. The hardIgnore option overrides this."},"userTaggerStoreSourceLinkDesc":{"message":"By default, store a link to the link/comment you tagged a user on"},"userTaggerUseCommentsLinkAsSourceDesc":{"message":"By default, store a link to the comments when tagging a user in a link post. Otherwise, the link (that the post refers to) will be used."},"userTaggerTrackVoteWeightDesc":{"message":"Store counts of cumulative upvotes / downvotes given to each user and replace the tag icon with a vote weight count displaying this number."},"userTaggerVWNumberDesc":{"message":"Show the number (i.e. [+6]) rather than [vw]"},"userTaggerVWTooltipDesc":{"message":"Show the vote weight tooltip on hover (i.e. \"your votes for...\")"},"showImagesOptionsBrowsePreloadCount":{"message":"Number of preloaded expandos for faster browsing. Currently only active when using keyboard navigation."},"showImagesOptionsConserveMemory":{"message":"Conserve memory by temporarily hiding images when they are offscreen."},"showImagesOptionsGalleryPreloadCount":{"message":"Number of preloaded gallery pieces for faster browsing."},"showImagesOptionsbrowsePreloadCountdescription":{"message":"showImagesOptionsBrowsePreloadCount"},"showImagesOptionsgalleryPreloadCountdescription":{"message":"showImagesOptionsGalleryPreloadCount"},"showImagesOptionsconserveMemorydescription":{"message":"showImagesOptionsConserveMemory"},"showImagesOptionsbufferScreensdescription":{"message":"Hide images that are further than x screens away to save memory. A higher value means less flicker, but less memory savings."},"showImagesOptionsmaxWidthdescription":{"message":"Max width of media (in pixels, enter zero for unlimited). Percentage of window width may also be used (e.g. \"100%\")."},"showImagesOptionsmaxHeightdescription":{"message":"Max height of media (in pixels, enter zero for unlimited). Percentage of window height may also be used (e.g. \"100%\")."},"showImagesOptionsdisplayOriginalResolutiondescription":{"message":"Display each image's original (unresized) resolution in a tooltip."},"showImagesOptionsselfTextMaxHeightdescription":{"message":"Add a scroll bar to text expandos taller than [x] pixels (enter zero for unlimited)."},"showImagesOptionscommentMaxHeightdescription":{"message":"Add a scroll bar to comments taller than [x] pixels (enter zero for unlimited)."},"showImagesOptionsautoMaxHeightdescription":{"message":"\n\t\t\tIncrease the max height of a self-text expando or comment if an expando is taller than the current max height.\n\t\t\tThis only takes effect if max height is specified (previous two options).\n\t\t"},"showImagesOptionsopenInNewWindowdescription":{"message":"Open images in a new tab/window when clicked?"},"showImagesOptionshideNSFWdescription":{"message":"If checked, do not show images marked NSFW."},"showImagesOptionshighlightNSFWButtondescription":{"message":"Add special styling to expando buttons for images marked NSFW."},"showImagesOptionsimageZoomdescription":{"message":"Allow dragging to resize/zoom images."},"showImagesOptionsimageMovedescription":{"message":"Allow dragging while holding shift to move images."},"showImagesOptionsmediaControlsdescription":{"message":"Show additional image controls on hover."},"showImagesOptionsmediaControlsPositiondescription":{"message":"Set position of media controls"},"showImagesOptionsclippydescription":{"message":"Show educational info, such as showing \"drag to resize\" in the media controls."},"showImagesOptionsdisplayImageCaptionsdescription":{"message":"Retrieve image captions/attribution information."},"showImagesOptionscaptionsPositiondescription":{"message":"Where to display captions around an image."},"showImagesOptionsmarkVisiteddescription":{"message":"Mark non-selftext links visited when opening the expando."},"showImagesOptionsmarkSelftextVisiteddescription":{"message":"Mark selftext links visited when opening the expando."},"showImagesOptionssfwHistorydescription":{"message":"\n\t\t\tKeeps NSFW links from being added to your browser history by the markVisited feature</span>.<br/>\n\t\t\t<span style=\"font-style: italic\">If you chose the second option, then links will be blue again on refresh.</span><br/>\n\t\t\t<span style=\"color: red\">This does not change your basic browser behavior.\n\t\t\tIf you click on a link then it will still be added to your history normally.\n\t\t\tThis is not a substitute for using your browser's privacy mode.</span>\n\t\t"},"showImagesOptionsgalleryRememberWidthdescription":{"message":"In 'slideshow' layout, use the same width on all pieces after resizing."},"showImagesOptionsgalleryAsFilmstripdescription":{"message":"Display all media at once in a 'filmstrip' layout, rather than the default navigable 'slideshow' style."},"showImagesOptionsfilmstripLoadIncrementdescription":{"message":"Limit the number of pieces loaded in a 'filmstrip' by this number. (0 for no limit)"},"showImagesOptionsuseSlideshowWhenLargerThandescription":{"message":"Show gallery as 'slideshow' when the total number of pieces is larger than this number. (0 for no limit)"},"showImagesOptionsconvertGifstoGfycatdescription":{"message":"Convert Gif links to Gfycat links."},"showImagesOptionsshowViewImagesTabdescription":{"message":"Show a 'show images' tab at the top of each subreddit, to easily toggle showing all images at once."},"showImagesOptionsautoExpandTypesdescription":{"message":"Media types to be automatically expanded when using \"show images\" or autoExpandSelfText."},"showImagesOptionsautoExpandSelfTextdescription":{"message":"When loading selftext from an Aa+ expando, auto expand enclosed expandos."},"showImagesOptionsautoExpandSelfTextFirstVisibleNonMuteddescription":{"message":"In selftexts, expand the first visible potentially non-muted expando."},"showImagesOptionsautoExpandSelfTextNSFWdescription":{"message":"Also expand expandos in selftexts which are marked NSFW."},"showImagesOptionsshowSiteAttributiondescription":{"message":"Show the site logo and name after embedded content."},"showImagesOptionsexpandoCommentRedirectsdescription":{"message":"How should RES handle posts where the link is redirected to the comments page with preview expanded?"},"showImagesOptionsshowVideoControlsdescription":{"message":"Show controls such as pause/play, step and playback rate."},"showImagesOptionsonlyPlayMutedWhenVisibledescription":{"message":"Auto-pause muted videos when they are not visible."},"showImagesOptionsmaxSimultaneousPlayingdescription":{"message":"Auto-play at most this many muted videos simultaneously. (0 for no limit)"},"showImagesOptionsautoplayVideodescription":{"message":"Autoplay inline videos"}}
+/* @flow */
+
+import _ from 'lodash';
+import elementResizeDetectorMaker from 'element-resize-detector';
+import { filter, flow, keyBy, map, sortBy } from 'lodash/fp';
+import audioTemplate from '../templates/audio.mustache';
+import galleryTemplate from '../templates/gallery.mustache';
+import imageTemplate from '../templates/image.mustache';
+import iframeTemplate from '../templates/iframe.mustache';
+import mediaControlsTemplate from '../templates/mediaControls.mustache';
+import siteAttributionTemplate from '../templates/siteAttribution.mustache';
+import textTemplate from '../templates/text.mustache';
+import videoAdvancedTemplate from '../templates/videoAdvanced.mustache';
+import { $ } from '../vendor';
+import type {
+	ExpandoMedia,
+	GalleryMedia,
+	ImageMedia,
+	VideoMedia,
+	AudioMedia,
+	TextMedia,
+	IframeMedia,
+	GenericMedia,
+} from '../core/host';
+import { Host } from '../core/host';
+import { Module } from '../core/module';
+import type { ExpandoMediaElement } from '../utils/expando';
+import {
+	DAY,
+	positiveModulo,
+	downcast,
+	Expando,
+	expandos,
+	primaryExpandos,
+	Thing,
+	addCSS,
+	batch,
+	click,
+	CreateElement,
+	elementInViewport,
+	scrollToElement,
+	filterMap,
+	forEachChunked,
+	forEachSeq,
+	idleThrottle,
+	frameThrottle,
+	nextFrame,
+	isPageType,
+	waitForEvent,
+	watchForElement,
+	getPercentageVisibleYAxis,
+} from '../utils';
+import { addURLToHistory, ajax, isPrivateBrowsing, openNewTab, Permissions } from '../environment';
+import * as Options from '../core/options';
+import * as NeverEndingReddit from './neverEndingReddit';
+import * as SelectedEntry from './selectedEntry';
+import * as SettingsNavigation from './settingsNavigation';
+
+const hostsContext = require.context('./hosts', false, /\.js$/);
+const siteModules: { [key: string]: Host<any, any> } = flow(
+	map(hostsContext),
+	map(e => e.default),
+	map(host => downcast(host, Host)), // ensure that all hosts are instances of `Host`
+	keyBy(host => host.moduleID)
+)(hostsContext.keys());
+export const genericHosts: Host<any, any>[] = [siteModules.default, siteModules.defaultVideo, siteModules.defaultAudio];
+
+export const module: Module<*> = new Module('showImages');
+
+module.moduleName = 'showImagesName';
+module.category = 'productivityCategory';
+module.description = 'showImagesDesc';
+module.bodyClass = true;
+module.options = {"browsePreloadCount":{"type":"text","value":"1","description":"showImagesOptionsbrowsePreloadCountdescription","title":"Description"},"galleryPreloadCount":{"type":"text","value":"2","description":"showImagesOptionsgalleryPreloadCountdescription","title":"Description"},"conserveMemory":{"type":"boolean","value":true,"description":"showImagesOptionsconserveMemorydescription","title":"Description"},"bufferScreens":{"type":"text","value":"2","description":"showImagesOptionsbufferScreensdescription","dependsOn":"conserveMemory","advanced":true,"title":"Advanced"},"maxWidth":{"type":"text","value":"100%","description":"showImagesOptionsmaxWidthdescription","advanced":true,"title":"Advanced"},"maxHeight":{"type":"text","value":"80%","description":"showImagesOptionsmaxHeightdescription","advanced":true,"title":"Advanced"},"displayOriginalResolution":{"type":"boolean","value":false,"description":"showImagesOptionsdisplayOriginalResolutiondescription","title":"Description"},"selfTextMaxHeight":{"type":"text","value":"0","description":"showImagesOptionsselfTextMaxHeightdescription","advanced":true,"title":"Advanced"},"commentMaxHeight":{"type":"text","value":"0","description":"showImagesOptionscommentMaxHeightdescription","advanced":true,"title":"Advanced"},"autoMaxHeight":{"type":"boolean","value":false,"description":"showImagesOptionsautoMaxHeightdescription","advanced":true,"title":"Advanced"},"openInNewWindow":{"type":"boolean","value":true,"description":"showImagesOptionsopenInNewWindowdescription","title":"Description"},"hideNSFW":{"type":"boolean","value":false,"description":"showImagesOptionshideNSFWdescription","title":"Description"},"highlightNSFWButton":{"type":"boolean","value":true,"description":"showImagesOptionshighlightNSFWButtondescription","bodyClass":true,"title":"Body Class"},"imageZoom":{"type":"boolean","value":true,"description":"showImagesOptionsimageZoomdescription","title":"Description"},"imageMove":{"type":"boolean","value":true,"description":"showImagesOptionsimageMovedescription","title":"Description"},"mediaControls":{"type":"boolean","value":true,"description":"showImagesOptionsmediaControlsdescription","title":"Description"},"mediaControlsPosition":{"dependsOn":"mediaControls","type":"enum","value":"top-left","values":[{"name":"Top left","value":"top-left","title":"Value"},{"name":"Top right","value":"top-right","title":"Value"},{"name":"Bottom left.","value":"bottom-left","title":"Value"},{"name":"Bottom right.","value":"bottom-right","title":"Value"}],"description":"showImagesOptionsmediaControlsPositiondescription","title":"Description"},"clippy":{"dependsOn":"mediaControls","type":"boolean","value":true,"description":"showImagesOptionsclippydescription","title":"Description"},"displayImageCaptions":{"type":"boolean","value":true,"description":"showImagesOptionsdisplayImageCaptionsdescription","advanced":true,"bodyClass":true,"title":"Body Class"},"captionsPosition":{"dependsOn":"displayImageCaptions","type":"enum","value":"titleAbove","values":[{"name":"Display all captions above image.","value":"allAbove","title":"Value"},{"name":"Display title and caption above image, credits below.","value":"creditsBelow","title":"Value"},{"name":"Display title above image, caption and credits below.","value":"titleAbove","title":"Value"},{"name":"Display all captions below image.","value":"allBelow","title":"Value"}],"description":"showImagesOptionscaptionsPositiondescription","advanced":true,"bodyClass":true,"title":"Body Class"},"markVisited":{"type":"boolean","value":true,"description":"showImagesOptionsmarkVisiteddescription","advanced":true,"title":"Advanced"},"markSelftextVisited":{"dependsOn":"markVisited","type":"boolean","value":false,"description":"showImagesOptionsmarkSelftextVisiteddescription","advanced":true,"title":"Advanced"},"sfwHistory":{"dependsOn":"markVisited","type":"enum","value":"add","values":[{"name":"Add links to history","value":"add","title":"Value"},{"name":"Color links, but do not add to history","value":"color","title":"Value"},{"name":"Do not add or color links.","value":"none","title":"Value"}],"description":"showImagesOptionssfwHistorydescription","title":"Description"},"galleryRememberWidth":{"dependsOn":"imageZoom","type":"boolean","value":true,"description":"showImagesOptionsgalleryRememberWidthdescription","title":"Description"},"galleryAsFilmstrip":{"type":"boolean","value":false,"description":"showImagesOptionsgalleryAsFilmstripdescription","title":"Description"},"filmstripLoadIncrement":{"dependsOn":"galleryAsFilmstrip","type":"text","value":"30","description":"showImagesOptionsfilmstripLoadIncrementdescription","title":"Description"},"useSlideshowWhenLargerThan":{"dependsOn":"galleryAsFilmstrip","type":"text","value":"0","description":"showImagesOptionsuseSlideshowWhenLargerThandescription","title":"Description"},"convertGifstoGfycat":{"type":"boolean","value":false,"description":"showImagesOptionsconvertGifstoGfycatdescription","title":"Description"},"showViewImagesTab":{"type":"boolean","value":true,"description":"showImagesOptionsshowViewImagesTabdescription","title":"Description"},"autoExpandTypes":{"type":"enum","value":"any","values":[{"name":"Images (but occasionally also .gif)","value":"image","title":"Value"},{"name":"Images, text","value":"image text","title":"Value"},{"name":"Images, text, galleries, and muted videos","value":"image text gallery video","title":"Value"},{"name":"All muted expandos (includes iframes)","value":"any","title":"Value"}],"description":"showImagesOptionsautoExpandTypesdescription","title":"Description"},"autoExpandSelfText":{"type":"boolean","value":true,"description":"showImagesOptionsautoExpandSelfTextdescription","title":"Description"},"autoExpandSelfTextFirstVisibleNonMuted":{"dependsOn":"autoExpandSelfText","type":"boolean","value":true,"description":"showImagesOptionsautoExpandSelfTextFirstVisibleNonMuteddescription","title":"Description"},"autoExpandSelfTextNSFW":{"dependsOn":"autoExpandSelfText","type":"boolean","value":false,"description":"showImagesOptionsautoExpandSelfTextNSFWdescription","title":"Description"},"showSiteAttribution":{"type":"boolean","value":true,"description":"showImagesOptionsshowSiteAttributiondescription","title":"Description"},"expandoCommentRedirects":{"type":"enum","value":"expando","values":[{"name":"Do nothing","value":"nothing","title":"Value"},{"name":"Create expandos","value":"expando","title":"Value"},{"name":"Create expandos, redirect the link back to the image","value":"rewrite","title":"Value"}],"description":"showImagesOptionsexpandoCommentRedirectsdescription","title":"Description"},"showVideoControls":{"type":"boolean","value":true,"description":"showImagesOptionsshowVideoControlsdescription","title":"Description"},"onlyPlayMutedWhenVisible":{"dependsOn":"showVideoControls","type":"boolean","value":true,"description":"showImagesOptionsonlyPlayMutedWhenVisibledescription","title":"Description"},"maxSimultaneousPlaying":{"dependsOn":"showVideoControls","type":"text","value":"0","description":"showImagesOptionsmaxSimultaneousPlayingdescription","title":"Description"},"autoplayVideo":{"type":"boolean","value":true,"description":"showImagesOptionsautoplayVideodescription","title":"Description"}}};
+module.exclude = [
+	/^\/ads\/[\-\w\._\?=]*/i,
+	'submit',
+	/^\/subreddits/i,
+];
+
+module.loadDynamicOptions = () => {
+	// Augment the options with available image modules
+	for (const siteModule of Object.values(siteModules)) {
+		// Ignore default
+		if (genericHosts.includes(siteModule)) continue;
+
+		// Create on/off options
+		module.options[siteModuleOptionKey(siteModule)] = {
+			title: `display ${siteModule.name}`,
+			description: `Display expander for ${siteModule.name}`,
+			value: true,
+			type: 'boolean',
+		};
+
+		// Find out if module has any additional options - if it does add them
+		Object.assign(module.options, siteModule.options); // Object.assign ignores null/undefined
+	}
+};
+
+module.beforeLoad = () => {
+	const selfTextMaxHeight = parseInt(module.options.selfTextMaxHeight.value, 10);
+	if (selfTextMaxHeight) {
+		// Strange selector necessary to select tumblr expandos, etc.
+		addCSS(`
+			.selftext.expanded ~ * .md {
+				max-height: ${selfTextMaxHeight}px;
+				overflow-y: auto !important;
+				position: relative;
+			}
+		`);
+	}
+
+	const commentMaxHeight = parseInt(module.options.commentMaxHeight.value, 10);
+	if (commentMaxHeight) {
+		addCSS(`
+			.comment .md {
+				max-height: ${commentMaxHeight}px;
+				overflow-y: auto !important;
+				position: relative;
+			}
+		`);
+	}
+};
+
+const elementResizeDetector = _.once(() => elementResizeDetectorMaker({ strategy: 'object' }));
+
+module.go = () => {
+	watchForElement('siteTable', findAllImages);
+	watchForElement('selfText', v => findAllImages(v, true));
+	watchForElement('newComments', v => findAllImages(v, true));
+
+	createImageButtons();
+
+	for (const siteModule of Object.values(siteModules)) {
+		if (isSiteModuleEnabled(siteModule)) {
+			if (siteModule.go) siteModule.go();
+		}
+	}
+
+	findAllImages(document.body);
+
+	SelectedEntry.addListener(mediaBrowse, 'beforeScroll');
+
+	// Handle spotlight next/prev hiding open expando's
+	const spotlight = document.querySelector('#siteTable_organic');
+	if (spotlight) {
+		const nextprev = spotlight.querySelector('.nextprev');
+		if (nextprev) {
+			nextprev.addEventListener('click', () => {
+				const open = spotlight.querySelector('.expando-button.expanded');
+				if (open) open.click();
+			});
+		}
+	}
+};
+
+module.afterLoad = () => {
+	if (module.options.conserveMemory.value) {
+		enableConserveMemory();
+	}
+
+	enableCompleteDeferredExpandos();
+};
+
+function siteModuleOptionKey(siteModule) {
+	const id = siteModule.moduleID;
+	return `display_${id}`;
+}
+
+function isSiteModuleEnabled(siteModule) {
+	const key = siteModuleOptionKey(siteModule);
+	return !module.options[key] || module.options[key].value;
+}
+
+// A missing subdomain matches all subdomains, for example:
+// A module with `domains: ['example.com']` will match `www.example.com` and `example.com`
+// A module with `domains: ['www.example.com']` will match only `www.example.com`
+const modulesForHostname = _.memoize(hostname => {
+	const hostComponents = hostname.split('.');
+
+	return Object.values(siteModules).filter(siteModule => (
+		isSiteModuleEnabled(siteModule) &&
+		siteModule.domains.some(domain => {
+			const domainComponents = domain.split('.');
+			return _.isEqual(domainComponents, _.takeRight(hostComponents, domainComponents.length));
+		})
+	));
+});
+
+// @type {Map.<expandoButton, () => completeExpando>}
+const deferredExpandos = new Map();
+
+const mediaStates = {
+	NONE: 0,
+	LOADED: 1,
+	UNLOADED: 2,
+};
+
+const resizeSources = {
+	OTHER: 0,
+	KEEP_VISIBLE: 1,
+	USER_MOVE: 2,
+};
+
+function isWithinBuffer(ele) {
+	if (!ele.offsetParent) return false;
+
+	const bufferScreens = parseInt(module.options.bufferScreens.value, 10) || 2;
+	const viewportHeight = window.innerHeight;
+	const maximumTop = viewportHeight * (bufferScreens + 1);
+	const minimumBottom = viewportHeight * bufferScreens * -1;
+
+	const { bottom, top } = ele.getBoundingClientRect();
+	return top <= maximumTop && bottom >= minimumBottom;
+}
+
+const checkDeferredExpando = _.throttle(() => {
+	// Complete any deferred expandos which is within the buffer
+	for (const [expando, completeFunc] of deferredExpandos) {
+		const thing = Thing.from(expando.button);
+		if (!thing || thing.isVisible()) completeFunc();
+	}
+}, 150);
+
+function enableCompleteDeferredExpandos() {
+	window.addEventListener('scroll', checkDeferredExpando);
+	// not using element-resize-detector because it sets the target to `position: relative`, breaking some stylesheets (/r/nba)
+	window.addEventListener('resize', checkDeferredExpando);
+}
+
+export const thingExpandoBuildListeners: * = $.Callbacks('unique');
+
+/**
+ * enableConserveMemory
+ * attempt to unload collapsed expando's & images that are off screen in order
+ * to save memory
+ *
+ * @returns {void}
+ */
+function enableConserveMemory() {
+	const refresh = _.throttle(frameThrottle(() => {
+		// Running this can conflict with partially-ready expandos, as is the case
+		// while NER is ready-ing a new page
+		if (NeverEndingReddit.loadPromise) return;
+
+		const activeExpandos = Array.from(primaryExpandos.values());
+		const openExpandos = [];
+
+		// Empty collapsed when beyond buffer
+		for (const expando of activeExpandos) {
+			if (!expando.isAttached()) expando.destroy();
+			else if (expando.open) openExpandos.push(expando);
+			else if (expando.media && !isWithinBuffer(expando.button)) expando.empty();
+		}
+
+		// Unload expanded when beyond buffer
+		flow(
+			filterMap(expando => {
+				if (expando.media) return [{ media: expando.media, data: expando.media }];
+			}),
+			lazyUnload(isWithinBuffer)
+		)(openExpandos);
+	}), 150);
+
+	window.addEventListener('scroll', refresh);
+	// not using element-resize-detector because it sets the target to `position: relative`, breaking some stylesheets (/r/nba)
+	window.addEventListener('resize', refresh);
+}
+
+const lazyUnload = _.curryRight(/*:: <T> */(pieces: Array<{ media: ?ExpandoMediaElement, data: T }>, testKeepLoaded: (data: T) => boolean) => {
+	const actions: Array<() => void> = [];
+
+	for (const { media, data } of pieces) {
+		if (!media || !media.unload || !media.restore) continue;
+
+		const keepLoaded = testKeepLoaded(data);
+		if (/*:: media.restore && */ keepLoaded && media.state === mediaStates.UNLOADED) {
+			actions.push(media.restore);
+		} else if (/*:: media.unload && */ !keepLoaded && media.state !== mediaStates.UNLOADED) {
+			actions.push(media.unload);
+		}
+	}
+
+	for (const action of actions) action();
+});
+
+let viewImagesButton;
+let autoExpandActive = false;
+let mediaBrowseModeActive = false;
+
+export function toggleViewImages() {
+	viewImagesButton.click();
+}
+
+function createImageButtons() {
+	if (module.options.showViewImagesTab.value) {
+		viewImagesButton = CreateElement.tabMenuItem({
+			text: 'show images',
+			className: 'res-show-images',
+			aftercontent: ' (0)', // initial count…
+		});
+
+		viewImagesButton.addEventListener('change', e => {
+			autoExpandActive = (e: any).detail;
+			// When activated, open the new ones in addition to the ones already open
+			// When deactivated, close all which are open
+			updateRevealedImages({ onlyOpen: autoExpandActive });
+		});
+	}
+}
+
+export function refresh() {
+	checkDeferredExpando();
+	updateAutoExpandCount();
+}
+
+const updateAutoExpandCount = _.debounce(() => {
+	if (!viewImagesButton) return;
+
+	const count = Array.from(primaryExpandos.values())
+		.filter(expando => expando.isAttached() && expando.button.offsetParent &&
+			isExpandWanted(expando, { autoExpand: true }))
+		.length;
+
+	nextFrame(() => viewImagesButton.setAttribute('aftercontent', ` (${count})`));
+}, 200);
+
+const updateRevealedImages = _.debounce(({ onlyOpen = false } = {}) => {
+	flow(
+		Array.from,
+		filter(expando => expando.isAttached() && expando.button.offsetParent),
+		sortExpandosVertically,
+		forEachChunked(expando => {
+			const open = isExpandWanted(expando);
+			if (open) expando.expand();
+			else if (!onlyOpen) expando.collapse();
+		})
+	)(primaryExpandos.values());
+}, 100, { leading: true });
+
+const sortExpandosVertically = sortBy(v => v.button.getBoundingClientRect().top);
+
+export function toggleThingExpandos(thing: Thing, scrollOnExpando?: boolean): void {
+	const expandos = thing.getExpandos();
+	if (!expandos.length) return;
+
+	const openExpandos = expandos.filter(v => v.open);
+
+	// If any open expandos exists within thing, collapse all
+	// Else, expand all
+	if (openExpandos.length) {
+		for (const expando of openExpandos) expando.collapse();
+
+		if (scrollOnExpando) scrollToElement(thing.entry, { scrollStyle: 'directional' });
+	} else {
+		for (const expando of expandos) {
+			if (
+				!(expando instanceof Expando) ||
+				isExpandWanted(expando, { thing, autoExpandFirstVisibleNonMutedInThing: true, autoExpand: true, autoExpandTypes: ['any'], ignoreDuplicatesScope: thing.element })
+			) {
+				expando.expand();
+			}
+		}
+
+		if (scrollOnExpando) scrollToElement(thing.entry, { scrollStyle: 'top' });
+	}
+}
+
+// idleThrottle since this is low-priority
+const preloadExpandos = idleThrottle((fromThing, direction, preloadCount = parseInt(module.options.browsePreloadCount.value, 10)) => {
+	const pieces = [];
+	let target = fromThing;
+
+	do {
+		const expando = target.getEntryExpando();
+		if (expando && expando instanceof Expando) pieces.push(expando);
+	} while ((target = target.getNext({ direction })) && pieces.length <= preloadCount);
+
+	preloadMedia(pieces);
+});
+
+function mediaBrowse(selected, unselected, options) {
+	if (!selected || !options.mediaBrowse || autoExpandActive) return;
+
+	const oldExpando = unselected && unselected.getEntryExpando();
+	const newExpando = selected && selected.getEntryExpando();
+
+	if (oldExpando) {
+		mediaBrowseModeActive = oldExpando.expandWanted || oldExpando.open;
+		oldExpando.collapse();
+	}
+
+	if (mediaBrowseModeActive && newExpando) {
+		newExpando.expand();
+		if (options.mediaBrowseScrollStyle) options.scrollStyle = options.mediaBrowseScrollStyle;
+
+		preloadExpandos(selected, options.direction);
+	}
+}
+
+function hasEntryAnyExpandedNonMuted(thing) {
+	return thing && thing.getTextExpandos().some(expando =>
+		expando.getTypes().includes('non-muted') && (expando.open || expando.expandWanted)
+	);
+}
+
+export function matchesTypes(expandoTypes: string[], wantedTypes: string[]): boolean {
+	return wantedTypes.includes('any') || !!_.intersection(expandoTypes, wantedTypes).length;
+}
+
+function isExpandWanted(expando: Expando, {
+		thing,
+		autoExpand = autoExpandActive,
+		autoExpandTypes = module.options.autoExpandTypes.value.split(' '),
+		ignoreDuplicates = true,
+		ignoreDuplicatesScope,
+		onlyExpandMuted = true,
+		autoExpandFirstVisibleNonMutedInThing = false,
+	}: {
+		thing?: ?Thing,
+		autoExpand?: boolean,
+		autoExpandTypes?: string[],
+		ignoreDuplicates?: boolean,
+		ignoreDuplicatesScope?: HTMLElement,
+		onlyExpandMuted?: boolean,
+		autoExpandFirstVisibleNonMutedInThing?: boolean,
+	} = {}
+) {
+	if (ignoreDuplicates && !expando.isPrimary()) {
+		if (!ignoreDuplicatesScope) return false;
+		const primary = expando.getPrimary();
+		if (primary && ignoreDuplicatesScope.contains(primary.button)) return false;
+	}
+
+	const expandoTypes = expando.getTypes();
+	const expandoIsNonMuted = expandoTypes.includes('non-muted');
+
+	const typeCriteriaOK = matchesTypes(expandoTypes, autoExpandTypes);
+	const muteCriteriaOK = !(onlyExpandMuted && expandoIsNonMuted) ||
+		(autoExpandFirstVisibleNonMutedInThing && elementInViewport(expando.button) && !hasEntryAnyExpandedNonMuted(thing));
+
+	return autoExpand && muteCriteriaOK && typeCriteriaOK;
+}
+
+function findAllImages(elem, isSelfText) {
+	// get elements common across all pages first...
+	// if we're on a comments page, get those elements too...
+	let selectors: string;
+	if (isPageType('comments', 'commentsLinklist', 'profile')) {
+		selectors = '#siteTable a.title, .expando .usertext-body > div.md a, .content .usertext-body > div.md a';
+	} else if (isSelfText) {
+		// We're scanning newly opened (from an expando) selftext...
+		selectors = '.usertext-body > div.md a';
+	} else if (isPageType('wiki')) {
+		selectors = '.wiki-page-content a';
+	} else if (isPageType('inbox')) {
+		selectors = '#siteTable div.entry .md a';
+	} else if (isPageType('search')) {
+		selectors = '#siteTable a.title, .contents a.search-link';
+	} else {
+		selectors = '#siteTable a.title, #siteTable_organic a.title';
+	}
+
+	const allElements = elem.querySelectorAll(selectors);
+	return forEachChunked(allElements, checkElementForMedia);
+}
+
+async function convertGifToVideo(options) {
+	try {
+		const info = await ajax({
+			type: 'json',
+			url: '//upload.gfycat.com/transcodeRelease',
+			data: { fetchUrl: options.src },
+			cacheFor: DAY,
+		});
+
+		if (!info.gfyName) throw new Error('gfycat transcode did not contain "gfyName"');
+
+		return {
+			options: await siteModules.gfycat.handleLink('', [], info),
+			siteModule: siteModules.gfycat,
+		};
+	} catch (e) {
+		throw new Error(`Could not convert gif to video ${options.src}: ${e}`);
+	}
+}
+
+function resolveMediaUrl(element, thing) {
+	if (
+		module.options.expandoCommentRedirects.value !== 'nothing' &&
+		thing &&
+		element.classList.contains('title')
+	) {
+		const dataUrl = thing.$thing.attr('data-url');
+		const fullDataUrl = dataUrl && new URL(dataUrl, location.href);
+		if (fullDataUrl && fullDataUrl.href !== thing.getCommentsLink().href) {
+			return fullDataUrl;
+		}
+	}
+
+	return element;
+}
+
+async function getMediaInfo(element, mediaUrl) {
+	const matchingHosts = [
+		...modulesForHostname(mediaUrl.hostname),
+		...genericHosts,
+	];
+
+	for (const siteModule of matchingHosts) {
+		const detectResult = siteModule.detect(mediaUrl);
+		if (detectResult) {
+			const requiresPermission = siteModule.permissions ? !(await Permissions.has(siteModule.permissions)) : false; // eslint-disable-line no-await-in-loop
+			return { detectResult, siteModule, requiresPermission, element, href: mediaUrl.href };
+		}
+	}
+}
+
+const scannedLinks: WeakMap<HTMLAnchorElement, boolean | Expando> = new WeakMap();
+export const getLinkExpando = (link: HTMLAnchorElement): ?Expando => {
+	const expando = scannedLinks.get(link);
+	if (expando instanceof Expando) return expando;
+};
+
+async function checkElementForMedia(element) {
+	if (scannedLinks.has(element)) return;
+	else scannedLinks.set(element, true);
+
+	const thing = Thing.from(element);
+
+	const inText = !!$(element).closest('.md, .search-result-footer')[0];
+	const entryExpando = !inText && thing && thing.getEntryExpando();
+	const nativeExpando = entryExpando instanceof Expando ? null : entryExpando;
+
+	if (module.options.hideNSFW.value && thing && thing.isNSFW()) {
+		if (nativeExpando) nativeExpando.detach();
+
+		return;
+	}
+
+	if (nativeExpando) {
+		trackNativeExpando(nativeExpando, element);
+
+		if (nativeExpando.open) {
+			console.log('Native expando has already been opened; skipping.', element.href);
+			return;
+		}
+	}
+
+	const mediaUrl = resolveMediaUrl(element, thing);
+	const mediaInfo = await getMediaInfo(element, mediaUrl);
+
+	if (!mediaInfo) return;
+
+	if (mediaUrl && module.options.expandoCommentRedirects.value === 'rewrite') {
+		element.href = mediaUrl;
+	}
+
+	if (nativeExpando) nativeExpando.detach();
+
+	const expando = new Expando(inText, mediaInfo.requiresPermission);
+	expandos.set(expando.button, expando);
+	scannedLinks.set(element, expando);
+
+	expando.button.setAttribute('data-host', mediaInfo.siteModule.moduleID);
+
+	if (!inText && thing && thing.getTitleElement()) {
+		$(expando.button).insertAfter(element.parentElement);
+		thing.entry.appendChild(expando.box);
+	} else {
+		$(element).add($(element).next('.keyNavAnnotation')).last()
+			.after(expando.box)
+			.after(expando.button);
+	}
+
+	expando.button.addEventListener('click', () => {
+		const completeDeferred = deferredExpandos.get(expando);
+		if (completeDeferred) {
+			completeDeferred('click');
+		}
+
+		expando.toggle({ scrollOnMoveError: true });
+	}, true);
+
+	const complete = async () => {
+		try {
+			await completeExpando(expando, thing, mediaInfo);
+		} catch (e) {
+			console.error(`showImages: could not create expando for ${mediaInfo.href}`);
+			console.error(e);
+
+			if (nativeExpando) nativeExpando.reattach();
+			expando.destroy();
+			scannedLinks.set(element, true);
+		}
+
+		thingExpandoBuildListeners.fire(thing);
+	};
+
+	if (
+		mediaInfo.requiresPermission || // Only auto-complete if we know it can be completed without any prompts
+		(
+			thing && !thing.isVisible() && // No need to complete building non-visible expandos
+			// Filtered because it didn't have an expando when checked? Let's try again.
+			!(thing.filter && thing.filter.key === 'hasExpando') //  XXX: Dirty
+		)
+	) {
+		deferredExpandos.set(expando, (completeType = 'auto') => {
+			// Chrome: A click is necessary to prompt for access
+			if (mediaInfo.requiresPermission && completeType !== 'click') return;
+
+			complete();
+			deferredExpandos.delete(expando);
+		});
+	} else {
+		complete();
+	}
+
+	thingExpandoBuildListeners.fire(thing);
+}
+
+async function completeExpando(expando, thing, mediaInfo) {
+	const options = await retrieveExpandoOptions(thing, mediaInfo);
+
+	expando.href = options.href;
+	expando.generateMedia = options.generateMedia;
+	expando.mediaOptions = options.mediaOptions;
+	expando.onMediaAttach = options.onMediaAttach;
+
+	const hideButton = thing && thing.getHideElement();
+	if (hideButton) hideButton.addEventListener('click', () => { expando.destroy(); });
+
+	if (thing && thing.isComment()) {
+		const { $thing } = thing;
+		expando.onExpand(_.once(() => {
+			let wasOpen;
+
+			// Execute expando toggle procedure when comment collapse / expand
+			$thing
+				.parents('.comment')
+				.addBack()
+				.find('> .entry .tagline > .expand')
+				.click(() => {
+					if (expando.button.offsetParent) {
+						if (wasOpen) expando.expand();
+					} else {
+						wasOpen = expando.open;
+						if (expando.open) expando.collapse();
+					}
+
+					updateAutoExpandCount();
+				});
+		}));
+	}
+
+	if (module.options.autoMaxHeight.value && thing && expando.inText) {
+		thing.entry.addEventListener('mediaResize', updateParentHeight);
+	}
+
+	if (!expando.expandWanted) {
+		let autoExpand;
+		let autoExpandFirstVisibleNonMutedInThing;
+
+		if (module.options.autoExpandSelfText.value && expando.inText && thing && thing.isSelfPost() && !isPageType('comments')) {
+			const dontAutoExpandNSFW = !module.options.autoExpandSelfTextNSFW.value && thing.isNSFW();
+			autoExpand = !dontAutoExpandNSFW;
+			autoExpandFirstVisibleNonMutedInThing = module.options.autoExpandSelfTextFirstVisibleNonMuted.value;
+		}
+
+		expando.expandWanted = isExpandWanted(expando, { thing, autoExpand, autoExpandFirstVisibleNonMutedInThing });
+	}
+
+	nextFrame(() => expando.initialize());
+
+	updateAutoExpandCount();
+}
+
+const retrieveExpandoOptions = _.memoize(async (thing, { siteModule, detectResult, requiresPermission, element, href }) => {
+	if (requiresPermission && siteModule.permissions) await Permissions.request(siteModule.permissions);
+	let mediaOptions = await siteModule.handleLink(href, detectResult);
+
+	if (module.options.convertGifstoGfycat.value &&
+		mediaOptions.type === 'IMAGE' &&
+		(/^(http|https|ftp):\/\/.*\.gif($|\/?)/).test(mediaOptions.src)
+	) {
+		try {
+			({ options: mediaOptions, siteModule } = await convertGifToVideo(mediaOptions));
+		} catch (e) {
+			console.log(e);
+		}
+	}
+
+	const attribution = module.options.showSiteAttribution.value &&
+		thing && thing.isPost() && !thing.isSelfPost() &&
+		siteModule.domains.length && siteModule.attribution !== false;
+
+	const isMuted = media => media.muted || ['IMAGE', 'TEXT'].includes(media.type);
+
+	const trackLoad = _.once(() => trackMediaLoad(element));
+
+	if ((mediaOptions.type === 'IMAGE' || mediaOptions.type === 'VIDEO') &&
+		!mediaOptions.href) {
+		mediaOptions.href = href;
+	}
+
+	return {
+		href, // Since mediaOptions.href may be overwritten
+		mediaOptions: {
+			href,
+			muted: mediaOptions.type === 'GALLERY' ? mediaOptions.src.every(isMuted) : isMuted(mediaOptions),
+			moduleID: (siteModule && siteModule.moduleID) ? siteModule.moduleID : 'unknown',
+			buttonInfo: getMediaButtonInfo(mediaOptions),
+			...mediaOptions,
+		},
+		generateMedia() {
+			const element = generateMedia(mediaOptions);
+			if (attribution) addSiteAttribution(siteModule, element);
+			return element;
+		},
+		onMediaAttach() {
+			trackLoad();
+			if (mediaOptions.onAttach) mediaOptions.onAttach();
+		},
+		requiresPermission: false,
+	};
+}, (thing, { href }) => href);
+
+function updateParentHeight(e) {
+	const thing = Thing.from(e.target);
+
+	if (!thing) return;
+
+	const basisHeight = (
+		thing.isSelfPost() && parseInt(module.options.selfTextMaxHeight.value, 10) ||
+		thing.isComment() && parseInt(module.options.commentMaxHeight.value, 10) ||
+		0
+	);
+
+	if (basisHeight > 0) {
+		// .expando-button causes a line break
+		const expandoHeight = Array
+			.from(thing.entry.querySelectorAll('.res-expando-box, .expando-button.expanded'))
+			.reduce((a, b) => a + b.getBoundingClientRect().height, 0);
+
+		thing.element.querySelector('.md').style.maxHeight = `${basisHeight + expandoHeight}px`;
+	}
+}
+
+function trackNativeExpando(expando, element) {
+	if (!module.options.markSelftextVisited.value && expando.button.classList.contains('selftext')) return;
+
+	const trackLoad = _.once(() => trackMediaLoad(element));
+
+	if (expando.open) trackLoad();
+	else expando.button.addEventListener('click', trackLoad);
+}
+
+function getMediaButtonInfo(options) {
+	let title = '';
+
+	let type = options.type;
+
+	if (options.type === 'GALLERY') {
+		if (options.src.length === 1) {
+			type = options.src[0].type;
+		} else {
+			title += `${options.src.length} items in gallery`;
+		}
+	}
+
+	const defaultClass = {
+		IMAGE: 'image',
+		GALLERY: 'image gallery',
+		TEXT: 'selftext',
+		VIDEO: options.muted ? 'video-muted' : 'video',
+		IFRAME: options.muted ? 'video-muted' : 'video',
+		AUDIO: 'video', // yes, still class "video", that's what reddit uses.
+		GENERIC_EXPANDO: 'selftext',
+	}[type];
+
+	return {
+		title,
+		mediaClass: options.expandoClass || defaultClass,
+	};
+}
+
+let lastPreloadIndex = 0;
+function preloadMedia(pieces) {
+	// Avoid potentially unwanted side-effects by only allowing one concurrent preload sequence
+	const index = ++lastPreloadIndex;
+
+	return forEachSeq(pieces, piece => {
+		if (!piece.generateMedia) return;
+		if (lastPreloadIndex !== index) return;
+
+		piece.media = piece.media || piece.generateMedia();
+		return piece.media.ready;
+	});
+}
+
+function generateMedia(options: ExpandoMedia) {
+	const $span = $('<span>');
+	if (options.credits) options.credits = $span.safeHtml(options.credits).html();
+	if (options.caption) options.caption = $span.safeHtml(options.caption).html();
+
+	let element;
+
+	switch (options.type) {
+		case 'GALLERY':
+			element = generateGallery(options);
+			break;
+		case 'IMAGE':
+			element = generateImage(options);
+			break;
+		case 'TEXT':
+			element = generateText(options);
+			break;
+		case 'IFRAME':
+			element = generateIframe(options);
+			break;
+		case 'VIDEO':
+			element = generateVideo(options);
+			break;
+		case 'AUDIO':
+			element = generateAudio(options);
+			break;
+		case 'GENERIC_EXPANDO':
+			element = generateGeneric(options);
+			break;
+		default:
+			throw new Error(`Unreachable: invalid media type ${options.type}`);
+	}
+
+	return element;
+}
+
+function generateGallery(options: GalleryMedia) {
+	const element: ExpandoMediaElement = ($(galleryTemplate(options))[0]: any);
+
+	const piecesContainer = element.querySelector('.res-gallery-pieces');
+	const individualCtrl = element.querySelector('.res-gallery-individual-controls');
+	const ctrlPrev = individualCtrl.querySelector('.res-gallery-previous');
+	const ctrlNext = individualCtrl.querySelector('.res-gallery-next');
+	const msgPosition = individualCtrl.querySelector('.res-gallery-position');
+	const ctrlConcurrentIncrease = element.querySelector('.res-gallery-increase-concurrent');
+
+	const preloadCount = parseInt(module.options.galleryPreloadCount.value, 10) || 0;
+
+	const filmstripLoadIncrement = parseInt(module.options.filmstripLoadIncrement.value, 10) || Infinity;
+	const slideshowWhenLargerThan = parseInt(module.options.useSlideshowWhenLargerThan.value, 10) || Infinity;
+	const filmstripActive = module.options.galleryAsFilmstrip.value &&
+		options.src.length < slideshowWhenLargerThan;
+
+	const pieces: [{
+		generateMedia: () => ExpandoMediaElement,
+		media: ?ExpandoMediaElement,
+	}] = options.src.map(src => ({
+		generateMedia: () => generateMedia(src),
+		media: null,
+	}));
+	let lastRevealedPiece = null;
+
+	const rememberResizeWidth = module.options.galleryRememberWidth.value && !filmstripActive;
+	let lastResizedWidth;
+
+	function rememberWidth(piece) {
+		const resizedElement = piece.media && piece.media.querySelector('.res-media-zoomable');
+		// Only resized elements have style.width
+		const resizedWidth = resizedElement && parseInt(resizedElement.style.width, 10);
+		if (resizedWidth) lastResizedWidth = resizedWidth;
+	}
+
+	function restoreWidth(piece) {
+		if (!lastResizedWidth) return;
+		const resizeElement = piece.media && piece.media.querySelector('.res-media-zoomable');
+		if (resizeElement) resizeMedia(resizeElement, lastResizedWidth);
+	}
+
+	function revealPiece(piece) {
+		if (rememberResizeWidth && lastRevealedPiece) rememberWidth(lastRevealedPiece);
+		lastRevealedPiece = piece;
+
+		piece.media = piece.media || piece.generateMedia();
+		const { media } = piece;
+		if (!media.parentElement) {
+			const block = document.createElement('div');
+			block.appendChild(media);
+			piecesContainer.appendChild(block);
+		}
+		(media.parentElement: any).hidden = false;
+		if (rememberResizeWidth) restoreWidth(piece);
+		if (media.expand) media.expand();
+	}
+
+	function preloadAhead() {
+		const preloadFrom = pieces.indexOf((lastRevealedPiece: any));
+		const preloadTo = Math.min(preloadFrom + preloadCount + 1, pieces.length);
+
+		return preloadMedia(pieces.slice(preloadFrom, preloadTo));
+	}
+
+	async function expandFilmstrip() {
+		const revealFrom = lastRevealedPiece ? pieces.indexOf(lastRevealedPiece) : 0;
+		const revealTo = Math.min(revealFrom + filmstripLoadIncrement, pieces.length);
+
+		ctrlConcurrentIncrease.hidden = true;
+
+		// reveal new pieces
+		await forEachSeq(pieces.slice(revealFrom, revealTo), piece => {
+			revealPiece(piece);
+			return piece.media && piece.media.ready;
+		});
+
+		if (revealTo < pieces.length) {
+			ctrlConcurrentIncrease.innerText = `Show next ${Math.min(filmstripLoadIncrement, pieces.length - revealTo)} pieces`;
+			ctrlConcurrentIncrease.hidden = false;
+		}
+
+		return preloadAhead();
+	}
+
+	function changeSlideshowPiece(step) {
+		const lastRevealedPieceIndex = lastRevealedPiece ? pieces.indexOf(lastRevealedPiece) : 0;
+		const previousMedia = lastRevealedPiece && lastRevealedPiece.media;
+
+		let newIndex = lastRevealedPieceIndex + step;
+		// Allow wrap-around
+		newIndex = positiveModulo(newIndex, pieces.length);
+
+		individualCtrl.setAttribute('first-piece', String(newIndex === 0));
+		individualCtrl.setAttribute('last-piece', String(newIndex === pieces.length - 1));
+		msgPosition.innerText = String(newIndex + 1);
+
+		revealPiece(pieces[newIndex]);
+
+		if (previousMedia) {
+			const removeInstead = previousMedia.collapse && previousMedia.collapse();
+			if (removeInstead) {
+				previousMedia.remove();
+			} else {
+				(previousMedia.parentElement: any).hidden = true;
+			}
+		}
+
+		if (module.options.conserveMemory.value) {
+			const first = newIndex - preloadCount;
+			const last = newIndex + preloadCount;
+
+			flow(
+				filterMap(piece => {
+					if (piece.media) return [{ media: piece.media, data: piece }];
+				}),
+				lazyUnload(piece => {
+					const index = pieces.indexOf(piece);
+					if (last > pieces.length && last % pieces.length >= index) return true;
+					if (first < 0 && positiveModulo(first, pieces.length) <= index) return true;
+					return index >= first && index <= last;
+				})
+			)(pieces);
+		}
+
+		return preloadAhead();
+	}
+
+	let initialLoadPromise;
+	if (filmstripActive || pieces.length === 1) {
+		initialLoadPromise = expandFilmstrip();
+		ctrlConcurrentIncrease.addEventListener('click', expandFilmstrip);
+	} else {
+		element.classList.add('res-gallery-slideshow');
+		initialLoadPromise = changeSlideshowPiece(0);
+		ctrlPrev.addEventListener('click', () => { changeSlideshowPiece(-1); });
+		ctrlNext.addEventListener('click', () => { changeSlideshowPiece(1); });
+	}
+
+	element.ready = initialLoadPromise;
+
+	return element;
+}
+
+function generateImage(options: ImageMedia) {
+	const element: ExpandoMediaElement = ($(imageTemplate({
+		openInNewWindow: module.options.openInNewWindow.value,
+		...options,
+	}))[0]: any);
+	const image: HTMLImageElement = (element.querySelector('img.res-image-media'): any);
+	const anchor = element.querySelector('a.res-expando-link');
+
+	const transparentGif = 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==';
+	element.state = mediaStates.NONE;
+
+	image.addEventListener('error', () => {
+		element.classList.add('res-media-load-error');
+		image.title = '';
+
+		element.emitResizeEvent();
+	});
+	image.addEventListener('load', () => {
+		if (element.state !== mediaStates.UNLOADED) element.emitResizeEvent();
+		if (element.state === mediaStates.NONE) {
+			if (module.options.displayOriginalResolution.value && image.naturalWidth && image.naturalHeight) {
+				image.title = `${image.naturalWidth} × ${image.naturalHeight} px`;
+			}
+
+			element.state = mediaStates.LOADED;
+		}
+	});
+
+	element.unload = () => {
+		element.state = mediaStates.UNLOADED;
+
+		image.src = transparentGif;
+	};
+	element.restore = () => {
+		element.state = mediaStates.LOADED;
+
+		image.src = options.src;
+	};
+
+	element.ready = waitForEvent(image, 'load', 'error');
+
+	element.emitResizeEvent = () => {
+		if (element.state !== mediaStates.UNLOADED) image.dispatchEvent(new CustomEvent('mediaResize', { bubbles: true }));
+	};
+
+	setMediaMaxSize(image);
+	makeMediaZoomable(image);
+	const wrapper = setMediaControls(anchor, options.src, options.src);
+	makeMediaMovable(wrapper);
+	keepMediaVisible(wrapper);
+	makeMediaIndependentOnResize(element, wrapper);
+
+	return element;
+}
+
+function generateIframe(options: IframeMedia) {
+	const element: ExpandoMediaElement = ($(iframeTemplate({
+		url: (module.options.autoplayVideo.value && options.embedAutoplay) ? options.embedAutoplay : options.embed,
+		width: options.width || '640px',
+		height: options.height || '360px',
+	}))[0]: any);
+
+	const iframeNode = downcast(element.querySelector('iframe'), HTMLIFrameElement);
+	const iframeWrapper = downcast(element.firstElementChild, HTMLElement);
+	const dragHandle = element.querySelector('.res-iframe-expando-drag-handle');
+
+	let loaded = false;
+
+	element.expand = async () => {
+		if (module.options.autoplayVideo.value && options.play) {
+			if (!loaded) await waitForEvent(iframeNode, 'load');
+			loaded = true;
+
+			if (!iframeNode.offsetParent) {
+				// It may have been collapsed in the meanwhile
+				element.remove();
+				return;
+			}
+
+			try {
+				iframeNode.contentWindow.postMessage(options.play, '*');
+			} catch (e) {
+				console.error('Could not post "play" command to iframe', options.embed, e);
+			}
+		}
+	};
+	element.collapse = () => {
+		let removeInstead = true;
+		if (options.pause) {
+			try {
+				iframeNode.contentWindow.postMessage(options.pause, '*');
+				removeInstead = false;
+			} catch (e) {
+				console.error('Could not post "pause" command to iframe', options.embed, e);
+			}
+		}
+		return removeInstead;
+	};
+
+	element.emitResizeEvent =
+		() => { iframeNode.dispatchEvent(new CustomEvent('mediaResize', { bubbles: true })); };
+
+	element.independent = true;
+
+	makeMediaZoomable(iframeNode, dragHandle, !options.fixedRatio);
+	makeMediaMovable(iframeWrapper, dragHandle);
+	keepMediaVisible(iframeWrapper);
+	makeMediaIndependentOnResize(element, iframeWrapper);
+
+	return element;
+}
+
+function generateText(options: TextMedia) {
+	options.src = $('<span>').safeHtml(options.src).html();
+
+	return (($(textTemplate(options))[0]: any): ExpandoMediaElement);
+}
+
+function generateVideo(options: VideoMedia) {
+	// Use default values for options not explicitly set
+	const filledOptions = {
+		autoplay: options.muted || module.options.autoplayVideo.value,
+		advancedControls: module.options.showVideoControls.value,
+		controls: true,
+		frameRate: 24,
+		loop: false,
+		muted: false,
+		openInNewWindow: module.options.openInNewWindow.value,
+		playbackRate: 1,
+		reversable: false,
+		time: 0,
+		...options,
+	};
+
+	return videoAdvanced(filledOptions);
+}
+
+function generateAudio(options: AudioMedia) {
+	let {
+		autoplay,
+	} = options;
+
+	const element: ExpandoMediaElement = ($(audioTemplate(options))[0]: any);
+	const audio: HTMLAudioElement = (element.querySelector('audio'): any);
+
+	element.collapse = () => {
+		// Audio is auto-paused when detached from DOM
+		if (!document.body.contains(audio)) return;
+
+		autoplay = !audio.paused;
+		if (!audio.paused) audio.pause();
+	};
+	element.expand = () => { if (autoplay) audio.play(); };
+
+	return element;
+}
+
+function generateGeneric(options: GenericMedia) {
+	const element: ExpandoMediaElement = (document.createElement('div'): any);
+
+	element.appendChild(options.generate(options));
+
+	// Always remove content, in case it contains audio or other unwanted things
+	element.collapse = () => true;
+
+	return element;
+}
+
+const trackVisit = batch(async links => {
+	if (await isPrivateBrowsing()) return;
+
+	const fullnames = links
+		.map(link => $(link).closest('.thing'))
+		.filter($link => !$link.hasClass('visited'))
+		.map($link => $link.attr('data-fullname'));
+
+	await ajax({
+		method: 'POST',
+		url: '/api/store_visits',
+		data: { links: fullnames.join(',') },
+	});
+}, { delay: 1000 });
+
+function trackMediaLoad(link) {
+	if (module.options.markVisited.value) {
+		// also use reddit's mechanism for storing visited links if user has gold.
+		if ($('body').hasClass('gold')) {
+			trackVisit(link);
+		}
+
+		const isNSFW = $(link).closest('.thing').is('.over18');
+		const sfwMode = module.options.sfwHistory.value;
+
+		const url = link.href;
+		if (!isNSFW || sfwMode !== 'none') link.classList.add('visited');
+		if (!isNSFW || sfwMode === 'add') addURLToHistory(url);
+	}
+}
+
+function setMediaControls(media, lookupUrl, downloadUrl) {
+	if (!module.options.mediaControls.value) return media;
+
+	const [y, x] = module.options.mediaControlsPosition.value.split('-');
+	const options = { clippy: module.options.clippy.value, lookupUrl, downloadUrl, x, y };
+
+	const element = $(mediaControlsTemplate(options))[0];
+	const controls = element.querySelector('.res-media-controls');
+	$(media).replaceWith(element);
+	element.appendChild(media);
+
+	let rotationState = 0;
+
+	const hookInResizeListener = _.once(() => {
+		media.addEventListener('mediaResize', () => {
+			const horizontal = rotationState % 2 === 0;
+			const height = horizontal ? media.clientHeight : media.clientWidth;
+			const width = horizontal ? media.clientWidth : media.clientHeight;
+
+			element.style.width = `${width}px`;
+			element.style.height = `${height}px`;
+
+			media.style.position = 'absolute';
+		});
+	});
+
+	controls.addEventListener('click', (e: Event) => {
+		hookInResizeListener();
+
+		switch (e.target.dataset.action) {
+			case 'rotateLeft':
+				rotateMedia(media, --rotationState);
+				break;
+			case 'rotateRight':
+				rotateMedia(media, ++rotationState);
+				break;
+			case 'download':
+				downloadUrl = new URL(downloadUrl, location.href).href;
+
+				// Create element to trigger download
+				const link = document.createElement('a');
+				link.href = downloadUrl;
+				link.download = '';
+				click(link);
+				break;
+			case 'imageLookup':
+				// Google doesn't like image url's without a protacol
+				lookupUrl = new URL(downcast(lookupUrl, 'string'), location.href).href;
+
+				openNewTab(`https://images.google.com/searchbyimage?image_url=${lookupUrl}`);
+				break;
+			case 'showImageSettings':
+				SettingsNavigation.loadSettingsPage(module.moduleID, 'mediaControls');
+				break;
+			case 'clippy':
+				if (e.target.classList.contains('res-media-controls-clippy-expanded')) {
+					Options.set(module, 'clippy', false);
+					e.target.remove();
+				} else {
+					e.target.classList.add('res-media-controls-clippy-expanded');
+					e.target.title = 'Click to disable the info button';
+					e.target.innerText = getClippyText();
+				}
+				break;
+			default:
+				// do nothing if action is unknown
+				break;
+		}
+
+		e.stopPropagation();
+		e.preventDefault();
+	});
+
+	return element;
+}
+
+function addSiteAttribution(siteModule, media) {
+	const metadata = {
+		name: siteModule.name,
+		url: siteModule.landingPage || `//${siteModule.domains[0]}`,
+		logoUrl: siteModule.logo,
+		settingsLink: SettingsNavigation.makeUrlHash(module.moduleID, siteModuleOptionKey(siteModule)),
+	};
+
+	const $element = $(siteAttributionTemplate(metadata));
+	const $replace = $('.res-expando-siteAttribution', media);
+	if ($replace.length) {
+		$element.replaceAll($replace);
+	} else {
+		$element.appendTo(media);
+	}
+}
+
+function keepMediaVisible(media) {
+	let isManuallyMoved = false;
+
+	media.classList.add('res-media-keep-visible');
+
+	media.addEventListener('mediaResize', (e: any) => {
+		if (e.detail === resizeSources.KEEP_VISIBLE) return;
+
+		if (isManuallyMoved || e.detail === resizeSources.USER_MOVE) {
+			isManuallyMoved = true;
+			return;
+		}
+
+		const documentWidth = document.documentElement.getBoundingClientRect().width;
+
+		const { width: mediaWidth, left: mediaLeft, right: mediaRight } = media.getBoundingClientRect();
+
+		const basisLeft: number = (media.parentElement: any).getBoundingClientRect().left;
+		const deltaLeft = mediaLeft - basisLeft;
+
+		if (mediaWidth > documentWidth) { // Left align
+			moveMedia(media, -mediaLeft, 0, resizeSources.KEEP_VISIBLE);
+		} else if (mediaRight - deltaLeft > documentWidth) { // Right align
+			moveMedia(media, documentWidth - mediaRight, 0, resizeSources.KEEP_VISIBLE);
+		} else if (deltaLeft) { // Reset
+			moveMedia(media, -deltaLeft, 0, resizeSources.KEEP_VISIBLE);
+		}
+	});
+}
+
+function getClippyText() {
+	const clippy = [];
+	if (module.options.imageZoom.value) {
+		clippy.push('drag to resize');
+	}
+
+	if (module.options.imageMove.value) {
+		clippy.push('shift-drag to move');
+	}
+
+	return clippy.join(' or ');
+}
+
+const setMediaMaxSizeStyle = _.once(() => {
+	let value = module.options.maxWidth.value;
+	const maxWidth = parseInt(value, 10);
+	const maxWidthUnit = _.isString(value) && value.endsWith('%') ? 'vw' : 'px';
+
+	value = module.options.maxHeight.value;
+	const maxHeight = parseInt(value, 10);
+	const maxHeightUnit = _.isString(value) && value.endsWith('%') ? 'vh' : 'px';
+
+	let style = '';
+	if (maxWidth) style += `max-width: ${maxWidth}${maxWidthUnit};`;
+	if (maxHeight) style += `max-height: ${maxHeight}${maxHeightUnit};`;
+	if (style) addCSS(`body .res-media-max-size { ${style} }`);
+});
+
+function setMediaMaxSize(media) {
+	media.classList.add('res-media-max-size');
+	setMediaMaxSizeStyle();
+}
+
+function addDragListener({ media, atShiftKey, onStart, onMove }: {
+	media: HTMLElement,
+	atShiftKey: boolean,
+	onStart?: (x: number, y: number) => void,
+	onMove: (x: number, y: number, moveX: number, moveY: number) => void,
+}) {
+	let isActive, hasMoved, lastX, lastY;
+
+	const handleMove = frameThrottle((e: MouseEvent) => {
+		const movementX = e.clientX - lastX;
+		const movementY = e.clientY - lastY;
+
+		if (!movementX && !movementY) {
+			// Mousemove may be triggered even without movement
+			return;
+		} else if (atShiftKey !== e.shiftKey) {
+			isActive = false;
+			({ clientX: lastX, clientY: lastY } = e);
+			return;
+		}
+
+		if (!isActive) {
+			if (onStart) onStart(lastX, lastY);
+			isActive = true;
+			hasMoved = true;
+			document.body.classList.add('res-media-dragging');
+		}
+
+		onMove(e.clientX, e.clientY, movementX, movementY);
+		({ clientX: lastX, clientY: lastY } = e);
+	});
+
+	function handleClick(e: Event) {
+		if (hasMoved) e.preventDefault();
+	}
+
+	function stop() {
+		document.body.classList.remove('res-media-dragging');
+
+		document.removeEventListener('mousemove', handleMove);
+		document.removeEventListener('mouseup', stop);
+
+		// `handleClick` is only invoked if the mouse target is `media`
+		// `setTimeout` is necessary since `mouseup` is emitted before `click`
+		setTimeout(() => document.removeEventListener('click', handleClick));
+	}
+
+	function initiate(e: MouseEvent) {
+		if (e.button !== 0) return;
+
+		({ clientX: lastX, clientY: lastY } = e);
+
+		hasMoved = false;
+		isActive = false;
+
+		document.addEventListener('mousemove', handleMove);
+		document.addEventListener('mouseup', stop);
+		document.addEventListener('click', handleClick);
+
+		e.preventDefault();
+	}
+
+	media.addEventListener('mousedown', initiate);
+}
+
+function makeMediaZoomable(media, dragInitiater = media, absoluteSizing = false) {
+	if (!module.options.imageZoom.value) return;
+
+	media.classList.add('res-media-zoomable');
+
+	let initialWidth, initialDiagonal, left, top;
+
+	function getDiagonal(x, y) {
+		const w = Math.max(1, x - left);
+		const h = Math.max(1, y - top);
+		return Math.round(Math.hypot(w, h));
+	}
+
+	addDragListener({
+		media: dragInitiater,
+		atShiftKey: false,
+		onStart(x, y) {
+			({ left, top, width: initialWidth } = media.getBoundingClientRect());
+			initialDiagonal = getDiagonal(x, y);
+		},
+		onMove(x, y, deltaX, deltaY) {
+			if (absoluteSizing) {
+				const { width, height } = media.getBoundingClientRect();
+				resizeMedia(media, width + deltaX, height + deltaY);
+			} else {
+				const newWidth = getDiagonal(x, y) / initialDiagonal * initialWidth;
+				resizeMedia(media, newWidth);
+			}
+		},
+	});
+}
+
+function makeMediaMovable(media, dragInitiater = media) {
+	if (!module.options.imageMove.value) return;
+
+	media.classList.add('res-media-movable');
+
+	addDragListener({
+		media: dragInitiater,
+		atShiftKey: true,
+		onMove(x, y, deltaX, deltaY) { moveMedia(media, deltaX, deltaY); },
+	});
+}
+
+function makeMediaIndependentOnResize(media, element) {
+	const wrapper = document.createElement('div');
+	const independent = document.createElement('div');
+	$(element).replaceWith(wrapper);
+	wrapper.appendChild(independent);
+	independent.appendChild(element);
+
+	const debouncedResize = frameThrottle(media.emitResizeEvent);
+
+	media.addEventListener('mediaResize', e => {
+		media.independent = true;
+
+		if (!media.offsetParent) {
+			// Allowing propagation when non-visible may cause unwanted side-effects,
+			// so cancel and instead emit a new signal when expanded
+			e.stopImmediatePropagation();
+		}
+	}, true);
+
+	let lastHeight = 0;
+
+	media.addEventListener('mediaResize', () => {
+		const height = element.clientHeight;
+		if (lastHeight !== height) {
+			lastHeight = height;
+			wrapper.style.height = `${height}px`;
+		}
+
+		independent.classList.add('res-media-independent');
+	});
+
+	const prevExpand = media.expand;
+	media.expand = () => {
+		// This is a slower method to listen to resizes, as it waits till the frame after the size is set to update.
+		// Using this is however necessary when it's not possible to determine size from media events.
+		elementResizeDetector().listenTo(element, () => {
+			if (element.clientHeight !== lastHeight) media.emitResizeEvent();
+		});
+
+		window.addEventListener('resize', debouncedResize);
+
+		if (media.independent) media.emitResizeEvent();
+		if (prevExpand) return prevExpand();
+	};
+
+	const prevCollapse = media.collapse;
+	media.collapse = () => {
+		elementResizeDetector().removeAllListeners(element);
+		window.removeEventListener('resize', debouncedResize);
+		if (prevCollapse) return prevCollapse();
+	};
+}
+
+
+// When videos is added, this will pause or play them individually depending on their visibility
+const mutedVideoManager = _.once(() => {
+	const maxSimultaneousPlaying = parseInt(module.options.maxSimultaneousPlaying.value, 10) || Infinity;
+	const videos: HTMLVideoElement[] = [];
+
+	const updatePlay = frameThrottle(() => {
+		const all = videos.map(video => {
+			const thing = Thing.from(video);
+			return {
+				video,
+				visibility: getPercentageVisibleYAxis(video),
+				top: video.getBoundingClientRect().top,
+				selected: Number(thing && thing.isSelected()),
+			};
+		});
+
+		const notVisible = all.filter(({ visibility }) => visibility === 0);
+		for (const { video } of notVisible) if (!video.paused) video.pause();
+
+		_.without(all, ...notVisible)
+			.sort((a, b) => b.selected - a.selected || b.visibility - a.visibility || a.top - b.top)
+			.forEach(({ video }, index) => {
+				const play = index < maxSimultaneousPlaying;
+				if (play === video.paused) {
+					if (play) video.play();
+					else video.pause();
+				}
+			});
+	});
+
+	let intervalId = null;
+
+	return {
+		observe(video) {
+			videos.push(video);
+			updatePlay();
+			if (intervalId === null) intervalId = setInterval(updatePlay, 100);
+		},
+		unobserve(video) {
+			_.pull(videos, video);
+			if (!videos.length && intervalId) {
+				clearInterval(intervalId);
+				intervalId = null;
+			}
+		},
+	};
+});
+
+function videoAdvanced(options) {
+	const {
+		fallback,
+		frameRate,
+		playbackRate,
+		advancedControls,
+	} = options;
+
+	let {
+		autoplay,
+		time,
+	} = options;
+
+	function formatPlaybackRate(value) {
+		return `${value.toFixed(2).replace('.', '.<wbr>')}x`;
+	}
+
+	const useVideoManager = advancedControls && module.options.onlyPlayMutedWhenVisible.value && options.muted;
+
+	// Poster is unnecessary, and will flash if loaded before the video is ready
+	if (autoplay) delete options.poster;
+
+	const element: ExpandoMediaElement = (document.createElement('div'): any);
+	const player = $(videoAdvancedTemplate({
+		...options,
+		formattedPlaybackRate: formatPlaybackRate(options.playbackRate),
+	}))[0];
+	element.appendChild(player);
+
+	const vid: HTMLVideoElement = (player.querySelector('video'): any);
+	const container: HTMLElement = (player.querySelector('.video-advanced-container'): any);
+
+	const msgError = element.querySelector('.video-advanced-error');
+
+	const sourceElements = $(_.compact(options.sources.map(v => {
+		if (!vid.canPlayType(v.type)) return null;
+		const source = document.createElement('source');
+		source.src = v.source;
+		source.type = v.type;
+		if (v.reverse) source.dataset.reverse = v.reverse;
+		return source;
+	}))).appendTo(vid).get();
+	if (!sourceElements.length) {
+		sourceErrorFallback(new Error('No playable sources were found'));
+		return element;
+	}
+
+	function setAdvancedControls() {
+		function reverse() {
+			time = vid.duration - vid.currentTime;
+
+			for (const v of vid.querySelectorAll('source')) {
+				// $FlowIssue
+				[v.src, v.dataset.reverse] = [v.dataset.reverse, v.src];
+			}
+
+			vid.load();
+			vid.play();
+
+			player.classList.toggle('reversed');
+		}
+
+		const ctrlContainer = player.querySelector('.video-advanced-controls');
+
+		const ctrlReverse = ctrlContainer.querySelector('.video-advanced-reverse');
+		const ctrlTogglePause = ctrlContainer.querySelector('.video-advanced-toggle-pause');
+		const ctrlSpeedDecrease = ctrlContainer.querySelector('.video-advanced-speed-decrease');
+		const ctrlSpeedIncrease = ctrlContainer.querySelector('.video-advanced-speed-increase');
+		const ctrlTimeDecrease = ctrlContainer.querySelector('.video-advanced-time-decrease');
+		const ctrlTimeIncrease = ctrlContainer.querySelector('.video-advanced-time-increase');
+
+		const progress = player.querySelector('.video-advanced-progress');
+		const indicatorPosition = progress.querySelector('.video-advanced-position');
+		const ctrlPosition = progress.querySelector('.video-advanced-position-thumb');
+
+		const msgSpeed = ctrlContainer.querySelector('.video-advanced-speed');
+		const msgTime = ctrlContainer.querySelector('.video-advanced-time');
+
+		ctrlTogglePause.addEventListener('click', () => {
+			if (vid.paused) vid.play(); else vid.pause();
+			if (useVideoManager) {
+				autoplay = false; // Stop automatic control
+				mutedVideoManager().unobserve(vid);
+			}
+		});
+		if (ctrlReverse) ctrlReverse.addEventListener('click', reverse);
+
+		ctrlSpeedDecrease.addEventListener('click', () => { vid.playbackRate /= 1.1; });
+		ctrlSpeedIncrease.addEventListener('click', () => { vid.playbackRate *= 1.1; });
+		ctrlTimeDecrease.addEventListener('click', () => { vid.currentTime -= 1 / frameRate; });
+		ctrlTimeIncrease.addEventListener('click', () => { vid.currentTime += 1 / frameRate; });
+
+		vid.addEventListener('ratechange', () => { msgSpeed.innerHTML = formatPlaybackRate(vid.playbackRate); });
+		vid.addEventListener('timeupdate', () => {
+			indicatorPosition.style.left = `${(vid.currentTime / vid.duration) * 100}%`;
+			msgTime.innerHTML = `${vid.currentTime.toFixed(2).replace('.', '.<wbr>')}s`;
+		});
+
+		progress.addEventListener('mousemove', (e: MouseEvent) => {
+			let left = e.offsetX;
+			if (e.target === ctrlPosition) { left += e.target.offsetLeft; }
+			ctrlPosition.style.left = `${left}px`;
+
+			if (e.buttons === 1 /* left mouse button */) ctrlPosition.click();
+		});
+		ctrlPosition.addEventListener('click', (e: MouseEvent) => {
+			const percentage = (e.target.offsetLeft + e.target.clientWidth / 2) / progress.clientWidth;
+			vid.currentTime = vid.duration * percentage;
+		});
+	}
+
+	if (advancedControls) {
+		Promise.all([waitForEvent(player, 'mouseenter'), waitForEvent(vid, 'loadedmetadata')])
+			.then(setAdvancedControls);
+	}
+
+	function sourceErrorFallback(error) {
+		if (fallback) {
+			console.log('Could not play video', error);
+			const image = generateImage({
+				type: 'IMAGE',
+				title: options.title,
+				caption: options.caption,
+				credits: options.credits,
+				src: fallback,
+			});
+			$(element).empty().append(image);
+		} else if (msgError.hidden) {
+			msgError.hidden = false;
+			$('<span>').text(`Could not play video: ${error.message ? String(error.message) : 'Unknown error'}`).appendTo(msgError);
+		}
+	}
+
+	const lastSource = sourceElements[sourceElements.length - 1];
+	lastSource.addEventListener('error', sourceErrorFallback);
+
+	vid.addEventListener('pause', () => { player.classList.remove('playing'); });
+	vid.addEventListener('play', () => { player.classList.add('playing'); });
+
+	vid.addEventListener('loadedmetadata', () => { if (time !== vid.currentTime) vid.currentTime = time; });
+	vid.playbackRate = playbackRate;
+
+	// Ignore events which might be meant for controls
+	vid.addEventListener('mousedown', (e: MouseEvent) => {
+		if (vid.hasAttribute('controls')) {
+			const { height, top } = vid.getBoundingClientRect();
+			let controlsBottomHeight = 0;
+			if (process.env.BUILD_TARGET === 'edge') controlsBottomHeight = 0.5 * height;
+			if (process.env.BUILD_TARGET === 'firefox') controlsBottomHeight = 40;
+			if ((height - controlsBottomHeight) < (e.clientY - top)) {
+				e.stopImmediatePropagation();
+			}
+		}
+	});
+
+	function unload() {
+		// Video is auto-paused when detached from DOM
+		if (!document.body.contains(vid)) return;
+
+		if (!vid.paused) vid.pause();
+
+		time = vid.currentTime;
+		vid.setAttribute('src', ''); // vid.src has precedence over any child source element
+		vid.load();
+
+		if (useVideoManager) mutedVideoManager().unobserve(vid);
+	}
+
+	function restore() {
+		if (vid.hasAttribute('src')) {
+			vid.removeAttribute('src');
+			vid.load();
+		}
+
+		if (autoplay) {
+			if (useVideoManager) mutedVideoManager().observe(vid);
+			else vid.play();
+		}
+	}
+
+	element.collapse = unload;
+	element.expand = restore;
+
+	element.state = mediaStates.NONE;
+
+	element.unload = () => {
+		if (element.state === mediaStates.UNLOADED) return;
+
+		// If video has audio, it may be in use even if it is not visible
+		if (!options.muted && !vid.paused) return;
+
+		element.state = mediaStates.UNLOADED;
+		unload();
+	};
+	element.restore = () => {
+		if (element.state === mediaStates.LOADED) return;
+
+		element.state = mediaStates.LOADED;
+		restore();
+	};
+
+	element.emitResizeEvent = () => {
+		if (element.state !== mediaStates.UNLOADED) vid.dispatchEvent(new CustomEvent('mediaResize', { bubbles: true }));
+	};
+
+	element.ready = Promise.race([waitForEvent(vid, 'suspend'), waitForEvent(lastSource, 'error')]);
+
+	vid.addEventListener('loadedmetadata', element.emitResizeEvent);
+
+	setMediaMaxSize(vid);
+	makeMediaZoomable(vid);
+	setMediaControls(vid, undefined, options.sources[0].source);
+	makeMediaMovable(container);
+	keepMediaVisible(container);
+	makeMediaIndependentOnResize(element, container);
+
+	return element;
+}
+
+export function moveMedia(ele: HTMLElement, deltaX: number, deltaY: number, source?: number = resizeSources.USER_MOVE): void {
+	ele.style.marginLeft = `${((parseFloat(ele.style.marginLeft, 10) || 0) + deltaX).toFixed(2)}px`;
+	ele.style.marginTop = `${((parseFloat(ele.style.marginTop, 10) || 0) + deltaY).toFixed(2)}px`;
+
+	ele.dispatchEvent(new CustomEvent('mediaResize', { bubbles: true, detail: source }));
+}
+
+export function resizeMedia(ele: HTMLElement, newWidth: number, newHeight?: number): void {
+	// ele should always be grippable, so ignore resizes that are too tiny
+	if (newWidth < 20) return;
+
+	if (typeof newHeight === 'number') {
+		ele.style.height = `${newHeight}px`;
+	} else if (ele.style.height) { // If height is previously set, keep the ratio
+		const { width, height } = ele.getBoundingClientRect();
+		ele.style.height = `${((height / width) * newWidth).toFixed(2)}px`;
+	}
+
+	ele.style.width = `${newWidth}px`;
+	ele.style.maxWidth = ele.style.maxHeight = 'none';
+
+	ele.dispatchEvent(new CustomEvent('mediaResize', { bubbles: true }));
+}
+
+function rotateMedia(ele, rotationState) {
+	ele.style.transformOrigin = 'top left';
+
+	// apply rotation
+	switch (positiveModulo(rotationState, 4)) {
+		case 0:
+			ele.style.transform = '';
+			break;
+		case 1:
+			ele.style.transform = 'rotate(90deg) translateY(-100%)';
+			break;
+		case 2:
+			ele.style.transform = 'rotate(180deg) translate(-100%, -100%)';
+			break;
+		case 3:
+			ele.style.transform = 'rotate(270deg) translateX(-100%)';
+			break;
+		default:
+			break;
+	}
+
+	ele.dispatchEvent(new CustomEvent('mediaResize', { bubbles: true }));
+}
