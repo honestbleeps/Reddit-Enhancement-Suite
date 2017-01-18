@@ -62,18 +62,22 @@ function titleCase(str) {
   return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
 }
 
+function capitalize(str) {
+  return str.slice(0,1).toUpperCase() + str.slice(1);
+}
+
 function i18nify(obj, parentName){
   parentName = parentName || '';
   var hasTitle = false;
   for (key in obj){
     if (typeof obj[key] == "object") {
-      i18nify(obj[key], parentName + key);
+      i18nify(obj[key], capitalize(parentName) + capitalize(key));
     } else {
       switch (key) {
         case "title":
         hasTitle = true;
         case "description":
-        var i18nifier = moduleID + "Options" + parentName + key;
+        var i18nifier = moduleID + "Options" + capitalize(parentName) + capitalize(key);
         langObject[i18nifier] = {"message": obj[key]};
         obj[key] = i18nifier;
       }
