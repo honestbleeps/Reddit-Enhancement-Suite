@@ -33,15 +33,15 @@
 }
 
 .res-orangered-hideEmptyMail {
-	a#mail.nohavemail,
-	a#mail.nohavemail + .separator {
+	#mail.nohavemail,
+	#mail.nohavemail + .separator {
 		display: none;
 	}
 }
 
 .res-orangered-hideEmptyNewModMail {
-	a#new_modmail.nohavemail,
-	a#new_modmail.nohavemail + .separator {
+	#new_modmail.nohavemail,
+	#new_modmail.nohavemail + .separator {
 		display: none;
 	}
 }
