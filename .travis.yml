@@ -52,6 +52,7 @@ matrix:
         - yarn run build -- all
         - yarn run jpm -- xpi
         - yarn run jpm-beta -- xpi
+        - yarn run manifoldjs-package
       deploy:
         - provider: releases
           api_key:
@@ -59,7 +60,7 @@ matrix:
           prerelease: true
           file:
             - dist/zip/chrome.zip
-            - dist/zip/edge.zip
+            - dist/edgeextension/package/edgeExtension.appx
             - dist/zip/firefox.zip
             - dist/zip/RES.safariextension.zip
           skip_cleanup: true
