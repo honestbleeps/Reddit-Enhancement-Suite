@@ -25,9 +25,23 @@
 	}
 }
 
-.res-orangered-hideEmptyModMailButton {
+.res-orangered-hideEmptyModMail {
 	#modmail.nohavemail,
 	#modmail.nohavemail + .separator {
+		display: none;
+	}
+}
+
+.res-orangered-hideEmptyMail {
+	a#mail.nohavemail,
+	a#mail.nohavemail + .separator {
+		display: none;
+	}
+}
+
+.res-orangered-hideEmptyNewModMail {
+	a#new_modmail.nohavemail,
+	a#new_modmail.nohavemail + .separator {
 		display: none;
 	}
 }
