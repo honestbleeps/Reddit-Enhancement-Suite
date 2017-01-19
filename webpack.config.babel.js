@@ -23,6 +23,7 @@ const browserConfig = {
 		environment: 'edge/environment',
 		output: 'edgeextension/manifest/Extension',
 		outputFilename: '../appxmanifest.xml',
+		noZip: true,
 	},
 	safari: {
 		target: 'safari',
@@ -59,7 +60,7 @@ const browsers = (
 const shouldZip = !!yargs.argv.zip;
 const isProduction = process.env.NODE_ENV !== 'development';
 
-const configs = browsers.map(b => browserConfig[b]).map(({ target, entry, environment, outputFilename, output }) => {
+const configs = browsers.map(b => browserConfig[b]).map(({ target, entry, environment, outputFilename, output, noZip }) => {
 	// extra transforms for Safari
 	const babelConfig = {
 		...babelrc,
@@ -104,7 +105,7 @@ const configs = browsers.map(b => browserConfig[b]).map(({ target, entry, enviro
 				},
 			}),
 			new InertEntryPlugin(),
-			(shouldZip && new ZipPlugin({
+			(shouldZip && !noZip && new ZipPlugin({
 				path: join('..', 'zip'),
 				filename: output,
 			})),
