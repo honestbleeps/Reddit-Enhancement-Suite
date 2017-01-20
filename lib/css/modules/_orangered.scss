@@ -25,23 +25,18 @@
 	}
 }
 
-.res-orangered-hideEmptyModMail {
-	#modmail.nohavemail,
-	#modmail.nohavemail + .separator {
+.res-orangered-hideNewModMail {
+	#new_modmail,
+	#new_modmail + .separator {
 		display: none;
 	}
 }
 
-.res-orangered-hideEmptyMail {
-	#mail.nohavemail,
-	#mail.nohavemail + .separator {
-		display: none;
-	}
-}
-
-.res-orangered-hideEmptyNewModMail {
-	#new_modmail.nohavemail,
-	#new_modmail.nohavemail + .separator {
+.res-orangered-hideEmptyMail #mail,
+.res-orangered-hideEmptyModMail #modmail,
+.res-orangered-hideEmptyNewModMail #new_modmail {
+	&.nohavemail,
+	&.nohavemail + .separator {
 		display: none;
 	}
 }
