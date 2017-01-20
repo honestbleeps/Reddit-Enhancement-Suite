@@ -1,12 +1,23 @@
 
 ### New Features
 
-- None (thanks nobody)
+- New Never Ending Comments module (thanks @dhensche)
+- Orange warning candystripe on spoiler posts' expando buttons (thanks @andytuba)
+- New slashAll Go Mode keyboard shortcut to navigate to /r/all (thanks @corylulu)
 
 ### Bug Fixes
 
-- None (thanks nobody)
+- Fix exporting links to modules from Settings Console search (thanks @erikdesjardins)
+- Fix Comment Hide Persistor not working with reddit's comment link query params (thanks @andytuba)
+- Fix sidebar description of Search module in Settings Console (thanks @BenMcGarry)
+- Fix reverse image searching reddituploads.com images (and other images with query params) (thanks @WilliamChiu)
+- Fix spoiler stamp color in nightmode (thanks @roshkins)
+- Fix Comment Navigator popular sorting selecting wrong posts on scroll (thanks @larsjohnsen)
+- Fix key description for Go Mode commands in Keyboard Nav help (thanks @larsjohnsen)
+- Fix regular hotkeys continuing to work with the Go Mode panel open (thanks @corylulu)
 
 ### Housekeeping / Other
 
-- None (thanks nobody)
+- Update localization files (thanks @BenMcGarry)
+- Stop transpiling destructuring now that it's natively supported (thanks @erikdesjardins)
+
