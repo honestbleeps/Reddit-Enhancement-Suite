@@ -18,16 +18,11 @@
 	margin: 0 0 0 1px;
 }
 
-.res-orangered-hideModMail {
-	#modmail,
-	#modmail + .separator {
-		display: none;
-	}
-}
-
-.res-orangered-hideNewModMail {
-	#new_modmail,
-	#new_modmail + .separator {
+.res-orangered-hideModMail #modmail,
+.res-orangered-hideNewModMail #new_modmail,
+{
+	&,
+	& + .separator {
 		display: none;
 	}
 }
