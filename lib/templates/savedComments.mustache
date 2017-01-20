@@ -1,0 +1,37 @@
+<div id="res-saveComments" class="sitetable linklisting">
+	{{^comments}}
+		<div class="res-module-description md">
+			<h1>Saving comments with RES</h1>
+			{{{moduleDescription}}}
+		</div>
+	{{/comments}}
+	{{#keyNavTip}}
+		<div class="res-module-tip infobar">
+			<p><i>Keyboard Shortcuts</i> <a class="gearIcon" href="{{keyNavHash}}" title="RES settings"></a></p>
+			<ul>
+				<li><b>{{savePostKey}}</b>: save a submission.</li>
+				<li><b>{{saveCommentKey}}</b>: save a comment (to your reddit account).</li>
+				<li><b>{{saveRESKey}}</b>: save a comment with RES.</li>
+			</ul>
+		</div>
+	{{/keyNavTip}}
+	<div class="res-saveComments-list">
+		{{#comments}}
+			<div class="entry res-savedComment">
+				<div class="savedCommentHeader">
+					<a href="{{link}}">
+						<b>{{username}}</b>
+						- saved <date title="{{dateTime}}" datetime="{{date}}">{{timeAgo}}</date> ago
+					</a>
+				</div>
+				<div class="savedCommentBody md">{{{body}}}</div>
+				<div class="savedCommentFooter">
+					<ul class="flat-list buttons">
+						<li><a href="{{link}}">permalink</a></li>
+						<li><a class="unsaveComment" href="#" data-unsaveID="{{id}}">unsave-RES</a></li>
+					</ul>
+				</div>
+			</div>
+		{{/comments}}
+	</div>
+</div>

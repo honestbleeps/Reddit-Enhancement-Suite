@@ -1,0 +1,390 @@
+// this first line hides the "you need RES 4.0+ to view the dashboard" link
+.id-t3_qi5iy {
+	display: none;
+}
+
+.RESDashboardComponent a.widgetPath,
+.addNewWidget,
+.editWidget {
+	display: inline-block;
+	margin-left: 0;
+	margin-top: 7px;
+	color: #000;
+	font-weight: bold;
+}
+
+.editWidget {
+	float: left;
+	margin-right: 10px;
+}
+
+.RESDashboardComponent {
+	position: relative;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	overflow: hidden;
+	margin-top: 5px;
+	margin-bottom: 5px;
+
+	&.minimized {
+		ul li {
+			display: none;
+		}
+
+		li.RESClose,
+		li.minimize {
+			display: inline-block;
+		}
+	}
+
+	a.widgetPath {
+		margin-left: 15px;
+		vertical-align: top;
+		width: 120px;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+}
+
+.RESDashboardComponentHeader {
+	box-sizing: border-box;
+	padding: 5px 0 8px 0;
+	background-color: #f0f3fc;
+	overflow: hidden;
+
+	.editButton {
+		display: inline-block;
+		padding: 0;
+		width: 24px;
+		box-sizing: border-box;
+		vertical-align: middle;
+		margin-left: 10px;
+	}
+
+	ul {
+		font-family: Verdana;
+		font-size: 13px;
+		box-sizing: border-box;
+		line-height: 22px;
+		display: inline-block;
+		margin-top: 2px;
+
+		li {
+			box-sizing: border-box;
+			vertical-align: middle;
+			height: 24px;
+			display: inline-block;
+			cursor: pointer;
+			padding: 0 6px;
+			border: 1px solid #c7c7c7;
+			background-color: #fff;
+			color: #6c6c6c;
+			border-radius: 3px;
+
+			&.active,
+			&:hover {
+				background-color: #a6ccf1;
+				color: #fff;
+				border-color: #699dcf;
+			}
+		}
+	}
+}
+
+.RESDashboardComponentScrim {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 5;
+	display: none;
+}
+
+.RESDashboardComponentLoader {
+	box-sizing: border-box;
+	position: absolute;
+	background-color: #f2f9ff;
+	border: 1px solid #b9d7f4;
+	border-radius: 3px;
+	width: 314px;
+	height: 40px;
+	left: 50%;
+	top: 50%;
+	margin-left: -167px;
+	margin-top: -20px;
+	text-align: center;
+	padding-top: 11px;
+
+	.dashboardLoader {
+		display: inline-block;
+		width: 16px;
+		height: 16px;
+		background-image: url('../images/dashboardLoader.gif');
+	}
+
+	span {
+		vertical-align: middle;
+		margin: 0 5px;
+	}
+}
+
+.RESDashboardComponentContainer {
+	padding: 10px 15px 0 15px;
+	min-height: 100px;
+
+	&.minimized {
+		display: none;
+	}
+}
+
+#RESDashboardAddComponent,
+#RESDashboardEditComponent {
+	box-sizing: border-box;
+	padding: 5px 8px;
+	vertical-align: middle;
+	background-color: #cee3f8;
+	border: 1px solid #369;
+}
+
+#RESDashboardEditComponent {
+	display: none;
+	position: absolute;
+}
+
+#addRedditFormContainer,
+#addMailWidgetContainer,
+#addUserFormContainer,
+#addSearchFormContainer {
+	display: none;
+}
+
+#addWidgetButtons,
+#addRedditFormContainer,
+#addMailWidgetContainer,
+#addUserFormContainer,
+#addSearchFormContainer,
+#editRedditFormContainer,
+#editSearchFormContainer {
+	width: auto;
+	min-width: 550px;
+	min-height: 28px;
+	float: right;
+	text-align: right;
+}
+
+#editRedditFormContainer,
+#editSearchFormContainer {
+	width: auto;
+}
+
+#addUserForm,
+#addSearchForm,
+#addRedditForm {
+	display: inline-block;
+}
+
+#addUser {
+	width: 200px;
+	height: 24px;
+}
+
+#addRedditFormContainer ul.token-input-list-facebook,
+#editRedditFormContainer ul.token-input-list-facebook {
+	float: left;
+}
+
+#addReddit {
+	width: 115px;
+	background-color: #fff;
+	border: 1px solid #96bfe8;
+	margin-left: 6px;
+	margin-right: 6px;
+	padding: 1px 2px;
+}
+
+#addRedditDisplayName,
+#editRedditDisplayName {
+	width: 140px;
+	height: 24px;
+	background-color: #fff;
+	border: 1px solid #96bfe8;
+	margin-left: 6px;
+	margin-right: 6px;
+	padding: 1px 2px;
+}
+
+#editReddit {
+	width: 5px;
+}
+
+.addButton,
+.updateButton {
+	cursor: pointer;
+	display: inline-block;
+	width: auto;
+	padding: 3px 5px;
+	font-size: 11px;
+	color: #fff;
+	border: 1px solid #636363;
+	border-radius: 3px;
+	background-color: #5cc410;
+	margin-top: 3px;
+	margin-left: 5px;
+}
+
+.cancelButton {
+	width: 50px;
+	text-align: center;
+	cursor: pointer;
+	display: inline-block;
+	padding: 3px 5px;
+	font-size: 11px;
+	color: #fff;
+	border: 1px solid #636363;
+	border-radius: 3px;
+	background-color: #D02020;
+	margin-top: 3px;
+	margin-left: 5px;
+}
+
+.backToWidgetTypes {
+	display: inline-block;
+	vertical-align: top;
+	margin-top: 8px;
+	font-weight: bold;
+	color: #000;
+	cursor: pointer;
+}
+
+ul.widgetSortButtons {
+	margin-left: 10px;
+
+	li {
+		margin-right: 10px;
+	}
+}
+
+ul.widgetStateButtons {
+	float: right;
+	margin-right: 8px;
+
+	li {
+		margin-right: 5px;
+
+		&:last-child {
+			margin-right: 0;
+		}
+
+		&.disabled {
+			background-color: #ddd;
+
+			&:hover {
+				cursor: auto;
+				background-color: #ddd;
+				color: #6c6c6c;
+				border: 1px solid #c7c7c7;
+			}
+		}
+
+		&.updateTime {
+			cursor: auto;
+			background: none;
+			border: none;
+			color: #afafaf;
+			font-size: 9px;
+			padding-right: 0;
+		}
+
+		&.refresh {
+			margin-left: 3px;
+			width: 24px;
+			position: relative;
+			padding: 0;
+		}
+
+		&.minimize,
+		&.close {
+			font-size: 24px;
+		}
+
+		.minimized &.minimize {
+			font-size: 14px;
+		}
+
+		.res-icon {
+			margin: 3px;
+		}
+	}
+}
+
+#userTaggerContents .show {
+	display: inline-block;
+}
+
+#tagPageControls {
+	display: inline-block;
+	margin: 0 0 0 10px;
+}
+
+// some styles to override /r/dashboard stylesheet.
+#userTaggerContents,
+#newCommentsContents {
+	margin-right: 305px;
+	font-size: small;
+}
+
+#userTaggerContents table,
+#newCommentsContents table {
+	margin: 0;
+	width: 100%;
+}
+
+#userTaggerTable th,
+#newCommentsTable th,
+#userTaggerTable td,
+#newCommentsTable td {
+	min-width: 0;
+	padding: 5px 8px;
+	border: 1px solid rgb(200, 200, 200);
+}
+
+#newCommentsTable th,
+#userTaggerTable th,
+#newCommentsTable td {
+	white-space: nowrap;
+}
+
+#newCommentsTable td:first-child,
+#newCommentsTable th:first-child {
+	width: auto;
+	white-space: normal;
+}
+
+#newCommentsTable .deleteIcon,
+#userTaggerTable .deleteIcon {
+	color: rgba(0, 0, 0, 0);
+}
+
+#newCommentsTable tr:hover .deleteIcon,
+#userTaggerTable tr:hover .deleteIcon {
+	color: #369;
+}
+
+.res-dashboard {
+	.tabmenu li:not(.res-tabmenu-button),
+	.pagename {
+		display: none;
+	}
+
+	.tabmenu.res-dashboard-tabmenu-ready { display: inline-block; }
+
+	.res-dashboard-tab {
+		font-variant: small-caps;
+		font-size: 1.2em;
+		vertical-align: bottom;
+
+		// We want the tabs to act as a radio, i.e. don't allow deselect the currently selected
+		&.selected a:first-child { pointer-events: none; }
+	}
+}

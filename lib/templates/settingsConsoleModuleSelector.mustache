@@ -1,0 +1,17 @@
+<ul>
+	{{#categories}}
+        <li class="RESConfigPanelCategory" data-category="{{name}}">
+            <h3 class="categoryButton" data-category="{{name}}">{{translatedName}}</h3>
+            <ul>
+				{{#modules}}
+                    <li class="moduleButton {{#isEnabled}}enabled{{/isEnabled}}" data-module="{{moduleID}}" title="{{description}}">
+						{{translatedName}}
+						<small>
+							{{shortDescription}}
+						</small>
+                    </li>
+				{{/modules}}
+            </ul>
+        </li>
+	{{/categories}}
+</ul>

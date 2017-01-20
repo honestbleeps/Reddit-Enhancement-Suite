@@ -1,0 +1,37 @@
+@import '../zindex';
+
+#keyHelp {
+	display: none;
+	position: fixed;
+	height: 90%;
+	overflow-y: auto;
+	right: 20px;
+	top: 20px;
+	z-index: $zindex-key-help;
+	border: 2px solid #aaa;
+	border-radius: 5px;
+	width: 300px;
+	padding: 5px;
+	background-color: #fff;
+
+	th {
+		font-weight: bold;
+		padding: 2px;
+		border-bottom: 1px dashed #ddd;
+	}
+
+	td {
+		padding: 2px;
+		border-bottom: 1px dashed #ddd;
+
+		&:first-child {
+			width: 70px;
+		}
+	}
+}
+
+.keyNavAnnotation {
+	font-size: 9px;
+	line-height: 0;
+	vertical-align: super;
+}

@@ -1,0 +1,51 @@
+.res-commentBoxes {
+	&.res-commentBoxes-rounded .comment {
+		border-radius: 3px !important;
+	}
+
+	.comment {
+		margin: 0 8px 8px 10px !important;
+		border: 1px solid #e6e6e6 !important;
+		padding: 5px 8px 5px 5px !important;
+		overflow: hidden;
+
+		&.spam {
+			background-image: linear-gradient(hsl(0, 70%, 80%), hsl(0, 70%, 80%));
+		}
+
+		.comment {
+			margin-right: 0 !important;
+		}
+
+		div.child {
+			border-left: none !important;
+		}
+	}
+
+	&.res-continuity .comment div.child {
+		border-left: 1px dotted #555 !important;
+	}
+
+	.comment .comment,
+	.comment .comment .comment .comment,
+	.comment .comment .comment .comment .comment .comment,
+	.comment .comment .comment .comment .comment .comment .comment .comment,
+	.comment .comment .comment .comment .comment .comment .comment .comment .comment .comment {
+		background-color: #F7F7F8 !important;
+	}
+
+	.comment .comment .comment,
+	.comment .comment .comment .comment .comment,
+	.comment .comment .comment .comment .comment .comment .comment,
+	.comment .comment .comment .comment .comment .comment .comment .comment .comment {
+		background-color: #fff !important;
+	}
+
+	body > .content {
+		padding-right: 0 !important;
+	}
+
+	&.res-commentHoverBorder .content .comment:hover {
+		border-color: #9AE !important;
+	}
+}

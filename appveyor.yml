@@ -1,0 +1,14 @@
+build: off
+version: '{build}'
+environment:
+  nodejs_version: 7
+cache:
+  - '%LOCALAPPDATA%\Yarn'
+install:
+  - ps: Install-Product node $env:nodejs_version
+  - yarn install --pure-lockfile
+  - yarn check --integrity
+test_script:
+  - yarn test
+  - yarn run build -- chrome,firefox,node
+  - node dist/node/loader.entry.js

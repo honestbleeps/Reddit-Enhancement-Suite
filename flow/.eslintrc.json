@@ -1,0 +1,7 @@
+{
+	"rules": {
+		"flowtype/no-dupe-keys": 0, // dupe keys in declarations are used for overloading
+		"flowtype/no-weak-types": 0, // used in generic bounds
+		"no-unused-vars": 0 // none of the flow declarations will be used directly
+	}
+}

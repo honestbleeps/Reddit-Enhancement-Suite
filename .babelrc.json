@@ -1,0 +1,39 @@
+{
+	"plugins": [
+		"transform-export-extensions",
+		"transform-class-properties",
+		"transform-async-to-generator",
+		"transform-exponentiation-operator",
+		["transform-object-rest-spread", { "useBuiltIns": true }],
+		"transform-es2015-modules-commonjs",
+		"transform-es2015-destructuring",
+		"transform-es2015-parameters",
+		"transform-es2015-block-scoping",
+		"transform-flow-strip-types",
+		"transform-dead-code-elimination",
+		"transform-node-env-inline",
+		"lodash"
+	],
+	"env": {
+		"safari": {
+			"presets": [
+				"es2015"
+			],
+			"plugins": [
+				"transform-export-extensions",
+				"transform-class-properties",
+				"transform-async-to-generator",
+				"transform-exponentiation-operator",
+				"transform-object-rest-spread",
+				"transform-runtime",
+				"transform-flow-strip-types",
+				"transform-dead-code-elimination",
+				"transform-node-env-inline",
+				"lodash"
+			]
+		},
+		"test": {
+			"sourceMaps": "inline"
+		}
+	}
+}

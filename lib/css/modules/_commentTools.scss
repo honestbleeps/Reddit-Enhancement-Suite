@@ -1,0 +1,169 @@
+.markdownEditor-wrapper { width: 500px; } // same as textarea.
+
+//  Formatting tools container
+.markdownEditor {
+	white-space: nowrap;
+	float: none;
+
+	a {
+		margin-right: 8px;
+		text-decoration: none;
+		font-size: 11px;
+	}
+
+	// Formatting tools
+	.edit-btn:not(.btn-macro) {
+		padding: 0;
+		width: 32px;
+		height: 20px;
+		display: inline-block;
+		overflow: hidden;
+		text-indent: 50px;
+		position: relative;
+		margin-right: 4px;
+		border: 1px solid #ccc;
+		float: none;
+		background-color: #fff;
+		background-image: url('../images/commentTools.png');
+		background-repeat: no-repeat;
+
+		.res-nightmode & {
+			background-color: #999;
+		}
+	}
+
+	.btn-bold { background-position: 8px 2px; }
+	.btn-italic { background-position: 8px -18px; }
+	.btn-strike { background-position: 8px -38px; }
+	.btn-superscript { background-position: 8px -58px; }
+	.btn-link { background-position: 8px -78px; }
+	.btn-quote { background-position: 8px -98px; }
+	.btn-code { background-position: 8px -118px; }
+	.btn-list-unordered { background-position: 8px -138px; }
+	.btn-list-ordered { background-position: 8px -158px; }
+	.btn-table { background-position: 8px -178px; }
+
+	.RESMacroDropdown {
+		font-size: 10px;
+	}
+}
+
+// Macros
+.RESMacroDropdownTitle {
+	cursor: pointer;
+	display: inline-block;
+	font-size: 11px;
+	color: gray;
+	padding-left: 2px;
+	padding-right: 21px;
+	background: url('../images/droparrowgray.gif') no-repeat 100% 50%;
+}
+
+.RESMacroWrappingSpan {
+	white-space: normal;
+	display: block;
+	text-align: right;
+	margin: 10px 0 3px 0;
+	user-select: none;
+
+	.openMacro {
+		color: rgb(0, 0, 0);
+		background-color: rgb(235, 240, 245);
+
+		.res-nightmode & {
+			color: rgb(200, 200, 200);
+			background-color: rgb(50, 50, 50);
+		}
+
+		+ span {
+			display: block;
+
+			.res-nightmode & {
+				background-color: rgb(50, 50, 50);
+				border-color: rgb(0, 0, 0);
+
+				li a {
+					color: rgb(200, 200, 200);
+					border-color: rgb(0, 0, 0);
+
+					&:hover {
+						background-color: rgb(60, 60, 60);
+					}
+				}
+			}
+		}
+	}
+}
+
+.RESMacroDropdown {
+	display: none;
+	position: absolute;
+	z-index: 2001;
+	font-size: 10px;
+	line-height: 2;
+	border: 1px solid rgb(200, 200, 200);
+	background-color: rgb(255, 255, 255);
+	text-align: left;
+
+	li a {
+		display: block;
+		padding: 0 10px;
+		color: rgb(0, 0, 0);
+		border-bottom: 1px solid rgb(230, 230, 230);
+
+		&:hover {
+			color: rgb(0, 0, 0);
+			background-color: rgb(245, 250, 255);
+			text-decoration: none;
+		}
+	}
+}
+
+// "Commenting as"
+.commentingAs {
+	clear: left;
+	margin-top: 10px;
+	margin-bottom: 3px;
+
+	a.userTagLink {
+		cursor: default;
+	}
+}
+
+.res-commentTools-macroButtons {
+	.commentingAs {
+		float: left;
+	}
+}
+
+// Table editor
+#alert_message table.commentPreview td {
+	border: 1px solid black;
+	padding: 1px;
+	min-width: 25px;
+}
+
+#alert_message table.commentPreview tr:first-child td {
+	font-weight: bold;
+}
+
+#alert_message .buttonContainer {
+	width: 100%;
+	display: block;
+	height: 30px;
+	margin-bottom: 10px;
+}
+
+// Autocomplete
+.selectedItem {
+	color: #fff;
+	background-color: #5f99cf;
+}
+
+.res-commentTools-showInputLength {
+	// reddit's "use suggested title" is `position: absolute` and overlaps our char count
+	#newlink-with-image-upload #suggest-title {
+		top: 2px; // move it up for better alignment with our counter
+		right: 80px;
+	}
+}

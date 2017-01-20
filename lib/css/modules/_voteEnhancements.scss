@@ -1,0 +1,38 @@
+.res-voteEnhancements-colorLinkScore-automatic,
+.res-voteEnhancements-colorLinkScore-user {
+	.link .rank {
+		color: #fff;
+		text-align: center;
+		border-radius: 1em;
+		font-size: 12px;
+		padding: 4px;
+		line-height: 1;
+		height: 1em;
+		min-width: 1em;
+	}
+}
+
+.res-voteEnhancements-estimatePostScore {
+	.linkinfo .upvotes {
+		font-size: 80%;
+		color: orangered;
+	}
+
+	.linkinfo .downvotes {
+		font-size: 80%;
+		color: #5f99cf;
+	}
+}
+
+.res-voteEnhancements-estimatePostVotes {
+	.linkinfo .totalvotes {
+		font-size: 80%;
+	}
+}
+
+.res-voteEnhancements-highlightScores {
+	span.score {
+		font-weight: bold;
+		color: #333;
+	}
+}

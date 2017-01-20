@@ -1,0 +1,84 @@
+@import '../zindex';
+
+#quickMessage {
+	display: none;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: rgba(0, 0, 0, .75);
+	z-index: $zindex-quick-message-dialog - 1;
+}
+
+#quickMessageDialog {
+	position: fixed;
+	top: 20%;
+	left: 25%;
+	width: 50%;
+	z-index: $zindex-quick-message-dialog;
+
+	.gearIcon {
+		float: right;
+		margin-right: 40px;
+	}
+
+	label {
+		margin-top: 9px;
+		clear: both;
+		float: left;
+	}
+
+	input[type=text],
+	textarea {
+		margin-top: 5px;
+		width: calc(100% - 70px);
+		float: right;
+		border: 1px solid #c7c7c7;
+		border-radius: 3px;
+		margin-bottom: 6px;
+		padding: 3px;
+	}
+
+	select {
+		margin-top: 5px;
+		width: calc(100% - 63px);
+		float: right;
+		border: 1px solid #c7c7c7;
+		border-radius: 3px;
+		margin-bottom: 6px;
+		padding: 3px;
+	}
+
+	textarea {
+		resize: vertical;
+		min-height: 100px;
+	}
+
+	input[type=button] {
+		cursor: pointer;
+		position: absolute;
+		right: 16px;
+		bottom: 16px;
+		padding: 3px 5px;
+		font-size: 12px;
+		color: #fff;
+		border: 1px solid #636363;
+		border-radius: 3px;
+		background-color: #5cc410;
+	}
+
+	.clear {
+		margin-bottom: 10px;
+	}
+
+	.moderator::after {
+		width: 16px;
+		height: 16px;
+		margin-left: 5px;
+		display: inline-block;
+		vertical-align: top;
+		content: '';
+		background: url('../images/moderatorShield.png') no-repeat;
+	}
+}

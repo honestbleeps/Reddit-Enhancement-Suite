@@ -1,0 +1,45 @@
+#submittingToEnhancement {
+	display: none;
+	min-height: 300px;
+	font-size: 14px;
+	line-height: 15px;
+	margin-top: 10px;
+	width: 518px;
+	position: absolute;
+	z-index: 999;
+
+	ol {
+		margin-left: 10px;
+		margin-top: 15px;
+		list-style-type: decimal;
+	}
+
+	li {
+		margin-left: 25px;
+	}
+}
+
+.submittingToEnhancementButton {
+	border: 1px solid #444;
+	border-radius: 2px;
+	padding: 3px 6px;
+	cursor: pointer;
+	display: inline-block;
+	margin-top: 12px;
+}
+
+#RESSubmitOptions .submittingToEnhancementButton {
+	margin-top: 30px;
+}
+
+#RESSubmitAprilFools {
+	background: #F87;
+	color: black;
+	margin-top: 2em;
+	padding: 1em;
+}
+
+#RESBugReport,
+#RESFeatureRequest {
+	display: none;
+}

@@ -1,7 +1,73 @@
 sudo: false
 language: node_js
-node_js:
-  - "0.12"
-before_script:
-  - npm install -g grunt-cli
-script: grunt travis
+node_js: 7
+branches:
+  only:
+    - master
+    - /^v[0-9]/
+env:
+  global:
+    # CHROME_CLIENT_ID
+    - secure: CF4N+tG66lh8Ks8OGMpCqVtkCLwBla9gg5NMuLyz96ukOkgIAWUSxFARpL0TaFWrf4LvNyyxzarjlOAf9iN3fGa8KOTuqBzMVthP9HqQhBGhpjZHmCDQJwbvmHauGBKwrkW3rBU44ngM+FxdWQqW4F/oeiNCrHOikzHwNj1l/Y8=
+    # CHROME_CLIENT_SECRET
+    - secure: ZiY6l1xbMUGNKHlkNzOrOoZXOrdQxAwQK5WpR+e+F3nTgw7yS26HGhMq8ajFDI/Tk0ZpjSEfev148X93OaZ+njj88uSaDCDS2xbltInAQw+YfigIpGpbssE/CxUwTDjiEE/se+WybqZthpcLydmJbQt/kT6khhhIOFn7EIFknks=
+    # CHROME_REFRESH_TOKEN
+    - secure: LfNqGTqtHtRJKrD2TKHKIcfhtEjwuctoGJlt8dAvqo9LuChFh8t7feBObJ/b79v/vZeRsKVn8dExZRz/b4V8NyVc9xT4DgSCuaY3vKfbJ99TRa1vKK+wC5rElhJpBWqosP+rF8cocorXerfWQIst9f9LeGggX0to/hhCJ5RqSkw=
+    # FIREFOX_ISSUER
+    - secure: RVoTaF6KaKCTcxuDD0VKTUnQatFgvpw8nzSpzJs/A9RJ0OspmSRCKDFUOvMrwtIs8PRBhYsc84GP/0uhHLwxqLarYDetysTV4tOcTK/VbBCkYdiaf++MBKFChe6l04U1gaQH813yCHkDDiNVqOzO8AYymVjJmTFFHOdUR1eR7CA=
+    # FIREFOX_SECRET
+    - secure: dY750kjkoKhqQL7a4E2JnncvMwC4uRkHSP8UzHX92tXbRgKyTFgfekzVExq3gMyNESO/WQh7jUZE5zCM5QnL1q+Xv8hyueHV+piP9imCbw/126Zm0pCsrHVNsBAauqf2CQCE0DyIMADvnPgyANLGe2scz5KuNVZBF/yOJTFK9Kc=
+    - SAUCE_USERNAME=RES-Auto
+    - SELENIUM_HOST=ondemand.saucelabs.com
+    - SELENIUM_PORT=80
+addons:
+  jwt:
+    # SAUCE_ACCESS_KEY=<secure>
+    secure: hHF06xHY6pLdxscwYhUHdSRuUH2CPA61AUrvPiW54lnMwwkDvCQakR+aY5HbjptFIfOwkWsS4xoqXH4pZTfhMOji32S/+ELT+AqLdkIgnLYDfBj4RcsZoXyvuiLx29i4PVCnGMikctBp4dM6wORgfd1tu3uwhcoQrBjxCMW1qmY=
+cache:
+  directories:
+    - $HOME/.cache/yarn
+install:
+  - npm i -g yarn
+  - yarn install --pure-lockfile
+  - yarn check --integrity
+matrix:
+  exclude:
+    - node_js: 7 # exclude default job https://github.com/travis-ci/travis-ci/issues/4681
+  include:
+    - env: RES_JOB=lint_flow
+      script:
+        - yarn run flow -- check --show-all-errors
+        - yarn run eslint
+        - yarn run sass-lint
+    - env: RES_JOB=test
+      script:
+        - yarn run coverage && yarn run report-coverage
+        - yarn run build -- chrome,firefox,node
+        - yarn run jpm -- xpi
+        - node dist/node/loader.entry.js
+        - yarn run test-integration -- chrome && yarn run test-integration -- firefox
+    - env: RES_JOB=build_deploy
+      script:
+        - yarn run build -- all
+        - yarn run jpm -- xpi
+        - yarn run jpm-beta -- xpi
+        - yarn run manifoldjs-package
+      deploy:
+        - provider: releases
+          api_key:
+            secure: F0CNYZBoZbLiZDm+KkIpX/FjWhwUKMQs4O+bg6EUT32GOb17ed1HBS1Dw9DCTClyydEkhtCMZTFHQUbfNhlU7xkZxy8J/Ac9UykngVmjJBz3+ZKmbGsokjwCm8r08VCMzB0AJrvIodRwegzg9J5muXvMGNBzKxi7Q7XiNsxLNDc=
+          prerelease: true
+          file:
+            - dist/zip/chrome.zip
+            - dist/edgeextension/package/edgeExtension.appx
+            - dist/zip/firefox.zip
+            - dist/zip/RES.safariextension.zip
+          skip_cleanup: true
+          on:
+            tags: true
+        - provider: script
+          script: node build/deploy.js
+          skip_cleanup: true
+          on:
+            tags: true

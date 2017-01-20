@@ -1,0 +1,48 @@
+.RESDialogSmall.livePreview {
+	position: relative;
+	width: auto;
+	margin-bottom: 15px;
+
+	> h3 {
+		font-weight: bold;
+	}
+
+	.gearIcon {
+		float: right;
+		margin-right: 1em;
+	}
+}
+
+#banned {
+	position: relative;
+
+	.RESDialogSmall.livePreview {
+		width: 505px;
+	}
+
+	.RESBigEditorPop {
+		float: none;
+		left: 410px;
+		position: absolute;
+	}
+}
+
+.res-commentPreview-swapBigEditorLayout #BigEditor {
+	.BELeft {
+		left: auto;
+		right: 0;
+		margin-left: 0;
+	}
+
+	.BERight {
+		right: auto;
+		left: 0;
+		margin-right: 0;
+	}
+}
+
+.res-commentPreview-draftStyle {
+	.livePreview {
+		background: repeating-linear-gradient(-225deg, transparent, transparent 40px, rgba(166, 166, 166, .07) 40px, rgba(166, 166, 166, .07) 80px);
+	}
+}

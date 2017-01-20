@@ -1,0 +1,202 @@
+#userTaggerToolTip {
+	display: none;
+	position: absolute;
+	width: 336px;
+	box-sizing: border-box;
+	z-index: $zindex-res-hover;
+
+	form > div {
+		clear: both;
+		margin: 5px 0;
+	}
+
+	label {
+		margin: 5px 0;
+		float: left;
+		width: 110px;
+	}
+
+	input[type=text],
+	select {
+		margin-top: 5px;
+		width: 200px;
+		box-sizing: border-box;
+	}
+
+	input[type=checkbox] {
+		margin-top: 5px;
+		float: left;
+	}
+
+	input[type=submit] {
+		margin-left: auto;
+		cursor: pointer;
+		padding: 3px 5px;
+		font-size: 12px;
+		color: #fff;
+		border: 1px solid #636363;
+		border-radius: 3px;
+		background-color: #5cc410;
+	}
+
+	a {
+		text-decoration: none;
+
+		&:not([href]) {
+			color: inherit;
+		}
+	}
+
+	#userTaggerVoteWeight {
+		width: 30px;
+	}
+
+	h3 .res-icon {
+		color: #9BD;
+	}
+
+	.res-usertag-ignore {
+		display: flex;
+		align-items: center;
+
+		.gearIcon {
+			margin-left: auto;
+		}
+	}
+
+	.res-usertagger-footer {
+		padding-top: 5px;
+		margin-bottom: 0;
+		display: flex;
+		align-items: center;
+	}
+}
+
+#userTaggerClose {
+	right: 7px;
+	top: 7px;
+}
+
+.res-ignored-message {
+	color: rgb(170, 170, 170);
+	cursor: default;
+
+	.comment & {
+		line-height: 2;
+	}
+
+	.res-icon {
+		font-size: inherit;
+	}
+}
+
+.res-ignored-content {
+	&.link {
+		a.title,
+		.expando-button,
+		.expando {
+			display: none !important;
+		}
+
+		.thumbnail {
+			visibility: hidden !important;
+		}
+	}
+
+	&.comment > .entry {
+		.md {
+			display: none !important;
+		}
+	}
+
+	&.search-result {
+		a.search-title,
+		.search-expando,
+		.search-expando-button,
+		.search-result-footer {
+			display: none !important;
+		}
+	}
+}
+
+a.voteWeight {
+	text-decoration: none;
+	color: #369;
+
+	&:hover {
+		text-decoration: none;
+	}
+
+	// unselectable in comments/markdown for usability
+	.md & {
+		user-select: none;
+	}
+}
+
+#benefits {
+	width: 200px;
+	margin-left: 0;
+}
+
+.RESUserTag {
+	color: black;
+
+	// unselectable in comments/markdown for usability
+	.md & {
+		user-select: none;
+	}
+}
+
+.RESUserTagImage::after {
+	content: '\F0AC';
+	font: normal 14px/8px 'Batch';
+	vertical-align: middle;
+	color: #9BD;
+}
+
+.userTagLink.RESUserTagImage:hover {
+	text-decoration: none;
+}
+
+.hoverHelp {
+	cursor: pointer;
+	color: #369;
+}
+
+.userTagLink.hasTag,
+#userTaggerPreview {
+	display: inline;
+	padding: 0 4px;
+	line-height: normal;
+	border: 1px solid #c7c7c7;
+	border-radius: 3px;
+}
+
+.userTagLink.hasTag {
+	font-size: .9em;
+}
+
+#userTaggerPreview {
+	display: inline-block;
+	height: 1.6em;
+	line-height: 1.6em;
+	margin: 5px 0 0 0 !important;
+	box-sizing: border-box;
+	max-width: 200px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+#userTaggerTable th {
+	cursor: pointer;
+	user-select: none;
+}
+
+#userTaggerTable .deleteIcon {
+	color: #999;
+	cursor: pointer;
+
+	&:hover {
+		color: #333;
+	}
+}
