@@ -119,6 +119,10 @@
         "message": "Fade or completely hide duplicate posts already showing on the page.",
         "description": ""
     },
+    "necLoadChildCommentsDesc": {
+        "message": "Should on-screen child comments be expanded when paused, in addition to top-level comments?",
+        "description": ""
+    },
     "userTaggerName": {
         "message": "Benutzer-Markierer",
         "description": ""
@@ -395,6 +399,10 @@
         "message": "Verbesserte Möglichkeiten, zu verschiedenen Teilen deiner Benutzerseite zu gelangen.",
         "description": ""
     },
+    "wheelBrowseDesc": {
+        "message": "Browse entries and galleries by scrolling inside the grey floater.",
+        "description": ""
+    },
     "tableToolsDesc": {
         "message": "Fügt zusätzliche Funktionalität zu Reddit-Markdown-Tabellen hinzu (momentan nur Sortierung)",
         "description": ""
@@ -489,6 +497,10 @@
     },
     "nightModeNightModeOnDesc": {
         "message": "Nachtmodus ein/aus.",
+        "description": ""
+    },
+    "necName": {
+        "message": "Never Ending Comments",
         "description": ""
     },
     "filteRedditExcludeOwnPostsTitle": {
@@ -1523,6 +1535,10 @@
         "message": "Ausblende-Geschwindigkeit",
         "description": ""
     },
+    "necLoadChildCommentsTitle": {
+        "message": "Load Child Comments",
+        "description": ""
+    },
     "showParentName": {
         "message": "Übergeordneter Kommentar beim Verweilen der Maus anzeigen",
         "description": ""
@@ -1728,7 +1744,7 @@
         "description": ""
     },
     "filteRedditUseRedditFiltersDesc": {
-        "message": "Overwrite and automatically sync your native /r/all filters with your first 100 non-RegExp filtered subreddits.",
+        "message": "Overwrite your native /r/all filters with the 100 most popular filtered subreddits.",
         "description": ""
     },
     "searchHelperName": {
@@ -1973,6 +1989,10 @@
     },
     "singleClickDesc": {
         "message": "Fügt einen [l+c]-Link hinzu, um einen Link und seine Kommentarseite mit einem Klick in neuen Tabs zu öffnen.",
+        "description": ""
+    },
+    "wheelBrowseName": {
+        "message": "Browse by Wheel",
         "description": ""
     },
     "orangeredShowFloatingEnvelopeDesc": {
@@ -2981,6 +3001,10 @@
     },
     "selectedEntrySelectOnClickDesc": {
         "message": "Allows you to click on an item to select it",
+        "description": ""
+    },
+    "necDescription": {
+        "message": "Keep ultra-long comment pages flowing.",
         "description": ""
     },
     "troubleshooterCachesCleared": {

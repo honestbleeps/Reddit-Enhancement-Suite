@@ -84,7 +84,7 @@
         "description": ""
     },
     "hoverOpenDelayTitle": {
-        "message": "Open Delay",
+        "message": "Ritardo di Apertura",
         "description": ""
     },
     "keyboardNavNextPageTitle": {
@@ -117,6 +117,10 @@
     },
     "nerHideDupesDesc": {
         "message": "Fade or completely hide duplicate posts already showing on the page.",
+        "description": ""
+    },
+    "necLoadChildCommentsDesc": {
+        "message": "Should on-screen child comments be expanded when paused, in addition to top-level comments?",
         "description": ""
     },
     "userTaggerName": {
@@ -168,7 +172,7 @@
         "description": ""
     },
     "hoverFadeDelayTitle": {
-        "message": "Fade Delay",
+        "message": "Ritardo della Dissolvenza",
         "description": ""
     },
     "commentToolsLinkKeyTitle": {
@@ -395,6 +399,10 @@
         "message": "Migliora la navigazione nella tua user page.",
         "description": ""
     },
+    "wheelBrowseDesc": {
+        "message": "Browse entries and galleries by scrolling inside the grey floater.",
+        "description": ""
+    },
     "tableToolsDesc": {
         "message": "Include funzionalità supplementari alle tabelle in Reddit Markdown (ad ora solo ordinamento).",
         "description": ""
@@ -489,6 +497,10 @@
     },
     "nightModeNightModeOnDesc": {
         "message": "Abilita/disabilita modalità notturna.",
+        "description": ""
+    },
+    "necName": {
+        "message": "Never Ending Comments",
         "description": ""
     },
     "filteRedditExcludeOwnPostsTitle": {
@@ -840,7 +852,7 @@
         "description": ""
     },
     "subredditManagerMultiCountTitle": {
-        "message": "/r/$1 is in $2 multireddits",
+        "message": "/r/$1 è nel multireddit $2",
         "description": ""
     },
     "commentToolsStrikeKeyTitle": {
@@ -1020,7 +1032,7 @@
         "description": ""
     },
     "keyboardNavToggleHelpDesc": {
-        "message": "Show help for keyboard shortcuts.",
+        "message": "Mostra aiuto per le scorciatoie da tastiera.",
         "description": ""
     },
     "dashboardDashboardShortcutTitle": {
@@ -1052,7 +1064,7 @@
         "description": ""
     },
     "accountSwitcherSimpleArrow": {
-        "message": "simple arrow",
+        "message": "freccia semplice",
         "description": ""
     },
     "filteRedditFlairTitle": {
@@ -1416,7 +1428,7 @@
         "description": ""
     },
     "hoverFadeSpeedDesc": {
-        "message": "Fade speed (in seconds).",
+        "message": "Velocità di dissolvenza (in secondi).",
         "description": ""
     },
     "betteRedditShowTimestampPostsDesc": {
@@ -1520,7 +1532,11 @@
         "description": "As in 'Show tagged users' or 'Show all users'"
     },
     "hoverFadeSpeedTitle": {
-        "message": "Fade Speed",
+        "message": "Velocità Dissolvenza",
+        "description": ""
+    },
+    "necLoadChildCommentsTitle": {
+        "message": "Load Child Comments",
         "description": ""
     },
     "showParentName": {
@@ -1728,7 +1744,7 @@
         "description": ""
     },
     "filteRedditUseRedditFiltersDesc": {
-        "message": "Overwrite and automatically sync your native /r/all filters with your first 100 non-RegExp filtered subreddits.",
+        "message": "Overwrite your native /r/all filters with the 100 most popular filtered subreddits.",
         "description": ""
     },
     "searchHelperName": {
@@ -1975,6 +1991,10 @@
         "message": "Aggiunge link [l+c] che apre un link e la pagina dei commenti in una nuova tab in un solo click.",
         "description": ""
     },
+    "wheelBrowseName": {
+        "message": "Browse by Wheel",
+        "description": ""
+    },
     "orangeredShowFloatingEnvelopeDesc": {
         "message": "Show an envelope (inbox) icon in the top right corner.",
         "description": ""
@@ -1996,7 +2016,7 @@
         "description": ""
     },
     "hoverCloseOnMouseOutTitle": {
-        "message": "Close On Mouse Out",
+        "message": "Chiudi quando il mouse si allontana dal pop-up",
         "description": ""
     },
     "keyboardNavMoveToTopCommentDesc": {
@@ -2344,7 +2364,7 @@
         "description": ""
     },
     "betteRedditScoreHiddenTimeLeftDesc": {
-        "message": "When hovering over [score hidden] show time left instead of hide duration.",
+        "message": "Quando il cursore passa sopra [punteggio nascosto], mostra il tempo rimanente invece di nasconderne la durata.",
         "description": ""
     },
     "betteRedditShowLastEditedTimestampDesc": {
@@ -2983,6 +3003,10 @@
         "message": "Allows you to click on an item to select it",
         "description": ""
     },
+    "necDescription": {
+        "message": "Keep ultra-long comment pages flowing.",
+        "description": ""
+    },
     "troubleshooterCachesCleared": {
         "message": "Tutta la cache è stata pulita.",
         "description": ""
@@ -3244,7 +3268,7 @@
         "description": ""
     },
     "commentNavigatorShowByDefaultTitle": {
-        "message": "Show By Default",
+        "message": "Mostra Sempre (default)",
         "description": ""
     }
 }
