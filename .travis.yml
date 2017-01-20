@@ -28,6 +28,10 @@ cache:
   yarn: true
   directories:
     - node_modules
+install:
+  - npm install -g yarn
+  - yarn install --pure-lockfile
+  - yarn check --integrity
 matrix:
   exclude:
     - node_js: 7 # exclude default job https://github.com/travis-ci/travis-ci/issues/4681
