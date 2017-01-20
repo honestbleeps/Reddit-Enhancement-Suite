@@ -119,6 +119,10 @@
         "message": "Fade or completely hide duplicate posts already showing on the page.",
         "description": ""
     },
+    "necLoadChildCommentsDesc": {
+        "message": "Should on-screen child comments be expanded when paused, in addition to top-level comments?",
+        "description": ""
+    },
     "userTaggerName": {
         "message": "Etiquetas de Utilizador",
         "description": ""
@@ -395,6 +399,10 @@
         "message": "Facilita a navegação para várias partes da tua página de utilizador.",
         "description": ""
     },
+    "wheelBrowseDesc": {
+        "message": "Browse entries and galleries by scrolling inside the grey floater.",
+        "description": ""
+    },
     "tableToolsDesc": {
         "message": "Inclui funcionalidade adicional às tabelas de Markdown do Reddit (de momento apenas ordena)",
         "description": ""
@@ -489,6 +497,10 @@
     },
     "nightModeNightModeOnDesc": {
         "message": "Enable/disable night mode.",
+        "description": ""
+    },
+    "necName": {
+        "message": "Never Ending Comments",
         "description": ""
     },
     "filteRedditExcludeOwnPostsTitle": {
@@ -1523,6 +1535,10 @@
         "message": "Velocidade de Desvanecimento",
         "description": ""
     },
+    "necLoadChildCommentsTitle": {
+        "message": "Load Child Comments",
+        "description": ""
+    },
     "showParentName": {
         "message": "Mostrar Pai ao passar com o cursor.",
         "description": ""
@@ -1728,7 +1744,7 @@
         "description": ""
     },
     "filteRedditUseRedditFiltersDesc": {
-        "message": "Re-escrever e sincronizar automaticamente os teus filtros nativos do /r/all com os teus primeiros 100 sub-reddits filtrados (excluindo RegExp).",
+        "message": "Overwrite your native /r/all filters with the 100 most popular filtered subreddits.",
         "description": ""
     },
     "searchHelperName": {
@@ -1973,6 +1989,10 @@
     },
     "singleClickDesc": {
         "message": "Adiciona uma ligação [l+c] que abre a ligação e a página de comentários em dois novos separadores a partir de um único clique.",
+        "description": ""
+    },
+    "wheelBrowseName": {
+        "message": "Browse by Wheel",
         "description": ""
     },
     "orangeredShowFloatingEnvelopeDesc": {
@@ -2981,6 +3001,10 @@
     },
     "selectedEntrySelectOnClickDesc": {
         "message": "Allows you to click on an item to select it",
+        "description": ""
+    },
+    "necDescription": {
+        "message": "Keep ultra-long comment pages flowing.",
         "description": ""
     },
     "troubleshooterCachesCleared": {

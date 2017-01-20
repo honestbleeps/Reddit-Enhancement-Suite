@@ -16,7 +16,7 @@
         "description": ""
     },
     "keyboardNavMoveDownCommentTitle": {
-        "message": "Move Down Comment",
+        "message": "Liiguta Kommentaar Alla",
         "description": ""
     },
     "dashboardMenuItemDesc": {
@@ -24,7 +24,7 @@
         "description": ""
     },
     "userInfoUserHasRedditGold": {
-        "message": "User has Reddit Gold",
+        "message": "Kasutajal on Reddit Gold",
         "description": ""
     },
     "keyboardNavMoveUpSiblingTitle": {
@@ -68,7 +68,7 @@
         "description": ""
     },
     "orangeredName": {
-        "message": "Unread Messages",
+        "message": "Lugemata Sõnumid",
         "description": ""
     },
     "RESTipsDailyTipDesc": {
@@ -119,6 +119,10 @@
         "message": "Fade or completely hide duplicate posts already showing on the page.",
         "description": ""
     },
+    "necLoadChildCommentsDesc": {
+        "message": "Should on-screen child comments be expanded when paused, in addition to top-level comments?",
+        "description": ""
+    },
     "userTaggerName": {
         "message": "User Tagger",
         "description": ""
@@ -156,7 +160,7 @@
         "description": ""
     },
     "voteEnhancementsUpvotes": {
-        "message": "upvotes",
+        "message": "upvote'd",
         "description": ""
     },
     "onboardingDesc": {
@@ -292,7 +296,7 @@
         "description": ""
     },
     "myAccountCategory": {
-        "message": "My Account",
+        "message": "Minu Kasutaja",
         "description": ""
     },
     "commentDepthDefaultMinimumCommentsTitle": {
@@ -300,7 +304,7 @@
         "description": ""
     },
     "yes": {
-        "message": "Yes",
+        "message": "Jah",
         "description": ""
     },
     "filteRedditName": {
@@ -356,7 +360,7 @@
         "description": ""
     },
     "nerName": {
-        "message": "Never Ending Reddit",
+        "message": "Lõpmatu Reddit",
         "description": ""
     },
     "subredditInfoTitle": {
@@ -395,6 +399,10 @@
         "message": "Enhance getting to various parts of your user page.",
         "description": ""
     },
+    "wheelBrowseDesc": {
+        "message": "Browse entries and galleries by scrolling inside the grey floater.",
+        "description": ""
+    },
     "tableToolsDesc": {
         "message": "Include additional functionality to Reddit Markdown tables (only sorting at the moment).",
         "description": ""
@@ -404,7 +412,7 @@
         "description": ""
     },
     "searchName": {
-        "message": "Search RES Settings",
+        "message": "Otsi RES Seadeid",
         "description": ""
     },
     "orangeredResetFaviconOnLeaveTitle": {
@@ -412,7 +420,7 @@
         "description": ""
     },
     "pageNavName": {
-        "message": "Page Navigator",
+        "message": "Lehenavigaator",
         "description": ""
     },
     "keyboardNavFollowLinkDesc": {
@@ -448,7 +456,7 @@
         "description": ""
     },
     "userbarHiderUserBarHidden": {
-        "message": "User Bar Hidden",
+        "message": "Kasutajariba Peidetud",
         "description": ""
     },
     "commentDepthAddSubreddit": {
@@ -489,6 +497,10 @@
     },
     "nightModeNightModeOnDesc": {
         "message": "Enable/disable night mode.",
+        "description": ""
+    },
+    "necName": {
+        "message": "Never Ending Comments",
         "description": ""
     },
     "filteRedditExcludeOwnPostsTitle": {
@@ -692,7 +704,7 @@
         "description": ""
     },
     "presetsName": {
-        "message": "Presets",
+        "message": "Eelsätted",
         "description": ""
     },
     "styleTweaksName": {
@@ -776,7 +788,7 @@
         "description": ""
     },
     "styleTweaksSubredditStyle": {
-        "message": "Subreddit Style",
+        "message": "Subredditi Stiil",
         "description": ""
     },
     "keyboardNavDownVoteTitle": {
@@ -784,7 +796,7 @@
         "description": ""
     },
     "keyboardNavMoveDownTitle": {
-        "message": "Move Down",
+        "message": "Liiguta Alla",
         "description": ""
     },
     "notificationNotificationTypesTitle": {
@@ -872,7 +884,7 @@
         "description": ""
     },
     "no": {
-        "message": "No",
+        "message": "Ei",
         "description": ""
     },
     "notificationFadeOutLengthTitle": {
@@ -900,7 +912,7 @@
         "description": ""
     },
     "selectedEntryName": {
-        "message": "Selected Entry",
+        "message": "Valitud Sisend",
         "description": ""
     },
     "betteRedditPinHeaderTitle": {
@@ -984,11 +996,11 @@
         "description": ""
     },
     "userInfoCommentKarma": {
-        "message": "Comment Karma:",
+        "message": "Kommentaarikarma:",
         "description": ""
     },
     "settingsConsoleDesc": {
-        "message": "Manage your RES settings and preferences.",
+        "message": "Halda oma RESi seadeid ja eelistusi.",
         "description": ""
     },
     "messageMenuLinksTitle": {
@@ -1028,7 +1040,7 @@
         "description": ""
     },
     "keyboardNavHideTitle": {
-        "message": "Hide",
+        "message": "Peida",
         "description": ""
     },
     "userInfoLink": {
@@ -1036,7 +1048,7 @@
         "description": ""
     },
     "submitHelperTimeAgo": {
-        "message": "$1 ago",
+        "message": "$1 tagasi",
         "description": "As in '1 day ago'"
     },
     "betteRedditVideoTimesDesc": {
@@ -1044,11 +1056,11 @@
         "description": ""
     },
     "userTaggerIgnoredPlaceholder": {
-        "message": "ignored.",
+        "message": "ignoreeritud.",
         "description": "Replaces the content of ignored comments."
     },
     "keyboardNavReplyTitle": {
-        "message": "Reply",
+        "message": "Vasta",
         "description": ""
     },
     "accountSwitcherSimpleArrow": {
@@ -1140,7 +1152,7 @@
         "description": ""
     },
     "commentsCategory": {
-        "message": "Comments",
+        "message": "Kommentaarid",
         "description": ""
     },
     "commentToolsStrikeKeyDesc": {
@@ -1188,7 +1200,7 @@
         "description": ""
     },
     "userInfoPostKarma": {
-        "message": "Post Karma:",
+        "message": "Postituskarma:",
         "description": ""
     },
     "styleTweaksToggleSubredditStyleOnOff": {
@@ -1288,7 +1300,7 @@
         "description": ""
     },
     "selectedEntryAddFocusBGColorDesc": {
-        "message": "Use a background color",
+        "message": "Kasuta taustavärvi",
         "description": ""
     },
     "accountSwitcherShowUserDetailsTitle": {
@@ -1344,7 +1356,7 @@
         "description": ""
     },
     "toggleOff": {
-        "message": "off",
+        "message": "väljas",
         "description": ""
     },
     "commentToolsSubredditAutocompleteDesc": {
@@ -1372,7 +1384,7 @@
         "description": ""
     },
     "userTaggerShowAnyway": {
-        "message": "show anyway?",
+        "message": "näita ikkagi?",
         "description": "for showing ignored comments"
     },
     "accountSwitcherAddAccount": {
@@ -1380,7 +1392,7 @@
         "description": ""
     },
     "userInfoHighlight": {
-        "message": "Highlight",
+        "message": "Märgi",
         "description": ""
     },
     "filteRedditExcludeModqueueDesc": {
@@ -1400,7 +1412,7 @@
         "description": ""
     },
     "keyboardNavMoveBottomTitle": {
-        "message": "Move Bottom",
+        "message": "Liiguta Kõige Alumiseks",
         "description": ""
     },
     "spoilerTagsName": {
@@ -1412,7 +1424,7 @@
         "description": ""
     },
     "saveCommentsName": {
-        "message": "Save Comments",
+        "message": "Salvesta Kommentaarid",
         "description": ""
     },
     "hoverFadeSpeedDesc": {
@@ -1432,7 +1444,7 @@
         "description": ""
     },
     "keyboardNavSavePostTitle": {
-        "message": "Save Post",
+        "message": "Salvesta Postitus",
         "description": ""
     },
     "searchHelperSearchByFlairDesc": {
@@ -1476,7 +1488,7 @@
         "description": ""
     },
     "aboutOptionsBugs": {
-        "message": "If something isn't working right, visit /r/RESissues for help.",
+        "message": "Kui midagi ei tööta õigesti, külasta abi saamiseks /r/RESissues subredditit.",
         "description": ""
     },
     "keyboardNavMoveUpDesc": {
@@ -1496,7 +1508,7 @@
         "description": ""
     },
     "hoverInstancesName": {
-        "message": "name",
+        "message": "nimi",
         "description": ""
     },
     "showImagesName": {
@@ -1521,6 +1533,10 @@
     },
     "hoverFadeSpeedTitle": {
         "message": "Fade Speed",
+        "description": ""
+    },
+    "necLoadChildCommentsTitle": {
+        "message": "Load Child Comments",
         "description": ""
     },
     "showParentName": {
@@ -1616,7 +1632,7 @@
         "description": ""
     },
     "keyboardNavHideDesc": {
-        "message": "Hide link.",
+        "message": "Peida link.",
         "description": ""
     },
     "commentToolsBoldKeyTitle": {
@@ -1688,7 +1704,7 @@
         "description": "as in '+shortcut' or '-shortcut'"
     },
     "userInfoSendMessage": {
-        "message": "send message",
+        "message": "saada sõnum",
         "description": ""
     },
     "noPartDisableVoteButtonsTitle": {
@@ -1700,7 +1716,7 @@
         "description": ""
     },
     "keyboardNavMoveUpCommentTitle": {
-        "message": "Move Up Comment",
+        "message": "Liiguta Kommentaar Üles",
         "description": ""
     },
     "searchHelperUserFilterBySubredditDesc": {
@@ -1728,11 +1744,11 @@
         "description": ""
     },
     "filteRedditUseRedditFiltersDesc": {
-        "message": "Overwrite and automatically sync your native /r/all filters with your first 100 non-RegExp filtered subreddits.",
+        "message": "Overwrite your native /r/all filters with the 100 most popular filtered subreddits.",
         "description": ""
     },
     "searchHelperName": {
-        "message": "Search Helper",
+        "message": "Otsiguabi",
         "description": ""
     },
     "keyboardNavNextGalleryImageDesc": {
@@ -1740,7 +1756,7 @@
         "description": ""
     },
     "nightModeName": {
-        "message": "Night Mode",
+        "message": "Öörežiim",
         "description": ""
     },
     "filteRedditExcludeModqueueTitle": {
@@ -1756,7 +1772,7 @@
         "description": ""
     },
     "toggleOn": {
-        "message": "on",
+        "message": "sees",
         "description": ""
     },
     "contextDesc": {
@@ -1768,7 +1784,7 @@
         "description": ""
     },
     "keyboardNavMoveTopTitle": {
-        "message": "Move Top",
+        "message": "Liiguta Kõige Ülemiseks",
         "description": ""
     },
     "userTaggerIgnored": {
@@ -1856,7 +1872,7 @@
         "description": ""
     },
     "aboutOptionsDonate": {
-        "message": "Support further RES development.",
+        "message": "Toeta RESi arendust.",
         "description": ""
     },
     "aboutOptionsBugsTitle": {
@@ -1975,6 +1991,10 @@
         "message": "Adds an [l+c] link that opens a link and the comments page in new tabs for you in one click.",
         "description": ""
     },
+    "wheelBrowseName": {
+        "message": "Browse by Wheel",
+        "description": ""
+    },
     "orangeredShowFloatingEnvelopeDesc": {
         "message": "Show an envelope (inbox) icon in the top right corner.",
         "description": ""
@@ -2012,7 +2032,7 @@
         "description": ""
     },
     "troubleshooterEntriesRemoved": {
-        "message": "$1 entries removed.",
+        "message": "$1 sissekannet eemaldatud.",
         "description": ""
     },
     "newCommentCountMonitorPostsVisitedIncognitoTitle": {
@@ -2168,7 +2188,7 @@
         "description": ""
     },
     "selectedEntryFocusBGColorDesc": {
-        "message": "The background color",
+        "message": "Taustavärv",
         "description": ""
     },
     "multiredditNavbarUrl": {
@@ -2184,7 +2204,7 @@
         "description": ""
     },
     "keyboardNavMoveUpTitle": {
-        "message": "Move Up",
+        "message": "Liiguta Üles",
         "description": ""
     },
     "pageNavToTopTitle": {
@@ -2196,7 +2216,7 @@
         "description": ""
     },
     "userTaggerTag": {
-        "message": "Tag",
+        "message": "Silt",
         "description": ""
     },
     "userbarHiderToggleUserbar": {
@@ -2232,7 +2252,7 @@
         "description": ""
     },
     "keyboardNavSaveCommentTitle": {
-        "message": "Save Comment",
+        "message": "Salvesta Kommentaar",
         "description": ""
     },
     "nerPauseAfterEveryTitle": {
@@ -2272,7 +2292,7 @@
         "description": ""
     },
     "voteEnhancementsDownvotes": {
-        "message": "downvotes",
+        "message": "downvote'd",
         "description": ""
     },
     "localDateDesc": {
@@ -2396,7 +2416,7 @@
         "description": ""
     },
     "appearanceCategory": {
-        "message": "Appearance",
+        "message": "Välimus",
         "description": ""
     },
     "userTaggerShowIgnoredDesc": {
@@ -2428,7 +2448,7 @@
         "description": ""
     },
     "nerHideDupesHide": {
-        "message": "Hide",
+        "message": "Peida",
         "description": ""
     },
     "aboutOptionsContributorsTitle": {
@@ -2464,7 +2484,7 @@
         "description": ""
     },
     "selectedEntryFocusFGColorNightDesc": {
-        "message": "The text color while using Night Mode",
+        "message": "Tekstivärv öörežiimil",
         "description": ""
     },
     "messageMenuHoverDelayDesc": {
@@ -2548,7 +2568,7 @@
         "description": ""
     },
     "userInfoUserNotFound": {
-        "message": "User not found.",
+        "message": "Kasutajat ei leitud.",
         "description": ""
     },
     "betteRedditTruncateLongLinksTitle": {
@@ -2564,7 +2584,7 @@
         "description": ""
     },
     "userTaggerYourVotesFor": {
-        "message": "your votes for $1: $2",
+        "message": "sinu hääli kasutajale $1: $2",
         "description": "As in `your votes for username: 42`"
     },
     "commentToolsMacroButtonsDesc": {
@@ -2612,7 +2632,7 @@
         "description": ""
     },
     "menuName": {
-        "message": "RES Menu",
+        "message": "RES Menüü",
         "description": ""
     },
     "messageMenuDesc": {
@@ -2624,7 +2644,7 @@
         "description": ""
     },
     "selectedEntryFocusBGColorNightDesc": {
-        "message": "The background color while using Night Mode",
+        "message": "Taustavärv öörežiimil",
         "description": ""
     },
     "searchHelperTransitionSearchTabsDesc": {
@@ -2684,7 +2704,7 @@
         "description": ""
     },
     "notificationsName": {
-        "message": "RES Notifications",
+        "message": "RES Teavitused",
         "description": ""
     },
     "keyboardNavCommentsLinkNewTabDesc": {
@@ -2716,7 +2736,7 @@
         "description": ""
     },
     "showKarmaName": {
-        "message": "Show Karma",
+        "message": "Näita Karmat",
         "description": ""
     },
     "commentToolsSubredditAutocompleteTitle": {
@@ -2888,7 +2908,7 @@
         "description": ""
     },
     "hideChildCommentsAutomaticTitle": {
-        "message": "Automatic",
+        "message": "Automaatne",
         "description": ""
     },
     "hoverFadeDelayDesc": {
@@ -2900,7 +2920,7 @@
         "description": ""
     },
     "settingsConsoleName": {
-        "message": "Settings Console",
+        "message": "Seadekonsool",
         "description": ""
     },
     "commentDepthSubredditCommentDepthsDesc": {
@@ -2932,7 +2952,7 @@
         "description": ""
     },
     "quickMessageName": {
-        "message": "Quick Message",
+        "message": "Kiirsõnum",
         "description": ""
     },
     "noPartEscapeNPDesc": {
@@ -2964,11 +2984,11 @@
         "description": ""
     },
     "messageMenuName": {
-        "message": "Message Menu",
+        "message": "Sõnumimenüü",
         "description": ""
     },
     "aboutOptionsSuggestions": {
-        "message": "If you have an idea for RES or want to chat with other users, visit /r/Enhancement.",
+        "message": "Kui sul on idee RESi edendamiseks või tahad teiste kasutajatega vestelda, külasta /r/Enhancement subredditit",
         "description": ""
     },
     "userbarHiderName": {
@@ -2983,12 +3003,16 @@
         "message": "Allows you to click on an item to select it",
         "description": ""
     },
+    "necDescription": {
+        "message": "Keep ultra-long comment pages flowing.",
+        "description": ""
+    },
     "troubleshooterCachesCleared": {
         "message": "All caches cleared.",
         "description": ""
     },
     "localDateName": {
-        "message": "Local Date",
+        "message": "Kohalik Kuupäev",
         "description": ""
     },
     "commentStyleCommentRoundedDesc": {
@@ -3064,7 +3088,7 @@
         "description": ""
     },
     "usersCategory": {
-        "message": "Users",
+        "message": "Kasutajad",
         "description": ""
     },
     "nightModeColoredLinksDesc": {
@@ -3080,7 +3104,7 @@
         "description": ""
     },
     "resTipsName": {
-        "message": "RES Tips and Tricks",
+        "message": "RES Nipid ja Trikid",
         "description": ""
     },
     "keyboardNavToggleCmdLineTitle": {
@@ -3088,7 +3112,7 @@
         "description": ""
     },
     "contextName": {
-        "message": "Context",
+        "message": "Kontekst",
         "description": ""
     },
     "troubleshooterThisWillKillYourSettings": {
@@ -3148,7 +3172,7 @@
         "description": ""
     },
     "userInfoGiftRedditGold": {
-        "message": "Gift Reddit Gold",
+        "message": "Kingi Reddit Gold",
         "description": ""
     },
     "backupAndRestoreRestoreDesc": {
@@ -3160,7 +3184,7 @@
         "description": ""
     },
     "spamButtonName": {
-        "message": "Spam Button",
+        "message": "Spämminupp",
         "description": ""
     },
     "hoverInstancesTitle": {
@@ -3192,7 +3216,7 @@
         "description": ""
     },
     "userInfoName": {
-        "message": "User Info",
+        "message": "Kasutajainfo",
         "description": ""
     },
     "extensionNameAuthor": {
@@ -3236,7 +3260,7 @@
         "description": ""
     },
     "keyboardNavInboxTitle": {
-        "message": "Inbox",
+        "message": "Postkast",
         "description": ""
     },
     "userInfoUnhighlight": {
