@@ -350,7 +350,7 @@
     },
 
     "hideChildCommentsDesc": {
-        "message": "Allows you to hide all comments except for replies to the OP for easier reading."
+        "message": "Allows you to hide child comments."
     },
 
     "hideChildCommentsAutomaticTitle": {
@@ -359,6 +359,22 @@
 
     "hideChildCommentsAutomaticDesc": {
         "message": "Automatically hide all but parent comments, or provide a link to hide them all?"
+    },
+
+    "hideChildCommentsNestedTitle": {
+        "message": "Nested"
+    },
+
+    "hideChildCommentsNestedDesc": {
+        "message": "Add the \"hide child comments\" button to all comments with children, instead of just top level comments."
+    },
+
+    "hideChildCommentsHideNestedTitle": {
+        "message": "Hide Nested"
+    },
+
+    "hideChildCommentsHideNestedDesc": {
+        "message": "Hide children for nested comments when hiding all child comments."
     },
 
     "hoverName": {
