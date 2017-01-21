@@ -60,6 +60,15 @@
         "message": "Core"
     },
 
+    "moduleID": {
+        "message": "module ID"
+    },
+
+
+    "optionKey": {
+        "message": "option ID"
+    },
+
     "aboutName": {
         "message": "About RES"
     },
@@ -1462,10 +1471,6 @@
 
     "notificationsAddNotificationType": {
         "message": "manually register notification type"
-    },
-
-    "notificationsModuleID": {
-        "message": "module ID"
     },
 
     "notificationsNotificationID": {
@@ -3169,6 +3174,10 @@
         "message": "Show a random tip once every 24 hours."
     },
 
+    "RESTipsMenuItemDesc": {
+        "message": "Add an item to the RES dropdown menu to show tips."
+    },
+
     "searchHelperAddSearchOptionsDesc": {
         "message": "Allow you to choose sorting and time range on the search form of the side panel."
     },
@@ -3291,5 +3300,78 @@
 
     "userTaggerVWTooltipDesc": {
         "message": "Show the vote weight tooltip on hover (i.e. \"your votes for...\")"
+    },
+
+    "penaltyBoxName": {
+        "message": "RES Feature Throttle"
+    },
+
+    "penaltyBoxDesc": {
+        "message": "Automatically delay or disable RES features which go unused."
+    },
+
+    "penaltyBoxDelayFeaturesDesc": {
+        "message": "Throttle showing features which have a high penalty."
+    },
+
+    "penaltyBoxDelayFeaturesTitle": {
+        "message": "Delay Features"
+    },
+
+    "penaltyBoxSuspendFeaturesDesc": {
+        "message": "Turn off features which exceed the maximum penalty."
+    },
+
+    "penaltyBoxSuspendFeaturesTitle": {
+        "message": "Suspend Features"
+    },
+
+    "penaltyBoxFeaturesDesc": {
+        "message": "Track usage of different features."
+    },
+
+    "penaltyBoxFeaturesTitle": {
+        "message": "Features"
+    },
+
+    "penaltyBoxFeaturesAddRowText": {
+        "message": "manually register feature"
+    },
+
+    "penaltyBoxFeaturesModuleID": {
+        "message": "moduleID"
+    },
+
+    "penaltyBoxFeaturesOptionKey": {
+        "message": "optionKey"
+    },
+
+    "penaltyBoxSuspendFeaturesNotificationHeader": {
+        "message": "Suspended Feature"
+    },
+
+    "penaltyBoxSuspendFeaturesNotificationMessage": {
+        "message": "$1 will be turned off due to lack of use. You can enable it again later in the RES settings console."
+    },
+
+    "penaltyBoxSuspendFeaturesUndoButton": {
+        "message": "Enable this feature again"
+    },
+
+    "penaltyBoxSuspendFeaturesRevertNotificationHeader": {
+        "message": "Pardoned Feature"
+    },
+
+    "penaltyBoxSuspendFeaturesRevertNotificationMessage": {
+        "message": "$1 has been turned back on. This feature will not be throttled or automatically disabled again."
+    },
+
+    "penaltyBoxFeaturesMonitoring": {
+        "message": "monitoring"
+    },
+
+    "penaltyBoxFeaturesPenalty": {
+        "message": "penalty",
+        "description": "How heavily the feature is penalized (0-100)"
     }
 }
