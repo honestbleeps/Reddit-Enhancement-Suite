@@ -717,7 +717,7 @@ div.usertext-edit {
 		content: '\00a0On';
 	}
 
-	&:not(.enabled)::after {
+	&::after {
 		content: '\00a0Off';
 	}
 
