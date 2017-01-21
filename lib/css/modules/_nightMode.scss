@@ -1386,3 +1386,17 @@
 		}
 	}
 }
+
+.res-nightmode:not(.res-nightMode-coloredLinks){
+
+	& .thing .title {
+    color: hsl(0, 0%, 87%);
+	}
+
+	& .thing:not(.stickied) .title:visited,
+	& .thing.visited:not(.stickied) .title,
+	&.combined-search-page .search-result a:visited,
+	&.combined-search-page .search-result a:visited > mark {
+		color: hsl(0, 0%, 65%);
+	}
+}

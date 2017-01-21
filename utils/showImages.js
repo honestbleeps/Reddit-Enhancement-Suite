@@ -46,7 +46,6 @@ import {
 	frameThrottle,
 	nextFrame,
 	isPageType,
-	string,
 	waitForEvent,
 	watchForElement,
 	getPercentageVisibleYAxis,
@@ -72,303 +71,7 @@ module.moduleName = 'showImagesName';
 module.category = 'productivityCategory';
 module.description = 'showImagesDesc';
 module.bodyClass = true;
-module.options = {
-	browsePreloadCount: {
-		type: 'text',
-		value: '1',
-		description: 'showImagesOptionsBrowsePreloadCount' ,
-	},
-	galleryPreloadCount: {
-		type: 'text',
-		value: '2',
-		description: 'showImagesOptionsGalleryPreloadCount',
-	},
-	conserveMemory: {
-		type: 'boolean',
-		value: true,
-		description: 'showImagesOptionsConserveMemory',
-	},
-	bufferScreens: {
-		type: 'text',
-		value: '2',
-		description: 'Hide images that are further than x screens away to save memory. A higher value means less flicker, but less memory savings.',
-		dependsOn: 'conserveMemory',
-		advanced: true,
-	},
-	maxWidth: {
-		type: 'text',
-		value: '100%',
-		description: 'Max width of media (in pixels, enter zero for unlimited). Percentage of window width may also be used (e.g. "100%").',
-		advanced: true,
-	},
-	maxHeight: {
-		type: 'text',
-		value: '80%',
-		description: 'Max height of media (in pixels, enter zero for unlimited). Percentage of window height may also be used (e.g. "100%").',
-		advanced: true,
-	},
-	displayOriginalResolution: {
-		type: 'boolean',
-		value: false,
-		description: 'Display each image\'s original (unresized) resolution in a tooltip.',
-	},
-	selfTextMaxHeight: {
-		type: 'text',
-		value: '0',
-		description: 'Add a scroll bar to text expandos taller than [x] pixels (enter zero for unlimited).',
-		advanced: true,
-	},
-	commentMaxHeight: {
-		type: 'text',
-		value: '0',
-		description: 'Add a scroll bar to comments taller than [x] pixels (enter zero for unlimited).',
-		advanced: true,
-	},
-	autoMaxHeight: {
-		type: 'boolean',
-		value: false,
-		description: `
-			Increase the max height of a self-text expando or comment if an expando is taller than the current max height.
-			This only takes effect if max height is specified (previous two options).
-		`,
-		advanced: true,
-	},
-	openInNewWindow: {
-		type: 'boolean',
-		value: true,
-		description: 'Open images in a new tab/window when clicked?',
-	},
-	hideNSFW: {
-		type: 'boolean',
-		value: false,
-		description: 'If checked, do not show images marked NSFW.',
-	},
-	highlightNSFWButton: {
-		type: 'boolean',
-		value: true,
-		description: 'Add special styling to expando buttons for images marked NSFW.',
-		bodyClass: true,
-	},
-	highlightSpoilerButton: {
-		type: 'boolean',
-		value: true,
-		description: 'Add special styling to expando buttons for images marked as spoilers.',
-		bodyClass: true,
-	},
-	imageZoom: {
-		type: 'boolean',
-		value: true,
-		description: 'Allow dragging to resize/zoom images.',
-	},
-	imageMove: {
-		type: 'boolean',
-		value: true,
-		description: 'Allow dragging while holding shift to move images.',
-	},
-	mediaControls: {
-		type: 'boolean',
-		value: true,
-		description: 'Show additional image controls on hover.',
-	},
-	mediaControlsPosition: {
-		dependsOn: 'mediaControls',
-		type: 'enum',
-		value: 'top-left',
-		values: [{
-			name: 'Top left',
-			value: 'top-left',
-		}, {
-			name: 'Top right',
-			value: 'top-right',
-		}, {
-			name: 'Bottom left.',
-			value: 'bottom-left',
-		}, {
-			name: 'Bottom right.',
-			value: 'bottom-right',
-		}],
-		description: 'Set position of media controls',
-	},
-	clippy: {
-		dependsOn: 'mediaControls',
-		type: 'boolean',
-		value: true,
-		description: 'Show educational info, such as showing "drag to resize" in the media controls.',
-	},
-	displayImageCaptions: {
-		type: 'boolean',
-		value: true,
-		description: 'Retrieve image captions/attribution information.',
-		advanced: true,
-		bodyClass: true,
-	},
-	captionsPosition: {
-		dependsOn: 'displayImageCaptions',
-		type: 'enum',
-		value: 'titleAbove',
-		values: [{
-			name: 'Display all captions above image.',
-			value: 'allAbove',
-		}, {
-			name: 'Display title and caption above image, credits below.',
-			value: 'creditsBelow',
-		}, {
-			name: 'Display title above image, caption and credits below.',
-			value: 'titleAbove',
-		}, {
-			name: 'Display all captions below image.',
-			value: 'allBelow',
-		}],
-		description: 'Where to display captions around an image.',
-		advanced: true,
-		bodyClass: true,
-	},
-	markVisited: {
-		type: 'boolean',
-		value: true,
-		description: 'Mark non-selftext links visited when opening the expando.',
-		advanced: true,
-	},
-	markSelftextVisited: {
-		dependsOn: 'markVisited',
-		type: 'boolean',
-		value: false,
-		description: 'Mark selftext links visited when opening the expando.',
-		advanced: true,
-	},
-	sfwHistory: {
-		dependsOn: 'markVisited',
-		type: 'enum',
-		value: 'add',
-		values: [{
-			name: 'Add links to history',
-			value: 'add',
-		}, {
-			name: 'Color links, but do not add to history',
-			value: 'color',
-		}, {
-			name: 'Do not add or color links.',
-			value: 'none',
-		}],
-		description: `
-			Keeps NSFW links from being added to your browser history by the markVisited feature</span>.<br/>
-			<span style="font-style: italic">If you chose the second option, then links will be blue again on refresh.</span><br/>
-			<span style="color: red">This does not change your basic browser behavior.
-			If you click on a link then it will still be added to your history normally.
-			This is not a substitute for using your browser\'s privacy mode.</span>
-		`,
-	},
-	galleryRememberWidth: {
-		dependsOn: 'imageZoom',
-		type: 'boolean',
-		value: true,
-		description: 'In \'slideshow\' layout, use the same width on all pieces after resizing.',
-	},
-	galleryAsFilmstrip: {
-		type: 'boolean',
-		value: false,
-		description: 'Display all media at once in a \'filmstrip\' layout, rather than the default navigable \'slideshow\' style.',
-	},
-	filmstripLoadIncrement: {
-		dependsOn: 'galleryAsFilmstrip',
-		type: 'text',
-		value: '30',
-		description: 'Limit the number of pieces loaded in a \'filmstrip\' by this number. (0 for no limit)',
-	},
-	useSlideshowWhenLargerThan: {
-		dependsOn: 'galleryAsFilmstrip',
-		type: 'text',
-		value: '0',
-		description: 'Show gallery as \'slideshow\' when the total number of pieces is larger than this number. (0 for no limit)',
-	},
-	convertGifstoGfycat: {
-		type: 'boolean',
-		value: false,
-		description: 'Convert Gif links to Gfycat links.',
-	},
-	showViewImagesTab: {
-		type: 'boolean',
-		value: true,
-		description: 'Show a \'show images\' tab at the top of each subreddit, to easily toggle showing all images at once.',
-	},
-	autoExpandTypes: {
-		type: 'enum',
-		value: 'any',
-		values: [{
-			name: 'Images (but occasionally also .gif)',
-			value: 'image',
-		}, {
-			name: 'Images, text',
-			value: 'image text',
-		}, {
-			name: 'Images, text, galleries, and muted videos',
-			value: 'image text gallery video',
-		}, {
-			name: 'All muted expandos (includes iframes)',
-			value: 'any',
-		}],
-		description: 'Media types to be automatically expanded when using "show images" or autoExpandSelfText.',
-	},
-	autoExpandSelfText: {
-		type: 'boolean',
-		value: true,
-		description: 'When loading selftext from an Aa+ expando, auto expand enclosed expandos.',
-	},
-	autoExpandSelfTextFirstVisibleNonMuted: {
-		dependsOn: 'autoExpandSelfText',
-		type: 'boolean',
-		value: true,
-		description: 'In selftexts, expand the first visible potentially non-muted expando.',
-	},
-	autoExpandSelfTextNSFW: {
-		dependsOn: 'autoExpandSelfText',
-		type: 'boolean',
-		value: false,
-		description: 'Also expand expandos in selftexts which are marked NSFW.',
-	},
-	showSiteAttribution: {
-		type: 'boolean',
-		value: true,
-		description: 'Show the site logo and name after embedded content.',
-	},
-	expandoCommentRedirects: {
-		type: 'enum',
-		value: 'expando',
-		values: [{
-			name: 'Do nothing',
-			value: 'nothing',
-		}, {
-			name: 'Create expandos',
-			value: 'expando',
-		}, {
-			name: 'Create expandos, redirect the link back to the image',
-			value: 'rewrite',
-		}],
-		description: 'How should RES handle posts where the link is redirected to the comments page with preview expanded?',
-	},
-	showVideoControls: {
-		type: 'boolean',
-		value: true,
-		description: 'Show controls such as pause/play, step and playback rate.',
-	},
-	onlyPlayMutedWhenVisible: {
-		dependsOn: 'showVideoControls',
-		type: 'boolean',
-		value: true,
-		description: 'Auto-pause muted videos when they are not visible.',
-	},
-	maxSimultaneousPlaying: {
-		dependsOn: 'showVideoControls',
-		type: 'text',
-		value: '0',
-		description: 'Auto-play at most this many muted videos simultaneously. (0 for no limit)',
-	},
-	autoplayVideo: {
-		type: 'boolean',
-		value: true,
-		description: 'Autoplay inline videos',
-	},
-};
+module.options = {"browsePreloadCount":{"type":"text","value":"1","description":"showImagesOptionsBrowsePreloadCountDescription","title":"Description"},"galleryPreloadCount":{"type":"text","value":"2","description":"showImagesOptionsGalleryPreloadCountDescription","title":"Description"},"conserveMemory":{"type":"boolean","value":true,"description":"showImagesOptionsConserveMemoryDescription","title":"Description"},"bufferScreens":{"type":"text","value":"2","description":"showImagesOptionsBufferScreensDescription","dependsOn":"conserveMemory","advanced":true,"title":"Advanced"},"maxWidth":{"type":"text","value":"100%","description":"showImagesOptionsMaxWidthDescription","advanced":true,"title":"Advanced"},"maxHeight":{"type":"text","value":"80%","description":"showImagesOptionsMaxHeightDescription","advanced":true,"title":"Advanced"},"displayOriginalResolution":{"type":"boolean","value":false,"description":"showImagesOptionsDisplayOriginalResolutionDescription","title":"Description"},"selfTextMaxHeight":{"type":"text","value":"0","description":"showImagesOptionsSelfTextMaxHeightDescription","advanced":true,"title":"Advanced"},"commentMaxHeight":{"type":"text","value":"0","description":"showImagesOptionsCommentMaxHeightDescription","advanced":true,"title":"Advanced"},"autoMaxHeight":{"type":"boolean","value":false,"description":"showImagesOptionsAutoMaxHeightDescription","advanced":true,"title":"Advanced"},"openInNewWindow":{"type":"boolean","value":true,"description":"showImagesOptionsOpenInNewWindowDescription","title":"Description"},"hideNSFW":{"type":"boolean","value":false,"description":"showImagesOptionsHideNSFWDescription","title":"Description"},"highlightNSFWButton":{"type":"boolean","value":true,"description":"showImagesOptionsHighlightNSFWButtonDescription","bodyClass":true,"title":"Body Class"},"imageZoom":{"type":"boolean","value":true,"description":"showImagesOptionsImageZoomDescription","title":"Description"},"imageMove":{"type":"boolean","value":true,"description":"showImagesOptionsImageMoveDescription","title":"Description"},"mediaControls":{"type":"boolean","value":true,"description":"showImagesOptionsMediaControlsDescription","title":"Description"},"mediaControlsPosition":{"dependsOn":"mediaControls","type":"enum","value":"top-left","values":[{"name":"Top left","value":"top-left","title":"Value"},{"name":"Top right","value":"top-right","title":"Value"},{"name":"Bottom left.","value":"bottom-left","title":"Value"},{"name":"Bottom right.","value":"bottom-right","title":"Value"}],"description":"showImagesOptionsMediaControlsPositionDescription","title":"Description"},"clippy":{"dependsOn":"mediaControls","type":"boolean","value":true,"description":"showImagesOptionsClippyDescription","title":"Description"},"displayImageCaptions":{"type":"boolean","value":true,"description":"showImagesOptionsDisplayImageCaptionsDescription","advanced":true,"bodyClass":true,"title":"Body Class"},"captionsPosition":{"dependsOn":"displayImageCaptions","type":"enum","value":"titleAbove","values":[{"name":"Display all captions above image.","value":"allAbove","title":"Value"},{"name":"Display title and caption above image, credits below.","value":"creditsBelow","title":"Value"},{"name":"Display title above image, caption and credits below.","value":"titleAbove","title":"Value"},{"name":"Display all captions below image.","value":"allBelow","title":"Value"}],"description":"showImagesOptionsCaptionsPositionDescription","advanced":true,"bodyClass":true,"title":"Body Class"},"markVisited":{"type":"boolean","value":true,"description":"showImagesOptionsMarkVisitedDescription","advanced":true,"title":"Advanced"},"markSelftextVisited":{"dependsOn":"markVisited","type":"boolean","value":false,"description":"showImagesOptionsMarkSelftextVisitedDescription","advanced":true,"title":"Advanced"},"sfwHistory":{"dependsOn":"markVisited","type":"enum","value":"add","values":[{"name":"Add links to history","value":"add","title":"Value"},{"name":"Color links, but do not add to history","value":"color","title":"Value"},{"name":"Do not add or color links.","value":"none","title":"Value"}],"description":"showImagesOptionsSfwHistoryDescription","title":"Description"},"galleryRememberWidth":{"dependsOn":"imageZoom","type":"boolean","value":true,"description":"showImagesOptionsGalleryRememberWidthDescription","title":"Description"},"galleryAsFilmstrip":{"type":"boolean","value":false,"description":"showImagesOptionsGalleryAsFilmstripDescription","title":"Description"},"filmstripLoadIncrement":{"dependsOn":"galleryAsFilmstrip","type":"text","value":"30","description":"showImagesOptionsFilmstripLoadIncrementDescription","title":"Description"},"useSlideshowWhenLargerThan":{"dependsOn":"galleryAsFilmstrip","type":"text","value":"0","description":"showImagesOptionsUseSlideshowWhenLargerThanDescription","title":"Description"},"convertGifstoGfycat":{"type":"boolean","value":false,"description":"showImagesOptionsConvertGifstoGfycatDescription","title":"Description"},"showViewImagesTab":{"type":"boolean","value":true,"description":"showImagesOptionsShowViewImagesTabDescription","title":"Description"},"autoExpandTypes":{"type":"enum","value":"any","values":[{"name":"Images (but occasionally also .gif)","value":"image","title":"Value"},{"name":"Images, text","value":"image text","title":"Value"},{"name":"Images, text, galleries, and muted videos","value":"image text gallery video","title":"Value"},{"name":"All muted expandos (includes iframes)","value":"any","title":"Value"}],"description":"showImagesOptionsAutoExpandTypesDescription","title":"Description"},"autoExpandSelfText":{"type":"boolean","value":true,"description":"showImagesOptionsAutoExpandSelfTextDescription","title":"Description"},"autoExpandSelfTextFirstVisibleNonMuted":{"dependsOn":"autoExpandSelfText","type":"boolean","value":true,"description":"showImagesOptionsAutoExpandSelfTextFirstVisibleNonMutedDescription","title":"Description"},"autoExpandSelfTextNSFW":{"dependsOn":"autoExpandSelfText","type":"boolean","value":false,"description":"showImagesOptionsAutoExpandSelfTextNSFWDescription","title":"Description"},"showSiteAttribution":{"type":"boolean","value":true,"description":"showImagesOptionsShowSiteAttributionDescription","title":"Description"},"expandoCommentRedirects":{"type":"enum","value":"expando","values":[{"name":"Do nothing","value":"nothing","title":"Value"},{"name":"Create expandos","value":"expando","title":"Value"},{"name":"Create expandos, redirect the link back to the image","value":"rewrite","title":"Value"}],"description":"showImagesOptionsExpandoCommentRedirectsDescription","title":"Description"},"showVideoControls":{"type":"boolean","value":true,"description":"showImagesOptionsShowVideoControlsDescription","title":"Description"},"onlyPlayMutedWhenVisible":{"dependsOn":"showVideoControls","type":"boolean","value":true,"description":"showImagesOptionsOnlyPlayMutedWhenVisibleDescription","title":"Description"},"maxSimultaneousPlaying":{"dependsOn":"showVideoControls","type":"text","value":"0","description":"showImagesOptionsMaxSimultaneousPlayingDescription","title":"Description"},"autoplayVideo":{"type":"boolean","value":true,"description":"showImagesOptionsAutoplayVideoDescription","title":"Description"}}};
 module.exclude = [
 	/^\/ads\/[\-\w\._\?=]*/i,
 	'submit',
@@ -1405,7 +1108,6 @@ function generateVideo(options: VideoMedia) {
 		openInNewWindow: module.options.openInNewWindow.value,
 		playbackRate: 1,
 		reversable: false,
-		reversed: false,
 		time: 0,
 		...options,
 	};
@@ -1524,8 +1226,7 @@ function setMediaControls(media, lookupUrl, downloadUrl) {
 				// Google doesn't like image url's without a protacol
 				lookupUrl = new URL(downcast(lookupUrl, 'string'), location.href).href;
 
-				// Escape query string parameters
-				openNewTab(string.encode`https://images.google.com/searchbyimage?image_url=${lookupUrl}`);
+				openNewTab(`https://images.google.com/searchbyimage?image_url=${lookupUrl}`);
 				break;
 			case 'showImageSettings':
 				SettingsNavigation.loadSettingsPage(module.moduleID, 'mediaControls');
@@ -1849,7 +1550,6 @@ function videoAdvanced(options) {
 		frameRate,
 		playbackRate,
 		advancedControls,
-		reversed,
 	} = options;
 
 	let {
@@ -1891,24 +1591,21 @@ function videoAdvanced(options) {
 		return element;
 	}
 
-	function reverse() {
-		time = vid.duration - vid.currentTime;
-		if (isNaN(time)) time = 0;
+	function setAdvancedControls() {
+		function reverse() {
+			time = vid.duration - vid.currentTime;
 
-		for (const v of vid.querySelectorAll('source')) {
-			// $FlowIssue
-			[v.src, v.dataset.reverse] = [v.dataset.reverse, v.src];
+			for (const v of vid.querySelectorAll('source')) {
+				// $FlowIssue
+				[v.src, v.dataset.reverse] = [v.dataset.reverse, v.src];
+			}
+
+			vid.load();
+			vid.play();
+
+			player.classList.toggle('reversed');
 		}
 
-		vid.load();
-		vid.play();
-
-		player.classList.toggle('reversed');
-	}
-
-	if (reversed) reverse();
-
-	function setAdvancedControls() {
 		const ctrlContainer = player.querySelector('.video-advanced-controls');
 
 		const ctrlReverse = ctrlContainer.querySelector('.video-advanced-reverse');

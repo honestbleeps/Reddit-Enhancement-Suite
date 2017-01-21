@@ -44,6 +44,9 @@
 
 body.res-console-open {
 	overflow: hidden;
+	&.front-page.res-hide-tagline-frontpage .tagline {
+    display: none;
+	}
 }
 
 #RESConsoleContainer {
