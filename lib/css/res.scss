@@ -677,52 +677,46 @@ div.usertext-edit {
 
 .toggleButton {
 
-	& .toggleThumb {
-			cursor: pointer;
-			top: 0;
-			left: 0;
-			right: 0;
-			bottom: 0;
-			width: 40px;
-			height: 10px;
-			background-color: #ccc;
-			border: 2px solid #ccc;
-			-webkit-transition: .4s;
-			-ms-transition: .4s;
-			transition: .4s;
-	}
-
-	& .toggleThumb:before {
-		position: absolute;
-		content: "";
-		height: 10px;
-		width: 10px;
-		left: 2px;
-		background-color: white;
-		-webkit-transition: .4s;
-		-ms-transition: .4s;
-		transition: .4s;
-	}
-
-	&.enabled .toggleThumb:before {
-		-webkit-transform: translateX(30px);
-		-ms-transform: translateX(30px);
-		transform: translateX(30px);
-	}
-
-	/* Custom toggle labels */
-	&[data-disabled-text]::after {
-	    content: '\00a0' attr(data-disabled-text);
-	}
-
-	&.enabled[data-enabled-text]::after {
-	    content: '\00a0' attr(data-enabled-text);
-	}
-
 	position: relative;
 	display: inline-flex;
 	cursor: pointer;
 	white-space: nowrap;
+
+	& .toggleThumb {
+		cursor: pointer;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		width: 40px;
+		height: 10px;
+		background-color: #ccc;
+		border: 2px solid #ccc;
+		transition: .4s;
+	}
+
+	& .toggleThumb::before {
+		position: absolute;
+		content: '';
+		height: 10px;
+		width: 10px;
+		left: 2px;
+		background-color: white;
+		transition: .4s;
+	}
+
+	&.enabled .toggleThumb::before {
+		transform: translateX(30px);
+	}
+
+	// Custom toggle labels
+	&[data-disabled-text]::after {
+		content: '\00a0' attr(data-disabled-text);
+	}
+
+	&.enabled[data-enabled-text]::after {
+		content: '\00a0' attr(data-enabled-text);
+	}
 
 	input[type=checkbox] {
 		display: none;
