@@ -119,6 +119,10 @@
         "message": "Fade or completely hide duplicate posts already showing on the page.",
         "description": ""
     },
+    "necLoadChildCommentsDesc": {
+        "message": "Should on-screen child comments be expanded when paused, in addition to top-level comments?",
+        "description": ""
+    },
     "userTaggerName": {
         "message": "User Tagger",
         "description": ""
@@ -292,7 +296,7 @@
         "description": ""
     },
     "myAccountCategory": {
-        "message": "My Account",
+        "message": "Mi Cuenta",
         "description": ""
     },
     "commentDepthDefaultMinimumCommentsTitle": {
@@ -395,6 +399,10 @@
         "message": "Enhance getting to various parts of your user page.",
         "description": ""
     },
+    "wheelBrowseDesc": {
+        "message": "Browse entries and galleries by scrolling inside the grey floater.",
+        "description": ""
+    },
     "tableToolsDesc": {
         "message": "Include additional functionality to Reddit Markdown tables (only sorting at the moment).",
         "description": ""
@@ -491,6 +499,10 @@
         "message": "Enable/disable night mode.",
         "description": ""
     },
+    "necName": {
+        "message": "Never Ending Comments",
+        "description": ""
+    },
     "filteRedditExcludeOwnPostsTitle": {
         "message": "Exclude Own Posts",
         "description": ""
@@ -580,7 +592,7 @@
         "description": ""
     },
     "extensionDescription": {
-        "message": "A suite of modules that enhance your Reddit browsing experience.",
+        "message": "Un conjunto de módulos los cuales mejoran tu experiencia de navegación en Reddit.",
         "description": ""
     },
     "betteRedditShowHiddenSortOptionsDesc": {
@@ -888,7 +900,7 @@
         "description": ""
     },
     "aboutOptionsPresets": {
-        "message": "Quickly customize RES with various presets.",
+        "message": "Personaliza RES de manera rápida con diferentes presets",
         "description": ""
     },
     "settingsNavigationShowAllOptionsAlertDesc": {
@@ -1140,7 +1152,7 @@
         "description": ""
     },
     "commentsCategory": {
-        "message": "Comments",
+        "message": "Comentarios",
         "description": ""
     },
     "commentToolsStrikeKeyDesc": {
@@ -1424,7 +1436,7 @@
         "description": ""
     },
     "submissionsCategory": {
-        "message": "Submissions",
+        "message": "Envíos ",
         "description": ""
     },
     "keyboardNavSaveCommentDesc": {
@@ -1476,7 +1488,7 @@
         "description": ""
     },
     "aboutOptionsBugs": {
-        "message": "If something isn't working right, visit /r/RESissues for help.",
+        "message": "Si algo no esta funcionando como debería, visita el subreddit /r/RESissues para encontrar ayuda.",
         "description": ""
     },
     "keyboardNavMoveUpDesc": {
@@ -1521,6 +1533,10 @@
     },
     "hoverFadeSpeedTitle": {
         "message": "Fade Speed",
+        "description": ""
+    },
+    "necLoadChildCommentsTitle": {
+        "message": "Load Child Comments",
         "description": ""
     },
     "showParentName": {
@@ -1728,7 +1744,7 @@
         "description": ""
     },
     "filteRedditUseRedditFiltersDesc": {
-        "message": "Overwrite and automatically sync your native /r/all filters with your first 100 non-RegExp filtered subreddits.",
+        "message": "Overwrite your native /r/all filters with the 100 most popular filtered subreddits.",
         "description": ""
     },
     "searchHelperName": {
@@ -1932,7 +1948,7 @@
         "description": ""
     },
     "aboutOptionsAnnouncements": {
-        "message": "Read the latest at /r/RESAnnouncements.",
+        "message": "Lee los últimos anuncios en el subreddit /r/RESAnnouncements",
         "description": ""
     },
     "voteEnhancementsVote": {
@@ -1975,12 +1991,16 @@
         "message": "Adds an [l+c] link that opens a link and the comments page in new tabs for you in one click.",
         "description": ""
     },
+    "wheelBrowseName": {
+        "message": "Browse by Wheel",
+        "description": ""
+    },
     "orangeredShowFloatingEnvelopeDesc": {
         "message": "Show an envelope (inbox) icon in the top right corner.",
         "description": ""
     },
     "aboutName": {
-        "message": "About RES",
+        "message": "Acerca de RES",
         "description": ""
     },
     "aboutOptionsBackupTitle": {
@@ -1988,7 +2008,7 @@
         "description": ""
     },
     "productivityCategory": {
-        "message": "Productivity",
+        "message": "Productividad",
         "description": ""
     },
     "styleTweaksNoSubredditSpecified": {
@@ -2288,7 +2308,7 @@
         "description": ""
     },
     "coreCategory": {
-        "message": "Core",
+        "message": "Nucleo",
         "description": ""
     },
     "commentDepthMinimumComments": {
@@ -2396,7 +2416,7 @@
         "description": ""
     },
     "appearanceCategory": {
-        "message": "Appearance",
+        "message": "Apariencia",
         "description": ""
     },
     "userTaggerShowIgnoredDesc": {
@@ -2804,7 +2824,7 @@
         "description": ""
     },
     "aboutOptionsBackup": {
-        "message": "Back up and restore your RES settings.",
+        "message": "Haz una copia de seguridad y restaura tus configuraciones de RES",
         "description": ""
     },
     "showParentDesc": {
@@ -2968,7 +2988,7 @@
         "description": ""
     },
     "aboutOptionsSuggestions": {
-        "message": "If you have an idea for RES or want to chat with other users, visit /r/Enhancement.",
+        "message": "Si tienes alguna idea para RES o quieres hablar con otros usuarios, visita el subreddit /r/Enhancement.",
         "description": ""
     },
     "userbarHiderName": {
@@ -2981,6 +3001,10 @@
     },
     "selectedEntrySelectOnClickDesc": {
         "message": "Allows you to click on an item to select it",
+        "description": ""
+    },
+    "necDescription": {
+        "message": "Keep ultra-long comment pages flowing.",
         "description": ""
     },
     "troubleshooterCachesCleared": {
@@ -3064,7 +3088,7 @@
         "description": ""
     },
     "usersCategory": {
-        "message": "Users",
+        "message": "Usuarios",
         "description": ""
     },
     "nightModeColoredLinksDesc": {
@@ -3136,7 +3160,7 @@
         "description": ""
     },
     "aboutCategory": {
-        "message": "About RES",
+        "message": "Acerca de RES",
         "description": ""
     },
     "keyboardNavMediaBrowseModeDesc": {
@@ -3224,7 +3248,7 @@
         "description": ""
     },
     "browsingCategory": {
-        "message": "Browsing",
+        "message": "Navegación",
         "description": ""
     },
     "userTaggerAreYouSureYouWantToDeleteTag": {

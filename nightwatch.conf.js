@@ -13,8 +13,8 @@ module.exports = {
 	},
 	test_settings: {
 		default: {
-			selenium_host: 'ondemand.saucelabs.com',
-			selenium_port: 80,
+			selenium_host: process.env.SELENIUM_HOST,
+			selenium_port: process.env.SELENIUM_PORT,
 			username: process.env.SAUCE_USERNAME,
 			access_key: process.env.SAUCE_ACCESS_KEY,
 			globals: {

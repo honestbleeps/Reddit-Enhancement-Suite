@@ -119,6 +119,10 @@
         "message": "Fade or completely hide duplicate posts already showing on the page.",
         "description": ""
     },
+    "necLoadChildCommentsDesc": {
+        "message": "Should on-screen child comments be expanded when paused, in addition to top-level comments?",
+        "description": ""
+    },
     "userTaggerName": {
         "message": "مضيف شعار لأسم المستخدم",
         "description": ""
@@ -395,6 +399,10 @@
         "message": "تعزيز الوصول إلى أجزاء مختلفة من صفحة المستخدم الخاص بك.",
         "description": ""
     },
+    "wheelBrowseDesc": {
+        "message": "Browse entries and galleries by scrolling inside the grey floater.",
+        "description": ""
+    },
     "tableToolsDesc": {
         "message": "إدراج وظائف إضافية إلى جداول رديت من نوع Markdown (الفرز فقط في الوقت الحاضر).",
         "description": ""
@@ -491,6 +499,10 @@
         "message": "Enable/disable night mode.",
         "description": ""
     },
+    "necName": {
+        "message": "Never Ending Comments",
+        "description": ""
+    },
     "filteRedditExcludeOwnPostsTitle": {
         "message": "Exclude Own Posts",
         "description": ""
@@ -512,7 +524,7 @@
         "description": ""
     },
     "backupAndRestoreBackupDesc": {
-        "message": "Download a backup of your current RES settings.",
+        "message": "تنزيل نسخة احتياطية من اعداداتك الحالية.",
         "description": ""
     },
     "keyboardNavEnterFilterCommandLineTitle": {
@@ -836,7 +848,7 @@
         "description": ""
     },
     "accountSwitcherShowCurrentUserNameDesc": {
-        "message": "Show my current user name in the Account Switcher.",
+        "message": "ارني اسم المستخدم الحالي بداخل مبدل الحسابات.",
         "description": ""
     },
     "subredditManagerMultiCountTitle": {
@@ -976,7 +988,7 @@
         "description": ""
     },
     "betteRedditCommentsLinksNewTabDesc": {
-        "message": "Open links found in comments in a new tab.",
+        "message": "فتح الروابط التي تم العثور عليها بالتعليقات في علامة تبويب جديدة.",
         "description": ""
     },
     "filteRedditExcludeCommentsPageTitle": {
@@ -1040,7 +1052,7 @@
         "description": "As in '1 day ago'"
     },
     "betteRedditVideoTimesDesc": {
-        "message": "Show lengths of videos when possible.",
+        "message": "اظهار مدة الفيديوهات عندما يكون هذا ممكنا.",
         "description": ""
     },
     "userTaggerIgnoredPlaceholder": {
@@ -1208,7 +1220,7 @@
         "description": ""
     },
     "accountSwitcherShowKarmaDesc": {
-        "message": "Show the post and comment karma of each account in the Account Switcher.",
+        "message": "اظهر كارما المواضيع والتعليقات لكل حساب في مبدل الحسابات.",
         "description": ""
     },
     "keyboardNavDesc": {
@@ -1408,7 +1420,7 @@
         "description": ""
     },
     "betteRedditVideoUploadedDesc": {
-        "message": "Show upload date of videos when possible.",
+        "message": "اظهار توقيت رفع الفيديوهات عندما يكون هذا ممكنا.",
         "description": ""
     },
     "saveCommentsName": {
@@ -1523,6 +1535,10 @@
         "message": "Fade Speed",
         "description": ""
     },
+    "necLoadChildCommentsTitle": {
+        "message": "Load Child Comments",
+        "description": ""
+    },
     "showParentName": {
         "message": "أظهر التعليق الأصلي عند التحويم",
         "description": ""
@@ -1532,7 +1548,7 @@
         "description": ""
     },
     "accountSwitcherShowGoldDesc": {
-        "message": "Show the gold status of each account in the Account Switcher.",
+        "message": "اظهر حاله الذهب لكل حساب في مبدل الحسابات.",
         "description": ""
     },
     "keyboardNavMoveToParentTitle": {
@@ -1728,7 +1744,7 @@
         "description": ""
     },
     "filteRedditUseRedditFiltersDesc": {
-        "message": "Overwrite and automatically sync your native /r/all filters with your first 100 non-RegExp filtered subreddits.",
+        "message": "Overwrite your native /r/all filters with the 100 most popular filtered subreddits.",
         "description": ""
     },
     "searchHelperName": {
@@ -1788,7 +1804,7 @@
         "description": ""
     },
     "accountSwitcherUpdateOtherTabsDesc": {
-        "message": "After switching accounts, show a warning in other tabs.",
+        "message": "بعد تبديل الحسابات, اظهر تحذير في علامات التبويب الأخرى.",
         "description": ""
     },
     "backupDesc": {
@@ -1973,6 +1989,10 @@
     },
     "singleClickDesc": {
         "message": "يضيف رابط [l+c] يفتح الرابط وصفحة التعليقات في علامات تبويب جديدة في نقرة واحدة.",
+        "description": ""
+    },
+    "wheelBrowseName": {
+        "message": "Browse by Wheel",
         "description": ""
     },
     "orangeredShowFloatingEnvelopeDesc": {
@@ -2476,7 +2496,7 @@
         "description": ""
     },
     "accountSwitcherKeepLoggedInDesc": {
-        "message": "Keep me logged in when I restart my browser.",
+        "message": "البقاء متصلا بعد أعادة تشغيل المتصفح.",
         "description": ""
     },
     "keyboardNavToggleExpandoDesc": {
@@ -2772,7 +2792,7 @@
         "description": ""
     },
     "betteRedditVideoViewedDesc": {
-        "message": "Show number of views for a video when possible.",
+        "message": "اظهار عدد مشاهدات الفيديو عندما يكون هذا ممكنا.",
         "description": ""
     },
     "keyboardNavMoveToTopCommentTitle": {
@@ -2916,7 +2936,7 @@
         "description": ""
     },
     "accountSwitcherReloadOtherTabsDesc": {
-        "message": "After switching accounts, automatically reload other tabs.",
+        "message": "بعد تبديل الحسابات, اعد تحميل علامات التبويب الأخرى بشكل أوتوماتيكي.",
         "description": ""
     },
     "hoverInstancesEnabled": {
@@ -2981,6 +3001,10 @@
     },
     "selectedEntrySelectOnClickDesc": {
         "message": "Allows you to click on an item to select it",
+        "description": ""
+    },
+    "necDescription": {
+        "message": "Keep ultra-long comment pages flowing.",
         "description": ""
     },
     "troubleshooterCachesCleared": {
@@ -3152,7 +3176,7 @@
         "description": ""
     },
     "backupAndRestoreRestoreDesc": {
-        "message": "Restore a backup of your RES settings. Warning: This will overwrite your current settings.",
+        "message": "استرجع  إعداداتك من نسخة احتياطيه. تحذير: هذه الخطوة ستقوم باستبدال اعداداتك الحالية.",
         "description": ""
     },
     "commentPreviewEnableForCommentsDesc": {
@@ -3220,7 +3244,7 @@
         "description": ""
     },
     "accountSwitcherShowUserDetailsDesc": {
-        "message": "Show details of each account in the Account Switcher, such as karma or gold status.",
+        "message": "أظهر تفاصيل كل حساب في مبدل الحسابات, مثل الكارما و حالة الذهب.",
         "description": ""
     },
     "browsingCategory": {

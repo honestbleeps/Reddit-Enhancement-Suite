@@ -31,14 +31,14 @@ module.exports = {
 			.assert.cssClassPresent(stickiedComment, selectedClass)
 
 			.click(loadMoreComments)
-			.waitForElementVisible(childComment1)
+			.waitForElementVisible(childComment1, 10000)
 			.assert.cssClassPresent(childComment1, selectedClass)
 
 			.click(childComment2)
 			.assert.cssClassPresent(childComment2, selectedClass)
 
 			.click(loadMoreChildrenOfSticky)
-			.waitForElementVisible(childOfStickiedComment2)
+			.waitForElementVisible(childOfStickiedComment2, 10000)
 			.assert.cssClassPresent(childOfStickiedComment1, selectedClass)
 
 			.click(childOfStickiedComment2)

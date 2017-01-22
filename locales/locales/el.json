@@ -40,7 +40,7 @@
         "description": ""
     },
     "presetsCleanSlateDesc": {
-        "message": "Turn off all the RES modules",
+        "message": "Απενεργοποίηση όλων των μονάδων RES",
         "description": ""
     },
     "betteRedditShowTimestampModerationLogDesc": {
@@ -72,7 +72,7 @@
         "description": ""
     },
     "RESTipsDailyTipDesc": {
-        "message": "Show a random tip once every 24 hours.",
+        "message": "Εμφάνιση τυχαίας συμβουλής κάθε 24 ώρες.",
         "description": ""
     },
     "filteRedditKeywordsTitle": {
@@ -108,7 +108,7 @@
         "description": ""
     },
     "orangeredHideModMailDesc": {
-        "message": "Hide the mod mail button in user bar.",
+        "message": "Απόκρυψη του κουμπιού αλληλογραφίας διαχειριστή στην μπάρα χρήστη.",
         "description": ""
     },
     "orangeredRetroUnreadCountDesc": {
@@ -117,6 +117,10 @@
     },
     "nerHideDupesDesc": {
         "message": "Ελαφρό σβήσιμο ή ολοκληρωτική απόκρυψη διπλών αναρτήσεων που ήδη υπάρχουν στη σελίδα",
+        "description": ""
+    },
+    "necLoadChildCommentsDesc": {
+        "message": "Should on-screen child comments be expanded when paused, in addition to top-level comments?",
         "description": ""
     },
     "userTaggerName": {
@@ -128,7 +132,7 @@
         "description": ""
     },
     "searchHelperToggleSearchOptionsDesc": {
-        "message": "Add a button to hide search options while searching.",
+        "message": "Προσθέτει ένα κουμπί που κρύβει τις επιλογές αναζήτησης κατά την αναζήτηση.",
         "description": ""
     },
     "keyboardNavCommentNavigatorMoveUpDesc": {
@@ -208,7 +212,7 @@
         "description": ""
     },
     "nightModeSubredditStylesWhitelistTitle": {
-        "message": "Subreddit Styles Whitelist",
+        "message": "Λίστα Επιτρεπόμενων Στυλ Υπορέντιτ",
         "description": ""
     },
     "troubleshooterAreYouPositive": {
@@ -268,7 +272,7 @@
         "description": ""
     },
     "userTaggerHardIgnoreDesc": {
-        "message": "Completely remove links and comments posted by ignored users. If an ignored comment has replies, collapse it and hide its contents instead of removing it.",
+        "message": "Πλήρης αφαίρεση των συνδέσμων και των σχολίων που έχουν πραγματοποιηθεί από αγνοημένους χρήστες. Αν ένα αγνοημένο σχόλιο έχει απαντήσεις, να συμπτύσσεται και να κρύβεται το περιεχόμενό του, αντί του να αφαιρείται.",
         "description": ""
     },
     "commentToolsLabel": {
@@ -276,7 +280,7 @@
         "description": ""
     },
     "quickMessageDefaultSubjectDesc": {
-        "message": "Text that will automatically be inserted into the subject field, unless it is auto-filled by context.",
+        "message": "Το κείμενο που εισάγεται αυτόματα στο πεδίο θέματος, εκτός αν συμπληρώνεται αυτόματα από το πλαίσιο.",
         "description": ""
     },
     "newCommentCountMonitorPostsVisitedDesc": {
@@ -288,7 +292,7 @@
         "description": ""
     },
     "nightModeNightModeOnTitle": {
-        "message": "Night Mode On",
+        "message": "Νυχτερινή Λειτουργία Ενεργή",
         "description": ""
     },
     "myAccountCategory": {
@@ -296,7 +300,7 @@
         "description": ""
     },
     "commentDepthDefaultMinimumCommentsTitle": {
-        "message": "Default Minimum Comments",
+        "message": "Προεπιλεγμένα Ελάχιστα Σχόλια",
         "description": ""
     },
     "yes": {
@@ -308,7 +312,7 @@
         "description": ""
     },
     "notificationFadeOutLengthDesc": {
-        "message": "In milliseconds, length of time available to stop a notification from disappearing.",
+        "message": "Σε χιλιοστά του δευτερολέπτου, ο διαθέσιμος χρόνος για να αποτραπεί η εξαφάνιση μιας ειδοποίησης.",
         "description": ""
     },
     "newCommentCountDesc": {
@@ -324,7 +328,7 @@
         "description": ""
     },
     "pageNavShowLinkNewTabDesc": {
-        "message": "Open link in new tab.",
+        "message": "Άνοιγμα συνδέσμου σε νέα καρτέλα.",
         "description": ""
     },
     "aboutOptionsSearchSettingsTitle": {
@@ -384,7 +388,7 @@
         "description": ""
     },
     "notificationsPerNotificationType": {
-        "message": "per notification type",
+        "message": "ανά είδος ειδοποίησης",
         "description": ""
     },
     "subredditTaggerDesc": {
@@ -395,12 +399,16 @@
         "message": "Βελτιώσεις στο να πηγαίνεις σε διάφορα μέρη της σελίδας χρήστη σου.",
         "description": ""
     },
+    "wheelBrowseDesc": {
+        "message": "Πλοήγηση καταχωρήσεων και συλλογών με κύλιση μέσα στο γκρι αιωρούμενο.",
+        "description": ""
+    },
     "tableToolsDesc": {
         "message": "Προσθέτει επιπρόσθετη λειτουργικότητα στο Markdown των πινάκων του Reddit (μόνο ταξινόμηση για την ώρα).",
         "description": ""
     },
     "notificationsAlwaysSticky": {
-        "message": "always sticky",
+        "message": "πάντα αυτοκόλλητο",
         "description": ""
     },
     "searchName": {
@@ -408,7 +416,7 @@
         "description": ""
     },
     "orangeredResetFaviconOnLeaveTitle": {
-        "message": "Reset Favicon On Leave",
+        "message": "Επαναφορά του Εικονιδίου Αγαπημένου Κατά την Απαχώρηση",
         "description": ""
     },
     "pageNavName": {
@@ -440,11 +448,11 @@
         "description": ""
     },
     "multiredditNavbarSectionLinksDesc": {
-        "message": "Links to display in the dropdown.",
+        "message": "Σύνδεσμοι που εμφανίζονται στην αναπτυσσόμενη λίστα.",
         "description": ""
     },
     "nightModeNightModeStartTitle": {
-        "message": "Night Mode Start",
+        "message": "Έναρξη Νυχτερινής Λειτουργίας",
         "description": ""
     },
     "userbarHiderUserBarHidden": {
@@ -464,11 +472,11 @@
         "description": ""
     },
     "nerReturnToPrevPageDesc": {
-        "message": "Return to the page you were last on when hitting \"back\" button?",
+        "message": "Επιστροφή στην σελίδα που βρισκόσασταν προηγουμένως όταν πατάτε το κουμπί \"πίσω\";",
         "description": ""
     },
     "multiredditNavbarSectionMenuTitle": {
-        "message": "Section Menu",
+        "message": "Μενού Τμημάτων",
         "description": ""
     },
     "keyboardNavMoveDownParentSiblingDesc": {
@@ -489,6 +497,10 @@
     },
     "nightModeNightModeOnDesc": {
         "message": "Ενεργοποίησε/απενεργοποίησε την νυχτερινή λειτουργία.",
+        "description": ""
+    },
+    "necName": {
+        "message": "Never Ending Comments",
         "description": ""
     },
     "filteRedditExcludeOwnPostsTitle": {
@@ -532,7 +544,7 @@
         "description": ""
     },
     "notificationCloseDelayDesc": {
-        "message": "In milliseconds, length of time until a notification begins to disappear.",
+        "message": "Σε χιλιοστά του δευτερολέπτου, ο χρόνος μέχρι να αρχίσει να εξαφανίζεται μια ειδοποίηση.",
         "description": ""
     },
     "styleTweaksUseSubredditStyle": {
@@ -540,7 +552,7 @@
         "description": ""
     },
     "selectedEntryFocusBorderNightDesc": {
-        "message": "Border appearance using Night Mode (as above)",
+        "message": "Η εμφάνιση του πλαισίου κατά τη Νυχτερινή Λειτουργία (ίδιο με το παραπάνω)",
         "description": ""
     },
     "voteEnhancementsUpvote": {
@@ -548,7 +560,7 @@
         "description": ""
     },
     "quickMessageLinkToCurrentPageDesc": {
-        "message": "Automatically start with a link to the current page in the message body (or, if opened from the user info popup, a link to the current post or comment).",
+        "message": "Αυτόματη έναρξη με έναν σύνδεσμο στην παρούσα σελίδα στο περιεχόμενο του μηνύματος (ή, αν έχει ανοιχτεί από το αναδυόμενο των πληροφοριών χρήστη, έναν σύνδεσμο προς την παρούσα ανάρτηση ή σχόλιο).",
         "description": ""
     },
     "subredditInfoAddThisSubredditToDashboard": {
@@ -560,7 +572,7 @@
         "description": ""
     },
     "nightModeUseSubredditStylesTitle": {
-        "message": "Use Subreddit Styles",
+        "message": "Χρήση Στυλ Υπορέντιτ",
         "description": ""
     },
     "keyboardNavOnVoteCommentMoveDownDesc": {
@@ -652,7 +664,7 @@
         "description": ""
     },
     "pageNavToTopDesc": {
-        "message": "Add an icon to every page that takes you to the top when clicked.",
+        "message": "Προσθέτει ένα εικονίδιο σε κάθε σελίδα, το οποίο, όταν πατηθεί, σας πηγαίνει στην κορυφή της σελίδας.",
         "description": ""
     },
     "subredditsCategory": {
@@ -688,7 +700,7 @@
         "description": ""
     },
     "orangeredUnreadLinksToInboxTitle": {
-        "message": "Unread Links To Inbox",
+        "message": "Μη Αναγνωσμένα Οδηγεί στα Εισερχόμενα",
         "description": ""
     },
     "presetsName": {
@@ -728,7 +740,7 @@
         "description": ""
     },
     "nightModeAutomaticNightModeTitle": {
-        "message": "Automatic Night Mode",
+        "message": "Αυτόματη Νυχτερινή Λειτουργία",
         "description": ""
     },
     "noPartDisableCommentTextareaDesc": {
@@ -740,7 +752,7 @@
         "description": ""
     },
     "multiredditNavbarFadeSpeedDesc": {
-        "message": "Fade animation's speed (in seconds). Default is 0.7.",
+        "message": "Ταχύτητα εφέ ομαλής μετάβασης (σε δευτερόλεπτα). Η προεπιλεγμένη τιμή είναι 0,7.",
         "description": ""
     },
     "contextViewFullContextDesc": {
@@ -764,7 +776,7 @@
         "description": ""
     },
     "commentDepthDefaultMinimumCommentsDesc": {
-        "message": "Default minimum number of comments required to apply custom depth.",
+        "message": "Προεπιλεγμένος ελάχιστος αριθμός σχολίων που χρειάζονται για να εφαρμοστεί προσαρμοσμένο βάθος.",
         "description": ""
     },
     "commentToolsEnableOnBanMessagesDesc": {
@@ -812,11 +824,11 @@
         "description": ""
     },
     "userTaggerUseCommentsLinkAsSourceDesc": {
-        "message": "By default, store a link to the comments when tagging a user in a link post. Otherwise, the link (that the post refers to) will be used.",
+        "message": "Από προεπιλογή, αποθήκευση του συνδέσμου προς τα σχόλια όταν προστίθεται ετικέτα σε χρήστη σε ανάρτηση συνδέσμου. Σε άλλη περίπτωση, θα χρησιμοποιηθεί ο σύνδεσμος (στον οποίο αναφέρεται η ανάρτηση).",
         "description": ""
     },
     "notificationCloseDelayTitle": {
-        "message": "Close Delay",
+        "message": "Καθυστέρηση Κλεισίματος",
         "description": ""
     },
     "logoLinkDesc": {
@@ -824,7 +836,7 @@
         "description": ""
     },
     "quickMessageOpenQuickMessageDesc": {
-        "message": "Keyboard shortcut to open the quick message dialog.",
+        "message": "Συντόμευση πληκτρολογίου που ανοίγει το παράθυρο γρήγορου μηνύματος.",
         "description": ""
     },
     "dashboardDefaultPostsDesc": {
@@ -848,7 +860,7 @@
         "description": ""
     },
     "multiredditNavbarHoverDelayDesc": {
-        "message": "Delay, in milliseconds, before hover tooltip loads. Default is 1000.",
+        "message": "Καθυστέρηση, σε χιλιοστά δευτερολέπτου, πριν φορτώσει το εργαλείο αιώρησης. Η προεπιλεγμένη τιμή είναι 1000.",
         "description": ""
     },
     "commentNavigatorShowByDefaultDesc": {
@@ -876,7 +888,7 @@
         "description": ""
     },
     "notificationFadeOutLengthTitle": {
-        "message": "Fade Out Length",
+        "message": "Χρόνος Ομαλής Εξαφάνισης",
         "description": ""
     },
     "keyboardNavLinearScrollStyleTitle": {
@@ -892,7 +904,7 @@
         "description": ""
     },
     "settingsNavigationShowAllOptionsAlertDesc": {
-        "message": "If a user clicks on a link to an advanced option while advanced options are hidden, should an alert be shown?",
+        "message": "Αν ο χρήστης κάνει κλικ σε έναν σύνδεσμο προς μια προχωρημένη επιλογή όταν οι προχωρημένες επιλογές είναι κρυμμένες, να εμφανιστεί μια κρίσιμη ειδοποίηση;",
         "description": ""
     },
     "commentHidePerName": {
@@ -928,7 +940,7 @@
         "description": ""
     },
     "selectedEntryAutoSelectOnScrollDesc": {
-        "message": "Automatically select the topmost item while scrolling",
+        "message": "Αυτόματη επιλογή του κορυφαίου στοιχείου κατά την κύλιση",
         "description": ""
     },
     "keyboardNavFollowLinkTitle": {
@@ -944,7 +956,7 @@
         "description": ""
     },
     "multiredditNavbarFadeDelayTitle": {
-        "message": "Fade Delay",
+        "message": "Καθυστέρηση Ομαλής Μετάβασης",
         "description": ""
     },
     "commentDepthCommentPermaLinksTitle": {
@@ -1012,7 +1024,7 @@
         "description": ""
     },
     "nightModeNightSwitchTitle": {
-        "message": "Night Switch",
+        "message": "Διακόπτης Νύχτας",
         "description": ""
     },
     "commentPreviewEnableForPostsTitle": {
@@ -1068,11 +1080,11 @@
         "description": ""
     },
     "selectedEntryFocusBorderDesc": {
-        "message": "Border appearance. E.g. `1px dashed gray` (CSS)",
+        "message": "Η εμφάνιση του πλαισίου. π.χ. '1px dashed gray' (CSS)",
         "description": ""
     },
     "settingsNavigationShowAllOptionsDesc": {
-        "message": "All options are displayed by default. Uncheck this box if you would like to hide advanced options.",
+        "message": "Όλες οι επιλογές εμφανίζονται από προεπιλογή. Αφαιρέστε την επιλογή αν θέλετε να κρύψετε τις προχωρημένες επιλογές.",
         "description": ""
     },
     "betteRedditFixHideLinksTitle": {
@@ -1088,7 +1100,7 @@
         "description": ""
     },
     "presetsLiteDesc": {
-        "message": "RES Lite: just the popular stuff",
+        "message": "Ελαφρύ RES: μόνο τα δημοφιλή",
         "description": ""
     },
     "commentToolsCtrlEnterSubmitsCommentsDesc": {
@@ -1100,7 +1112,7 @@
         "description": ""
     },
     "multiredditNavbarSectionLinksTitle": {
-        "message": "Section Links",
+        "message": "Σύνδεσμοι Τμημάτων",
         "description": ""
     },
     "hideChildCommentsDesc": {
@@ -1136,7 +1148,7 @@
         "description": "As in 'toggle subreddit style off for: subreddit'"
     },
     "notificationsModuleID": {
-        "message": "module ID",
+        "message": "ID μονάδας",
         "description": ""
     },
     "commentsCategory": {
@@ -1152,7 +1164,7 @@
         "description": ""
     },
     "pageNavShowLinkDesc": {
-        "message": "Show information about the submission when scrolling up on comments pages.",
+        "message": "Εμφάνιση πληροφοριών για την ανάρτηση όταν γίνεται κύλιση προς τα πάνω στις σελίδες σχολίων.",
         "description": ""
     },
     "logoLinkMyUserPage": {
@@ -1180,7 +1192,7 @@
         "description": ""
     },
     "quickMessageHandleContentLinksDesc": {
-        "message": "Open the quick message dialog when clicking on reddit.com/message/compose links in comments, selftext, or wiki pages.",
+        "message": "Άνοιγμα του διαλόγου γρήγορου μηνύματος όταν γίνεται κλικ σε συνδέσμους reddit.com/message/compose στα σχόλια, selftext ή σελίδες wiki.",
         "description": ""
     },
     "orangeredUpdateCurrentTabDesc": {
@@ -1216,11 +1228,11 @@
         "description": ""
     },
     "userTaggerVWNumberDesc": {
-        "message": "Show the number (i.e. [+6]) rather than [vw]",
+        "message": "Εμφάνιση του αριθμού (π.χ. [+6]) αντί του [vw]",
         "description": ""
     },
     "pageNavToCommentTitle": {
-        "message": "To New Comment Area",
+        "message": "Σε Νέα Περιοχή Σχολίων",
         "description": ""
     },
     "keyboardNavMoveToParentDesc": {
@@ -1236,7 +1248,7 @@
         "description": ""
     },
     "multiredditNavbarAddShortcut": {
-        "message": "+add multireddit section shortcut",
+        "message": "+προσθήκη συντόμευσης τμήματος πολυρέντιτ",
         "description": ""
     },
     "commandLineName": {
@@ -1276,7 +1288,7 @@
         "description": ""
     },
     "searchHelperLegacySearchDesc": {
-        "message": "Request the \"legacy layout\" feature for reddit search.\n\n\nThis will only be available for a limited time.",
+        "message": "Αίτημα για την λειτουργία \"παλιάς διάταξης\" για την αναζήτηση στο ρέντιτ.\n\n\nΑυτό θα είναι διαθέσιμο για περιορισμένο χρόνο.",
         "description": ""
     },
     "submitIssueName": {
@@ -1288,7 +1300,7 @@
         "description": ""
     },
     "selectedEntryAddFocusBGColorDesc": {
-        "message": "Use a background color",
+        "message": "Χρήση χρώματος φόντου",
         "description": ""
     },
     "accountSwitcherShowUserDetailsTitle": {
@@ -1320,7 +1332,7 @@
         "description": ""
     },
     "multiredditNavbarFadeDelayDesc": {
-        "message": "Delay, in milliseconds, before hover tooltip fades away. Default is 200.",
+        "message": "Καθυστέρηση, σε χιλιοστά δευτερολέπτου, πριν εξαφανιστεί ομαλά το εργαλείο αιώρησης. Η προεπιλεγμένη τιμή είναι 200.",
         "description": ""
     },
     "nightModeNightModeStartDesc": {
@@ -1332,7 +1344,7 @@
         "description": ""
     },
     "notificationsSticky": {
-        "message": "sticky",
+        "message": "αυτοκόλλητο",
         "description": ""
     },
     "keyboardNavImageSizeDownTitle": {
@@ -1436,7 +1448,7 @@
         "description": ""
     },
     "searchHelperSearchByFlairDesc": {
-        "message": "When clicking on a post's flair, search its subreddit for that flair.\nMay not work in some subreddits that hide the actual flair and add pseudo-flair with CSS (only workaround is to disable subreddit style).",
+        "message": "Κατά το κλικ στο έμβλημα μιας ανάρτησης, αναζήτηση του υπορέντιτ του για αυτό το έμβλημα.\nΜπορεί να μη δουλεύει σε μερικά υπορέντιτ που κρύβουν το πραγματικό έμβλημα και προσθέτουν ψεύτικο έμβλημα με CSS (η μόνη παράκαμψη αυτού είναι με την απενεργοποίηση του στυλ του υπορέντιτ).",
         "description": ""
     },
     "subredditInfoDesc": {
@@ -1472,7 +1484,7 @@
         "description": ""
     },
     "userTaggerVWTooltipDesc": {
-        "message": "Show the vote weight tooltip on hover (i.e. \"your votes for...\")",
+        "message": "Εμφάνιση του αιωρούμενου εργαλείου βάρους ψήφου κατά την αιώρηση του ποντικιού (π.χ. \"οι ψήφοι σου για...\")",
         "description": ""
     },
     "aboutOptionsBugs": {
@@ -1521,6 +1533,10 @@
     },
     "hoverFadeSpeedTitle": {
         "message": "Ταχύτητα Ομαλής Μετάβασης",
+        "description": ""
+    },
+    "necLoadChildCommentsTitle": {
+        "message": "Load Child Comments",
         "description": ""
     },
     "showParentName": {
@@ -1604,7 +1620,7 @@
         "description": ""
     },
     "userTaggerStoreSourceLinkDesc": {
-        "message": "By default, store a link to the link/comment you tagged a user on",
+        "message": "Από προεπιλογή, αποθήκευση του συνδέσμου προς τον σύνδεσμο/σχόλιο για το οποίο προστέθηκε ετικέτα σε κάποιο χρήστη",
         "description": ""
     },
     "multiredditNavbarDesc": {
@@ -1628,7 +1644,7 @@
         "description": ""
     },
     "userTaggerShowTaggingIconDesc": {
-        "message": "Always show a tag tool icon after every username.",
+        "message": "Πάντα εμφάνιση του εικονιδίου εργαλείου ετικέτας μετά από κάθε όνομα χρήστη.",
         "description": ""
     },
     "commentPreviewDraftStyleDesc": {
@@ -1648,11 +1664,11 @@
         "description": ""
     },
     "newCommentCountCleanCommentsTitle": {
-        "message": "Clean Comments",
+        "message": "Καθαρισμός Σχολίων",
         "description": ""
     },
     "messageMenuFadeSpeedDesc": {
-        "message": "Fade animation's speed (in seconds). Default is 0.7.",
+        "message": "Ταχύτητα ομαλής μετάβασης κινούμενης εικόνας (σε δευτερόλεπτα). Η προεπιλεγμένη τιμή είναι 0,7.",
         "description": ""
     },
     "userInfoComments": {
@@ -1664,7 +1680,7 @@
         "description": ""
     },
     "nerShowServerInfoTitle": {
-        "message": "Show Server Info",
+        "message": "Εμφάνιση Πληροφοριών Διακομιστή",
         "description": ""
     },
     "troubleshooterSettingsReset": {
@@ -1704,7 +1720,7 @@
         "description": ""
     },
     "searchHelperUserFilterBySubredditDesc": {
-        "message": "When on a user profile, offer to search user's post from the subreddit or multireddit we come from.",
+        "message": "Όταν σε προφίλ χρήστη, προσφέρει την αναζήτηση των αναρτήσεων του χρήστη από το συγκεκριμένο υπορέντιτ ή πολυρέντιτ προέλευσης.",
         "description": ""
     },
     "userTaggerPage": {
@@ -1720,15 +1736,15 @@
         "description": ""
     },
     "pageNavToCommentDesc": {
-        "message": "Add an icon to every page that takes you to the new comment area when clicked.",
+        "message": "Προσθήκη εικονιδίου σε όλες τις σελίδες, το οποίο, όταν πατηθεί, οδηγεί στη νέα περιοχή σχολίων.",
         "description": ""
     },
     "orangeredShowUnreadCountInFaviconDesc": {
-        "message": "Show unread message count in favicon?",
+        "message": "Εμφάνιση του αριθμού μη αναγνωσμένων μηνυμάτων στο εικονίδιο αγαπημένου;",
         "description": ""
     },
     "filteRedditUseRedditFiltersDesc": {
-        "message": "Επεγγραφή και αυτόματος συγχρονισμός των τοπικών φίλτρων /r/all με τα πρώτα 100 υπορέντιτ χωρίς φίλτρα RegExp.",
+        "message": "Επεγγραφή των τοπικών φίλτρων του /r/all με τα 100 πιο δημοφιλή φιλτραρισμένα υπορέντιτ.",
         "description": ""
     },
     "searchHelperName": {
@@ -1828,7 +1844,7 @@
         "description": ""
     },
     "searchCopyResultForComment": {
-        "message": "copy this for a comment",
+        "message": "αντιγραφή αυτού για σχόλιο",
         "description": ""
     },
     "orangeredShowUnreadCountInTitleDesc": {
@@ -1868,7 +1884,7 @@
         "description": ""
     },
     "newCommentCountCleanCommentsDesc": {
-        "message": "Number of days before RES stops keeping track of a viewed thread.",
+        "message": "Αριθμός ημερών πριν το RES σταματήσει να παρακολουθεί ένα νήμα που έχει προβληθεί.",
         "description": ""
     },
     "versionName": {
@@ -1876,7 +1892,7 @@
         "description": ""
     },
     "orangeredResetFaviconOnLeaveDesc": {
-        "message": "Reset the favicon before leaving the page.\n\nThis prevents the unread badge from appearing in bookmarks, but may hurt browser caching.",
+        "message": "Επαναφορά του εικονιδίου αγαπημένου πριν από την αποχώρηση από τη σελίδα.\n\nΑυτό αποτρέπει το εικονίδιο μη αναγνωσμένων από το να εμφανίζεται στις συντομεύσεις, αλλά μπορεί να βλάπτει την κρυγή μνήμη του φυλλομετρητή.",
         "description": ""
     },
     "commentDepthName": {
@@ -1884,7 +1900,7 @@
         "description": ""
     },
     "orangeredShowUnreadCountInFaviconTitle": {
-        "message": "Show Unread Count In Favicon",
+        "message": "Εμφάνιση Αριθμού Μη Αναγνωσμένων στο Εικονίδιο Αγαπημένου",
         "description": ""
     },
     "voteEnhancementsVotes": {
@@ -1892,7 +1908,7 @@
         "description": ""
     },
     "multiredditNavbarHoverDelayTitle": {
-        "message": "Hover Delay",
+        "message": "Καθυστέρηση Αιώρησης",
         "description": ""
     },
     "newCommentCountShowSubscribeButtonTitle": {
@@ -1912,11 +1928,11 @@
         "description": ""
     },
     "selectedEntryScrollToSelectedThingOnLoadDesc": {
-        "message": "Automatically scroll to the post/comment that is selected when the page loads",
+        "message": "Αυτόματη κύλιση στην ανάρτηση/σχόλιο το οποίο είναι επιλεγμένο όταν φορτώνει η σελίδα",
         "description": ""
     },
     "commentQuickCollapseDesc": {
-        "message": "Toggles comment collapse when the header is double clicked.",
+        "message": "Εναλλαγή της κατάστασης σύμπτυξης του σχολίου όταν γίνεται διπλό κλικ στον τίτλο του.",
         "description": ""
     },
     "orangeredOpenMailInNewTabDesc": {
@@ -1928,7 +1944,7 @@
         "description": ""
     },
     "notificationStickyTitle": {
-        "message": "Sticky",
+        "message": "Αυτοκόλλητο",
         "description": ""
     },
     "aboutOptionsAnnouncements": {
@@ -1960,7 +1976,7 @@
         "description": ""
     },
     "nerHideDupesTitle": {
-        "message": "Hide Dupes",
+        "message": "Απόκρυψη Ψεύτικων",
         "description": ""
     },
     "keyboardNavFrontPageDesc": {
@@ -1973,6 +1989,10 @@
     },
     "singleClickDesc": {
         "message": "Προσθέτει ένα σύνδεσμο [l+c] που ανοίγει το σύνδεσμο και τα σχόλια σε νέες καρτέλες με ένα κλικ.",
+        "description": ""
+    },
+    "wheelBrowseName": {
+        "message": "Περιήγηση με Ροδέλα",
         "description": ""
     },
     "orangeredShowFloatingEnvelopeDesc": {
@@ -2008,7 +2028,7 @@
         "description": ""
     },
     "commentQuickCollapseName": {
-        "message": "Comment Quick Collapse",
+        "message": "Γρήγορη Σύμπτυξη Σχολίων",
         "description": ""
     },
     "troubleshooterEntriesRemoved": {
@@ -2028,7 +2048,7 @@
         "description": ""
     },
     "searchHelperSearchPageTabsDesc": {
-        "message": "Add tabs to the search page.",
+        "message": "Προσθέτει καρτέλες στην σελίδα αναζήτησης.",
         "description": ""
     },
     "commentToolsCtrlEnterSavesLiveThreadsTitle": {
@@ -2080,7 +2100,7 @@
         "description": ""
     },
     "notificationStickyDesc": {
-        "message": "Sticky notifications remain visible until you click the close button.",
+        "message": "Οι αυτοκόλλητες ειδοποιήσεις παραμένουν ορατές έως ότου πατηθεί το κουμπί κλεισίματος.",
         "description": ""
     },
     "usernameHiderDesc": {
@@ -2112,7 +2132,7 @@
         "description": ""
     },
     "multiredditNavbarFadeSpeedTitle": {
-        "message": "Fade Speed",
+        "message": "Ταχύτητα Ομαλής Μετάβασης",
         "description": ""
     },
     "aboutOptionsCodeTitle": {
@@ -2120,7 +2140,7 @@
         "description": ""
     },
     "nerReversePauseIconDesc": {
-        "message": "Show \"paused\" bars icon when auto-load is paused and \"play\" wedge icon when active.",
+        "message": "Εμφάνιση του εικονιδίου γραμμών \"σε παύση\" όταν η αυτόματη φόρτωση είναι σε παύση και όταν το εικονίδιο σφήνας της αναπαραγωγής είναι ενεργό.",
         "description": ""
     },
     "userTaggerUsername": {
@@ -2164,11 +2184,11 @@
         "description": ""
     },
     "selectedEntryAddFocusBorderDesc": {
-        "message": "Use a border",
+        "message": "Χρήση πλαισίου",
         "description": ""
     },
     "selectedEntryFocusBGColorDesc": {
-        "message": "The background color",
+        "message": "Το χρώμα του φόντου",
         "description": ""
     },
     "multiredditNavbarUrl": {
@@ -2188,7 +2208,7 @@
         "description": ""
     },
     "pageNavToTopTitle": {
-        "message": "To Top",
+        "message": "Στην Κορυφή",
         "description": ""
     },
     "keyboardNavScrollOnExpandoTitle": {
@@ -2204,11 +2224,11 @@
         "description": ""
     },
     "nerReversePauseIconTitle": {
-        "message": "Reverse Pause Icon",
+        "message": "Εικονίδιο Αντίστροφης Παύσης",
         "description": ""
     },
     "userTaggerTrackVoteWeightDesc": {
-        "message": "Store counts of cumulative upvotes / downvotes given to each user and replace the tag icon with a vote weight count displaying this number.",
+        "message": "Αποθήκευση του αριθμού των συσσωρευμένων πάνω / κάτω ψήφων που έχουν δοθεί σε κάθε χρήστη και αντικατάσταση του εικονιδίου προσθήκης ετικέτας με τον αριθμό του βάρους της ψήφου, το οποίο εμφανίζει αυτόν τον αριθμό.",
         "description": ""
     },
     "subredditInfoRemoveThisSubredditFromDashboard": {
@@ -2236,7 +2256,7 @@
         "description": ""
     },
     "nerPauseAfterEveryTitle": {
-        "message": "Pause After Every",
+        "message": "Παύση Μετά Από Κάθε",
         "description": ""
     },
     "commandLineDesc": {
@@ -2244,7 +2264,7 @@
         "description": ""
     },
     "quickMessageHandleSideLinksDesc": {
-        "message": "Open the quick message dialog when clicking on reddit.com/message/compose links in the sidebar. (e.g. \"message the moderators\")",
+        "message": "Άνοιγμα του διαλόγου γρήγορου μηνύματος όταν γίνεται κλικ σε συνδέσμους reddit.com/message/compose στην πλευρική μπάρα (π.χ. \"μήνυμα προς διαχειριστές\")",
         "description": ""
     },
     "keyboardNavPreviousGalleryImageDesc": {
@@ -2256,7 +2276,7 @@
         "description": ""
     },
     "searchHelperAddSearchOptionsDesc": {
-        "message": "Allow you to choose sorting and time range on the search form of the side panel.",
+        "message": "Επιτρέπει την επιλογή ταξινόμηση και χρονικού εύρους στην φόρμα αναζήτησης του πλευρικού πάνελ.",
         "description": ""
     },
     "keyboardNavCommentNavigatorMoveDownDesc": {
@@ -2264,7 +2284,7 @@
         "description": ""
     },
     "nightModeNightModeEndTitle": {
-        "message": "Night Mode End",
+        "message": "Λήξη Νυχτερινής Λειτουργίας",
         "description": ""
     },
     "userTaggerVoteWeight": {
@@ -2284,7 +2304,7 @@
         "description": ""
     },
     "searchHelperDefaultSearchTabDesc": {
-        "message": "The tab that will be expanded each time you search.",
+        "message": "Η καρτέλα που θα αναπτύσσεται όποτε πραγματοποιείται αναζήτηση.",
         "description": ""
     },
     "coreCategory": {
@@ -2292,7 +2312,7 @@
         "description": ""
     },
     "commentDepthMinimumComments": {
-        "message": "minimum comments",
+        "message": "ελάχιστα σχόλια",
         "description": ""
     },
     "aboutOptionsCode": {
@@ -2324,7 +2344,7 @@
         "description": ""
     },
     "orangeredUnreadLinksToInboxDesc": {
-        "message": "Always go to the inbox, not unread messages, when clicking on orangered.",
+        "message": "Πάντα να πηγαίνει στα εισερχόμενα, όχι τα αδιάβαστα μηνύματα, όταν γίνεται κλικ στο πορτοκαλοκόκκινο.",
         "description": ""
     },
     "newCommentCountName": {
@@ -2364,7 +2384,7 @@
         "description": ""
     },
     "notificationsNeverSticky": {
-        "message": "never sticky",
+        "message": "ποτέ αυτοκόλλητο",
         "description": ""
     },
     "keyboardNavMoveDownDesc": {
@@ -2400,7 +2420,7 @@
         "description": ""
     },
     "userTaggerShowIgnoredDesc": {
-        "message": "Provide a link to reveal an ignored link or comment. The hardIgnore option overrides this.",
+        "message": "Παροχή συνδέσμου εμφάνισης ενός αγνοημένου συνδέσμου ή σχολίου. Η επιλογή hardIgnore επεγγράφει την παρούσα.",
         "description": ""
     },
     "commentToolsItalicKeyTitle": {
@@ -2412,7 +2432,7 @@
         "description": ""
     },
     "selectedEntrySelectLastThingOnLoadDesc": {
-        "message": "Automatically select the last thing you had selected",
+        "message": "Αυτόματη επιλογή του τελευταίου στοιχείου που είχε επιλεγεί",
         "description": ""
     },
     "aboutOptionsPresetsTitle": {
@@ -2464,7 +2484,7 @@
         "description": ""
     },
     "selectedEntryFocusFGColorNightDesc": {
-        "message": "The text color while using Night Mode",
+        "message": "Το χρώμα του κειμένου κατά τη Νυχτερινή Λειτουργία",
         "description": ""
     },
     "messageMenuHoverDelayDesc": {
@@ -2488,7 +2508,7 @@
         "description": ""
     },
     "selectedEntrySelectThingOnLoadDesc": {
-        "message": "Automatically select a post/comment when the page loads",
+        "message": "Αυτόματη επιλογή μίας ανάρτησης/σχολίου όταν φορτώνει η σελίδα",
         "description": ""
     },
     "backupAndRestoreBackupTitle": {
@@ -2588,7 +2608,7 @@
         "description": ""
     },
     "pageNavShowLinkNewTabTitle": {
-        "message": "Show Link New Tab",
+        "message": "Εμφάνιση Συνδέσμου σε Νέα Καρτέλα",
         "description": ""
     },
     "keyboardNavNonLinearScrollStyleTitle": {
@@ -2604,7 +2624,7 @@
         "description": ""
     },
     "notificationsCooldown": {
-        "message": "cooldown",
+        "message": "ψύξη",
         "description": ""
     },
     "keyboardNavsSubredditFrontPageDesc": {
@@ -2620,15 +2640,15 @@
         "description": ""
     },
     "multiredditNavbarSectionMenuDesc": {
-        "message": "Show a menu linking to various sections of the multireddit when hovering your mouse over the link.",
+        "message": "Εμφάνιση ενός μενού συντομεύσεων προς διάφορα τμήματα του υπορέντιτ όταν αιωρείται το ποντίκι πάνω από έναν σύνδεσμο.",
         "description": ""
     },
     "selectedEntryFocusBGColorNightDesc": {
-        "message": "The background color while using Night Mode",
+        "message": "Το χρώμα του φόντου κατά τη Νυχτερινή Λειτουργία",
         "description": ""
     },
     "searchHelperTransitionSearchTabsDesc": {
-        "message": "Play a transition when you open and close tabs.",
+        "message": "Εμφάνιση ομαλής μετάβασης όταν ανοίγουν ή κλείνουν καρτέλες.",
         "description": ""
     },
     "keyboardNavOnHideMoveDownDesc": {
@@ -2732,7 +2752,7 @@
         "description": ""
     },
     "nerShowServerInfoDesc": {
-        "message": "Show the π server / debug details next to the floating Never-Ending Reddit tools.",
+        "message": "Εμφάνιση του διακομιστή π / λεπτομέρειες αποσφαλμάτωσης δίπλα από τα αιωρούμενα εργαλεία Ατελείωτου Ρέντιτ.",
         "description": ""
     },
     "noPartDisableCommentTextareaTitle": {
@@ -2784,7 +2804,7 @@
         "description": ""
     },
     "notificationsNotificationID": {
-        "message": "notification ID",
+        "message": "ID ειδοποίησης",
         "description": ""
     },
     "sourceSnudownName": {
@@ -2924,7 +2944,7 @@
         "description": ""
     },
     "nightModeColoredLinksTitle": {
-        "message": "Colored Links",
+        "message": "Χρωματισμένοι Σύνδεσμοι",
         "description": ""
     },
     "modhelperDesc": {
@@ -2960,7 +2980,7 @@
         "description": ""
     },
     "presetsNoPopupsDesc": {
-        "message": "Turn off notifications and hover pop-ups",
+        "message": "Απενεργοποίηση όλων των ειδοποιήσεων και των αιωρούμενων παραθύρων",
         "description": ""
     },
     "messageMenuName": {
@@ -2980,7 +3000,11 @@
         "description": ""
     },
     "selectedEntrySelectOnClickDesc": {
-        "message": "Allows you to click on an item to select it",
+        "message": "Επιτρέπει την επιλογή ενός στοιχείου με κλικ",
+        "description": ""
+    },
+    "necDescription": {
+        "message": "Keep ultra-long comment pages flowing.",
         "description": ""
     },
     "troubleshooterCachesCleared": {
@@ -3096,7 +3120,7 @@
         "description": ""
     },
     "nightModeNightModeOverrideHoursTitle": {
-        "message": "Night Mode Override Hours",
+        "message": "Ώρες Παράκαμψης Νυχτερινής Λειτουργίας",
         "description": ""
     },
     "userInfoUserSuspended": {
@@ -3128,7 +3152,7 @@
         "description": ""
     },
     "pageNavShowLinkTitle": {
-        "message": "Show Link",
+        "message": "Εμφάνιση Συνδέσμου",
         "description": ""
     },
     "keyboardNavProfileNewTabDesc": {
@@ -3144,7 +3168,7 @@
         "description": ""
     },
     "quickMessageSendAsDesc": {
-        "message": "The default user or subreddit to select when the \"from\" field is unspecified.\nReverts to the current user if the selected option can't be used (i.e. you aren't a moderator of the current subreddit).",
+        "message": "Ο προεπιλεγμένος χρήστης ή υπορέντιτ που επιλέγεται όταν δεν έχει καθοριστεί το πεδίο \"από\".\nΕπαναφορά προς τον παρόντα χρήστη αν η επιλογή δεν μπορεί να χρησιμοποιηθεί (π.χ. όταν δεν είστε ο διαχειριστής του συγκεκριμένου υπορέντιτ).",
         "description": ""
     },
     "userInfoGiftRedditGold": {
@@ -3176,11 +3200,11 @@
         "description": ""
     },
     "searchHelperHideSearchOptionsDesc": {
-        "message": "Automatically hide search options and suggestions on the search page.",
+        "message": "Αυτόματη απόκρυψη των επιλογών αναζήτησης και προτάσεων στην σελίδα αναζήτησης.",
         "description": ""
     },
     "notificationsDesc": {
-        "message": "Manage pop-up notifications for RES functions.",
+        "message": "Διαχείριση των αναδυόμενων ειδοποιήσεων για τις λειτουργίες του RES.",
         "description": ""
     },
     "logoLinkDashboard": {
@@ -3204,7 +3228,7 @@
         "description": ""
     },
     "orangeredHideModMailTitle": {
-        "message": "Hide Mod Mail",
+        "message": "Απόκρυψη Αλληλογραφίας Διαχειριστή",
         "description": ""
     },
     "commentNavigatorOpenOnHighlightUserTitle": {

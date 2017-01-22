@@ -60,6 +60,15 @@
         "message": "Core"
     },
 
+    "moduleID": {
+        "message": "module ID"
+    },
+
+
+    "optionKey": {
+        "message": "option ID"
+    },
+
     "aboutName": {
         "message": "About RES"
     },
@@ -349,7 +358,7 @@
     },
 
     "hideChildCommentsDesc": {
-        "message": "Allows you to hide all comments except for replies to the OP for easier reading."
+        "message": "Allows you to hide child comments."
     },
 
     "hideChildCommentsAutomaticTitle": {
@@ -358,6 +367,22 @@
 
     "hideChildCommentsAutomaticDesc": {
         "message": "Automatically hide all but parent comments, or provide a link to hide them all?"
+    },
+
+    "hideChildCommentsNestedTitle": {
+        "message": "Nested"
+    },
+
+    "hideChildCommentsNestedDesc": {
+        "message": "Add the \"hide child comments\" button to all comments with children, instead of just top level comments."
+    },
+
+    "hideChildCommentsHideNestedTitle": {
+        "message": "Hide Nested"
+    },
+
+    "hideChildCommentsHideNestedDesc": {
+        "message": "Hide children for nested comments when hiding all child comments."
     },
 
     "hoverName": {
@@ -992,6 +1017,14 @@
         "message": "Go to front page."
     },
 
+    "keyboardNavSlashAllTitle": {
+        "message": "/r/all"
+    },
+
+    "keyboardNavSlashAllDesc": {
+        "message": "Go to /r/all."
+    },
+
     "keyboardNavsSubredditFrontPageTitle": {
         "message": "Subreddit Front Page"
     },
@@ -1272,6 +1305,14 @@
         "message": "Reverse Pause Icon"
     },
 
+    "nerShowPauseButtonDesc": {
+        "message": "Show a play/pause button for auto-load in the top right corner."
+    },
+
+    "nerShowPauseButtonTitle": {
+        "message": "Show Pause Button"
+    },
+
     "nerReversePauseIconDesc": {
         "message": "Show \"paused\" bars icon when auto-load is paused and \"play\" wedge icon when active."
     },
@@ -1302,6 +1343,22 @@
 
     "nerShowServerInfoDesc": {
         "message": "Show the π server / debug details next to the floating Never-Ending Reddit tools."
+    },
+
+    "necName": {
+        "message": "Never Ending Comments"
+    },
+
+    "necDescription": {
+        "message": "Keep ultra-long comment pages flowing."
+    },
+
+    "necLoadChildCommentsTitle": {
+        "message": "Load Child Comments"
+    },
+
+    "necLoadChildCommentsDesc": {
+        "message": "Should on-screen child comments be expanded when paused, in addition to top-level comments?"
     },
 
     "newCommentCountName": {
@@ -1446,10 +1503,6 @@
 
     "notificationsAddNotificationType": {
         "message": "manually register notification type"
-    },
-
-    "notificationsModuleID": {
-        "message": "module ID"
     },
 
     "notificationsNotificationID": {
@@ -2633,7 +2686,7 @@
     },
 
     "filteRedditUseRedditFiltersDesc": {
-        "message": "Overwrite and automatically sync your native /r/all filters with the 100 most popular filtered subreddits."
+        "message": "Overwrite your native /r/all filters with the 100 most popular filtered subreddits."
     },
 
     "filteRedditForceSyncFiltersTitle": {
@@ -3153,6 +3206,10 @@
         "message": "Show a random tip once every 24 hours."
     },
 
+    "RESTipsMenuItemDesc": {
+        "message": "Add an item to the RES dropdown menu to show tips."
+    },
+
     "searchHelperAddSearchOptionsDesc": {
         "message": "Allow you to choose sorting and time range on the search form of the side panel."
     },
@@ -3331,5 +3388,77 @@
 
     "scrollOnCollapseTitle": {
       "message": "Scroll On Collapse"
+    },
+    "penaltyBoxName": {
+        "message": "RES Feature Throttle"
+    },
+
+    "penaltyBoxDesc": {
+        "message": "Automatically delay or disable RES features which go unused."
+    },
+
+    "penaltyBoxDelayFeaturesDesc": {
+        "message": "Throttle showing features which have a high penalty."
+    },
+
+    "penaltyBoxDelayFeaturesTitle": {
+        "message": "Delay Features"
+    },
+
+    "penaltyBoxSuspendFeaturesDesc": {
+        "message": "Turn off features which exceed the maximum penalty."
+    },
+
+    "penaltyBoxSuspendFeaturesTitle": {
+        "message": "Suspend Features"
+    },
+
+    "penaltyBoxFeaturesDesc": {
+        "message": "Track usage of different features."
+    },
+
+    "penaltyBoxFeaturesTitle": {
+        "message": "Features"
+    },
+
+    "penaltyBoxFeaturesAddRowText": {
+        "message": "manually register feature"
+    },
+
+    "penaltyBoxFeaturesModuleID": {
+        "message": "moduleID"
+    },
+
+    "penaltyBoxFeaturesOptionKey": {
+        "message": "optionKey"
+    },
+
+    "penaltyBoxSuspendFeaturesNotificationHeader": {
+        "message": "Suspended Feature"
+    },
+
+    "penaltyBoxSuspendFeaturesNotificationMessage": {
+        "message": "$1 will be turned off due to lack of use. You can enable it again later in the RES settings console."
+    },
+
+    "penaltyBoxSuspendFeaturesUndoButton": {
+        "message": "Enable this feature again"
+    },
+
+    "penaltyBoxSuspendFeaturesRevertNotificationHeader": {
+        "message": "Pardoned Feature"
+    },
+
+    "penaltyBoxSuspendFeaturesRevertNotificationMessage": {
+        "message": "$1 has been turned back on. This feature will not be throttled or automatically disabled again."
+    },
+
+    "penaltyBoxFeaturesMonitoring": {
+        "message": "monitoring"
+    },
+
+    "penaltyBoxFeaturesPenalty": {
+        "message": "penalty",
+        "description": "How heavily the feature is penalized (0-100)"
     }
 }
