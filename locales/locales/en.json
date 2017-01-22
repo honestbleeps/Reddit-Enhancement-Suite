@@ -3397,5 +3397,21 @@
     "penaltyBoxFeaturesPenalty": {
         "message": "penalty",
         "description": "How heavily the feature is penalized (0-100)"
+    },
+
+    "draftName": {
+        "message": "Drafts"
+    },
+
+    "draftDescription": {
+        "message": "Save or discard text in progress."
+    },
+
+    "draftPromptOnLeaveTitle": {
+        "message": "Prompt on Leave"
+    },
+
+    "draftPromptOnLeaveDescription": {
+        "message": "Allow Reddit to prompt you to submit unfinished comments before navigating away."
     }
 }
