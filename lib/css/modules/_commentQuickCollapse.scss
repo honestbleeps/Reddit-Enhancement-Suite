@@ -7,7 +7,9 @@
 	.entry {
 		position: static;
 	}
-
+	.tagline * {
+		top: 0px;
+	}
 	.comment > .entry > .tagline > .expand:hover {
 		text-decoration: none;
 		background-image: none !important;
