@@ -211,13 +211,10 @@ body.res-console-open {
 	}
 
 	.toggleButton {
-		float: right;
-		margin: 0 4px 0 0;
-		line-height: inherit;
-
-		span {
-			line-height: 16px;
-		}
+		line-height: 14px;
+		right: 5px;
+		top: 9px;
+		position: absolute;
 	}
 
 	a {
@@ -713,12 +710,13 @@ div.usertext-edit {
 		transform: translateX(30px);
 	}
 
-	&.enabled::after {
-		content: '\00a0On';
+	/* Custom toggle labels */
+	&[data-disabled-text]::after {
+	    content: '\00a0' attr(data-disabled-text);
 	}
 
-	&::after {
-		content: '\00a0Off';
+	&.enabled[data-enabled-text]::after {
+	    content: '\00a0' attr(data-enabled-text);
 	}
 
 	position: relative;
