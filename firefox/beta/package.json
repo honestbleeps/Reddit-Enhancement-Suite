@@ -15,5 +15,5 @@
 		"private-browsing": true,
 		"multiprocess": true
 	},
-	"changes": "{{file-loader?name=CHANGES!extricate-loader!exec-loader!../../build/getChanges}}"
+	"changes": "{{file-loader?name=CHANGES!extricate-loader!exec-loader?cache!../../build/getChanges}}"
 }
