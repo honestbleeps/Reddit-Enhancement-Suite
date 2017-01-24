@@ -178,6 +178,7 @@
 		"operator-assignment": [2, "always"],
 		"operator-linebreak": [2, "after"],
 		"padded-blocks": [2, "never"],
+		"prefer-destructuring": 0,
 		"prefer-reflect": [2, { "exceptions": ["delete"] }],
 		"quote-props": [2, "as-needed"],
 		"quotes": [2, "single"],

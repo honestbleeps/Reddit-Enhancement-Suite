@@ -119,6 +119,10 @@
         "message": "Fade or completely hide duplicate posts already showing on the page.",
         "description": ""
     },
+    "necLoadChildCommentsDesc": {
+        "message": "Should on-screen child comments be expanded when paused, in addition to top-level comments?",
+        "description": ""
+    },
     "userTaggerName": {
         "message": "User Tagger",
         "description": ""
@@ -395,6 +399,10 @@
         "message": "Enhance getting to various parts of your user page.",
         "description": ""
     },
+    "wheelBrowseDesc": {
+        "message": "Browse entries and galleries by scrolling inside the grey floater.",
+        "description": ""
+    },
     "tableToolsDesc": {
         "message": "Include additional functionality to Reddit Markdown tables (only sorting at the moment).",
         "description": ""
@@ -489,6 +497,10 @@
     },
     "nightModeNightModeOnDesc": {
         "message": "Enable/disable night mode.",
+        "description": ""
+    },
+    "necName": {
+        "message": "Never Ending Comments",
         "description": ""
     },
     "filteRedditExcludeOwnPostsTitle": {
@@ -1523,6 +1535,10 @@
         "message": "Fade Speed",
         "description": ""
     },
+    "necLoadChildCommentsTitle": {
+        "message": "Load Child Comments",
+        "description": ""
+    },
     "showParentName": {
         "message": "Show Parent on Hover",
         "description": ""
@@ -1728,7 +1744,7 @@
         "description": ""
     },
     "filteRedditUseRedditFiltersDesc": {
-        "message": "Overwrite and automatically sync your native /r/all filters with your first 100 non-RegExp filtered subreddits.",
+        "message": "Overwrite your native /r/all filters with the 100 most popular filtered subreddits.",
         "description": ""
     },
     "searchHelperName": {
@@ -1973,6 +1989,10 @@
     },
     "singleClickDesc": {
         "message": "Adaugă un link [l+c] care deschide un link și pagina de comentarii într-un tab nou printr-un singur click.",
+        "description": ""
+    },
+    "wheelBrowseName": {
+        "message": "Browse by Wheel",
         "description": ""
     },
     "orangeredShowFloatingEnvelopeDesc": {
@@ -2981,6 +3001,10 @@
     },
     "selectedEntrySelectOnClickDesc": {
         "message": "Allows you to click on an item to select it",
+        "description": ""
+    },
+    "necDescription": {
+        "message": "Keep ultra-long comment pages flowing.",
         "description": ""
     },
     "troubleshooterCachesCleared": {

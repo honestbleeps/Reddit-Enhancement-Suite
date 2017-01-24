@@ -119,6 +119,10 @@
         "message": "Fade or completely hide duplicate posts already showing on the page.",
         "description": ""
     },
+    "necLoadChildCommentsDesc": {
+        "message": "Should on-screen child comments be expanded when paused, in addition to top-level comments?",
+        "description": ""
+    },
     "userTaggerName": {
         "message": "用户标签",
         "description": ""
@@ -395,6 +399,10 @@
         "message": "Enhance getting to various parts of your user page.",
         "description": ""
     },
+    "wheelBrowseDesc": {
+        "message": "Browse entries and galleries by scrolling inside the grey floater.",
+        "description": ""
+    },
     "tableToolsDesc": {
         "message": "Include additional functionality to Reddit Markdown tables (only sorting at the moment).",
         "description": ""
@@ -489,6 +497,10 @@
     },
     "nightModeNightModeOnDesc": {
         "message": "Enable/disable night mode.",
+        "description": ""
+    },
+    "necName": {
+        "message": "Never Ending Comments",
         "description": ""
     },
     "filteRedditExcludeOwnPostsTitle": {
@@ -888,7 +900,7 @@
         "description": ""
     },
     "aboutOptionsPresets": {
-        "message": "用多种预设快速自定义RES",
+        "message": "用多种预设快速自定义 RES",
         "description": ""
     },
     "settingsNavigationShowAllOptionsAlertDesc": {
@@ -1004,7 +1016,7 @@
         "description": ""
     },
     "accountSwitcherName": {
-        "message": "Account Switcher",
+        "message": "切换帐户",
         "description": ""
     },
     "keyboardNavMoveDownSiblingDesc": {
@@ -1523,6 +1535,10 @@
         "message": "Fade Speed",
         "description": ""
     },
+    "necLoadChildCommentsTitle": {
+        "message": "Load Child Comments",
+        "description": ""
+    },
     "showParentName": {
         "message": "Show Parent on Hover",
         "description": ""
@@ -1728,7 +1744,7 @@
         "description": ""
     },
     "filteRedditUseRedditFiltersDesc": {
-        "message": "Overwrite and automatically sync your native /r/all filters with your first 100 non-RegExp filtered subreddits.",
+        "message": "Overwrite your native /r/all filters with the 100 most popular filtered subreddits.",
         "description": ""
     },
     "searchHelperName": {
@@ -1856,7 +1872,7 @@
         "description": ""
     },
     "aboutOptionsDonate": {
-        "message": "帮助 RES 的未来发展",
+        "message": "帮助RES的未来发展",
         "description": ""
     },
     "aboutOptionsBugsTitle": {
@@ -1973,6 +1989,10 @@
     },
     "singleClickDesc": {
         "message": "Adds an [l+c] link that opens a link and the comments page in new tabs for you in one click.",
+        "description": ""
+    },
+    "wheelBrowseName": {
+        "message": "Browse by Wheel",
         "description": ""
     },
     "orangeredShowFloatingEnvelopeDesc": {
@@ -2296,7 +2316,7 @@
         "description": ""
     },
     "aboutOptionsCode": {
-        "message": "You can improve RES with your code, designs, and ideas! RES is an open-source project on GitHub.",
+        "message": "提高RES与你的代码, 设计, 和想法! RES 是一个开源程序在GitHub上。",
         "description": ""
     },
     "commentNavDesc": {
@@ -2308,7 +2328,7 @@
         "description": ""
     },
     "aboutOptionsLicense": {
-        "message": "Reddit Enhancement Suite is released under the GPL v3.0 license.",
+        "message": "RES是根据GPL v3.0的授權。",
         "description": ""
     },
     "commentToolsEnableOnBanMessagesTitle": {
@@ -2448,7 +2468,7 @@
         "description": ""
     },
     "aboutOptionsFAQ": {
-        "message": "Learn more about RES on the /r/Enhancement wiki.",
+        "message": "学习更多关于 RES 在 /r/Enhancement 的百科",
         "description": ""
     },
     "betteRedditPinHeaderDesc": {
@@ -2668,7 +2688,7 @@
         "description": ""
     },
     "announcementsDesc": {
-        "message": "Keep up with important news.",
+        "message": "跟上重要新闻。",
         "description": ""
     },
     "settingsConsoleDefaultAddRowText": {
@@ -2768,7 +2788,7 @@
         "description": ""
     },
     "announcementsName": {
-        "message": "RES Announcements",
+        "message": "RES的公告",
         "description": ""
     },
     "betteRedditVideoViewedDesc": {
@@ -2981,6 +3001,10 @@
     },
     "selectedEntrySelectOnClickDesc": {
         "message": "Allows you to click on an item to select it",
+        "description": ""
+    },
+    "necDescription": {
+        "message": "Keep ultra-long comment pages flowing.",
         "description": ""
     },
     "troubleshooterCachesCleared": {

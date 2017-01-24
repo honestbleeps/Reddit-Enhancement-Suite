@@ -119,6 +119,10 @@
         "message": "Fade or completely hide duplicate posts already showing on the page.",
         "description": ""
     },
+    "necLoadChildCommentsDesc": {
+        "message": "Should on-screen child comments be expanded when paused, in addition to top-level comments?",
+        "description": ""
+    },
     "userTaggerName": {
         "message": "Kullanıcı Etiketleyici",
         "description": ""
@@ -264,7 +268,7 @@
         "description": ""
     },
     "spamButtonDesc": {
-        "message": "Adds a Spam button to posts for easy reporting.",
+        "message": "Kolay gammazlama için gönderilere spam butonu ekler.",
         "description": ""
     },
     "userTaggerHardIgnoreDesc": {
@@ -312,7 +316,7 @@
         "description": ""
     },
     "newCommentCountDesc": {
-        "message": "Tells you how many comments have been posted since you last viewed a thread.",
+        "message": "Bir sayfayı en son ziyaretinizden beri kaç adet yorum yapıldığını söyler.",
         "description": ""
     },
     "userTaggerPageXOfY": {
@@ -393,6 +397,10 @@
     },
     "profileNavigatorDesc": {
         "message": "Enhance getting to various parts of your user page.",
+        "description": ""
+    },
+    "wheelBrowseDesc": {
+        "message": "Browse entries and galleries by scrolling inside the grey floater.",
         "description": ""
     },
     "tableToolsDesc": {
@@ -489,6 +497,10 @@
     },
     "nightModeNightModeOnDesc": {
         "message": "Enable/disable night mode.",
+        "description": ""
+    },
+    "necName": {
+        "message": "Never Ending Comments",
         "description": ""
     },
     "filteRedditExcludeOwnPostsTitle": {
@@ -676,7 +688,7 @@
         "description": ""
     },
     "searchHelperDesc": {
-        "message": "Provide help with the use of search.",
+        "message": "Arama yapmakta yardım edinin.",
         "description": ""
     },
     "keyboardNavFollowLinkNewTabFocusTitle": {
@@ -960,7 +972,7 @@
         "description": ""
     },
     "commentPreviewEnableForPostsDesc": {
-        "message": "Show preview for posts.",
+        "message": "Gönderiler için önizleme göster.",
         "description": ""
     },
     "keyboardNavImageMoveRightTitle": {
@@ -1523,6 +1535,10 @@
         "message": "Fade Speed",
         "description": ""
     },
+    "necLoadChildCommentsTitle": {
+        "message": "Load Child Comments",
+        "description": ""
+    },
     "showParentName": {
         "message": "Show Parent on Hover",
         "description": ""
@@ -1608,7 +1624,7 @@
         "description": ""
     },
     "multiredditNavbarDesc": {
-        "message": "Enhance the navigation bar shown on the left side of the frontpage.",
+        "message": "Ön sayfanın sol tarafında bulunan gezinti çubuğunu geliştirir.",
         "description": ""
     },
     "commentToolsQuoteKeyTitle": {
@@ -1728,7 +1744,7 @@
         "description": ""
     },
     "filteRedditUseRedditFiltersDesc": {
-        "message": "Overwrite and automatically sync your native /r/all filters with your first 100 non-RegExp filtered subreddits.",
+        "message": "Overwrite your native /r/all filters with the 100 most popular filtered subreddits.",
         "description": ""
     },
     "searchHelperName": {
@@ -1864,7 +1880,7 @@
         "description": ""
     },
     "singleClickName": {
-        "message": "Single Click Opener",
+        "message": "Tek Tıkta Açıcı",
         "description": ""
     },
     "newCommentCountCleanCommentsDesc": {
@@ -1973,6 +1989,10 @@
     },
     "singleClickDesc": {
         "message": "Adds an [l+c] link that opens a link and the comments page in new tabs for you in one click.",
+        "description": ""
+    },
+    "wheelBrowseName": {
+        "message": "Browse by Wheel",
         "description": ""
     },
     "orangeredShowFloatingEnvelopeDesc": {
@@ -2224,7 +2244,7 @@
         "description": ""
     },
     "subredditManName": {
-        "message": "Subreddit Manager",
+        "message": "Subreddit Yöneticisi",
         "description": ""
     },
     "aboutOptionsSuggestionsTitle": {
@@ -2296,7 +2316,7 @@
         "description": ""
     },
     "aboutOptionsCode": {
-        "message": "You can improve RES with your code, designs, and ideas! RES is an open-source project on GitHub.",
+        "message": "RES'i kod, tasarım ve fikirlerinizle geliştirebilirsiniz! RES, GitHub'da yer alan açık kaynaklı bir projedir.",
         "description": ""
     },
     "commentNavDesc": {
@@ -2520,7 +2540,7 @@
         "description": ""
     },
     "commentPreviewEnableForWikiDesc": {
-        "message": "Show preview for wiki pages.",
+        "message": "Viki sayfaları için önizleme göster.",
         "description": ""
     },
     "keyboardNavImageMoveUpTitle": {
@@ -2884,7 +2904,7 @@
         "description": ""
     },
     "submitHelperDesc": {
-        "message": "Provides utilities to help with submitting a post.",
+        "message": "Gönderi eklemeye yardımcı olan hizmetler sağlar.",
         "description": ""
     },
     "hideChildCommentsAutomaticTitle": {
@@ -2904,7 +2924,7 @@
         "description": ""
     },
     "commentDepthSubredditCommentDepthsDesc": {
-        "message": "Subreddit-specific comment depths.",
+        "message": "Subreddit'e özel yorum derinliği.",
         "description": ""
     },
     "keyboardNavModmailDesc": {
@@ -2972,7 +2992,7 @@
         "description": ""
     },
     "userbarHiderName": {
-        "message": "User Bar Hider",
+        "message": "Kullanıcı Çubuğu Gizleyici",
         "description": ""
     },
     "keyboardNavNonLinearScrollStyleDesc": {
@@ -2981,6 +3001,10 @@
     },
     "selectedEntrySelectOnClickDesc": {
         "message": "Allows you to click on an item to select it",
+        "description": ""
+    },
+    "necDescription": {
+        "message": "Keep ultra-long comment pages flowing.",
         "description": ""
     },
     "troubleshooterCachesCleared": {
@@ -3156,7 +3180,7 @@
         "description": ""
     },
     "commentPreviewEnableForCommentsDesc": {
-        "message": "Show preview for comments.",
+        "message": "Yorumlar için önizleme göster.",
         "description": ""
     },
     "spamButtonName": {
