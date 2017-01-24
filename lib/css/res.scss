@@ -709,14 +709,39 @@ div.usertext-edit {
 		transform: translateX(30px);
 	}
 
-	// Custom toggle labels
-	&[data-disabled-text]::after {
-		content: '\00a0' attr(data-disabled-text);
+	& .toggleLabel {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+
+		// Custom toggle labels
+		&[data-disabled-text]::before {
+			content: '\00a0' attr(data-disabled-text);
+			display: block;
+			line-height: 0;
+			opacity: 1;
+		}
+
+		&[data-enabled-text]::after {
+			content: '\A\00a0' attr(data-enabled-text);
+			display: block;
+			line-height: 0;
+			opacity: 0;
+		}
+
 	}
 
-	&.enabled[data-enabled-text]::after {
-		content: '\00a0' attr(data-enabled-text);
+	// Also custom toggle labels
+	&.enabled .toggleLabel {
+		&[data-disabled-text]::before {
+			opacity: 0;
+		}
+
+		&[data-enabled-text]::after {
+			opacity: 1;
+		}
 	}
+
 
 	input[type=checkbox] {
 		display: none;
