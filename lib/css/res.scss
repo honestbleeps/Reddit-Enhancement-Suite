@@ -692,6 +692,7 @@ div.usertext-edit {
 		height: 15px;
 		background-color: #ccc;
 		border: 2px solid #ccc;
+		border-radius: 2px;
 		transition: .1s;
 		transition-timing-function: ease-in;
 	}
@@ -714,6 +715,7 @@ div.usertext-edit {
 		height: 15px;
 		width: 15px;
 		left: 2px;
+		border-radius: 2px;
 		background-color: white;
 		transition: .4s;
 	}
@@ -754,7 +756,6 @@ div.usertext-edit {
 			opacity: 1;
 		}
 	}
-
 
 	input[type=checkbox] {
 		display: none;
