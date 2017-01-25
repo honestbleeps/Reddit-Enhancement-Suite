@@ -1,16 +1,12 @@
 
 ### New Features
 
-- New "adopt" scrollStyle which will keep the top of each comment in the same position as the last selected (thanks @larsjohnsen)
-- New notifyEditedPosts option to show notifications when a subscribed post is edited (thanks @preethamrn)
-- Redesign toggle buttons to work better with other languages and improve aesthetics (thanks @WilliamChiu)
+- None (thanks nobody)
 
 ### Bug Fixes
 
-- Fix highlightFirstCommenter highlighting all users replying more than once instead of only top-level comments (thanks @erikdesjardins)
-- Fix Selected Entry outline being lost when moving back and forth between comments rapidly (thanks @erikdesjardins)
-- Fix duplicate expandos being unexpandable with keyboard shortcuts in certain situations (thanks @larsjohnsen)
+- None (thanks nobody)
 
 ### Housekeeping / Other
 
-- Hide unusable voting arrows on archived posts by default (thanks @erikdesjardins)
+- None (thanks nobody)
