@@ -682,7 +682,7 @@ div.usertext-edit {
 	cursor: pointer;
 	white-space: nowrap;
 
-	& .toggleThumb {
+	.toggleThumb {
 		cursor: pointer;
 		top: 0;
 		left: 0;
@@ -708,7 +708,7 @@ div.usertext-edit {
 		}
 	}
 
-	& .toggleThumb::before {
+	.toggleThumb::before {
 		position: absolute;
 		content: '';
 		height: 15px;
@@ -722,7 +722,7 @@ div.usertext-edit {
 		transform: translateX(25px);
 	}
 
-	& .toggleLabel {
+	.toggleLabel {
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
