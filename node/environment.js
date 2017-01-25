@@ -1,4 +1,6 @@
+import { makeGetMessage } from '../locales/dynamic';
 import { createMessageHandler } from '../lib/environment/_messaging';
+import { nativeRequire } from '../lib/environment/_nativeRequire';
 import { extendDeep } from '../lib/utils';
 
 const {
@@ -81,3 +83,11 @@ addInterceptor('storage', ([operation, key, value]) => {
 			throw new Error(`Invalid storage operation: ${operation}`);
 	}
 });
+
+let getMessage;
+
+addInterceptor('i18n-load', async userLocale => {
+	getMessage = await makeGetMessage(userLocale, nativeRequire);
+});
+
+addInterceptor('i18n', ([messageName, substitutions]) => getMessage(messageName, substitutions));

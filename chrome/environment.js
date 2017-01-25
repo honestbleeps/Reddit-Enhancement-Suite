@@ -1,5 +1,6 @@
 /* eslint-env webextensions */
 
+import { makeGetMessage } from '../locales/dynamic';
 import { createMessageHandler } from '../lib/environment/_messaging';
 import { extendDeep, keyedMutex } from '../lib/utils';
 import { apiToPromise } from './_helpers';
@@ -79,3 +80,13 @@ addInterceptor('storage', keyedMutex(async ([operation, key, value]) => {
 			throw new Error(`Invalid storage operation: ${operation}`);
 	}
 }, ([, key]) => key || '__all_keys__'));
+
+let getMessage;
+
+addInterceptor('i18n-load', async userLocale => {
+	getMessage = await makeGetMessage(userLocale, path =>
+		fetch(chrome.runtime.getURL(path)).then(r => r.json())
+	);
+});
+
+addInterceptor('i18n', ([messageName, substitutions]) => getMessage(messageName, substitutions));

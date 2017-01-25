@@ -14,6 +14,7 @@ import cssOn from '../images/css-on.png';
 import cssOnSmall from '../images/css-on-small.png';
 
 const priv = nativeRequire('sdk/private-browsing');
+const self = nativeRequire('sdk/self');
 const ss = nativeRequire('sdk/simple-storage');
 const tabs = nativeRequire('sdk/tabs');
 const { ActionButton } = nativeRequire('sdk/ui/button/action');
@@ -366,6 +367,8 @@ addListener('multicast', (request, worker) => {
 			.map(w => sendMessage('multicast', request, w))
 	);
 });
+
+addListener('loadJson', path => JSON.parse(self.data.load(`./../${path}`)));
 
 PageMod({
 	include: ['*.reddit.com'],
