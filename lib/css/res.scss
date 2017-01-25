@@ -689,24 +689,37 @@ div.usertext-edit {
 		right: 0;
 		bottom: 0;
 		width: 40px;
-		height: 10px;
+		height: 15px;
 		background-color: #ccc;
 		border: 2px solid #ccc;
-		transition: .4s;
+		transition: .1s;
+		transition-timing-function: ease-in;
+	}
+
+	&.enabled {
+		&.reverseToggleButton .toggleThumb {
+			background-color: #c66;
+			border-color: #c66;
+		}
+
+		.toggleThumb {
+			background-color: #369;
+			border-color: #369;
+		}
 	}
 
 	& .toggleThumb::before {
 		position: absolute;
 		content: '';
-		height: 10px;
-		width: 10px;
+		height: 15px;
+		width: 15px;
 		left: 2px;
 		background-color: white;
 		transition: .4s;
 	}
 
 	&.enabled .toggleThumb::before {
-		transform: translateX(30px);
+		transform: translateX(25px);
 	}
 
 	& .toggleLabel {
