@@ -9,7 +9,7 @@
 	"version": "{{prop?version!../../package.json}}beta",
 	"main": "{{../background.entry.js}}",
 	"engines": {
-		"firefox": ">=48.0"
+		"firefox": ">=51.0"
 	},
 	"permissions": {
 		"private-browsing": true,
