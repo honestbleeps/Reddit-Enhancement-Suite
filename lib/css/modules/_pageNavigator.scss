@@ -25,12 +25,24 @@ $page-offsetleft: 15px;
 	z-index: $zindex-show-link-title;
 	font: 11px/1.6 verdana, sans-serif;
 
+	.res-nightmode & {
+		background: #3c3c3c;
+	}
+
 	a {
 		color: hsl(206, 100%, 41%);
+
+		.res-nightmode & {
+			color: hsl(205, 100%, 50%);
+		}
 	}
 
 	.res-show-link-domain {
 		color: hsl(0, 0%, 50%);
+
+		.res-nightmode & {
+			color: hsl(0, 0%, 60%);
+		}
 	}
 
 	.res-show-link-content {
@@ -64,6 +76,10 @@ $page-offsetleft: 15px;
 		visibility: hidden;
 		opacity: 0;
 		transition: all .3s .1s;
+
+		.res-nightmode & {
+			color: hsl(0, 0%, 75%);
+		}
 	}
 
 	.toTop {
@@ -75,6 +91,10 @@ $page-offsetleft: 15px;
 		text-align: center;
 		vertical-align: middle;
 		transition: font-size .2s .1s;
+
+		.res-nightmode & {
+			color: hsl(205, 100%, 41%);
+		}
 
 		&:hover {
 			color: hsl(205, 100%, 35%);
