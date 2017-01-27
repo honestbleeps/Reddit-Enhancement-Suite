@@ -154,7 +154,6 @@ module.exports = {
 
 			// [flair] isn't treated as a regex set (which filters `f`)
 			.perform(editSettings(() => browser
-				.click('#optionContainer-filteReddit-flair .addRowButton')
 				.clearValue('#optionContainer-filteReddit-flair input')
 				.setValue('#optionContainer-filteReddit-flair input', ['[a]'])
 			))
