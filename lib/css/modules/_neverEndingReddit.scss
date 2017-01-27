@@ -1,36 +1,5 @@
 @import '../zindex';
 
-#NERModal {
-	z-index: $zindex-ner-content - 1;
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	background-color: #333;
-	opacity: .6;
-}
-
-#NERContent {
-	position: fixed;
-	top: 40px;
-	z-index: $zindex-ner-content;
-	width: 570px;
-	left: 50%;
-	transform: translateX(-50%);
-	background-color: #FFF;
-	color: #000;
-	padding: 10px;
-	font-size: 12px;
-
-	.RESCenteredLoadIndicator { margin-top: 20px; }
-}
-
-#NERModalClose {
-	float: right;
-	position: static;
-}
-
 .NERPageMarker {
 	text-align: center;
 	color: #7f7f7f;
