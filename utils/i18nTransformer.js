@@ -1,6 +1,6 @@
-const fs = require('fs');
-const path = require('path');
-const _ = require('lodash');
+import fs from 'fs';
+import path from 'path';
+import _ from 'lodash';
 
 export default function transformer(file, api) {
 	const j = api.jscodeshift;
