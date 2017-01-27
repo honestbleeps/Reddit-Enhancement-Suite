@@ -25,6 +25,7 @@
     "jpm-beta": "jpm --addon-dir=dist/firefox-beta",
     "manifoldjs-package": "manifoldjs -l debug -p edgeextension package dist/edgeextension/manifest",
     "autoi18n": "jscodeshift --parser flow --transform utils/i18nTransformer.js",
+    "postautoi18n": "eslint --fix lib/modules/*.js",
     "eslint": "eslint .",
     "sass-lint": "sass-lint -v -q",
     "lint": "npm run -s eslint && npm run -s sass-lint",

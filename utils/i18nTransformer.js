@@ -57,5 +57,9 @@ export default function transformer(file, api) {
 	const newEnJson = JSON.stringify(enJsonObj, null, '\t');
 	fs.writeFileSync(enJsonLocation, newEnJson);
 
-	return basePath.toSource();
+	return basePath.toSource({
+		tabWidth: 4,
+		quote: 'single',
+		trailingComma: true,
+	});
 }
