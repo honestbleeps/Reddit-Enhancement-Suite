@@ -51,10 +51,13 @@ export default function transformer(file, api) {
 		});
 
 	const enJsonLocation = path.join(__dirname, '../locales/locales/en.json');
+
 	const enJson = fs.readFileSync(enJsonLocation, { encoding: 'utf8' });
+
 	const enJsonObj = JSON.parse(enJson);
-	Object.assign(enJsonObj, newI18nKeys);
+	Object.assign(enJsonObj, _.mapValues(newI18nKeys, message => ({ message })));
 	const newEnJson = JSON.stringify(enJsonObj, null, '\t');
+
 	fs.writeFileSync(enJsonLocation, newEnJson);
 
 	return basePath.toSource({
