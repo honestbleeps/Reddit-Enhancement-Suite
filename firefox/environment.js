@@ -1,4 +1,4 @@
-import { createMessageHandler } from '../lib/environment/_messaging';
+import { createMessageHandler } from '../lib/environment/common/messaging';
 
 const {
 	_handleMessage,

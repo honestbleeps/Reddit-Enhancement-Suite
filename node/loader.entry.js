@@ -1,7 +1,7 @@
 import './mocks';
 
 import * as Init from '../lib/core/init';
-import { nativeRequire } from '../lib/environment/_nativeRequire';
+import { nativeRequire } from '../lib/environment/common/nativeRequire';
 import { _mockStorage } from './environment';
 
 import expected from 'json!./storage/andytuba-4.5.4-6dffad39.json';

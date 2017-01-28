@@ -101,7 +101,7 @@ const configs = browsers.map(b => browserConfig[b]).map(({ target, entry, enviro
 			],
 			noParse: [
 				// to use `require` in Firefox and Node
-				/_nativeRequire\.js$/,
+				/nativeRequire\.js$/,
 			],
 		},
 		plugins: [

@@ -1,4 +1,4 @@
-import { nativeRequire } from '../lib/environment/_nativeRequire';
+import { nativeRequire } from '../lib/environment/common/nativeRequire';
 
 const jsdom = nativeRequire('jsdom');
 

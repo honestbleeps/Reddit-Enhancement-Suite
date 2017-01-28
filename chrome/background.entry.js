@@ -32,8 +32,8 @@
 
 /* eslint-env webextensions */
 
-import { addCommonBackgroundListeners } from '../lib/environment/_common';
-import { createMessageHandler } from '../lib/environment/_messaging';
+import { addCommonBackgroundListeners } from '../lib/environment/common/listeners';
+import { createMessageHandler } from '../lib/environment/common/messaging';
 
 import cssOff from '../images/css-off.png';
 import cssOffSmall from '../images/css-off-small.png';
