@@ -1,9 +1,9 @@
 import mainEntry from '../lib/main.entry'; // eslint-disable-line import/default
 import resCss from '../lib/css/res.scss';
 
-import { addCommonBackgroundListeners } from '../lib/environment/_common';
-import { createMessageHandler } from '../lib/environment/_messaging';
-import { nativeRequire } from '../lib/environment/_nativeRequire';
+import { addCommonBackgroundListeners } from '../lib/environment/common/listeners';
+import { createMessageHandler } from '../lib/environment/common/messaging';
+import { nativeRequire } from '../lib/environment/common/nativeRequire';
 import { extendDeep } from '../lib/utils/object';
 
 import cssDisabled from '../images/css-disabled.png';
