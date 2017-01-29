@@ -26,8 +26,6 @@ addons:
     secure: hHF06xHY6pLdxscwYhUHdSRuUH2CPA61AUrvPiW54lnMwwkDvCQakR+aY5HbjptFIfOwkWsS4xoqXH4pZTfhMOji32S/+ELT+AqLdkIgnLYDfBj4RcsZoXyvuiLx29i4PVCnGMikctBp4dM6wORgfd1tu3uwhcoQrBjxCMW1qmY=
 cache:
   yarn: true
-  directories:
-    - node_modules
 install:
   - npm install -g yarn
   - yarn install --pure-lockfile
