@@ -161,6 +161,12 @@ module.exports = {
 			.end();
 	},
 	'adding a row to table option doesn\'t duplicate value': browser => {
+		if (browser.options.desiredCapabilities.browserName === 'firefox') {
+			// geckodriver treats `value` of empty inputs incorrectly
+			browser.end();
+			return;
+		}
+
 		browser
 			.url('https://www.reddit.com/wiki/pages#res:settings/accountSwitcher')
 			.waitForElementVisible('#RESConsoleContainer')
