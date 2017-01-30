@@ -160,4 +160,18 @@ module.exports = {
 			.assert.value('#accounts_accountSwitcherUsername_1', 'first')
 			.end();
 	},
+	'adding a row to table option doesn\'t duplicate value': browser => {
+		browser
+			.url('https://www.reddit.com/wiki/pages#res:settings/accountSwitcher')
+			.waitForElementVisible('#RESConsoleContainer')
+			.click('#optionContainer-accountSwitcher-accounts .addRowButton')
+			.setValue('#accounts_accountSwitcherUsername_1', ['test'])
+			.click('#moduleOptionsSave')
+			.refresh()
+			.waitForElementVisible('#RESConsoleContainer')
+			.click('#optionContainer-accountSwitcher-accounts .addRowButton')
+			.assert.value('#accounts_accountSwitcherUsername_0', 'test')
+			.assert.value('#accounts_accountSwitcherUsername_2', '')
+			.end();
+	},
 };
