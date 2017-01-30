@@ -1,0 +1,7 @@
+@import '../../node_modules/jquery.tokeninput/styles/token-input-facebook';
+@import './guiders';
+
+// override settings console li style
+.token-input-list-facebook li {
+	list-style-type: none !important;
+}

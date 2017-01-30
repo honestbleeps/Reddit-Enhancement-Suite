@@ -1006,7 +1006,7 @@ declare class JQuery {
 		speed?: number,
 	}): JQuery;
 
-	// jquery-tokeninput
+	// jquery.tokeninput
 	tokenInput(op: 'clear'): JQuery;
 	tokenInput(op: 'add', item: mixed): JQuery;
 	tokenInput(op: 'remove', item: mixed): JQuery;
