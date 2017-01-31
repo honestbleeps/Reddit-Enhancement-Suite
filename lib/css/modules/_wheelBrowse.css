@@ -1,6 +1,10 @@
+$full-width: 30px;
+$transition: width 0.3s linear;
+
 .res-wheel-media-browse {
 	position: relative;
-	width: 30px;
+	width: 8px;
+	transition: $transition;
 	height: 16px;
 	margin-left: 4px;
 	border-radius: 5px;
@@ -8,11 +12,16 @@
 	background-color: rgba(0, 0, 0, 0.24);
 	overflow: hidden;
 
+	&:hover {
+		width: $full-width;
+		transition: $transition;
+	}
+
 	&-gallery {
 		position: absolute;
-		width: 50%;
+		width: $full-width * 0.5;
 		height: 100%;
-		right: 0;
+		left: $full-width * 0.5;
 		background-color: rgba(255, 0, 0, 0.24);
 	}
 }
