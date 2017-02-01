@@ -1,18 +1,25 @@
+$full-width: 30px;
+
 .res-wheel-media-browse {
 	position: relative;
-	width: 30px;
+	width: 16px;
 	height: 16px;
+	transition: width 0.1s linear;
 	margin-left: 4px;
 	border-radius: 5px;
 	cursor: crosshair;
 	background-color: rgba(0, 0, 0, 0.24);
 	overflow: hidden;
 
+	&:hover {
+		width: $full-width;
+	}
+
 	&-gallery {
 		position: absolute;
-		width: 50%;
+		width: $full-width * 0.5;
 		height: 100%;
-		right: 0;
+		left: $full-width * 0.5;
 		background-color: rgba(255, 0, 0, 0.24);
 	}
 }
