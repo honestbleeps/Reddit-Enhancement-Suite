@@ -30,7 +30,7 @@ module.exports = {
 	},
 	'change boolean option': browser => {
 		browser
-			.url('https://www.reddit.com/#res:settings/accountSwitcher')
+			.url('https://www.reddit.com/wiki/pages#res:settings/accountSwitcher')
 			.waitForElementVisible('#RESConsoleContainer')
 
 			// initial state, no options changed
@@ -54,7 +54,7 @@ module.exports = {
 	},
 	'change enum option': browser => {
 		browser
-			.url('https://www.reddit.com/#res:settings/accountSwitcher')
+			.url('https://www.reddit.com/wiki/pages#res:settings/accountSwitcher')
 			.waitForElementVisible('#RESConsoleContainer')
 
 			// initial state, no options changed
@@ -81,7 +81,7 @@ module.exports = {
 	},
 	'change text option': browser => {
 		browser
-			.url('https://www.reddit.com/#res:settings/quickMessage')
+			.url('https://www.reddit.com/wiki/pages#res:settings/quickMessage')
 			.waitForElementVisible('#RESConsoleContainer')
 
 			// initial state, no options changed
@@ -103,7 +103,7 @@ module.exports = {
 	},
 	'change table option': browser => {
 		browser
-			.url('https://www.reddit.com/#res:settings/accountSwitcher')
+			.url('https://www.reddit.com/wiki/pages#res:settings/accountSwitcher')
 			.waitForElementVisible('#RESConsoleContainer')
 
 			// initial state, no options changed
@@ -132,7 +132,7 @@ module.exports = {
 		}
 
 		browser
-			.url('https://www.reddit.com/#res:settings/accountSwitcher')
+			.url('https://www.reddit.com/wiki/pages#res:settings/accountSwitcher')
 			.waitForElementVisible('#RESConsoleContainer')
 
 			// add rows

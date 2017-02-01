@@ -68,6 +68,13 @@ const configs = browsers.map(b => browserConfig[b]).map(({ target, entry, enviro
 		babelrc: false,
 	};
 
+	if (target === 'edge') {
+		// Edge has problems with destructuring in arrow functions:
+		// In Edge 14, object destructuring with default values in arrow functions doesn't parse
+		// In Edge 15 this is fixed, but there are other issues with destructuring (soon fixed)
+		babelConfig.plugins.push('transform-es2015-arrow-functions');
+	}
+
 	return {
 		entry: `extricate!interpolate!./${entry}`,
 		bail: isProduction,
@@ -94,7 +101,7 @@ const configs = browsers.map(b => browserConfig[b]).map(({ target, entry, enviro
 			],
 			noParse: [
 				// to use `require` in Firefox and Node
-				/_nativeRequire\.js$/,
+				/nativeRequire\.js$/,
 			],
 		},
 		plugins: [

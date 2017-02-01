@@ -4,7 +4,7 @@ import _ from 'lodash';
 
 import resCss from '../lib/css/res.scss';
 
-import { createMessageHandler } from '../lib/environment/_messaging';
+import { createMessageHandler } from '../lib/environment/common/messaging';
 import * as Init from '../lib/core/init';
 
 // DOM Collection iteration

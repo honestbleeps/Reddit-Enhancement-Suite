@@ -277,6 +277,14 @@
         "message": "Toggles comment collapse when the header is double clicked."
     },
 
+    "hideCommentsOnHeaderDoubleClickDesc": {
+        "message": "Toggles comment collapse when the header is double clicked."
+    },
+
+    "hideCommentsOnHeaderDoubleClickTitle": {
+        "message": "Hide Comments On Header Double Click"
+    },
+
     "commentStyleName": {
         "message": "Comment Style"
     },
@@ -1385,12 +1393,20 @@
         "message": "Show the Subscribe button?"
     },
 
+    "newCommentCountNotifyEditedPostsTitle": {
+        "message": "Notify Edited Posts"
+    },
+
+    "newCommentCountNotifyEditedPostsDesc": {
+        "message": "Notify if a subscribed post is edited."
+    },
+
     "newCommentCountMonitorPostsVisitedTitle": {
         "message": "Monitor Posts Visited"
     },
 
     "newCommentCountMonitorPostsVisitedDesc": {
-        "message": "Monitor the number of comments on posts you have visited."
+        "message": "Monitor the number of comments and edit dates of posts you have visited."
     },
 
     "newCommentCountMonitorPostsVisitedIncognitoTitle": {
@@ -1398,7 +1414,7 @@
     },
 
     "newCommentCountMonitorPostsVisitedIncognitoDesc": {
-        "message": "Monitor the number of comments on posts you have visited while browsing in incognito/private mode."
+        "message": "Monitor the number of comments and edit dates of posts you have visited while browsing in incognito/private mode."
     },
 
     "nightModeName": {
@@ -3326,6 +3342,61 @@
         "message": "Show the vote weight tooltip on hover (i.e. \"your votes for...\")"
     },
 
+    "scrollOnCollapseDesc": {
+        "message": "Scrolls to next comment when a comment is collapsed."
+    },
+
+    "toggleCommentsOnClickLeftEdgeDesc": {
+        "message": "Creates a bar on the left side of each comment. The bar can be clicked to collapse the comment."
+    },
+
+    "toggleCommentsLeftEdgeColorDesc": {
+        "message": "Default color of the bar."
+    },
+
+    "toggleCommentsLeftEdgeHoverColorDesc": {
+        "message": "Color of the bar when hovered."
+    },
+
+    "toggleCommentsLeftEdgeCollapsedColorDesc": {
+        "message": "Color of the bar when hovered."
+    },
+
+    "toggleCommentsLeftEdgeWidthDesc": {
+        "message": "Width of the bar. Default is 50."
+    },
+
+    "toggleCommentsLeftEdgeHideButtonDesc": {
+        "message": "Hides the default button ([-]) to collapse comments."
+    },
+
+    "toggleCommentsOnClickLeftEdgeTitle": {
+      "message": "Toggle Comments On Click Left Edge"
+    },
+
+    "toggleCommentsLeftEdgeColorTitle": {
+      "message": "Toggle Comments Left Edge Color"
+    },
+
+    "toggleCommentsLeftEdgeHoverColorTitle": {
+      "message": "Toggle Comments Left Edge Hover Color"
+    },
+
+    "toggleCommentsLeftEdgeCollapsedColorTitle": {
+      "message": "Toggle Comments Left Edge Collapsed Color"
+    },
+
+    "toggleCommentsLeftEdgeWidthTitle": {
+      "message": "Toggle Comments Left Edge Width"
+    },
+
+    "toggleCommentsLeftEdgeHideButtonTitle": {
+      "message": "Toggle Comments Left Edge Hide Button"
+    },
+
+    "scrollOnCollapseTitle": {
+      "message": "Scroll On Collapse"
+    },
     "penaltyBoxName": {
         "message": "RES Feature Throttle"
     },
