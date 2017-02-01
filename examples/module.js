@@ -13,15 +13,17 @@ module.options = {
 	// Valid types: text, boolean, color (in hexadecimal form), list
 	// For example:
 	defaultMessage: {
-		type: 'text',
-		value: 'This is default text',
-		description: 'myModuleDefaultMessageDesc', // i18n
-	},
+        title: 'myModuleDefaultMessageTitle',
+        type: 'text',
+        value: 'This is default text',
+        description: 'myModuleDefaultMessageDesc',
+    },
 	doSpecialStuff: {
-		type: 'boolean',
-		value: false,
-		description: 'myModuleDoSpecialStuffDesc', // i18n
-	},
+        title: 'myModuleDoSpecialStuffTitle',
+        type: 'boolean',
+        value: false,
+        description: 'myModuleDoSpecialStuffDesc',
+    },
 };
 
 // See PageType (utils/location.js) for other page types
