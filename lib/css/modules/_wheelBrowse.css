@@ -1,10 +1,9 @@
 $full-width: 30px;
-$transition: width 0.3s linear;
 
 .res-wheel-media-browse {
 	position: relative;
 	width: 8px;
-	transition: $transition;
+	transition: width 0.3s linear;
 	height: 16px;
 	margin-left: 4px;
 	border-radius: 5px;
@@ -14,7 +13,6 @@ $transition: width 0.3s linear;
 
 	&:hover {
 		width: $full-width;
-		transition: $transition;
 	}
 
 	&-gallery {
