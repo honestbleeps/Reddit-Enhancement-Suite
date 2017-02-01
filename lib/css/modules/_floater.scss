@@ -4,13 +4,15 @@
 	z-index: 10000000;
 	right: 8px;
 }
+
 .res-floater-visibleAfterScroll > ul {
 	display: inline-flex;
 	align-items: center;
 	float: right;
 }
+
 .res-floater-visibleAfterScroll > ul > li {
 	display: flex;
-	opacity: 0.7;
-	&:hover { opacity: 1.0; }
+	opacity: .7;
+	&:hover { opacity: 1; }
 }
