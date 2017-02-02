@@ -114,7 +114,7 @@
 
 	#sortButton {
 		border: 1px solid #aaa !important;
-		border-right: none !important;
+		border-left: none !important;
 		border-radius: 3px 0 0 3px;
 		background: rgb(230, 230, 230);
 		color: #333 !important;
@@ -127,6 +127,14 @@
 		line-height: normal;
 		box-shadow: none;
 		font-size: 100% !important;
+	}
+
+	#shortcut-subreddit.unsortable {
+		width: 270px;
+
+		+ #sortButton {
+			display: none !important;
+		}
 	}
 
 	.RESDescription {
