@@ -182,4 +182,13 @@ module.exports = {
 			.assert.value('#accounts_accountSwitcherUsername_2', '')
 			.end();
 	},
+	'color options are revealed when changing the option they depend on': browser => {
+		browser
+			.url('https://www.reddit.com/wiki/pages#res:settings/commentQuickCollapse')
+			.waitForElementVisible('#RESConsoleContainer')
+			.waitForElementNotVisible('#optionContainer-commentQuickCollapse-leftEdgeColor')
+			.click('#toggleCommentsOnClickLeftEdgeContainer')
+			.assert.visible('#optionContainer-commentQuickCollapse-leftEdgeColor')
+			.end();
+	},
 };
