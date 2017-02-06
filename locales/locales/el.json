@@ -56,7 +56,7 @@
         "description": ""
     },
     "subredditInfoFilterThisSubredditFromAllAndDomain": {
-        "message": "Φίλτραρε αυτό το υπορέντιτ από το /r/all και τον /τομέα/*",
+        "message": "Φίλτραρε αυτό το υποreddit από το /r/all και τον /τομέα/*",
         "description": ""
     },
     "keyboardNavFollowCommentsNewTabTitle": {
@@ -184,11 +184,11 @@
         "description": ""
     },
     "keyboardNavsSubredditFrontPageTitle": {
-        "message": "Αρχική Σελίδα Υπορέντιτ.",
+        "message": "Αρχική Σελίδα Υποreddit.",
         "description": ""
     },
     "keyboardNavFollowSubredditTitle": {
-        "message": "Ακολούθησε το Υπορέντιτ",
+        "message": "Ακολούθησε το Υποreddit",
         "description": ""
     },
     "accountSwitcherShowGoldTitle": {
@@ -212,7 +212,7 @@
         "description": ""
     },
     "nightModeSubredditStylesWhitelistTitle": {
-        "message": "Λίστα Επιτρεπόμενων Στυλ Υπορέντιτ",
+        "message": "Λίστα Επιτρεπόμενων Στυλ Υποreddit",
         "description": ""
     },
     "troubleshooterAreYouPositive": {
@@ -284,7 +284,7 @@
         "description": ""
     },
     "newCommentCountMonitorPostsVisitedDesc": {
-        "message": "Παρακολούθηση του αριθμού των σχολίων σε αναρτήσεις που έχετε επισκεφθεί",
+        "message": "Monitor the number of comments and edit dates of posts you have visited.",
         "description": ""
     },
     "orangeredDesc": {
@@ -340,7 +340,7 @@
         "description": ""
     },
     "commentDepthSubreddit": {
-        "message": "υπορέντιτ",
+        "message": "υποreddit",
         "description": ""
     },
     "betteRedditVideoViewedTitle": {
@@ -349,6 +349,10 @@
     },
     "commentToolsHighlightIfAltAccountDesc": {
         "message": "Κάνει το \"Σχολιάζει Ως\" σε έντονη γραμματοσειρά αν χρησιμοποιείς εναλλακτικό λογαριασμό. Ο πρώτος λογαριασμός στην μονάδα Εναλλάκτης Λογαριασμών θεωρείται ο κύριος λογαριασμός σου.",
+        "description": ""
+    },
+    "penaltyBoxFeaturesOptionKey": {
+        "message": "optionKey",
         "description": ""
     },
     "commentToolsShowInputLengthDesc": {
@@ -365,6 +369,10 @@
     },
     "subredditInfoTitle": {
         "message": "Τίτλος:",
+        "description": ""
+    },
+    "nightModeAutomaticNightModeAutomatic": {
+        "message": "Automatic (requires geolocation)",
         "description": ""
     },
     "keyboardNavFollowLinkAndCommentsNewTabBGDesc": {
@@ -427,6 +435,10 @@
         "message": "Ακολούθησε τον σύνδεσμο (μόνο στις σελίδες συνδέσμων).",
         "description": ""
     },
+    "penaltyBoxDelayFeaturesTitle": {
+        "message": "Delay Features",
+        "description": ""
+    },
     "commentHidePerDesc": {
         "message": "Αποθηκεύει την κατάσταση των κρυμμένων σχολίων μεταξύ διαφορετικών προβολών της σελίδας.",
         "description": ""
@@ -440,7 +452,7 @@
         "description": ""
     },
     "styleTweaksCommandLineDescription": {
-        "message": "ενάλλαξε το στυλ του υπορέντιτ on/off (αν κανένα υπορέντιτ δεν καθορίστηκε, χρησιμοποίησε το παρόν υπορέντιτ)",
+        "message": "ενάλλαξε το στυλ του υποreddit on/off (αν κανένα υποreddit δεν καθορίστηκε, χρησιμοποίησε το παρόν υποreddit)",
         "description": ""
     },
     "accountSwitcherUsername": {
@@ -460,7 +472,7 @@
         "description": ""
     },
     "commentDepthAddSubreddit": {
-        "message": "+πρόσθεσε υπορέντιτ",
+        "message": "+πρόσθεσε υποreddit",
         "description": ""
     },
     "commentPreviewSwapBigEditorLayoutTitle": {
@@ -500,7 +512,7 @@
         "description": ""
     },
     "necName": {
-        "message": "Never Ending Comments",
+        "message": "Ατελείωτα Σχόλια",
         "description": ""
     },
     "filteRedditExcludeOwnPostsTitle": {
@@ -523,6 +535,10 @@
         "message": "Να εμφανίζεται το κουμπί συνδρομής;",
         "description": ""
     },
+    "toggleCommentsLeftEdgeHoverColorDesc": {
+        "message": "Color of the bar when hovered.",
+        "description": ""
+    },
     "backupAndRestoreBackupDesc": {
         "message": "Κατέβασε ένα αντίγραφο ασφαλείας για τις παρούσες ρυθμίσεις του RES.",
         "description": ""
@@ -533,6 +549,10 @@
     },
     "betteRedditDoNoCtrlFDesc": {
         "message": "Όταν χρησιμοποιείς την συντόμευση Ctrl+F/Cmd+F του φυλλομετρητή για την εύρεση κειμένου, ψάχνει μόνο τα σχόλια/αναρτήσεις και όχι τους συνδέσμους πλοήγησης (\"σύνδεσμος πηγή αποθήκευση...\"). Απενεργοποιημένο από προεπιλογή, λόγω μικρής επίδρασης στην επίδοση.",
+        "description": ""
+    },
+    "hideCommentsOnHeaderDoubleClickTitle": {
+        "message": "Hide Comments On Header Double Click",
         "description": ""
     },
     "backupName": {
@@ -548,7 +568,7 @@
         "description": ""
     },
     "styleTweaksUseSubredditStyle": {
-        "message": "Χρησιμοποίησε το στυλ υπορέντιτ",
+        "message": "Χρησιμοποίησε το στυλ υποreddit",
         "description": ""
     },
     "selectedEntryFocusBorderNightDesc": {
@@ -564,7 +584,11 @@
         "description": ""
     },
     "subredditInfoAddThisSubredditToDashboard": {
-        "message": "Πρόσθεσε αυτό το υπορέντιτ στον πίνακα εργαλείων",
+        "message": "Πρόσθεσε αυτό το υποreddit στον πίνακα εργαλείων",
+        "description": ""
+    },
+    "toggleCommentsLeftEdgeWidthTitle": {
+        "message": "Toggle Comments Left Edge Width",
         "description": ""
     },
     "accountSwitcherUpdateOtherTabsTitle": {
@@ -572,7 +596,7 @@
         "description": ""
     },
     "nightModeUseSubredditStylesTitle": {
-        "message": "Χρήση Στυλ Υπορέντιτ",
+        "message": "Χρήση Στυλ Υποreddit ",
         "description": ""
     },
     "keyboardNavOnVoteCommentMoveDownDesc": {
@@ -636,7 +660,7 @@
         "description": ""
     },
     "xPostLinksDesc": {
-        "message": "Φτιάξε συνδέσμους στα παράλληλα υπορέντιτ στον τίτλο της ανάρτησης.",
+        "message": "Φτιάξε συνδέσμους στα παράλληλα υποreddit στον τίτλο της ανάρτησης.",
         "description": ""
     },
     "messageMenuFadeDelayDesc": {
@@ -656,7 +680,7 @@
         "description": ""
     },
     "commentPreviewEnableForSubredditConfigDesc": {
-        "message": "Εμφανίζει την προεπισκόπηση για την επεξεργασία των ρυθμίσεων υπορέντιτ.",
+        "message": "Εμφανίζει την προεπισκόπηση για την επεξεργασία των ρυθμίσεων υποreddit.",
         "description": ""
     },
     "userTaggerAllUsers": {
@@ -668,7 +692,7 @@
         "description": ""
     },
     "subredditsCategory": {
-        "message": "Υπορέντιτ",
+        "message": "Υποreddit",
         "description": ""
     },
     "keyboardNavToggleChildrenDesc": {
@@ -719,6 +743,10 @@
         "message": "Διαχείριση συγκεκριμένων αναδυόμενων παραθύρων",
         "description": ""
     },
+    "toggleCommentsLeftEdgeHoverColorTitle": {
+        "message": "Toggle Comments Left Edge Hover Color",
+        "description": ""
+    },
     "keyboardNavMoveUpCommentDesc": {
         "message": "Μετακίνηση προς τα επάνω στο προηγούμενο σχόλιο σε σελίδες νημάτων σχολίων.",
         "description": ""
@@ -755,6 +783,10 @@
         "message": "Ταχύτητα εφέ ομαλής μετάβασης (σε δευτερόλεπτα). Η προεπιλεγμένη τιμή είναι 0,7.",
         "description": ""
     },
+    "filteRedditEmptyNotificationToggleShowReason": {
+        "message": "Toggle show filter reasons",
+        "description": ""
+    },
     "contextViewFullContextDesc": {
         "message": "Προσθέτει έναν σύνδεσμο \"Εμφάνισε το Πλήρες Πλαίσιο\" σε συνδέσμους σχολίων.",
         "description": ""
@@ -784,11 +816,15 @@
         "description": ""
     },
     "keyboardNavFollowSubredditNewTabDesc": {
-        "message": "Πήγαινε στο υπορέντιτ του επιλεγμένου συνδέσμου σε νέα καρτέλα (μόνο στις σελίδες συνδέσμων).",
+        "message": "Πήγαινε στο υποreddit του επιλεγμένου συνδέσμου σε νέα καρτέλα (μόνο στις σελίδες συνδέσμων).",
+        "description": ""
+    },
+    "nightModeAutomaticNightModeDenied": {
+        "message": "Access to your current location was denied. It is required to calculate sunset and sunrise times for automatic night mode. To disable this functionality, click \"$1\".",
         "description": ""
     },
     "styleTweaksSubredditStyle": {
-        "message": "Στυλ Υπορέντιτ",
+        "message": "Στυλ Υποreddit",
         "description": ""
     },
     "keyboardNavDownVoteTitle": {
@@ -797,6 +833,10 @@
     },
     "keyboardNavMoveDownTitle": {
         "message": "Μετακίνησε Κάτω",
+        "description": ""
+    },
+    "penaltyBoxSuspendFeaturesTitle": {
+        "message": "Suspend Features",
         "description": ""
     },
     "notificationNotificationTypesTitle": {
@@ -812,7 +852,7 @@
         "description": ""
     },
     "subredditTaggerName": {
-        "message": "Ετικέτες Υπορέντιτ",
+        "message": "Ετικέτες Υποreddit",
         "description": ""
     },
     "commentToolsHighlightIfAltAccountTitle": {
@@ -852,7 +892,7 @@
         "description": ""
     },
     "subredditManagerMultiCountTitle": {
-        "message": "/r/$1 είναι σε $2 πολυρέντιτ",
+        "message": "/r/$1 είναι σε $2 πολυreddit",
         "description": ""
     },
     "commentToolsStrikeKeyTitle": {
@@ -1012,7 +1052,7 @@
         "description": ""
     },
     "subredditInfoErrorLoadingSubredditInfo": {
-        "message": "Σφάλμα φόρτωσης πληροφοριών υπορέντιτ.",
+        "message": "Σφάλμα φόρτωσης πληροφοριών υποreddit.",
         "description": ""
     },
     "accountSwitcherName": {
@@ -1116,7 +1156,7 @@
         "description": ""
     },
     "hideChildCommentsDesc": {
-        "message": "Σου επιτρέπει να κρύψεις όλα τα σχόλια εκτός από τις απαντήσεις στον αρχικό αποστολές για ευκολότερη ανάγνωση.",
+        "message": "Επιτρέπει την απόκρυψη σχολίων-παιδιών.",
         "description": ""
     },
     "userTaggerSetATag": {
@@ -1144,12 +1184,8 @@
         "description": ""
     },
     "styleTweaksToggleSubredditStyleOnOffFor": {
-        "message": "ενάλλαξε το στυλ υπορέντιτ $1 για το: $2",
+        "message": "ενάλλαξε το στυλ υποreddit $1 για το: $2",
         "description": "As in 'toggle subreddit style off for: subreddit'"
-    },
-    "notificationsModuleID": {
-        "message": "ID μονάδας",
-        "description": ""
     },
     "commentsCategory": {
         "message": "Σχόλια",
@@ -1191,6 +1227,10 @@
         "message": "Διαχειρίσου διάφορετικά είδη ειδοποιήσεων.",
         "description": ""
     },
+    "penaltyBoxFeaturesMonitoring": {
+        "message": "παρακολούθηση",
+        "description": ""
+    },
     "quickMessageHandleContentLinksDesc": {
         "message": "Άνοιγμα του διαλόγου γρήγορου μηνύματος όταν γίνεται κλικ σε συνδέσμους reddit.com/message/compose στα σχόλια, selftext ή σελίδες wiki.",
         "description": ""
@@ -1199,12 +1239,16 @@
         "message": "Ενημέρωση των κουμπιών των μηνυμάτων στην τρέχουσα καρτέλα όταν ο RES ελέγχει για πορτοκαλοκόκκινα.",
         "description": ""
     },
+    "penaltyBoxDelayFeaturesDesc": {
+        "message": "Throttle showing features which have a high penalty.",
+        "description": ""
+    },
     "userInfoPostKarma": {
         "message": "Κάρμα Αναρτήσεων:",
         "description": ""
     },
     "styleTweaksToggleSubredditStyleOnOff": {
-        "message": "ενάλλαξε το στυλ υπορέντιτ $1",
+        "message": "ενάλλαξε το στυλ υποreddit $1",
         "description": "As in 'toggle subreddit style off'"
     },
     "keyboardNavCommentsLinkToggleExpandoTitle": {
@@ -1216,7 +1260,7 @@
         "description": ""
     },
     "commentPreviewEnableForSubredditConfigTitle": {
-        "message": "Ενεργό Για Διαχείριση Υπορέντιτ",
+        "message": "Ενεργό Για Διαχείριση Υποreddit",
         "description": ""
     },
     "accountSwitcherShowKarmaDesc": {
@@ -1247,8 +1291,20 @@
         "message": "Είσοδος στην \"Λειτουργία Go\" (απαραίτητο πριν χρησιμοποιηθεί κάποιο από τις παρακάτω \"go to\" συντομεύσεις).",
         "description": ""
     },
+    "hideChildCommentsHideNestedDesc": {
+        "message": "Hide children for nested comments when hiding all child comments.",
+        "description": ""
+    },
     "multiredditNavbarAddShortcut": {
-        "message": "+προσθήκη συντόμευσης τμήματος πολυρέντιτ",
+        "message": "+προσθήκη συντόμευσης τμήματος πολυreddit",
+        "description": ""
+    },
+    "toggleCommentsLeftEdgeCollapsedColorTitle": {
+        "message": "Toggle Comments Left Edge Collapsed Color",
+        "description": ""
+    },
+    "scrollOnCollapseDesc": {
+        "message": "Scrolls to next comment when a comment is collapsed.",
         "description": ""
     },
     "commandLineName": {
@@ -1257,6 +1313,10 @@
     },
     "keyboardNavImageMoveLeftTitle": {
         "message": "Μετακίνησε την Εικόνα Αριστερά",
+        "description": ""
+    },
+    "penaltyBoxFeaturesAddRowText": {
+        "message": "χειροκίνητη εγγραφή χαρακτηριστικού",
         "description": ""
     },
     "dashboardDesc": {
@@ -1268,7 +1328,7 @@
         "description": ""
     },
     "filteRedditSubredditsTitle": {
-        "message": "Υπορέντιτ",
+        "message": "Υποreddit",
         "description": ""
     },
     "keyboardNavImageMoveDownDesc": {
@@ -1312,7 +1372,7 @@
         "description": ""
     },
     "styleTweaksSubredditStyleDisabled": {
-        "message": "Το στυλ υπορέντιτ απενεργοποιημένο για το υπορέντιτ: $1.",
+        "message": "Το στυλ υποreddit απενεργοποιημένο για το υποreddit: $1.",
         "description": ""
     },
     "orangeredUpdateCurrentTabTitle": {
@@ -1347,12 +1407,20 @@
         "message": "αυτοκόλλητο",
         "description": ""
     },
+    "commentToolsWikiAutocompleteDesc": {
+        "message": "Show wiki autocomplete tool when typing in posts, comments, and replies.",
+        "description": ""
+    },
     "keyboardNavImageSizeDownTitle": {
         "message": "Μίκρυνε την Εικόνα",
         "description": ""
     },
     "betteRedditRestoreSavedTabDesc": {
-        "message": "Η αποθηκευμένη καρτέλα τώρα βρίσκεται στην πλευρική μπάρα πολυρέντιτ. Αυτό θα επαναφέρει ένα \"αποθηκευμένο\" σύνδεσμο στην κεφαλίδα (δίπλα από τις καρτέλες \"τρέχοντα\", \"νέα\" κλπ).",
+        "message": "Η αποθηκευμένη καρτέλα τώρα βρίσκεται στην πλευρική μπάρα πολυreddit. Αυτό θα επαναφέρει ένα \"αποθηκευμένο\" σύνδεσμο στην κεφαλίδα (δίπλα από τις καρτέλες \"τρέχοντα\", \"νέα\" κλπ).",
+        "description": ""
+    },
+    "toggleCommentsLeftEdgeColorDesc": {
+        "message": "Default color of the bar.",
         "description": ""
     },
     "toggleOff": {
@@ -1360,7 +1428,7 @@
         "description": ""
     },
     "commentToolsSubredditAutocompleteDesc": {
-        "message": "Εμφανίζει το εργαλείο αυτόματης συμπλήρωσης υπορέντιτ όταν πληκτρολογείς σε αναρτήσεις, σχόλια και απαντήσεις.",
+        "message": "Εμφανίζει το εργαλείο αυτόματης συμπλήρωσης υποreddit κατά την πληκτρολόγηση σε αναρτήσεις, σχόλια και απαντήσεις.",
         "description": ""
     },
     "keyboardNavImageSizeDownFineTitle": {
@@ -1380,7 +1448,7 @@
         "description": ""
     },
     "filteRedditFilterSubredditsFromTitle": {
-        "message": "Φίλτραρε τα Υπορέντιτ Από",
+        "message": "Φίλτραρε τα Υποreddit Από",
         "description": ""
     },
     "userTaggerShowAnyway": {
@@ -1397,6 +1465,10 @@
     },
     "filteRedditExcludeModqueueDesc": {
         "message": "Να μην φιλτράρεται το περιεχόμενο στις σελίδες modqueue (modqueue, αναφορές, σπαμ κλπ).",
+        "description": ""
+    },
+    "filteRedditEmptyNotificationHeader": {
+        "message": "All posts are filtered out",
         "description": ""
     },
     "subredditInfoSubscribers": {
@@ -1447,12 +1519,16 @@
         "message": "Αποθήκευση Ανάρτησης",
         "description": ""
     },
+    "penaltyBoxDesc": {
+        "message": "Automatically delay or disable RES features which go unused.",
+        "description": ""
+    },
     "searchHelperSearchByFlairDesc": {
-        "message": "Κατά το κλικ στο έμβλημα μιας ανάρτησης, αναζήτηση του υπορέντιτ του για αυτό το έμβλημα.\nΜπορεί να μη δουλεύει σε μερικά υπορέντιτ που κρύβουν το πραγματικό έμβλημα και προσθέτουν ψεύτικο έμβλημα με CSS (η μόνη παράκαμψη αυτού είναι με την απενεργοποίηση του στυλ του υπορέντιτ).",
+        "message": "Κατά το κλικ στο έμβλημα μιας ανάρτησης, αναζήτηση του υποreddit του για αυτό το έμβλημα.\nΜπορεί να μη δουλεύει σε μερικά υποreddit που κρύβουν το πραγματικό έμβλημα και προσθέτουν ψεύτικο έμβλημα με CSS (η μόνη παράκαμψη αυτού είναι με την απενεργοποίηση του στυλ του υποreddit).",
         "description": ""
     },
     "subredditInfoDesc": {
-        "message": "Προσθέτει μια υπόμνηση με την αιώρηση του ποντικιού πάνω από τα υπορέντιτ.",
+        "message": "Προσθέτει μια υπόμνηση με την αιώρηση του ποντικιού πάνω από τα υποreddit.",
         "description": ""
     },
     "nightModeNightSwitchDesc": {
@@ -1464,7 +1540,7 @@
         "description": ""
     },
     "noPartEvenIfSubscriberDesc": {
-        "message": "Ενεργοποίηση της λειτουργίας Μη Συμμετοχής σε υπορέντιτς στα οποία έχετε κάνει συνδρομή ",
+        "message": "Ενεργοποίηση της λειτουργίας Μη Συμμετοχής σε υποreddit στα οποία έχετε κάνει συνδρομή ",
         "description": ""
     },
     "commentToolsQuoteKeyDesc": {
@@ -1489,6 +1565,10 @@
     },
     "aboutOptionsBugs": {
         "message": "Αν κάτι δεν δουλεύει σωστά, πήγαινε στο /r/RESIssues για βοήθεια.",
+        "description": ""
+    },
+    "nightModeAutomaticNightModeNone": {
+        "message": "Disabled",
         "description": ""
     },
     "keyboardNavMoveUpDesc": {
@@ -1536,7 +1616,7 @@
         "description": ""
     },
     "necLoadChildCommentsTitle": {
-        "message": "Load Child Comments",
+        "message": "Φόρτωση Σχολίων-Παιδιών",
         "description": ""
     },
     "showParentName": {
@@ -1553,6 +1633,10 @@
     },
     "keyboardNavMoveToParentTitle": {
         "message": "Μετακίνηση στον Γονέα",
+        "description": ""
+    },
+    "toggleCommentsOnClickLeftEdgeTitle": {
+        "message": "Toggle Comments On Click Left Edge",
         "description": ""
     },
     "betteRedditShowTimestampCommentsTitle": {
@@ -1601,6 +1685,14 @@
     },
     "commentDepthDefaultCommentDepthTitle": {
         "message": "Προεπιλεγμένο Βάθος Σχολίων",
+        "description": ""
+    },
+    "penaltyBoxFeaturesTitle": {
+        "message": "Χαρακτηριστικά",
+        "description": ""
+    },
+    "hideChildCommentsNestedDesc": {
+        "message": "Add the \"hide child comments\" button to all comments with children, instead of just top level comments.",
         "description": ""
     },
     "newCommentCountSubscriptionLengthTitle": {
@@ -1663,6 +1755,10 @@
         "message": "Χρώμα",
         "description": ""
     },
+    "hideChildCommentsHideNestedTitle": {
+        "message": "Hide Nested",
+        "description": ""
+    },
     "newCommentCountCleanCommentsTitle": {
         "message": "Καθαρισμός Σχολίων",
         "description": ""
@@ -1703,6 +1799,10 @@
         "message": "συντόμευση",
         "description": "as in '+shortcut' or '-shortcut'"
     },
+    "penaltyBoxName": {
+        "message": "RES Feature Throttle",
+        "description": ""
+    },
     "userInfoSendMessage": {
         "message": "στείλε μήνυμα",
         "description": ""
@@ -1720,7 +1820,7 @@
         "description": ""
     },
     "searchHelperUserFilterBySubredditDesc": {
-        "message": "Όταν σε προφίλ χρήστη, προσφέρει την αναζήτηση των αναρτήσεων του χρήστη από το συγκεκριμένο υπορέντιτ ή πολυρέντιτ προέλευσης.",
+        "message": "Όταν σε προφίλ χρήστη, προσφέρει την αναζήτηση των αναρτήσεων του χρήστη από το συγκεκριμένο υποreddit ή πολυreddit προέλευσης.",
         "description": ""
     },
     "userTaggerPage": {
@@ -1744,7 +1844,7 @@
         "description": ""
     },
     "filteRedditUseRedditFiltersDesc": {
-        "message": "Επεγγραφή των τοπικών φίλτρων του /r/all με τα 100 πιο δημοφιλή φιλτραρισμένα υπορέντιτ.",
+        "message": "Επεγγραφή των τοπικών φίλτρων του /r/all με τα 100 πιο δημοφιλή φιλτραρισμένα υποreddit.",
         "description": ""
     },
     "searchHelperName": {
@@ -1787,6 +1887,10 @@
         "message": "Μετακίνησε στην Κορυφή",
         "description": ""
     },
+    "nightModeAutomaticNightModeUser": {
+        "message": "User-defined hours",
+        "description": ""
+    },
     "userTaggerIgnored": {
         "message": "Αγνοημένο",
         "description": ""
@@ -1797,6 +1901,10 @@
     },
     "keyboardNavFollowLinkNewTabTitle": {
         "message": "Ακολούθησε τον Σύνδεσμο σε νέα Καρτέλα",
+        "description": ""
+    },
+    "keyboardNavAmbiguousShortcutPromptFollowUp": {
+        "message": "You can change this later from the $1 settings",
         "description": ""
     },
     "customTogglesToggleTitle": {
@@ -1819,6 +1927,10 @@
         "message": "Πατώντας Ctrl+Enter ή Cmd+Enter καταχωρείται η ανάρτησή σου.",
         "description": ""
     },
+    "optionKey": {
+        "message": "ID επιλογής",
+        "description": ""
+    },
     "stylesheetDesc": {
         "message": "Φόρτωσε επιπρόσθετα φύλλα στυλ ή τα δικά σου τμήματα κώδικα CSS.",
         "description": ""
@@ -1831,20 +1943,28 @@
         "message": "Αναίρεσε την αγνόηση",
         "description": ""
     },
+    "toggleCommentsLeftEdgeColorTitle": {
+        "message": "Toggle Comments Left Edge Color",
+        "description": ""
+    },
     "commentToolsMacrosTitle": {
         "message": "Μακροεντολές",
         "description": ""
     },
     "nightModeAutomaticNightModeDesc": {
-        "message": "Ενεργοποίησε την αυτόματη νυχτερινή λειτουργία - η νυχτερινή λειτουργία ξεκινά και σταματά αυτόματα τις ώρες που έχουν οριστεί παρακάτω.\n\nΓια τις παρακάτω ώρες, χρησιμοποιείται ένα 24ωρο ρολόι (\"στρατιωτικός χρόνος\") από 0:00 έως 23:59.\nπ.χ. η ώρα 8:20μμ θα γραφεί ως 20:20, και η ώρα 12:30πμ θα γραφεί ως 00:30 ή 0:30.\n\nΓια να παρακαμφθεί προσωρινά η αυτόματη νυχτερινή λειτουργία, πάτα χειροκίνητα τον διακόπτη νυχτερινής λειτουργίας.\nΌρισε πόση ώρα θα διαρκέσει η παράκαμψη παρακάτω.",
+        "message": "Enable automatic night mode.\n\nIn automatic mode, you will be prompted to share your location. Your location will only be used to calculate sunrise & sunset times.\n\nIn user-defined hours mode, night mode automatically starts and stops at the times configured below.\n\nFor the times below, a 24-hour clock (\"military time\") from 0:00 to 23:59 is used.\ne.g. the time 8:20pm would be written as 20:20, and 12:30am would be written as 00:30 or 0:30.\n\nTo temporarily override automatic night mode, manually flip the night mode switch.\nConfigure how long the override lasts below.",
         "description": ""
     },
     "subredditInfoFilterFromAllAndDomain": {
-        "message": "Φίλτραρε αυτό το υπορέντιτ από το /r/all και τον /τομέα/*",
+        "message": "Φίλτραρε αυτό το υποreddit από το /r/all και τον /τομέα/*",
         "description": ""
     },
     "searchCopyResultForComment": {
         "message": "αντιγραφή αυτού για σχόλιο",
+        "description": ""
+    },
+    "moduleID": {
+        "message": "ID μονάδας",
         "description": ""
     },
     "orangeredShowUnreadCountInTitleDesc": {
@@ -1860,7 +1980,7 @@
         "description": ""
     },
     "subredditInfoName": {
-        "message": "Πληροφορίες Υπορέντιτ",
+        "message": "Πληροφορίες Υποreddit",
         "description": ""
     },
     "betteRedditVideoUploadedTitle": {
@@ -1877,6 +1997,10 @@
     },
     "aboutOptionsBugsTitle": {
         "message": "Σφάλματα",
+        "description": ""
+    },
+    "nerShowPauseButtonTitle": {
+        "message": "Εμφάνιση Κουμπιού Παύσης",
         "description": ""
     },
     "singleClickName": {
@@ -1901,6 +2025,10 @@
     },
     "orangeredShowUnreadCountInFaviconTitle": {
         "message": "Εμφάνιση Αριθμού Μη Αναγνωσμένων στο Εικονίδιο Αγαπημένου",
+        "description": ""
+    },
+    "penaltyBoxSuspendFeaturesDesc": {
+        "message": "Turn off features which exceed the maximum penalty.",
         "description": ""
     },
     "voteEnhancementsVotes": {
@@ -1960,7 +2088,7 @@
         "description": ""
     },
     "subredditInfoRemoveThisSubredditFromShortcuts": {
-        "message": "Αφαίρεσε αυτό το υπορέντιτ από την μπάρα συντομεύσεων",
+        "message": "Αφαίρεσε αυτό το υποreddit από την μπάρα συντομεύσεων",
         "description": ""
     },
     "keyboardNavPrevPageTitle": {
@@ -2012,7 +2140,7 @@
         "description": ""
     },
     "styleTweaksNoSubredditSpecified": {
-        "message": "Δεν έχει οριστεί υπορέντιτ.",
+        "message": "Δεν έχει οριστεί υποreddit.",
         "description": ""
     },
     "hoverCloseOnMouseOutTitle": {
@@ -2056,7 +2184,7 @@
         "description": ""
     },
     "commentDepthSubredditCommentDepthsTitle": {
-        "message": "Βάθος Σχολίων Υπορέντιτ",
+        "message": "Βάθος Σχολίων Υποreddit",
         "description": ""
     },
     "commentPreviewEnableBigEditorDesc": {
@@ -2080,7 +2208,7 @@
         "description": ""
     },
     "filteRedditAllowNSFWDesc": {
-        "message": "Μην αποκρύπτεις τις Ακατάλληλες αναρτήσεις από συγκεκριμένα υπορέντιτ όταν το φίλτρο Ακατάλληλων είναι ενεργοποιημένο.",
+        "message": "Μην αποκρύπτεις τις Ακατάλληλες αναρτήσεις από συγκεκριμένα υποreddit όταν το φίλτρο Ακατάλληλων είναι ενεργοποιημένο.",
         "description": ""
     },
     "userbarHiderDesc": {
@@ -2127,6 +2255,10 @@
         "message": "πίνακας εργαλείων",
         "description": "as in '+dashboard' or '-dashboard'"
     },
+    "commentToolsWikiAutocompleteTitle": {
+        "message": "Wiki Autocomplete",
+        "description": ""
+    },
     "commentToolsUserAutoCompleteTitle": {
         "message": "Αυτόματη Συμπλήρωση Χρήστη",
         "description": ""
@@ -2139,12 +2271,20 @@
         "message": "Κώδικας",
         "description": ""
     },
+    "scrollOnCollapseTitle": {
+        "message": "Scroll On Collapse",
+        "description": ""
+    },
     "nerReversePauseIconDesc": {
         "message": "Εμφάνιση του εικονιδίου γραμμών \"σε παύση\" όταν η αυτόματη φόρτωση είναι σε παύση και όταν το εικονίδιο σφήνας της αναπαραγωγής είναι ενεργό.",
         "description": ""
     },
     "userTaggerUsername": {
         "message": "Όνομα Χρήστη",
+        "description": ""
+    },
+    "keyboardNavSlashAllTitle": {
+        "message": "/r/all",
         "description": ""
     },
     "keyboardNavImageMoveUpDesc": {
@@ -2167,8 +2307,12 @@
         "message": "Υπερτονισμός Χρήστη",
         "description": ""
     },
+    "newCommentCountNotifyEditedPostsTitle": {
+        "message": "Notify Edited Posts",
+        "description": ""
+    },
     "logoLinkCurrent": {
-        "message": "Παρόν υπορέντιτ/πολυρέντιτ",
+        "message": "Παρόν υποreddit/πολυreddit",
         "description": ""
     },
     "keyboardNavFollowPermalinkTitle": {
@@ -2232,7 +2376,7 @@
         "description": ""
     },
     "subredditInfoRemoveThisSubredditFromDashboard": {
-        "message": "Αφαίρεσε αυτό το υπορέντιτ από τον πίνακα εργαλείων",
+        "message": "Αφαίρεσε αυτό το υποreddit από τον πίνακα εργαλείων",
         "description": ""
     },
     "voteEnhancementsDesc": {
@@ -2244,7 +2388,7 @@
         "description": ""
     },
     "subredditManName": {
-        "message": "Διαχείριση Υπορέντιτ",
+        "message": "Διαχείριση Υποreddit",
         "description": ""
     },
     "aboutOptionsSuggestionsTitle": {
@@ -2311,6 +2455,14 @@
         "message": "Πυρήνας",
         "description": ""
     },
+    "penaltyBoxFeaturesPenalty": {
+        "message": "ποινή",
+        "description": "How heavily the feature is penalized (0-100)"
+    },
+    "penaltyBoxFeaturesDesc": {
+        "message": "Track usage of different features.",
+        "description": ""
+    },
     "commentDepthMinimumComments": {
         "message": "ελάχιστα σχόλια",
         "description": ""
@@ -2339,8 +2491,12 @@
         "message": "Αριθμός ημερών προτού η συνδρομή σε ένα νήμα λήξει",
         "description": ""
     },
+    "keyboardNavAmbiguousShortcutPrompt": {
+        "message": "RES' $1 isn't sure what to do when you press the keyboard shortcut $2. $3 What should pressing $4 do?",
+        "description": ""
+    },
     "styleTweaksToggleSubredditStyle": {
-        "message": "ενάλλαξε το στυλ υπορέντιτ",
+        "message": "ενάλλαξε το στυλ υποreddit",
         "description": ""
     },
     "orangeredUnreadLinksToInboxDesc": {
@@ -2349,6 +2505,10 @@
     },
     "newCommentCountName": {
         "message": "Αριθμός Νέων Μηνυμάτων",
+        "description": ""
+    },
+    "keyboardNavSlashAllDesc": {
+        "message": "Πήγαινε στο /r/all.",
         "description": ""
     },
     "keyboardNavShowParentsTitle": {
@@ -2380,7 +2540,7 @@
         "description": ""
     },
     "styleTweaksSubredditStyleEnabled": {
-        "message": "Το στυλ υπορέντιτ ενεργοποιημένο για το υπορέντιτ: $1.",
+        "message": "Το στυλ υποreddit ενεργοποιημένο για το υποreddit: $1.",
         "description": ""
     },
     "notificationsNeverSticky": {
@@ -2400,7 +2560,7 @@
         "description": ""
     },
     "subredditInfoAddThisSubredditToShortcuts": {
-        "message": "Πρόσθεσε αυτό το υπορέντιτ από την μπάρα συντομεύσεων",
+        "message": "Πρόσθεσε αυτό το υποreddit από την μπάρα συντομεύσεων",
         "description": ""
     },
     "accountSwitcherReloadOtherTabsTitle": {
@@ -2420,7 +2580,7 @@
         "description": ""
     },
     "userTaggerShowIgnoredDesc": {
-        "message": "Παροχή συνδέσμου εμφάνισης ενός αγνοημένου συνδέσμου ή σχολίου. Η επιλογή hardIgnore επεγγράφει την παρούσα.",
+        "message": "Provide a link to reveal an ignored link or comment.",
         "description": ""
     },
     "commentToolsItalicKeyTitle": {
@@ -2440,11 +2600,11 @@
         "description": ""
     },
     "commentDepthDefaultCommentDepthDesc": {
-        "message": "Προεπιλεγμένο βάθος που χρησιμοποιείται για όλα τα υπορέντιτ που δεν υπάρχουν στην παρακάτω λίστα.",
+        "message": "Προεπιλεγμένο βάθος που χρησιμοποιείται για όλα τα υποreddit που δεν υπάρχουν στην παρακάτω λίστα.",
         "description": ""
     },
     "nightModeSubredditStylesWhitelistDesc": {
-        "message": "Επίτρεψε στα υπορέντιτ της λίστας να εμφανίζονται με τα στυλ υπορέντιτ τους κατά τη νυχτερινή λειτουργία αν είναι απενεργοποιημένο το useSubredditStyles.",
+        "message": "Επίτρεψε στα υπορέντιτ της λίστας να εμφανίζονται με τα στυλ υποreddit τους κατά τη νυχτερινή λειτουργία αν είναι απενεργοποιημένο το useSubredditStyles.",
         "description": ""
     },
     "nerHideDupesHide": {
@@ -2460,7 +2620,7 @@
         "description": ""
     },
     "defaultTitle": {
-        "message": "Στυλ Υπορέντιτ Ενεργό",
+        "message": "Στυλ Υποreddit Ενεργό",
         "description": ""
     },
     "keyboardNavFollowLinkNewTabFocusDesc": {
@@ -2472,7 +2632,7 @@
         "description": ""
     },
     "betteRedditPinHeaderDesc": {
-        "message": "Καρφίτσωσε την μπάρα υπορέντιτ, το μενού χρήστη ή την κεφαλίδα, να αιωρείται στην κορυφή κατά την κύλιση προς τα κάτω.",
+        "message": "Καρφίτσωσε την μπάρα υποreddit, το μενού χρήστη ή την κεφαλίδα, να αιωρείται στην κορυφή κατά την κύλιση προς τα κάτω.",
         "description": ""
     },
     "betteRedditShowTimestampSidebarDesc": {
@@ -2492,7 +2652,7 @@
         "description": ""
     },
     "keyboardNavFollowSubredditDesc": {
-        "message": "Πήγαινε στο υπορέντιτ του επιλεγμένου συνδέσμου (μόνο στις σελίδες συνδέσμων).",
+        "message": "Πήγαινε στο υποreddit του επιλεγμένου συνδέσμου (μόνο στις σελίδες συνδέσμων).",
         "description": ""
     },
     "accountSwitcherKeepLoggedInDesc": {
@@ -2520,7 +2680,7 @@
         "description": ""
     },
     "styleTweaksRedditPrefsMessage": {
-        "message": "Το RES σου επιτρέπει να απενεργοποιήσεις συγκεκριμένα στυλ υπορέντιτ!",
+        "message": "Το RES σου επιτρέπει να απενεργοποιήσεις συγκεκριμένα στυλ υποreddit!",
         "description": ""
     },
     "customTogglesDesc": {
@@ -2532,7 +2692,11 @@
         "description": ""
     },
     "filteRedditDesc": {
-        "message": "Φίλτραρε ακατάλληλο περιεχόμενο ή συνδέσμους βάσει λέξης-κλειδιού, ιστοτόπου (χρησιμοποιήσε τις Ετικέτες Χρήστη για να αγνοήσεις βάσει χρήστη) ή υπορέντιτ (για το /r/all ή τον /τομέα/*)",
+        "message": "Φίλτραρε ακατάλληλο περιεχόμενο ή συνδέσμους βάσει λέξης-κλειδιού, ιστοτόπου (χρησιμοποιήσε τις Ετικέτες Χρήστη για να αγνοήσεις βάσει χρήστη) ή υποreddit (για το /r/all ή τον /τομέα/*)",
+        "description": ""
+    },
+    "RESTipsMenuItemDesc": {
+        "message": "Add an item to the RES dropdown menu to show tips.",
         "description": ""
     },
     "commentToolsFormattingToolButtonsTitle": {
@@ -2583,6 +2747,14 @@
         "message": "Να μην γίνει απόκρυψη",
         "description": ""
     },
+    "newCommentCountNotifyEditedPostsDesc": {
+        "message": "Notify if a subscribed post is edited.",
+        "description": ""
+    },
+    "penaltyBoxSuspendFeaturesNotificationMessage": {
+        "message": "$1 will be turned off due to lack of use. You can enable it again later in the RES settings console.",
+        "description": ""
+    },
     "userTaggerYourVotesFor": {
         "message": "Οι ψήφοι σου για το $1: $2",
         "description": "As in `your votes for username: 42`"
@@ -2628,7 +2800,7 @@
         "description": ""
     },
     "keyboardNavsSubredditFrontPageDesc": {
-        "message": "Πήγαινε στην αρχική σελίδα του υπορέντιτ.",
+        "message": "Πήγαινε στην αρχική σελίδα του υποreddit.",
         "description": ""
     },
     "menuName": {
@@ -2640,7 +2812,7 @@
         "description": ""
     },
     "multiredditNavbarSectionMenuDesc": {
-        "message": "Εμφάνιση ενός μενού συντομεύσεων προς διάφορα τμήματα του υπορέντιτ όταν αιωρείται το ποντίκι πάνω από έναν σύνδεσμο.",
+        "message": "Εμφάνιση ενός μενού συντομεύσεων προς διάφορα τμήματα του πολυreddit όταν αιωρείται το ποντίκι πάνω από έναν σύνδεσμο.",
         "description": ""
     },
     "selectedEntryFocusBGColorNightDesc": {
@@ -2660,7 +2832,7 @@
         "description": ""
     },
     "keyboardNavRandomDesc": {
-        "message": "Πήγαινε σε ένα τυχαίο υπορέντιτ.",
+        "message": "Πήγαινε σε ένα τυχαίο υποreddit.",
         "description": ""
     },
     "commentToolsCommentingAsTitle": {
@@ -2676,15 +2848,23 @@
         "description": ""
     },
     "subredditManDesc": {
-        "message": "Σου επιτρέψει να προσαρμόζεις την κορυφαία γραμμή με τις δικές σου συντομεύσεις για υπορέντιτ, συμπεριλαμβανομένων αναπτυσσόμενων μενού για πολυρέντιτ και άλλα.",
+        "message": "Σου επιτρέψει να προσαρμόζεις την κορυφαία γραμμή με τις δικές σου συντομεύσεις για υποreddit, συμπεριλαμβανομένων αναπτυσσόμενων μενού για πολυreddit και άλλα.",
         "description": ""
     },
     "keyboardNavSavePostDesc": {
         "message": "Αποθήκευσε το παρόν σχόλιο στον λογαριασμό σου στο reddit. Αυτό είναι προσβάσιμο από οπουδήποτε έχεις συνδεθεί, αλλά δεν διατηρεί το αρχικό κείμενο αν τροποποιηθεί η διαγραφεί.",
         "description": ""
     },
+    "hideChildCommentsNestedTitle": {
+        "message": "Ένθετο",
+        "description": ""
+    },
     "commentPreviewEnableBigEditorTitle": {
         "message": "Ενεργοποίηση Μεγάλου Επεξεργαστή Κειμένου",
+        "description": ""
+    },
+    "penaltyBoxSuspendFeaturesNotificationHeader": {
+        "message": "Suspended Feature",
         "description": ""
     },
     "announcementsDesc": {
@@ -2740,7 +2920,7 @@
         "description": ""
     },
     "commentToolsSubredditAutocompleteTitle": {
-        "message": "Αυτόματη Συμπλήρωση Υπορέντιτ",
+        "message": "Αυτόματη Συμπλήρωση Υποreddit",
         "description": ""
     },
     "settingsNavName": {
@@ -2776,7 +2956,7 @@
         "description": ""
     },
     "filteRedditFilterSubredditsFromDesc": {
-        "message": "Όταν φιλτράρονται τα υπορέντιτ με την παραπάνω επιλογή, πού θα πρέπει να φιλτράρονται;",
+        "message": "Όταν φιλτράρονται τα υποreddit με την παραπάνω επιλογή, πού θα πρέπει να φιλτράρονται;",
         "description": ""
     },
     "commentPrevName": {
@@ -2785,6 +2965,10 @@
     },
     "hoverOpenDelayDesc": {
         "message": "Προεπιλεγμένη καθυστέρηση μεταξύ αιώρησης του ποντικού και ανοίγματος αναδυόμενου παραθύρου.",
+        "description": ""
+    },
+    "toggleCommentsLeftEdgeCollapsedColorDesc": {
+        "message": "Color of the bar when collapsed.",
         "description": ""
     },
     "announcementsName": {
@@ -2852,7 +3036,11 @@
         "description": ""
     },
     "newCommentCountMonitorPostsVisitedIncognitoDesc": {
-        "message": "Παρακολούθηση του αριθμού των σχολίων σε αναρτήσεις που έχετε επισκεφθεί ενώ βρισκόσασταν σε ανώνυμη/ιδιωτική περιήγηση  ",
+        "message": "Monitor the number of comments and edit dates of posts you have visited while browsing in incognito/private mode.",
+        "description": ""
+    },
+    "filteRedditEmptyNotificationInfo": {
+        "message": "RES noticed that every post is hidden. Click on the button below to see why posts are filtered out.",
         "description": ""
     },
     "backupAndRestoreRestoreTitle": {
@@ -2880,7 +3068,7 @@
         "description": ""
     },
     "subredditInfoStopFilteringThisSubredditFromAllAndDomain": {
-        "message": "Σταμάτα να φιλτράρεις αυτό το υπορέντιτ από το /r/all και τον /τομέα/*",
+        "message": "Σταμάτα να φιλτράρεις αυτό το υποreddit από το /r/all και τον /τομέα/*",
         "description": ""
     },
     "dashboardDefaultPostsTitle": {
@@ -2889,6 +3077,10 @@
     },
     "contextViewFullContextTitle": {
         "message": "Δες το Πλήρες Πλαίσιο",
+        "description": ""
+    },
+    "hideCommentsOnHeaderDoubleClickDesc": {
+        "message": "Toggles comment collapse when the header is double clicked.",
         "description": ""
     },
     "aboutOptionsPrivacyTitle": {
@@ -2924,7 +3116,7 @@
         "description": ""
     },
     "commentDepthSubredditCommentDepthsDesc": {
-        "message": "Βάθος σχολίων σε συγκεκριμένα υπορέντιτ.",
+        "message": "Βάθος σχολίων σε συγκεκριμένα υποreddit.",
         "description": ""
     },
     "keyboardNavModmailDesc": {
@@ -2959,6 +3151,10 @@
         "message": "Αφαίρεση της λειτουργίας Μη Συμμετοχής όταν φεύγετε από μία σελίδα Μη Συμμετοχής",
         "description": ""
     },
+    "penaltyBoxSuspendFeaturesUndoButton": {
+        "message": "Επανενεργοποίηση χαρακτηριστικού",
+        "description": ""
+    },
     "userHighlightDesc": {
         "message": "Υπερτονίζει κάποιους χρήστες σε νήματα συζήτησης: Αρχικός Αποστολέας, Διαχειριστές, Φίλοι, Συντονιστές. Συνεισφορά από τον MrDerk",
         "description": ""
@@ -2975,12 +3171,20 @@
         "message": "$1 φίλοι",
         "description": ""
     },
+    "penaltyBoxFeaturesModuleID": {
+        "message": "IDμονάδας",
+        "description": ""
+    },
     "nightModeNightModeOverrideHoursDesc": {
         "message": "Αριθμός ωρών που διαρκεί η αυτόματη νυχτερινή λειτουργία. Η προεπιλογή είναι 8 (ώρες).\nΜπορείς να χρησιμοποιήσεις έναν δεκαδικό αριθμό ωρών εδώ αν θέλεις, για παράδειγμα 0.1 ώρες (το οποίο είναι 6 λεπτά).",
         "description": ""
     },
     "presetsNoPopupsDesc": {
         "message": "Απενεργοποίηση όλων των ειδοποιήσεων και των αιωρούμενων παραθύρων",
+        "description": ""
+    },
+    "nerShowPauseButtonDesc": {
+        "message": "Show a play/pause button for auto-load in the top right corner.",
         "description": ""
     },
     "messageMenuName": {
@@ -3043,8 +3247,12 @@
         "message": "Προεπισκόπηση Πλευρικής Μπάρας",
         "description": ""
     },
+    "toggleCommentsOnClickLeftEdgeDesc": {
+        "message": "Creates a bar on the left side of each comment. The bar can be clicked to collapse the comment.",
+        "description": ""
+    },
     "keyboardNavFollowSubredditNewTabTitle": {
-        "message": "Ακολούθησε το Υπορέντιτ σε Νέα Καρτέλα",
+        "message": "Ακολούθησε το Υποreddit σε Νέα Καρτέλα",
         "description": ""
     },
     "commentToolsUserAutoCompleteDesc": {
@@ -3067,16 +3275,24 @@
         "message": "Το Ctrl+Enter Καταχωρεί Σχόλια",
         "description": ""
     },
+    "toggleCommentsLeftEdgeHideButtonTitle": {
+        "message": "Toggle Comments Left Edge Hide Button",
+        "description": ""
+    },
     "commentToolsCtrolEnterSubmitsPostsTitle": {
         "message": "Το Ctrl+Enter Καταχωρεί Αναρτήσεις",
         "description": ""
     },
     "subredditInfoSubredditCreated": {
-        "message": "Το υπορέντιτ δημιουργήθηκε:",
+        "message": "Το υποreddit δημιουργήθηκε:",
         "description": ""
     },
     "multiredditNavbarLabel": {
         "message": "ετικέτα",
+        "description": ""
+    },
+    "penaltyBoxSuspendFeaturesRevertNotificationMessage": {
+        "message": "$1 has been turned back on. This feature will not be throttled or automatically disabled again.",
         "description": ""
     },
     "messageMenuHoverDelayTitle": {
@@ -3096,7 +3312,7 @@
         "description": ""
     },
     "subredditInfoSubredditNotFound": {
-        "message": "Το υπορέντιτ δεν βρέθηκε.",
+        "message": "Το υποreddit δεν βρέθηκε.",
         "description": ""
     },
     "logoLinkCustomDestinationDesc": {
@@ -3129,6 +3345,10 @@
     },
     "userInfoLinks": {
         "message": "Σύνδεσμοι",
+        "description": ""
+    },
+    "toggleCommentsLeftEdgeHideButtonDesc": {
+        "message": "Hides the default button ([-]) to collapse comments.",
         "description": ""
     },
     "keyboardNavMoveTopDesc": {
@@ -3168,7 +3388,7 @@
         "description": ""
     },
     "quickMessageSendAsDesc": {
-        "message": "Ο προεπιλεγμένος χρήστης ή υπορέντιτ που επιλέγεται όταν δεν έχει καθοριστεί το πεδίο \"από\".\nΕπαναφορά προς τον παρόντα χρήστη αν η επιλογή δεν μπορεί να χρησιμοποιηθεί (π.χ. όταν δεν είστε ο διαχειριστής του συγκεκριμένου υπορέντιτ).",
+        "message": "Ο προεπιλεγμένος χρήστης ή υποreddit που επιλέγεται όταν δεν έχει καθοριστεί το πεδίο \"από\".\nΕπαναφορά προς τον παρόντα χρήστη αν η επιλογή δεν μπορεί να χρησιμοποιηθεί (π.χ. όταν δεν είστε ο διαχειριστής του συγκεκριμένου υποreddit ).",
         "description": ""
     },
     "userInfoGiftRedditGold": {
@@ -3223,8 +3443,16 @@
         "message": "Reddit Enhancement Suite",
         "description": ""
     },
+    "toggleCommentsLeftEdgeWidthDesc": {
+        "message": "Width of the bar. Default is 50.",
+        "description": ""
+    },
     "filteRedditDomainsTitle": {
         "message": "Τομείς",
+        "description": ""
+    },
+    "penaltyBoxSuspendFeaturesRevertNotificationHeader": {
+        "message": "Pardoned Feature",
         "description": ""
     },
     "orangeredHideModMailTitle": {

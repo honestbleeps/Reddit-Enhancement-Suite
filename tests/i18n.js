@@ -6,10 +6,10 @@ module.exports = {
 			.waitForElementVisible('#RESConsoleContainer')
 			.assert.containsText('#RESConfigPanelOptions .moduleName', 'About RES')
 
-			// Chinese (zh)
-			.url('https://zh.reddit.com/wiki/pages/#res:settings/about')
+			// Greek (el)
+			.url('https://el.reddit.com/wiki/pages/#res:settings/about')
 			.waitForElementVisible('#RESConsoleContainer')
-			.assert.containsText('#RESConfigPanelOptions .moduleName', '关于RES')
+			.assert.containsText('#RESConfigPanelOptions .moduleName', 'Σχετικά με το RES')
 
 			// Polish (pl)
 			.url('https://pl.reddit.com/wiki/pages/#res:settings/about')

@@ -284,7 +284,7 @@
         "description": ""
     },
     "newCommentCountMonitorPostsVisitedDesc": {
-        "message": "Monitor the number of comments on posts you have visited.",
+        "message": "Monitor the number of comments and edit dates of posts you have visited.",
         "description": ""
     },
     "orangeredDesc": {
@@ -351,6 +351,10 @@
         "message": "Put in bold the \"Commenting As\" part if you are using an alt account. The first account in the Account Switcher module is considered as your main account.",
         "description": ""
     },
+    "penaltyBoxFeaturesOptionKey": {
+        "message": "optionKey",
+        "description": ""
+    },
     "commentToolsShowInputLengthDesc": {
         "message": "When submitting, display the number of characters entered in the title and text fields and indicate when you go over the 300 character limit for titles.",
         "description": ""
@@ -365,6 +369,10 @@
     },
     "subredditInfoTitle": {
         "message": "Title:",
+        "description": ""
+    },
+    "nightModeAutomaticNightModeAutomatic": {
+        "message": "Automatic (requires geolocation)",
         "description": ""
     },
     "keyboardNavFollowLinkAndCommentsNewTabBGDesc": {
@@ -425,6 +433,10 @@
     },
     "keyboardNavFollowLinkDesc": {
         "message": "Follow link (link pages only).",
+        "description": ""
+    },
+    "penaltyBoxDelayFeaturesTitle": {
+        "message": "Delay Features",
         "description": ""
     },
     "commentHidePerDesc": {
@@ -523,6 +535,10 @@
         "message": "Show the Subscribe button?",
         "description": ""
     },
+    "toggleCommentsLeftEdgeHoverColorDesc": {
+        "message": "Colour of the bar when hovered.",
+        "description": ""
+    },
     "backupAndRestoreBackupDesc": {
         "message": "Download a backup of your current RES settings.",
         "description": ""
@@ -533,6 +549,10 @@
     },
     "betteRedditDoNoCtrlFDesc": {
         "message": "When using the browser's Ctrl+F/Cmd+F \"find text\", only search comment/post text and not navigation links (\"permalink source save...\"). Disabled by default due to a slight performance impact.",
+        "description": ""
+    },
+    "hideCommentsOnHeaderDoubleClickTitle": {
+        "message": "Hide Comments On Header Double Click",
         "description": ""
     },
     "backupName": {
@@ -565,6 +585,10 @@
     },
     "subredditInfoAddThisSubredditToDashboard": {
         "message": "Add this subreddit to your dashboard",
+        "description": ""
+    },
+    "toggleCommentsLeftEdgeWidthTitle": {
+        "message": "Toggle Comments Left Edge Width",
         "description": ""
     },
     "accountSwitcherUpdateOtherTabsTitle": {
@@ -719,6 +743,10 @@
         "message": "Manage particular pop-ups",
         "description": ""
     },
+    "toggleCommentsLeftEdgeHoverColorTitle": {
+        "message": "Toggle Comments Left Edge Hover Colour",
+        "description": ""
+    },
     "keyboardNavMoveUpCommentDesc": {
         "message": "Move up to the previous comment on threaded comment pages.",
         "description": ""
@@ -755,6 +783,10 @@
         "message": "Fade animation's speed (in seconds). Default is 0.7.",
         "description": ""
     },
+    "filteRedditEmptyNotificationToggleShowReason": {
+        "message": "Toggle show filter reasons",
+        "description": ""
+    },
     "contextViewFullContextDesc": {
         "message": "Add a \"View the Full Context\" link when on a comment link.",
         "description": ""
@@ -787,6 +819,10 @@
         "message": "Go to subreddit of selected link in a new tab (link pages only).",
         "description": ""
     },
+    "nightModeAutomaticNightModeDenied": {
+        "message": "Access to your current location was denied. It is required to calculate sunset and sunrise times for automatic night mode. To disable this functionality, click \"$1\".",
+        "description": ""
+    },
     "styleTweaksSubredditStyle": {
         "message": "Subreddit Style",
         "description": ""
@@ -797,6 +833,10 @@
     },
     "keyboardNavMoveDownTitle": {
         "message": "Move Down",
+        "description": ""
+    },
+    "penaltyBoxSuspendFeaturesTitle": {
+        "message": "Suspend Features",
         "description": ""
     },
     "notificationNotificationTypesTitle": {
@@ -1116,7 +1156,7 @@
         "description": ""
     },
     "hideChildCommentsDesc": {
-        "message": "Allows you to hide all comments except for replies to the OP for easier reading.",
+        "message": "Allows you to hide child comments.",
         "description": ""
     },
     "userTaggerSetATag": {
@@ -1146,10 +1186,6 @@
     "styleTweaksToggleSubredditStyleOnOffFor": {
         "message": "toggle subreddit style $1 for: $2",
         "description": "As in 'toggle subreddit style off for: subreddit'"
-    },
-    "notificationsModuleID": {
-        "message": "module ID",
-        "description": ""
     },
     "commentsCategory": {
         "message": "Comments",
@@ -1191,12 +1227,20 @@
         "message": "Manage different types of notifications.",
         "description": ""
     },
+    "penaltyBoxFeaturesMonitoring": {
+        "message": "monitoring",
+        "description": ""
+    },
     "quickMessageHandleContentLinksDesc": {
         "message": "Open the quick message dialog when clicking on reddit.com/message/compose links in comments, selftext, or wiki pages.",
         "description": ""
     },
     "orangeredUpdateCurrentTabDesc": {
         "message": "Update mail buttons on current tab when RES checks for orangereds.",
+        "description": ""
+    },
+    "penaltyBoxDelayFeaturesDesc": {
+        "message": "Throttle showing features which have a high penalty.",
         "description": ""
     },
     "userInfoPostKarma": {
@@ -1247,8 +1291,20 @@
         "message": "Enter \"goMode\" (necessary before using any of the below \"go to\" shortcuts).",
         "description": ""
     },
+    "hideChildCommentsHideNestedDesc": {
+        "message": "Hide children for nested comments when hiding all child comments.",
+        "description": ""
+    },
     "multiredditNavbarAddShortcut": {
         "message": "+add multireddit section shortcut",
+        "description": ""
+    },
+    "toggleCommentsLeftEdgeCollapsedColorTitle": {
+        "message": "Toggle Comments Left Edge Collapsed Colour",
+        "description": ""
+    },
+    "scrollOnCollapseDesc": {
+        "message": "Scrolls to next comment when a comment is collapsed.",
         "description": ""
     },
     "commandLineName": {
@@ -1257,6 +1313,10 @@
     },
     "keyboardNavImageMoveLeftTitle": {
         "message": "Image Move Left",
+        "description": ""
+    },
+    "penaltyBoxFeaturesAddRowText": {
+        "message": "manually register feature",
         "description": ""
     },
     "dashboardDesc": {
@@ -1300,7 +1360,7 @@
         "description": ""
     },
     "selectedEntryAddFocusBGColorDesc": {
-        "message": "Use a background color",
+        "message": "Use a background colour",
         "description": ""
     },
     "accountSwitcherShowUserDetailsTitle": {
@@ -1347,12 +1407,20 @@
         "message": "sticky",
         "description": ""
     },
+    "commentToolsWikiAutocompleteDesc": {
+        "message": "Show wiki autocomplete tool when typing in posts, comments, and replies.",
+        "description": ""
+    },
     "keyboardNavImageSizeDownTitle": {
         "message": "Image Size Down",
         "description": ""
     },
     "betteRedditRestoreSavedTabDesc": {
         "message": "The saved tab is now located in the multireddit sidebar. This will restore a \"saved\" link to the header (next to the \"hot\", \"new\", etc. tabs).",
+        "description": ""
+    },
+    "toggleCommentsLeftEdgeColorDesc": {
+        "message": "Default colour of the bar.",
         "description": ""
     },
     "toggleOff": {
@@ -1397,6 +1465,10 @@
     },
     "filteRedditExcludeModqueueDesc": {
         "message": "Don't filter anything on modqueue pages (modqueue, reports, spam, etc.).",
+        "description": ""
+    },
+    "filteRedditEmptyNotificationHeader": {
+        "message": "All posts are filtered out",
         "description": ""
     },
     "subredditInfoSubscribers": {
@@ -1447,6 +1519,10 @@
         "message": "Save Post",
         "description": ""
     },
+    "penaltyBoxDesc": {
+        "message": "Automatically delay or disable RES features which go unused.",
+        "description": ""
+    },
     "searchHelperSearchByFlairDesc": {
         "message": "When clicking on a post's flair, search its subreddit for that flair.\nMay not work in some subreddits that hide the actual flair and add pseudo-flair with CSS (only workaround is to disable subreddit style).",
         "description": ""
@@ -1489,6 +1565,10 @@
     },
     "aboutOptionsBugs": {
         "message": "If something isn't working right, visit /r/RESissues for help.",
+        "description": ""
+    },
+    "nightModeAutomaticNightModeNone": {
+        "message": "Disabled",
         "description": ""
     },
     "keyboardNavMoveUpDesc": {
@@ -1555,6 +1635,10 @@
         "message": "Move To Parent",
         "description": ""
     },
+    "toggleCommentsOnClickLeftEdgeTitle": {
+        "message": "Toggle Comments On Click Left Edge",
+        "description": ""
+    },
     "betteRedditShowTimestampCommentsTitle": {
         "message": "Show Timestamps Comments",
         "description": ""
@@ -1601,6 +1685,14 @@
     },
     "commentDepthDefaultCommentDepthTitle": {
         "message": "Default Comment Depth",
+        "description": ""
+    },
+    "penaltyBoxFeaturesTitle": {
+        "message": "Features",
+        "description": ""
+    },
+    "hideChildCommentsNestedDesc": {
+        "message": "Add the \"hide child comments\" button to all comments with children, instead of just top level comments.",
         "description": ""
     },
     "newCommentCountSubscriptionLengthTitle": {
@@ -1660,7 +1752,11 @@
         "description": ""
     },
     "userTaggerColor": {
-        "message": "Color",
+        "message": "Colour",
+        "description": ""
+    },
+    "hideChildCommentsHideNestedTitle": {
+        "message": "Hide Nested",
         "description": ""
     },
     "newCommentCountCleanCommentsTitle": {
@@ -1702,6 +1798,10 @@
     "subredditInfoAddRemoveShortcut": {
         "message": "shortcut",
         "description": "as in '+shortcut' or '-shortcut'"
+    },
+    "penaltyBoxName": {
+        "message": "RES Feature Throttle",
+        "description": ""
     },
     "userInfoSendMessage": {
         "message": "send message",
@@ -1787,6 +1887,10 @@
         "message": "Move Top",
         "description": ""
     },
+    "nightModeAutomaticNightModeUser": {
+        "message": "User-defined hours",
+        "description": ""
+    },
     "userTaggerIgnored": {
         "message": "Ignored",
         "description": ""
@@ -1797,6 +1901,10 @@
     },
     "keyboardNavFollowLinkNewTabTitle": {
         "message": "Follow Link New Tab",
+        "description": ""
+    },
+    "keyboardNavAmbiguousShortcutPromptFollowUp": {
+        "message": "You can change this later from the $1 settings",
         "description": ""
     },
     "customTogglesToggleTitle": {
@@ -1819,6 +1927,10 @@
         "message": "Pressing Ctrl+Enter or Cmd+Enter will submit your post.",
         "description": ""
     },
+    "optionKey": {
+        "message": "option ID",
+        "description": ""
+    },
     "stylesheetDesc": {
         "message": "Load extra stylesheets or your own CSS snippets.",
         "description": ""
@@ -1831,12 +1943,16 @@
         "message": "Unignore",
         "description": ""
     },
+    "toggleCommentsLeftEdgeColorTitle": {
+        "message": "Toggle Comments Left Edge Colour",
+        "description": ""
+    },
     "commentToolsMacrosTitle": {
         "message": "Macros",
         "description": ""
     },
     "nightModeAutomaticNightModeDesc": {
-        "message": "Enable automatic night mode - night mode automatically starts and stops at the times configured below.\n\nFor the times below, a 24-hour clock (\"military time\") from 0:00 to 23:59 is used.\ne.g. the time 8:20pm would be written as 20:20, and 12:30am would be written as 00:30 or 0:30.\n\nTo temporarily override automatic night mode, manually flip the night mode switch.\nConfigure how long the override lasts below.",
+        "message": "Enable automatic night mode.\n\nIn automatic mode, you will be prompted to share your location. Your location will only be used to calculate sunrise & sunset times.\n\nIn user-defined hours mode, night mode automatically starts and stops at the times configured below.\n\nFor the times below, a 24-hour clock (\"military time\") from 0:00 to 23:59 is used.\ne.g. the time 8:20pm would be written as 20:20, and 12:30am would be written as 00:30 or 0:30.\n\nTo temporarily override automatic night mode, manually flip the night mode switch.\nConfigure how long the override lasts below.",
         "description": ""
     },
     "subredditInfoFilterFromAllAndDomain": {
@@ -1845,6 +1961,10 @@
     },
     "searchCopyResultForComment": {
         "message": "copy this for a comment",
+        "description": ""
+    },
+    "moduleID": {
+        "message": "module ID",
         "description": ""
     },
     "orangeredShowUnreadCountInTitleDesc": {
@@ -1879,6 +1999,10 @@
         "message": "Bugs",
         "description": ""
     },
+    "nerShowPauseButtonTitle": {
+        "message": "Show Pause Button",
+        "description": ""
+    },
     "singleClickName": {
         "message": "Single Click Opener",
         "description": ""
@@ -1901,6 +2025,10 @@
     },
     "orangeredShowUnreadCountInFaviconTitle": {
         "message": "Show Unread Count In Favicon",
+        "description": ""
+    },
+    "penaltyBoxSuspendFeaturesDesc": {
+        "message": "Turn off features which exceed the maximum penalty.",
         "description": ""
     },
     "voteEnhancementsVotes": {
@@ -2127,6 +2255,10 @@
         "message": "dashboard",
         "description": "as in '+dashboard' or '-dashboard'"
     },
+    "commentToolsWikiAutocompleteTitle": {
+        "message": "Wiki Autocomplete",
+        "description": ""
+    },
     "commentToolsUserAutoCompleteTitle": {
         "message": "User Autocomplete",
         "description": ""
@@ -2139,12 +2271,20 @@
         "message": "Code",
         "description": ""
     },
+    "scrollOnCollapseTitle": {
+        "message": "Scroll On Collapse",
+        "description": ""
+    },
     "nerReversePauseIconDesc": {
         "message": "Show \"paused\" bars icon when auto-load is paused and \"play\" wedge icon when active.",
         "description": ""
     },
     "userTaggerUsername": {
         "message": "Username",
+        "description": ""
+    },
+    "keyboardNavSlashAllTitle": {
+        "message": "/r/all",
         "description": ""
     },
     "keyboardNavImageMoveUpDesc": {
@@ -2165,6 +2305,10 @@
     },
     "userHighlightName": {
         "message": "User Highlighter",
+        "description": ""
+    },
+    "newCommentCountNotifyEditedPostsTitle": {
+        "message": "Notify Edited Posts",
         "description": ""
     },
     "logoLinkCurrent": {
@@ -2188,7 +2332,7 @@
         "description": ""
     },
     "selectedEntryFocusBGColorDesc": {
-        "message": "The background color",
+        "message": "The background colour",
         "description": ""
     },
     "multiredditNavbarUrl": {
@@ -2311,6 +2455,14 @@
         "message": "Core",
         "description": ""
     },
+    "penaltyBoxFeaturesPenalty": {
+        "message": "penalty",
+        "description": "How heavily the feature is penalized (0-100)"
+    },
+    "penaltyBoxFeaturesDesc": {
+        "message": "Track usage of different features.",
+        "description": ""
+    },
     "commentDepthMinimumComments": {
         "message": "minimum comments",
         "description": ""
@@ -2339,6 +2491,10 @@
         "message": "Number of days before thread subscriptions expire.",
         "description": ""
     },
+    "keyboardNavAmbiguousShortcutPrompt": {
+        "message": "RES' $1 isn't sure what to do when you press the keyboard shortcut $2. $3 What should pressing $4 do?",
+        "description": ""
+    },
     "styleTweaksToggleSubredditStyle": {
         "message": "toggle subreddit style",
         "description": ""
@@ -2349,6 +2505,10 @@
     },
     "newCommentCountName": {
         "message": "New Comment Count",
+        "description": ""
+    },
+    "keyboardNavSlashAllDesc": {
+        "message": "Go to /r/all.",
         "description": ""
     },
     "keyboardNavShowParentsTitle": {
@@ -2420,7 +2580,7 @@
         "description": ""
     },
     "userTaggerShowIgnoredDesc": {
-        "message": "Provide a link to reveal an ignored link or comment. The hardIgnore option overrides this.",
+        "message": "Provide a link to reveal an ignored link or comment.",
         "description": ""
     },
     "commentToolsItalicKeyTitle": {
@@ -2484,7 +2644,7 @@
         "description": ""
     },
     "selectedEntryFocusFGColorNightDesc": {
-        "message": "The text color while using Night Mode",
+        "message": "The text colour while using Night Mode",
         "description": ""
     },
     "messageMenuHoverDelayDesc": {
@@ -2535,6 +2695,10 @@
         "message": "Filter out NSFW content, or links by keyword, domain (use User Tagger to ignore by user) or subreddit (for /r/all or /domain/*).",
         "description": ""
     },
+    "RESTipsMenuItemDesc": {
+        "message": "Add an item to the RES dropdown menu to show tips.",
+        "description": ""
+    },
     "commentToolsFormattingToolButtonsTitle": {
         "message": "Formatting Tool Buttons",
         "description": ""
@@ -2581,6 +2745,14 @@
     },
     "nerHideDupesDontHide": {
         "message": "Do not hide",
+        "description": ""
+    },
+    "newCommentCountNotifyEditedPostsDesc": {
+        "message": "Notify if a subscribed post is edited.",
+        "description": ""
+    },
+    "penaltyBoxSuspendFeaturesNotificationMessage": {
+        "message": "$1 will be turned off due to lack of use. You can enable it again later in the RES settings console.",
         "description": ""
     },
     "userTaggerYourVotesFor": {
@@ -2644,7 +2816,7 @@
         "description": ""
     },
     "selectedEntryFocusBGColorNightDesc": {
-        "message": "The background color while using Night Mode",
+        "message": "The background colour while using Night Mode",
         "description": ""
     },
     "searchHelperTransitionSearchTabsDesc": {
@@ -2683,8 +2855,16 @@
         "message": "Save the current post to your reddit account. This is accessible from anywhere that you're logged in, but does not preserve the original text if it's edited or deleted.",
         "description": ""
     },
+    "hideChildCommentsNestedTitle": {
+        "message": "Nested",
+        "description": ""
+    },
     "commentPreviewEnableBigEditorTitle": {
         "message": "Enable Big Editor",
+        "description": ""
+    },
+    "penaltyBoxSuspendFeaturesNotificationHeader": {
+        "message": "Suspended Feature",
         "description": ""
     },
     "announcementsDesc": {
@@ -2787,6 +2967,10 @@
         "message": "Default delay between mouseover and the popup opening.",
         "description": ""
     },
+    "toggleCommentsLeftEdgeCollapsedColorDesc": {
+        "message": "Colour of the bar when collapsed.",
+        "description": ""
+    },
     "announcementsName": {
         "message": "RES Announcements",
         "description": ""
@@ -2852,7 +3036,11 @@
         "description": ""
     },
     "newCommentCountMonitorPostsVisitedIncognitoDesc": {
-        "message": "Monitor the number of comments on posts you have visited while browsing in incognito/private mode.",
+        "message": "Monitor the number of comments and edit dates of posts you have visited while browsing in incognito/private mode.",
+        "description": ""
+    },
+    "filteRedditEmptyNotificationInfo": {
+        "message": "RES noticed that every post is hidden. Click on the button below to see why posts are filtered out.",
         "description": ""
     },
     "backupAndRestoreRestoreTitle": {
@@ -2889,6 +3077,10 @@
     },
     "contextViewFullContextTitle": {
         "message": "View Full Context",
+        "description": ""
+    },
+    "hideCommentsOnHeaderDoubleClickDesc": {
+        "message": "Toggles comment collapse when the header is double clicked.",
         "description": ""
     },
     "aboutOptionsPrivacyTitle": {
@@ -2944,7 +3136,7 @@
         "description": ""
     },
     "nightModeColoredLinksTitle": {
-        "message": "Colored Links",
+        "message": "Coloured Links",
         "description": ""
     },
     "modhelperDesc": {
@@ -2957,6 +3149,10 @@
     },
     "noPartEscapeNPDesc": {
         "message": "Remove np mode when leaving a No-Participation page.",
+        "description": ""
+    },
+    "penaltyBoxSuspendFeaturesUndoButton": {
+        "message": "Enable this feature again",
         "description": ""
     },
     "userHighlightDesc": {
@@ -2975,12 +3171,20 @@
         "message": "$1 friends",
         "description": ""
     },
+    "penaltyBoxFeaturesModuleID": {
+        "message": "moduleID",
+        "description": ""
+    },
     "nightModeNightModeOverrideHoursDesc": {
         "message": "Number of hours that the automatic night mode override lasts. Default is 8 (hours).\nYou can use a decimal number of hours here as well; e.g. 0.1 hours (which is 6 min).",
         "description": ""
     },
     "presetsNoPopupsDesc": {
         "message": "Turn off notifications and hover pop-ups",
+        "description": ""
+    },
+    "nerShowPauseButtonDesc": {
+        "message": "Show a play/pause button for auto-load in the top right corner.",
         "description": ""
     },
     "messageMenuName": {
@@ -3043,6 +3247,10 @@
         "message": "Sidebar Preview",
         "description": ""
     },
+    "toggleCommentsOnClickLeftEdgeDesc": {
+        "message": "Creates a bar on the left side of each comment. The bar can be clicked to collapse the comment.",
+        "description": ""
+    },
     "keyboardNavFollowSubredditNewTabTitle": {
         "message": "Follow Subreddit New Tab",
         "description": ""
@@ -3067,6 +3275,10 @@
         "message": "Ctrl+Enter Submits Comments",
         "description": ""
     },
+    "toggleCommentsLeftEdgeHideButtonTitle": {
+        "message": "Toggle Comments Left Edge Hide Button",
+        "description": ""
+    },
     "commentToolsCtrolEnterSubmitsPostsTitle": {
         "message": "Ctrl+Enter Submits Posts",
         "description": ""
@@ -3077,6 +3289,10 @@
     },
     "multiredditNavbarLabel": {
         "message": "label",
+        "description": ""
+    },
+    "penaltyBoxSuspendFeaturesRevertNotificationMessage": {
+        "message": "$1 has been turned back on. This feature will not be throttled or automatically disabled again.",
         "description": ""
     },
     "messageMenuHoverDelayTitle": {
@@ -3092,7 +3308,7 @@
         "description": ""
     },
     "nightModeColoredLinksDesc": {
-        "message": "Color links blue and purple.",
+        "message": "Colour links blue and purple.",
         "description": ""
     },
     "subredditInfoSubredditNotFound": {
@@ -3129,6 +3345,10 @@
     },
     "userInfoLinks": {
         "message": "Links",
+        "description": ""
+    },
+    "toggleCommentsLeftEdgeHideButtonDesc": {
+        "message": "Hides the default button ([-]) to collapse comments.",
         "description": ""
     },
     "keyboardNavMoveTopDesc": {
@@ -3192,7 +3412,7 @@
         "description": ""
     },
     "userHighlightColorCouldNotBeGenerated": {
-        "message": "Some hover colors couldn't be generated. This is probably due to the use of colors in a special format.",
+        "message": "Some hover colours couldn't be generated. This is probably due to the use of colours in a special format.",
         "description": "hover/highlight discrepancy is intended; the module is named 'userHighlight'"
     },
     "commentToolsKeyboardShortcutsDesc": {
@@ -3223,8 +3443,16 @@
         "message": "Reddit Enhancement Suite",
         "description": ""
     },
+    "toggleCommentsLeftEdgeWidthDesc": {
+        "message": "Width of the bar. Default is 50.",
+        "description": ""
+    },
     "filteRedditDomainsTitle": {
         "message": "Domains",
+        "description": ""
+    },
+    "penaltyBoxSuspendFeaturesRevertNotificationHeader": {
+        "message": "Pardoned Feature",
         "description": ""
     },
     "orangeredHideModMailTitle": {
