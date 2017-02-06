@@ -89,6 +89,7 @@ module.exports = {
 
 			// set a value for defaultSubject
 			.setValue('#defaultSubject', ['test subject'])
+			.pause(1000)
 			.assert.cssClassNotPresent('#moduleOptionsSave', 'optionsSaved', 'options staged')
 
 			// click save
@@ -112,6 +113,7 @@ module.exports = {
 			// add row
 			.click('#optionContainer-accountSwitcher-accounts .addRowButton')
 			.setValue('#accounts_accountSwitcherUsername_1', ['test'])
+			.pause(1000)
 			.assert.cssClassNotPresent('#moduleOptionsSave', 'optionsSaved', 'options staged')
 
 			// click save
