@@ -26,8 +26,10 @@ addons:
     secure: hHF06xHY6pLdxscwYhUHdSRuUH2CPA61AUrvPiW54lnMwwkDvCQakR+aY5HbjptFIfOwkWsS4xoqXH4pZTfhMOji32S/+ELT+AqLdkIgnLYDfBj4RcsZoXyvuiLx29i4PVCnGMikctBp4dM6wORgfd1tu3uwhcoQrBjxCMW1qmY=
 cache:
   yarn: true
+before_install:
+  - curl -o- -L https://yarnpkg.com/install.sh | bash
+  - export PATH=$HOME/.yarn/bin:$PATH
 install:
-  - travis_retry npm install -g yarn
   - travis_retry yarn install --pure-lockfile
   - yarn check --integrity
 matrix:
