@@ -1,12 +1,7 @@
 
-### New Features
-
-- None (thanks nobody)
-
 ### Bug Fixes
 
-- None (thanks nobody)
-
-### Housekeeping / Other
-
-- None (thanks nobody)
+- Fix User Tagger not applying to newly-loaded child comments (thanks @erikdesjardins)
+- Fix color options not appearing when an option they depend on is toggled (thanks @erikdesjardins)
+- Fix submit page title character count not working (thanks @erikdesjardins)
+- Fix Night Mode being toggled on for some users when installing 5.4.0 (thanks @erikdesjardins)
