@@ -27,8 +27,8 @@ addons:
 cache:
   yarn: true
 install:
-  - npm install -g yarn
-  - yarn install --pure-lockfile
+  - travis_retry npm install -g yarn
+  - travis_retry yarn install --pure-lockfile
   - yarn check --integrity
 matrix:
   exclude:
