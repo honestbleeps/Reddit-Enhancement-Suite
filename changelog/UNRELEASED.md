@@ -1,15 +1,12 @@
 
+### New Features
+
+- None (thanks nobody)
+
 ### Bug Fixes
 
-- Fix visited links turning dark purple in Night Mode (thanks @larsjohnsen)
-- Fix Keyboard Nav not blurring focused links when navigating to another thing (thanks @larsjohnsen)
-- Fix Hide Child Comments "automatic" option collapsing nested comments by default (thanks @larsjohnsen)
-- Fix being unable to reply after collapsing child comments (thanks @larsjohnsen)
-- Fix Hide Child Comments not always collapsing expandos in hidden comments (thanks @larsjohnsen)
-- Fix Source Snudown in modmail (thanks @larsjohnsen)
-- Fix "unhide" links being replaced with "hide" links (thanks @larsjohnsen)
+- None (thanks nobody)
 
 ### Housekeeping / Other
 
-- Clean up some build infrastructure installation (thanks @mc10)
-- Add integration tests for Hide Child Comments (thanks @erikdesjardins)
+- None (thanks nobody)
