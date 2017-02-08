@@ -85,4 +85,22 @@ module.exports = {
 			.assert.urlEquals('https://www.reddit.com/')
 			.end();
 	},
+	'blurs target': browser => {
+		if (browser.options.desiredCapabilities.browserName === 'firefox') {
+			// geckodriver doesn't support elementSendKeys https://github.com/mozilla/geckodriver/issues/159
+			browser.end();
+			return;
+		}
+
+		browser
+			.url('https://www.reddit.com/r/RESIntegrationTests/comments/5pxfg2/keyboard_nav/?sort=old')
+			.waitForElementVisible('#thing_t1_dcuk08v > .entry .toggleChildren')
+			.click('#thing_t1_dcuk08v > .entry .toggleChildren')
+			// moving down should blur "hide child comments"
+			.keys(['J'])
+			.keys([browser.Keys.ENTER])
+			.assert.cssClassPresent('#thing_t1_dcuk0d6', 'collapsed')
+			.waitForElementNotVisible('#thing_t1_dcuk08v .child .entry', 'child comment should not be revealed')
+			.end();
+	},
 };
