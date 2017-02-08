@@ -162,6 +162,18 @@ module.exports = {
 			.assert.value('#accounts_accountSwitcherUsername_1', 'first')
 			.end();
 	},
+	'disabling a module': browser => {
+		browser
+			.url('https://www.reddit.com/wiki/pages#res:settings/wheelBrowse')
+			.waitForElementVisible('#RESConsoleContainer')
+			.assert.cssClassPresent('.moduleToggle', 'enabled')
+			.click('.moduleToggle')
+			.assert.cssClassNotPresent('.moduleToggle', 'enabled')
+			.refresh()
+			.waitForElementVisible('#RESConsoleContainer')
+			.assert.cssClassNotPresent('.moduleToggle', 'enabled')
+			.end();
+	},
 	'adding a row to table option doesn\'t duplicate value': browser => {
 		if (browser.options.desiredCapabilities.browserName === 'firefox') {
 			// geckodriver treats `value` of empty inputs incorrectly
