@@ -36,4 +36,13 @@ module.exports = {
 			.waitForElementVisible(`${comment} .viewSource textarea`)
 			.assert.containsText(`${comment} .viewSource textarea`, 'Source of first comment');
 	},
+	'ignores link posts': browser => {
+		browser
+			.url('https://en.reddit.com/r/RESIntegrationTests/comments/5t9uo9/source_snudown_link_post/')
+			.waitForElementVisible('#RESSettingsButton')
+			.pause(1000)
+			.assert.visible('.thing.link')
+			.assert.elementNotPresent('.thing.link .viewSource')
+			.end();
+	},
 };
