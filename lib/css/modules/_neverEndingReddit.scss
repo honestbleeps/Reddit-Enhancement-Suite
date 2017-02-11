@@ -31,25 +31,6 @@
 	position: static;
 }
 
-#NERFail {
-	min-height: 30px;
-	font-size: 14px;
-	border: 1px solid #999;
-	border-radius: 10px;
-	padding: 5px;
-	text-align: center;
-	cursor: auto;
-
-	.nextprev {
-		font-size: smaller;
-		display: block;
-
-		a + a {
-			margin-left: 2em;
-		}
-	}
-}
-
 .NERPageMarker {
 	text-align: center;
 	color: #7f7f7f;
@@ -63,9 +44,24 @@
 	border-radius: 3px;
 	padding: 3px 0;
 
+
+	&.NERPageMarkerLast {
+		min-height: 30px;
+		padding-bottom: 10px;
+	}
+
 	.gearIcon {
 		float: right;
 		margin-right: .5em;
+	}
+
+	.nextprev {
+		font-size: smaller;
+		display: block;
+
+		a + a {
+			margin-left: 2em;
+		}
 	}
 }
 
