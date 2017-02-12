@@ -34,6 +34,7 @@ module.exports = {
 		browser
 			// to modules
 			.url('https://en.reddit.com/wiki/pages/#res:settings/search/showImages')
+			.refresh() // get the update notification out of the way of the search result button
 			.waitForElementVisible('#SearchRES-results')
 			.moveToElement('.SearchRES-result-item', 0, 0)
 			.click('.SearchRES-result-copybutton')
