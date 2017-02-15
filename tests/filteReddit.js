@@ -273,6 +273,26 @@ module.exports = {
 			.url('https://www.reddit.com/r/all/?limit=1')
 			.pause(1000)
 			.assert.visible('#siteTable .thing' /* first thing */)
+
+			// browsing /r/popular special case (only these subreddits)
+			.perform(editSettings(() => browser
+				.clearValue('#optionContainer-filteReddit-keywords input')
+				.setValue('#optionContainer-filteReddit-keywords input', ['/./'])
+				.execute(`
+					document.querySelector('#optionContainer-filteReddit-keywords input#keywords_subreddits_0').value = 'popular';
+				`)
+				.click('#optionContainer-filteReddit-keywords input#keywords_applyTo_0-2' /* only on */)
+			))
+			.url('https://www.reddit.com/r/popular/?limit=1')
+			.waitForElementNotVisible('#siteTable .thing' /* first thing */)
+
+			// browsing /r/popular special case (except these subreddits)
+			.perform(editSettings(() => browser
+				.click('#optionContainer-filteReddit-keywords input#keywords_applyTo_0-1' /* everywhere but */)
+			))
+			.url('https://www.reddit.com/r/popular/?limit=1')
+			.pause(1000)
+			.assert.visible('#siteTable .thing' /* first thing */)
 			.end();
 	},
 };
