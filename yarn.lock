@@ -2884,6 +2884,13 @@ ecdsa-sig-formatter@1.0.9:
     base64url "^2.0.0"
     safe-buffer "^5.0.1"
 
+edge-extension-deploy@0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/edge-extension-deploy/-/edge-extension-deploy-0.1.0.tgz#f25c877dc7c7026d2682f50144845b647698cc3b"
+  dependencies:
+    superagent "^3.4.1"
+    yazl "^2.4.2"
+
 editor@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/editor/-/editor-1.0.0.tgz#60c7f87bd62bcc6a894fa8ccd6afb7823a24f742"
@@ -9027,7 +9034,7 @@ yargs@~3.10.0:
     decamelize "^1.0.0"
     window-size "0.1.0"
 
-yazl@^2.4.1:
+yazl@^2.4.1, yazl@^2.4.2:
   version "2.4.2"
   resolved "https://registry.yarnpkg.com/yazl/-/yazl-2.4.2.tgz#14cb19083e1e25a70092c1588aabe0f4e4dd4d88"
   dependencies:
