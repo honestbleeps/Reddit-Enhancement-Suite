@@ -120,7 +120,7 @@
         "description": ""
     },
     "necLoadChildCommentsDesc": {
-        "message": "Should on-screen child comments be expanded when paused, in addition to top-level comments?",
+        "message": "Θα πρέπει τα εμφανιζόμενα στην οθόνη θυγατρικά σχόλια να επεκτείνονται στην παύση, επιπρόσθετα από τα σχόλια πρώτου επιπέδου;",
         "description": ""
     },
     "userTaggerName": {
@@ -284,7 +284,7 @@
         "description": ""
     },
     "newCommentCountMonitorPostsVisitedDesc": {
-        "message": "Monitor the number of comments and edit dates of posts you have visited.",
+        "message": "Παρακολούθησε τον αριθμό σχολίων και ημερομηνίας επεξεργασίας των αναρτήσεων που έχεις επισκεφτεί.",
         "description": ""
     },
     "orangeredDesc": {
@@ -372,7 +372,7 @@
         "description": ""
     },
     "nightModeAutomaticNightModeAutomatic": {
-        "message": "Automatic (requires geolocation)",
+        "message": "Αυτόματο (χρειάζεται τοποθεσία)",
         "description": ""
     },
     "keyboardNavFollowLinkAndCommentsNewTabBGDesc": {
@@ -436,7 +436,7 @@
         "description": ""
     },
     "penaltyBoxDelayFeaturesTitle": {
-        "message": "Delay Features",
+        "message": "Αναβάλετε λειτουργίες.",
         "description": ""
     },
     "commentHidePerDesc": {
@@ -536,7 +536,7 @@
         "description": ""
     },
     "toggleCommentsLeftEdgeHoverColorDesc": {
-        "message": "Color of the bar when hovered.",
+        "message": "Χρώμα της μπάρας κατά την αιώρηση.",
         "description": ""
     },
     "backupAndRestoreBackupDesc": {
@@ -552,7 +552,7 @@
         "description": ""
     },
     "hideCommentsOnHeaderDoubleClickTitle": {
-        "message": "Hide Comments On Header Double Click",
+        "message": "Κρύβει Τα Σχόλια Με Διπλό Κλικ Στη Κεφαλίδα.",
         "description": ""
     },
     "backupName": {
@@ -588,7 +588,7 @@
         "description": ""
     },
     "toggleCommentsLeftEdgeWidthTitle": {
-        "message": "Toggle Comments Left Edge Width",
+        "message": "Εναλλαγή Πλάτους Αριστερής Άκρης Σχολίων.",
         "description": ""
     },
     "accountSwitcherUpdateOtherTabsTitle": {
@@ -744,7 +744,7 @@
         "description": ""
     },
     "toggleCommentsLeftEdgeHoverColorTitle": {
-        "message": "Toggle Comments Left Edge Hover Color",
+        "message": "Εναλλάκτης Σχολίων, Χρώμα Αιώρησης Αριστερής Άκρης",
         "description": ""
     },
     "keyboardNavMoveUpCommentDesc": {
@@ -784,7 +784,7 @@
         "description": ""
     },
     "filteRedditEmptyNotificationToggleShowReason": {
-        "message": "Toggle show filter reasons",
+        "message": "Εναλλαγή εμφάνισης αιτίων φίλτρου",
         "description": ""
     },
     "contextViewFullContextDesc": {
@@ -820,7 +820,7 @@
         "description": ""
     },
     "nightModeAutomaticNightModeDenied": {
-        "message": "Access to your current location was denied. It is required to calculate sunset and sunrise times for automatic night mode. To disable this functionality, click \"$1\".",
+        "message": "Πρόσβαση στη τωρινή σας τοποθεσία αρνήθηκε. Απαιτείται για να υπολογιστεί η δύση και η ανατολή του ηλίου για την αυτόματη λειτουργία νυκτώς. Για να απενεργοποιήσετε αυτή τη λειτουργία, πατήστε \"$1\".",
         "description": ""
     },
     "styleTweaksSubredditStyle": {
@@ -836,7 +836,7 @@
         "description": ""
     },
     "penaltyBoxSuspendFeaturesTitle": {
-        "message": "Suspend Features",
+        "message": "Αναστείλετε λειτουργίες.",
         "description": ""
     },
     "notificationNotificationTypesTitle": {
@@ -933,6 +933,10 @@
     },
     "keyboardNavLinearScrollStyleTitle": {
         "message": "Γραμμικό Στυλ Κύλισης",
+        "description": ""
+    },
+    "onboardingUpgradeMessage": {
+        "message": "Reddit Enhancement Suite has been upgraded to v$1.",
         "description": ""
     },
     "keyboardNavShowParentsDesc": {
@@ -1147,6 +1151,10 @@
         "message": "Πατώντας Ctrl+Enter ή Cmd+Enter καταχωρείται το επεξεργασμένο σχόλιο/wiki.",
         "description": ""
     },
+    "onboardingUpdateNotifictionNothing": {
+        "message": "Nothing",
+        "description": ""
+    },
     "filteRedditShowFilterlineTitle": {
         "message": "Εμφάνιση Γραμμής Φίλρων",
         "description": ""
@@ -1240,7 +1248,7 @@
         "description": ""
     },
     "penaltyBoxDelayFeaturesDesc": {
-        "message": "Throttle showing features which have a high penalty.",
+        "message": "Περιορισμός εμφάνισης χαρακτηριστικών που έχουν υψηλή ποινή.",
         "description": ""
     },
     "userInfoPostKarma": {
@@ -1250,6 +1258,10 @@
     "styleTweaksToggleSubredditStyleOnOff": {
         "message": "ενάλλαξε το στυλ υποreddit $1",
         "description": "As in 'toggle subreddit style off'"
+    },
+    "onboardingUpgradeCta": {
+        "message": "Read more",
+        "description": ""
     },
     "keyboardNavCommentsLinkToggleExpandoTitle": {
         "message": "Οι Σύνδεσμοι Σχολίων εναλλάσσουν το Expando",
@@ -1292,7 +1304,7 @@
         "description": ""
     },
     "hideChildCommentsHideNestedDesc": {
-        "message": "Hide children for nested comments when hiding all child comments.",
+        "message": "Απόκρυψη παιδιών για ένθετα σχόλια όταν κρύβονται όλα τα θυγατρικά σχόλια.",
         "description": ""
     },
     "multiredditNavbarAddShortcut": {
@@ -1300,11 +1312,11 @@
         "description": ""
     },
     "toggleCommentsLeftEdgeCollapsedColorTitle": {
-        "message": "Toggle Comments Left Edge Collapsed Color",
+        "message": "Εναλλάκτης Σχολίων, Χρώμα Συμπτυγμένου Αριστερής Άκρης",
         "description": ""
     },
     "scrollOnCollapseDesc": {
-        "message": "Scrolls to next comment when a comment is collapsed.",
+        "message": "Κύλιση στο επόμενο σχόλιο όταν ένα σχόλιο έχει συμπτυχθεί.",
         "description": ""
     },
     "commandLineName": {
@@ -1391,6 +1403,10 @@
         "message": "Δες τον σύνδεσμο και τα σχόλια σε νέες καρτέλες.",
         "description": ""
     },
+    "onboardingUpdateNotificationName": {
+        "message": "Update Notification",
+        "description": ""
+    },
     "multiredditNavbarFadeDelayDesc": {
         "message": "Καθυστέρηση, σε χιλιοστά δευτερολέπτου, πριν εξαφανιστεί ομαλά το εργαλείο αιώρησης. Η προεπιλεγμένη τιμή είναι 200.",
         "description": ""
@@ -1408,7 +1424,7 @@
         "description": ""
     },
     "commentToolsWikiAutocompleteDesc": {
-        "message": "Show wiki autocomplete tool when typing in posts, comments, and replies.",
+        "message": "Εμφάνισε το εργαλείο αυτόματης συμπλήρωσης του wiki όταν γράφετε σε αναρτήσεις, σχόλια, και απαντήσεις.",
         "description": ""
     },
     "keyboardNavImageSizeDownTitle": {
@@ -1420,7 +1436,7 @@
         "description": ""
     },
     "toggleCommentsLeftEdgeColorDesc": {
-        "message": "Default color of the bar.",
+        "message": "Προκαθορισμένο χρώμα της μπάρας.",
         "description": ""
     },
     "toggleOff": {
@@ -1468,7 +1484,7 @@
         "description": ""
     },
     "filteRedditEmptyNotificationHeader": {
-        "message": "All posts are filtered out",
+        "message": "Όλες οι δημοσιεύσεις έχουν φιλτραριστεί",
         "description": ""
     },
     "subredditInfoSubscribers": {
@@ -1520,7 +1536,7 @@
         "description": ""
     },
     "penaltyBoxDesc": {
-        "message": "Automatically delay or disable RES features which go unused.",
+        "message": "Αναβάλετε ή απενεργοποιήστε λειτουργίες του RES που δεν χρησιμοποιούνται.",
         "description": ""
     },
     "searchHelperSearchByFlairDesc": {
@@ -1568,7 +1584,7 @@
         "description": ""
     },
     "nightModeAutomaticNightModeNone": {
-        "message": "Disabled",
+        "message": "Απενεργοποιημένο.",
         "description": ""
     },
     "keyboardNavMoveUpDesc": {
@@ -1636,7 +1652,7 @@
         "description": ""
     },
     "toggleCommentsOnClickLeftEdgeTitle": {
-        "message": "Toggle Comments On Click Left Edge",
+        "message": "Εναλλάκτης Σχολίων, Αριστερή Άκρη στο Κλικ",
         "description": ""
     },
     "betteRedditShowTimestampCommentsTitle": {
@@ -1649,6 +1665,10 @@
     },
     "spoilerTagsDesc": {
         "message": "Κρύβει τα σπόιλερ στις σελίδες προφίλ χρήστη",
+        "description": ""
+    },
+    "onboardingUpdateNotifictionNotification": {
+        "message": "Show pop-up notification",
         "description": ""
     },
     "keyboardNavCommentsLinkToggleExpandoDesc": {
@@ -1692,7 +1712,7 @@
         "description": ""
     },
     "hideChildCommentsNestedDesc": {
-        "message": "Add the \"hide child comments\" button to all comments with children, instead of just top level comments.",
+        "message": "Προσθήκη του κουμπιού \"απόκρυψη θυγατρικών σχολίων\" σε όλα τα σχόλια που έχουν παιδιά, αντί για μόνο τα σχόλια πρώτου επιπέδου.",
         "description": ""
     },
     "newCommentCountSubscriptionLengthTitle": {
@@ -1756,7 +1776,7 @@
         "description": ""
     },
     "hideChildCommentsHideNestedTitle": {
-        "message": "Hide Nested",
+        "message": "Απόκρυψη Ένθετων.",
         "description": ""
     },
     "newCommentCountCleanCommentsTitle": {
@@ -1800,7 +1820,7 @@
         "description": "as in '+shortcut' or '-shortcut'"
     },
     "penaltyBoxName": {
-        "message": "RES Feature Throttle",
+        "message": "Περιορισμός Χαρακτηριστικών RES",
         "description": ""
     },
     "userInfoSendMessage": {
@@ -1888,7 +1908,7 @@
         "description": ""
     },
     "nightModeAutomaticNightModeUser": {
-        "message": "User-defined hours",
+        "message": "Καθορισμένες από τον χρήστη ώρες.",
         "description": ""
     },
     "userTaggerIgnored": {
@@ -1904,7 +1924,7 @@
         "description": ""
     },
     "keyboardNavAmbiguousShortcutPromptFollowUp": {
-        "message": "You can change this later from the $1 settings",
+        "message": "Μπορείς να το αλλάξεις αργότερα από τις $1 ρυθμίσεις.",
         "description": ""
     },
     "customTogglesToggleTitle": {
@@ -1944,7 +1964,7 @@
         "description": ""
     },
     "toggleCommentsLeftEdgeColorTitle": {
-        "message": "Toggle Comments Left Edge Color",
+        "message": "Εναλλαγή Χρώματος Αριστερής Άκρης Σχολίων.",
         "description": ""
     },
     "commentToolsMacrosTitle": {
@@ -1952,7 +1972,7 @@
         "description": ""
     },
     "nightModeAutomaticNightModeDesc": {
-        "message": "Enable automatic night mode.\n\nIn automatic mode, you will be prompted to share your location. Your location will only be used to calculate sunrise & sunset times.\n\nIn user-defined hours mode, night mode automatically starts and stops at the times configured below.\n\nFor the times below, a 24-hour clock (\"military time\") from 0:00 to 23:59 is used.\ne.g. the time 8:20pm would be written as 20:20, and 12:30am would be written as 00:30 or 0:30.\n\nTo temporarily override automatic night mode, manually flip the night mode switch.\nConfigure how long the override lasts below.",
+        "message": "Ενεργοποίησε την αυτόματη νυχτερινή λειτουργία\n\nΣτην αυτόματη κατάσταση, θα ερωτηθείς για να μοιραστείς την τοποθεσία σου. Η τοποθεσία σου θα χρησιμοποιηθεί μόνο για να υπολογιστούν οι ώρες ανατολής και δύσης.\n\nΣτην κατάσταση ωρών ορισμένων από το χρήστη, η νυχτερινή λειτουργία ξεκινάει και σταματάει αυτόματα στις ώρες που ορίζονται παρακάτω.\n\nΓια τις παρακάτω ώρες, το χρησιμοποιείται η 24ωρη μορφή της ώρας, από 0:00 ως 23:59.\nπ.χ. η 8:20μμ γράφεται 20:00, και η 12:30πμ γράφεται 00:30 ή 0:30\n\nΓια να ενεργοποιήσεις προσωρινά τη νυχτερινή λειτουργία, γύρισε το διακόπτη νυχτερινής λειτουργίας με το χέρι.\nΌρισε πόσο κρατάει η ενεργοποίηση παρακάτω.",
         "description": ""
     },
     "subredditInfoFilterFromAllAndDomain": {
@@ -2028,7 +2048,7 @@
         "description": ""
     },
     "penaltyBoxSuspendFeaturesDesc": {
-        "message": "Turn off features which exceed the maximum penalty.",
+        "message": "Απενεργοποίηση χαρακτηριστικών που ξεπερνούν την μέγιστη ποινή.",
         "description": ""
     },
     "voteEnhancementsVotes": {
@@ -2049,6 +2069,10 @@
     },
     "commentStyleName": {
         "message": "Στυλ Σχολίων",
+        "description": ""
+    },
+    "onboardingBetaUpdateNotificationDescription": {
+        "message": "Notification method for beta updates.",
         "description": ""
     },
     "keyboardNavFrontPageTitle": {
@@ -2256,7 +2280,7 @@
         "description": "as in '+dashboard' or '-dashboard'"
     },
     "commentToolsWikiAutocompleteTitle": {
-        "message": "Wiki Autocomplete",
+        "message": "Αυτόματη συμπλήρωση του Wiki.",
         "description": ""
     },
     "commentToolsUserAutoCompleteTitle": {
@@ -2272,7 +2296,7 @@
         "description": ""
     },
     "scrollOnCollapseTitle": {
-        "message": "Scroll On Collapse",
+        "message": "Κύλιση κατά την Σύμπτυξη",
         "description": ""
     },
     "nerReversePauseIconDesc": {
@@ -2281,6 +2305,10 @@
     },
     "userTaggerUsername": {
         "message": "Όνομα Χρήστη",
+        "description": ""
+    },
+    "onboardingPatchUpdateNotificationName": {
+        "message": "Patch Update Notification",
         "description": ""
     },
     "keyboardNavSlashAllTitle": {
@@ -2308,7 +2336,7 @@
         "description": ""
     },
     "newCommentCountNotifyEditedPostsTitle": {
-        "message": "Notify Edited Posts",
+        "message": "Ειδοποίηση για Τροποποιημένες Αναρτήσεις",
         "description": ""
     },
     "logoLinkCurrent": {
@@ -2460,7 +2488,7 @@
         "description": "How heavily the feature is penalized (0-100)"
     },
     "penaltyBoxFeaturesDesc": {
-        "message": "Track usage of different features.",
+        "message": "Χρήση διαφόρων λειτουργιών.",
         "description": ""
     },
     "commentDepthMinimumComments": {
@@ -2492,7 +2520,7 @@
         "description": ""
     },
     "keyboardNavAmbiguousShortcutPrompt": {
-        "message": "RES' $1 isn't sure what to do when you press the keyboard shortcut $2. $3 What should pressing $4 do?",
+        "message": "Το RES' $1 δεν είναι σίγουρο τι να κάνει όταν πατάτε στο πληκτρολόγιο τη συντόμευση $2. $3 Τι πρέπει να γίνεται όταν πατιέται $4 ;",
         "description": ""
     },
     "styleTweaksToggleSubredditStyle": {
@@ -2580,7 +2608,7 @@
         "description": ""
     },
     "userTaggerShowIgnoredDesc": {
-        "message": "Provide a link to reveal an ignored link or comment.",
+        "message": "Παροχή συνδέσμου εμφάνισης ενός αγνοημένου συνδέσμου ή σχολίου.",
         "description": ""
     },
     "commentToolsItalicKeyTitle": {
@@ -2633,6 +2661,10 @@
     },
     "betteRedditPinHeaderDesc": {
         "message": "Καρφίτσωσε την μπάρα υποreddit, το μενού χρήστη ή την κεφαλίδα, να αιωρείται στην κορυφή κατά την κύλιση προς τα κάτω.",
+        "description": ""
+    },
+    "onboardingUpdateNotifictionReleaseNotes": {
+        "message": "Show release notes in background tab",
         "description": ""
     },
     "betteRedditShowTimestampSidebarDesc": {
@@ -2696,7 +2728,7 @@
         "description": ""
     },
     "RESTipsMenuItemDesc": {
-        "message": "Add an item to the RES dropdown menu to show tips.",
+        "message": "Προσθήκη επιλογής στο αναπτυσσόμενο μενού του RES για την εμφάνιση υποδείξεων.",
         "description": ""
     },
     "commentToolsFormattingToolButtonsTitle": {
@@ -2748,11 +2780,11 @@
         "description": ""
     },
     "newCommentCountNotifyEditedPostsDesc": {
-        "message": "Notify if a subscribed post is edited.",
+        "message": "Ειδοποίηση αν μία εγγεγραμμένη ανάρτηση τροποποιήθηκε.",
         "description": ""
     },
     "penaltyBoxSuspendFeaturesNotificationMessage": {
-        "message": "$1 will be turned off due to lack of use. You can enable it again later in the RES settings console.",
+        "message": "$1 θα απενεργοποιηθεί, λόγω έλλειψης χρήσης. Μπορείτε να το επανενεργοποιήσετε αργότερα στην κονσόλα ρυθμίσεων του RES. ",
         "description": ""
     },
     "userTaggerYourVotesFor": {
@@ -2864,7 +2896,11 @@
         "description": ""
     },
     "penaltyBoxSuspendFeaturesNotificationHeader": {
-        "message": "Suspended Feature",
+        "message": "Αναστείλετε λειτουργία.",
+        "description": ""
+    },
+    "onboardingBetaUpdateNotificationName": {
+        "message": "Beta Update Notification",
         "description": ""
     },
     "announcementsDesc": {
@@ -2968,7 +3004,7 @@
         "description": ""
     },
     "toggleCommentsLeftEdgeCollapsedColorDesc": {
-        "message": "Color of the bar when collapsed.",
+        "message": "Χρώμα της μπάρας όταν είναι κλειστή.",
         "description": ""
     },
     "announcementsName": {
@@ -3036,11 +3072,11 @@
         "description": ""
     },
     "newCommentCountMonitorPostsVisitedIncognitoDesc": {
-        "message": "Monitor the number of comments and edit dates of posts you have visited while browsing in incognito/private mode.",
+        "message": "Παρακολούθηση του αριθμού των σχολίων σε αναρτήσεις που έχεις επισκεφθεί ενώ βρισκόσασταν σε ανώνυμη/ιδιωτική περιήγηση.",
         "description": ""
     },
     "filteRedditEmptyNotificationInfo": {
-        "message": "RES noticed that every post is hidden. Click on the button below to see why posts are filtered out.",
+        "message": "Το RES παρατήρησε ότι κάθε ανάρτηση είναι κρυμμένη. Πατήστε το κάτωθι κουμπί για να δείτε το λόγο που έχουν φιλτραριστεί.",
         "description": ""
     },
     "backupAndRestoreRestoreTitle": {
@@ -3080,7 +3116,7 @@
         "description": ""
     },
     "hideCommentsOnHeaderDoubleClickDesc": {
-        "message": "Toggles comment collapse when the header is double clicked.",
+        "message": "Εναλλάσσει την σύμπτυξη σχολίων κατά το διπλό κλικ στην κεφαλίδα.",
         "description": ""
     },
     "aboutOptionsPrivacyTitle": {
@@ -3101,6 +3137,10 @@
     },
     "hideChildCommentsAutomaticTitle": {
         "message": "Αυτόματο",
+        "description": ""
+    },
+    "onboardingUpdateNotificationDescription": {
+        "message": "Notification method for major/minor updates.",
         "description": ""
     },
     "hoverFadeDelayDesc": {
@@ -3129,6 +3169,10 @@
     },
     "accountSwitcherReloadOtherTabsDesc": {
         "message": "Αφού αλλάξεις μεταξύ λογαριασμών, επαναφόρτωσε τις άλλες καρτέλες.",
+        "description": ""
+    },
+    "onboardingPatchUpdateNotificationDescription": {
+        "message": "Notification method for patch updates.",
         "description": ""
     },
     "hoverInstancesEnabled": {
@@ -3184,7 +3228,7 @@
         "description": ""
     },
     "nerShowPauseButtonDesc": {
-        "message": "Show a play/pause button for auto-load in the top right corner.",
+        "message": "Εμφάνιση ενός κουμπιού έναρξη/παύση για αυτόματο φόρτωμα στην πάνω δεξιά γωνία.",
         "description": ""
     },
     "messageMenuName": {
@@ -3208,7 +3252,7 @@
         "description": ""
     },
     "necDescription": {
-        "message": "Keep ultra-long comment pages flowing.",
+        "message": "Διατήρησε τη ροή στις ιδιαίτερα μεγάλες σελίδες σχολίων.",
         "description": ""
     },
     "troubleshooterCachesCleared": {
@@ -3248,7 +3292,7 @@
         "description": ""
     },
     "toggleCommentsOnClickLeftEdgeDesc": {
-        "message": "Creates a bar on the left side of each comment. The bar can be clicked to collapse the comment.",
+        "message": "Δημιουργεί μία μπάρα στην αριστερή πλευρά κάθε σχολίου. Όταν γίνεται κλικ στην μπάρα, συμπτύσσεται το σχόλιο.",
         "description": ""
     },
     "keyboardNavFollowSubredditNewTabTitle": {
@@ -3276,7 +3320,7 @@
         "description": ""
     },
     "toggleCommentsLeftEdgeHideButtonTitle": {
-        "message": "Toggle Comments Left Edge Hide Button",
+        "message": "Εναλλάκτης Σχολίων, Κουμπί Απόκρυψης Αριστερής Άκρης",
         "description": ""
     },
     "commentToolsCtrolEnterSubmitsPostsTitle": {
@@ -3292,7 +3336,7 @@
         "description": ""
     },
     "penaltyBoxSuspendFeaturesRevertNotificationMessage": {
-        "message": "$1 has been turned back on. This feature will not be throttled or automatically disabled again.",
+        "message": "Το $1 επανενεργοποιήθηκε. Αυτό το χαρακτηριστικό δεν θα περιοριστεί, ούτε θα απενεργοποιηθεί αυτόματα ξανά.",
         "description": ""
     },
     "messageMenuHoverDelayTitle": {
@@ -3348,7 +3392,7 @@
         "description": ""
     },
     "toggleCommentsLeftEdgeHideButtonDesc": {
-        "message": "Hides the default button ([-]) to collapse comments.",
+        "message": "Αποκρύπτει το προεπιλεγμένο κουμπί ([-]) σύμπτυξης των σχολίων.",
         "description": ""
     },
     "keyboardNavMoveTopDesc": {
@@ -3444,7 +3488,7 @@
         "description": ""
     },
     "toggleCommentsLeftEdgeWidthDesc": {
-        "message": "Width of the bar. Default is 50.",
+        "message": "Πλάτος της μπάρας. Το προκαθορισμένο είναι 50.",
         "description": ""
     },
     "filteRedditDomainsTitle": {
@@ -3452,7 +3496,7 @@
         "description": ""
     },
     "penaltyBoxSuspendFeaturesRevertNotificationHeader": {
-        "message": "Pardoned Feature",
+        "message": "Συγχωρημένο Χαρακτηριστικό",
         "description": ""
     },
     "orangeredHideModMailTitle": {
