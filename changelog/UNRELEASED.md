@@ -1,12 +1,20 @@
 
 ### New Features
 
-- None (thanks nobody)
+- New onboarding module to configure update notifications (thanks @andytuba, @erikdesjardins)
+- Add /r/popular link to Subreddit Manager bar (thanks @andytuba)
+- Filter subreddits on /r/popular (thanks @erikdesjardins)
+- Useful links are displayed in the Never Ending Reddit bar when reddit returns "No results" (thanks @andytuba)
+- New preferRedditMedia option to load i.redd.it links via redditmedia.com where possible (thanks @andytuba)
 
 ### Bug Fixes
 
-- None (thanks nobody)
+- Fix disabling modules with no options (e.g. Wheel Browse) (thanks @erikdesjardins)
+- Fix source links appearing on link posts (thanks @larsjohnsen)
+- Fix non-looping videos still looping (thanks @larsjohnsen)
 
 ### Housekeeping / Other
 
-- None (thanks nobody)
+- Update the localization files (thanks @BenMcGarry)
+- Update link to the "about" page (thanks @BenMcGarry)
+- Update deployment automation deps, automate Edge deployment (thanks @erikdesjardins)
