@@ -935,6 +935,10 @@
         "message": "Estilo de desplazamiento lineal",
         "description": ""
     },
+    "onboardingUpgradeMessage": {
+        "message": "Reddit Enhancement Suite has been upgraded to v$1.",
+        "description": ""
+    },
     "keyboardNavShowParentsDesc": {
         "message": "Mostrar los comentarios padres",
         "description": ""
@@ -1147,6 +1151,10 @@
         "message": "Pulsar Ctrl+Enter o Cmd+Enter enviará su comentario o edición de wiki.",
         "description": ""
     },
+    "onboardingUpdateNotifictionNothing": {
+        "message": "Nothing",
+        "description": ""
+    },
     "filteRedditShowFilterlineTitle": {
         "message": "Mostrar línea de filtros",
         "description": ""
@@ -1156,7 +1164,7 @@
         "description": ""
     },
     "hideChildCommentsDesc": {
-        "message": "Allows you to hide child comments.",
+        "message": "Te permite ocultar comentarios descendientes.",
         "description": ""
     },
     "userTaggerSetATag": {
@@ -1250,6 +1258,10 @@
     "styleTweaksToggleSubredditStyleOnOff": {
         "message": "alternar el estilo del subreddit $1",
         "description": "As in 'toggle subreddit style off'"
+    },
+    "onboardingUpgradeCta": {
+        "message": "Read more",
+        "description": ""
     },
     "keyboardNavCommentsLinkToggleExpandoTitle": {
         "message": "Comments Link Toggle Expando",
@@ -1389,6 +1401,10 @@
     },
     "keyboardNavFollowLinkAndCommentsNewTabDesc": {
         "message": "View link and comments in new tabs.",
+        "description": ""
+    },
+    "onboardingUpdateNotificationName": {
+        "message": "Update Notification",
         "description": ""
     },
     "multiredditNavbarFadeDelayDesc": {
@@ -1649,6 +1665,10 @@
     },
     "spoilerTagsDesc": {
         "message": "Esconde los spoilers en páginas de perfil de usuario.",
+        "description": ""
+    },
+    "onboardingUpdateNotifictionNotification": {
+        "message": "Show pop-up notification",
         "description": ""
     },
     "keyboardNavCommentsLinkToggleExpandoDesc": {
@@ -2051,6 +2071,10 @@
         "message": "Estilo del comentario",
         "description": ""
     },
+    "onboardingBetaUpdateNotificationDescription": {
+        "message": "Notification method for beta updates.",
+        "description": ""
+    },
     "keyboardNavFrontPageTitle": {
         "message": "Portada",
         "description": ""
@@ -2152,7 +2176,7 @@
         "description": ""
     },
     "betteRedditFixHideLinksDesc": {
-        "message": "Changes \"hide\" links to read as \"hide\" or \"unhide\" depending on the hide state.",
+        "message": "Cambia los enlaces de \"ocultar\" a que sean \"ocultar\" o \"mostrar\" en función de cómo se encuentran.",
         "description": ""
     },
     "commentQuickCollapseName": {
@@ -2281,6 +2305,10 @@
     },
     "userTaggerUsername": {
         "message": "Nombre de usuario",
+        "description": ""
+    },
+    "onboardingPatchUpdateNotificationName": {
+        "message": "Patch Update Notification",
         "description": ""
     },
     "keyboardNavSlashAllTitle": {
@@ -2528,7 +2556,7 @@
         "description": ""
     },
     "betteRedditShowLastEditedTimestampDesc": {
-        "message": "Show the time that a text post/comment was edited, without having to hover over the timestamp.",
+        "message": "Muestra la hora a la que un aporte de texto o comentario fue editado, sin tener que pasar el ratón por el tiempo. ",
         "description": ""
     },
     "aboutOptionsSearchSettings": {
@@ -2632,7 +2660,11 @@
         "description": ""
     },
     "betteRedditPinHeaderDesc": {
-        "message": "Pin the subreddit bar, user menu, or header to top, floating down as you scroll.",
+        "message": "Fija la barra de subreddit, menú de usuario, o cabecera a la parte de arriba, acompañándote mientras bajas por la página.",
+        "description": ""
+    },
+    "onboardingUpdateNotifictionReleaseNotes": {
+        "message": "Show release notes in background tab",
         "description": ""
     },
     "betteRedditShowTimestampSidebarDesc": {
@@ -2865,6 +2897,10 @@
     },
     "penaltyBoxSuspendFeaturesNotificationHeader": {
         "message": "Suspended Feature",
+        "description": ""
+    },
+    "onboardingBetaUpdateNotificationName": {
+        "message": "Beta Update Notification",
         "description": ""
     },
     "announcementsDesc": {
@@ -3103,6 +3139,10 @@
         "message": "Automático",
         "description": ""
     },
+    "onboardingUpdateNotificationDescription": {
+        "message": "Notification method for major/minor updates.",
+        "description": ""
+    },
     "hoverFadeDelayDesc": {
         "message": "Default delay before the popup fades after mouseout.",
         "description": ""
@@ -3129,6 +3169,10 @@
     },
     "accountSwitcherReloadOtherTabsDesc": {
         "message": "Después de cambiar cuentas, recargar automáticamente otras pestañas.",
+        "description": ""
+    },
+    "onboardingPatchUpdateNotificationDescription": {
+        "message": "Notification method for patch updates.",
         "description": ""
     },
     "hoverInstancesEnabled": {
