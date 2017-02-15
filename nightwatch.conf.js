@@ -18,7 +18,7 @@ module.exports = {
 			username: process.env.SAUCE_USERNAME,
 			access_key: process.env.SAUCE_ACCESS_KEY,
 			globals: {
-				waitForConditionTimeout: 5000,
+				waitForConditionTimeout: 10000,
 				afterEach(browser, done) {
 					console.log('View results:', `https://saucelabs.com/tests/${browser.capabilities['webdriver.remote.sessionid']}/`);
 					done();

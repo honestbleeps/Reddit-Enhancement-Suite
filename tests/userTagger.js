@@ -15,7 +15,7 @@ module.exports = {
 			.waitForElementVisible(tag(post), 'post icon tag visible')
 			.waitForElementVisible(tag(parentComment), 'parent comment tag icon visible')
 			.click(loadChildComment)
-			.waitForElementVisible(tag(childComment), 10000, 'child comment tag icon visible')
+			.waitForElementVisible(tag(childComment), 'child comment tag icon visible')
 
 			// tags work for newly loaded comments
 			.refresh()
@@ -25,7 +25,7 @@ module.exports = {
 			.setValue('#userTaggerToolTip #userTaggerTag', ['test tag'])
 			.click('#userTaggerSave')
 			.click(loadChildComment)
-			.waitForElementVisible(tag(childComment), 10000)
+			.waitForElementVisible(tag(childComment))
 			.assert.containsText(tag(childComment), 'test tag')
 
 			// works in post listings
