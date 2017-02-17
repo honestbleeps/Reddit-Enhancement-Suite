@@ -22,22 +22,6 @@ https://developer.microsoft.com/en-us/microsoft-edge/platform/documentation/exte
 1. Run `npm run manifoldjs-package`
 1. Upload `edgeExtension.appx` to https://developer.microsoft.com/en-us/dashboard/apps/overview
 
-## Safari
-
-https://developer.apple.com/library/safari/documentation/Tools/Conceptual/SafariExtensionGuide/DistributingYourExtension/DistributingYourExtension.html
-
-#### Safari 8 (self-distribute)
-
-1. Safari > Develop > Show extension builder
-1. Build package
-1. Upload `RES.safariextz` to redditenhancementsuite.com
-1. Update the redditnehancementsuite.com update manifest
-
-#### Safari 9+ (gallery)
-
-1. Follow Safari 8 rules
-1. Upload `RES.safariextz` to https://developer.apple.com/safari/extensions/submission/
-
 ## Opera 
 
 https://dev.opera.com/extensions/publishing-guidelines/

@@ -25,12 +25,6 @@ const browserConfig = {
 		outputFilename: '../appxmanifest.xml',
 		noZip: true,
 	},
-	safari: {
-		target: 'safari',
-		entry: 'safari/Info.plist',
-		environment: 'safari/environment',
-		output: 'RES.safariextension',
-	},
 	firefox: {
 		target: 'firefox',
 		entry: 'firefox/package.json',
@@ -61,10 +55,8 @@ const shouldZip = !!yargs.argv.zip;
 const isProduction = process.env.NODE_ENV !== 'development';
 
 const configs = browsers.map(b => browserConfig[b]).map(({ target, entry, environment, outputFilename, output, noZip }) => {
-	// extra transforms for Safari
 	const babelConfig = {
 		...babelrc,
-		...(target === 'safari' ? babelrc.env.safari : {}),
 		babelrc: false,
 	};
 

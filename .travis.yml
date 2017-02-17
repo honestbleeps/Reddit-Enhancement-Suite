@@ -69,7 +69,6 @@ matrix:
             - dist/zip/chrome.zip
             - dist/edgeextension/package/edgeExtension.appx
             - dist/zip/firefox.zip
-            - dist/zip/RES.safariextension.zip
           skip_cleanup: true
           on:
             tags: true
