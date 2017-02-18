@@ -36,7 +36,6 @@ Thinking about contributing to RES? Awesome! We just ask that you follow a few s
   - `lib/vendor/`: RES vendor libraries (old libs not on npm)
   - `lib/**/__tests__`: unit tests
   - `locales`: RES i18n translations
-  - `node/`: Node files
   - `tests/`: integration tests
   - `utils/`: Misc RES utilities 
   - `package.json`: package info, dependencies
@@ -83,7 +82,7 @@ To load the extension into your browser, see [Loading RES into your browser](#lo
 
 **`npm run build [-- <browsers>]`** will clean `dist/`, then build RES (release mode). Each build output will be compressed to a .zip file in `dist/zip/`.
 
-`<browsers>` is a comma-separated list of browsers to target, e.g. `chrome,firefox,edge,node`. `all` will build all targets. By default, `chrome` will be targeted.
+`<browsers>` is a comma-separated list of browsers to target, e.g. `chrome,firefox,edge`. `all` will build all targets. By default, `chrome` will be targeted.
 
 #### Lint and test commands
 

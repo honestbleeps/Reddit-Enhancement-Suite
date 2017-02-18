@@ -37,12 +37,6 @@ const browserConfig = {
 		environment: 'firefox/environment',
 		output: 'firefox-beta',
 	},
-	node: {
-		target: 'node',
-		entry: 'node/files.json',
-		environment: 'node/environment',
-		output: 'node',
-	},
 };
 
 const browsers = (
@@ -95,7 +89,7 @@ const configs = browsers.map(b => browserConfig[b]).map(({ target, entry, enviro
 				{ test: /\.(png|gif)$/, include: join(__dirname, 'lib', 'images'), loader: 'url' },
 			],
 			noParse: [
-				// to use `require` in Firefox and Node
+				// to use `require` in Firefox
 				/nativeRequire\.js$/,
 			],
 		},

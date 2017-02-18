@@ -10,5 +10,4 @@ install:
   - yarn check --integrity
 test_script:
   - yarn test
-  - yarn run build -- chrome,firefox,node
-  - node dist/node/loader.entry.js
+  - yarn run build -- chrome,firefox
