@@ -10,4 +10,4 @@ install:
   - yarn check --integrity
 test_script:
   - yarn test
-  - yarn run build -- chrome,firefox
+  - yarn run build -- all
