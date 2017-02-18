@@ -143,11 +143,44 @@
 	"accountSwitcherSimpleArrow": {
 		"message": "simple arrow"
 	},
+	"accountSwitcherCliHelp": {
+		"message": "switch users to [username]"
+	},
+	"accountSwitcherCliSwitchToUsernamePrompt": {
+		"message": "Switch to username:"
+	},
+	"accountSwitcherCliUserinfoError": {
+		"message": "Error loading userinfo for"
+	},
+	"accountSwitcherGoldUntil": {
+		"message": "Until"
+	},
+	"accountSwitcherAccountSwitchError": {
+		"message": "Could not switch accounts. Reddit may be under heavy load. Please try again in a few moments."
+	},
+	"accountSwitcherLoginError": {
+		"message": "Could not log in as $1 because either the username or password is wrong.\n\nCheck your settings?"
+	},
+	"accountSwitcherRateLimitError": {
+		"message": "Could not log in as $1 because reddit is seeing too many requests from you too quickly.\n\nPerhaps you've been trying to log in using the wrong username or password?\n\nCheck your settings?"
+	},
+	"accountSwitcherReload": {
+		"message": "reload"
+	},
+	"accountSwitcherDraft": {
+		"message": "However, you haven't finished posting on this page as /u/$1."
+	},
+	"accountSwitcherUserSwitched": {
+		"message": "You switched to /u/$1."
+	},
 	"announcementsName": {
 		"message": "RES Announcements"
 	},
 	"announcementsDesc": {
 		"message": "Keep up with important news."
+	},
+	"accountSwitcherCliNoUsername": {
+		"message": "No username specified."
 	},
 	"backupName": {
 		"message": "Backup & Restore"
