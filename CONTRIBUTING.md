@@ -36,8 +36,6 @@ Thinking about contributing to RES? Awesome! We just ask that you follow a few s
   - `lib/vendor/`: RES vendor libraries (old libs not on npm)
   - `lib/**/__tests__`: unit tests
   - `locales`: RES i18n translations
-  - `node/`: Node files
-  - `safari/`: Safari-specific RES files
   - `tests/`: integration tests
   - `utils/`: Misc RES utilities 
   - `package.json`: package info, dependencies
@@ -62,13 +60,6 @@ Thinking about contributing to RES? Awesome! We just ask that you follow a few s
   - `environment.js`: specific environment settings for Firefox
   - `package.json`: the project manifest for the Firefox add-on
 
-##### Safari (`safari/`)
-
-  - `Info.plist`: the project manifest
-  - `background-safari.html`: the "background html page" for RES, necessary for Safari extensions
-  - `background.entry.js`: the "background page" for RES, necessary for Safari extensions
-  - `environment.js`: specific environment settings for Safari
-
 ## Building development versions of the extension
 
 #### First time installation
@@ -91,7 +82,7 @@ To load the extension into your browser, see [Loading RES into your browser](#lo
 
 **`npm run build [-- <browsers>]`** will clean `dist/`, then build RES (release mode). Each build output will be compressed to a .zip file in `dist/zip/`.
 
-`<browsers>` is a comma-separated list of browsers to target, e.g. `chrome,firefox,safari,node`. `all` will build all targets. By default, `chrome` will be targeted.
+`<browsers>` is a comma-separated list of browsers to target, e.g. `chrome,firefox,edge`. `all` will build all targets. By default, `chrome` will be targeted.
 
 #### Lint and test commands
 
@@ -128,15 +119,6 @@ The default host and port (`localhost` and `4444`) should work for most local in
 
   1. Install [jpm](https://developer.mozilla.org/en-US/Add-ons/SDK/Tools/jpm) using `npm`: `npm install -g jpm`
   2. Navigate to the `/dist/firefox` folder (not the `/firefox` folder) and run the command `jpm run`, which should launch a new Firefox browser using a temporary profile with only RES installed.
-
-##### Safari
-
-  1. Open the `Preferences` by going to `Safari->Preferences` or pressing `⌘,`, then go to `Advanced` and check the checkbox for `Show Develop menu in menu bar`.
-  2. Navigate to `Develop->Show Extension Builder` to open the extensions builder. Add a new extension by pressing the `+` in the bottom left and choosing `Add Extension`.
-  3. Navigate to the `/dist/RES.safariextension` folder (not the `/safari` folder) for RES and select it.
-  4. If you are using Safari 9+, you should be able to install the extension without enrolling in the [Apple Developer Program](https://developer.apple.com/programs/); however, the extension will be auto-uninstalled when you quit Safari.
-
-  If you use an older version of Safari or find the auto-uninstall annoying, you need to purchase a proper certificate by signing up for the [Apple Developer Program](https://developer.apple.com/programs/) (currently $99/yr).
 
 ## Adding new files
 

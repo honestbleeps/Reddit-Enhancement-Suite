@@ -1,8 +1,10 @@
+/* eslint-disable import/no-nodejs-modules */
+
 import fs from 'fs';
 import path from 'path';
 import _ from 'lodash';
 
-export default function transformer(file, api) {
+export default function i18nTransformer(file, api) {
 	const j = api.jscodeshift;
 
 	const basePath = j(file.source);

@@ -50,9 +50,8 @@ matrix:
     - env: RES_JOB=test
       script:
         - yarn run coverage && yarn run report-coverage
-        - yarn run build -- chrome,firefox,node
+        - yarn run build -- chrome,firefox
         - yarn run jpm -- xpi
-        - node dist/node/loader.entry.js
         - yarn run test-integration -- chrome && yarn run test-integration -- firefox
     - env: RES_JOB=build_deploy
       script:
@@ -69,7 +68,6 @@ matrix:
             - dist/zip/chrome.zip
             - dist/edgeextension/package/edgeExtension.appx
             - dist/zip/firefox.zip
-            - dist/zip/RES.safariextension.zip
           skip_cleanup: true
           on:
             tags: true

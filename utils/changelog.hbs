@@ -1,7 +1,0 @@
-## {{header}}
-
-
-| \# | Change | Author
-| ---| ------ | ------	{{#issues}}{{#closed_by_issue}}
-| [#{{number}}]({{html_url}}) | {{title}} (fixes [#{{../number}}]({{../html_url}})) | @{{user.login }}{{/closed_by_issue}}{{#unless closed_by_issue}}
-| [#{{number}}]({{html_url}}) | {{title}} | @{{user.login}} {{/unless}}{{/issues}}
