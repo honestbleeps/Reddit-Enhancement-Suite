@@ -1,10 +1,38 @@
 <!--
 
-Bug report?                   https://RESissues.reddit.com/
-Feature request or question?  https://Enhancement.reddit.com/
-Security issue?               https://www.reddit.com/message/compose?to=/r/Enhancement
+Are you reporting a bug?
+Visit https://RESissues.reddit.com/
 
-If you've already looked in /r/Enhancement and /r/RESissues, then you can submit a GitHub issue:
+
+Are you asking "how do I make RES do something"?
+Visit https://Enhancement.reddit.com/
+
+
+
+Are you requesting a feature for RES?
+Visit https://Enhancement.reddit.com/
+
+
+
+Are you reporting a security issue?
+Visit https://www.reddit.com/message/compose?to=/r/Enhancement
+
+
+
+If you're not sure...
+Visit https://Enhancement.reddit.com/
+
+
+
+
+
+
+
+
+
+
+
+
 -->
 
 - My browser (copy from https://www.whatismybrowser.com):
