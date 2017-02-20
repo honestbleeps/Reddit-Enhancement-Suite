@@ -1,7 +1,6 @@
 {
 	"name": "{{prop?title!../package.json}}",
 	"version": "{{prop?version!../package.json}}",
-	"minimum_edge_version": "38.14393.0.0",
 	"description": "{{prop?description!../package.json}}",
 	"author": "{{prop?author!../package.json}}",
 	"background": {
