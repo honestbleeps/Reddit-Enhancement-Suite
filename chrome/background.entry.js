@@ -128,10 +128,6 @@ addListener('permissions', ({ operation, permissions, origins }) => {
 	}
 })();
 
-addListener('deleteCookies', cookies =>
-	cookies.forEach(({ url, name }) => chrome.cookies.remove({ url, name }))
-);
-
 addListener('openNewTabs', ({ urls, focusIndex }, { id: tabId, index: currentIndex }) => {
 	urls.forEach((url, i) => chrome.tabs.create({
 		url,

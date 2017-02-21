@@ -25,9 +25,6 @@ const { viewFor } = nativeRequire('sdk/view/core');
 
 const historyService = Cc['@mozilla.org/browser/history;1'].getService(Ci.mozIAsyncHistory);
 
-// Cookie manager for new API login
-const cookieManager = Cc['@mozilla.org/cookiemanager;1'].getService().QueryInterface(Ci.nsICookieManager2);
-
 // for creating nsURI objects for historyService.addURI
 const ioService = Cc['@mozilla.org/network/io-service;1'].getService(Ci.nsIIOService);
 
@@ -65,17 +62,6 @@ function workerFor(tab) {
 	return worker;
 }
 
-/**
- * @param {nsISimpleEnumerator} enumerator
- * @param {nsIJSIID} iface
- * @returns {Generator}
- */
-function* asGenerator(enumerator, iface) {
-	while (enumerator.hasMoreElements()) {
-		yield enumerator.getNext().QueryInterface(iface);
-	}
-}
-
 const {
 	_handleMessage,
 	sendMessage,
@@ -85,18 +71,6 @@ const {
 // Listeners
 
 addCommonBackgroundListeners(addListener);
-
-addListener('deleteCookies', cookies => {
-	for (const { host, name, path, originAttributes } of asGenerator(cookieManager.enumerator, Ci.nsICookie)) {
-		if (
-			host === '.reddit.com' &&
-			path === '/' &&
-			cookies.some(c => c.name === name)
-		) {
-			cookieManager.remove(host, name, path, false, originAttributes);
-		}
-	}
-});
 
 addListener('ajax', ({ method, url, headers, data }) =>
 	// not using async/await here since the polyfill doesn't work with Firefox's backend
