@@ -1,38 +1,18 @@
 <!--
+Is RES broken?       Visit https://www.reddit.com/r/RESissues
 
-Are you reporting a bug?
-Visit https://RESissues.reddit.com/
+Are you asking "how do I make RES do something"?     Visit https://www.reddit.com/r/Enhancement
 
+Are you requesting a feature for RES?       Visit https://www.reddit.com/r/Enhancement
 
-Are you asking "how do I make RES do something"?
-Visit https://Enhancement.reddit.com/
-
-
-
-Are you requesting a feature for RES?
-Visit https://Enhancement.reddit.com/
-
-
-
-Are you reporting a security issue?
-Visit https://www.reddit.com/message/compose?to=/r/Enhancement
-
-
-
-If you're not sure...
-Visit https://Enhancement.reddit.com/
+Are you reporting a security issue?      Visit https://www.reddit.com/message/compose?to=/r/Enhancement
 
 
 
 
 
 
-
-
-
-
-
-
+Other questions?    Visit https://www.reddit.com/r/Enhancement
 -->
 
 - My browser (copy from https://www.whatismybrowser.com):
@@ -48,4 +28,3 @@ Visit https://Enhancement.reddit.com/
 
 
 *What other browser extensions are installed?*
-
