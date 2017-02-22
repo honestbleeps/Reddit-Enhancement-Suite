@@ -1,8 +1,8 @@
 {
-	"name": "{{prop?title!../package.json}}",
-	"version": "{{prop?version!../package.json}}",
-	"description": "{{prop?description!../package.json}}",
-	"author": "{{prop?author!../package.json}}",
+	"name": "{{prop-loader?title!../package.json}}",
+	"version": "{{prop-loader?version!../package.json}}",
+	"description": "{{prop-loader?description!../package.json}}",
+	"author": "{{prop-loader?author!../package.json}}",
 	"background": {
 		"scripts": [
 			"{{./edge.entry.js}}",
