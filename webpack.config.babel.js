@@ -76,11 +76,6 @@ export default (env = {}) => {
 					},
 				],
 			}, {
-				test: /\.mustache$/,
-				use: [
-					{ loader: 'mustache-loader' },
-				],
-			}, {
 				test: /\.scss$/,
 				use: [
 					{ loader: 'file-loader', options: { name: '[name].css' } },
