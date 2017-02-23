@@ -894,19 +894,19 @@
 		"message": "Hover Delay"
 	},
 	"messageMenuHoverDelayDesc": {
-		"message": "Delay, in milliseconds, before hover tooltip loads. Default is 1000."
+		"message": "Delay, in milliseconds, before hover tooltip loads."
 	},
 	"messageMenuFadeDelayTitle": {
 		"message": "Fade Delay"
 	},
 	"messageMenuFadeDelayDesc": {
-		"message": "Delay, in milliseconds, before hover tooltip fades away. Default is 200."
+		"message": "Delay, in milliseconds, before hover tooltip fades away."
 	},
 	"messageMenuFadeSpeedTitle": {
 		"message": "Fade Speed"
 	},
 	"messageMenuFadeSpeedDesc": {
-		"message": "Fade animation's speed (in seconds). Default is 0.7."
+		"message": "Fade animation's speed (in seconds)."
 	},
 	"modhelperName": {
 		"message": "Mod Helper"
@@ -945,19 +945,19 @@
 		"message": "Hover Delay"
 	},
 	"multiredditNavbarHoverDelayDesc": {
-		"message": "Delay, in milliseconds, before hover tooltip loads. Default is 1000."
+		"message": "Delay, in milliseconds, before hover tooltip loads."
 	},
 	"multiredditNavbarFadeDelayTitle": {
 		"message": "Fade Delay"
 	},
 	"multiredditNavbarFadeDelayDesc": {
-		"message": "Delay, in milliseconds, before hover tooltip fades away. Default is 200."
+		"message": "Delay, in milliseconds, before hover tooltip fades away."
 	},
 	"multiredditNavbarFadeSpeedTitle": {
 		"message": "Fade Speed"
 	},
 	"multiredditNavbarFadeSpeedDesc": {
-		"message": "Fade animation's speed (in seconds). Default is 0.7."
+		"message": "Fade animation's speed (in seconds)."
 	},
 	"nerName": {
 		"message": "Never Ending Reddit"
@@ -2413,19 +2413,19 @@
 		"message": "Night Mode Start"
 	},
 	"nightModeNightModeStartDesc": {
-		"message": "Time that automatic night mode starts. Default is 20:00 (8:00pm)."
+		"message": "Time that automatic night mode starts."
 	},
 	"nightModeNightModeEndTitle": {
 		"message": "Night Mode End"
 	},
 	"nightModeNightModeEndDesc": {
-		"message": "Time that automatic night mode ends. Default is 6:00 (6:00am)."
+		"message": "Time that automatic night mode ends."
 	},
 	"nightModeNightModeOverrideHoursTitle": {
 		"message": "Night Mode Override Hours"
 	},
 	"nightModeNightModeOverrideHoursDesc": {
-		"message": "Number of hours that the automatic night mode override lasts. Default is 8 (hours).\nYou can use a decimal number of hours here as well; e.g. 0.1 hours (which is 6 min)."
+		"message": "Number of hours that the automatic night mode override lasts.\nYou can use a decimal number of hours here as well; e.g. 0.1 hours (which is 6 min)."
 	},
 	"nightModeUseSubredditStylesTitle": {
 		"message": "Use Subreddit Styles"
@@ -2590,7 +2590,7 @@
 		"message": "Color of the bar when collapsed."
 	},
 	"toggleCommentsLeftEdgeWidthDesc": {
-		"message": "Width of the bar. Default is 50."
+		"message": "Width of the bar."
 	},
 	"toggleCommentsLeftEdgeHideButtonDesc": {
 		"message": "Hides the default button ([-]) to collapse comments."
@@ -2832,5 +2832,755 @@
 	},
 	"userTaggerVwTooltipTitle": {
 		"message": "VW Tooltip"
+	},
+	"singleClickOpenOrderTitle": {
+		"message": "Open Order"
+	},
+	"singleClickOpenOrderDesc": {
+		"message": "What order to open the link/comments in."
+	},
+	"singleClickHideLECTitle": {
+		"message": "Hide LEC"
+	},
+	"singleClickHideLECDesc": {
+		"message": "Hide the [l=c] when the link is the same as the comments page."
+	},
+	"singleClickOpenBackgroundTitle": {
+		"message": "Open Background"
+	},
+	"singleClickOpenBackgroundDesc": {
+		"message": "Open the [l+c] link in background tabs."
+	},
+	"showKarmaShowCommentKarmaTitle": {
+		"message": "Show Comment Karma"
+	},
+	"showKarmaShowCommentKarmaDesc": {
+		"message": "Show comment karma in addition to post karma."
+	},
+	"showKarmaSeparatorTitle": {
+		"message": "Separator"
+	},
+	"showKarmaSeparatorDesc": {
+		"message": "Separator character between post/comment karma."
+	},
+	"showKarmaUseCommasTitle": {
+		"message": "Use Commas"
+	},
+	"showKarmaUseCommasDesc": {
+		"message": "Use commas for large karma numbers."
+	},
+	"showKarmaShowGoldTitle": {
+		"message": "Show Gold"
+	},
+	"showKarmaShowGoldDesc": {
+		"message": "Display gilded icon if current user has gold status."
+	},
+	"showParentHoverDelayTitle": {
+		"message": "Hover Delay"
+	},
+	"showParentHoverDelayDesc": {
+		"message": "Delay, in milliseconds, before parent hover loads."
+	},
+	"showParentFadeDelayTitle": {
+		"message": "Fade Delay"
+	},
+	"showParentFadeDelayDesc": {
+		"message": "Delay, in milliseconds, before parent hover fades away after the mouse leaves."
+	},
+	"showParentFadeSpeedTitle": {
+		"message": "Fade Speed"
+	},
+	"showParentFadeSpeedDesc": {
+		"message": "Fade animation's speed (in seconds)."
+	},
+	"showParentDirectionTitle": {
+		"message": "Direction"
+	},
+	"showParentDirectionDesc": {
+		"message": "Order the parent comments to place each parent comment above or below its children."
+	},
+	"spoilerTagsTransitionTitle": {
+		"message": "Transition"
+	},
+	"spoilerTagsTransitionDesc": {
+		"message": "Delay showing spoiler text momentarily."
+	},
+	"stylesheetRedditThemesTitle": {
+		"message": "Reddit Themes"
+	},
+	"stylesheetRedditThemesDesc": {
+		"message": "reddit allows you to customize the appearance of reddit! A reddit theme will be applied anywhere the default reddit style is present and subreddit style is disabled via reddit."
+	},
+	"stylesheetLoadStylesheetsTitle": {
+		"message": "Load Stylesheets"
+	},
+	"stylesheetLoadStylesheetsDesc": {
+		"message": "External or subreddit CSS to load."
+	},
+	"stylesheetSnippetsTitle": {
+		"message": "Snippets"
+	},
+	"stylesheetSnippetsDesc": {
+		"message": "CSS snippets to load."
+	},
+	"stylesheetBodyClassesTitle": {
+		"message": "Body Classes"
+	},
+	"stylesheetBodyClassesDesc": {
+		"message": "CSS classes to add to &lt;body&gt;."
+	},
+	"stylesheetSubredditClassTitle": {
+		"message": "Subreddit Class"
+	},
+	"stylesheetSubredditClassDesc": {
+		"message": "When browsing a subreddit, add the subreddit name as a class to the body.\nFor example, /r/ExampleSubreddit adds `body.res-r-examplesubreddit`."
+	},
+	"stylesheetMultiredditClassTitle": {
+		"message": "Multireddit Class"
+	},
+	"stylesheetMultiredditClassDesc": {
+		"message": "When browsing a multireddit, add the multireddit name as a class to the body.\nFor example, /u/ExampleUser/m/ExampleMulti adds `body.res-user-exampleuser-m-examplemulti`."
+	},
+	"stylesheetUsernameClassTitle": {
+		"message": "Username Class"
+	},
+	"stylesheetUsernameClassDesc": {
+		"message": "When browsing a user profile, add the username as a class to the body.\nFor example, /u/ExampleUser adds `body.res-user-exampleuser`."
+	},
+	"stylesheetLoggedInUserClassTitle": {
+		"message": "Logged In User Class"
+	},
+	"stylesheetLoggedInUserClassDesc": {
+		"message": "When logged in, add your username as a class to the body.\nFor example, /u/ExampleUser adds `body.res-me-exampleuser`."
+	},
+	"submitHelperWarnAlreadySubmittedTitle": {
+		"message": "Warn Already Submitted"
+	},
+	"submitHelperWarnAlreadySubmittedDesc": {
+		"message": "Show a warning when the current URL has already been submitted to the selected subreddit.\n*Not 100% accurate, due to search limitations and different ways to format the same URL.*"
+	},
+	"submitHelperUncheckSendRepliesToInboxTitle": {
+		"message": "Uncheck Send Replies To Inbox"
+	},
+	"submitHelperUncheckSendRepliesToInboxDesc": {
+		"message": "Uncheck \"send replies to my inbox\" by default, when submitting a new post."
+	},
+	"submitHelperFocusFormOnLoadTitle": {
+		"message": "Focus Form On Load"
+	},
+	"submitHelperFocusFormOnLoadDesc": {
+		"message": "Put keyboard focus into the form when the page loads."
+	},
+	"styleTweaksNavTopTitle": {
+		"message": "Nav Top"
+	},
+	"styleTweaksNavTopDesc": {
+		"message": "Moves the username navbar to the top (great on netbooks!)"
+	},
+	"styleTweaksDisableAnimationsTitle": {
+		"message": "Disable Animations"
+	},
+	"styleTweaksDisableAnimationsDesc": {
+		"message": "Discourage CSS3 animations. (This will apply to all of reddit, every subreddit, and RES functionality. However, subreddits might still have some animations.)"
+	},
+	"styleTweaksVisitedStyleTitle": {
+		"message": "Visited Style"
+	},
+	"styleTweaksVisitedStyleDesc": {
+		"message": "Change the color of links you've visited to purple. (By default Reddit only does this for submission titles.)"
+	},
+	"styleTweaksShowExpandosTitle": {
+		"message": "Show Expandos"
+	},
+	"styleTweaksShowExpandosDesc": {
+		"message": "Bring back video and text expando buttons for users with compressed link display."
+	},
+	"styleTweaksHideUnvotableTitle": {
+		"message": "Hide Unvotable"
+	},
+	"styleTweaksHideUnvotableDesc": {
+		"message": "Hide vote arrows on threads where you cannot vote (e.g. archived due to age)."
+	},
+	"styleTweaksShowFullLinkFlairTitle": {
+		"message": "Show Full Link Flair"
+	},
+	"styleTweaksShowFullLinkFlairDesc": {
+		"message": "Choose when full link flair should be shown."
+	},
+	"styleTweaksHighlightEditedTimeTitle": {
+		"message": "Highlight Edited Time"
+	},
+	"styleTweaksHighlightEditedTimeDesc": {
+		"message": "Make edited timestamps bold (e.g. \"last edited 50 minutes ago\")."
+	},
+	"styleTweaksColorBlindFriendlyTitle": {
+		"message": "Color Blind Friendly"
+	},
+	"styleTweaksColorBlindFriendlyDesc": {
+		"message": "Use colorblind friendly styles when possible."
+	},
+	"styleTweaksSubredditStyleBrowserToolbarButtonTitle": {
+		"message": "Subreddit Style Browser Toolbar Button"
+	},
+	"styleTweaksSubredditStyleBrowserToolbarButtonDesc": {
+		"message": "Add a toolbar/omnibar icon to disable/enable current subreddit style - note this may be behind a hamburger menu in some browsers."
+	},
+	"styleTweaksScrollSubredditDropdownTitle": {
+		"message": "Scroll Subreddit Dropdown"
+	},
+	"styleTweaksScrollSubredditDropdownDesc": {
+		"message": "Scroll the standard subreddit dropdown (useful for pinned header and disabled Subreddit Manager)."
+	},
+	"styleTweaksHighlightTopLevelTitle": {
+		"message": "Highlight Top Level"
+	},
+	"styleTweaksHighlightTopLevelDesc": {
+		"message": "Draws a line to separate top-level comments for easier distinction."
+	},
+	"styleTweaksHighlightTopLevelColorTitle": {
+		"message": "Highlight Top Level Color"
+	},
+	"styleTweaksHighlightTopLevelColorDesc": {
+		"message": "Specify the color to separate top-level comments."
+	},
+	"styleTweaksHighlightTopLevelSizeTitle": {
+		"message": "Highlight Top Level Size"
+	},
+	"styleTweaksHighlightTopLevelSizeDesc": {
+		"message": "Specify how thick (in pixels) of a bar is used to separate top-level comments."
+	},
+	"styleTweaksFloatingSideBarTitle": {
+		"message": "Floating Side Bar"
+	},
+	"styleTweaksFloatingSideBarDesc": {
+		"message": "Makes the left sidebar (with multireddits) float as you scroll down so you can always see it."
+	},
+	"styleTweaksPostTitleCapitalizationTitle": {
+		"message": "Post Title Capitalization"
+	},
+	"styleTweaksPostTitleCapitalizationDesc": {
+		"message": "Force a particular style of capitalization on post titles."
+	},
+	"subRedditTaggerSubRedditsTitle": {
+		"message": "Sub Reddits"
+	},
+	"subRedditTaggerSubRedditsDesc": {
+		"message": "subreddit: Name of the subreddit, without slashes.\ndoesntContain: Any string of text that could be present in a submission title. If a title contains this string, the tag will not be applied.\ntag:The text that will appear at the beginning of submission titles. e.g. use [tag], (tag), TAG | , etc..."
+	},
+	"subredditInfoRequireDirectLinkTitle": {
+		"message": "Require Direct Link"
+	},
+	"subredditInfoRequireDirectLinkDesc": {
+		"message": "Should the popup appear only for direct /r/ links, or for all links to a subreddit?"
+	},
+	"subredditInfoHoverDelayTitle": {
+		"message": "Hover Delay"
+	},
+	"subredditInfoHoverDelayDesc": {
+		"message": "Delay, in milliseconds, before hover tooltip loads."
+	},
+	"subredditInfoFadeDelayTitle": {
+		"message": "Fade Delay"
+	},
+	"subredditInfoFadeDelayDesc": {
+		"message": "Delay, in milliseconds, before hover tooltip fades away."
+	},
+	"subredditInfoFadeSpeedTitle": {
+		"message": "Fade Speed"
+	},
+	"subredditInfoFadeSpeedDesc": {
+		"message": "Fade animation's speed (in seconds)."
+	},
+	"troubleshooterClearCacheTitle": {
+		"message": "Clear Cache"
+	},
+	"troubleshooterClearCacheDesc": {
+		"message": "Clear your RES cache and session. This includes the \"My Subreddits\" dropdown and cached user or subreddit info."
+	},
+	"troubleshooterClearTagsTitle": {
+		"message": "Clear Tags"
+	},
+	"troubleshooterClearTagsDesc": {
+		"message": "Remove all entries for users with between +1 and -1 vote tallies (only non-tagged users)."
+	},
+	"troubleshooterResetToFactoryTitle": {
+		"message": "Reset To Factory"
+	},
+	"troubleshooterResetToFactoryDesc": {
+		"message": "Warning: This will remove all your RES settings, including tags, saved comments, filters etc!"
+	},
+	"troubleshooterDisableRESTitle": {
+		"message": "Disable RES"
+	},
+	"troubleshooterDisableRESDesc": {
+		"message": "Reloads the page and disables RES for this tab only. RES will still be enabled in any other reddit tabs or windows you currently have open or open after this. This feature can be used for troubleshooting, as well as to quickly hide usernotes, vote counts, subreddit shortcuts, and other RES data for clean screenshotting."
+	},
+	"troubleshooterProfileStartupTitle": {
+		"message": "Profile Startup"
+	},
+	"troubleshooterProfileStartupDesc": {
+		"message": "Reloads the page and profiles startup time. Future reloads in the current tab will also be profiled."
+	},
+	"troubleshooterProfileModulesTitle": {
+		"message": "Profile Modules"
+	},
+	"troubleshooterProfileModulesDesc": {
+		"message": "Reloads the page and profiles the duration of each module stage (with the User Timing API). Future reloads in the current tab will also be profiled."
+	},
+	"troubleshooterBreakpointTitle": {
+		"message": "Breakpoint"
+	},
+	"troubleshooterBreakpointDesc": {
+		"message": "Pause JavaScript execution to allow debugging."
+	},
+	"troubleshooterTestTemplatesTitle": {
+		"message": "Test Templates"
+	},
+	"troubleshooterTestTemplatesDesc": {
+		"message": "Test rendering templates (and notifications)."
+	},
+	"troubleshooterTestEnvironmentTitle": {
+		"message": "Test Environment"
+	},
+	"troubleshooterTestEnvironmentDesc": {
+		"message": "A few environment/browser specific tests."
+	},
+	"tableToolsSortTitle": {
+		"message": "Sort"
+	},
+	"tableToolsSortDesc": {
+		"message": "Enable column sorting."
+	},
+	"userbarHiderUserbarStateTitle": {
+		"message": "Userbar State"
+	},
+	"userbarHiderUserbarStateDesc": {
+		"message": "User bar"
+	},
+	"userbarHiderToggleButtonStateTitle": {
+		"message": "Toggle Button State"
+	},
+	"userbarHiderToggleButtonStateDesc": {
+		"message": "Toggle button"
+	},
+	"usernameHiderDisplayTextTitle": {
+		"message": "Display Text"
+	},
+	"usernameHiderDisplayTextDesc": {
+		"message": "What to replace your username with."
+	},
+	"usernameHiderPerAccountDisplayTextTitle": {
+		"message": "Per Account Display Text"
+	},
+	"usernameHiderPerAccountDisplayTextDesc": {
+		"message": "Allows you to specify the display text for a specific account. (useful in conjunction with the Account Switcher!)"
+	},
+	"usernameHiderHideAllUsernamesTitle": {
+		"message": "Hide All Usernames"
+	},
+	"usernameHiderHideAllUsernamesDesc": {
+		"message": "Hide all accounts listed in perAccountDisplayText, not just the logged-in user."
+	},
+	"usernameHiderHideAccountSwitcherUsernamesTitle": {
+		"message": "Hide Account Switcher Usernames"
+	},
+	"usernameHiderHideAccountSwitcherUsernamesDesc": {
+		"message": "Hide all accounts listed in Account Switcher.\nIf an username isn't already listed in perAccountDisplayText, then hide that username with the default displayText."
+	},
+	"usernameHiderShowUsernameOnHoverTitle": {
+		"message": "Show Username On Hover"
+	},
+	"usernameHiderShowUsernameOnHoverDesc": {
+		"message": "Mousing over the text hiding your username reveals your real username.\nThis makes it easy to double check that you're commenting/posting from the correct account, while still keeping your username hidden from prying eyes."
+	},
+	"userInfoHoverInfoTitle": {
+		"message": "Hover Info"
+	},
+	"userInfoHoverInfoDesc": {
+		"message": "Show information on user (karma, how long they've been a redditor) on hover."
+	},
+	"userInfoUseQuickMessageTitle": {
+		"message": "Use Quick Message"
+	},
+	"userInfoUseQuickMessageDesc": {
+		"message": "Open the quick message dialog when clicking on the \"send message\" button in hover info, instead of going straight to reddit's message page."
+	},
+	"userInfoHoverDelayTitle": {
+		"message": "Hover Delay"
+	},
+	"userInfoHoverDelayDesc": {
+		"message": "Delay, in milliseconds, before hover tooltip loads."
+	},
+	"userInfoFadeDelayTitle": {
+		"message": "Fade Delay"
+	},
+	"userInfoFadeDelayDesc": {
+		"message": "Delay, in milliseconds, before hover tooltip fades away."
+	},
+	"userInfoFadeSpeedTitle": {
+		"message": "Fade Speed"
+	},
+	"userInfoFadeSpeedDesc": {
+		"message": "Fade animation's speed (in seconds)."
+	},
+	"userInfoGildCommentsTitle": {
+		"message": "Gild Comments"
+	},
+	"userInfoGildCommentsDesc": {
+		"message": "When clicking the \"give gold\" button on the user hover info on a comment, give gold to the comment."
+	},
+	"userInfoHighlightButtonTitle": {
+		"message": "Highlight Button"
+	},
+	"userInfoHighlightButtonDesc": {
+		"message": "Show \"highlight\" button in user hover info, for distinguishing posts/comments from particular users."
+	},
+	"userInfoHighlightColorTitle": {
+		"message": "Highlight Color"
+	},
+	"userInfoHighlightColorDesc": {
+		"message": "Color used to highlight a selected user, when \"highlighted\" from hover info."
+	},
+	"userInfoHighlightColorHoverTitle": {
+		"message": "Highlight Color Hover"
+	},
+	"userInfoHighlightColorHoverDesc": {
+		"message": "Color used to highlight a selected user on hover."
+	},
+	"userHighlightHighlightOPTitle": {
+		"message": "Highlight OP"
+	},
+	"userHighlightHighlightOPDesc": {
+		"message": "Highlight OP's comments."
+	},
+	"userHighlightOPColorTitle": {
+		"message": "OP Color"
+	},
+	"userHighlightOPColorDesc": {
+		"message": "Color to use to highlight OP."
+	},
+	"userHighlightOPColorHoverTitle": {
+		"message": "OP Color Hover"
+	},
+	"userHighlightOPColorHoverDesc": {
+		"message": "Color used to highlight OP on hover."
+	},
+	"userHighlightHighlightAdminTitle": {
+		"message": "Highlight Admin"
+	},
+	"userHighlightHighlightAdminDesc": {
+		"message": "Highlight Admin's comments."
+	},
+	"userHighlightAdminColorTitle": {
+		"message": "Admin Color"
+	},
+	"userHighlightAdminColorDesc": {
+		"message": "Color to use to highlight Admins."
+	},
+	"userHighlightAdminColorHoverTitle": {
+		"message": "Admin Color Hover"
+	},
+	"userHighlightAdminColorHoverDesc": {
+		"message": "Color used to highlight Admins on hover."
+	},
+	"userHighlightHighlightAlumTitle": {
+		"message": "Highlight Alum"
+	},
+	"userHighlightHighlightAlumDesc": {
+		"message": "Highlight Alum's comments."
+	},
+	"userHighlightAlumColorTitle": {
+		"message": "Alum Color"
+	},
+	"userHighlightAlumColorDesc": {
+		"message": "Color to use to highlight Alums."
+	},
+	"userHighlightAlumColorHoverTitle": {
+		"message": "Alum Color Hover"
+	},
+	"userHighlightAlumColorHoverDesc": {
+		"message": "Color used to highlight Alums on hover."
+	},
+	"userHighlightHighlightFriendTitle": {
+		"message": "Highlight Friend"
+	},
+	"userHighlightHighlightFriendDesc": {
+		"message": "Highlight Friends' comments."
+	},
+	"userHighlightFriendColorTitle": {
+		"message": "Friend Color"
+	},
+	"userHighlightFriendColorDesc": {
+		"message": "Color to use to highlight Friends."
+	},
+	"userHighlightFriendColorHoverTitle": {
+		"message": "Friend Color Hover"
+	},
+	"userHighlightFriendColorHoverDesc": {
+		"message": "Color used to highlight Friends on hover."
+	},
+	"userHighlightHighlightModTitle": {
+		"message": "Highlight Mod"
+	},
+	"userHighlightHighlightModDesc": {
+		"message": "Highlight Mod's comments."
+	},
+	"userHighlightModColorTitle": {
+		"message": "Mod Color"
+	},
+	"userHighlightModColorDesc": {
+		"message": "Color to use to highlight Mods."
+	},
+	"userHighlightModColorHoverTitle": {
+		"message": "Mod Color Hover"
+	},
+	"userHighlightModColorHoverDesc": {
+		"message": "Color used to highlight Mods on hover."
+	},
+	"userHighlightHighlightFirstCommenterTitle": {
+		"message": "Highlight First Commenter"
+	},
+	"userHighlightHighlightFirstCommenterDesc": {
+		"message": "Highlight the person who has the first comment in a tree, within that tree."
+	},
+	"userHighlightDontHighlightFirstCommentTitle": {
+		"message": "Dont Highlight First Comment"
+	},
+	"userHighlightDontHighlightFirstCommentDesc": {
+		"message": "Don't highlight the \"first commenter\" on the first comment in a tree."
+	},
+	"userHighlightFirstCommentColorTitle": {
+		"message": "First Comment Color"
+	},
+	"userHighlightFirstCommentColorDesc": {
+		"message": "Color to use to highlight the first-commenter."
+	},
+	"userHighlightFirstCommentColorHoverTitle": {
+		"message": "First Comment Color Hover"
+	},
+	"userHighlightFirstCommentColorHoverDesc": {
+		"message": "Color used to highlight the first-commenter on hover."
+	},
+	"userHighlightFontColorTitle": {
+		"message": "Font Color"
+	},
+	"userHighlightFontColorDesc": {
+		"message": "Color for highlighted text."
+	},
+	"userHighlightAutoColorUsernamesTitle": {
+		"message": "Auto Color Usernames"
+	},
+	"userHighlightAutoColorUsernamesDesc": {
+		"message": "Automatically set a special color for each username."
+	},
+	"userHighlightAutoColorUsingTitle": {
+		"message": "Auto Color Using"
+	},
+	"userHighlightAutoColorUsingDesc": {
+		"message": "Select a method for setting colors for usernames."
+	},
+	"userHighlightGenerateHoverColorsTitle": {
+		"message": "Generate Hover Colors"
+	},
+	"userHighlightGenerateHoverColorsDesc": {
+		"message": "Automatically generate hover color based on normal color."
+	},
+	"subredditManagerSubredditShortcutTitle": {
+		"message": "Subreddit Shortcut"
+	},
+	"subredditManagerSubredditShortcutDesc": {
+		"message": "Add +shortcut button in subreddit sidebar for easy addition of shortcuts."
+	},
+	"subredditManagerShortcutsPerAccountTitle": {
+		"message": "Shortcuts Per Account"
+	},
+	"subredditManagerShortcutsPerAccountDesc": {
+		"message": "Show personalized shortcuts for each account."
+	},
+	"subredditManagerAlwaysApplySuffixToMultiTitle": {
+		"message": "Always Apply Suffix To Multi"
+	},
+	"subredditManagerAlwaysApplySuffixToMultiDesc": {
+		"message": "For multi-subreddit shortcuts like a+b+c/x, show a dropdown like a/x, b/x, c/x."
+	},
+	"subredditManagerDropdownEditButtonTitle": {
+		"message": "Dropdown Edit Button"
+	},
+	"subredditManagerDropdownEditButtonDesc": {
+		"message": "Show \"edit\" and \"delete\" buttons in dropdown menu on subreddit shortcut bar."
+	},
+	"subredditManagerShortcutDropdownDelayTitle": {
+		"message": "Shortcut Dropdown Delay"
+	},
+	"subredditManagerShortcutDropdownDelayDesc": {
+		"message": "How long (in milliseconds) to wait after moving your mouse over a shortcut to show its dropdown. (This particularly applies for shortcuts to multi-subreddits like sub1+sub2+sub3.)"
+	},
+	"subredditManagerShortcutEditDropdownDelayTitle": {
+		"message": "Shortcut Edit Dropdown Delay"
+	},
+	"subredditManagerShortcutEditDropdownDelayDesc": {
+		"message": "How long (in milliseconds) to wait after moving your mouse over a shortcut to show its dropdown edit buttons. (This particularly applies to just the edit/delete button dropdown.)"
+	},
+	"subredditManagerAllowLowercaseTitle": {
+		"message": "Allow Lowercase"
+	},
+	"subredditManagerAllowLowercaseDesc": {
+		"message": "Allow lowercase letters in shortcuts instead of forcing uppercase."
+	},
+	"subredditManagerLinkDashboardTitle": {
+		"message": "Link Dashboard"
+	},
+	"subredditManagerLinkDashboardDesc": {
+		"message": "Show \"DASHBOARD\" link in subreddit manager."
+	},
+	"subredditManagerLinkAllTitle": {
+		"message": "Link All"
+	},
+	"subredditManagerLinkAllDesc": {
+		"message": "Show \"ALL\" link in subreddit manager."
+	},
+	"subredditManagerLinkFrontTitle": {
+		"message": "Link Front"
+	},
+	"subredditManagerLinkFrontDesc": {
+		"message": "show \"FRONT\" link in subreddit manager."
+	},
+	"subredditManagerLinkPopularTitle": {
+		"message": "Link Popular"
+	},
+	"subredditManagerLinkPopularDesc": {
+		"message": "show \"POPULAR\" link in subreddit manager."
+	},
+	"subredditManagerLinkRandomTitle": {
+		"message": "Link Random"
+	},
+	"subredditManagerLinkRandomDesc": {
+		"message": "Show \"RANDOM\" link in subreddit manager."
+	},
+	"subredditManagerLinkMyRandomTitle": {
+		"message": "Link My Random"
+	},
+	"subredditManagerLinkMyRandomDesc": {
+		"message": "Show \"MYRANDOM\" link in subreddit manager (reddit gold only)."
+	},
+	"subredditManagerLinkRandNSFWTitle": {
+		"message": "Link Rand NSFW"
+	},
+	"subredditManagerLinkRandNSFWDesc": {
+		"message": "Show \"RANDNSFW\" link in subreddit manager."
+	},
+	"subredditManagerLinkFriendsTitle": {
+		"message": "Link Friends"
+	},
+	"subredditManagerLinkFriendsDesc": {
+		"message": "Show \"FRIENDS\" link in subreddit manager."
+	},
+	"subredditManagerLinkModTitle": {
+		"message": "Link Mod"
+	},
+	"subredditManagerLinkModDesc": {
+		"message": "Show \"MOD\" link in subreddit manager."
+	},
+	"subredditManagerLinkModqueueTitle": {
+		"message": "Link Modqueue"
+	},
+	"subredditManagerLinkModqueueDesc": {
+		"message": "Show \"MODQUEUE\" link in subreddit manager."
+	},
+	"subredditManagerLinkSavedTitle": {
+		"message": "Link Saved"
+	},
+	"subredditManagerLinkSavedDesc": {
+		"message": "Show \"SAVED\" link in subreddit manager."
+	},
+	"subredditManagerButtonEditTitle": {
+		"message": "Button Edit"
+	},
+	"subredditManagerButtonEditDesc": {
+		"message": "Show \"EDIT\" button in subreddit manager."
+	},
+	"subredditManagerLastUpdateTitle": {
+		"message": "Last Update"
+	},
+	"subredditManagerStoreSubredditVisitTitle": {
+		"message": "Store Subreddit Visit"
+	},
+	"subredditManagerStoreSubredditVisitDesc": {
+		"message": "Store the last time you visited a subreddit."
+	},
+	"subredditManagerStoreSubredditVisitIncognitoTitle": {
+		"message": "Store Subreddit Visit Incognito"
+	},
+	"subredditManagerStoreSubredditVisitIncognitoDesc": {
+		"message": "Store the last time you visited a subreddit in incognito/private mode."
+	},
+	"subredditManagerDragDropDeleteTitle": {
+		"message": "Drag Drop Delete"
+	},
+	"subredditManagerDragDropDeleteDesc": {
+		"message": "Show a trash bin while dragging subreddit shortcuts."
+	},
+	"subredditManagerDisplayMultiCountsTitle": {
+		"message": "Display Multi Counts"
+	},
+	"subredditManagerDisplayMultiCountsDesc": {
+		"message": "Show a badge on the subscribe button counting how many multireddits include this subreddit."
+	},
+	"voteEnhancementsEstimatePostScoreTitle": {
+		"message": "Estimate Post Score"
+	},
+	"voteEnhancementsEstimatePostScoreDesc": {
+		"message": "Calculate a post's score from its points and \"liked\" percentage."
+	},
+	"voteEnhancementsEstimatePostVotesTitle": {
+		"message": "Estimate Post Votes"
+	},
+	"voteEnhancementsEstimatePostVotesDesc": {
+		"message": "Calculate the total number of votes."
+	},
+	"voteEnhancementsHighlightScoresTitle": {
+		"message": "Highlight Scores"
+	},
+	"voteEnhancementsHighlightScoresDesc": {
+		"message": "Bolden post and comment scores, making them easier to find."
+	},
+	"voteEnhancementsColorLinkScoreTitle": {
+		"message": "Color Link Score"
+	},
+	"voteEnhancementsColorLinkScoreDesc": {
+		"message": "Add color to a link's score depending on its value.\nThis does not work with reddit's \"compressed link display\" preference."
+	},
+	"voteEnhancementsUserDefinedLinkColorationTitle": {
+		"message": "User Defined Link Coloration"
+	},
+	"voteEnhancementsUserDefinedLinkColorationDesc": {
+		"message": "Choose a color for colorLinkScore with a threshold of your choice."
+	},
+	"voteEnhancementsColorCommentScoreTitle": {
+		"message": "Color Comment Score"
+	},
+	"voteEnhancementsColorCommentScoreDesc": {
+		"message": "Add color to a comment's score depending on its value."
+	},
+	"voteEnhancementsUserDefinedCommentColorationTitle": {
+		"message": "User Defined Comment Coloration"
+	},
+	"voteEnhancementsUserDefinedCommentColorationDesc": {
+		"message": "Choose a color for colorLinkScore with a threshold of your choice."
+	},
+	"voteEnhancementsInterpolateScoreColorTitle": {
+		"message": "Interpolate Score Color"
+	},
+	"voteEnhancementsInterpolateScoreColorDesc": {
+		"message": "Smoothly blend link and comment score colors when the score is between two thresholds."
+	},
+	"voteEnhancementsHighlightControversialTitle": {
+		"message": "Highlight Controversial"
+	},
+	"voteEnhancementsHighlightControversialColorTitle": {
+		"message": "Highlight Controversial Color"
+	},
+	"voteEnhancementsHighlightControversialColorDesc": {
+		"message": "Select a color for the \"controversial\" comment indicator."
 	}
 }
