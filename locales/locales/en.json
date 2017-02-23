@@ -3582,5 +3582,242 @@
 	},
 	"voteEnhancementsHighlightControversialColorDesc": {
 		"message": "Select a color for the \"controversial\" comment indicator."
+	},
+	"showImagesBrowsePreloadCountTitle": {
+		"message": "Browse Preload Count"
+	},
+	"showImagesBrowsePreloadCountDesc": {
+		"message": "Number of preloaded expandos for faster browsing. Currently only active when using keyboard navigation."
+	},
+	"showImagesGalleryPreloadCountTitle": {
+		"message": "Gallery Preload Count"
+	},
+	"showImagesGalleryPreloadCountDesc": {
+		"message": "Number of preloaded gallery pieces for faster browsing."
+	},
+	"showImagesConserveMemoryTitle": {
+		"message": "Conserve Memory"
+	},
+	"showImagesConserveMemoryDesc": {
+		"message": "Conserve memory by temporarily hiding images when they are offscreen."
+	},
+	"showImagesBufferScreensTitle": {
+		"message": "Buffer Screens"
+	},
+	"showImagesBufferScreensDesc": {
+		"message": "Hide images that are further than x screens away to save memory. A higher value means less flicker, but less memory savings."
+	},
+	"showImagesMaxWidthTitle": {
+		"message": "Max Width"
+	},
+	"showImagesMaxWidthDesc": {
+		"message": "Max width of media (in pixels, enter zero for unlimited). Percentage of window width may also be used (e.g. \"100%\")."
+	},
+	"showImagesMaxHeightTitle": {
+		"message": "Max Height"
+	},
+	"showImagesMaxHeightDesc": {
+		"message": "Max height of media (in pixels, enter zero for unlimited). Percentage of window height may also be used (e.g. \"100%\")."
+	},
+	"showImagesDisplayOriginalResolutionTitle": {
+		"message": "Display Original Resolution"
+	},
+	"showImagesDisplayOriginalResolutionDesc": {
+		"message": "Display each image's original (unresized) resolution in a tooltip."
+	},
+	"showImagesSelfTextMaxHeightTitle": {
+		"message": "Self Text Max Height"
+	},
+	"showImagesSelfTextMaxHeightDesc": {
+		"message": "Add a scroll bar to text expandos taller than [x] pixels (enter zero for unlimited)."
+	},
+	"showImagesCommentMaxHeightTitle": {
+		"message": "Comment Max Height"
+	},
+	"showImagesCommentMaxHeightDesc": {
+		"message": "Add a scroll bar to comments taller than [x] pixels (enter zero for unlimited)."
+	},
+	"showImagesAutoMaxHeightTitle": {
+		"message": "Auto Max Height"
+	},
+	"showImagesAutoMaxHeightDesc": {
+		"message": "Increase the max height of a self-text expando or comment if an expando is taller than the current max height."
+	},
+	"showImagesOpenInNewWindowTitle": {
+		"message": "Open In New Window"
+	},
+	"showImagesOpenInNewWindowDesc": {
+		"message": "Open images in a new tab/window when clicked?"
+	},
+	"showImagesHideNSFWTitle": {
+		"message": "Hide NSFW"
+	},
+	"showImagesHideNSFWDesc": {
+		"message": "If checked, do not show images marked NSFW."
+	},
+	"showImagesHighlightNSFWButtonTitle": {
+		"message": "Highlight NSFW Button"
+	},
+	"showImagesHighlightNSFWButtonDesc": {
+		"message": "Add special styling to expando buttons for images marked NSFW."
+	},
+	"showImagesHighlightSpoilerButtonTitle": {
+		"message": "Highlight Spoiler Button"
+	},
+	"showImagesHighlightSpoilerButtonDesc": {
+		"message": "Add special styling to expando buttons for images marked as spoilers."
+	},
+	"showImagesImageZoomTitle": {
+		"message": "Image Zoom"
+	},
+	"showImagesImageZoomDesc": {
+		"message": "Allow dragging to resize/zoom images."
+	},
+	"showImagesImageMoveTitle": {
+		"message": "Image Move"
+	},
+	"showImagesImageMoveDesc": {
+		"message": "Allow dragging while holding shift to move images."
+	},
+	"showImagesMediaControlsTitle": {
+		"message": "Media Controls"
+	},
+	"showImagesMediaControlsDesc": {
+		"message": "Show additional image controls on hover."
+	},
+	"showImagesMediaControlsPositionTitle": {
+		"message": "Media Controls Position"
+	},
+	"showImagesMediaControlsPositionDesc": {
+		"message": "Set position of media controls."
+	},
+	"showImagesClippyTitle": {
+		"message": "Clippy"
+	},
+	"showImagesClippyDesc": {
+		"message": "Show educational info, such as showing \"drag to resize\" in the media controls."
+	},
+	"showImagesDisplayImageCaptionsTitle": {
+		"message": "Display Image Captions"
+	},
+	"showImagesDisplayImageCaptionsDesc": {
+		"message": "Retrieve image captions/attribution information."
+	},
+	"showImagesCaptionsPositionTitle": {
+		"message": "Captions Position"
+	},
+	"showImagesCaptionsPositionDesc": {
+		"message": "Where to display captions around an image."
+	},
+	"showImagesMarkVisitedTitle": {
+		"message": "Mark Visited"
+	},
+	"showImagesMarkVisitedDesc": {
+		"message": "Mark non-selftext links visited when opening the expando."
+	},
+	"showImagesMarkSelftextVisitedTitle": {
+		"message": "Mark Selftext Visited"
+	},
+	"showImagesMarkSelftextVisitedDesc": {
+		"message": "Mark selftext links visited when opening the expando."
+	},
+	"showImagesSfwHistoryTitle": {
+		"message": "Sfw History"
+	},
+	"showImagesGalleryRememberWidthTitle": {
+		"message": "Gallery Remember Width"
+	},
+	"showImagesGalleryRememberWidthDesc": {
+		"message": "In 'slideshow' layout, use the same width on all pieces after resizing."
+	},
+	"showImagesGalleryAsFilmstripTitle": {
+		"message": "Gallery As Filmstrip"
+	},
+	"showImagesGalleryAsFilmstripDesc": {
+		"message": "Display all media at once in a 'filmstrip' layout, rather than the default navigable 'slideshow' style."
+	},
+	"showImagesFilmstripLoadIncrementTitle": {
+		"message": "Filmstrip Load Increment"
+	},
+	"showImagesFilmstripLoadIncrementDesc": {
+		"message": "Limit the number of pieces loaded in a 'filmstrip' by this number. (0 for no limit)"
+	},
+	"showImagesUseSlideshowWhenLargerThanTitle": {
+		"message": "Use Slideshow When Larger Than"
+	},
+	"showImagesUseSlideshowWhenLargerThanDesc": {
+		"message": "Show gallery as 'slideshow' when the total number of pieces is larger than this number. (0 for no limit)"
+	},
+	"showImagesConvertGifstoGfycatTitle": {
+		"message": "Convert Gifsto Gfycat"
+	},
+	"showImagesConvertGifstoGfycatDesc": {
+		"message": "Convert Gif links to Gfycat links."
+	},
+	"showImagesShowViewImagesTabTitle": {
+		"message": "Show View Images Tab"
+	},
+	"showImagesShowViewImagesTabDesc": {
+		"message": "Show a 'show images' tab at the top of each subreddit, to easily toggle showing all images at once."
+	},
+	"showImagesAutoExpandTypesTitle": {
+		"message": "Auto Expand Types"
+	},
+	"showImagesAutoExpandTypesDesc": {
+		"message": "Media types to be automatically expanded when using \"show images\" or autoExpandSelfText."
+	},
+	"showImagesAutoExpandSelfTextTitle": {
+		"message": "Auto Expand Self Text"
+	},
+	"showImagesAutoExpandSelfTextDesc": {
+		"message": "When loading selftext from an Aa+ expando, auto expand enclosed expandos."
+	},
+	"showImagesAutoExpandSelfTextFirstVisibleNonMutedTitle": {
+		"message": "Auto Expand Self Text First Visible Non Muted"
+	},
+	"showImagesAutoExpandSelfTextFirstVisibleNonMutedDesc": {
+		"message": "In selftexts, expand the first visible potentially non-muted expando."
+	},
+	"showImagesAutoExpandSelfTextNSFWTitle": {
+		"message": "Auto Expand Self Text NSFW"
+	},
+	"showImagesAutoExpandSelfTextNSFWDesc": {
+		"message": "Also expand expandos in selftexts which are marked NSFW."
+	},
+	"showImagesShowSiteAttributionTitle": {
+		"message": "Show Site Attribution"
+	},
+	"showImagesShowSiteAttributionDesc": {
+		"message": "Show the site logo and name after embedded content."
+	},
+	"showImagesExpandoCommentRedirectsTitle": {
+		"message": "Expando Comment Redirects"
+	},
+	"showImagesExpandoCommentRedirectsDesc": {
+		"message": "How should RES handle posts where the link is redirected to the comments page with preview expanded?"
+	},
+	"showImagesShowVideoControlsTitle": {
+		"message": "Show Video Controls"
+	},
+	"showImagesShowVideoControlsDesc": {
+		"message": "Show controls such as pause/play, step and playback rate."
+	},
+	"showImagesOnlyPlayMutedWhenVisibleTitle": {
+		"message": "Only Play Muted When Visible"
+	},
+	"showImagesOnlyPlayMutedWhenVisibleDesc": {
+		"message": "Auto-pause muted videos when they are not visible."
+	},
+	"showImagesMaxSimultaneousPlayingTitle": {
+		"message": "Max Simultaneous Playing"
+	},
+	"showImagesMaxSimultaneousPlayingDesc": {
+		"message": "Auto-play at most this many muted videos simultaneously. (0 for no limit)"
+	},
+	"showImagesAutoplayVideoTitle": {
+		"message": "Autoplay Video"
+	},
+	"showImagesAutoplayVideoDesc": {
+		"message": "Autoplay inline videos."
 	}
 }
