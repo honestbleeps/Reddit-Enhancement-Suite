@@ -6,11 +6,9 @@ const {
 	sendSynchronous,
 	addListener,
 	addInterceptor,
-} = createMessageHandler((type, obj) => self.postMessage({ ...obj, type }));
+} = createMessageHandler(obj => self.postMessage(obj));
 
-self.on('message', ({ type, ...obj }) => {
-	_handleMessage(type, obj);
-});
+self.on('message', obj => _handleMessage(obj));
 
 export {
 	sendMessage,

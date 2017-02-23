@@ -12,17 +12,17 @@ const {
 	sendSynchronous,
 	addListener,
 	addInterceptor,
-} = createMessageHandler((type, { transaction, isResponse, ...obj }, sendResponse) => {
+} = createMessageHandler(({ transaction, isResponse, ...obj }, sendResponse) => {
 	if (isResponse) {
 		sendResponse(obj);
 	} else {
-		_sendMessage({ ...obj, type }).then(obj => {
-			_handleMessage(type, { ...obj, transaction, isResponse: true });
+		_sendMessage(obj).then(obj => {
+			_handleMessage({ ...obj, transaction, isResponse: true });
 		});
 	}
 });
 
-chrome.runtime.onMessage.addListener(({ type, ...obj }, sender, sendResponse) => _handleMessage(type, obj, sendResponse));
+chrome.runtime.onMessage.addListener((obj, sender, sendResponse) => _handleMessage(obj, sendResponse));
 
 export {
 	sendMessage,
