@@ -66,7 +66,7 @@ const {
 	_handleMessage,
 	sendMessage,
 	addListener,
-} = createMessageHandler((type, obj, worker) => worker.postMessage({ ...obj, type }));
+} = createMessageHandler((obj, worker) => worker.postMessage(obj));
 
 // Listeners
 
@@ -350,6 +350,6 @@ PageMod({
 	onAttach(worker) {
 		Reflect.apply(onAttach, worker, []);
 		worker.on('detach', onDetach);
-		worker.on('message', ({ type, ...obj }) => _handleMessage(type, obj, worker));
+		worker.on('message', obj => _handleMessage(obj, worker));
 	},
 });

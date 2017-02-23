@@ -48,17 +48,17 @@ const {
 	_handleMessage,
 	sendMessage,
 	addListener,
-} = createMessageHandler((type, { transaction, isResponse, ...obj }, { sendResponse, tabId }) => {
+} = createMessageHandler(({ transaction, isResponse, ...obj }, { sendResponse, tabId }) => {
 	if (isResponse) {
 		sendResponse(obj);
 	} else {
-		_sendMessage(tabId, { ...obj, type }).then(obj => {
-			_handleMessage(type, { ...obj, transaction, isResponse: true });
+		_sendMessage(tabId, obj).then(obj => {
+			_handleMessage({ ...obj, transaction, isResponse: true });
 		});
 	}
 });
 
-chrome.runtime.onMessage.addListener(({ type, ...obj }, sender, sendResponse) => _handleMessage(type, obj, { ...sender.tab, sendResponse }));
+chrome.runtime.onMessage.addListener((obj, sender, sendResponse) => _handleMessage(obj, { ...sender.tab, sendResponse }));
 
 // Listeners
 
