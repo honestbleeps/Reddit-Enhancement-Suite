@@ -13,11 +13,13 @@ module.options = {
 	// Valid types: text, boolean, color (in hexadecimal form), list
 	// For example:
 	defaultMessage: {
+		title: 'myModuleDefaultMessageTitle', // i18n
 		type: 'text',
 		value: 'This is default text',
 		description: 'myModuleDefaultMessageDesc', // i18n
 	},
 	doSpecialStuff: {
+		title: 'myModuleDoSpecialStuffTitle', // i18n
 		type: 'boolean',
 		value: false,
 		description: 'myModuleDoSpecialStuffDesc', // i18n
