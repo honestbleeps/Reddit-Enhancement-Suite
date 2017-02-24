@@ -171,7 +171,7 @@
 		"message": "Custom Comment Depth"
 	},
 	"commentDepthDesc": {
-		"message": "Allows you to set the preferred depth of comments you wish to see when clicking on comments links.\n 0 = Everything, 1 = Root level, 2 = Responses to root level, 3 = Responses to responses to root level, etc."
+		"message": "Allows you to set the preferred depth of comments you wish to see when clicking on comments links.\n\n0 = Everything, 1 = Root level, 2 = Responses to root level, 3 = Responses to responses to root level, etc."
 	},
 	"commentHidePerName": {
 		"message": "Comment Hide Persistor"
@@ -360,7 +360,7 @@
 		"message": "Linear Scroll Style"
 	},
 	"keyboardNavLinearScrollStyleDesc": {
-		"message": "When moving up/down with keynav, when and how should RES scroll the window?\nDirectional: Scroll just enough to bring the selected element into view, if it's offscreen.\nPage up/down: Scroll up/down an entire page after reaching the top or bottom.\nLock to top: Always align the selected element to the top of the screen.\nIn middle: Scroll just enough to bring the selected element to the middle of the viewport.\nAdopt top: Reuse the alignment of the previous selected element.\nLegacy: If the element is offscreen, lock to top."
+		"message": "When moving up/down with keynav, when and how should RES scroll the window?\n\n**Directional**: Scroll just enough to bring the selected element into view, if it's offscreen.\n\n**Page up/down**: Scroll up/down an entire page after reaching the top or bottom.\n\n**Lock to top**: Always align the selected element to the top of the screen.\n\n**In middle**: Scroll just enough to bring the selected element to the middle of the viewport.\n\n**Adopt top**: Reuse the alignment of the previous selected element.\n\n**Legacy**: If the element is offscreen, lock to top."
 	},
 	"keyboardNavNonLinearScrollStyleTitle": {
 		"message": "Non-linear Scroll Style"
@@ -990,7 +990,7 @@
 		"message": "Pause After Every"
 	},
 	"nerPauseAfterEveryDesc": {
-		"message": "After auto-loading a certain number of pages, pause the auto-loader.\n0 means Never-Ending Reddit will only pause when you click the play/pause button in the top right corner."
+		"message": "After auto-loading a certain number of pages, pause the auto-loader.\n\n0 means Never-Ending Reddit will only pause when you click the play/pause button in the top right corner."
 	},
 	"nerReversePauseIconTitle": {
 		"message": "Reverse Pause Icon"
@@ -2067,19 +2067,19 @@
 		"message": "Regexp Filters"
 	},
 	"filteRedditRegexpFiltersDesc": {
-		"message": "Allow RegExp in certain filteReddit fields.\nIf you have filters which start with `/` and don't know what RegExp is, you should turn this option off.\nFind out more on the [/r/Enhancement wiki](/r/Enhancement/wiki/index/filters/filtereddit/regexp)."
+		"message": "Allow RegExp in certain filteReddit fields.\nIf you have filters which start with `/` and don't know what RegExp is, you should turn this option off.\n\nFind out more on the [/r/Enhancement wiki](/r/Enhancement/wiki/index/filters/filtereddit/regexp)."
 	},
 	"filteRedditKeywordsTitle": {
 		"message": "Keywords"
 	},
 	"filteRedditKeywordsDesc": {
-		"message": "Hide posts with certain keywords in the title.\nRegExp like `/(this|that|theother)/i` is allowed for keyword (but not unlessKeyword).\nFind out more on the [/r/Enhancement wiki](/r/Enhancement/wiki/index/filters/filtereddit/regexp)."
+		"message": "Hide posts with certain keywords in the title.\nRegExp like `/(this|that|theother)/i` is allowed for keyword (but not unlessKeyword).\n\nFind out more on the [/r/Enhancement wiki](/r/Enhancement/wiki/index/filters/filtereddit/regexp)."
 	},
 	"filteRedditSubredditsTitle": {
 		"message": "Subreddits"
 	},
 	"filteRedditSubredditsDesc": {
-		"message": "Hide posts submitted to certain subreddits.\nRegExp like `/(this|that|theother)/i` is allowed for subreddit.\nFind out more on the [/r/Enhancement wiki](/r/Enhancement/wiki/index/filters/filtereddit/regexp)."
+		"message": "Hide posts submitted to certain subreddits.\nRegExp like `/(this|that|theother)/i` is allowed for subreddit.\n\nFind out more on the [/r/Enhancement wiki](/r/Enhancement/wiki/index/filters/filtereddit/regexp)."
 	},
 	"filteRedditFilterSubredditsFromTitle": {
 		"message": "Filter Subreddits From"
@@ -2103,13 +2103,13 @@
 		"message": "Domains"
 	},
 	"filteRedditDomainsDesc": {
-		"message": "Hide posts that link to certain domains.\nCaution: domain keywords like \"reddit\" would ignore \"reddit.com\" and \"fooredditbar.com\".\nRegExp like `/(this|that|theother)/i` is allowed for domain.\nFind out more on the [/r/Enhancement wiki](/r/Enhancement/wiki/index/filters/filtereddit/regexp)."
+		"message": "Hide posts that link to certain domains.\nCaution: domain keywords like \"reddit\" would ignore \"reddit.com\" and \"fooredditbar.com\".\nRegExp like `/(this|that|theother)/i` is allowed for domain.\n\nFind out more on the [/r/Enhancement wiki](/r/Enhancement/wiki/index/filters/filtereddit/regexp)."
 	},
 	"filteRedditFlairTitle": {
 		"message": "Flair"
 	},
 	"filteRedditFlairDesc": {
-		"message": "Hide posts where certain keywords are in the post's link flair.\nRegExp like `/(this|that|theother)/i` is allowed for flair.\nFind out more on the [/r/Enhancement wiki](/r/Enhancement/wiki/index/filters/filtereddit/regexp)."
+		"message": "Hide posts where certain keywords are in the post's link flair.\nRegExp like `/(this|that|theother)/i` is allowed for flair.\n\nFind out more on the [/r/Enhancement wiki](/r/Enhancement/wiki/index/filters/filtereddit/regexp)."
 	},
 	"filteRedditAllowNSFWTitle": {
 		"message": "Allow NSFW"
@@ -2121,7 +2121,7 @@
 		"message": "Custom Filters"
 	},
 	"filteRedditCustomFiltersDesc": {
-		"message": "Hide posts based on complex custom criteria.\nThis is a very advanced feature, please [read the guide](/r/Enhancement/wiki/customfilters) before asking questions."
+		"message": "Hide posts based on complex custom criteria.\n\nThis is a very advanced feature, please [read the guide](/r/Enhancement/wiki/customfilters) before asking questions."
 	},
 	"filteRedditEmptyNotificationHeader": {
 		"message": "All posts are filtered out"
@@ -2467,7 +2467,7 @@
 		"message": "Use Subreddit Styles"
 	},
 	"nightModeUseSubredditStylesDesc": {
-		"message": "Always keep subreddit styles enabled when using night mode, ignoring the compatibility check.\nWhen using night mode, subreddit styles are automatically disabled unless [the subreddit indicates it is night mode-friendly](/r/Enhancement/wiki/subredditstyling#wiki_res_night_mode_and_your_subreddit). You must tick the \"Use subreddit stylesheet\" in a subreddit's sidebar to enable subreddit styles in that subreddit. This is because most subreddits are not night mode-friendly.\nIf you choose to show subreddit styles, you will see flair images and spoiler tags, but be warned: **you may see bright images, comment highlighting, etc.** It is up to the mods of each subreddit to make their sub night mode friendly, which is not a tiny amount of work. Please be polite when requesting moderators make a sub night mode friendly."
+		"message": "Always keep subreddit styles enabled when using night mode, ignoring the compatibility check.\n\nWhen using night mode, subreddit styles are automatically disabled unless [the subreddit indicates it is night mode-friendly](/r/Enhancement/wiki/subredditstyling#wiki_res_night_mode_and_your_subreddit). You must tick the \"Use subreddit stylesheet\" in a subreddit's sidebar to enable subreddit styles in that subreddit. This is because most subreddits are not night mode-friendly.\n\nIf you choose to show subreddit styles, you will see flair images and spoiler tags, but be warned: **you may see bright images, comment highlighting, etc.** It is up to the mods of each subreddit to make their sub night mode friendly, which is not a tiny amount of work. Please be polite when requesting moderators make a sub night mode friendly."
 	},
 	"nightModeSubredditStylesWhitelistTitle": {
 		"message": "Subreddit Styles Whitelist"
@@ -2999,7 +2999,7 @@
 		"message": "Warn Already Submitted"
 	},
 	"submitHelperWarnAlreadySubmittedDesc": {
-		"message": "Show a warning when the current URL has already been submitted to the selected subreddit.\n*Not 100% accurate, due to search limitations and different ways to format the same URL.*"
+		"message": "Show a warning when the current URL has already been submitted to the selected subreddit.\n\n*Not 100% accurate, due to search limitations and different ways to format the same URL.*"
 	},
 	"submitHelperUncheckSendRepliesToInboxTitle": {
 		"message": "Uncheck Send Replies To Inbox"
@@ -3107,7 +3107,7 @@
 		"message": "Sub Reddits"
 	},
 	"subRedditTaggerSubRedditsDesc": {
-		"message": "subreddit: Name of the subreddit, without slashes.\ndoesntContain: Any string of text that could be present in a submission title. If a title contains this string, the tag will not be applied.\ntag:The text that will appear at the beginning of submission titles. e.g. use [tag], (tag), TAG | , etc..."
+		"message": "subreddit: Name of the subreddit, without slashes.\n\ndoesntContain: Any string of text that could be present in a submission title. If a title contains this string, the tag will not be applied.\n\ntag:The text that will appear at the beginning of submission titles. e.g. use [tag], (tag), TAG | , etc..."
 	},
 	"subredditInfoRequireDirectLinkTitle": {
 		"message": "Require Direct Link"
@@ -3593,7 +3593,7 @@
 		"message": "Color Link Score"
 	},
 	"voteEnhancementsColorLinkScoreDesc": {
-		"message": "Add color to a link's score depending on its value.\nThis does not work with reddit's \"compressed link display\" preference."
+		"message": "Add color to a link's score depending on its value.\n\nThis does not work with reddit's \"compressed link display\" preference."
 	},
 	"voteEnhancementsUserDefinedLinkColorationTitle": {
 		"message": "User Defined Link Coloration"
@@ -3623,7 +3623,7 @@
 		"message": "Highlight Controversial"
 	},
 	"voteEnhancementsHighlightControversialDesc": {
-		"message": "Add color to the \"controversial\" comment indicator.\nThis indicator can be enabled/disabled in your [reddit preferences](/prefs/#highlight_controversial)."
+		"message": "Add color to the \"controversial\" comment indicator.\n\nThis indicator can be enabled/disabled in your [reddit preferences](/prefs/#highlight_controversial)."
 	},
 	"voteEnhancementsHighlightControversialColorTitle": {
 		"message": "Highlight Controversial Color"
@@ -3773,7 +3773,7 @@
 		"message": "Sfw History"
 	},
 	"showImagesSfwHistoryDesc": {
-		"message": "Keeps NSFW links from being added to your browser history *by the markVisited feature*.\n*If you chose the second option, then links will be blue again on refresh.*\n***This does not change your basic browser behavior. If you click on a link then it will still be added to your history normally. This is not a substitute for using your browser's privacy mode.***"
+		"message": "Keeps NSFW links from being added to your browser history *by the markVisited feature*.\n\n*If you chose the second option, then links will be blue again on refresh.*\n\n***This does not change your basic browser behavior. If you click on a link then it will still be added to your history normally. This is not a substitute for using your browser's privacy mode.***"
 	},
 	"showImagesGalleryRememberWidthTitle": {
 		"message": "Gallery Remember Width"
