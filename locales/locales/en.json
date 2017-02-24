@@ -110,6 +110,9 @@
 	"aboutOptionsContributorsTitle": {
 		"message": "Contributors"
 	},
+	"aboutOptionsContributors": {
+		"message": "[Steve Sobel](http://www.honestbleeps.com/) (/u/honestbleeps) and a slew of community members have contributed code, design and/or great ideas to RES."
+	},
 	"aboutOptionsPrivacyTitle": {
 		"message": "Privacy"
 	},
@@ -355,6 +358,9 @@
 	},
 	"keyboardNavLinearScrollStyleTitle": {
 		"message": "Linear Scroll Style"
+	},
+	"keyboardNavLinearScrollStyleDesc": {
+		"message": "When moving up/down with keynav, when and how should RES scroll the window?\nDirectional: Scroll just enough to bring the selected element into view, if it's offscreen.\nPage up/down: Scroll up/down an entire page after reaching the top or bottom.\nLock to top: Always align the selected element to the top of the screen.\nIn middle: Scroll just enough to bring the selected element to the middle of the viewport.\nAdopt top: Reuse the alignment of the previous selected element.\nLegacy: If the element is offscreen, lock to top."
 	},
 	"keyboardNavNonLinearScrollStyleTitle": {
 		"message": "Non-linear Scroll Style"
@@ -610,6 +616,9 @@
 	},
 	"keyboardNavToggleViewImagesTitle": {
 		"message": "Toggle View Images"
+	},
+	"keyboardNavToggleViewImagesDesc": {
+		"message": "Toggle \"show images\" button."
 	},
 	"keyboardNavToggleChildrenTitle": {
 		"message": "Toggle Children"
@@ -979,6 +988,9 @@
 	},
 	"nerPauseAfterEveryTitle": {
 		"message": "Pause After Every"
+	},
+	"nerPauseAfterEveryDesc": {
+		"message": "After auto-loading a certain number of pages, pause the auto-loader.\n0 means Never-Ending Reddit will only pause when you click the play/pause button in the top right corner."
 	},
 	"nerReversePauseIconTitle": {
 		"message": "Reverse Pause Icon"
@@ -1952,6 +1964,9 @@
 	"commentToolsMacroPlaceholdersTitle": {
 		"message": "Macro Placeholders"
 	},
+	"commentToolsMacroPlaceholdersDesc": {
+		"message": "When using macros, replace placeholders in text via pop-up prompt.\nExample macro text:\nThe {{adj1}} {{adj2}} {{animal}} jumped over the lazy {{dog_color}} dog. The {{animal}} is so {{adj1}}!\n\nSome placeholders are automatically filled in when you use the macro:\n\n**{{subreddit}}**: The current subreddit, in the form /r/subreddit.\n\n**{{me}}**, **{{my_username}}**: Your username, in the form /u/username.\n\n**{{op}}**, **{{op_username}}**: The username of the original poster, in the form /u/username. On a post's comments page, this the person who made the post; on a PM / modmail, this is the person who started the conversation.\n\n**{{url}}**: The current page's URL.\n\n**{{reply_to}}**, **{{reply_to_username}}**: The username of person you're replying to, in the form /u/username.\n\n**{{selected}}**, **{{selection}}**: The text which is currently selected (highlighted).\n\n**{{escaped}}**: The selected text, escaped for snudown/markdown.\n\n**{{now}}**: The current date and time in your locale.\n\n**{{today}}**: The current date in your locale.\n\n**{{linkflair}}**: On comments pages, returns the flair text of the original link."
+	},
 	"commentToolsEnableOnBanMessagesTitle": {
 		"message": "Enable On Ban Messages"
 	},
@@ -2003,6 +2018,9 @@
 	"dashboardTagsPerPageTitle": {
 		"message": "Tags Per Page"
 	},
+	"dashboardTagsPerPageDesc": {
+		"message": "How many user tags to show per page on the [my users tags](/r/Dashboard/#userTaggerContents) tab. (enter zero to show all on one page)"
+	},
 	"filteRedditNSFWfilterTitle": {
 		"message": "NSFW Filter"
 	},
@@ -2048,11 +2066,20 @@
 	"filteRedditRegexpFiltersTitle": {
 		"message": "Regexp Filters"
 	},
+	"filteRedditRegexpFiltersDesc": {
+		"message": "Allow RegExp in certain filteReddit fields.\nIf you have filters which start with `/` and don't know what RegExp is, you should turn this option off.\nFind out more on the [/r/Enhancement wiki](/r/Enhancement/wiki/index/filters/filtereddit/regexp)."
+	},
 	"filteRedditKeywordsTitle": {
 		"message": "Keywords"
 	},
+	"filteRedditKeywordsDesc": {
+		"message": "Hide posts with certain keywords in the title.\nRegExp like `/(this|that|theother)/i` is allowed for keyword (but not unlessKeyword).\nFind out more on the [/r/Enhancement wiki](/r/Enhancement/wiki/index/filters/filtereddit/regexp)."
+	},
 	"filteRedditSubredditsTitle": {
 		"message": "Subreddits"
+	},
+	"filteRedditSubredditsDesc": {
+		"message": "Hide posts submitted to certain subreddits.\nRegExp like `/(this|that|theother)/i` is allowed for subreddit.\nFind out more on the [/r/Enhancement wiki](/r/Enhancement/wiki/index/filters/filtereddit/regexp)."
 	},
 	"filteRedditFilterSubredditsFromTitle": {
 		"message": "Filter Subreddits From"
@@ -2075,8 +2102,14 @@
 	"filteRedditDomainsTitle": {
 		"message": "Domains"
 	},
+	"filteRedditDomainsDesc": {
+		"message": "Hide posts that link to certain domains.\nCaution: domain keywords like \"reddit\" would ignore \"reddit.com\" and \"fooredditbar.com\".\nRegExp like `/(this|that|theother)/i` is allowed for domain.\nFind out more on the [/r/Enhancement wiki](/r/Enhancement/wiki/index/filters/filtereddit/regexp)."
+	},
 	"filteRedditFlairTitle": {
 		"message": "Flair"
+	},
+	"filteRedditFlairDesc": {
+		"message": "Hide posts where certain keywords are in the post's link flair.\nRegExp like `/(this|that|theother)/i` is allowed for flair.\nFind out more on the [/r/Enhancement wiki](/r/Enhancement/wiki/index/filters/filtereddit/regexp)."
 	},
 	"filteRedditAllowNSFWTitle": {
 		"message": "Allow NSFW"
@@ -2086,6 +2119,9 @@
 	},
 	"filteRedditCustomFiltersTitle": {
 		"message": "Custom Filters"
+	},
+	"filteRedditCustomFiltersDesc": {
+		"message": "Hide posts based on complex custom criteria.\nThis is a very advanced feature, please [read the guide](/r/Enhancement/wiki/customfilters) before asking questions."
 	},
 	"filteRedditEmptyNotificationHeader": {
 		"message": "All posts are filtered out"
@@ -2430,6 +2466,9 @@
 	"nightModeUseSubredditStylesTitle": {
 		"message": "Use Subreddit Styles"
 	},
+	"nightModeUseSubredditStylesDesc": {
+		"message": "Always keep subreddit styles enabled when using night mode, ignoring the compatibility check.\nWhen using night mode, subreddit styles are automatically disabled unless [the subreddit indicates it is night mode-friendly](/r/Enhancement/wiki/subredditstyling#wiki_res_night_mode_and_your_subreddit). You must tick the \"Use subreddit stylesheet\" in a subreddit's sidebar to enable subreddit styles in that subreddit. This is because most subreddits are not night mode-friendly.\nIf you choose to show subreddit styles, you will see flair images and spoiler tags, but be warned: **you may see bright images, comment highlighting, etc.** It is up to the mods of each subreddit to make their sub night mode friendly, which is not a tiny amount of work. Please be polite when requesting moderators make a sub night mode friendly."
+	},
 	"nightModeSubredditStylesWhitelistTitle": {
 		"message": "Subreddit Styles Whitelist"
 	},
@@ -2480,6 +2519,9 @@
 	},
 	"RESTipsMenuItemDesc": {
 		"message": "Add an item to the RES dropdown menu to show tips."
+	},
+	"RESTipsNewFeatureTipsDesc": {
+		"message": "Show tips about new features when they appear for the first time."
 	},
 	"searchHelperAddSearchOptionsDesc": {
 		"message": "Allow you to choose sorting and time range on the search form of the side panel."
@@ -3502,6 +3544,9 @@
 	"subredditManagerLastUpdateTitle": {
 		"message": "Last Update"
 	},
+	"subredditManagerLastUpdateDesc": {
+		"message": "Show last update information on the front page (works only if you have at least 50/100 subscriptions, [see here](/r/help/wiki/faq#wiki_some_of_my_subreddits_keep_disappearing.__why.3F) for more info)."
+	},
 	"subredditManagerStoreSubredditVisitTitle": {
 		"message": "Store Subreddit Visit"
 	},
@@ -3576,6 +3621,9 @@
 	},
 	"voteEnhancementsHighlightControversialTitle": {
 		"message": "Highlight Controversial"
+	},
+	"voteEnhancementsHighlightControversialDesc": {
+		"message": "Add color to the \"controversial\" comment indicator.\nThis indicator can be enabled/disabled in your [reddit preferences](/prefs/#highlight_controversial)."
 	},
 	"voteEnhancementsHighlightControversialColorTitle": {
 		"message": "Highlight Controversial Color"
@@ -3724,6 +3772,9 @@
 	"showImagesSfwHistoryTitle": {
 		"message": "Sfw History"
 	},
+	"showImagesSfwHistoryDesc": {
+		"message": "Keeps NSFW links from being added to your browser history *by the markVisited feature*.\n*If you chose the second option, then links will be blue again on refresh.*\n***This does not change your basic browser behavior. If you click on a link then it will still be added to your history normally. This is not a substitute for using your browser's privacy mode.***"
+	},
 	"showImagesGalleryRememberWidthTitle": {
 		"message": "Gallery Remember Width"
 	},
@@ -3820,6 +3871,9 @@
 	"showImagesAutoplayVideoDesc": {
 		"message": "Autoplay inline videos."
 	},
+	"showImagesHostToggleDesc": {
+		"message": "Display expandos for this host."
+	},
 	"radditShowPlaylisterToggleTitle": {
 		"message": "Show Playlister Toggle"
 	},
@@ -3849,5 +3903,11 @@
 	},
 	"imgurImageResolutionDesc": {
 		"message": "Which size of imgur images should be loaded?"
+	},
+	"iredditPreferRedditMediaTitle": {
+		"message": "Prefer Reddit Media"
+	},
+	"iredditPreferRedditMediaDesc": {
+		"message": "Try to load images and video from Reddit's media servers."
 	}
 }
