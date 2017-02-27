@@ -80,73 +80,62 @@ export default (env = {}) => {
 			module: {
 				rules: [{
 					test: /\.entry\.js$/,
-					use: [{
-						loader: 'spawn-loader',
-						options: { name: '[name].js' },
-					}, {
-						loader: 'babel-loader',
-						options: babelConfig,
-					}],
+					use: [
+						{ loader: 'spawn-loader', options: { name: '[name].js' } },
+						{ loader: 'babel-loader', options: babelConfig },
+					],
 				}, {
 					test: /\.js$/,
 					exclude: path.join(__dirname, 'node_modules'),
-					use: [{
-						loader: 'babel-loader',
-						options: babelConfig,
-					}],
+					use: [
+						{ loader: 'babel-loader', options: babelConfig },
+					],
 				}, {
 					test: /\.js$/,
 					include: path.join(__dirname, 'node_modules'),
-					use: [{
-						loader: 'babel-loader',
-						options: {
-							plugins: ['transform-dead-code-elimination', 'transform-node-env-inline'],
-							compact: true,
-							babelrc: false,
+					use: [
+						{
+							loader: 'babel-loader',
+							options: {
+								plugins: ['transform-dead-code-elimination', 'transform-node-env-inline'],
+								compact: true,
+								babelrc: false,
+							},
 						},
-					}],
+					],
 				}, {
 					test: /\.mustache$/,
-					use: [{
-						loader: 'mustache-loader',
-					}],
+					use: [
+						{ loader: 'mustache-loader' },
+					],
 				}, {
 					test: /\.scss$/,
-					use: [{
-						loader: 'file-loader',
-						options: { name: '[name].css' },
-					}, {
-						loader: 'extricate-loader',
-						options: { resolve: '\\.js$' },
-					}, {
-						loader: 'css-loader',
-					}, {
-						loader: 'postcss-loader',
-					}, {
-						loader: 'sass-loader',
-					}],
+					use: [
+						{ loader: 'file-loader', options: { name: '[name].css' } },
+						{ loader: 'extricate-loader', options: { resolve: '\\.js$' } },
+						{ loader: 'css-loader' },
+						{ loader: 'postcss-loader' },
+						{ loader: 'sass-loader' },
+					],
 				}, {
 					test: /\.html$/,
-					use: [{
-						loader: 'file-loader',
-						options: { name: '[name].[ext]' },
-					}, {
-						loader: 'extricate-loader',
-					}, {
-						loader: 'html-loader',
-						options: { attrs: ['link:href', 'script:src'] },
-					}],
+					use: [
+						{ loader: 'file-loader', options: { name: '[name].[ext]' } },
+						{ loader: 'extricate-loader' },
+						{ loader: 'html-loader', options: { attrs: ['link:href', 'script:src'] } },
+					],
 				}, {
 					test: /\.(png|gif)$/,
 					exclude: path.join(__dirname, 'lib', 'images'),
-					use: [{
-						loader: 'file-loader',
-						options: { name: '[name].[ext]' },
-					}],
+					use: [
+						{ loader: 'file-loader', options: { name: '[name].[ext]' } },
+					],
 				}, {
 					test: /\.(png|gif)$/,
 					include: path.join(__dirname, 'lib', 'images'),
-					use: [{ loader: 'url-loader' }],
+					use: [
+						{ loader: 'url-loader' },
+					],
 				}],
 				noParse: [
 					// to use `require` in Firefox
