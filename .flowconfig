@@ -12,7 +12,7 @@
 [options]
 module.use_strict=true
 
-module.name_mapper='^exec-loader!\(.+\)$'->'\1'
+module.name_mapper='^exec-loader\(\?cache\)?!\(.+\)$'->'\2'
 module.name_mapper.extension='mustache'->'<PROJECT_ROOT>/flow/stub/mustache.js'
 
 esproposal.export_star_as=enable
