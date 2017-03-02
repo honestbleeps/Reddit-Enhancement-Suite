@@ -3,6 +3,7 @@
 import path from 'path';
 
 import InertEntryPlugin from 'inert-entry-webpack-plugin';
+import LodashModuleReplacementPlugin from 'lodash-webpack-plugin';
 import ProgressBarPlugin from 'progress-bar-webpack-plugin';
 import ZipPlugin from 'zip-webpack-plugin';
 import webpack from 'webpack';
@@ -150,6 +151,7 @@ export default (env = {}) => {
 					},
 				}),
 				new InertEntryPlugin(),
+				new LodashModuleReplacementPlugin(),
 				(env.zip && !conf.noZip && new ZipPlugin({
 					path: path.join('..', 'zip'),
 					filename: conf.output,

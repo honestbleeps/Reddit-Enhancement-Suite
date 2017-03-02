@@ -73,15 +73,14 @@ declare interface CurryRight4<A, B, C, D, R> {
 
 type NestedArray<T> = Array<Array<T>>;
 
-type OPredicate<O> = ((value: any, key: string, object: O) => ?bool) | Object | string;
-type OIterateeWithResult<V, O, R> = ((value: V, key: string, object: O) => R) | Object | string;
+type OPredicate<O> = (value: any, key: string, object: O) => ?bool;
+type OIterateeWithResult<V, O, R> = (value: V, key: string, object: O) => R;
 type OIteratee<O> = OIterateeWithResult<any, O, any>;
 
-type Predicate<T> = ((value: T, index: number, array: Array<T>) => ?bool) | Object | string;
-type _Iteratee<T> = (item: T, index: number, array: ?Array<T>) => mixed;
-type Iteratee<T> = _Iteratee<T> | Object | string;
-type Iteratee2<T, U> = ((item: T, index: number, array: ?Array<T>) => U) | Object | string;
-type FlatMapIteratee<T, U> = ((item: T, index: number, array: ?Array<T>) => Array<U>) | Object | string;
+type Predicate<T> = (value: T, index: number, array: Array<T>) => ?bool;
+type Iteratee<T> = (item: T, index: number, array: ?Array<T>) => mixed;
+type Iteratee2<T, U> = (item: T, index: number, array: ?Array<T>) => U;
+type FlatMapIteratee<T, U> = (item: T, index: number, array: ?Array<T>) => Array<U>;
 type Comparator<T> = (item: T, item2: T) => bool;
 
 type MapIterator1<T, U> = (item: T) => U;
@@ -223,8 +222,8 @@ declare module 'lodash' {
 		map<T, U>(array: ?Array<T>, iteratee?: MapIterator<T, U>): Array<U>;
 		map<V, T: Object, U>(object: ?T, iteratee?: OIterateeWithResult<V, T, U>): Array<U>;
 		map(str: ?string, iteratee?: (char: string, index: number, str: string) => any): string;
-		orderBy<T>(array: ?Array<T>, iteratees?: Array<Iteratee<T>> | string, orders?: Array<'asc' | 'desc'> | string): Array<T>;
-		orderBy<V, T: Object>(object: T, iteratees?: Array<OIteratee<*>> | string, orders?: Array<'asc' | 'desc'> | string): Array<V>;
+		orderBy<T>(array: ?Array<T>, iteratees?: Array<Iteratee<T>>, orders?: Array<'asc' | 'desc'>): Array<T>;
+		orderBy<V, T: Object>(object: T, iteratees?: Array<OIteratee<*>>, orders?: Array<'asc' | 'desc'>): Array<V>;
 		partition<T>(array: ?Array<T>, predicate?: Predicate<T>): NestedArray<T>;
 		partition<V, T: Object>(object: T, predicate?: OPredicate<T>): NestedArray<V>;
 		reduce<T, U>(array: ?Array<T>, iteratee?: (accumulator: U, value: T, index: number, array: ?Array<T>) => U, accumulator?: U): U;
