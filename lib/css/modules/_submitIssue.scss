@@ -1,45 +1,23 @@
-#submittingToEnhancement {
-	display: none;
-	min-height: 300px;
-	font-size: 14px;
-	line-height: 15px;
-	margin-top: 10px;
-	width: 518px;
-	position: absolute;
-	z-index: 999;
 
-	ol {
-		margin-left: 10px;
-		margin-top: 15px;
-		list-style-type: decimal;
+#RESSubmitWizard {
+	padding: 0;
+
+	.guiders_content {
+		max-height: 90vh;
+		overflow-y: scroll;
+		padding: 5px 12px;
 	}
 
-	li {
-		margin-left: 25px;
+	#RESSubmitAprilFools {
+		background: #F87;
+		color: black;
+		margin-top: 2em;
+		padding: 1em;
 	}
-}
 
-.submittingToEnhancementButton {
-	border: 1px solid #444;
-	border-radius: 2px;
-	padding: 3px 6px;
-	cursor: pointer;
-	display: inline-block;
-	margin-top: 12px;
-}
-
-#RESSubmitOptions .submittingToEnhancementButton {
-	margin-top: 30px;
-}
-
-#RESSubmitAprilFools {
-	background: #F87;
-	color: black;
-	margin-top: 2em;
-	padding: 1em;
-}
-
-#RESBugReport,
-#RESFeatureRequest {
-	display: none;
+	h2:not(:first-child) {
+		margin-top: 1em;
+		border-top: 1px gray dashed;
+		padding-top: 1em;
+	}
 }
