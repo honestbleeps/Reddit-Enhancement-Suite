@@ -554,9 +554,14 @@ body:not(.res-showImages-displayImageCaptions) {
 
 // Extras for certain text expando's
 .res-media-host-wikipedia {
+	img[alt='Hosted on wikipedia'] {
+		float: left;
+		margin-right: 10px;
+	}
+
 	.md {
 		padding: 5px;
-		max-width: none;
+		max-width: 110em;
 
 		table {
 			width: 45%;
