@@ -83,7 +83,6 @@ export default (env = {}) => {
 					test: /\.entry\.js$/,
 					use: [
 						{ loader: 'spawn-loader', options: { name: '[name].js' } },
-						{ loader: 'babel-loader', options: babelConfig },
 					],
 				}, {
 					test: /\.js$/,
