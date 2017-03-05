@@ -18,9 +18,20 @@
 	margin: 0 0 0 1px;
 }
 
-.res-orangered-hideModMail {
-	#modmail,
-	#modmail + .separator {
+.res-orangered-hideModMail #modmail,
+.res-orangered-hideNewModMail #new_modmail {
+	&,
+	& + .separator {
+		display: none;
+	}
+}
+
+.res-orangered-hideEmptyMail #mail,
+.res-orangered-hideEmptyModMail #modmail,
+.res-orangered-hideEmptyNewModMail #new_modmail {
+	&.nohavemail,
+	&.nohavemail + .separator,
+	&.nohavemail + .message-count + .separator {
 		display: none;
 	}
 }
