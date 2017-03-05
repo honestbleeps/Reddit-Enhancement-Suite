@@ -30,7 +30,8 @@
 .res-orangered-hideEmptyModMail #modmail,
 .res-orangered-hideEmptyNewModMail #new_modmail {
 	&.nohavemail,
-	&.nohavemail + .separator {
+	&.nohavemail + .separator,
+	&.nohavemail + .message-count + .separator {
 		display: none;
 	}
 }
