@@ -307,7 +307,7 @@
 		"message": "filteReddit"
 	},
 	"filteRedditDesc": {
-		"message": "Filter out NSFW content, or links by keyword, domain (use User Tagger to ignore by user) or subreddit (for /r/all or /domain/*)."
+		"message": "Filter out NSFW content, or links by keyword, domain (use User Tagger to ignore by user) or subreddit (for /r/all or /domain/*).\n\nRegExp like `/(this|that|theother)/i` is allowed in text boxes. Find out more on the [/r/Enhancement wiki](/r/Enhancement/wiki/index/filters/filtereddit/regexp)."
 	},
 	"floaterName": {
 		"message": "Floating Islands"
@@ -2269,7 +2269,7 @@
 		"message": "Show Filterline"
 	},
 	"filteRedditShowFilterlineDesc": {
-		"message": "Show filterline controls by default."
+		"message": "Show Filterline controls by default."
 	},
 	"filteRedditExcludeOwnPostsTitle": {
 		"message": "Exclude Own Posts"
@@ -2295,23 +2295,17 @@
 	"filteRedditExcludeUserPagesDesc": {
 		"message": "Don't filter anything on users' profile pages."
 	},
-	"filteRedditRegexpFiltersTitle": {
-		"message": "Regexp Filters"
-	},
-	"filteRedditRegexpFiltersDesc": {
-		"message": "Allow RegExp in certain filteReddit fields.\nIf you have filters which start with `/` and don't know what RegExp is, you should turn this option off.\n\nFind out more on the [/r/Enhancement wiki](/r/Enhancement/wiki/index/filters/filtereddit/regexp)."
-	},
 	"filteRedditKeywordsTitle": {
 		"message": "Keywords"
 	},
 	"filteRedditKeywordsDesc": {
-		"message": "Hide posts with certain keywords in the title.\nRegExp like `/(this|that|theother)/i` is allowed for keyword (but not unlessKeyword).\n\nFind out more on the [/r/Enhancement wiki](/r/Enhancement/wiki/index/filters/filtereddit/regexp)."
+		"message": "Hide posts with certain keywords in the title."
 	},
 	"filteRedditSubredditsTitle": {
 		"message": "Subreddits"
 	},
 	"filteRedditSubredditsDesc": {
-		"message": "Hide posts submitted to certain subreddits.\nRegExp like `/(this|that|theother)/i` is allowed for subreddit.\n\nFind out more on the [/r/Enhancement wiki](/r/Enhancement/wiki/index/filters/filtereddit/regexp)."
+		"message": "Hide posts submitted to certain subreddits."
 	},
 	"filteRedditSubredditsSubreddits": {
 		"message": "subreddits"
@@ -2341,13 +2335,13 @@
 		"message": "Domains"
 	},
 	"filteRedditDomainsDesc": {
-		"message": "Hide posts that link to certain domains.\nCaution: domain keywords like \"reddit\" would ignore \"reddit.com\" and \"fooredditbar.com\".\nRegExp like `/(this|that|theother)/i` is allowed for domain.\n\nFind out more on the [/r/Enhancement wiki](/r/Enhancement/wiki/index/filters/filtereddit/regexp)."
+		"message": "Hide posts that link to certain domains.\nCaution: domain keywords like \"reddit\" would ignore \"reddit.com\" and \"fooredditbar.com\"."
 	},
 	"filteRedditFlairTitle": {
 		"message": "Flair"
 	},
 	"filteRedditFlairDesc": {
-		"message": "Hide posts where certain keywords are in the post's link flair.\nRegExp like `/(this|that|theother)/i` is allowed for flair.\n\nFind out more on the [/r/Enhancement wiki](/r/Enhancement/wiki/index/filters/filtereddit/regexp)."
+		"message": "Hide posts where certain keywords are in the post's link flair."
 	},
 	"filteRedditAllowNSFWTitle": {
 		"message": "Allow NSFW"
@@ -2408,9 +2402,6 @@
 	},
 	"filteRedditAddCustomFilter": {
 		"message": "+add custom filter"
-	},
-	"filteRedditCustomFiltersGroupOfConditions": {
-		"message": "Group of conditions"
 	},
 	"subredditManagerMultiCountTitle": {
 		"message": "/r/$1 is in $2 multireddits"
