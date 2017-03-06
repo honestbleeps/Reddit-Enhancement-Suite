@@ -2,7 +2,8 @@
 	"name": "{{prop-loader?title!../package.json}}",
 	"version": "{{prop-loader?version!../package.json}}",
 	"manifest_version": 2,
-	"minimum_chrome_version": "54",
+	"minimum_chrome_version": "55",
+	"minimum_opera_version": "42",
 	"description": "{{prop-loader?description!../package.json}}",
 	"background": {
 		"scripts": [
