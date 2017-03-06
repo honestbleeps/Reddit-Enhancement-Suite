@@ -8,3 +8,6 @@ export {
 
 // Edge does not have a permissions API
 addInterceptor('permissions', () => true);
+
+// Edge doesn't have history.addUrl (yet)
+addInterceptor('addURLToHistory', () => {});
