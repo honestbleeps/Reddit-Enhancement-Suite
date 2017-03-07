@@ -7,6 +7,7 @@ module.exports = {
 			.click('#REScommentSubToggle')
 			.assert.containsText('#REScommentSubToggle', 'unsubscribe')
 			.refresh()
+			.waitForElementVisible('#REScommentSubToggle')
 			.assert.containsText('#REScommentSubToggle', 'unsubscribe')
 			.end();
 	},
