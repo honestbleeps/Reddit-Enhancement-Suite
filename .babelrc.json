@@ -2,8 +2,6 @@
 	"plugins": [
 		"transform-export-extensions",
 		"transform-class-properties",
-		"transform-async-to-generator",
-		"transform-exponentiation-operator",
 		["transform-object-rest-spread", { "useBuiltIns": true }],
 		"transform-es2015-modules-commonjs",
 		"transform-flow-strip-types",
