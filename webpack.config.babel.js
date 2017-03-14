@@ -19,8 +19,7 @@ const browserConfig = {
 		target: 'edge',
 		entry: 'edge/appxmanifest.xml',
 		environment: 'edge/environment',
-		output: 'edgeextension/manifest/Extension',
-		outputFilename: '../appxmanifest.xml',
+		output: 'edgeextension/manifest',
 		noZip: true,
 	},
 	firefox: {
@@ -50,7 +49,7 @@ export default (env = {}) => {
 		entry: `extricate-loader!interpolate-loader!./${conf.entry}`,
 		output: {
 			path: path.join(__dirname, 'dist', conf.output),
-			filename: conf.outputFilename || path.basename(conf.entry),
+			filename: path.basename(conf.entry),
 		},
 		devtool: isProduction ? 'source-map' : 'cheap-source-map',
 		bail: isProduction,
@@ -64,7 +63,7 @@ export default (env = {}) => {
 			rules: [{
 				test: /\.entry\.js$/,
 				use: [
-					{ loader: 'spawn-loader', options: { name: '[name].js' } },
+					{ loader: 'spawn-loader' },
 				],
 			}, {
 				test: /\.js$/,
