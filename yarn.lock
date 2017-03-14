@@ -3520,7 +3520,7 @@ file-entry-cache@^2.0.0:
     flat-cache "^1.2.1"
     object-assign "^4.0.1"
 
-file-loader@0.10.1, file-loader@^0.10.0:
+file-loader@0.10.1, file-loader@^0.10.0, file-loader@^0.10.1:
   version "0.10.1"
   resolved "https://registry.yarnpkg.com/file-loader/-/file-loader-0.10.1.tgz#815034119891fc6441fb5a64c11bc93c22ddd842"
   dependencies:
@@ -8134,10 +8134,11 @@ source-map@~0.3.0:
   dependencies:
     amdefine ">=0.0.4"
 
-spawn-loader@2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/spawn-loader/-/spawn-loader-2.0.0.tgz#0d9b62666e33c179288452e8d2719f9531faa5f4"
+spawn-loader@2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/spawn-loader/-/spawn-loader-2.1.0.tgz#4f49cb41b11ebac60644536c2d407722ecfe8b9b"
   dependencies:
+    file-loader "^0.10.1"
     loader-utils "^1.0.2"
 
 spawn-sync@1.0.15:

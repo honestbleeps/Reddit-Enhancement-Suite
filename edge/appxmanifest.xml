@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <!-- Create generationInfo.json for manifoldjs -->
-<!-- {{file-loader?name=../../generationInfo.json!./generationInfo.json}} -->
+<!-- {{file-loader?name=../generationInfo.json!./generationInfo.json}} -->
 <Package
 	xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
 	xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
@@ -15,7 +15,7 @@
 	<Properties>
 		<DisplayName>{{prop-loader?title!../package.json}}</DisplayName>
 		<PublisherDisplayName>honestbleeps</PublisherDisplayName>
-		<Logo>Assets\icon50.png</Logo> <!-- {{!file-loader?name=../Assets/icon50.png!../images/icon50.png}} -->
+		<Logo>{{!file-loader?name=Assets\icon50.png!../images/icon50.png}}</Logo>
 	</Properties>
 
 	<Dependencies>
@@ -28,13 +28,11 @@
 
 	<Applications>
 		<Application Id="App">
-			<!-- {{!file-loader?name=../Assets/icon150.png!../images/icon150.png}} -->
-			<!-- {{!file-loader?name=../Assets/icon44.png!../images/icon44.png}} -->
 			<uap:VisualElements
 				AppListEntry="none"
 				DisplayName="{{prop-loader?title!../package.json}}"
-				Square150x150Logo="Assets\icon150.png"
-				Square44x44Logo="Assets\icon44.png"
+				Square150x150Logo="{{!file-loader?name=Assets\icon150.png!../images/icon150.png}}"
+				Square44x44Logo="{{!file-loader?name=Assets\icon44.png!../images/icon44.png}}"
 				Description="{{prop-loader?description!../package.json}}"
 				BackgroundColor="transparent">
 			</uap:VisualElements>
@@ -45,7 +43,7 @@
 						PublicFolder="Extension"
 						DisplayName="{{prop-loader?title!../package.json}}">
 						<!-- Generate extension -->
-						<!-- {{file-loader?name=manifest.json!extricate-loader!interpolate-loader!./manifest.json}} -->
+						<!-- {{spawn-loader?inert&path=Extension!extricate-loader!interpolate-loader!./manifest.json}} -->
 					</uap3:AppExtension>
 				</uap3:Extension>
 			</Extensions>
