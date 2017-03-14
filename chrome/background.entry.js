@@ -162,7 +162,6 @@ addListener('pageAction', ({ operation, state }, { id: tabId }) => {
 			});
 			break;
 		case 'hide':
-		case 'destroy':
 			chrome.pageAction.hide(tabId);
 			break;
 		default:
