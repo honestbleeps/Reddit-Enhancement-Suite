@@ -17,7 +17,7 @@ module.exports = {
 		}
 		const opColor = c(0, 85, 223);
 		const firstCommenterColor = c(70, 182, 204);
-		const transparent = isFirefox ? 'transparent' : 'rgba(0, 0, 0, 0)';
+		const transparent = 'rgba(0, 0, 0, 0)';
 
 		browser
 			.url('https://www.reddit.com/wiki/pages/#res:settings/userHighlight')
