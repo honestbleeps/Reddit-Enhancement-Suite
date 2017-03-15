@@ -668,6 +668,9 @@ div.usertext-edit {
 
 	&.active {
 		font-weight: bold;
+		-moz-box-shadow: inset 5px 0px 0px 0px rgb(171, 204, 227);
+		-webkit-box-shadow: inset 5px 0px 0px 0px rgb(171, 204, 227);
+		box-shadow: inset 5px 0px 0px 0px rgb(171, 204, 227);
 	}
 
 	small {
