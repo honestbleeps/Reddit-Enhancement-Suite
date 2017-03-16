@@ -131,7 +131,7 @@ addListener('permissions', ({ operation, permissions, origins }) => {
 addListener('openNewTabs', ({ urls, focusIndex }, { id: tabId, index: currentIndex }) => {
 	urls.forEach((url, i) => chrome.tabs.create({
 		url,
-		selected: i === focusIndex,
+		active: i === focusIndex,
 		index: ++currentIndex,
 		openerTabId: tabId,
 	}));
