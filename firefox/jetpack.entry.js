@@ -1,7 +1,7 @@
 // generate webextension
 import 'spawn-loader?inert&path=webextension!extricate-loader!interpolate-loader!./manifest.json';
 
-import { nativeRequire } from '../lib/environment/common/nativeRequire';
+import { nativeRequire } from './nativeRequire';
 
 const { startup } = nativeRequire('sdk/webextension');
 const { indexedDB } = nativeRequire('sdk/indexed-db');

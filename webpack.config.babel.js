@@ -12,26 +12,22 @@ const browserConfig = {
 	chrome: {
 		target: 'chrome',
 		entry: 'chrome/manifest.json',
-		environment: 'chrome/environment',
 		output: 'chrome',
 	},
 	edge: {
 		target: 'edge',
 		entry: 'edge/appxmanifest.xml',
-		environment: 'edge/environment',
 		output: 'edgeextension/manifest',
 		noZip: true,
 	},
 	firefox: {
 		target: 'firefox',
 		entry: 'firefox/package.json',
-		environment: 'firefox/environment',
 		output: 'firefox',
 	},
 	firefoxbeta: {
 		target: 'firefox',
 		entry: 'firefox/beta/package.json',
-		environment: 'firefox/environment',
 		output: 'firefox-beta',
 	},
 };
@@ -54,11 +50,6 @@ export default (env = {}) => {
 		devtool: isProduction ? 'source-map' : 'cheap-source-map',
 		bail: isProduction,
 		performance: false,
-		resolve: {
-			alias: {
-				browserEnvironment$: path.join(__dirname, conf.environment),
-			},
-		},
 		module: {
 			rules: [{
 				test: /\.entry\.js$/,

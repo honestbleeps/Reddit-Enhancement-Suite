@@ -6,11 +6,11 @@
 	"background": {
 		"scripts": [
 			"{{./edge.entry.js}}",
-			"{{../chrome/background.entry.js}}"
+			"{{./background.entry.js}}"
 		],
 		"persistent": true
 	},
-	"options_page": "{{../chrome/options.html}}",
+	"options_page": "{{../browser/options.html}}",
 	"content_scripts": [
 		{
 			"matches": [
