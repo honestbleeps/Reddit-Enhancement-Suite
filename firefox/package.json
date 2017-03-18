@@ -7,7 +7,8 @@
 	"homepage": "http://redditenhancementsuite.com/",
 	"license": "GPL-3.0",
 	"version": "{{prop-loader?version!../package.json}}",
-	"main": "{{./background.entry.js}}",
+	"main": "{{./jetpack.entry.js}}",
+	"hasEmbeddedWebExtension": true,
 	"engines": {
 		"firefox": ">=52.0"
 	},

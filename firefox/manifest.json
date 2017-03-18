@@ -1,16 +1,20 @@
 {
 	"name": "{{prop-loader?title!../package.json}}",
 	"version": "{{prop-loader?version!../package.json}}",
+	"manifest_version": 2,
 	"description": "{{prop-loader?description!../package.json}}",
-	"author": "{{prop-loader?author!../package.json}}",
+	"applications": {
+		"gecko": {
+			"id": "jid1-xUfzOsOFlzSOXg@jetpack",
+			"strict_min_version": "52.0"
+		}
+	},
 	"background": {
 		"scripts": [
-			"{{./edge.entry.js}}",
 			"{{./background.entry.js}}"
-		],
-		"persistent": true
+		]
 	},
-	"options_page": "{{../browser/options.html}}",
+	"homepage_url": "http://redditenhancementsuite.com",
 	"content_scripts": [
 		{
 			"matches": [
@@ -21,7 +25,6 @@
 				"https://*.reddit.com/*"
 			],
 			"js": [
-				"{{./edge.entry.js}}",
 				"{{../lib/main.entry.js}}"
 			],
 			"css": [
@@ -31,9 +34,8 @@
 		}
 	],
 	"icons": {
-		"128": "{{../images/icon128.png}}",
 		"48": "{{../images/icon48.png}}",
-		"16": "{{../images/icon16.png}}"
+		"128": "{{../images/icon128.png}}"
 	},
 	"page_action": {
 		"default_icon": {
@@ -45,6 +47,7 @@
 	"permissions": [
 		"cookies",
 		"tabs",
+		"history",
 		"storage",
 		"unlimitedStorage",
 		"http://redditenhancementsuite.com/",
@@ -53,20 +56,15 @@
 		"http://*.reddit.com/*",
 		"https://*.reddit.com/*",
 		"http://*.flickr.com/photos/*",
-		"*://*.photobucket.com/*",
+		"http://img.photobucket.com/*",
 		"http://noembed.com/embed?url=*",
 		"https://api.twitter.com/*",
 		"https://onedrive.live.com/*",
-		"https://api.onedrive.com/*",
 		"*://1drv.ms/*",
 		"*://backend.deviantart.com/oembed?url=*",
 		"*://api.gyazo.com/api/oembed*",
 		"*://codepen.io/api/oembed*",
 		"*://api.tumblr.com/v2/blog/*/posts?api_key=*&id=*",
-		"https://xkcd.com/*/info.0.json",
-		"*://*.wikipedia.org/*",
-		"*://redditbooru.com/*",
-		"http://www.simplecove.com/resapi/*",
-		"https://www.googleapis.com/*"
+		"https://xkcd.com/*/info.0.json"
 	]
 }

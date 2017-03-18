@@ -1,9 +1,9 @@
 /* eslint-env webextensions */
 
-import { createMessageHandler } from '../lib/environment/common/messaging';
 import { keyedMutex } from '../lib/utils/async';
 import { extendDeep } from '../lib/utils/object';
-import { apiToPromise } from './_helpers';
+import { createMessageHandler } from './utils/messaging';
+import { apiToPromise } from './utils/api';
 
 const _sendMessage = apiToPromise(chrome.runtime.sendMessage);
 
