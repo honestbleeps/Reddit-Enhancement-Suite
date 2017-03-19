@@ -8,9 +8,9 @@ Thinking about contributing to RES? Awesome! We just ask that you follow a few s
 
 1. To build the extension, see [Building development versions of the extension](#building-development-versions-of-the-extension).
 
-1. If you're adding new modules or hosts, see [Adding new files](#adding-new-files).
+1. To add new modules or hosts, see [Adding new files](#adding-new-files).
 
-1. Code style is enforced with ESLint and sass-lint. To check code style and autofix common errors, see [Lint and test commands](#lint-and-test-commands).
+1. To check code style and autofix some formatting errors, see [Lint and test commands](#lint-and-test-commands).
 
 ## Project structure
 
