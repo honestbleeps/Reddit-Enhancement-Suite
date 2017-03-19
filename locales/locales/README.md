@@ -10,14 +10,15 @@ New strings should be added to `en.json` and only that file.
 
 ## Translating Modules
 
-Currently only module names, categories and descriptions are translatable. Please see [this](https://github.com/honestbleeps/Reddit-Enhancement-Suite/blob/master/lib/modules/commentHidePersistor.js) module for an example of how it's implemented.
+User interface text can be translated with the `i18n` function.
 
-These strings can be found in `en.json` which then translate to the English string. A list of categories can also be found near the top of `en.json`.
+The names, categories and descriptions of modules and options are automatically translated (you do not need to call `i18n`).
 
-Modules will be reviewed for i18n before merge.
+See the [userbarHider](/lib/modules/userbarHider.js) module for examples of both of these.
 
-###Naming Conventions
+### Naming Conventions
 
-* Use camelCase for the names.
-* For module options use this format:
-  * {moduleId}Options{OptionName}
+* Use camelCase.
+* In general, i18n keys for a module should start with its `moduleId`.
+  * Option titles: `{moduleId}Options{OptionName}Title` (e.g. `userbarHiderUserbarStateTitle`)
+  * Option descriptions: `{moduleId}Options{OptionName}Desc` (e.g. `userbarHiderUserbarStateDesc`)

@@ -2,63 +2,15 @@
 
 Thinking about contributing to RES? Awesome! We just ask that you follow a few simple guidelines:
 
-1. RES has grown quite large, so we do have to pick and choose what features we should add. Code bloat is always a concern, and RES is already rather hefty. If you're unsure if your feature would appeal to a wide audience, please post about it on [/r/Enhancement](https://www.reddit.com/r/Enhancement/) or [contact @honestbleeps](https://www.reddit.com/message/compose/?to=honestbleeps) directly to ask.
+1. RES has grown quite large, so we have carefully choose what features we should add to avoid maintenance burden and code bloat. If you're unsure if your feature would appeal to a wide audience, please post about it on [/r/Enhancement](https://www.reddit.com/r/Enhancement/).
 
 1. There are a few features we have made a conscious choice not to add to RES, so make sure whatever you'd like to contribute [isn't on that list](https://www.reddit.com/r/Enhancement/wiki/rejectedfeaturerequests).
 
 1. To build the extension, see [Building development versions of the extension](#building-development-versions-of-the-extension).
 
-1. If you're adding new modules or hosts, see [Adding new files](#adding-new-files).
+1. To add new modules or hosts, see [Adding new files](#adding-new-files).
 
-1. Code style is enforced with ESLint and sass-lint. To check code style and autofix common errors, see [Lint and test commands](#lint-and-test-commands).
-
-## Project structure
-
-#### Top level files and folders
-
-  - `.github/`: Github templates
-  - `build/`: Files handling automated browser deployments
-  - `changelog/`: Release changelogs
-  - `chrome/`: Chrome-specific RES files
-  - `dist/`: build output
-  - `edge/`: Microsoft Edge-specific RES files
-  - `examples/`: example code for new hosts/modules
-  - `firefox/`: Firefox-specific RES files
-  - `images/`: Images for RES logo and CSS icons
-  - `lib/`: all RES code
-  - `lib/core/`: core RES code
-  - `lib/css/`: RES css
-  - `lib/environment/`: RES environment code
-  - `lib/images/`: RES images
-  - `lib/modules/`: RES modules
-  - `lib/templates/`: RES templates
-  - `lib/utils/`: RES utilities
-  - `lib/vendor/`: RES vendor libraries (old libs not on npm)
-  - `lib/**/__tests__`: unit tests
-  - `locales`: RES i18n translations
-  - `tests/`: integration tests
-  - `utils/`: Misc RES utilities 
-  - `package.json`: package info, dependencies
-  - `webpack.config.babel.js`: build script
-
-##### Chrome (`chrome/`)
-
-  - `background.entry.js`: the "background page" for RES, necessary for Chrome extensions
-  - `environment.js`: specific environment settings for Chrome
-  - `manifest.json`: the project manifest
-  - `options.html`: options page for chrome extensions
-
-##### Microsoft Edge (`edge/`)
-
-  - `edge.entry.js`: shim to allow chrome extension code usage
-  - `environment.js`: Edge-specific overrides of the Chrome environment
-  - `manifest.json`: the project manifest
-  
-##### Firefox (`firefox/`)
-
-  - `background.entry.js`: the "background page" for RES, necessary for Firefox extensions
-  - `environment.js`: specific environment settings for Firefox
-  - `package.json`: the project manifest for the Firefox add-on
+1. To check code style and autofix some formatting errors, see [Lint and test commands](#lint-and-test-commands).
 
 ## Building development versions of the extension
 
@@ -67,8 +19,8 @@ Thinking about contributing to RES? Awesome! We just ask that you follow a few s
 1. Install [git](https://git-scm.com/).
 1. Install [node.js](https://nodejs.org) (version >= 6).
 1. Install [Python 2](https://www.python.org/downloads/) (*not* version 3). On Windows, please install the "Add python.exe to path" feature on the customize screen.
-1. Navigate to your RES folder.
-1. Run `npm install`.
+1. [Clone this repository](https://help.github.com/articles/cloning-a-repository/).
+1. Run `npm install` in that folder.
 
 Once done, you can build the extension by running `npm start` (see [Build commands](#build-commands)).
 
@@ -105,45 +57,85 @@ The default host and port (`localhost` and `4444`) should work for most local in
 
 ##### Chrome
 
-  1. Go to `Menu->Tools->Extensions` and tick the `Developer Mode` checkbox
-  2. Choose `Load unpacked extension` and point it to the `/dist/chrome` folder (not the `/chrome` folder). Make sure you only have one RES version running at a time.
-  3. Any time you make changes to the script, you must go back to the `Menu->Tools->Extensions` page and `Reload` the extension.
+1. Go to `Menu->Tools->Extensions` and tick the `Developer Mode` checkbox.
+1. Click `Load unpacked extension` and select the `/dist/chrome` folder (not the `/chrome` folder).
+1. Any time you make changes, you must go back to the `Menu->Tools->Extensions` page and `Reload` the extension.
 
 ##### Microsoft Edge
 
-  1. Go to `about:flags` and tick the `Enable extension developer features` checkbox.
-  2. Choose `Load extension` on the extensions menu and select the `/dist/edgeextension/manifest/Extension` folder.
-  3. Any time you make changes to the extension, you must go back to the `Menu->Extensions` page, go to the extensions settings and `Reload` the extension.
+1. Go to `about:flags` and tick the `Enable extension developer features` checkbox.
+1. Click `Load extension` on the extensions menu and select the `/dist/edgeextension/manifest/Extension` folder (not the `/edge` folder).
+1. Any time you make changes, you must go back to the `Menu->Extensions` page, go to the extension's settings and `Reload` the extension.
 
 ##### Firefox
 
-  1. Install [jpm](https://developer.mozilla.org/en-US/Add-ons/SDK/Tools/jpm) using `npm`: `npm install -g jpm`
-  2. Navigate to the `/dist/firefox` folder (not the `/firefox` folder) and run the command `jpm run`, which should launch a new Firefox browser using a temporary profile with only RES installed.
+1. Go to `about:debugging` and tick the `Enable add-on debugging` checkbox.
+1. Click `Load Temporary Add-on` and select the `/dist/firefox/webextension` folder (not the `/firefox` folder).
+1. Any time you make changes, you must go back to the `about:debugging` page and `Reload` the extension.
+
+## Project structure
+
+#### Top level files and folders
+
+  - `.github/`: Github templates
+  - `browser/`: extension API files common to all browsers
+  - `build/`: files handling automated browser deployments
+  - `changelog/`: release changelogs
+  - `chrome/`: Chrome-specific RES files
+  - `dist/`: build output
+  - `edge/`: Microsoft Edge-specific RES files
+  - `examples/`: example code for new hosts/modules
+  - `firefox/`: Firefox-specific RES files
+  - `images/`: images for RES logo and CSS icons
+  - `lib/`: all RES code
+  - `lib/core/`: core RES code
+  - `lib/css/`: RES css
+  - `lib/environment/`: RES environment code
+  - `lib/images/`: RES images
+  - `lib/modules/`: RES modules
+  - `lib/templates/`: RES templates
+  - `lib/utils/`: RES utilities
+  - `lib/vendor/`: RES vendor libraries (old libs not on npm)
+  - `lib/**/__tests__`: unit tests
+  - `locales`: RES i18n translations
+  - `tests/`: integration tests
+  - `package.json`: package info, dependencies
+  - `webpack.config.babel.js`: build script
 
 ## Adding new files
 
 #### Modules
+
+First, check to see if there is an existing module with the same focus.
 
 See [`examples/module.js`](https://github.com/honestbleeps/Reddit-Enhancement-Suite/blob/master/examples/module.js) for an example.
 
 Create a new `.js` file in `lib/modules`.
 It will automatically be loaded when the build script is restarted.
 
-All modules must now have i18n implementations. Please see [here](https://github.com/honestbleeps/Reddit-Enhancement-Suite/blob/master/locales/locales/README.md) for details.
+All user-visible text must be translated. See the [locales README](/locales/locales/README.md) for details.
 
 #### Media hosts
-
-Please be sure that they support [CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) so the sites do not need to be added as additional permissions, which has caused [headaches in the past](https://www.reddit.com/r/Enhancement/comments/1jskcm/announcement_chrome_users_did_your_res_turn_off/).
 
 See [`examples/host.js`](https://github.com/honestbleeps/Reddit-Enhancement-Suite/blob/master/examples/host.js) for an example.
 
 Create a new `.js` file in `lib/modules/hosts`.
 It will automatically be loaded when the build script is restarted.
 
+If the host uses an API that does not support [CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing), you must add it to the browsers' manifests and the host's `permissions` property. For example, search for usages of `api.twitter.com`.
+
 #### Stylesheets
 
 Create a new `.scss` file in `lib/css/modules/` (with a leading underscore, e.g. `_myModule.scss`).
 Import the file in `lib/css/res.scss` (e.g. `@import 'modules/myPartial';`).
 
-Body classes will be automatically added for boolean and enum options with the property `bodyClass: true`, in the form `.res-moduleId-optionKey` for boolean options (only when they're enabled), and `.res-moduleId-optionKey-optionValue` for enums.
-This is the preferred way to create optional CSS; do not use `addCSS()` unless absolutely necessary (i.e. variable color, size, etc.).
+For toggleable CSS, add `bodyClass: true` to an option or module, then wrap your CSS with `.res-moduleId-optionKey` (boolean options), `.res-moduleId-optionKey-optionValue` (enum options), or `.res-moduleId` (modules).
+
+For example:
+```scss
+.res-showImages-hideImages {
+	img {
+		display: none;
+	}
+}
+```
