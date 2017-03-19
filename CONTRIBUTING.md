@@ -115,12 +115,12 @@ All user-visible text in modules must be translated. See the [locales README](/l
 
 #### Media hosts
 
-Please be sure that they support [CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) so the sites do not need to be added as additional permissions, which has caused [headaches in the past](https://www.reddit.com/r/Enhancement/comments/1jskcm/announcement_chrome_users_did_your_res_turn_off/).
-
 See [`examples/host.js`](https://github.com/honestbleeps/Reddit-Enhancement-Suite/blob/master/examples/host.js) for an example.
 
 Create a new `.js` file in `lib/modules/hosts`.
 It will automatically be loaded when the build script is restarted.
+
+If the host uses an API that does not support [CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing), you must add the API to the browsers' manifests and the host's `permissions` property. For an example, search for usages of `api.twitter.com`.
 
 #### Stylesheets
 
