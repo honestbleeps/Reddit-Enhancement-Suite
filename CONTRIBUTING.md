@@ -41,25 +41,6 @@ Thinking about contributing to RES? Awesome! We just ask that you follow a few s
   - `package.json`: package info, dependencies
   - `webpack.config.babel.js`: build script
 
-##### Chrome (`chrome/`)
-
-  - `background.entry.js`: the "background page" for RES, necessary for Chrome extensions
-  - `environment.js`: specific environment settings for Chrome
-  - `manifest.json`: the project manifest
-  - `options.html`: options page for chrome extensions
-
-##### Microsoft Edge (`edge/`)
-
-  - `edge.entry.js`: shim to allow chrome extension code usage
-  - `environment.js`: Edge-specific overrides of the Chrome environment
-  - `manifest.json`: the project manifest
-  
-##### Firefox (`firefox/`)
-
-  - `background.entry.js`: the "background page" for RES, necessary for Firefox extensions
-  - `environment.js`: specific environment settings for Firefox
-  - `package.json`: the project manifest for the Firefox add-on
-
 ## Building development versions of the extension
 
 #### First time installation
