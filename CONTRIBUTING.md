@@ -48,8 +48,8 @@ Thinking about contributing to RES? Awesome! We just ask that you follow a few s
 1. Install [git](https://git-scm.com/).
 1. Install [node.js](https://nodejs.org) (version >= 6).
 1. Install [Python 2](https://www.python.org/downloads/) (*not* version 3). On Windows, please install the "Add python.exe to path" feature on the customize screen.
-1. Navigate to your RES folder.
-1. Run `npm install`.
+1. [Clone this repository](https://help.github.com/articles/cloning-a-repository/).
+1. Run `npm install` in that folder.
 
 Once done, you can build the extension by running `npm start` (see [Build commands](#build-commands)).
 
