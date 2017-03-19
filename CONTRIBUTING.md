@@ -127,5 +127,13 @@ If the host uses an API that does not support [CORS](https://en.wikipedia.org/wi
 Create a new `.scss` file in `lib/css/modules/` (with a leading underscore, e.g. `_myModule.scss`).
 Import the file in `lib/css/res.scss` (e.g. `@import 'modules/myPartial';`).
 
-Body classes will be automatically added for boolean and enum options with the property `bodyClass: true`, in the form `.res-moduleId-optionKey` for boolean options (only when they're enabled), and `.res-moduleId-optionKey-optionValue` for enums.
-This is the preferred way to create optional CSS; do not use `addCSS()` unless absolutely necessary (i.e. variable color, size, etc.).
+For toggleable CSS, add `bodyClass: true` to an option or module, then wrap your CSS with `.res-moduleId-optionKey` (boolean options), `.res-moduleId-optionKey-optionValue` (enum options), or `.res-moduleId` (modules).
+
+For example:
+```scss
+.res-showImages-hideImages {
+	img {
+		display: none;
+	}
+}
+```
