@@ -1,35 +1,10 @@
 {
+	"manifest_version": 2,
 	"name": "{{prop-loader?title!../package.json}}",
 	"version": "{{prop-loader?version!../package.json}}",
 	"description": "{{prop-loader?description!../package.json}}",
 	"author": "{{prop-loader?author!../package.json}}",
-	"background": {
-		"scripts": [
-			"{{./edge.entry.js}}",
-			"{{./background.entry.js}}"
-		],
-		"persistent": true
-	},
 	"options_page": "{{../browser/options.html}}",
-	"content_scripts": [
-		{
-			"matches": [
-				"http://redditenhancementsuite.com/*",
-				"http://reddit.com/*",
-				"https://reddit.com/*",
-				"http://*.reddit.com/*",
-				"https://*.reddit.com/*"
-			],
-			"js": [
-				"{{./edge.entry.js}}",
-				"{{../lib/main.entry.js}}"
-			],
-			"css": [
-				"{{../lib/css/res.scss}}"
-			],
-			"run_at": "document_start"
-		}
-	],
 	"icons": {
 		"128": "{{../images/icon128.png}}",
 		"48": "{{../images/icon48.png}}",
@@ -42,11 +17,36 @@
 		},
 		"default_title": "Subreddit Style On"
 	},
+	"background": {
+		"scripts": [
+			"{{./edge.entry.js}}",
+			"{{./background.entry.js}}"
+		],
+		"persistent": true
+	},
+	"content_scripts": [{
+		"matches": [
+			"http://redditenhancementsuite.com/*",
+			"http://reddit.com/*",
+			"https://reddit.com/*",
+			"http://*.reddit.com/*",
+			"https://*.reddit.com/*"
+		],
+		"js": [
+			"{{./edge.entry.js}}",
+			"{{../lib/main.entry.js}}"
+		],
+		"css": [
+			"{{../lib/css/res.scss}}"
+		],
+		"run_at": "document_start"
+	}],
 	"permissions": [
 		"cookies",
 		"tabs",
 		"storage",
 		"unlimitedStorage",
+
 		"http://redditenhancementsuite.com/",
 		"http://reddit.com/*",
 		"https://reddit.com/*",
@@ -55,6 +55,7 @@
 		"http://*.flickr.com/photos/*",
 		"*://*.photobucket.com/*",
 		"http://noembed.com/embed?url=*",
+
 		"https://api.twitter.com/*",
 		"https://onedrive.live.com/*",
 		"https://api.onedrive.com/*",
@@ -65,6 +66,7 @@
 		"*://api.tumblr.com/v2/blog/*/posts?api_key=*&id=*",
 		"https://xkcd.com/*/info.0.json",
 		"https://app-api.pixiv.net/v1/illust/detail",
+
 		"*://*.wikipedia.org/*",
 		"*://redditbooru.com/*",
 		"http://www.simplecove.com/resapi/*",

@@ -1,35 +1,12 @@
 {
+	"manifest_version": 2,
 	"name": "{{prop-loader?title!../package.json}}",
 	"version": "{{prop-loader?version!../package.json}}",
-	"manifest_version": 2,
+	"description": "{{prop-loader?description!../package.json}}",
+	"homepage_url": "{{prop-loader?homepage!../package.json}}",
 	"minimum_chrome_version": "55",
 	"minimum_opera_version": "42",
-	"description": "{{prop-loader?description!../package.json}}",
-	"background": {
-		"scripts": [
-			"{{./background.entry.js}}"
-		]
-	},
-	"homepage_url": "http://redditenhancementsuite.com",
 	"options_page": "{{../browser/options.html}}",
-	"content_scripts": [
-		{
-			"matches": [
-				"http://redditenhancementsuite.com/*",
-				"http://reddit.com/*",
-				"https://reddit.com/*",
-				"http://*.reddit.com/*",
-				"https://*.reddit.com/*"
-			],
-			"js": [
-				"{{../lib/main.entry.js}}"
-			],
-			"css": [
-				"{{../lib/css/res.scss}}"
-			],
-			"run_at": "document_start"
-		}
-	],
 	"icons": {
 		"48": "{{../images/icon48.png}}",
 		"128": "{{../images/icon128.png}}"
@@ -41,12 +18,34 @@
 		},
 		"default_title": "Subreddit Style On"
 	},
+	"background": {
+		"scripts": [
+			"{{./background.entry.js}}"
+		]
+	},
+	"content_scripts": [{
+		"matches": [
+			"http://redditenhancementsuite.com/*",
+			"http://reddit.com/*",
+			"https://reddit.com/*",
+			"http://*.reddit.com/*",
+			"https://*.reddit.com/*"
+		],
+		"js": [
+			"{{../lib/main.entry.js}}"
+		],
+		"css": [
+			"{{../lib/css/res.scss}}"
+		],
+		"run_at": "document_start"
+	}],
 	"permissions": [
 		"cookies",
 		"tabs",
 		"history",
 		"storage",
 		"unlimitedStorage",
+
 		"http://redditenhancementsuite.com/",
 		"http://reddit.com/*",
 		"https://reddit.com/*",
