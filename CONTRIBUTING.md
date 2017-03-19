@@ -17,14 +17,15 @@ Thinking about contributing to RES? Awesome! We just ask that you follow a few s
 #### Top level files and folders
 
   - `.github/`: Github templates
-  - `build/`: Files handling automated browser deployments
-  - `changelog/`: Release changelogs
+  - `browser/`: extension API files common to all browsers
+  - `build/`: files handling automated browser deployments
+  - `changelog/`: release changelogs
   - `chrome/`: Chrome-specific RES files
   - `dist/`: build output
   - `edge/`: Microsoft Edge-specific RES files
   - `examples/`: example code for new hosts/modules
   - `firefox/`: Firefox-specific RES files
-  - `images/`: Images for RES logo and CSS icons
+  - `images/`: images for RES logo and CSS icons
   - `lib/`: all RES code
   - `lib/core/`: core RES code
   - `lib/css/`: RES css
@@ -37,7 +38,6 @@ Thinking about contributing to RES? Awesome! We just ask that you follow a few s
   - `lib/**/__tests__`: unit tests
   - `locales`: RES i18n translations
   - `tests/`: integration tests
-  - `utils/`: Misc RES utilities 
   - `package.json`: package info, dependencies
   - `webpack.config.babel.js`: build script
 
