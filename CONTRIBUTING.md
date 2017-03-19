@@ -12,35 +12,6 @@ Thinking about contributing to RES? Awesome! We just ask that you follow a few s
 
 1. To check code style and autofix some formatting errors, see [Lint and test commands](#lint-and-test-commands).
 
-## Project structure
-
-#### Top level files and folders
-
-  - `.github/`: Github templates
-  - `browser/`: extension API files common to all browsers
-  - `build/`: files handling automated browser deployments
-  - `changelog/`: release changelogs
-  - `chrome/`: Chrome-specific RES files
-  - `dist/`: build output
-  - `edge/`: Microsoft Edge-specific RES files
-  - `examples/`: example code for new hosts/modules
-  - `firefox/`: Firefox-specific RES files
-  - `images/`: images for RES logo and CSS icons
-  - `lib/`: all RES code
-  - `lib/core/`: core RES code
-  - `lib/css/`: RES css
-  - `lib/environment/`: RES environment code
-  - `lib/images/`: RES images
-  - `lib/modules/`: RES modules
-  - `lib/templates/`: RES templates
-  - `lib/utils/`: RES utilities
-  - `lib/vendor/`: RES vendor libraries (old libs not on npm)
-  - `lib/**/__tests__`: unit tests
-  - `locales`: RES i18n translations
-  - `tests/`: integration tests
-  - `package.json`: package info, dependencies
-  - `webpack.config.babel.js`: build script
-
 ## Building development versions of the extension
 
 #### First time installation
@@ -101,6 +72,35 @@ The default host and port (`localhost` and `4444`) should work for most local in
 1. Go to `about:debugging` and tick the `Enable add-on debugging` checkbox.
 1. Click `Load Temporary Add-on` and select the `/dist/firefox/webextension` folder (not the `/firefox` folder).
 1. Any time you make changes, you must go back to the `about:debugging` page and `Reload` the extension.
+
+## Project structure
+
+#### Top level files and folders
+
+  - `.github/`: Github templates
+  - `browser/`: extension API files common to all browsers
+  - `build/`: files handling automated browser deployments
+  - `changelog/`: release changelogs
+  - `chrome/`: Chrome-specific RES files
+  - `dist/`: build output
+  - `edge/`: Microsoft Edge-specific RES files
+  - `examples/`: example code for new hosts/modules
+  - `firefox/`: Firefox-specific RES files
+  - `images/`: images for RES logo and CSS icons
+  - `lib/`: all RES code
+  - `lib/core/`: core RES code
+  - `lib/css/`: RES css
+  - `lib/environment/`: RES environment code
+  - `lib/images/`: RES images
+  - `lib/modules/`: RES modules
+  - `lib/templates/`: RES templates
+  - `lib/utils/`: RES utilities
+  - `lib/vendor/`: RES vendor libraries (old libs not on npm)
+  - `lib/**/__tests__`: unit tests
+  - `locales`: RES i18n translations
+  - `tests/`: integration tests
+  - `package.json`: package info, dependencies
+  - `webpack.config.babel.js`: build script
 
 ## Adding new files
 
