@@ -106,6 +106,8 @@ The default host and port (`localhost` and `4444`) should work for most local in
 
 #### Modules
 
+First, check to see if there is an existing module with the same theme.
+
 See [`examples/module.js`](https://github.com/honestbleeps/Reddit-Enhancement-Suite/blob/master/examples/module.js) for an example.
 
 Create a new `.js` file in `lib/modules`.
