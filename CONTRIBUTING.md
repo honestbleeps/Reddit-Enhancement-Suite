@@ -111,7 +111,7 @@ See [`examples/module.js`](https://github.com/honestbleeps/Reddit-Enhancement-Su
 Create a new `.js` file in `lib/modules`.
 It will automatically be loaded when the build script is restarted.
 
-All modules must now have i18n implementations. Please see [here](https://github.com/honestbleeps/Reddit-Enhancement-Suite/blob/master/locales/locales/README.md) for details.
+All user-visible text in modules must be translated. See the [locales README](/locales/locales/README.md) for details.
 
 #### Media hosts
 
