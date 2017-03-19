@@ -86,20 +86,21 @@ The default host and port (`localhost` and `4444`) should work for most local in
 
 ##### Chrome
 
-  1. Go to `Menu->Tools->Extensions` and tick the `Developer Mode` checkbox
-  2. Choose `Load unpacked extension` and point it to the `/dist/chrome` folder (not the `/chrome` folder). Make sure you only have one RES version running at a time.
-  3. Any time you make changes to the script, you must go back to the `Menu->Tools->Extensions` page and `Reload` the extension.
+1. Go to `Menu->Tools->Extensions` and tick the `Developer Mode` checkbox.
+1. Click `Load unpacked extension` and select the `/dist/chrome` folder (not the `/chrome` folder).
+1. Any time you make changes, you must go back to the `Menu->Tools->Extensions` page and `Reload` the extension.
 
 ##### Microsoft Edge
 
-  1. Go to `about:flags` and tick the `Enable extension developer features` checkbox.
-  2. Choose `Load extension` on the extensions menu and select the `/dist/edgeextension/manifest/Extension` folder.
-  3. Any time you make changes to the extension, you must go back to the `Menu->Extensions` page, go to the extensions settings and `Reload` the extension.
+1. Go to `about:flags` and tick the `Enable extension developer features` checkbox.
+1. Click `Load extension` on the extensions menu and select the `/dist/edgeextension/manifest/Extension` folder (not the `/edge` folder).
+1. Any time you make changes, you must go back to the `Menu->Extensions` page, go to the extension's settings and `Reload` the extension.
 
 ##### Firefox
 
-  1. Install [jpm](https://developer.mozilla.org/en-US/Add-ons/SDK/Tools/jpm) using `npm`: `npm install -g jpm`
-  2. Navigate to the `/dist/firefox` folder (not the `/firefox` folder) and run the command `jpm run`, which should launch a new Firefox browser using a temporary profile with only RES installed.
+1. Go to `about:debugging` and tick the `Enable add-on debugging` checkbox.
+1. Click `Load Temporary Add-on` and select the `/dist/firefox/webextension` folder (not the `/firefox` folder).
+1. Any time you make changes, you must go back to the `about:debugging` page and `Reload` the extension.
 
 ## Adding new files
 
