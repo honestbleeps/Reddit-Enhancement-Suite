@@ -2,7 +2,7 @@
 
 Thinking about contributing to RES? Awesome! We just ask that you follow a few simple guidelines:
 
-1. RES has grown quite large, so we have carefully choose what features we should add to avoid undue maintenance burden and code bloat. If you're unsure if your feature would appeal to a wide audience, please post about it on [/r/Enhancement](https://www.reddit.com/r/Enhancement/).
+1. RES has grown quite large, so we have carefully choose what features we should add to avoid maintenance burden and code bloat. If you're unsure if your feature would appeal to a wide audience, please post about it on [/r/Enhancement](https://www.reddit.com/r/Enhancement/).
 
 1. There are a few features we have made a conscious choice not to add to RES, so make sure whatever you'd like to contribute [isn't on that list](https://www.reddit.com/r/Enhancement/wiki/rejectedfeaturerequests).
 
@@ -106,14 +106,14 @@ The default host and port (`localhost` and `4444`) should work for most local in
 
 #### Modules
 
-First, check to see if there is an existing module with the same theme.
+First, check to see if there is an existing module with the same focus.
 
 See [`examples/module.js`](https://github.com/honestbleeps/Reddit-Enhancement-Suite/blob/master/examples/module.js) for an example.
 
 Create a new `.js` file in `lib/modules`.
 It will automatically be loaded when the build script is restarted.
 
-All user-visible text in modules must be translated. See the [locales README](/locales/locales/README.md) for details.
+All user-visible text must be translated. See the [locales README](/locales/locales/README.md) for details.
 
 #### Media hosts
 
@@ -122,7 +122,7 @@ See [`examples/host.js`](https://github.com/honestbleeps/Reddit-Enhancement-Suit
 Create a new `.js` file in `lib/modules/hosts`.
 It will automatically be loaded when the build script is restarted.
 
-If the host uses an API that does not support [CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing), you must add the API to the browsers' manifests and the host's `permissions` property. For an example, search for usages of `api.twitter.com`.
+If the host uses an API that does not support [CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing), you must add it to the browsers' manifests and the host's `permissions` property. For example, search for usages of `api.twitter.com`.
 
 #### Stylesheets
 
