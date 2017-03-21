@@ -103,4 +103,20 @@ module.exports = {
 			.waitForElementNotVisible('#thing_t1_dcuk08v .child .entry', 'child comment should not be revealed')
 			.end();
 	},
+	'key help': browser => {
+		if (browser.options.desiredCapabilities.browserName === 'firefox') {
+			// geckodriver doesn't support elementSendKeys https://github.com/mozilla/geckodriver/issues/159
+			browser.end();
+			return;
+		}
+
+		browser
+			.url('https://en.reddit.com/r/RESIntegrationTests/comments/5pxfg2/keyboard_nav/')
+			.waitForElementVisible('#RESSettingsButton')
+			.keys(['?'])
+			.assert.visible('#keyHelp')
+			.assert.containsText('#keyHelp', 'shift-/')
+			.assert.containsText('#keyHelp', 'Show help for keyboard shortcuts.')
+			.end();
+	},
 };
