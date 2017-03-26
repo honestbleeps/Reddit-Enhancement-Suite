@@ -2,6 +2,7 @@
 
 import path from 'path';
 
+import HappyPack from 'happypack';
 import InertEntryPlugin from 'inert-entry-webpack-plugin';
 import LodashModuleReplacementPlugin from 'lodash-webpack-plugin';
 import ProgressBarPlugin from 'progress-bar-webpack-plugin';
@@ -32,6 +33,23 @@ const browserConfig = {
 	},
 };
 
+const threadPool = HappyPack.ThreadPool({ size: 4 });
+
+function job(id, loaders) {
+	return new HappyPack({
+		id,
+		loaders,
+		threadPool,
+		tempDir: path.join('dist', '.happypack'),
+		cache: false,
+		verbose: false,
+	});
+}
+
+function runJob(id) {
+	return `happypack/loader?id=${id}`;
+}
+
 export default (env = {}) => {
 	const browsers = (
 		typeof env.browsers !== 'string' ? ['chrome'] :
@@ -60,20 +78,13 @@ export default (env = {}) => {
 				test: /\.js$/,
 				exclude: path.join(__dirname, 'node_modules'),
 				use: [
-					{ loader: 'babel-loader' },
+					{ loader: runJob('lib_js') },
 				],
 			}, {
 				test: /\.js$/,
 				include: path.join(__dirname, 'node_modules'),
 				use: [
-					{
-						loader: 'babel-loader',
-						options: {
-							plugins: ['transform-dead-code-elimination', 'transform-node-env-inline'],
-							compact: true,
-							babelrc: false,
-						},
-					},
+					{ loader: runJob('node_modules_js') },
 				],
 			}, {
 				test: /\.mustache$/,
@@ -115,6 +126,17 @@ export default (env = {}) => {
 			],
 		},
 		plugins: [
+			job('lib_js', [{
+				loader: 'babel-loader',
+			}]),
+			job('node_modules_js', [{
+				loader: 'babel-loader',
+				options: {
+					plugins: ['transform-dead-code-elimination', 'transform-node-env-inline'],
+					compact: true,
+					babelrc: false,
+				},
+			}]),
 			new ProgressBarPlugin(),
 			new webpack.DefinePlugin({
 				'process.env': {
