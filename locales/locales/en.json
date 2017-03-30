@@ -147,13 +147,11 @@
 		"message": "switch users to [username]"
 	},
 	"accountSwitcherCliSwitchToUsernamePrompt": {
-		"message": "Switch to username:"
-	},
-	"accountSwitcherCliUserinfoError": {
-		"message": "Error loading userinfo for"
+		"message": "Switch to username: $1"
 	},
 	"accountSwitcherGoldUntil": {
-		"message": "Until"
+		"message": "Until $1 ($2)",
+		"description": "As in 'Until 2016-01-01 (1 month)'"
 	},
 	"accountSwitcherAccountSwitchError": {
 		"message": "Could not switch accounts. Reddit may be under heavy load. Please try again in a few moments."
@@ -172,6 +170,9 @@
 	},
 	"accountSwitcherUserSwitched": {
 		"message": "You switched to /u/$1."
+	},
+	"accountSwitcherLoggedOut": {
+		"message": "You have been logged out."
 	},
 	"announcementsName": {
 		"message": "RES Announcements"
