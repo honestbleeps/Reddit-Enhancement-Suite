@@ -6,6 +6,14 @@ import { addListener } from '../browser/background';
 addListener('addURLToHistory', () => {});
 addListener('isURLVisited', () => false);
 
+// see chrome/background.entry.js
+addListener('download', ({ url, filename }) => {
+	const a = document.createElement('a');
+	a.href = url;
+	a.download = filename || '';
+	a.click();
+});
+
 // Edge doesn't support openerTabId
 addListener('openNewTabs', ({ urls, focusIndex }, { index: currentIndex }) => {
 	urls.forEach((url, i) => {

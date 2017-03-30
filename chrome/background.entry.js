@@ -11,6 +11,15 @@ addListener('isURLVisited', async url =>
 	(await apiToPromise(chrome.history.getVisits)({ url })).length > 0
 );
 
+// Adding `download` permission to Chrome would require a permissions dialog,
+// and would provide no benefit, since Chrome properly supports <a download>
+addListener('download', ({ url, filename }) => {
+	const a = document.createElement('a');
+	a.href = url;
+	a.download = filename || '';
+	a.click();
+});
+
 addListener('openNewTabs', ({ urls, focusIndex }, { id: tabId, index: currentIndex }) => {
 	urls.forEach((url, i) => {
 		chrome.tabs.create({
