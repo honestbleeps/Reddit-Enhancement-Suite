@@ -1,5 +1,11 @@
 module.exports = {
 	'displays accounts in dropdown': browser => {
+		if (browser.options.desiredCapabilities.browserName === 'firefox') {
+			// marionette crashes on setValue
+			browser.end();
+			return;
+		}
+
 		const username = 'this_username_is_too_long';
 
 		browser

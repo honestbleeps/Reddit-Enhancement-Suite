@@ -80,6 +80,12 @@ module.exports = {
 			.end();
 	},
 	'change text option': browser => {
+		if (browser.options.desiredCapabilities.browserName === 'firefox') {
+			// marionette crashes on setValue
+			browser.end();
+			return;
+		}
+
 		browser
 			.url('https://www.reddit.com/wiki/pages#res:settings/quickMessage')
 			.waitForElementVisible('#RESConsoleContainer')
@@ -103,6 +109,12 @@ module.exports = {
 			.end();
 	},
 	'change table option': browser => {
+		if (browser.options.desiredCapabilities.browserName === 'firefox') {
+			// marionette crashes on setValue
+			browser.end();
+			return;
+		}
+
 		browser
 			.url('https://www.reddit.com/wiki/pages#res:settings/accountSwitcher')
 			.waitForElementVisible('#RESConsoleContainer')
