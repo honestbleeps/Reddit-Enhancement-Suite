@@ -36,6 +36,12 @@ function editSettings(callback) {
 
 module.exports = {
 	'post title keywords': browser => {
+		if (browser.options.desiredCapabilities.browserName === 'firefox') {
+			// marionette crashes on setValue
+			browser.end();
+			return;
+		}
+
 		browser
 			// basic
 			.perform(editSettings(() => browser
@@ -79,6 +85,12 @@ module.exports = {
 			.end();
 	},
 	'post domains': browser => {
+		if (browser.options.desiredCapabilities.browserName === 'firefox') {
+			// marionette crashes on setValue
+			browser.end();
+			return;
+		}
+
 		browser
 			// self post domain (and case insensitivity)
 			.perform(editSettings(() => browser
@@ -109,6 +121,12 @@ module.exports = {
 			.end();
 	},
 	'post subreddits': browser => {
+		if (browser.options.desiredCapabilities.browserName === 'firefox') {
+			// marionette crashes on setValue
+			browser.end();
+			return;
+		}
+
 		browser
 			// basic, posted to subreddit
 			.perform(editSettings(() => browser
@@ -140,6 +158,12 @@ module.exports = {
 			.end();
 	},
 	'post flair': browser => {
+		if (browser.options.desiredCapabilities.browserName === 'firefox') {
+			// marionette crashes on setValue
+			browser.end();
+			return;
+		}
+
 		browser
 			// basic (and case insensitivity)
 			.perform(editSettings(() => browser
@@ -163,6 +187,12 @@ module.exports = {
 			.end();
 	},
 	'regex filters': browser => {
+		if (browser.options.desiredCapabilities.browserName === 'firefox') {
+			// marionette crashes on setValue
+			browser.end();
+			return;
+		}
+
 		browser
 			// basic title regex filter
 			.perform(editSettings(() => browser

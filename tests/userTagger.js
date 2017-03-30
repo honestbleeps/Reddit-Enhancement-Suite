@@ -1,5 +1,11 @@
 module.exports = {
 	'basic functionality': browser => {
+		if (browser.options.desiredCapabilities.browserName === 'firefox') {
+			// marionette crashes on setValue
+			browser.end();
+			return;
+		}
+
 		const post = '#thing_t3_5sgqzh';
 		const parentComment = '#thing_t1_ddewo4n';
 		const childComment = '#thing_t1_ddewo8t';
