@@ -51,8 +51,7 @@
 
 		"https://api.twitter.com/*",
 		"https://onedrive.live.com/*",
-		"https://api.onedrive.com/*",
-		"*://1drv.ms/*",
+		"https://1drv.ms/*",
 		"*://backend.deviantart.com/oembed?url=*",
 		"*://api.gyazo.com/api/oembed*",
 		"*://codepen.io/api/oembed*",
@@ -62,6 +61,7 @@
 		"https://api.steampowered.com/ISteamRemoteStorage/GetPublishedFileDetails/*",
 
 		"https://api.photobucket.com/v2/media/fromurl",
+		"https://api.onedrive.com/*",
 		"https://*.wikipedia.org/w/api.php",
 		"http://www.simplecove.com/resapi/*",
 		"https://www.googleapis.com/*"
