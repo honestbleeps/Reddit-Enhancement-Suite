@@ -1,10 +1,8 @@
 /* @flow */
 
-/* Firefox-specific polyfills */
+/* Chrome-specific polyfills */
 
-import 'intersection-observer';
-
-// Firefox doesn't support objects in URLSearchParams constructor (until Firefox 54)
+// Chrome doesn't support objects (NYI) in URLSearchParams constructor
 // https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams#Browser_compatibility
 window.URLSearchParams = class URLSearchParams extends window.URLSearchParams {
 	constructor(init) {
