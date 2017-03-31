@@ -48,7 +48,7 @@
 		"https://reddit.com/*",
 		"http://*.reddit.com/*",
 		"https://*.reddit.com/*",
-		"*://*.photobucket.com/*",
+		"http://img.photobucket.com/*",
 		"http://noembed.com/embed?url=*",
 
 		"https://api.twitter.com/*",
@@ -63,6 +63,7 @@
 		"https://app-api.pixiv.net/v1/illust/detail",
 		"https://api.steampowered.com/ISteamRemoteStorage/GetPublishedFileDetails/*",
 
+		"*://*.photobucket.com/*",
 		"*://*.wikipedia.org/*",
 		"*://redditbooru.com/*",
 		"http://www.simplecove.com/resapi/*",
