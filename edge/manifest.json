@@ -62,8 +62,8 @@
 		"https://app-api.pixiv.net/v1/illust/detail",
 		"https://api.steampowered.com/ISteamRemoteStorage/GetPublishedFileDetails/*",
 
-		"*://*.photobucket.com/*",
-		"*://*.wikipedia.org/*",
+		"https://api.photobucket.com/v2/media/fromurl",
+		"https://*.wikipedia.org/w/api.php",
 		"*://redditbooru.com/*",
 		"http://www.simplecove.com/resapi/*",
 		"https://www.googleapis.com/*"
