@@ -36,33 +36,17 @@ export {
 };
 
 addListener('ajax', async ({ method, url, headers, data, credentials }) => {
-	const request = new XMLHttpRequest();
+	const rawResponse = await fetch(url, {
+		method,
+		headers,
+		credentials: credentials ? 'include' : 'omit',
+		body: data,
+	});
 
-	const load = Promise.race([
-		new Promise(resolve => (request.onload = resolve)),
-		new Promise(resolve => (request.onerror = resolve))
-			.then(() => { throw new Error(`XHR error - url: ${url}`); }),
-	]);
-
-	request.open(method, url, true);
-
-	for (const name in headers) {
-		request.setRequestHeader(name, headers[name]);
-	}
-
-	if (credentials) {
-		request.withCredentials = true;
-	}
-
-	request.send(data);
-
-	await load;
-
-	// Only store `status`, `responseText` and `responseURL` fields
 	return {
-		status: request.status,
-		responseText: request.responseText,
-		responseURL: request.responseURL,
+		status: rawResponse.status,
+		url: rawResponse.url,
+		text: await rawResponse.text(),
 	};
 });
 
