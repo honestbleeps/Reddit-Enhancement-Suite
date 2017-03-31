@@ -1,5 +1,12 @@
 
+### New Features
+
+- None (thanks nobody)
+
 ### Bug Fixes
 
-- Fix cookie-related issues (thanks @erikdesjardins)
-- Fix network requests in Edge (thanks @erikdesjardins)
+- None (thanks nobody)
+
+### Housekeeping / Other
+
+- None (thanks nobody)
