@@ -25,9 +25,6 @@
 	},
 	"content_scripts": [{
 		"matches": [
-			"http://reddit.com/*",
-			"https://reddit.com/*",
-			"http://*.reddit.com/*",
 			"https://*.reddit.com/*"
 		],
 		"js": [
