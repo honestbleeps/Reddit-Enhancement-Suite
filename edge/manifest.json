@@ -26,7 +26,6 @@
 	},
 	"content_scripts": [{
 		"matches": [
-			"http://redditenhancementsuite.com/*",
 			"http://reddit.com/*",
 			"https://reddit.com/*",
 			"http://*.reddit.com/*",
