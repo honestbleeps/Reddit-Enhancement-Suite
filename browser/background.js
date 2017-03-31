@@ -35,11 +35,11 @@ export {
 	addListener,
 };
 
-addListener('ajax', async ({ method, url, headers, data, credentials }) => {
+addListener('ajax', async ({ method, url, headers, data }) => {
 	const rawResponse = await fetch(url, {
 		method,
 		headers,
-		credentials: credentials ? 'include' : 'omit',
+		credentials: 'omit', // never send credentials cross-origin
 		body: data,
 	});
 
