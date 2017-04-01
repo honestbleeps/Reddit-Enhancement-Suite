@@ -162,6 +162,9 @@
 	"accountSwitcherRateLimitError": {
 		"message": "Could not log in as $1 because reddit is seeing too many requests from you too quickly.\n\nPerhaps you've been trying to log in using the wrong username or password?\n\nCheck your settings?"
 	},
+	"accountSwitcherUnknownError": {
+		"message": "Could not log in as $1 due to an unknown error: $2\n\nCheck your settings?"
+	},
 	"accountSwitcherReload": {
 		"message": "reload"
 	},
