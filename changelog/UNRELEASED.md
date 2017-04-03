@@ -1,4 +1,12 @@
 
+### New Features
+
+- None (thanks nobody)
+
 ### Bug Fixes
 
-- Fix templates in Edge (thanks @erikdesjardins)
+- None (thanks nobody)
+
+### Housekeeping / Other
+
+- None (thanks nobody)
