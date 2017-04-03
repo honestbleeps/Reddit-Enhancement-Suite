@@ -1,0 +1,35 @@
+.res-spoilerTags {
+	a[href='/s'],
+	a[href='/spoiler'],
+	a[href='#s'],
+	a[href='#spoiler'] {
+		color: transparent !important;
+		background-color: #000;
+		outline: 1px #111 solid;
+		cursor: default;
+
+		.res-spoilerTags-transition & {
+			transition: color 1.5s ease-in-out;
+		}
+	}
+
+	.res-nightmode a[href='/s'],
+	.res-nightmode a[href='/spoiler'],
+	.res-nightmode a[href='#s'],
+	.res-nightmode a[href='#spoiler'] {
+		background-color: #111 !important;
+		outline: 1px #222 solid;
+	}
+
+	.res a[href='/s']:hover,
+	.res a[href='/spoiler']:hover,
+	.res a[href='#s']:hover,
+	.res a[href='#spoiler']:hover,
+	.res a[href='/s']:active,
+	.res a[href='/spoiler']:active,
+	.res a[href='#s']:active,
+	.res a[href='#spoiler']:active {
+		color: #ddd !important;
+		background-image: none;
+	}
+}

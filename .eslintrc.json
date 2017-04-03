@@ -12,7 +12,7 @@
 	"settings": {
 		"import/ignore": [
 			"node_modules",
-			"\\.(json|png|gif|html|scss|mustache)$"
+			"\\.(json|png|gif|html|scss)$"
 		],
 		"import/resolver": "webpack"
 	},

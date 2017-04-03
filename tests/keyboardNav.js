@@ -119,4 +119,30 @@ module.exports = {
 			.assert.containsText('#keyHelp', 'Show help for keyboard shortcuts.')
 			.end();
 	},
+	'link number annotations': browser => {
+		if (browser.options.desiredCapabilities.browserName === 'firefox') {
+			// geckodriver doesn't support elementSendKeys https://github.com/mozilla/geckodriver/issues/159
+			browser.end();
+			return;
+		}
+
+		browser
+			.url('https://www.reddit.com/r/RESIntegrationTests/comments/633x7q/link_number_annotations/')
+			.waitForElementVisible('.thing.link')
+			.click('.thing.link .md strong')
+			.assert.visible('.thing.link .keyNavAnnotation')
+			.assert.attributeEquals('.thing.link .keyNavAnnotation', 'data-text', '[1]')
+			.assert.elementNotPresent('.thing.comment .keyNavAnnotation')
+			.click('.thing.comment .md strong')
+			.assert.visible('.thing.comment .keyNavAnnotation')
+			.assert.attributeEquals('.thing.comment .keyNavAnnotation', 'data-text', '[1]')
+			.assert.elementNotPresent('.thing.link .keyNavAnnotation')
+			.keys(['1'])
+			// switch to newly opened background tab
+			.window_handles(result => {
+				browser.switchWindow(result.value[1]);
+			})
+			.assert.urlEquals('https://www.reddit.com/r/RESIntegrationTests/')
+			.end();
+	},
 };
