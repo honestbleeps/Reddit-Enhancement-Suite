@@ -87,4 +87,21 @@ module.exports = {
 			.assert.attributeEquals('.res-expando-box .res-gallery-pieces > div:not([hidden]) a', 'href', 'https://imgur.com/rXZWEIB,eutVEAv#eutVEAv')
 			.end();
 	},
+	'show images button': browser => {
+		browser
+			.url('https://en.reddit.com/by_id/t3_6346fk,t3_6346h7')
+			.waitForElementVisible('.res-show-images')
+			.assert.containsText('.res-show-images', 'show images')
+			.assert.attributeContains('.res-show-images a', 'aftercontent', '(2)')
+			.assert.cssClassNotPresent('.res-show-images', 'selected')
+			.click('.res-show-images')
+			.assert.cssClassPresent('.res-show-images', 'selected')
+			.waitForElementVisible('#thing_t3_6346fk .res-expando-box img')
+			.waitForElementVisible('#thing_t3_6346h7 .res-expando-box img')
+			.click('.res-show-images')
+			.assert.cssClassNotPresent('.res-show-images', 'selected')
+			.waitForElementNotVisible('#thing_t3_6346fk .res-expando-box img')
+			.waitForElementNotVisible('#thing_t3_6346h7 .res-expando-box img')
+			.end();
+	},
 };
