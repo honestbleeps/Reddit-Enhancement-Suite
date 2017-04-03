@@ -1,12 +1,8 @@
 
-### New Features
-
-- None (thanks nobody)
-
 ### Bug Fixes
 
-- None (thanks nobody)
+- Fix Account Switcher not displaying an error when login fails (thanks @erikdesjardins)
 
 ### Housekeeping / Other
 
-- None (thanks nobody)
+- Replace mustache templates with native (thanks @erikdesjardins)
