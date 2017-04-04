@@ -14,6 +14,11 @@ const browserConfig = {
 		entry: 'chrome/manifest.json',
 		output: 'chrome',
 	},
+	chromebeta: {
+		target: 'chrome',
+		entry: 'chrome/beta/manifest.json',
+		output: 'chrome-beta',
+	},
 	edge: {
 		target: 'edge',
 		entry: 'edge/appxmanifest.xml',
