@@ -38,7 +38,7 @@ function deployChromeBeta() {
 		clientSecret: process.env.CHROME_CLIENT_SECRET,
 		refreshToken: process.env.CHROME_REFRESH_TOKEN,
 		id: 'flhpapomijliefifkkeepedibpmibbpo',
-		zip: fs.readFileSync(path.join(__dirname, '../dist/zip/chrome.zip')),
+		zip: fs.readFileSync(path.join(__dirname, '../dist/zip/chrome-beta.zip')),
 		to: chromeDeploy.TRUSTED_TESTERS,
 	}).then(() => {
 		console.log('Chrome beta deployment complete!');
@@ -159,7 +159,8 @@ function deployOperaBeta() {
 		username: process.env.OPERA_USER,
 		password: process.env.OPERA_PASSWORD,
 		id: '228738',
-		zip: fs.readFileSync(path.join(__dirname, '../dist/zip/chrome.zip')),
+		// opera extensions must have a unique `name`
+		zip: fs.readFileSync(path.join(__dirname, '../dist/zip/chrome-beta.zip')),
 	}).then(() => {
 		console.log('Opera beta deployment complete!');
 	}, err => {
