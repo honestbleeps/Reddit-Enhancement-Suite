@@ -1,12 +1,8 @@
 
-### New Features
-
-- None (thanks nobody)
-
 ### Bug Fixes
 
-- None (thanks nobody)
+- Fix alignment of expando icons in self posts with compressed link display (thanks @erikdesjardins)
 
 ### Housekeeping / Other
 
-- None (thanks nobody)
+- Opera release automation (thanks @erikdesjardins)
