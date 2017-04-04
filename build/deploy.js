@@ -5,6 +5,7 @@ const path = require('path');
 const chromeDeploy = require('chrome-extension-deploy');
 const edgeDeploy = require('edge-extension-deploy');
 const firefoxDeploy = require('firefox-extension-deploy');
+const operaDeploy = require('opera-extension-deploy');
 const { version } = require('../package.json');
 const isBetaVersion = require('./isBetaVersion');
 
@@ -14,6 +15,7 @@ if (isBetaVersion(version)) {
 	deployChromeBeta();
 	deployEdgeInternalBeta();
 	deployFirefoxBeta();
+	deployOperaBeta();
 } else {
 	console.log(`Deploying ${version} stable release...`);
 
@@ -24,6 +26,8 @@ if (isBetaVersion(version)) {
 	deployEdgeStable();
 	deployFirefoxBeta();
 	deployFirefoxStable();
+	deployOperaBeta();
+	deployOperaStable();
 }
 
 function deployChromeBeta() {
@@ -144,6 +148,38 @@ function deployFirefoxStable() {
 		console.log('Firefox stable deployment complete!');
 	}, err => {
 		console.error('Firefox stable failed:', err);
+		process.exitCode = 1;
+	});
+}
+
+function deployOperaBeta() {
+	console.log('Deploying Opera beta...');
+
+	operaDeploy({
+		username: process.env.OPERA_USER,
+		password: process.env.OPERA_PASSWORD,
+		id: '228738',
+		zip: fs.readFileSync(path.join(__dirname, '../dist/zip/chrome.zip')),
+	}).then(() => {
+		console.log('Opera beta deployment complete!');
+	}, err => {
+		console.error('Opera beta failed:', err);
+		process.exitCode = 1;
+	});
+}
+
+function deployOperaStable() {
+	console.log('Deploying Opera stable...');
+
+	operaDeploy({
+		username: process.env.OPERA_USER,
+		password: process.env.OPERA_PASSWORD,
+		id: '53435',
+		zip: fs.readFileSync(path.join(__dirname, '../dist/zip/chrome.zip')),
+	}).then(() => {
+		console.log('Opera stable deployment complete!');
+	}, err => {
+		console.error('Opera stable failed:', err);
 		process.exitCode = 1;
 	});
 }
