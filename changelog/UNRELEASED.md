@@ -1,12 +1,5 @@
 
-### New Features
-
-- None (thanks nobody)
-
-### Bug Fixes
-
-- None (thanks nobody)
-
 ### Housekeeping / Other
 
-- None (thanks nobody)
+- Clean up test build slightly (thanks @erikdesjardins)
+- Test Opera deployment again (again)
