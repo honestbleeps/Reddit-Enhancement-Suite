@@ -1,12 +1,15 @@
 
 ### New Features
 
-- None (thanks nobody)
+- Support for comments on post-to-profile comments pages (thanks @andytuba)
 
 ### Bug Fixes
 
-- None (thanks nobody)
+- Fix media resizing glitching out when started during a blocking operation (thanks @larsjohnsen)
+- Fix expando preloading (thanks @erikdesjardins)
 
 ### Housekeeping / Other
 
-- None (thanks nobody)
+- Avoid a potentially expensive reflow when starting to drag media (thanks @larsjohnsen)
+- Mention multireddits in Subreddit Tagger description (thanks @honestbleeps)
+- Avoid running on redesigned reddit pages until they're properly supported (thanks @andytuba)
