@@ -127,10 +127,6 @@
         "message": "Schlüsselwörter",
         "description": ""
     },
-    "voteEnhancementsEstimatePostVotesDesc": {
-        "message": "Calculate the total number of votes.",
-        "description": ""
-    },
     "filteRedditAllowNSFWTitle": {
         "message": "NSFW erlauben",
         "description": ""
@@ -237,10 +233,6 @@
     },
     "keyboardNavFollowLinkNewTabDesc": {
         "message": "Follow link in new tab (link pages only).",
-        "description": ""
-    },
-    "voteEnhancementsUpvotes": {
-        "message": "Upvotes",
         "description": ""
     },
     "onboardingDesc": {
@@ -608,7 +600,7 @@
         "description": ""
     },
     "subredditTaggerDesc": {
-        "message": "Fügt dem Beginn von Beiträgen auf der Startseite und /r/all einen benutzerdefinierten Text hinzu. Nützlich um den Beiträgen einen Kontext zu geben.",
+        "message": "Add custom text to the beginning of submission titles on your front page, multireddits, and /r/all. Useful for adding context to submissions.",
         "description": ""
     },
     "spoilerTagsTransitionTitle": {
@@ -711,6 +703,10 @@
         "message": "Nutzerleiste ausgeblendet",
         "description": ""
     },
+    "accountSwitcherUnknownError": {
+        "message": "Could not log in as $1 due to an unknown error: $2\n\nCheck your settings?",
+        "description": ""
+    },
     "commentDepthAddSubreddit": {
         "message": "+add Subreddit",
         "description": ""
@@ -733,6 +729,10 @@
     },
     "keyboardNavMoveDownParentSiblingDesc": {
         "message": "Move to parent's next sibling (in comments).",
+        "description": ""
+    },
+    "accountSwitcherRateLimitError": {
+        "message": "Could not log in as $1 because reddit is seeing too many requests from you too quickly.\n\nPerhaps you've been trying to log in using the wrong username or password?\n\nCheck your settings?",
         "description": ""
     },
     "orangeredUpdateOtherTabsDesc": {
@@ -877,10 +877,6 @@
     },
     "userHighlightModColorDesc": {
         "message": "Color to use to highlight Mods.",
-        "description": ""
-    },
-    "voteEnhancementsUpvote": {
-        "message": "Upvote",
         "description": ""
     },
     "quickMessageLinkToCurrentPageDesc": {
@@ -1033,10 +1029,6 @@
     },
     "keyboardNavToggleChildrenDesc": {
         "message": "Expand/collapse comments (comments pages only).",
-        "description": ""
-    },
-    "troubleshooterTestTemplatesTitle": {
-        "message": "Test Templates",
         "description": ""
     },
     "commentPreviewDraftStyleTitle": {
@@ -1475,6 +1467,10 @@
         "message": "Monitor Posts Visited",
         "description": ""
     },
+    "accountSwitcherUserSwitched": {
+        "message": "You switched to /u/$1.",
+        "description": ""
+    },
     "betteRedditCommentsLinksNewTabDesc": {
         "message": "Öffne Links aus Kommentaren in einem neuen Tab.",
         "description": ""
@@ -1607,10 +1603,6 @@
         "message": "Link:",
         "description": ""
     },
-    "voteEnhancementsEstimatePostScoreDesc": {
-        "message": "Calculate a post's score from its points and \"liked\" percentage.",
-        "description": ""
-    },
     "submitHelperTimeAgo": {
         "message": "vor $1",
         "description": "As in '1 day ago'"
@@ -1731,12 +1723,12 @@
         "message": "Beiträge",
         "description": ""
     },
-    "troubleshooterTestEnvironmentTitle": {
-        "message": "Test Environment",
+    "searchHelperSearchBySubredditDesc": {
+        "message": "Search the current subreddit by default when using the search box, instead of all of reddit.",
         "description": ""
     },
-    "voteEnhancementsDownvote": {
-        "message": "Downvote",
+    "troubleshooterTestEnvironmentTitle": {
+        "message": "Test Environment",
         "description": ""
     },
     "showImagesBufferScreensTitle": {
@@ -1769,10 +1761,6 @@
     },
     "stylesheetLoggedInUserClassTitle": {
         "message": "Logged In User Class",
-        "description": ""
-    },
-    "troubleshooterTestTemplatesDesc": {
-        "message": "Test rendering templates (and notifications).",
         "description": ""
     },
     "commentsCategory": {
@@ -1857,6 +1845,10 @@
     },
     "logoLinkRedditLogoDestinationTitle": {
         "message": "Reddit Logo Ziel",
+        "description": ""
+    },
+    "aboutDesc": {
+        "message": "Reddit Enhancement Suite is a collection of modules that makes browsing reddit a whole lot easier.",
         "description": ""
     },
     "commentPreviewEnableForSubredditConfigTitle": {
@@ -2207,6 +2199,10 @@
         "message": "All posts are filtered out",
         "description": ""
     },
+    "troubleshooterTestNotificationsDesc": {
+        "message": "Test notifications.",
+        "description": ""
+    },
     "voteEnhancementsColorLinkScoreTitle": {
         "message": "Color Link Score",
         "description": ""
@@ -2245,6 +2241,10 @@
     },
     "betteRedditVideoUploadedDesc": {
         "message": "Wenn möglich, Datum des Hochladens anzeigen.",
+        "description": ""
+    },
+    "accountSwitcherLoginError": {
+        "message": "Could not log in as $1 because either the username or password is wrong.\n\nCheck your settings?",
         "description": ""
     },
     "showImagesAutoExpandTypesDesc": {
@@ -2609,6 +2609,10 @@
     },
     "usernameHiderHideAllUsernamesDesc": {
         "message": "Hide all accounts listed in perAccountDisplayText, not just the logged-in user.",
+        "description": ""
+    },
+    "searchHelperSearchBySubredditTitle": {
+        "message": "Limit Search To Subreddit",
         "description": ""
     },
     "showImagesUseSlideshowWhenLargerThanDesc": {
@@ -3071,10 +3075,6 @@
         "message": "Turn off features which exceed the maximum penalty.",
         "description": ""
     },
-    "voteEnhancementsVotes": {
-        "message": "Stimmen",
-        "description": ""
-    },
     "showParentFadeSpeedDesc": {
         "message": "Fade animation's speed (in seconds).",
         "description": ""
@@ -3149,10 +3149,6 @@
     },
     "aboutOptionsAnnouncements": {
         "message": "Lies die Neuigkeiten in /r/RESAnnouncements.",
-        "description": ""
-    },
-    "voteEnhancementsVote": {
-        "message": "Stimme",
         "description": ""
     },
     "hideChildCommentsAutomaticDesc": {
@@ -3451,6 +3447,10 @@
         "message": "Aktueller Subreddit/Multireddit",
         "description": ""
     },
+    "troubleshooterTestNotificationsTitle": {
+        "message": "Test Notifications",
+        "description": ""
+    },
     "keyboardNavFollowPermalinkTitle": {
         "message": "Perma-Link folgen",
         "description": ""
@@ -3527,6 +3527,10 @@
         "message": "Entferne diesen Subreddit aus ihrem Dashboard",
         "description": ""
     },
+    "accountSwitcherCliSwitchToUsernamePrompt": {
+        "message": "Switch to username: $1",
+        "description": ""
+    },
     "userHighlightFriendColorHoverDesc": {
         "message": "Color used to highlight Friends on hover.",
         "description": ""
@@ -3565,10 +3569,6 @@
     },
     "aboutOptionsSuggestionsTitle": {
         "message": "Vorschläge",
-        "description": ""
-    },
-    "voteEnhancementsEstimatePostScoreTitle": {
-        "message": "Estimate Post Score",
         "description": ""
     },
     "keyboardNavSaveCommentTitle": {
@@ -3629,10 +3629,6 @@
     },
     "showKarmaShowGoldDesc": {
         "message": "Display gilded icon if current user has gold status.",
-        "description": ""
-    },
-    "voteEnhancementsDownvotes": {
-        "message": "Downvotes",
         "description": ""
     },
     "localDateDesc": {
@@ -4011,6 +4007,10 @@
         "message": "Display expandos for this host.",
         "description": ""
     },
+    "accountSwitcherCliNoUsername": {
+        "message": "No username specified.",
+        "description": ""
+    },
     "filteRedditDesc": {
         "message": "Filtere NSFW Inhalte sowie Links nach Schlüsselwörtern, Domäne (nutze den Benutzer-Markierer um Inhalte von bestimmten Benutzern zu ignorieren) oder Subreddit (für /r/all oder /domain/*).",
         "description": ""
@@ -4115,6 +4115,10 @@
         "message": "$1 will be turned off due to lack of use. You can enable it again later in the RES settings console.",
         "description": ""
     },
+    "accountSwitcherCliHelp": {
+        "message": "switch users to [username]",
+        "description": ""
+    },
     "userTaggerYourVotesFor": {
         "message": "Deine Stimmen für $1: $2",
         "description": "As in `your votes for username: 42`"
@@ -4197,6 +4201,10 @@
     },
     "multiredditNavbarSectionMenuDesc": {
         "message": "Show a menu linking to various sections of the multireddit when hovering your mouse over the link.",
+        "description": ""
+    },
+    "accountSwitcherDraft": {
+        "message": "However, you haven't finished posting on this page as /u/$1.",
         "description": ""
     },
     "keyboardNavLinkNewTabTitle": {
@@ -4283,6 +4291,10 @@
         "message": "Auf den aktuellen Kommentar antworten (nur auf Kommentarseiten).",
         "description": ""
     },
+    "accountSwitcherGoldUntil": {
+        "message": "Until $1 ($2)",
+        "description": "As in 'Until 2016-01-01 (1 month)'"
+    },
     "stylesheetSnippetsDesc": {
         "message": "CSS snippets to load.",
         "description": ""
@@ -4321,10 +4333,6 @@
     },
     "commentPreviewSidebarPreviewDesc": {
         "message": "Zeige die live Markdown-Vorschau während des Editierens in der Seitenleiste.",
-        "description": ""
-    },
-    "voteEnhancementsEstimatePostVotesTitle": {
-        "message": "Estimate Post Votes",
         "description": ""
     },
     "subredditManagerLinkFriendsDesc": {
@@ -4451,6 +4459,10 @@
         "message": "When moving up/down with keynav, when and how should RES scroll the window?\n\n**Directional**: Scroll just enough to bring the selected element into view, if it's offscreen.\n\n**Page up/down**: Scroll up/down an entire page after reaching the top or bottom.\n\n**Lock to top**: Always align the selected element to the top of the screen.\n\n**In middle**: Scroll just enough to bring the selected element to the middle of the viewport.\n\n**Adopt top**: Reuse the alignment of the previous selected element.\n\n**Legacy**: If the element is offscreen, lock to top.",
         "description": ""
     },
+    "accountSwitcherReload": {
+        "message": "reload",
+        "description": ""
+    },
     "styleTweaksFloatingSideBarDesc": {
         "message": "Makes the left sidebar (with multireddits) float as you scroll down so you can always see it.",
         "description": ""
@@ -4529,6 +4541,10 @@
     },
     "subredditManagerLinkRandomTitle": {
         "message": "Link Random",
+        "description": ""
+    },
+    "accountSwitcherAccountSwitchError": {
+        "message": "Could not switch accounts. Reddit may be under heavy load. Please try again in a few moments.",
         "description": ""
     },
     "filteRedditEmptyNotificationInfo": {
@@ -5237,6 +5253,10 @@
     },
     "profileNavigatorSectionLinksTitle": {
         "message": "Section Links",
+        "description": ""
+    },
+    "accountSwitcherLoggedOut": {
+        "message": "You have been logged out.",
         "description": ""
     },
     "commentNavigatorShowByDefaultTitle": {
