@@ -37,8 +37,7 @@ addons:
 cache:
   yarn: true
 install:
-  - yarn install --pure-lockfile
-  - yarn check --integrity
+  - yarn install --frozen-lockfile
 matrix:
   exclude:
     - node_js: 7 # exclude default job https://github.com/travis-ci/travis-ci/issues/4681
