@@ -23,6 +23,7 @@
 	},
 	"background": {
 		"scripts": [
+			"{{./firefox.entry.js}}",
 			"{{./background.entry.js}}"
 		]
 	},
@@ -31,6 +32,7 @@
 			"https://*.reddit.com/*"
 		],
 		"js": [
+			"{{./firefox.entry.js}}",
 			"{{../lib/main.entry.js}}"
 		],
 		"css": [
