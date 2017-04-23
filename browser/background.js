@@ -13,7 +13,7 @@ import cssOffSmall from '../images/css-off-small.png';
 import cssOn from '../images/css-on.png';
 import cssOnSmall from '../images/css-on-small.png';
 import { getLocaleDictionary } from '../locales';
-import Cache from '../lib/utils/Cache';
+import { Cache } from '../lib/utils/Cache';
 import { createMessageHandler } from './utils/messaging';
 import { apiToPromise } from './utils/api';
 
