@@ -15,7 +15,7 @@ if (isBetaVersion(version)) {
 	deployChromeBeta();
 	deployEdgeInternalBeta();
 	deployFirefoxBeta();
-	deployOperaBeta();
+	// deployOperaBeta();
 } else {
 	console.log(`Deploying ${version} stable release...`);
 
@@ -26,7 +26,7 @@ if (isBetaVersion(version)) {
 	deployEdgeStable();
 	deployFirefoxBeta();
 	deployFirefoxStable();
-	deployOperaBeta();
+	// deployOperaBeta();
 	deployOperaStable();
 }
 
@@ -152,6 +152,7 @@ function deployFirefoxStable() {
 	});
 }
 
+/*
 function deployOperaBeta() {
 	console.log('Deploying Opera beta...');
 
@@ -168,6 +169,7 @@ function deployOperaBeta() {
 		process.exitCode = 1;
 	});
 }
+*/
 
 function deployOperaStable() {
 	console.log('Deploying Opera stable...');
