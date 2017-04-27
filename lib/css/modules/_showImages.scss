@@ -194,9 +194,18 @@ img {
 	}
 }
 
+.res-expando-box-wrapper {
+	display: block; // Allow res-expando-box to be inline-block
+}
+
 .res-expando-box {
-	display: block;
+	display: inline-block; // inline-block resets parent strikethrough
 	clear: left; // Necessary on some custom stylesheets where .entry .flat-list has no height
+
+	// Reset a few possible parent styles
+	font-style: normal; // Italics
+	font-weight: normal; // Bold
+	white-space: normal; // Whitespace nowrap
 
 	.usertext-body {
 		user-select: text; // Allow selection if is a text expando
