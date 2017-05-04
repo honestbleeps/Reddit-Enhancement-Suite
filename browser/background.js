@@ -45,7 +45,6 @@ addListener('ajax', async ({ method, url, headers, data }) => {
 
 	return {
 		status: rawResponse.status,
-		url: rawResponse.url,
 		text: await rawResponse.text(),
 	};
 });
