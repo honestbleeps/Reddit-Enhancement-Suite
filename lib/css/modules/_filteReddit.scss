@@ -124,6 +124,7 @@ body.hideOver18 {
 			position: absolute;
 			width: 130px;
 			right: 0;
+			padding: 2px 0;
 			background-color: floralwhite;
 			border-radius: 0 2px 2px 2px;
 			box-shadow: darkgrey 1px 2px 4px;
@@ -189,7 +190,7 @@ body.hideOver18 {
 	}
 
 	&-option-toggle {
-		margin: 4px;
+		padding: 4px;
 		display: inline-flex;
 		align-items: center;
 
@@ -199,9 +200,17 @@ body.hideOver18 {
 		}
 	}
 
-	&-export-customfilters {
+	&-export-customfilters,
+	&-show-help {
 		text-align: center;
-		padding: 2px 0;
+		padding: 4px;
 		cursor: pointer;
+	}
+
+	&-show-help {
+		&::before {
+			content: '\2139';
+			margin-right: 3px;
+		}
 	}
 }
