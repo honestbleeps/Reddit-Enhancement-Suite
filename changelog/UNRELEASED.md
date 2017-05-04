@@ -1,12 +1,19 @@
 
 ### New Features
 
-- None (thanks nobody)
+- New XboxDVR media host (thanks @BenMcGarry)
+- Add "usage information" button to Filterline dropdown (thanks @larsjohnsen)
 
 ### Bug Fixes
 
-- None (thanks nobody)
+- Fix Gfycat favicon URL (thanks @larsjohnsen)
+- Fix notifications sometimes not closing when clicking the close button (thanks @larsjohnsen)
+- Fix some iframe expandos being the wrong width (thanks @larsjohnsen)
+- Fix OneDrive expandos (thanks @BenMcGarry)
+- Fix three-digit post rank getting cut off (thanks @erikdesjardins)
 
 ### Housekeeping / Other
 
-- None (thanks nobody)
+- Avoid opening daily tips and feature tips concurrently (thanks @larsjohnsen)
+- Minor code cleanup in Table Tools (thanks @mc10)
+- Make followLinkTabFocus a non-advanced option (thanks @larsjohnsen)
