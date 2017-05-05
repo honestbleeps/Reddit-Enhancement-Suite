@@ -40,7 +40,7 @@
 - Fix expando integration with Reddit Gold visited post syncing (thanks @erikdesjardins)
 - Work around Firefox quirk with downloading images (thanks @erikdesjardins)
 - Fix optional permissions not being requested when opening an expando with keyboard shortcuts (thanks @erikdesjardins)
-- Stop running on the new ads.reddit.com page (thanks @XenoBen)
+- Stop running on the new ads.reddit.com page (thanks @BenMcGarry)
 - Fix redditbooru expandos (thanks @erikdesjardins)
 - Fix Account Switcher not displaying an error when login fails (thanks @erikdesjardins)
 - Fix alignment of expando icons in self posts with compressed link display (thanks @erikdesjardins)
