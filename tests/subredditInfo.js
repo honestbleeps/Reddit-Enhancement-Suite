@@ -8,6 +8,7 @@ module.exports = {
 
 		browser
 			.url('https://en.reddit.com/by_id/t3_633w4z')
+			.refresh() // get rid of update notification
 			.waitForElementVisible('.thing.link .subreddit')
 			.moveToElement('.thing.link .subreddit', 0, 0)
 			.pause(1000)

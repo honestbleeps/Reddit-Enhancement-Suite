@@ -8,6 +8,7 @@ module.exports = {
 
 		browser
 			.url('https://en.reddit.com/r/RESIntegrationTests/comments/633t8w/user_info/')
+			.refresh() // get rid of update notification
 			.waitForElementVisible('.thing.link .author')
 			.moveToElement('.thing.link .author', 0, 0)
 			.pause(1000)
