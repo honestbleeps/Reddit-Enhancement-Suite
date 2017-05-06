@@ -109,6 +109,10 @@ addListener('pageAction', ({ operation, state }, { id: tabId }) => {
 					38: state ? cssOn : cssOff,
 				},
 			});
+			chrome.pageAction.setTitle({
+				tabId,
+				title: state ? 'Subreddit Style On' : 'Subreddit Style Off',
+			});
 			break;
 		case 'hide':
 			chrome.pageAction.hide(tabId);
