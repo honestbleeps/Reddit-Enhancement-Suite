@@ -6,11 +6,24 @@ module.exports = {
 			.assert.cssClassPresent('.expando-button', 'image')
 			.assert.cssClassPresent('.expando-button', 'collapsed')
 			.assert.attributeEquals('.expando-button', 'data-host', 'default')
+
 			.click('.expando-button')
 			.waitForElementVisible('.res-expando-box')
 			.assert.cssClassPresent('.res-expando-box', 'res-media-host-default')
 			.assert.attributeEquals('.res-expando-box img', 'src', 'http://fc04.deviantart.net/fs51/i/2009/278/e/6/THEN_by_SamSaxton.jpg')
 			.assert.attributeEquals('.res-expando-box a', 'href', 'http://fc04.deviantart.net/fs51/i/2009/278/e/6/THEN_by_SamSaxton.jpg')
+
+			.pause(1000)
+			.click('.res-expando-box img')
+			// old tab didn't navigate
+			.assert.urlEquals('https://www.reddit.com/r/RESIntegrationTests/comments/60edn3/image_expando/')
+			// image opened in new tab, focused
+			.window_handles(result => {
+				browser.switchWindow(result.value[1]);
+			})
+			// deviantart may redirect to a different CDN server
+			.assert.urlContains('/i/2009/278/e/6/then_by_samsaxton.jpg')
+
 			.end();
 	},
 	'video expando': browser => {
