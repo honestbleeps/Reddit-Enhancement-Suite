@@ -90,6 +90,7 @@ module.exports = {
 	'show images button': browser => {
 		browser
 			.url('https://en.reddit.com/by_id/t3_6346fk,t3_6346h7')
+			.refresh() // get rid of update notification
 			.waitForElementVisible('.res-show-images')
 			.assert.containsText('.res-show-images', 'show images')
 			.assert.attributeContains('.res-show-images a', 'aftercontent', '(2)')
