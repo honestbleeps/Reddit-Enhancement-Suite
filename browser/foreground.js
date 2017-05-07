@@ -59,6 +59,8 @@ addInterceptor('storage', keyedMutex(async ([operation, key, value]) => {
 			return _get(defaults);
 		case 'set':
 			return set(key, value);
+		case 'setMultiple':
+			return _set(value);
 		case 'patch':
 			const extended = extendDeep(await get(key) || {}, value);
 			return set(key, extended);
