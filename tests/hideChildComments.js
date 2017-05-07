@@ -32,6 +32,14 @@ module.exports = {
 
 			.end();
 	},
+	'works for non-english languages (korean)': browser => {
+		browser
+			.url('https://ko.reddit.com/r/RESIntegrationTests/comments/5sq835/hide_child_comments/')
+			.waitForElementVisible(toggleChildren(parent))
+			.click(toggleChildren(parent))
+			.waitForElementNotVisible(child)
+			.end();
+	},
 	'hide all': browser => {
 		browser
 			// when clicking "hide all"
