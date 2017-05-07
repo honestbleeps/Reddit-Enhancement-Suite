@@ -40,10 +40,16 @@ const set = (key, value) => _set({ [key]: value });
 const _get = apiToPromise((keys, callback) => chrome.storage.local.get(keys, callback));
 const get = async (key, defaultValue = null) => (await _get({ [key]: defaultValue }))[key];
 
+const _delete = apiToPromise((keys, callback) => chrome.storage.local.remove(keys, callback));
+
+const _clear = apiToPromise(callback => chrome.storage.local.clear(callback));
+
 addInterceptor('storage', keyedMutex(async ([operation, key, value]) => {
 	switch (operation) {
 		case 'get':
 			return get(key, null);
+		case 'getAll':
+			return _get(null);
 		case 'batch':
 			const defaults = {};
 			// key is an array here
@@ -68,14 +74,14 @@ addInterceptor('storage', keyedMutex(async ([operation, key, value]) => {
 				throw new Error(`Failed to delete path: ${value} on key: ${key} - error: ${e}`);
 			}
 		case 'delete':
-			return apiToPromise((keys, callback) => chrome.storage.local.remove(keys, callback))(key);
+			return _delete(key);
 		case 'has':
 			const sentinel = Math.random();
 			return (await get(key, sentinel)) !== sentinel;
 		case 'keys':
 			return Object.keys(await _get(null));
 		case 'clear':
-			return apiToPromise(callback => chrome.storage.local.clear(callback))();
+			return _clear();
 		default:
 			throw new Error(`Invalid storage operation: ${operation}`);
 	}
