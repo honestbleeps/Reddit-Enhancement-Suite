@@ -15,21 +15,12 @@ https://developer.mozilla.org/en-US/Add-ons/Distribution
 1. Run `npm run jpm xpi` or `npm run jpm-beta xpi` (for beta releases)
 1. Upload `reddit-enhancement-suite.xpi` to https://addons.mozilla.org/en-US/developers/addon/submit/1
 
-## Safari
+## Edge
 
-https://developer.apple.com/library/safari/documentation/Tools/Conceptual/SafariExtensionGuide/DistributingYourExtension/DistributingYourExtension.html
+https://developer.microsoft.com/en-us/microsoft-edge/platform/documentation/extensions/guides/packaging/using-ManifoldJS-to-package-extensions/
 
-#### Safari 8 (self-distribute)
-
-1. Safari > Develop > Show extension builder
-1. Build package
-1. Upload `RES.safariextz` to redditenhancementsuite.com
-1. Update the redditnehancementsuite.com update manifest
-
-#### Safari 9+ (gallery)
-
-1. Follow Safari 8 rules
-1. Upload `RES.safariextz` to https://developer.apple.com/safari/extensions/submission/
+1. Run `npm run manifoldjs-package`
+1. Upload `edgeExtension.appx` to https://developer.microsoft.com/en-us/dashboard/apps/overview
 
 ## Opera 
 

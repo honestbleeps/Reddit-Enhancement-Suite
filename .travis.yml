@@ -17,18 +17,27 @@ env:
     - secure: RVoTaF6KaKCTcxuDD0VKTUnQatFgvpw8nzSpzJs/A9RJ0OspmSRCKDFUOvMrwtIs8PRBhYsc84GP/0uhHLwxqLarYDetysTV4tOcTK/VbBCkYdiaf++MBKFChe6l04U1gaQH813yCHkDDiNVqOzO8AYymVjJmTFFHOdUR1eR7CA=
     # FIREFOX_SECRET
     - secure: dY750kjkoKhqQL7a4E2JnncvMwC4uRkHSP8UzHX92tXbRgKyTFgfekzVExq3gMyNESO/WQh7jUZE5zCM5QnL1q+Xv8hyueHV+piP9imCbw/126Zm0pCsrHVNsBAauqf2CQCE0DyIMADvnPgyANLGe2scz5KuNVZBF/yOJTFK9Kc=
+    # EDGE_TENANT_ID
+    - secure: TiWe3fdefeqFTbOxBrBub9KD5uDfvU6DyogTFdhTeD22GwmJY8MkfQUIH1LWIrMmdSRF4qd4hVWd9RlaHXnYDKESpUBdudkwnuv05ikTqv/L+KHIqRYHt1yF17fETjTFvNo9929mOYOL0xjbvHK6j8anaGiaWtzDyaCBZhfb4qQ=
+    # EDGE_CLIENT_ID
+    - secure: SwMtDPNzHqk9wBz3z28FCvsx/g4cBZsqDQRRZFHKoAmrjPWCIVA3ufCmkGYP8j5Bl+e9kKd35udn74tU/AFOXCRPL2XmOuJHAVn1gwXTDwk3IhgiNi26ApjKNYV2zKAeSP9h6FZ9220tm8CpMqwQZ8wyekLNbiJ41kQUaggrDok=
+    # EDGE_CLIENT_SECRET
+    - secure: kFIQ8Be1Ub0mOnojtoxvCEFTDoYi+CCeMBS/Nl//3ngmrVuFZihMqslzQCqrTFiVCtHnDd7Ddd0I1OL/kQg1qlShhSKYrxxChqtQwr67aZxPuodLPLfpC2NeqURDEb6Eq+wNKWfkNDP3xqQPz1wFpweanoaiQDmZOQDFqESjvy0=
+    # OPERA_USER
+    - secure: qDNnqBq0tTuvFd7b39JJB6jHIe6FA8iKFmkuZaiCJXezZaZDOnGTq0ZdFhR+4Zbxvpin2iaJQMaFVsh0J6RE1tZM3D6cyWpwNQDoVrxGFNzpUzddvbVzqsYtTprmttHr1Kq4sA9U66wQgrePWvnPHDViiVXcV0E8NcAutatZVUM=
+    # OPERA_PASSWORD
+    - secure: AZeNzWDrEQI7l6vA2675rk+KuTjq7qQ5fN4ndZoXRTwCSLjell2tONuxQHbdJOePwLBE+ow+hfOGUbbzZCwetWfGML1HbngOYVapekPjCTuviErHRwXH0ST2iJ75E5ki3+GE2K3DmlS8DRNr8BehfkjSZkxsev04vameQX+d7c0=
     - SAUCE_USERNAME=RES-Auto
+    - SELENIUM_HOST=ondemand.saucelabs.com
+    - SELENIUM_PORT=80
 addons:
   jwt:
     # SAUCE_ACCESS_KEY=<secure>
     secure: hHF06xHY6pLdxscwYhUHdSRuUH2CPA61AUrvPiW54lnMwwkDvCQakR+aY5HbjptFIfOwkWsS4xoqXH4pZTfhMOji32S/+ELT+AqLdkIgnLYDfBj4RcsZoXyvuiLx29i4PVCnGMikctBp4dM6wORgfd1tu3uwhcoQrBjxCMW1qmY=
 cache:
-  directories:
-    - $HOME/.cache/yarn
+  yarn: true
 install:
-  - npm i -g yarn
-  - yarn install --pure-lockfile
-  - yarn check --integrity
+  - yarn install --frozen-lockfile
 matrix:
   exclude:
     - node_js: 7 # exclude default job https://github.com/travis-ci/travis-ci/issues/4681
@@ -41,15 +50,15 @@ matrix:
     - env: RES_JOB=test
       script:
         - yarn run coverage && yarn run report-coverage
-        - yarn run build -- chrome,firefox,node
+        - yarn run build -- chrome,firefox
         - yarn run jpm -- xpi
-        - node dist/node/loader.entry.js
         - yarn run test-integration -- chrome && yarn run test-integration -- firefox
     - env: RES_JOB=build_deploy
       script:
         - yarn run build -- all
         - yarn run jpm -- xpi
         - yarn run jpm-beta -- xpi
+        - yarn run manifoldjs-package
       deploy:
         - provider: releases
           api_key:
@@ -57,9 +66,8 @@ matrix:
           prerelease: true
           file:
             - dist/zip/chrome.zip
-            - dist/zip/edge.zip
+            - dist/edgeextension/package/edgeExtension.appx
             - dist/zip/firefox.zip
-            - dist/zip/RES.safariextension.zip
           skip_cleanup: true
           on:
             tags: true

@@ -1,21 +1,23 @@
 module.exports = {
-	'reddit language detection': browser => {
+	'default (en) locale': browser => {
 		browser
-			// default (en)
 			.url('https://www.reddit.com/wiki/pages/#res:settings/about')
 			.waitForElementVisible('#RESConsoleContainer')
 			.assert.containsText('#RESConfigPanelOptions .moduleName', 'About RES')
-
-			// Chinese (zh)
-			.url('https://zh.reddit.com/wiki/pages/#res:settings/about')
+			.end();
+	},
+	'greek (el) locale': browser => {
+		browser
+			.url('https://el.reddit.com/wiki/pages/#res:settings/about')
 			.waitForElementVisible('#RESConsoleContainer')
-			.assert.containsText('#RESConfigPanelOptions .moduleName', '关于RES')
-
-			// Polish (pl)
+			.assert.containsText('#RESConfigPanelOptions .moduleName', 'Σχετικά με το RES')
+			.end();
+	},
+	'polish (pl) locale': browser => {
+		browser
 			.url('https://pl.reddit.com/wiki/pages/#res:settings/about')
 			.waitForElementVisible('#RESConsoleContainer')
 			.assert.containsText('#RESConfigPanelOptions .moduleName', 'O RES')
-
 			.end();
 	},
 };

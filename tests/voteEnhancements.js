@@ -1,12 +1,4 @@
 module.exports = {
-	'total vote estimation': browser => {
-		browser
-			.url('https://www.reddit.com/r/RESIntegrationTests/comments/5jmvjf/vote_enhancements/')
-			.waitForElementVisible('.side', () => {
-				browser.expect.element('.side .totalvotes').text.match(/\d+ votes?/);
-			})
-			.end();
-	},
 	'color comment score': browser => {
 		const rootComment = '#thing_t1_dbkkubr';
 		const childComment = '#thing_t1_dbhdj53';

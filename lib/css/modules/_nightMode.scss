@@ -615,6 +615,8 @@
 	}
 
 	.thing .title:visited,
+	.thing.visited .title,
+	.combined-search-page .search-result.visited a,
 	.combined-search-page .search-result a:visited,
 	.combined-search-page .search-result a:visited > mark {
 		// see also _styleTweaks.scss visitedStyle
@@ -1303,6 +1305,10 @@
 
 	.nsfw-stamp {
 		color: hsl(0, 50%, 50%);
+	}
+
+	.spoiler-stamp {
+		color: rgb(255, 130, 0);
 	}
 
 	.diff_sub {

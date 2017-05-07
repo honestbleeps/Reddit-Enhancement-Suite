@@ -30,7 +30,7 @@ module.exports = {
 	},
 	'change boolean option': browser => {
 		browser
-			.url('https://www.reddit.com/#res:settings/accountSwitcher')
+			.url('https://www.reddit.com/wiki/pages#res:settings/accountSwitcher')
 			.waitForElementVisible('#RESConsoleContainer')
 
 			// initial state, no options changed
@@ -54,7 +54,7 @@ module.exports = {
 	},
 	'change enum option': browser => {
 		browser
-			.url('https://www.reddit.com/#res:settings/accountSwitcher')
+			.url('https://www.reddit.com/wiki/pages#res:settings/accountSwitcher')
 			.waitForElementVisible('#RESConsoleContainer')
 
 			// initial state, no options changed
@@ -80,8 +80,14 @@ module.exports = {
 			.end();
 	},
 	'change text option': browser => {
+		if (browser.options.desiredCapabilities.browserName === 'firefox') {
+			// marionette crashes on setValue
+			browser.end();
+			return;
+		}
+
 		browser
-			.url('https://www.reddit.com/#res:settings/quickMessage')
+			.url('https://www.reddit.com/wiki/pages#res:settings/quickMessage')
 			.waitForElementVisible('#RESConsoleContainer')
 
 			// initial state, no options changed
@@ -89,6 +95,7 @@ module.exports = {
 
 			// set a value for defaultSubject
 			.setValue('#defaultSubject', ['test subject'])
+			.pause(1000)
 			.assert.cssClassNotPresent('#moduleOptionsSave', 'optionsSaved', 'options staged')
 
 			// click save
@@ -102,8 +109,14 @@ module.exports = {
 			.end();
 	},
 	'change table option': browser => {
+		if (browser.options.desiredCapabilities.browserName === 'firefox') {
+			// marionette crashes on setValue
+			browser.end();
+			return;
+		}
+
 		browser
-			.url('https://www.reddit.com/#res:settings/accountSwitcher')
+			.url('https://www.reddit.com/wiki/pages#res:settings/accountSwitcher')
 			.waitForElementVisible('#RESConsoleContainer')
 
 			// initial state, no options changed
@@ -112,6 +125,7 @@ module.exports = {
 			// add row
 			.click('#optionContainer-accountSwitcher-accounts .addRowButton')
 			.setValue('#accounts_accountSwitcherUsername_1', ['test'])
+			.pause(1000)
 			.assert.cssClassNotPresent('#moduleOptionsSave', 'optionsSaved', 'options staged')
 
 			// click save
@@ -132,7 +146,7 @@ module.exports = {
 		}
 
 		browser
-			.url('https://www.reddit.com/#res:settings/accountSwitcher')
+			.url('https://www.reddit.com/wiki/pages#res:settings/accountSwitcher')
 			.waitForElementVisible('#RESConsoleContainer')
 
 			// add rows
@@ -158,6 +172,47 @@ module.exports = {
 			.waitForElementVisible('#RESConsoleContainer')
 			.assert.value('#accounts_accountSwitcherUsername_0', 'second')
 			.assert.value('#accounts_accountSwitcherUsername_1', 'first')
+			.end();
+	},
+	'disabling a module': browser => {
+		browser
+			.url('https://www.reddit.com/wiki/pages#res:settings/wheelBrowse')
+			.waitForElementVisible('#RESConsoleContainer')
+			.assert.cssClassPresent('.moduleToggle', 'enabled')
+			.click('.moduleToggle')
+			.assert.cssClassNotPresent('.moduleToggle', 'enabled')
+			.refresh()
+			.waitForElementVisible('#RESConsoleContainer')
+			.assert.cssClassNotPresent('.moduleToggle', 'enabled')
+			.end();
+	},
+	'adding a row to table option doesn\'t duplicate value': browser => {
+		if (browser.options.desiredCapabilities.browserName === 'firefox') {
+			// geckodriver treats `value` of empty inputs incorrectly
+			browser.end();
+			return;
+		}
+
+		browser
+			.url('https://www.reddit.com/wiki/pages#res:settings/accountSwitcher')
+			.waitForElementVisible('#RESConsoleContainer')
+			.click('#optionContainer-accountSwitcher-accounts .addRowButton')
+			.setValue('#accounts_accountSwitcherUsername_1', ['test'])
+			.click('#moduleOptionsSave')
+			.refresh()
+			.waitForElementVisible('#RESConsoleContainer')
+			.click('#optionContainer-accountSwitcher-accounts .addRowButton')
+			.assert.value('#accounts_accountSwitcherUsername_0', 'test')
+			.assert.value('#accounts_accountSwitcherUsername_2', '')
+			.end();
+	},
+	'color options are revealed when changing the option they depend on': browser => {
+		browser
+			.url('https://www.reddit.com/wiki/pages#res:settings/commentQuickCollapse')
+			.waitForElementVisible('#RESConsoleContainer')
+			.waitForElementNotVisible('#optionContainer-commentQuickCollapse-leftEdgeColor')
+			.click('#toggleCommentsOnClickLeftEdgeContainer')
+			.assert.visible('#optionContainer-commentQuickCollapse-leftEdgeColor')
 			.end();
 	},
 };

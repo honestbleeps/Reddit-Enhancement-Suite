@@ -12,7 +12,7 @@
 	"settings": {
 		"import/ignore": [
 			"node_modules",
-			"\\.(json|png|gif|html|scss|mustache)$"
+			"\\.(json|png|gif|html|scss)$"
 		],
 		"import/resolver": "webpack"
 	},
@@ -99,6 +99,7 @@
 		"no-confusing-arrow": 0,
 		"no-console": 0,
 		"no-continue": 0,
+		"no-div-regex": 0,
 		"no-duplicate-imports": 0, // see import/no-duplicates (ESLint's rule doesn't handle Flow `import type`)
 		"no-else-return": 0,
 		"no-empty-function": [2, { "allow": ["arrowFunctions", "methods"] }],
@@ -111,6 +112,7 @@
 		"no-loop-func": 0,
 		"no-magic-numbers": 0,
 		"no-mixed-operators": 0,
+		"no-multi-assign": 0,
 		"no-multi-spaces": [2, { "exceptions": { "SwitchCase": true } }],
 		"no-negated-condition": 0,
 		"no-nested-ternary": 0,
@@ -178,6 +180,7 @@
 		"operator-assignment": [2, "always"],
 		"operator-linebreak": [2, "after"],
 		"padded-blocks": [2, "never"],
+		"prefer-destructuring": 0,
 		"prefer-reflect": [2, { "exceptions": ["delete"] }],
 		"quote-props": [2, "as-needed"],
 		"quotes": [2, "single"],

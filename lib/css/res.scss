@@ -1,5 +1,4 @@
-@import '../vendor/guiders';
-@import '../vendor/tokenize';
+@import '../vendor/index';
 
 @import 'zindex';
 @import 'fonts/batch';
@@ -30,6 +29,7 @@
 @import 'modules/showImages';
 @import 'modules/singleClick';
 @import 'modules/sourceSnudown';
+@import 'modules/spoilerTags';
 @import 'modules/styleTweaks';
 @import 'modules/submitIssue';
 @import 'modules/subredditInfo';
@@ -40,6 +40,7 @@
 @import 'modules/userInfo';
 @import 'modules/userTagger';
 @import 'modules/voteEnhancements';
+@import 'modules/commentQuickCollapse';
 @import 'modules/wheelBrowse';
 
 body.res-console-open {
@@ -211,13 +212,10 @@ body.res-console-open {
 	}
 
 	.toggleButton {
-		float: right;
-		margin: 0 4px 0 0;
-		line-height: inherit;
-
-		span {
-			line-height: 16px;
-		}
+		line-height: 14px;
+		right: 5px;
+		top: 9px;
+		position: absolute;
 	}
 
 	a {
@@ -671,6 +669,7 @@ div.usertext-edit {
 
 	&.active {
 		font-weight: bold;
+		box-shadow: inset 5px 0 0 0 rgb(171, 204, 227);
 	}
 
 	small {
@@ -679,10 +678,86 @@ div.usertext-edit {
 }
 
 .toggleButton {
+
 	position: relative;
-	display: inline-block;
+	display: inline-flex;
 	cursor: pointer;
 	white-space: nowrap;
+
+	.toggleThumb {
+		cursor: pointer;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		width: 40px;
+		height: 15px;
+		background-color: #ccc;
+		border: 2px solid #ccc;
+		border-radius: 2px;
+		transition: .1s;
+		transition-timing-function: ease-in;
+	}
+
+	&.enabled {
+		&.reverseToggleButton .toggleThumb {
+			background-color: #c66;
+			border-color: #c66;
+		}
+
+		.toggleThumb {
+			background-color: #369;
+			border-color: #369;
+		}
+	}
+
+	.toggleThumb::before {
+		position: absolute;
+		content: '';
+		height: 15px;
+		width: 15px;
+		left: 2px;
+		border-radius: 2px;
+		background-color: white;
+		transition: .4s;
+	}
+
+	&.enabled .toggleThumb::before {
+		transform: translateX(25px);
+	}
+
+	.toggleLabel {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+
+		// Custom toggle labels
+		&[data-disabled-text]::before {
+			content: '\00a0' attr(data-disabled-text);
+			display: block;
+			line-height: 0;
+			opacity: 1;
+		}
+
+		&[data-enabled-text]::after {
+			content: '\A\00a0' attr(data-enabled-text);
+			display: block;
+			line-height: 0;
+			opacity: 0;
+		}
+
+	}
+
+	// Also custom toggle labels
+	&.enabled .toggleLabel {
+		&[data-disabled-text]::before {
+			opacity: 0;
+		}
+
+		&[data-enabled-text]::after {
+			opacity: 1;
+		}
+	}
 
 	input[type=checkbox] {
 		display: none;
@@ -694,67 +769,6 @@ div.usertext-edit {
 		line-height: 20px;
 		display: inline-block;
 		text-align: center;
-	}
-
-	.toggleOn {
-		border: 1px solid #636363;
-		border-right: none;
-		border-radius: 3px 0 0 3px;
-	}
-
-	.toggleOff {
-		border: 1px solid #636363;
-		border-left: none;
-		border-radius: 0 3px 3px 0;
-	}
-
-	&:not(.enabled) .toggleOn,
-	&.reverseToggleButton.enabled .toggleOn {
-		background-color: #ddd;
-		color: #636363;
-	}
-
-	&:not(.enabled) .toggleOff,
-	&.reverseToggleButton.enabled .toggleOff {
-		background-color: #d02020;
-		color: #fff;
-		font-weight: bolder;
-	}
-
-	&.enabled .toggleOn,
-	&.reverseToggleButton:not(.enabled) .toggleOn {
-		background-color: #107ac4;
-		color: #fff;
-		font-weight: bolder;
-	}
-
-	&.enabled .toggleOff,
-	&.reverseToggleButton:not(.enabled) .toggleOff {
-		background-color: #ddd;
-		color: #636363;
-	}
-
-	&::before,
-	&.reverseToggleButton.enabled::before {
-		content: ' ';
-		position: absolute;
-		top: 50%;
-		margin-top: -3px;
-		border: 3px solid;
-		border-color: transparent white;
-		opacity: .3;
-		border-left-width: 0;
-		border-right-width: 5px;
-		left: auto;
-		right: 1px;
-	}
-
-	&.enabled::before,
-	&.reverseToggleButton:not(.enabled)::before {
-		border-left-width: 5px;
-		border-right-width: 0;
-		left: 1px;
-		right: auto;
 	}
 }
 
@@ -1218,6 +1232,10 @@ span.multi-count {
 	}
 }
 
+.guider ol {
+	margin: 1em 1em 1em 2em;
+}
+
 .guider dl {
 	margin-top: .6em;
 	margin-bottom: .6em;
@@ -1405,10 +1423,6 @@ body.RESScrollLock {
 #autocomplete_dropdown {
 	display: inline-block;
 	z-index: $zindex-autocomplete-dropdown;
-}
-
-.thing .title.visited {
-	color: #551A8B;
 }
 
 .usertext iframe {

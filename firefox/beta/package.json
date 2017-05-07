@@ -1,19 +1,20 @@
 {
-	"name": "reddit-enhancement-suite",
-	"title": "{{prop?title!../../package.json}}",
 	"id": "jid1-xUfzOsOFlzSOXg@jetpack",
-	"description": "{{prop?description!../../package.json}}",
 	"author": "honestbleeps",
-	"homepage": "http://redditenhancementsuite.com/",
+	"title": "{{prop-loader?title!../../package.json}}",
+	"name": "{{prop-loader?name!../../package.json}}",
+	"version": "{{prop-loader?version!../../package.json}}beta",
+	"description": "{{prop-loader?description!../../package.json}}",
+	"homepage": "{{prop-loader?homepage!../../package.json}}",
 	"license": "GPL-3.0",
-	"version": "{{prop?version!../../package.json}}beta",
-	"main": "{{../background.entry.js}}",
 	"engines": {
-		"firefox": ">=48.0"
+		"firefox": ">=52.0"
 	},
+	"main": "{{../jetpack.entry.js}}",
+	"hasEmbeddedWebExtension": true,
 	"permissions": {
 		"private-browsing": true,
 		"multiprocess": true
 	},
-	"changes": "{{file?name=CHANGES!extricate!exec!../../build/getChanges}}"
+	"changes": "{{file-loader?name=CHANGES!extricate-loader!exec-loader?cache!../../build/getChanges}}"
 }

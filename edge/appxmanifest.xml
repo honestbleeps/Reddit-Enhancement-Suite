@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Create generationInfo.json for manifoldjs -->
+<!-- {{file-loader?name=../generationInfo.json!./generationInfo.json}} -->
+<Package
+	xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+	xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
+	xmlns:uap3="http://schemas.microsoft.com/appx/manifest/uap/windows10/3"
+	IgnorableNamespaces="uap3">
+
+	<Identity
+		Name="37237honestbleeps.RedditEnhancementSuite"
+		Publisher="CN=06113351-FEB0-4D01-9D90-6FD3B2F39AB5"
+		Version="{{prop-loader?version!../package.json}}.0" />
+
+	<Properties>
+		<DisplayName>{{prop-loader?title!../package.json}}</DisplayName>
+		<PublisherDisplayName>honestbleeps</PublisherDisplayName>
+		<Logo>{{!file-loader?name=Assets\icon50.png!../images/icon50.png}}</Logo>
+	</Properties>
+
+	<Dependencies>
+		<TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.15063.0" MaxVersionTested="10.0.15063.0" />
+	</Dependencies>
+
+	<Resources>
+		<Resource Language="en-us" />
+	</Resources>
+
+	<Applications>
+		<Application Id="App">
+			<uap:VisualElements
+				AppListEntry="none"
+				DisplayName="{{prop-loader?title!../package.json}}"
+				Square150x150Logo="{{!file-loader?name=Assets\icon150.png!../images/icon150.png}}"
+				Square44x44Logo="{{!file-loader?name=Assets\icon44.png!../images/icon44.png}}"
+				Description="{{prop-loader?description!../package.json}}"
+				BackgroundColor="transparent">
+			</uap:VisualElements>
+			<Extensions>
+				<uap3:Extension Category="windows.appExtension">
+					<uap3:AppExtension Name="com.microsoft.edge.extension"
+						Id="EdgeExtension"
+						PublicFolder="Extension"
+						DisplayName="{{prop-loader?title!../package.json}}">
+						<!-- Generate extension -->
+						<!-- {{spawn-loader?inert&path=Extension!extricate-loader!interpolate-loader!./manifest.json}} -->
+					</uap3:AppExtension>
+				</uap3:Extension>
+			</Extensions>
+		</Application>
+	</Applications>
+</Package>

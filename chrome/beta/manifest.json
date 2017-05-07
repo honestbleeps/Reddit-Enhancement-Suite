@@ -1,0 +1,61 @@
+{
+	"manifest_version": 2,
+	"name": "{{prop-loader?title!../../package.json}} - Beta",
+	"version": "{{prop-loader?version!../../package.json}}",
+	"description": "{{prop-loader?description!../../package.json}}",
+	"homepage_url": "{{prop-loader?homepage!../../package.json}}",
+	"minimum_chrome_version": "55",
+	"minimum_opera_version": "42",
+	"options_page": "{{../../browser/options.html}}",
+	"icons": {
+		"48": "{{../../images/beta48.png}}",
+		"128": "{{../../images/beta128.png}}"
+	},
+	"page_action": {
+		"default_icon": {
+			"19": "{{../../images/css-on-small.png}}",
+			"38": "{{../../images/css-on.png}}"
+		}
+	},
+	"background": {
+		"scripts": [
+			"{{../background.entry.js}}"
+		]
+	},
+	"content_scripts": [{
+		"matches": [
+			"https://*.reddit.com/*"
+		],
+		"js": [
+			"{{../../lib/main.entry.js}}"
+		],
+		"css": [
+			"{{../../lib/css/res.scss}}"
+		],
+		"run_at": "document_start"
+	}],
+	"permissions": [
+		"cookies",
+		"tabs",
+		"history",
+		"storage",
+		"unlimitedStorage",
+
+		"http://redditenhancementsuite.com/",
+		"http://reddit.com/*",
+		"https://reddit.com/*",
+		"http://*.reddit.com/*",
+		"https://*.reddit.com/*"
+	],
+	"optional_permissions": [
+		"https://api.twitter.com/*",
+		"https://onedrive.live.com/*",
+		"https://1drv.ms/*",
+		"https://backend.deviantart.com/oembed",
+		"https://api.gyazo.com/api/oembed",
+		"https://codepen.io/api/oembed",
+		"https://api.tumblr.com/v2/blog/*/posts",
+		"https://xkcd.com/*/info.0.json",
+		"https://api.steampowered.com/ISteamRemoteStorage/GetPublishedFileDetails/*"
+	]
+}

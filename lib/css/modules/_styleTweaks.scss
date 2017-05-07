@@ -28,7 +28,12 @@ blockquote.twitter-tweet {
 }
 
 .res-styleTweaks-showExpandos {
-	.link.compressed .expando-button { display: block; }
+	.link.compressed {
+		// post expandos
+		.entry > .expando-button { display: block; }
+		// self post inner expandos
+		.expando-button { display: inline-block; }
+	}
 }
 
 .res-styleTweaks-hideUnvotable {

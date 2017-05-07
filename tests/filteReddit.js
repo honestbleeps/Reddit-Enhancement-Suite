@@ -36,6 +36,12 @@ function editSettings(callback) {
 
 module.exports = {
 	'post title keywords': browser => {
+		if (browser.options.desiredCapabilities.browserName === 'firefox') {
+			// marionette crashes on setValue
+			browser.end();
+			return;
+		}
+
 		browser
 			// basic
 			.perform(editSettings(() => browser
@@ -79,6 +85,12 @@ module.exports = {
 			.end();
 	},
 	'post domains': browser => {
+		if (browser.options.desiredCapabilities.browserName === 'firefox') {
+			// marionette crashes on setValue
+			browser.end();
+			return;
+		}
+
 		browser
 			// self post domain (and case insensitivity)
 			.perform(editSettings(() => browser
@@ -109,6 +121,12 @@ module.exports = {
 			.end();
 	},
 	'post subreddits': browser => {
+		if (browser.options.desiredCapabilities.browserName === 'firefox') {
+			// marionette crashes on setValue
+			browser.end();
+			return;
+		}
+
 		browser
 			// basic, posted to subreddit
 			.perform(editSettings(() => browser
@@ -140,6 +158,12 @@ module.exports = {
 			.end();
 	},
 	'post flair': browser => {
+		if (browser.options.desiredCapabilities.browserName === 'firefox') {
+			// marionette crashes on setValue
+			browser.end();
+			return;
+		}
+
 		browser
 			// basic (and case insensitivity)
 			.perform(editSettings(() => browser
@@ -154,7 +178,6 @@ module.exports = {
 
 			// [flair] isn't treated as a regex set (which filters `f`)
 			.perform(editSettings(() => browser
-				.click('#optionContainer-filteReddit-flair .addRowButton')
 				.clearValue('#optionContainer-filteReddit-flair input')
 				.setValue('#optionContainer-filteReddit-flair input', ['[a]'])
 			))
@@ -164,6 +187,12 @@ module.exports = {
 			.end();
 	},
 	'regex filters': browser => {
+		if (browser.options.desiredCapabilities.browserName === 'firefox') {
+			// marionette crashes on setValue
+			browser.end();
+			return;
+		}
+
 		browser
 			// basic title regex filter
 			.perform(editSettings(() => browser
@@ -274,6 +303,51 @@ module.exports = {
 			.url('https://www.reddit.com/r/all/?limit=1')
 			.pause(1000)
 			.assert.visible('#siteTable .thing' /* first thing */)
+
+			// browsing /r/popular special case (only these subreddits)
+			.perform(editSettings(() => browser
+				.clearValue('#optionContainer-filteReddit-keywords input')
+				.setValue('#optionContainer-filteReddit-keywords input', ['/./'])
+				.execute(`
+					document.querySelector('#optionContainer-filteReddit-keywords input#keywords_subreddits_0').value = 'popular';
+				`)
+				.click('#optionContainer-filteReddit-keywords input#keywords_applyTo_0-2' /* only on */)
+			))
+			.url('https://www.reddit.com/r/popular/?limit=1')
+			.waitForElementNotVisible('#siteTable .thing' /* first thing */)
+
+			// browsing /r/popular special case (except these subreddits)
+			.perform(editSettings(() => browser
+				.click('#optionContainer-filteReddit-keywords input#keywords_applyTo_0-1' /* everywhere but */)
+			))
+			.url('https://www.reddit.com/r/popular/?limit=1')
+			.pause(1000)
+			.assert.visible('#siteTable .thing' /* first thing */)
+			.end();
+	},
+	'filterline basic usage': browser => {
+		const normalPost = '#thing_t3_6331zg';
+		const nsfwPost = '#thing_t3_63320d';
+
+		browser
+			.url('https://www.reddit.com/by_id/t3_6331zg,t3_63320d')
+			.waitForElementVisible('.res-toggle-filterline-visibility')
+			.assert.elementNotPresent('.res-filterline')
+			.assert.visible(normalPost)
+			.assert.visible(nsfwPost)
+			.click('.res-toggle-filterline-visibility')
+			.assert.visible('.res-filterline')
+			.assert.visible(normalPost)
+			.assert.visible(nsfwPost)
+			.click('.res-filterline-filter[filter-key="isNSFW"]')
+			.waitForElementNotVisible(normalPost)
+			.assert.visible(nsfwPost)
+			.click('.res-filterline-filter[filter-key="isNSFW"]')
+			.waitForElementNotVisible(nsfwPost)
+			.assert.visible(normalPost)
+			.click('.res-filterline-filter[filter-key="isNSFW"]')
+			.assert.visible(normalPost)
+			.assert.visible(nsfwPost)
 			.end();
 	},
 };

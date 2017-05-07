@@ -1,6 +1,6 @@
 import _ from 'lodash';
 
-const localesContext = require.context('json!./locales', false, /\.json$/);
+const localesContext = require.context('./locales', false, /\.json$/);
 const validLocaleKeys = localesContext.keys();
 
 const DEFAULT_TRANSIFEX_LOCALE = 'en';
@@ -40,40 +40,17 @@ const getLocale = _.memoize(localeName => {
 	}
 });
 
-const getLookupFunction = _.memoize(localeName => {
+export const getLocaleDictionary = _.memoize((localeName: string): { [key: string]: string } => {
 	const transifexLocale = redditLocaleToTransifexLocale(localeName);
-	const locales = _.compact([
-		// 1. Exact match (en_CA -> en_CA)
-		getLocale(transifexLocale),
-		// 2. Match without region (en_CA -> en)
-		getLocale(transifexLocale.slice(0, transifexLocale.indexOf('_'))),
+
+	const mergedLocales = {
 		// 3. Default (en)
-		getLocale(DEFAULT_TRANSIFEX_LOCALE),
-	]);
-
-	return messageName => {
-		for (let i = 0; i < locales.length; ++i) { // eslint-disable-line no-restricted-syntax
-			const entry = locales[i][messageName];
-			if (entry) {
-				return entry.message;
-			}
-		}
+		...getLocale(DEFAULT_TRANSIFEX_LOCALE),
+		// 2. Match without region (en_CA -> en)
+		...getLocale(transifexLocale.slice(0, transifexLocale.indexOf('_'))),
+		// 1. Exact match (en_CA -> en_CA)
+		...getLocale(transifexLocale),
 	};
+
+	return _.mapValues(mergedLocales, x => x.message);
 });
-
-// Behaves like https://developer.chrome.com/extensions/i18n#method-getMessage
-// if it accepted a locale name
-export function getMessage(localeName: string, messageName: string, substitutions: Array<string | number>): string {
-	// Transifex will fill in missing translations from partially-translated languages
-	// with strings from the base locale (en).
-	// So we don't need to do multiple checks here.
-	const message = getLookupFunction(localeName)(messageName) || '';
-
-	// Replace direct references to substitutions, e.g. `First substitution: $1`
-	// Maximum of 9 substitutions allowed, i.e. only one number after the `$`
-	return message.replace(/\$(\d)\b(?!\$)/g, (match, number) => substitutions[number - 1]);
-
-	// Chrome also supports named placeholders, e.g. `Error: $error_message$`
-	// but Transifex does not create the `placeholders` field in exported JSON
-	// https://developer.chrome.com/extensions/i18n#examples-getMessage
-}

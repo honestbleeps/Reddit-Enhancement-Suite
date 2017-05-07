@@ -1,18 +1,7 @@
-/*
-	If you would like RES to embed content from your website:
-
-		0. Fork http://github.com/honestbleeps/Reddit-Enhancement-Suite
-		1. Copy this file and create a new file: lib/modules/hosts/yourwebite.js.
-		2. Edit yourwebsite.js to change the "example" code and unstub the functions.
-		3. Submit a pull request with your change.
-
-	Note: Media hosting sites must support CORS in order for expandos to work.
-	This policy serves to protect users by limiting RES' access to certain websites.
-*/
-
 /* @flow */
 
 import { Host } from '../../core/host';
+import { ajax } from '../../environment';
 
 export default new Host('example', {
 	name: 'Example Media Host',
@@ -23,45 +12,30 @@ export default new Host('example', {
 	],
 
 	// Optional logo, for showing site attribution on the content
-	logo: '//example.com/favicon.ico',
+	logo: 'https://example.com/favicon.ico',
+	// OR, if the embed has its own attribution (watermark, etc.), disable RES' attribution
+	attribution: false,
 
 	// Executed if the domain matches.
 	// Returns truthy/falsy to indicate whether the siteModule will attempt to handle the link.
-	// Called with a single parameter: the anchor element.
+	// Called with a URL object.
 	detect: ({ pathname }) => (/^\/(\d+)/i).exec(pathname),
 
 	// Called with the link's href and the value returned from detect() (if it's truthy).
 	// May throw an error if the link cannot be handled.
 	// May be async if necessary.
 	async handleLink(href, [, id]) {
-		const { title, url } = await ajax({ // eslint-disable-line no-undef
+		const { title, url } = await ajax({
 			url: `https://example.com/api/${id}.json`,
 			type: 'json',
 		});
 
+		// See the bottom of /lib/core/host.js or other hosts in /lib/modules/hosts
+		// for the different kinds of expandos.
 		return {
 			type: 'IMAGE',
-			src: url,
 			title,
+			src: url,
 		};
-
-		/*
-		Embedding infomation:
-
-		required type:
-			'IMAGE' for single images | 'GALLERY' for image galleries | 'TEXT' html/text to be displayed
-		required src:
-			if type is TEXT then src is HTML (be careful about what is accepted here)
-			if type is IMAGE then src is an image URL string
-			if type is GALLERY then src is an array of objects with any type other than GALLERY
-		optional title:
-			string to be displayed above the image (gallery level).
-		optional caption:
-			string to be displayed below the title
-		optional credits:
-			string to be displayed below caption
-		optional galleryStart:
-			zero-indexed page number to open the gallery to
-		*/
 	},
 });
