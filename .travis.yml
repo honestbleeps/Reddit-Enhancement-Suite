@@ -52,7 +52,7 @@ matrix:
         - yarn run coverage && yarn run report-coverage
         - yarn run build -- chrome,firefox
         - yarn run jpm -- xpi
-        - yarn run test-integration -- chrome && yarn run test-integration -- firefox
+        - yarn run test-integration -- firefox
     - env: RES_JOB=build_deploy
       script:
         - yarn run build -- all
