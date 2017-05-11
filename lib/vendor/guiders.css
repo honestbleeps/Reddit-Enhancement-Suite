@@ -168,3 +168,14 @@
 .guiders_buttons_container label input[type=checkbox] {
 	margin-right: 5px;
 }
+.guiders_content ul {
+	list-style-type: circle;
+	margin-left: 12px;
+}
+.guiders_content strong {
+	font-style: initial;
+	font-weight: bold;
+}
+.restips-increased-z-index {
+	z-index: 900003 !important;
+}
