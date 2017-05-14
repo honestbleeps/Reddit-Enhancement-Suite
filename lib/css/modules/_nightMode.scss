@@ -1,3 +1,7 @@
+$background-color: hsl(0, 0%, 15%);
+$border-color: #777;
+$color:  #aaa;
+
 .res-nightmode {
 	body,
 	body .content,
@@ -14,15 +18,15 @@
 	.side .usertext-body .md ol ol li,
 	.modactionlisting table *,
 	.side .recommend-box .rec-item {
-		background-color: hsl(0, 0%, 15%);
-		border-color: #777;
+		background-color: $background-color;
+		border-color: $border-color;
 	}
 
 	.popup,
 	.guider,
 	.guider p {
-		background-color: hsl(0, 0%, 15%);
-		color: #aaa;
+		background-color: $background-color;
+		color: $text-color;
 	}
 
 	#login_login {
