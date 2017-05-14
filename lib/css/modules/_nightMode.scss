@@ -1,6 +1,10 @@
 $background-color: hsl(0, 0%, 15%);
+$header-background-color: rgb(105, 105, 105);
 $border-color: #777;
 $color:  #aaa;
+$link-color: hsl(210, 50%, 70%);
+$title-link-color: hsl(0, 0%, 87%);
+$title-link-visited-color: hsl(0, 0%, 65%);
 
 .res-nightmode {
 	body,
@@ -26,7 +30,7 @@ $color:  #aaa;
 	.guider,
 	.guider p {
 		background-color: $background-color;
-		color: $text-color;
+		color: $color;
 	}
 
 	#login_login {
@@ -124,7 +128,7 @@ $color:  #aaa;
 
 	#header,
 	.liveupdate-home .content {
-		background-color: rgb(105, 105, 105);
+		background-color: $header-background-color;
 	}
 
 	#jumpToContent {
@@ -587,7 +591,7 @@ $color:  #aaa;
 	.deepthread a,
 	.policy-page .md h1 a,
 	.policy-page .md h3 a {
-		color: hsl(210, 50%, 70%);
+		color: $link-color;
 	}
 
 	.flairselector li a {
@@ -595,7 +599,7 @@ $color:  #aaa;
 	}
 
 	.thing .title {
-		color: hsl(0, 0%, 87%);
+		color: $title-link-color;
 
 		.res-nightMode-coloredLinks & {
 			color: hsl(210, 60%, 60%);
@@ -625,7 +629,7 @@ $color:  #aaa;
 	.combined-search-page .search-result a:visited,
 	.combined-search-page .search-result a:visited > mark {
 		// see also _styleTweaks.scss visitedStyle
-		color: hsl(0, 0%, 65%);
+		color: $title-link-visited-color;
 
 		.res-nightMode-coloredLinks & {
 			color: hsl(270, 50%, 65%);
@@ -1399,5 +1403,21 @@ $color:  #aaa;
 		background-color: $background-color;
 		border-color: $border-color;
 		color: $color;
+	}
+
+	a {
+		color: $link-color;
+	}
+
+	.Post__titleLink {
+		color: $title-link-color;
+	}
+
+	.Post__titleLink:visited {
+		color: $title-link-visited-color;
+	}
+
+	.BlueBar {
+		background: $header-background-color;
 	}
 }
