@@ -1393,3 +1393,11 @@ $color:  #aaa;
 		}
 	}
 }
+
+.res-d2x-nightmode {
+	body {
+		background-color: $background-color;
+		border-color: $border-color;
+		color: $color;
+	}
+}
