@@ -27,12 +27,12 @@ const browserConfig = {
 	},
 	firefox: {
 		target: 'firefox',
-		entry: 'firefox/package.json',
+		entry: 'firefox/manifest.json',
 		output: 'firefox',
 	},
 	firefoxbeta: {
 		target: 'firefox',
-		entry: 'firefox/beta/package.json',
+		entry: 'firefox/beta/manifest.json',
 		output: 'firefox-beta',
 	},
 };
@@ -109,10 +109,6 @@ export default (env = {}) => {
 					{ loader: 'url-loader' },
 				],
 			}],
-			noParse: [
-				// to use `require` in Firefox
-				/nativeRequire\.js$/,
-			],
 		},
 		plugins: [
 			new ProgressBarPlugin(),

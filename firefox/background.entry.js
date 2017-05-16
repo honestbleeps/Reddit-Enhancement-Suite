@@ -29,19 +29,3 @@ addListener('openNewTabs', ({ urls, focusIndex }, { index: currentIndex }) => {
 
 // Firefox doesn't have permissions.*
 addListener('permissions', () => true);
-
-// Migration
-{
-	const _set = apiToPromise((items, callback) => chrome.storage.local.set(items, callback));
-
-	console.log('opening port for migration');
-	const port = browser.runtime.connect({ name: 'migrate-start' });
-
-	port.onMessage.addListener(async items => {
-		console.log('received items for migration', items);
-		await _set(items);
-
-		console.log('saved migration items successfully');
-		port.postMessage('migrate-success');
-	});
-}

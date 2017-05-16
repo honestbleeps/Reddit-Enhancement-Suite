@@ -70,7 +70,7 @@ The default host and port (`localhost` and `4444`) should work for most local in
 ##### Firefox
 
 1. Go to `about:debugging` and tick the `Enable add-on debugging` checkbox.
-1. Click `Load Temporary Add-on` and select `/dist/firefox/webextension/manifest.json` (not the `/firefox` folder).
+1. Click `Load Temporary Add-on` and select `/dist/firefox/manifest.json` (not the `/firefox` folder).
 1. Any time you make changes, you must go back to the `about:debugging` page and `Reload` the extension.
 
 ## Project structure
