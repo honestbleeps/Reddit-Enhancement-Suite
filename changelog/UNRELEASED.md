@@ -1,12 +1,12 @@
 
 ### New Features
 
-- None (thanks nobody)
+- Add /r/profileposts link to subreddit manager to match reddit (thanks @andytuba)
 
 ### Bug Fixes
 
-- None (thanks nobody)
+- Update spam button to message /r/reddit.com now that /r/spam is defunct (thanks @BenMcGarry)
 
 ### Housekeeping / Other
 
-- None (thanks nobody)
+- Update the localization files (thanks @erikdesjardins)
