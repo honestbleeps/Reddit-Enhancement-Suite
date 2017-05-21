@@ -18,6 +18,9 @@ function redditLocaleToTransifexLocale(redditLocale) {
 			return 'en@lolcat';
 		case 'pir':
 			return 'en@pirate';
+		case 'es-ar': // argentina
+		case 'es-cl': // chile
+			return 'es_419'; // latin america
 		default: {
 			// `es-ar` -> `es_ar`
 			const normalized = redditLocale.replace('-', '_');
