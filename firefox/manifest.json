@@ -21,6 +21,10 @@
 			"38": "{{../images/css-on.png}}"
 		}
 	},
+	"options_ui": {
+		"page": "{{../browser/options.html}}",
+		"open_in_tab": true
+	},
 	"background": {
 		"scripts": [
 			"{{./firefox.entry.js}}",
