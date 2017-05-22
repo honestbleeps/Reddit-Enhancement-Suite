@@ -51,7 +51,7 @@ matrix:
       script:
         - yarn run coverage && yarn run report-coverage
         - yarn run build -- chrome,firefox
-        - yarn run test-integration -- chrome && yarn run test-integration -- firefox
+        - yarn run integration -- chrome --retries 2 && yarn run integration -- firefox --retries 2
     - env: RES_JOB=build_deploy
       script:
         - yarn run build -- all
