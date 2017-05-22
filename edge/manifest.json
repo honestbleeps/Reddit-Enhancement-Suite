@@ -4,7 +4,6 @@
 	"version": "{{prop-loader?version!../package.json}}",
 	"description": "{{prop-loader?description!../package.json}}",
 	"author": "{{prop-loader?author!../package.json}}",
-	"options_page": "{{../browser/options.html}}",
 	"icons": {
 		"128": "{{../images/icon128.png}}",
 		"48": "{{../images/icon48.png}}",
@@ -16,6 +15,7 @@
 			"38": "{{../images/css-on.png}}"
 		}
 	},
+	"options_page": "{{../browser/options.html}}",
 	"background": {
 		"scripts": [
 			"{{./edge.entry.js}}",

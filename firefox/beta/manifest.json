@@ -3,6 +3,7 @@
 	"name": "{{prop-loader?title!../../package.json}} - Beta",
 	"version": "{{prop-loader?version!../../package.json}}beta",
 	"description": "{{prop-loader?description!../../package.json}}",
+	"author": "{{prop-loader?author!../../package.json}}",
 	"homepage_url": "{{prop-loader?homepage!../../package.json}}",
 	"applications": {
 		"gecko": {
@@ -19,6 +20,10 @@
 			"19": "{{../../images/css-on-small.png}}",
 			"38": "{{../../images/css-on.png}}"
 		}
+	},
+	"options_ui": {
+		"page": "{{../../browser/options.html}}",
+		"open_in_tab": true
 	},
 	"background": {
 		"scripts": [
