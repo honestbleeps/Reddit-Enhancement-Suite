@@ -3,6 +3,7 @@
 	"name": "{{prop-loader?title!../package.json}}",
 	"version": "{{prop-loader?version!../package.json}}",
 	"description": "{{prop-loader?description!../package.json}}",
+	"author": "{{prop-loader?author!../package.json}}",
 	"homepage_url": "{{prop-loader?homepage!../package.json}}",
 	"applications": {
 		"gecko": {

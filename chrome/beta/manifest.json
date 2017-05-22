@@ -3,6 +3,7 @@
 	"name": "{{prop-loader?title!../../package.json}} - Beta",
 	"version": "{{prop-loader?version!../../package.json}}",
 	"description": "{{prop-loader?description!../../package.json}}",
+	"author": "{{prop-loader?author!../../package.json}}",
 	"homepage_url": "{{prop-loader?homepage!../../package.json}}",
 	"minimum_chrome_version": "57",
 	"minimum_opera_version": "44",
