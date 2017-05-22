@@ -125,8 +125,8 @@ function deployFirefoxBeta() {
 		issuer: process.env.FIREFOX_ISSUER,
 		secret: process.env.FIREFOX_SECRET,
 		id: 'jid1-xUfzOsOFlzSOXg@jetpack',
-		version: require('../dist/firefox-beta/package.json').version, // eslint-disable-line global-require,
-		src: fs.createReadStream(path.join(__dirname, '../dist/firefox-beta/reddit-enhancement-suite.xpi')),
+		version: require('../dist/firefox-beta/manifest.json').version, // eslint-disable-line global-require
+		src: fs.createReadStream(path.join(__dirname, '../dist/zip/firefox-beta.zip')),
 	}).then(() => {
 		console.log('Firefox beta deployment complete!');
 	}, err => {
@@ -142,8 +142,8 @@ function deployFirefoxStable() {
 		issuer: process.env.FIREFOX_ISSUER,
 		secret: process.env.FIREFOX_SECRET,
 		id: 'jid1-xUfzOsOFlzSOXg@jetpack',
-		version: require('../dist/firefox/package.json').version, // eslint-disable-line global-require,
-		src: fs.createReadStream(path.join(__dirname, '../dist/firefox/reddit-enhancement-suite.xpi')),
+		version: require('../dist/firefox/manifest.json').version, // eslint-disable-line global-require
+		src: fs.createReadStream(path.join(__dirname, '../dist/zip/firefox.zip')),
 	}).then(() => {
 		console.log('Firefox stable deployment complete!');
 	}, err => {

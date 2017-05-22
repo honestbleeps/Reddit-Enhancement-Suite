@@ -12,8 +12,7 @@ https://developer.chrome.com/webstore/publish
 
 https://developer.mozilla.org/en-US/Add-ons/Distribution
 
-1. Run `npm run jpm xpi` or `npm run jpm-beta xpi` (for beta releases)
-1. Upload `reddit-enhancement-suite.xpi` to https://addons.mozilla.org/en-US/developers/addon/submit/1
+1. Upload `firefox.zip` to https://addons.mozilla.org/en-US/developers/addon/submit/1
 
 ## Edge
 

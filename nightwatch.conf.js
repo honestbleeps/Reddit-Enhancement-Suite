@@ -3,7 +3,7 @@
 const fs = require('fs');
 const JSZip = require('jszip');
 const chromeManifest = require('./chrome/manifest.json');
-const firefoxManifest = require('./firefox/package.json');
+const firefoxManifest = require('./firefox/manifest.json');
 
 module.exports = {
 	src_folders: ['tests'],
@@ -51,7 +51,7 @@ function getChromePackage() {
 
 function getFirefoxProfile() {
 	const zip = new JSZip();
-	zip.file(`extensions/${firefoxManifest.id}.xpi`, fs.readFileSync('dist/firefox/reddit-enhancement-suite.xpi'));
+	zip.file(`extensions/${firefoxManifest.applications.gecko.id}.xpi`, fs.readFileSync('dist/zip/firefox.zip'));
 	zip.file('prefs.js', 'user_pref("xpinstall.signatures.required", false);');
 	return zip.generate({ type: 'base64' });
 }
