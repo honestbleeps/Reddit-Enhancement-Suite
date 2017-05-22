@@ -4,8 +4,8 @@
 	"version": "{{prop-loader?version!../../package.json}}",
 	"description": "{{prop-loader?description!../../package.json}}",
 	"homepage_url": "{{prop-loader?homepage!../../package.json}}",
-	"minimum_chrome_version": "55",
-	"minimum_opera_version": "42",
+	"minimum_chrome_version": "57",
+	"minimum_opera_version": "44",
 	"options_page": "{{../../browser/options.html}}",
 	"icons": {
 		"48": "{{../../images/beta48.png}}",
