@@ -77,6 +77,12 @@ body.res-console-open {
 			overflow: hidden; // try to smooth the transition
 		}
 	}
+	
+	*, :before, :after {
+		-webkit-box-sizing: content-box;
+		-moz-box-sizing: content-box;
+		box-sizing: content-box;	
+	}
 
 	em {
 		font-style: italic;
