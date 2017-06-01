@@ -1,3 +1,5 @@
+/* @flow */
+
 /* eslint-env webextensions */
 
 import { addListener } from '../browser/background';

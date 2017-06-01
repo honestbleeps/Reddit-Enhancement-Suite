@@ -1,3 +1,5 @@
+/* @flow */
+
 // https://github.com/marudor/flowInterfaces/blob/3fe07b33cae783b17ccc974f3bfd6010637d0d1a/packages/iflow-jquery/index.js.flow
 // reordered/merged some overloaded function definitions for better inference
 // disabled one permutation of `$.fn.on` because it conflicts with delegated listeners (and we don't use it)

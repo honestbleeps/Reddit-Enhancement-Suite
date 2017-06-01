@@ -1,3 +1,5 @@
+/* @flow */
+
 declare module 'element-resize-detector' {
 	declare class ElementResizeDetector {
 		listenTo(element: HTMLElement, callback: (e: HTMLElement) => void): void;

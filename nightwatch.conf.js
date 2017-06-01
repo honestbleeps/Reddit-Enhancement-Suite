@@ -1,3 +1,5 @@
+/* @noflow */
+
 /* eslint-disable import/no-commonjs, import/no-nodejs-modules */
 
 const fs = require('fs');

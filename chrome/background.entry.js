@@ -1,3 +1,5 @@
+/* @flow */
+
 /* eslint-env webextensions */
 
 import { addListener } from '../browser/background';
@@ -54,7 +56,7 @@ addListener('permissions', ({ operation, permissions, origins }) => {
 	if (localStorage.getItem(MIGRATED_TO_CHROME_STORAGE) !== MIGRATED_TO_CHROME_STORAGE) {
 		await Promise.all(Object.keys(localStorage).map(async key => {
 			try {
-				await set(key, JSON.parse(localStorage.getItem(key)));
+				await set(key, JSON.parse((localStorage.getItem(key): any)));
 				console.log(key);
 			} catch (e) {
 				await set(key, localStorage.getItem(key));

@@ -1,3 +1,5 @@
+/* @flow */
+
 /* eslint-env webextensions */
 
 import { keyedMutex } from '../lib/utils/async';

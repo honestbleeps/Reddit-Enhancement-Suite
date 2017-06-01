@@ -1,6 +1,10 @@
+/* @flow */
+
 /* eslint-env webextensions */
+/* eslint-disable quote-props */
 
 // include the LICENSE file
+// $FlowIgnore
 import 'file-loader?name=LICENSE!../LICENSE';
 
 import cssOff from '../images/css-off.png';
@@ -97,8 +101,8 @@ addListener('pageAction', ({ operation, state }, { id: tabId }) => {
 			chrome.pageAction.setIcon({
 				tabId,
 				path: {
-					19: state ? cssOnSmall : cssOffSmall,
-					38: state ? cssOn : cssOff,
+					'19': state ? cssOnSmall : cssOffSmall,
+					'38': state ? cssOn : cssOff,
 				},
 			});
 			chrome.pageAction.setTitle({

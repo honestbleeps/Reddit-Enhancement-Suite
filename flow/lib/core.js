@@ -1,3 +1,5 @@
+/* @flow */
+
 // https://github.com/facebook/flow/blob/303c9efd1aa2e9230a7283176af961bb85e2356e/lib/core.js#L28
 
 // specialize Object.entries and Object.values for known object types

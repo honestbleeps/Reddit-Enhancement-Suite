@@ -1,6 +1,8 @@
+/* @flow */
+
 /* eslint-env webextensions */
 
-export function apiToPromise(func) {
+export function apiToPromise(func: (...args: mixed[]) => void): (...args: mixed[]) => Promise<any> {
 	return (...args) =>
 		new Promise((resolve, reject) =>
 			func(...args, (...results) => {

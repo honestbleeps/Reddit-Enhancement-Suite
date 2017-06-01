@@ -1,3 +1,5 @@
+/* @flow */
+
 import _ from 'lodash';
 
 const localesContext = require.context('./locales', false, /\.json$/);

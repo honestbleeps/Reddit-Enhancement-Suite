@@ -1,3 +1,5 @@
+/* @flow */
+
 declare module 'snudown-js' {
 	declare var version: string;
 

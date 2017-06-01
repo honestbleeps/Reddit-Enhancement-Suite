@@ -1,3 +1,5 @@
+/* @flow */
+
 /* eslint-disable import/no-commonjs, import/no-nodejs-modules */
 
 const { execSync } = require('child_process');
