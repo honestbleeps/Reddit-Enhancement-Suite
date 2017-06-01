@@ -5,25 +5,18 @@ import test from 'ava';
 import { createMessageHandler } from '../messaging';
 
 function createPair(onListenerError) {
-	const { _handleMessage: _handleMessageA, ...a } = createMessageHandler((info, context) => {
-		Promise.resolve().then(() => _handleMessageB(info, context));
-	}, onListenerError);
+	const { _handleMessage: _handleMessageA, ...a } = createMessageHandler(
+		(info, context) => Promise.resolve().then(() => new Promise(resolve => _handleMessageB(info, resolve, context))),
+		onListenerError
+	);
 
-	const { _handleMessage: _handleMessageB, ...b } = createMessageHandler((info, context) => {
-		Promise.resolve().then(() => _handleMessageA(info, context));
-	}, onListenerError);
+	const { _handleMessage: _handleMessageB, ...b } = createMessageHandler(
+		(info, context) => Promise.resolve().then(() => new Promise(resolve => _handleMessageA(info, resolve, context))),
+		onListenerError
+	);
 
 	return { a, b };
 }
-
-test('context for sending responses', t => {
-	t.plan(1);
-	const { _handleMessage, addListener } = createMessageHandler((info, context) => {
-		t.is(context, 7);
-	});
-	addListener('foo', x => x);
-	_handleMessage({ type: 'foo', transaction: 0 }, 7);
-});
 
 test('adding duplicate listener', t => {
 	const { a: { addListener } } = createPair();
