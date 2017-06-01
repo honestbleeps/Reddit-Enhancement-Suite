@@ -9,6 +9,20 @@ addListener('addURLToHistory', url => {
 	chrome.history.addUrl({ url });
 });
 
+addListener('authFlow', async ({ domain, clientId, scope, interactive }) => {
+	const url = new URL(domain);
+	url.searchParams.set('client_id', clientId);
+	url.searchParams.set('scope', scope);
+	url.searchParams.set('redirect_uri', chrome.identity.getRedirectURL());
+	url.searchParams.set('response_type', 'token');
+
+	const responseUrl = await apiToPromise(chrome.identity.launchWebAuthFlow)({ interactive, url: url.href });
+
+	const hash = new URL(responseUrl).hash.slice(1);
+
+	return new URLSearchParams(hash).get('access_token');
+});
+
 addListener('isURLVisited', async url =>
 	(await apiToPromise(chrome.history.getVisits)({ url })).length > 0
 );
