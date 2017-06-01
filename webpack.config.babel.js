@@ -1,3 +1,5 @@
+/* @noflow */
+
 /* eslint-disable import/no-nodejs-modules */
 
 import path from 'path';

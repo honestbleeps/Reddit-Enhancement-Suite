@@ -1,3 +1,5 @@
+/* @noflow */
+
 /* eslint-disable import/no-commonjs */
 
 const autoprefixer = require('autoprefixer');

@@ -1,3 +1,5 @@
+/* @flow */
+
 type MutationObserverInit = {
 	childList?: boolean,
 	attributes?: boolean,

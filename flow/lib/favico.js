@@ -1,3 +1,5 @@
+/* @flow */
+
 declare module 'favico.js' {
 	declare type FavicoOptions = {
 		bgColor?: string,

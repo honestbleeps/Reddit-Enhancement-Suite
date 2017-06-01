@@ -1,3 +1,5 @@
+/* @noflow */
+
 /* Microsoft Edge Support */
 
 // polyfill DOM4 methods

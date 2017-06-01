@@ -1,42 +1,40 @@
 /* @flow */
 
-type MessagePayload = {
+type MessagePayload = {|
 	type: string,
-	transaction: number,
+	data?: mixed,
+|};
+
+type ResponsePayload = {|
 	data?: mixed,
 	error?: string,
-	isResponse?: boolean,
-};
+|};
 
-type InternalMessageSender<Ctx> = (msg: MessagePayload, context: Ctx) => void;
+type InternalMessageSender<MsgCtx> = (msg: MessagePayload, context: MsgCtx) => Promise<ResponsePayload>;
 
-type InternalMessageHandler<Ctx> = (msg: MessagePayload, context: Ctx) => boolean;
+type InternalMessageHandler<ListenerCtx> = (msg: MessagePayload, sendResponse: (response: ResponsePayload) => void, context: ListenerCtx) => boolean;
 
-export type MessageSender<Ctx> = (type: string, data: mixed, context: Ctx) => Promise<mixed>;
+export type MessageSender<MsgCtx> = (type: string, data: mixed, context: MsgCtx) => Promise<any>;
 
-export type SynchronousMessageSender<Ctx> = (type: string, data: mixed, context: Ctx) => mixed;
+export type SynchronousMessageSender<MsgCtx> = (type: string, data: mixed, context: MsgCtx) => any;
 
 export type AddListener<Ctx> = (type: string, callback: ListenerCallback<Ctx>) => void;
 
 type ListenerCallback<Ctx> = (data: any, context: Ctx) => Promise<mixed> | mixed;
 
-type HandlerFunctions<Ctx> = {
-	_handleMessage: InternalMessageHandler<Ctx>,
-	sendMessage: MessageSender<Ctx>,
-	sendSynchronous: SynchronousMessageSender<Ctx>,
-	addListener: AddListener<Ctx>,
-	addInterceptor: AddListener<Ctx>,
-};
-
 function isPromise(maybePromise) {
 	return maybePromise && typeof maybePromise === 'object' && typeof maybePromise.then === 'function';
 }
 
-export function createMessageHandler<Ctx>(_sendMessage: InternalMessageSender<Ctx>, _onListenerError: (e: mixed) => void = e => console.error(e)): HandlerFunctions<Ctx> {
+export function createMessageHandler<MsgCtx, ListenerCtx>(_sendMessage: InternalMessageSender<MsgCtx>, _onListenerError: (e: mixed) => void = e => console.error(e)): {|
+	_handleMessage: InternalMessageHandler<ListenerCtx>,
+	sendMessage: MessageSender<MsgCtx>,
+	sendSynchronous: SynchronousMessageSender<MsgCtx>,
+	addListener: AddListener<ListenerCtx>,
+	addInterceptor: AddListener<MsgCtx>,
+|} {
 	const listeners = new Map();
 	const interceptors = new Map();
-	const waiting = new Map();
-	let transaction = 0;
 
 	function addListener(type, callback) {
 		if (listeners.has(type)) {
@@ -66,11 +64,13 @@ export function createMessageHandler<Ctx>(_sendMessage: InternalMessageSender<Ct
 			}
 		}
 
-		++transaction;
-
-		_sendMessage({ type, data, transaction }, context);
-
-		return new Promise((resolve, reject) => waiting.set(transaction, { resolve, reject }));
+		return _sendMessage({ type, data }, context).then(({ data, error }) => {
+			if (error) {
+				throw new Error(`Error in target's "${type}" handler: ${error}`);
+			} else {
+				return data;
+			}
+		});
 	}
 
 	function sendSynchronous(type, data, context) {
@@ -86,27 +86,7 @@ export function createMessageHandler<Ctx>(_sendMessage: InternalMessageSender<Ct
 		}
 	}
 
-	function _handleMessage({ type, data, transaction, error, isResponse }, context) {
-		if (isResponse) {
-			const handler = waiting.get(transaction);
-			if (!handler) {
-				throw new Error(`No "${type}" response handler (transaction ${transaction}) - this should never happen.`);
-			}
-			waiting.delete(transaction);
-
-			if (error) {
-				handler.reject(new Error(`Error in target's "${type}" handler: ${error}`));
-			} else {
-				handler.resolve(data);
-			}
-
-			return false;
-		}
-
-		function sendResponse({ data, error }: { data?: mixed, error?: string }) {
-			_sendMessage({ type, data, transaction, error, isResponse: true }, context);
-		}
-
+	function _handleMessage({ type, data }, sendResponse, context) {
 		const listener = listeners.get(type);
 		if (!listener) {
 			sendResponse({ error: `Unrecognised message type: ${type}` });

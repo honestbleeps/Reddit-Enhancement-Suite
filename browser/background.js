@@ -1,6 +1,10 @@
+/* @flow */
+
 /* eslint-env webextensions */
+/* eslint-disable quote-props */
 
 // include the LICENSE file
+// $FlowIgnore
 import 'file-loader?name=LICENSE!../LICENSE';
 
 import cssOff from '../images/css-off.png';
@@ -18,17 +22,9 @@ const {
 	_handleMessage,
 	sendMessage,
 	addListener,
-} = createMessageHandler(({ transaction, isResponse, ...obj }, { sendResponse, tabId }) => {
-	if (isResponse) {
-		sendResponse(obj);
-	} else {
-		_sendMessage(tabId, obj).then(obj => {
-			_handleMessage({ ...obj, transaction, isResponse: true });
-		});
-	}
-});
+} = createMessageHandler((obj, tabId) => _sendMessage(tabId, obj));
 
-chrome.runtime.onMessage.addListener((obj, sender, sendResponse) => _handleMessage(obj, { ...sender.tab, sendResponse }));
+chrome.runtime.onMessage.addListener((obj, sender, sendResponse) => _handleMessage(obj, sendResponse, sender.tab));
 
 export {
 	sendMessage,
@@ -90,12 +86,12 @@ addListener('multicast', async (request, { id: tabId, incognito }) => {
 	return Promise.all(
 		(await apiToPromise(chrome.tabs.query)({ url: '*://*.reddit.com/*', status: 'complete' }))
 			.filter(tab => tab.id !== tabId && tab.incognito === incognito)
-			.map(({ id: tabId }) => sendMessage('multicast', request, { tabId }))
+			.map(({ id: tabId }) => sendMessage('multicast', request, tabId))
 	);
 });
 
 chrome.pageAction.onClicked.addListener(({ id: tabId }) => {
-	sendMessage('pageActionClick', undefined, { tabId });
+	sendMessage('pageActionClick', undefined, tabId);
 });
 
 addListener('pageAction', ({ operation, state }, { id: tabId }) => {
@@ -105,8 +101,8 @@ addListener('pageAction', ({ operation, state }, { id: tabId }) => {
 			chrome.pageAction.setIcon({
 				tabId,
 				path: {
-					19: state ? cssOnSmall : cssOffSmall,
-					38: state ? cssOn : cssOff,
+					'19': state ? cssOnSmall : cssOffSmall,
+					'38': state ? cssOn : cssOff,
 				},
 			});
 			chrome.pageAction.setTitle({

@@ -1,3 +1,5 @@
+/* @flow */
+
 /* eslint-env webextensions */
 
 import { keyedMutex } from '../lib/utils/async';
@@ -13,15 +15,7 @@ const {
 	sendSynchronous,
 	addListener,
 	addInterceptor,
-} = createMessageHandler(({ transaction, isResponse, ...obj }, sendResponse) => {
-	if (isResponse) {
-		sendResponse(obj);
-	} else {
-		_sendMessage(obj).then(obj => {
-			_handleMessage({ ...obj, transaction, isResponse: true });
-		});
-	}
-});
+} = createMessageHandler(obj => _sendMessage(obj));
 
 chrome.runtime.onMessage.addListener((obj, sender, sendResponse) => _handleMessage(obj, sendResponse));
 

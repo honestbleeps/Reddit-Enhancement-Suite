@@ -1,3 +1,5 @@
+/* @flow */
+
 declare module 'suncalc' {
 	declare function getPosition(date: Date, lat: number, long: number): {
 		azimuth: number,

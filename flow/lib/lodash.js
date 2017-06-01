@@ -1,3 +1,5 @@
+/* @flow */
+
 // https://github.com/marudor/flowInterfaces/blob/3fe07b33cae783b17ccc974f3bfd6010637d0d1a/packages/iflow-lodash/index.js.flow
 // modified to make higher-order functions under "Function" generic over the function type
 // also fixed zip/zipWith typings
