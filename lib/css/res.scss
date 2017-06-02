@@ -840,6 +840,7 @@ div.usertext-edit {
 	font-size: 12px;
 	border: 1px solid #636363;
 	border-radius: 3px;
+	overflow: hidden; // Contain the spinner when executing callback
 }
 
 a.RESConsoleButton {
