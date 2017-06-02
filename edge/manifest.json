@@ -18,6 +18,7 @@
 	"options_page": "{{../browser/options.html}}",
 	"background": {
 		"scripts": [
+			"{{file-loader?name=[name].[ext]!url-search-params/build/url-search-params.js}}",
 			"{{./edge.entry.js}}",
 			"{{./background.entry.js}}"
 		],
@@ -28,6 +29,7 @@
 			"https://*.reddit.com/*"
 		],
 		"js": [
+			"{{file-loader?name=[name].[ext]!url-search-params/build/url-search-params.js}}",
 			"{{./edge.entry.js}}",
 			"{{../lib/main.entry.js}}"
 		],
@@ -35,13 +37,6 @@
 			"{{../lib/css/res.scss}}"
 		],
 		"run_at": "document_start"
-	}, {
-		"matches": [
-			"https://redditenhancementsuite.com/oauth"
-		],
-		"js": [
-			"{{./authResponder.entry.js}}"
-		]
 	}],
 	"permissions": [
 		"cookies",
