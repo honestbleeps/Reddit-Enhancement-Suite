@@ -35,9 +35,17 @@
 			"{{../lib/css/res.scss}}"
 		],
 		"run_at": "document_start"
+	}, {
+		"matches": [
+			"https://redditenhancementsuite.com/oauth"
+		],
+		"js": [
+			"{{./authResponder.entry.js}}"
+		]
 	}],
 	"permissions": [
 		"cookies",
+		"identity",
 		"tabs",
 		"storage",
 		"unlimitedStorage",

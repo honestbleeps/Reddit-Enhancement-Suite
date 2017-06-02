@@ -45,39 +45,6 @@ addListener('ajax', async ({ method, url, headers, data }) => {
 	};
 });
 
-const waiting = new Map();
-addListener('authFlow', ({ operation, id, token }) => {
-	switch (operation) {
-		case 'start':
-			if (waiting.has(id)) {
-				throw new Error(`Auth handler for id: ${id} already exists.`);
-			}
-			return new Promise((resolve, reject) => waiting.set(id, { resolve, reject }));
-		case 'complete': {
-			const handler = waiting.get(id);
-			if (!handler) {
-				console.error(`No auth handler for id: ${id} (sent token: ${token}).`);
-				return false;
-			}
-			waiting.delete(id);
-			handler.resolve(token);
-			return true;
-		}
-		case 'cancel': {
-			const handler = waiting.get(id);
-			if (!handler) {
-				console.error(`No auth handler for id: ${id} (attempted cancellation).`);
-				return false;
-			}
-			waiting.delete(id);
-			handler.reject(new Error('Auth flow cancelled.'));
-			return true;
-		}
-		default:
-			throw new Error(`Invalid authFlow operation: ${operation}`);
-	}
-});
-
 addListener('i18n', locale => getLocaleDictionary(locale));
 
 // Chakra bug https://github.com/Microsoft/ChakraCore/issues/2606
