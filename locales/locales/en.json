@@ -1636,7 +1636,7 @@
 		"message": "Reload Warning"
 	},
 	"backupAndRestoreReloadWarningDesc": {
-		"message": "When restoring a backup, either manually or automatically, how should other tabs be reloaded? Tabs must be reloaded for restored settings to take effect."
+		"message": "After restoring a backup, either manually or automatically, how should other tabs be reloaded? Tabs must be reloaded for restored settings to take effect."
 	},
 	"backupAndRestoreReloadWarningNone": {
 		"message": "Do nothing."
@@ -1646,6 +1646,18 @@
 	},
 	"backupAndRestoreReloadWarningAuto": {
 		"message": "Automatically reload other tabs."
+	},
+	"backupAndRestoreAutomaticBackupsTitle": {
+		"message": "Automatic Backups"
+	},
+	"backupAndRestoreAutomaticBackupsDesc": {
+		"message": "WARNING: THIS OPTION IS EXPERIMENTAL AND MAY DELETE ALL OF YOUR SETTINGS, TAGS, ETC. AT ANY TIME.\n\nSync your backups to the specified provider.\n\nOn pageload, every five minutes, if a new backup is detected, it will be imported, replacing all settings. Otherwise, a new backup will be created. Changes aren't (and will not be) reconciled, so if you quickly switch between two computers you may lose some changes."
+	},
+	"backupAndRestoreWarnBeforeAutomaticRestoreTitle": {
+		"message": "Warn Before Automatic Restore"
+	},
+	"backupAndRestoreWarnBeforeAutomaticRestoreDesc": {
+		"message": "Before automatically restoring a backup, should a warning be shown?"
 	},
 	"backupAndRestoreBackupTitle": {
 		"message": "Backup"
@@ -1664,6 +1676,9 @@
 	},
 	"backupAndRestoreImportedOtherTabs": {
 		"message": "Storage has been imported in another tab. Reload for settings to take effect?"
+	},
+	"backupAndRestoreSavedNotification": {
+		"message": "Backup saved to $1."
 	},
 	"betteRedditCommentsLinksNewTabTitle": {
 		"message": "Comments Links New Tabs"
