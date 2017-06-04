@@ -11,7 +11,7 @@ module.exports = {
 		browser
 			.url('https://www.reddit.com/r/RESIntegrationTests/comments/5mzxff/comment_quick_collapse/')
 			.waitForElementVisible(comment)
-			.moveToElement(`${comment} .author`, 0, 0)
+			.moveToElement(`${comment} time`, 0, 0)
 			.doubleClick()
 			.assert.cssClassPresent(comment, 'collapsed')
 			.end();
