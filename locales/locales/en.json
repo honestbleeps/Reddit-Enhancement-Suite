@@ -1632,6 +1632,21 @@
 	"accountSwitcherDropDownStyleDesc": {
 		"message": "Use the \"snoo\" icon, or older style dropdown?"
 	},
+	"backupAndRestoreReloadWarningTitle": {
+		"message": "Reload Warning"
+	},
+	"backupAndRestoreReloadWarningDesc": {
+		"message": "When restoring a backup, either manually or automatically, how should other tabs be reloaded? Tabs must be reloaded for restored settings to take effect."
+	},
+	"backupAndRestoreReloadWarningNone": {
+		"message": "Do nothing."
+	},
+	"backupAndRestoreReloadWarningWarn": {
+		"message": "Open a prompt to reload other tabs."
+	},
+	"backupAndRestoreReloadWarningAuto": {
+		"message": "Automatically reload other tabs."
+	},
 	"backupAndRestoreBackupTitle": {
 		"message": "Backup"
 	},
@@ -1643,6 +1658,12 @@
 	},
 	"backupAndRestoreRestoreDesc": {
 		"message": "Restore a backup of your RES settings. Warning: This will overwrite your current settings."
+	},
+	"backupAndRestoreImported": {
+		"message": "Your RES storage has been imported. Reloading reddit."
+	},
+	"backupAndRestoreImportedOtherTabs": {
+		"message": "Storage has been imported in another tab. Reload for settings to take effect?"
 	},
 	"betteRedditCommentsLinksNewTabTitle": {
 		"message": "Comments Links New Tabs"
