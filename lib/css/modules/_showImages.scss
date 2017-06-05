@@ -198,6 +198,14 @@ img {
 	display: block;
 	clear: left; // Necessary on some custom stylesheets where .entry .flat-list has no height
 
+	.res-expando-box-inner {
+		// Reset a few possible parent styles
+		font-style: normal; // Italics
+		font-weight: normal; // Bold
+		white-space: normal; // Whitespace nowrap
+		display: inline-block; // Strikethrough
+	}
+
 	.usertext-body {
 		user-select: text; // Allow selection if is a text expando
 	}
