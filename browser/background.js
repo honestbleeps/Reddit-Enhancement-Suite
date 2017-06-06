@@ -40,6 +40,7 @@ addListener('ajax', async ({ method, url, headers, data }) => {
 	});
 
 	return {
+		ok: rawResponse.ok,
 		status: rawResponse.status,
 		text: await rawResponse.text(),
 	};
