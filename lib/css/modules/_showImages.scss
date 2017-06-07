@@ -89,28 +89,27 @@ img {
 }
 
 .res-expando-siteAttribution {
-	display: block;
+	display: flex;
+	align-items: center;
 
-	.res-expando-box > & {
+	&-generic {
 		clear: left;
 		margin: .5em;
+	}
 
-		a {
-			display: block;
+	> a:first-of-type {
+		display: flex;
+		align-items: center;
+		color: inherit;
+
+		> img {
+			max-height: 20px;
+			margin-right: 4px;
 		}
 	}
 
-	a {
-		vertical-align: middle;
-		color: inherit;
-	}
-
-	img {
-		max-height: 20px;
-		vertical-align: middle;
-	}
-
 	.gearIcon {
+		margin-left: 4px;
 		opacity: .3;
 
 		&:hover,
