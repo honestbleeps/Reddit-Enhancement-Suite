@@ -7,6 +7,7 @@
 // $FlowIgnore
 import 'file-loader?name=LICENSE!../LICENSE';
 
+import _ from 'lodash';
 import cssOff from '../images/css-off.png';
 import cssOffSmall from '../images/css-off-small.png';
 import cssOn from '../images/css-on.png';
@@ -42,6 +43,7 @@ addListener('ajax', async ({ method, url, headers, data }) => {
 	return {
 		ok: rawResponse.ok,
 		status: rawResponse.status,
+		headers: _.fromPairs(Array.from(rawResponse.headers.entries())),
 		text: await rawResponse.text(),
 	};
 });
