@@ -1,6 +1,6 @@
 sudo: false
 language: node_js
-node_js: 7
+node_js: 8
 branches:
   only:
     - master
@@ -39,8 +39,6 @@ cache:
 install:
   - yarn install --frozen-lockfile
 matrix:
-  exclude:
-    - node_js: 7 # exclude default job https://github.com/travis-ci/travis-ci/issues/4681
   include:
     - env: RES_JOB=lint_flow
       script:
