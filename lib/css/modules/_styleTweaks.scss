@@ -134,6 +134,29 @@ blockquote.twitter-tweet {
 	}
 }
 
+.res-styleTweaks-hideCommentButtons {
+
+	.commentarea .comment .entry{
+		transition: padding-bottom 200ms ease;
+
+		.flat-list.buttons{
+			position: absolute;
+			left: -9999px;
+			opacity: 0;
+			transition: 200ms;
+		}
+	}
+
+	.commentarea .comment.noncollapsed>.entry.RES-keyNav-activeElement{
+		padding-bottom: 20px;
+
+		.flat-list.buttons{
+			opacity: 1;
+			left: auto;
+		}
+	}
+}
+
 .res-srstyle-disabled {
 	#header-img-a {
 		display: inline-block;
@@ -147,3 +170,4 @@ blockquote.twitter-tweet {
 	display: flex;
 	align-items: center;
 }
+
