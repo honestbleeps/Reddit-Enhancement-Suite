@@ -9,8 +9,7 @@ import { apiToPromise } from '../browser/utils/api';
 addListener('addURLToHistory', () => {});
 addListener('isURLVisited', () => false);
 
-addListener('authFlow', async ({ domain, clientId, scope, interactive }, { index: currentIndex }) => {
-	const redirectUri = 'https://redditenhancementsuite.com/oauth';
+addListener('authFlow', async ({ domain, clientId, scope, redirectUri, interactive }, { index: currentIndex }) => {
 	const url = new URL(domain);
 	url.searchParams.set('client_id', clientId);
 	url.searchParams.set('scope', scope);
