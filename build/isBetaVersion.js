@@ -4,4 +4,6 @@
 
 const semver = require('semver');
 
-module.exports = (version: string) => (semver.minor(version) % 2 === 1);
+module.exports = function isBetaVersion(version /*: string */) /*: boolean */ {
+	return (semver.minor(version) % 2) === 1;
+};
