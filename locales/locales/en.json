@@ -1651,13 +1651,13 @@
 		"message": "Automatic Backups"
 	},
 	"backupAndRestoreAutomaticBackupsDesc": {
-		"message": "WARNING: THIS OPTION IS EXPERIMENTAL AND MAY DELETE ALL OF YOUR SETTINGS, TAGS, ETC. AT ANY TIME.\n\nSync your backups to the specified provider.\n\nOn pageload, every five minutes, if a new backup is detected, it will be imported, replacing all settings. Otherwise, a new backup will be created. Changes aren't (and will not be) reconciled, so if you quickly switch between two computers you may lose some changes."
+		"message": "Sync your backups to the specified provider.\n\nSyncing will occur on pageload every five minutes.\n\nIndividual changes are not tracked, so if you use two computers simultaneously, some data may be lost."
 	},
 	"backupAndRestoreWarnBeforeAutomaticRestoreTitle": {
 		"message": "Warn Before Automatic Restore"
 	},
 	"backupAndRestoreWarnBeforeAutomaticRestoreDesc": {
-		"message": "Before automatically restoring a backup, should a warning be shown?"
+		"message": "Before automatically restoring a backup, should a popup ask for confirmation?\n\nWarning: if this option is disabled and something goes wrong, your settings may be silently deleted. Use at your own risk."
 	},
 	"backupAndRestoreBackupTitle": {
 		"message": "Backup"
