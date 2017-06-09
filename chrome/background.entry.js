@@ -4,19 +4,24 @@
 
 import { addListener } from '../browser/background';
 import { apiToPromise } from '../browser/utils/api';
+import { emulateAuthFlow } from '../browser/utils/auth';
 
 addListener('addURLToHistory', url => {
 	chrome.history.addUrl({ url });
 });
 
-addListener('authFlow', ({ domain, clientId, scope, interactive }) => {
-	const url = new URL(domain);
-	url.searchParams.set('client_id', clientId);
-	url.searchParams.set('scope', scope);
-	url.searchParams.set('response_type', 'token');
-	url.searchParams.set('redirect_uri', chrome.identity.getRedirectURL('reddit-enhancement-suite'));
+addListener('authFlow', ({ domain, clientId, scope, interactive, allowChromiumRedirect }, { index }) => {
+	if (allowChromiumRedirect) {
+		const url = new URL(domain);
+		url.searchParams.set('client_id', clientId);
+		url.searchParams.set('scope', scope);
+		url.searchParams.set('response_type', 'token');
+		url.searchParams.set('redirect_uri', chrome.identity.getRedirectURL('reddit-enhancement-suite'));
 
-	return apiToPromise(chrome.identity.launchWebAuthFlow)({ url: url.href, interactive });
+		return apiToPromise(chrome.identity.launchWebAuthFlow)({ url: url.href, interactive });
+	} else {
+		return emulateAuthFlow({ domain, clientId, scope, interactive, currentTabIndex: index });
+	}
 });
 
 addListener('isURLVisited', async url =>
