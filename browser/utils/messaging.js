@@ -26,7 +26,7 @@ function isPromise(maybePromise) {
 	return maybePromise && typeof maybePromise === 'object' && typeof maybePromise.then === 'function';
 }
 
-export function createMessageHandler<MsgCtx, ListenerCtx>(_sendMessage: InternalMessageSender<MsgCtx>, _onListenerError: (e: mixed) => void = e => console.error(e)): {|
+export function createMessageHandler<MsgCtx, ListenerCtx>(_sendMessage: InternalMessageSender<MsgCtx>): {|
 	_handleMessage: InternalMessageHandler<ListenerCtx>,
 	sendMessage: MessageSender<MsgCtx>,
 	sendSynchronous: SynchronousMessageSender<MsgCtx>,
@@ -56,10 +56,14 @@ export function createMessageHandler<MsgCtx, ListenerCtx>(_sendMessage: Internal
 			try {
 				const response = interceptor(data, context);
 				if (isPromise(response) /*:: && response instanceof Promise */) {
-					return response.catch(e => Promise.reject(new Error(`Error in "${type}" interceptor: ${e.message || e}`)));
+					return response.catch(e => {
+						console.error(e);
+						return Promise.reject(new Error(`Error in "${type}" interceptor: ${e.message || e}`));
+					});
 				}
 				return Promise.resolve(response);
 			} catch (e) {
+				console.error(e);
 				return Promise.reject(new Error(`Error in "${type}" interceptor: ${e.message || e}`));
 			}
 		}
@@ -82,6 +86,7 @@ export function createMessageHandler<MsgCtx, ListenerCtx>(_sendMessage: Internal
 		try {
 			return interceptor(data, context);
 		} catch (e) {
+			console.error(e);
 			throw new Error(`Error in "${type}" interceptor: ${e.message || e}`);
 		}
 	}
@@ -98,8 +103,8 @@ export function createMessageHandler<MsgCtx, ListenerCtx>(_sendMessage: Internal
 		try {
 			response = listener(data, context);
 		} catch (e) {
+			console.error(e);
 			sendResponse({ error: e.message || e });
-			_onListenerError(e);
 			return false;
 		}
 
@@ -108,8 +113,8 @@ export function createMessageHandler<MsgCtx, ListenerCtx>(_sendMessage: Internal
 				.then(
 					data => sendResponse({ data }),
 					e => {
+						console.error(e);
 						sendResponse({ error: e.message || e });
-						_onListenerError(e);
 					}
 				);
 			// true = response will be handled asynchronously (needed for Chrome)

@@ -4,19 +4,28 @@ import test from 'ava';
 
 import { createMessageHandler } from '../messaging';
 
-function createPair(onListenerError) {
-	const { _handleMessage: _handleMessageA, ...a } = createMessageHandler(
-		(info, context) => Promise.resolve().then(() => new Promise(resolve => _handleMessageB(info, resolve, context))),
-		onListenerError
+function createPair() {
+	const { _handleMessage: _handleMessageA, ...a } = createMessageHandler((info, context) =>
+		Promise.resolve().then(() => new Promise(resolve => _handleMessageB(info, resolve, context)))
 	);
 
-	const { _handleMessage: _handleMessageB, ...b } = createMessageHandler(
-		(info, context) => Promise.resolve().then(() => new Promise(resolve => _handleMessageA(info, resolve, context))),
-		onListenerError
+	const { _handleMessage: _handleMessageB, ...b } = createMessageHandler((info, context) =>
+		Promise.resolve().then(() => new Promise(resolve => _handleMessageA(info, resolve, context)))
 	);
 
 	return { a, b };
 }
+
+test.beforeEach(t => {
+	t.context._realConsoleError = console.error;
+	// $FlowIgnore
+	console.error = () => {};
+});
+
+test.afterEach(t => {
+	// $FlowIgnore
+	console.error = t.context._realConsoleError;
+});
 
 test('adding duplicate listener', t => {
 	const { a: { addListener } } = createPair();
@@ -113,8 +122,7 @@ test('synchronous interceptor with context', t => {
 });
 
 test('erroring backend handler', async t => {
-	t.plan(4);
-	const { a: { sendMessage }, b: { addListener } } = createPair(() => t.pass());
+	const { a: { sendMessage }, b: { addListener } } = createPair();
 	addListener('throwError', () => { throw new Error('foo'); });
 	addListener('rejectPromise', () => Promise.reject(new Error('bar')));
 
