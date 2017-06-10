@@ -175,6 +175,10 @@
         "message": "Ελαφρό σβήσιμο ή ολοκληρωτική απόκρυψη διπλών αναρτήσεων που ήδη υπάρχουν στη σελίδα",
         "description": ""
     },
+    "subredditManagerLinkProfilePostsDesc": {
+        "message": "show \"PROFILES\" link in subreddit manager.",
+        "description": ""
+    },
     "userHighlightFirstCommentColorHoverTitle": {
         "message": "First Comment Color Hover",
         "description": ""
@@ -607,6 +611,10 @@
         "message": "Transition",
         "description": ""
     },
+    "backupAndRestoreReloadWarningNone": {
+        "message": "Do nothing.",
+        "description": ""
+    },
     "profileNavigatorDesc": {
         "message": "Βελτιώσεις στο να πηγαίνεις σε διάφορα μέρη της σελίδας χρήστη σου.",
         "description": ""
@@ -739,6 +747,10 @@
         "message": "Ενημέρωση όλων των ανοιχτών καρτελών όταν ο RES ψάχνει για πορτοκαλοκόκκινα.",
         "description": ""
     },
+    "showImagesMediaBrowseTitle": {
+        "message": "Media Browse",
+        "description": ""
+    },
     "betteRedditScoreHiddenTimeLeftTitle": {
         "message": "Χρόνος που Απομένει στην Απόκρυψη Βαθμολογίας",
         "description": ""
@@ -828,7 +840,7 @@
         "description": ""
     },
     "backupAndRestoreBackupDesc": {
-        "message": "Κατέβασε ένα αντίγραφο ασφαλείας για τις παρούσες ρυθμίσεις του RES.",
+        "message": "Make a backup of your current RES state. Download it with \"File\", or upload it to a cloud backup provider.",
         "description": ""
     },
     "showImagesAutoMaxHeightTitle": {
@@ -1139,6 +1151,10 @@
         "message": "Επιστροφή στην προηγούμενη σελίδα",
         "description": ""
     },
+    "backupAndRestoreWarnBeforeAutomaticRestoreDesc": {
+        "message": "Before automatically restoring a backup, should a popup ask for confirmation?\n\nWarning: if this option is disabled and something goes wrong, your settings may be silently deleted. Use at your own risk.",
+        "description": ""
+    },
     "multiredditNavbarFadeSpeedDesc": {
         "message": "Fade animation's speed (in seconds).",
         "description": ""
@@ -1421,6 +1437,10 @@
     },
     "styleTweaksHighlightTopLevelSizeTitle": {
         "message": "Highlight Top Level Size",
+        "description": ""
+    },
+    "backupAndRestoreAutomaticBackupsTitle": {
+        "message": "Automatic Backups",
         "description": ""
     },
     "keyboardNavUpVoteWithoutTogglingDesc": {
@@ -1739,6 +1759,10 @@
         "message": "Highlight Spoiler Button",
         "description": ""
     },
+    "backupAndRestoreAutomaticBackupsDesc": {
+        "message": "Sync your backups to the specified provider.\n\nSyncing will occur periodically on pageload. Individual changes are not tracked, so if you use two computers simultaneously, some data may be lost.",
+        "description": ""
+    },
     "dashboardDefaultSortTitle": {
         "message": "Προεπιλεγμένη Ταξινόμηση",
         "description": ""
@@ -1957,6 +1981,10 @@
     },
     "keyboardNavImageMoveDownDesc": {
         "message": "Μετακινεί την/τις εικόνα/εικόνες στην επισημασμένη περιοχή ανάρτησης προς τα κάτω.",
+        "description": ""
+    },
+    "backupAndRestoreWarnBeforeAutomaticRestoreTitle": {
+        "message": "Warn Before Automatic Restore",
         "description": ""
     },
     "keyboardNavFollowPermalinkNewTabTitle": {
@@ -2299,6 +2327,10 @@
         "message": "Προσθέτει μια υπόμνηση με την αιώρηση του ποντικιού πάνω από τα υποreddit.",
         "description": ""
     },
+    "backupAndRestoreSavedNotification": {
+        "message": "Backup saved to $1.",
+        "description": ""
+    },
     "nightModeNightSwitchDesc": {
         "message": "Επιτρέπει τον διακόπτη νύχτας, έναν εναλλάκτη μεταξύ μέρας και νύχτας που βρίσκεται στο αναπτυσσόμενο μενού \"Ρυθμίσεις\".",
         "description": ""
@@ -2483,6 +2515,10 @@
         "message": "Δείξε Χρονοσφραγίδες Σχολίων",
         "description": ""
     },
+    "backupAndRestoreImported": {
+        "message": "Your RES storage has been imported. Reloading reddit.",
+        "description": ""
+    },
     "showImagesConserveMemoryDesc": {
         "message": "Conserve memory by temporarily hiding images when they are offscreen.",
         "description": ""
@@ -2505,6 +2541,10 @@
     },
     "keyboardNavDownVoteWithoutTogglingDesc": {
         "message": "Ψήφισε κάτω τον επιλεγμένο σύνδεσμο ή σχόλιο (αλλά μην αφαιρείς την κάτω ψήφο).",
+        "description": ""
+    },
+    "backupAndRestoreImportedOtherTabs": {
+        "message": "Storage has been imported in another tab. Reload for settings to take effect?",
         "description": ""
     },
     "subredditManagerLinkPopularTitle": {
@@ -2695,6 +2735,10 @@
         "message": "Απόκρυψη Ένθετων.",
         "description": ""
     },
+    "backupAndRestoreReloadWarningTitle": {
+        "message": "Reload Warning",
+        "description": ""
+    },
     "newCommentCountCleanCommentsTitle": {
         "message": "Καθαρισμός Σχολίων",
         "description": ""
@@ -2804,7 +2848,7 @@
         "description": ""
     },
     "filteRedditUseRedditFiltersDesc": {
-        "message": "Επεγγραφή των τοπικών φίλτρων του /r/all με τα 100 πιο δημοφιλή φιλτραρισμένα υποreddit.",
+        "message": "Automatically populate your native /r/all filters with subreddits filtered by this module. If you have more than 100, then the most popular subreddits are chosen.",
         "description": ""
     },
     "userHighlightHighlightAlumTitle": {
@@ -3091,6 +3135,10 @@
         "message": "Hide the new mod mail button in user bar.",
         "description": ""
     },
+    "subredditManagerLinkProfilePostsTitle": {
+        "message": "Link Profile Posts",
+        "description": ""
+    },
     "newCommentCountShowSubscribeButtonTitle": {
         "message": "Εμφάνιση Κουμπιού Συνδρομής",
         "description": ""
@@ -3191,6 +3239,10 @@
         "message": "Μετακίνηση προς τα Κάτω κατά την Ψήφιση",
         "description": ""
     },
+    "backupAndRestoreReloadWarningAuto": {
+        "message": "Automatically reload other tabs.",
+        "description": ""
+    },
     "nerHideDupesTitle": {
         "message": "Απόκρυψη Ψεύτικων",
         "description": ""
@@ -3272,7 +3324,7 @@
         "description": ""
     },
     "filteRedditForceSyncFiltersDesc": {
-        "message": "Απευθείας επεγγραφή των τοπικών φίλτρων /r/all (ίδιο με την προηγούμενη επιλογή).",
+        "message": "Immediately overwrite your native /r/all filters.",
         "description": ""
     },
     "searchHelperSearchPageTabsDesc": {
@@ -3541,10 +3593,6 @@
     },
     "voteEnhancementsDesc": {
         "message": "Μοροφοποίησε ή δείξε επιπρόσθετες πληροφορίες σχετικά με τις ψήφους σε αναρτήσεις και σχόλια.",
-        "description": ""
-    },
-    "keyboardNavMediaBrowseModeTitle": {
-        "message": "Λειτουργία Περιήγησης Πολυμέσων",
         "description": ""
     },
     "radditShowPlaylisterToggleDesc": {
@@ -4213,6 +4261,10 @@
     },
     "selectedEntryFocusBGColorNightDesc": {
         "message": "Το χρώμα του φόντου κατά τη Νυχτερινή Λειτουργία",
+        "description": ""
+    },
+    "backupAndRestoreReloadWarningWarn": {
+        "message": "Open a prompt to reload other tabs.",
         "description": ""
     },
     "searchHelperTransitionSearchTabsDesc": {
@@ -4971,6 +5023,10 @@
         "message": "Χρήστες",
         "description": ""
     },
+    "showImagesMediaBrowseDesc": {
+        "message": "If media is open on the currently selected post when moving up/down one post, open media on the next post.",
+        "description": ""
+    },
     "nightModeColoredLinksDesc": {
         "message": "Χρωμάτισε τους συνδέσμους μπλε και μοβ.",
         "description": ""
@@ -4993,6 +5049,10 @@
     },
     "contextName": {
         "message": "Πλαίσιο",
+        "description": ""
+    },
+    "backupAndRestoreReloadWarningDesc": {
+        "message": "After restoring a backup, either manually or automatically, how should other tabs be reloaded? Tabs must be reloaded for restored settings to take effect.",
         "description": ""
     },
     "troubleshooterThisWillKillYourSettings": {
@@ -5095,10 +5155,6 @@
         "message": "Link Friends",
         "description": ""
     },
-    "keyboardNavMediaBrowseModeDesc": {
-        "message": "Αν πολυμέσα είναι ανοιχτά στην παρούσα επιλεγμένη ανάρτηση στο ανέβασμα πάνω ή κάτω μία ανάρτηση, να ανοίγουν τα πολυμέσα στην επόμενη ανάρτηση.",
-        "description": ""
-    },
     "quickMessageSendAsDesc": {
         "message": "Ο προεπιλεγμένος χρήστης ή υποreddit που επιλέγεται όταν δεν έχει καθοριστεί το πεδίο \"από\".\nΕπαναφορά προς τον παρόντα χρήστη αν η επιλογή δεν μπορεί να χρησιμοποιηθεί (π.χ. όταν δεν είστε ο διαχειριστής του συγκεκριμένου υποreddit ).",
         "description": ""
@@ -5108,7 +5164,7 @@
         "description": ""
     },
     "backupAndRestoreRestoreDesc": {
-        "message": "Επανάκτησε ένα αντίγραφο ασφαλείας των ρυθμίσεων του RES. Προειδοποίηση: Αυτό θα αντικαταστήσει τις παρούσες ρυθμίσεις.",
+        "message": "Restore a backup of your RES settings.",
         "description": ""
     },
     "commentPreviewEnableForCommentsDesc": {

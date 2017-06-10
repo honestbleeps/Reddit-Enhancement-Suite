@@ -108,7 +108,7 @@
         "description": ""
     },
     "voteEnhancementsHighlightScoresDesc": {
-        "message": "Bolden post and comment scores, making them easier to find.",
+        "message": "Poner puntaje de posts y comentarios en negrita, para hacerlos más fácil de encontrar",
         "description": ""
     },
     "orangeredHideEmptyModMailTitle": {
@@ -160,7 +160,7 @@
         "description": ""
     },
     "orangeredHideModMailDesc": {
-        "message": "Hide the mod mail button in user bar.",
+        "message": "Ocultar botón de correo de mods en barra de usuario",
         "description": ""
     },
     "orangeredRetroUnreadCountDesc": {
@@ -173,6 +173,10 @@
     },
     "nerHideDupesDesc": {
         "message": "Fade or completely hide duplicate posts already showing on the page.",
+        "description": ""
+    },
+    "subredditManagerLinkProfilePostsDesc": {
+        "message": "show \"PROFILES\" link in subreddit manager.",
         "description": ""
     },
     "userHighlightFirstCommentColorHoverTitle": {
@@ -196,7 +200,7 @@
         "description": ""
     },
     "searchHelperToggleSearchOptionsDesc": {
-        "message": "Add a button to hide search options while searching.",
+        "message": "Añadir un botón para ocultar opciones de búsqueda",
         "description": ""
     },
     "keyboardNavCommentNavigatorMoveUpDesc": {
@@ -508,7 +512,7 @@
         "description": ""
     },
     "pageNavShowLinkNewTabDesc": {
-        "message": "Open link in new tab.",
+        "message": "Abrir enlace en una pestaña nueva",
         "description": ""
     },
     "aboutOptionsSearchSettingsTitle": {
@@ -605,6 +609,10 @@
     },
     "spoilerTagsTransitionTitle": {
         "message": "Transition",
+        "description": ""
+    },
+    "backupAndRestoreReloadWarningNone": {
+        "message": "Do nothing.",
         "description": ""
     },
     "profileNavigatorDesc": {
@@ -739,6 +747,10 @@
         "message": "Update all open tabs when RES checks for orangereds.",
         "description": ""
     },
+    "showImagesMediaBrowseTitle": {
+        "message": "Media Browse",
+        "description": ""
+    },
     "betteRedditScoreHiddenTimeLeftTitle": {
         "message": "Score Hidden Time Left",
         "description": ""
@@ -772,7 +784,7 @@
         "description": ""
     },
     "necName": {
-        "message": "Never Ending Comments",
+        "message": "Comentarios Sin Fin",
         "description": ""
     },
     "subredditManagerLinkModqueueDesc": {
@@ -828,7 +840,7 @@
         "description": ""
     },
     "backupAndRestoreBackupDesc": {
-        "message": "Descargar un respaldo de tus configuraciones de RES actuales.",
+        "message": "Make a backup of your current RES state. Download it with \"File\", or upload it to a cloud backup provider.",
         "description": ""
     },
     "showImagesAutoMaxHeightTitle": {
@@ -1020,7 +1032,7 @@
         "description": ""
     },
     "pageNavToTopDesc": {
-        "message": "Add an icon to every page that takes you to the top when clicked.",
+        "message": "Añadir un ícono que te devuelva a la parte superior de la página cuando le das clic",
         "description": ""
     },
     "subredditsCategory": {
@@ -1137,6 +1149,10 @@
     },
     "nerReturnToPrevPageTitle": {
         "message": "Return To Previous Page",
+        "description": ""
+    },
+    "backupAndRestoreWarnBeforeAutomaticRestoreDesc": {
+        "message": "Before automatically restoring a backup, should a popup ask for confirmation?\n\nWarning: if this option is disabled and something goes wrong, your settings may be silently deleted. Use at your own risk.",
         "description": ""
     },
     "multiredditNavbarFadeSpeedDesc": {
@@ -1421,6 +1437,10 @@
     },
     "styleTweaksHighlightTopLevelSizeTitle": {
         "message": "Highlight Top Level Size",
+        "description": ""
+    },
+    "backupAndRestoreAutomaticBackupsTitle": {
+        "message": "Automatic Backups",
         "description": ""
     },
     "keyboardNavUpVoteWithoutTogglingDesc": {
@@ -1739,6 +1759,10 @@
         "message": "Highlight Spoiler Button",
         "description": ""
     },
+    "backupAndRestoreAutomaticBackupsDesc": {
+        "message": "Sync your backups to the specified provider.\n\nSyncing will occur periodically on pageload. Individual changes are not tracked, so if you use two computers simultaneously, some data may be lost.",
+        "description": ""
+    },
     "dashboardDefaultSortTitle": {
         "message": "Orden por defecto",
         "description": ""
@@ -1959,6 +1983,10 @@
         "message": "Move the image(s) in the highlighted post area down.",
         "description": ""
     },
+    "backupAndRestoreWarnBeforeAutomaticRestoreTitle": {
+        "message": "Warn Before Automatic Restore",
+        "description": ""
+    },
     "keyboardNavFollowPermalinkNewTabTitle": {
         "message": "Seguir enlace permanente en una nueva pestaña",
         "description": ""
@@ -1984,7 +2012,7 @@
         "description": ""
     },
     "showImagesConvertGifstoGfycatTitle": {
-        "message": "Convert Gifsto Gfycat",
+        "message": "Convertir Gifs a Gyfcat",
         "description": ""
     },
     "submitIssueName": {
@@ -2200,7 +2228,7 @@
         "description": ""
     },
     "troubleshooterTestNotificationsDesc": {
-        "message": "Test notifications.",
+        "message": "Probar notificaciones.",
         "description": ""
     },
     "voteEnhancementsColorLinkScoreTitle": {
@@ -2292,11 +2320,15 @@
         "description": ""
     },
     "searchHelperSearchByFlairDesc": {
-        "message": "When clicking on a post's flair, search its subreddit for that flair.\nMay not work in some subreddits that hide the actual flair and add pseudo-flair with CSS (only workaround is to disable subreddit style).",
+        "message": "Al dar clic en el adorno de un post, realizar una búsqueda dentro de dicho subreddit para ese adorno.\nPuede no funcionar en ciertos subreddits que ocultan el adorno real y añaden un adorno con CSS (el único arreglo es deshabilitar el estilo del subreddit)",
         "description": ""
     },
     "subredditInfoDesc": {
         "message": "Añade una descripción a los subreddits al señalarlos.",
+        "description": ""
+    },
+    "backupAndRestoreSavedNotification": {
+        "message": "Backup saved to $1.",
         "description": ""
     },
     "nightModeNightSwitchDesc": {
@@ -2408,7 +2440,7 @@
         "description": ""
     },
     "showImagesConserveMemoryTitle": {
-        "message": "Conserve Memory",
+        "message": "Conservar Memoria",
         "description": ""
     },
     "showImagesName": {
@@ -2483,8 +2515,12 @@
         "message": "Show Timestamps Comments",
         "description": ""
     },
+    "backupAndRestoreImported": {
+        "message": "Your RES storage has been imported. Reloading reddit.",
+        "description": ""
+    },
     "showImagesConserveMemoryDesc": {
-        "message": "Conserve memory by temporarily hiding images when they are offscreen.",
+        "message": "Conservar memoria al esconder temporalmente las imágenes cuando no estén en pantalla",
         "description": ""
     },
     "styleTweaksDisableAnimationsDesc": {
@@ -2505,6 +2541,10 @@
     },
     "keyboardNavDownVoteWithoutTogglingDesc": {
         "message": "Downvote selected link or comment (but don't remove the downvote).",
+        "description": ""
+    },
+    "backupAndRestoreImportedOtherTabs": {
+        "message": "Storage has been imported in another tab. Reload for settings to take effect?",
         "description": ""
     },
     "subredditManagerLinkPopularTitle": {
@@ -2624,7 +2664,7 @@
         "description": ""
     },
     "userTaggerStoreSourceLinkDesc": {
-        "message": "By default, store a link to the link/comment you tagged a user on",
+        "message": "Por default, almacenar un enlace al post/comentario donde etiquetaste a un usuario",
         "description": ""
     },
     "singleClickOpenOrderTitle": {
@@ -2660,7 +2700,7 @@
         "description": ""
     },
     "userTaggerShowTaggingIconDesc": {
-        "message": "Always show a tag tool icon after every username.",
+        "message": "Siempre mostrar la herramienta de etiqueta después de los nombres de usuario",
         "description": ""
     },
     "commentPreviewDraftStyleDesc": {
@@ -2684,7 +2724,7 @@
         "description": ""
     },
     "showImagesCommentMaxHeightTitle": {
-        "message": "Comment Max Height",
+        "message": "Altura máxima de comentarios",
         "description": ""
     },
     "userTaggerColor": {
@@ -2693,6 +2733,10 @@
     },
     "hideChildCommentsHideNestedTitle": {
         "message": "Hide Nested",
+        "description": ""
+    },
+    "backupAndRestoreReloadWarningTitle": {
+        "message": "Reload Warning",
         "description": ""
     },
     "newCommentCountCleanCommentsTitle": {
@@ -2804,7 +2848,7 @@
         "description": ""
     },
     "filteRedditUseRedditFiltersDesc": {
-        "message": "Reemplazar tus filtros de /r/all nativos con los 100 subreddits filtrados más populares.",
+        "message": "Automatically populate your native /r/all filters with subreddits filtered by this module. If you have more than 100, then the most popular subreddits are chosen.",
         "description": ""
     },
     "userHighlightHighlightAlumTitle": {
@@ -2976,7 +3020,7 @@
         "description": ""
     },
     "searchCopyResultForComment": {
-        "message": "copy this for a comment",
+        "message": "copiar esto para un comentario",
         "description": ""
     },
     "moduleID": {
@@ -2984,7 +3028,7 @@
         "description": ""
     },
     "orangeredShowUnreadCountInTitleDesc": {
-        "message": "Show unread message count in page/tab title?",
+        "message": "¿Mostrar número de mensajes no leídos en el título de la página/pestaña?",
         "description": ""
     },
     "xPostLinksXpostedFrom": {
@@ -3091,6 +3135,10 @@
         "message": "Hide the new mod mail button in user bar.",
         "description": ""
     },
+    "subredditManagerLinkProfilePostsTitle": {
+        "message": "Link Profile Posts",
+        "description": ""
+    },
     "newCommentCountShowSubscribeButtonTitle": {
         "message": "Show Subscribe Button",
         "description": ""
@@ -3191,6 +3239,10 @@
         "message": "Al votar mover abajo",
         "description": ""
     },
+    "backupAndRestoreReloadWarningAuto": {
+        "message": "Automatically reload other tabs.",
+        "description": ""
+    },
     "nerHideDupesTitle": {
         "message": "Hide Dupes",
         "description": ""
@@ -3208,7 +3260,7 @@
         "description": ""
     },
     "showImagesShowViewImagesTabTitle": {
-        "message": "Show View Images Tab",
+        "message": "Mostrar pestaña Ver Imágenes",
         "description": ""
     },
     "wheelBrowseName": {
@@ -3272,7 +3324,7 @@
         "description": ""
     },
     "filteRedditForceSyncFiltersDesc": {
-        "message": "Reemplazar inmediatamente tus filtros de /r/all (igual que la opción anterior).",
+        "message": "Immediately overwrite your native /r/all filters.",
         "description": ""
     },
     "searchHelperSearchPageTabsDesc": {
@@ -3448,7 +3500,7 @@
         "description": ""
     },
     "troubleshooterTestNotificationsTitle": {
-        "message": "Test Notifications",
+        "message": "Probar Notificaciones",
         "description": ""
     },
     "keyboardNavFollowPermalinkTitle": {
@@ -3468,7 +3520,7 @@
         "description": ""
     },
     "selectedEntryFocusBGColorDesc": {
-        "message": "The background color",
+        "message": "El color de fondo",
         "description": ""
     },
     "multiredditNavbarUrl": {
@@ -3541,10 +3593,6 @@
     },
     "voteEnhancementsDesc": {
         "message": "Formatear o mostrar información adicional sobre votos en publicaciones y comentarios.",
-        "description": ""
-    },
-    "keyboardNavMediaBrowseModeTitle": {
-        "message": "Modo de navegación de medios",
         "description": ""
     },
     "radditShowPlaylisterToggleDesc": {
@@ -3644,7 +3692,7 @@
         "description": ""
     },
     "searchHelperDefaultSearchTabDesc": {
-        "message": "The tab that will be expanded each time you search.",
+        "message": "La pestaña que será expandida cada vez que realices una búsqueda",
         "description": ""
     },
     "userInfoGildCommentsDesc": {
@@ -3836,7 +3884,7 @@
         "description": ""
     },
     "userTaggerShowIgnoredDesc": {
-        "message": "Provide a link to reveal an ignored link or comment.",
+        "message": "Proveer un enlace para revelar un enlace o comentario ignorado",
         "description": ""
     },
     "nightModeUseSubredditStylesDesc": {
@@ -3944,7 +3992,7 @@
         "description": ""
     },
     "singleClickOpenFrontpageTitle": {
-        "message": "Open Frontpage",
+        "message": "Abrir Portada",
         "description": ""
     },
     "messageMenuHoverDelayDesc": {
@@ -4215,8 +4263,12 @@
         "message": "El color al fondo mientras el modo nocturno está prendido",
         "description": ""
     },
+    "backupAndRestoreReloadWarningWarn": {
+        "message": "Open a prompt to reload other tabs.",
+        "description": ""
+    },
     "searchHelperTransitionSearchTabsDesc": {
-        "message": "Play a transition when you open and close tabs.",
+        "message": "Mostrar una transición cuando abres y cierras pestañas",
         "description": ""
     },
     "keyboardNavOnHideMoveDownDesc": {
@@ -4332,7 +4384,7 @@
         "description": ""
     },
     "commentPreviewSidebarPreviewDesc": {
-        "message": "Show the markdown live preview directly in the sidebar when editing.",
+        "message": "Mostrar vista previa de markdown en la barra lateral mientras editas",
         "description": ""
     },
     "subredditManagerLinkFriendsDesc": {
@@ -4704,7 +4756,7 @@
         "description": ""
     },
     "nightModeColoredLinksTitle": {
-        "message": "Colored Links",
+        "message": "Enlaces a color",
         "description": ""
     },
     "modhelperDesc": {
@@ -4971,6 +5023,10 @@
         "message": "Usuarios",
         "description": ""
     },
+    "showImagesMediaBrowseDesc": {
+        "message": "If media is open on the currently selected post when moving up/down one post, open media on the next post.",
+        "description": ""
+    },
     "nightModeColoredLinksDesc": {
         "message": "Colorear enlaces azul y purpura",
         "description": ""
@@ -4993,6 +5049,10 @@
     },
     "contextName": {
         "message": "Contexto",
+        "description": ""
+    },
+    "backupAndRestoreReloadWarningDesc": {
+        "message": "After restoring a backup, either manually or automatically, how should other tabs be reloaded? Tabs must be reloaded for restored settings to take effect.",
         "description": ""
     },
     "troubleshooterThisWillKillYourSettings": {
@@ -5056,7 +5116,7 @@
         "description": ""
     },
     "showImagesMaxWidthTitle": {
-        "message": "Max Width",
+        "message": "Ancho Máximo",
         "description": ""
     },
     "subRedditTaggerSubRedditsTitle": {
@@ -5076,7 +5136,7 @@
         "description": ""
     },
     "pageNavShowLinkTitle": {
-        "message": "Show Link",
+        "message": "Mostrar Enlace",
         "description": ""
     },
     "keyboardNavProfileNewTabDesc": {
@@ -5092,11 +5152,7 @@
         "description": ""
     },
     "subredditManagerLinkFriendsTitle": {
-        "message": "Link Friends",
-        "description": ""
-    },
-    "keyboardNavMediaBrowseModeDesc": {
-        "message": "Si hay medios abiertos en el post actualmente seleccionado, abre los medios del siguiente post al desplazarse arriba o abajo un post.",
+        "message": "Enlace Amigos",
         "description": ""
     },
     "quickMessageSendAsDesc": {
@@ -5108,7 +5164,7 @@
         "description": ""
     },
     "backupAndRestoreRestoreDesc": {
-        "message": "Restaurar un respaldo de tus configuraciones de RES. Advertencia: Esto sobreescribirá tus configuraciones actuales.",
+        "message": "Restore a backup of your RES settings.",
         "description": ""
     },
     "commentPreviewEnableForCommentsDesc": {
@@ -5132,7 +5188,7 @@
         "description": ""
     },
     "searchHelperHideSearchOptionsDesc": {
-        "message": "Automatically hide search options and suggestions on the search page.",
+        "message": "Ocultar opciones de búsqueda y sugerencias automáticamente en la página de búsqueda",
         "description": ""
     },
     "notificationsDesc": {
@@ -5172,7 +5228,7 @@
         "description": ""
     },
     "voteEnhancementsHighlightScoresTitle": {
-        "message": "Highlight Scores",
+        "message": "Resaltar puntajes",
         "description": ""
     },
     "penaltyBoxSuspendFeaturesRevertNotificationHeader": {

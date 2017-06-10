@@ -175,6 +175,10 @@
         "message": "Fade or completely hide duplicate posts already showing on the page.",
         "description": ""
     },
+    "subredditManagerLinkProfilePostsDesc": {
+        "message": "show \"PROFILES\" link in subreddit manager.",
+        "description": ""
+    },
     "userHighlightFirstCommentColorHoverTitle": {
         "message": "First Comment Color Hover",
         "description": ""
@@ -607,6 +611,10 @@
         "message": "Transition",
         "description": ""
     },
+    "backupAndRestoreReloadWarningNone": {
+        "message": "Do nothing.",
+        "description": ""
+    },
     "profileNavigatorDesc": {
         "message": "Enhance getting to various parts of your user page.",
         "description": ""
@@ -739,6 +747,10 @@
         "message": "Update all open tabs when RES checks for orangereds.",
         "description": ""
     },
+    "showImagesMediaBrowseTitle": {
+        "message": "Media Browse",
+        "description": ""
+    },
     "betteRedditScoreHiddenTimeLeftTitle": {
         "message": "SKOR HIDDEN TIEM LEFT",
         "description": ""
@@ -828,7 +840,7 @@
         "description": ""
     },
     "backupAndRestoreBackupDesc": {
-        "message": "Download a backup of your current RES settings.",
+        "message": "Make a backup of your current RES state. Download it with \"File\", or upload it to a cloud backup provider.",
         "description": ""
     },
     "showImagesAutoMaxHeightTitle": {
@@ -1139,6 +1151,10 @@
         "message": "Return To Previous Page",
         "description": ""
     },
+    "backupAndRestoreWarnBeforeAutomaticRestoreDesc": {
+        "message": "Before automatically restoring a backup, should a popup ask for confirmation?\n\nWarning: if this option is disabled and something goes wrong, your settings may be silently deleted. Use at your own risk.",
+        "description": ""
+    },
     "multiredditNavbarFadeSpeedDesc": {
         "message": "Fade animation's speed (in seconds).",
         "description": ""
@@ -1421,6 +1437,10 @@
     },
     "styleTweaksHighlightTopLevelSizeTitle": {
         "message": "Highlight Top Level Size",
+        "description": ""
+    },
+    "backupAndRestoreAutomaticBackupsTitle": {
+        "message": "Automatic Backups",
         "description": ""
     },
     "keyboardNavUpVoteWithoutTogglingDesc": {
@@ -1739,6 +1759,10 @@
         "message": "Highlight Spoiler Button",
         "description": ""
     },
+    "backupAndRestoreAutomaticBackupsDesc": {
+        "message": "Sync your backups to the specified provider.\n\nSyncing will occur periodically on pageload. Individual changes are not tracked, so if you use two computers simultaneously, some data may be lost.",
+        "description": ""
+    },
     "dashboardDefaultSortTitle": {
         "message": "Default Sort",
         "description": ""
@@ -1957,6 +1981,10 @@
     },
     "keyboardNavImageMoveDownDesc": {
         "message": "Move the image(s) in the highlighted post area down.",
+        "description": ""
+    },
+    "backupAndRestoreWarnBeforeAutomaticRestoreTitle": {
+        "message": "Warn Before Automatic Restore",
         "description": ""
     },
     "keyboardNavFollowPermalinkNewTabTitle": {
@@ -2299,6 +2327,10 @@
         "message": "Adds a hover tooltip to subreddits.",
         "description": ""
     },
+    "backupAndRestoreSavedNotification": {
+        "message": "Backup saved to $1.",
+        "description": ""
+    },
     "nightModeNightSwitchDesc": {
         "message": "Enable night switch, a toggle between day and night reddit located in the Settings dropdown menu.",
         "description": ""
@@ -2483,6 +2515,10 @@
         "message": "Show Timestamps Comments",
         "description": ""
     },
+    "backupAndRestoreImported": {
+        "message": "Your RES storage has been imported. Reloading reddit.",
+        "description": ""
+    },
     "showImagesConserveMemoryDesc": {
         "message": "Conserve memory by temporarily hiding images when they are offscreen.",
         "description": ""
@@ -2505,6 +2541,10 @@
     },
     "keyboardNavDownVoteWithoutTogglingDesc": {
         "message": "Downvote selected link or comment (but don't remove the downvote).",
+        "description": ""
+    },
+    "backupAndRestoreImportedOtherTabs": {
+        "message": "Storage has been imported in another tab. Reload for settings to take effect?",
         "description": ""
     },
     "subredditManagerLinkPopularTitle": {
@@ -2695,6 +2735,10 @@
         "message": "Hide Nested",
         "description": ""
     },
+    "backupAndRestoreReloadWarningTitle": {
+        "message": "Reload Warning",
+        "description": ""
+    },
     "newCommentCountCleanCommentsTitle": {
         "message": "Clean Comments",
         "description": ""
@@ -2804,7 +2848,7 @@
         "description": ""
     },
     "filteRedditUseRedditFiltersDesc": {
-        "message": "Overwrite your native /r/all filters with the 100 most popular filtered subreddits.",
+        "message": "Automatically populate your native /r/all filters with subreddits filtered by this module. If you have more than 100, then the most popular subreddits are chosen.",
         "description": ""
     },
     "userHighlightHighlightAlumTitle": {
@@ -3091,6 +3135,10 @@
         "message": "Hide the new mod mail button in user bar.",
         "description": ""
     },
+    "subredditManagerLinkProfilePostsTitle": {
+        "message": "Link Profile Posts",
+        "description": ""
+    },
     "newCommentCountShowSubscribeButtonTitle": {
         "message": "Show Subscribe Button",
         "description": ""
@@ -3191,6 +3239,10 @@
         "message": "On Vote Move Down",
         "description": ""
     },
+    "backupAndRestoreReloadWarningAuto": {
+        "message": "Automatically reload other tabs.",
+        "description": ""
+    },
     "nerHideDupesTitle": {
         "message": "Hide Dupes",
         "description": ""
@@ -3272,7 +3324,7 @@
         "description": ""
     },
     "filteRedditForceSyncFiltersDesc": {
-        "message": "Immediately overwrite your native /r/all filters (same as the previous option).",
+        "message": "Immediately overwrite your native /r/all filters.",
         "description": ""
     },
     "searchHelperSearchPageTabsDesc": {
@@ -3541,10 +3593,6 @@
     },
     "voteEnhancementsDesc": {
         "message": "Format or show additional information about votes on posts and comments.",
-        "description": ""
-    },
-    "keyboardNavMediaBrowseModeTitle": {
-        "message": "Media Browse Mode",
         "description": ""
     },
     "radditShowPlaylisterToggleDesc": {
@@ -4213,6 +4261,10 @@
     },
     "selectedEntryFocusBGColorNightDesc": {
         "message": "The background color while using Night Mode",
+        "description": ""
+    },
+    "backupAndRestoreReloadWarningWarn": {
+        "message": "Open a prompt to reload other tabs.",
         "description": ""
     },
     "searchHelperTransitionSearchTabsDesc": {
@@ -4971,6 +5023,10 @@
         "message": "Users",
         "description": ""
     },
+    "showImagesMediaBrowseDesc": {
+        "message": "If media is open on the currently selected post when moving up/down one post, open media on the next post.",
+        "description": ""
+    },
     "nightModeColoredLinksDesc": {
         "message": "Color links blue and purple.",
         "description": ""
@@ -4993,6 +5049,10 @@
     },
     "contextName": {
         "message": "CONTEXT",
+        "description": ""
+    },
+    "backupAndRestoreReloadWarningDesc": {
+        "message": "After restoring a backup, either manually or automatically, how should other tabs be reloaded? Tabs must be reloaded for restored settings to take effect.",
         "description": ""
     },
     "troubleshooterThisWillKillYourSettings": {
@@ -5095,10 +5155,6 @@
         "message": "Link Friends",
         "description": ""
     },
-    "keyboardNavMediaBrowseModeDesc": {
-        "message": "If media is open on the currently selected post when moving up/down one post, open media on the next post.",
-        "description": ""
-    },
     "quickMessageSendAsDesc": {
         "message": "The default user or subreddit to select when the \"from\" field is unspecified.\nReverts to the current user if the selected option can't be used (i.e. you aren't a moderator of the current subreddit).",
         "description": ""
@@ -5108,7 +5164,7 @@
         "description": ""
     },
     "backupAndRestoreRestoreDesc": {
-        "message": "Restore a backup of your RES settings. Warning: This will overwrite your current settings.",
+        "message": "Restore a backup of your RES settings.",
         "description": ""
     },
     "commentPreviewEnableForCommentsDesc": {
