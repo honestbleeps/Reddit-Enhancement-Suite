@@ -133,6 +133,7 @@
 		"no-undef": [2, { "typeof": true }],
 		"no-undefined": 0,
 		"no-underscore-dangle": 0,
+		"no-unused-vars": [2, { "ignoreRestSiblings": true }],
 		"no-use-before-define": [0, "nofunc"],
 		"no-useless-escape": 0,
 		"no-warning-comments": 0,
