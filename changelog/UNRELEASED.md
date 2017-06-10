@@ -1,12 +1,10 @@
 
 ### New Features
 
-- None (thanks nobody)
+- Tag icons appear faster (thanks @corylulu)
 
 ### Bug Fixes
 
-- None (thanks nobody)
-
-### Housekeeping / Other
-
-- None (thanks nobody)
+- Fix the release build (thanks @erikdesjardins)
+- Fix hiding links and other actions in Chrome (thanks @erikdesjardins)
+- Reduce the likelihood of multiple tabs trying to automatically backup/restore at the same time (thanks @erikdesjardins)
