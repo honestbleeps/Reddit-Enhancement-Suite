@@ -4,23 +4,30 @@
 
 import { addListener } from '../browser/background';
 import { apiToPromise } from '../browser/utils/api';
-import { emulateAuthFlow } from '../browser/utils/auth';
+import { emulateAuthFlowInNewWindow, emulateAuthFlowInBackground } from '../browser/utils/auth';
 
 addListener('addURLToHistory', url => {
 	chrome.history.addUrl({ url });
 });
 
-addListener('authFlow', ({ domain, clientId, scope, interactive, allowChromiumRedirect }, { index }) => {
-	if (allowChromiumRedirect) {
-		const url = new URL(domain);
-		url.searchParams.set('client_id', clientId);
-		url.searchParams.set('scope', scope);
-		url.searchParams.set('response_type', 'token');
-		url.searchParams.set('redirect_uri', chrome.identity.getRedirectURL('reddit-enhancement-suite'));
+addListener('authFlow', ({ domain, clientId, scope, interactive }) => {
+	// Chrome supports chrome.identity.launchAuthFlow.
+	// However--and quite inexplicably--the auth process is performed in a separate context whose cookies
+	// are cleared whenever the browser is restarted, making noninteractive auth pretty much useless.
+	// Instead, fully emulate the flow in the main context, where users will remain logged in when
+	// they expect to be, i.e., as long as they're logged into the main site.
+	// As a bonus, we can use redditenhancementsuite.com as the redirect instead of chromiumapp.org.
+	const redirectUri = 'https://redditenhancementsuite.com/oauth';
+	const url = new URL(domain);
+	url.searchParams.set('client_id', clientId);
+	url.searchParams.set('scope', scope);
+	url.searchParams.set('response_type', 'token');
+	url.searchParams.set('redirect_uri', redirectUri);
 
-		return apiToPromise(chrome.identity.launchWebAuthFlow)({ url: url.href, interactive });
+	if (interactive) {
+		return emulateAuthFlowInNewWindow(url.href, redirectUri);
 	} else {
-		return emulateAuthFlow({ domain, clientId, scope, interactive, currentTabIndex: index });
+		return emulateAuthFlowInBackground(url.href);
 	}
 });
 
