@@ -59,6 +59,7 @@
 		"http://*.reddit.com/*",
 		"https://*.reddit.com/*",
 
+		"https://redditenhancementsuite.com/oauth",
 		"https://api.twitter.com/*",
 		"https://onedrive.live.com/*",
 		"https://1drv.ms/*",
@@ -68,6 +69,9 @@
 		"https://api.tumblr.com/v2/blog/*/posts",
 		"https://xkcd.com/*/info.0.json",
 		"https://api.steampowered.com/ISteamRemoteStorage/GetPublishedFileDetails/*",
-		"https://content.googleapis.com/drive/v3/*"
+		"https://accounts.google.com/o/oauth2/v2/auth",
+		"https://content.googleapis.com/drive/v3/*",
+		"https://www.dropbox.com/oauth2/authorize",
+		"https://login.live.com/oauth20_authorize.srf"
 	]
 }
