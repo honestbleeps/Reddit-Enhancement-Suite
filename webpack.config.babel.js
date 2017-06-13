@@ -8,7 +8,6 @@ import InertEntryPlugin from 'inert-entry-webpack-plugin';
 import LodashModuleReplacementPlugin from 'lodash-webpack-plugin';
 import ProgressBarPlugin from 'progress-bar-webpack-plugin';
 import ZipPlugin from 'zip-webpack-plugin';
-import webpack from 'webpack';
 
 const browserConfig = {
 	chrome: {
@@ -67,7 +66,25 @@ export default (env = {}) => {
 				test: /\.js$/,
 				exclude: path.join(__dirname, 'node_modules'),
 				use: [
-					{ loader: 'babel-loader' },
+					{
+						loader: 'babel-loader',
+						options: {
+							plugins: [
+								'transform-export-extensions',
+								'transform-class-properties',
+								['transform-object-rest-spread', { useBuiltIns: true }],
+								'transform-es2015-modules-commonjs',
+								'transform-flow-strip-types',
+								'transform-dead-code-elimination',
+								['transform-define', {
+									'process.env.BUILD_TARGET': conf.target,
+									'process.env.NODE_ENV': isProduction ? 'production' : 'development',
+								}],
+								'lodash',
+							],
+							babelrc: false,
+						},
+					},
 				],
 			}, {
 				test: /\.js$/,
@@ -76,7 +93,12 @@ export default (env = {}) => {
 					{
 						loader: 'babel-loader',
 						options: {
-							plugins: ['transform-dead-code-elimination', 'transform-node-env-inline'],
+							plugins: [
+								'transform-dead-code-elimination',
+								['transform-define', {
+									'process.env.NODE_ENV': isProduction ? 'production' : 'development',
+								}],
+							],
 							compact: true,
 							babelrc: false,
 						},
@@ -114,11 +136,6 @@ export default (env = {}) => {
 		},
 		plugins: [
 			new ProgressBarPlugin(),
-			new webpack.DefinePlugin({
-				'process.env': {
-					BUILD_TARGET: JSON.stringify(conf.target),
-				},
-			}),
 			new InertEntryPlugin(),
 			new LodashModuleReplacementPlugin(),
 			(env.zip && !conf.noZip && new ZipPlugin({

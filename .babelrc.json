@@ -4,10 +4,7 @@
 		"transform-class-properties",
 		["transform-object-rest-spread", { "useBuiltIns": true }],
 		"transform-es2015-modules-commonjs",
-		"transform-flow-strip-types",
-		"transform-dead-code-elimination",
-		"transform-node-env-inline",
-		"lodash"
+		"transform-flow-strip-types"
 	],
 	"env": {
 		"test": {
