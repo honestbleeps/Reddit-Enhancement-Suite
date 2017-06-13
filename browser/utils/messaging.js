@@ -59,23 +59,6 @@ export function createMessageHandler<MsgCtx, ListenerCtx>(_sendMessage: Internal
 	}
 
 	function sendMessage(type, data, context) {
-		const interceptor = interceptors.get(type);
-		if (interceptor) {
-			try {
-				const response = interceptor(data, context);
-				if (isPromise(response) /*:: && response instanceof Promise */) {
-					return response.catch(e => {
-						console.error(e);
-						return Promise.reject(new Error(`Error in "${type}" interceptor: ${e.message || e}`));
-					});
-				}
-				return Promise.resolve(response);
-			} catch (e) {
-				console.error(e);
-				return Promise.reject(new Error(`Error in "${type}" interceptor: ${e.message || e}`));
-			}
-		}
-
 		return _sendMessage({ type, data }, context).then(({ data, error }) => {
 			if (error) {
 				throw new MessageHandlerError(error.message, `${error.stack}\n    at target's "${type}" handler`);
