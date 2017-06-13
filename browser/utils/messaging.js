@@ -7,7 +7,7 @@ type MessagePayload = {|
 
 type ResponsePayload = {|
 	data?: mixed,
-	error?: string,
+	error?: {| message: string, stack: string |},
 |};
 
 type InternalMessageSender<MsgCtx> = (msg: MessagePayload, context: MsgCtx) => Promise<ResponsePayload>;
@@ -24,6 +24,14 @@ type ListenerCallback<Ctx> = (data: any, context: Ctx) => Promise<mixed> | mixed
 
 function isPromise(maybePromise) {
 	return maybePromise && typeof maybePromise === 'object' && typeof maybePromise.then === 'function';
+}
+
+class MessageHandlerError extends Error {
+	constructor(message, stack) {
+		super();
+		this.message = message;
+		this.stack = stack;
+	}
 }
 
 export function createMessageHandler<MsgCtx, ListenerCtx>(_sendMessage: InternalMessageSender<MsgCtx>): {|
@@ -70,7 +78,7 @@ export function createMessageHandler<MsgCtx, ListenerCtx>(_sendMessage: Internal
 
 		return _sendMessage({ type, data }, context).then(({ data, error }) => {
 			if (error) {
-				throw new Error(`Error in target's "${type}" handler: ${error}`);
+				throw new MessageHandlerError(error.message, `${error.stack}\n    at target's "${type}" handler`);
 			} else {
 				return data;
 			}
@@ -82,19 +90,13 @@ export function createMessageHandler<MsgCtx, ListenerCtx>(_sendMessage: Internal
 		if (!interceptor) {
 			throw new Error(`Unrecognised interceptor type: ${type}`);
 		}
-
-		try {
-			return interceptor(data, context);
-		} catch (e) {
-			console.error(e);
-			throw new Error(`Error in "${type}" interceptor: ${e.message || e}`);
-		}
+		return interceptor(data, context);
 	}
 
 	function _handleMessage({ type, data }, sendResponse, context) {
 		const listener = listeners.get(type);
 		if (!listener) {
-			sendResponse({ error: `Unrecognised message type: ${type}` });
+			sendResponse({ error: { message: `Unrecognised message type: ${type}`, stack: '' } });
 			return false;
 		}
 
@@ -104,7 +106,7 @@ export function createMessageHandler<MsgCtx, ListenerCtx>(_sendMessage: Internal
 			response = listener(data, context);
 		} catch (e) {
 			console.error(e);
-			sendResponse({ error: e.message || e });
+			sendResponse({ error: { message: e.message, stack: e.stack } });
 			return false;
 		}
 
@@ -114,16 +116,15 @@ export function createMessageHandler<MsgCtx, ListenerCtx>(_sendMessage: Internal
 					data => sendResponse({ data }),
 					e => {
 						console.error(e);
-						sendResponse({ error: e.message || e });
+						sendResponse({ error: { message: e.message, stack: e.stack } });
 					}
 				);
 			// true = response will be handled asynchronously (needed for Chrome)
 			return true;
+		} else {
+			sendResponse({ data: response });
+			return false;
 		}
-
-		sendResponse({ data: response });
-
-		return false;
 	}
 
 	return {

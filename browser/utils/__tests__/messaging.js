@@ -126,8 +126,8 @@ test('erroring backend handler', async t => {
 	addListener('throwError', () => { throw new Error('foo'); });
 	addListener('rejectPromise', () => Promise.reject(new Error('bar')));
 
-	await t.throws(sendMessage('throwError'), 'Error in target\'s "throwError" handler: foo');
-	await t.throws(sendMessage('rejectPromise'), 'Error in target\'s "rejectPromise" handler: bar');
+	await t.throws(sendMessage('throwError'), 'foo');
+	await t.throws(sendMessage('rejectPromise'), 'bar');
 });
 
 test('erroring interceptor', async t => {
@@ -143,7 +143,7 @@ test('erroring synchronous interceptor', t => {
 	const { a: { addInterceptor, sendSynchronous } } = createPair();
 	addInterceptor('throwError', () => { throw new Error('foo'); });
 
-	t.throws(() => sendSynchronous('throwError'), 'Error in "throwError" interceptor: foo');
+	t.throws(() => sendSynchronous('throwError'), 'foo');
 });
 
 test('backend listener invalid type', async t => {
