@@ -2816,12 +2816,6 @@
 	"commandLineMenuItemDesc": {
 		"message": "Add a \"launch command line\" item to the RES dropdown menu"
 	},
-	"commandLineLaunchFromMenuButtonTitle": {
-		"message": "Launch From Menu Button"
-	},
-	"commandLineLaunchFromMenuButtonDesc": {
-		"message": "Launch the command line by clicking the RES menu gear button"
-	},
 	"presetsLiteTitle": {
 		"message": "Lite"
 	},
@@ -4003,5 +3997,23 @@
 	},
 	"iredditPreferRedditMediaDesc": {
 		"message": "Try to load images and video from Reddit's media servers."
+	},
+	"menuGearIconClickActionTitle": {
+		"message": "Gear Icon Click Action"
+	},
+	"menuGearIconClickActionDesc": {
+		"message": "What should happen when you click on the gear icon? Unless specified, hovering will open the menu."
+	},
+	"menuGearIconClickActionOpenSettings": {
+		"message": "Open settings console"
+	},
+	"menuGearIconClickActionOpenCommandLine": {
+		"message": "Open command line"
+	},
+	"menuGearIconClickActionToggleMenu": {
+		"message": "Open menu"
+	},
+	"menuGearIconClickActionToggleMenuNoHover": {
+		"message": "Open menu (no hover)"
 	}
 }
