@@ -66,48 +66,6 @@ test('backend handler with context', async t => {
 	t.is(await sendMessage('addOnePlusContext', 3, 5), 9);
 });
 
-test('interceptor', async t => {
-	const { a: { addInterceptor, sendMessage } } = createPair();
-	addInterceptor('addTwo', x => x + 2);
-
-	const response = sendMessage('addTwo', 3);
-	t.true(typeof response.then === 'function', 'response is a promise');
-	t.is(await response, 5);
-});
-
-test('interceptor returning a promise', async t => {
-	const { a: { addInterceptor, sendMessage } } = createPair();
-	addInterceptor('addTwo', x => Promise.resolve(x + 2));
-
-	const response = sendMessage('addTwo', 3);
-	t.true(typeof response.then === 'function', 'response is a promise');
-	t.is(await response, 5);
-});
-
-test('interceptor with context', async t => {
-	const { a: { addInterceptor, sendMessage } } = createPair();
-	addInterceptor('addOnePlusContext', (x, context) => x + 1 + context);
-
-	t.is(await sendMessage('addOnePlusContext', 3, 5), 9);
-});
-
-test('mixed backend handler and interceptors', async t => {
-	const { a: { addInterceptor, sendMessage }, b: { addListener } } = createPair();
-	addListener('addOne', x => x + 1);
-	addInterceptor('addTwo', x => x + 2);
-
-	t.is(await sendMessage('addOne', 3), 4);
-	t.is(await sendMessage('addTwo', 3), 5);
-});
-
-test('interceptor preempts backend listener', t => {
-	t.plan(1);
-	const { a: { addInterceptor, sendMessage }, b: { addListener } } = createPair();
-	addListener('foo', () => t.fail());
-	addInterceptor('foo', () => t.pass());
-	sendMessage('foo');
-});
-
 test('synchronous interceptor', t => {
 	const { a: { addInterceptor, sendSynchronous } } = createPair();
 	addInterceptor('addThree', x => x + 3);
@@ -126,24 +84,15 @@ test('erroring backend handler', async t => {
 	addListener('throwError', () => { throw new Error('foo'); });
 	addListener('rejectPromise', () => Promise.reject(new Error('bar')));
 
-	await t.throws(sendMessage('throwError'), 'Error in target\'s "throwError" handler: foo');
-	await t.throws(sendMessage('rejectPromise'), 'Error in target\'s "rejectPromise" handler: bar');
-});
-
-test('erroring interceptor', async t => {
-	const { a: { addInterceptor, sendMessage } } = createPair();
-	addInterceptor('throwError', () => { throw new Error('foo'); });
-	addInterceptor('rejectPromise', () => Promise.reject(new Error('bar')));
-
-	await t.throws(sendMessage('throwError'), 'Error in "throwError" interceptor: foo');
-	await t.throws(sendMessage('rejectPromise'), 'Error in "rejectPromise" interceptor: bar');
+	await t.throws(sendMessage('throwError'), 'foo');
+	await t.throws(sendMessage('rejectPromise'), 'bar');
 });
 
 test('erroring synchronous interceptor', t => {
 	const { a: { addInterceptor, sendSynchronous } } = createPair();
 	addInterceptor('throwError', () => { throw new Error('foo'); });
 
-	t.throws(() => sendSynchronous('throwError'), 'Error in "throwError" interceptor: foo');
+	t.throws(() => sendSynchronous('throwError'), 'foo');
 });
 
 test('backend listener invalid type', async t => {
