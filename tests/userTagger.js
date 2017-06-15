@@ -28,7 +28,7 @@ module.exports = {
 			.waitForElementVisible(tag(post))
 			.click(tag(post))
 			.assert.visible('#userTaggerToolTip')
-			.setValue('#userTaggerToolTip #userTaggerTag', ['test tag'])
+			.setValue('#userTaggerToolTip #userTaggerText', ['test tag'])
 			.click('#userTaggerSave')
 			.click(loadChildComment)
 			.waitForElementVisible(tag(childComment))

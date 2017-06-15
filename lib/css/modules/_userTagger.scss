@@ -1,31 +1,6 @@
 #userTaggerToolTip {
-	display: none;
-	position: absolute;
-	width: 336px;
-	box-sizing: border-box;
-	z-index: $zindex-user-tagger;
-
-	form > div {
-		clear: both;
-		margin: 5px 0;
-	}
-
-	label {
-		margin: 5px 0;
-		float: left;
-		width: 110px;
-	}
-
-	input[type=text],
-	select {
-		margin-top: 5px;
-		width: 200px;
-		box-sizing: border-box;
-	}
-
-	input[type=checkbox] {
-		margin-top: 5px;
-		float: left;
+	.fieldPair-label {
+		width: 85px;
 	}
 
 	input[type=submit] {
@@ -70,11 +45,6 @@
 		display: flex;
 		align-items: center;
 	}
-}
-
-#userTaggerClose {
-	right: 7px;
-	top: 7px;
 }
 
 .res-ignored-message {
@@ -131,15 +101,12 @@ a.voteWeight {
 	.md & {
 		user-select: none;
 	}
-}
 
-#benefits {
-	width: 200px;
-	margin-left: 0;
+	margin-left: 3px;
 }
 
 .RESUserTag {
-	color: black;
+	display: inline-block;
 
 	// unselectable in comments/markdown for usability
 	.md & {
@@ -154,37 +121,18 @@ a.voteWeight {
 	color: #9BD;
 }
 
-.userTagLink.RESUserTagImage:hover {
-	text-decoration: none;
-}
+.userTagLink {
+	color: black;
 
-.hoverHelp {
-	cursor: pointer;
-	color: #369;
-}
+	&:hover { text-decoration: none !important; }
 
-.userTagLink.hasTag,
-#userTaggerPreview {
-	display: inline;
-	padding: 0 4px;
-	line-height: normal;
-	border: 1px solid #c7c7c7;
-	border-radius: 3px;
-}
-
-.userTagLink.hasTag {
-	font-size: .9em;
-}
-
-#userTaggerPreview {
-	display: inline-block;
-	height: 1.6em;
-	line-height: 1.6em;
-	margin: 5px 0 0 0 !important;
-	box-sizing: border-box;
-	max-width: 200px;
-	overflow: hidden;
-	text-overflow: ellipsis;
+	&.hasTag {
+		padding: 0 4px;
+		line-height: normal;
+		border: 1px solid #c7c7c7;
+		border-radius: 3px;
+		font-size: .9em;
+	}
 }
 
 #userTaggerTable th {
