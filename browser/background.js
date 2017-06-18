@@ -14,6 +14,7 @@ import cssOn from '../images/css-on.png';
 import cssOnSmall from '../images/css-on-small.png';
 import { getLocaleDictionary } from '../locales';
 import { Cache } from '../lib/utils/Cache';
+import { keyedMutex } from '../lib/utils/async';
 import { createMessageHandler } from './utils/messaging';
 import { apiToPromise } from './utils/api';
 
@@ -106,6 +107,13 @@ addListener('session', ([operation, key, value]) => {
 			throw new Error(`Invalid session operation: ${operation}`);
 	}
 });
+
+addListener('storage-cas', keyedMutex(async ([key, oldValue, newValue]) => {
+	const storedValue = (await apiToPromise(chrome.storage.local.get)(key))[key];
+	if (storedValue !== oldValue) return false;
+	await apiToPromise(chrome.storage.local.set)({ [key]: newValue });
+	return true;
+}, ([key]) => key));
 
 const cache = new Cache();
 addListener('XHRCache', ([operation, key, value]) => {
