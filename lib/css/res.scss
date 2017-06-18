@@ -14,6 +14,7 @@
 @import 'modules/commentPreview';
 @import 'modules/commentTools';
 @import 'modules/dashboard';
+@import 'modules/menu';
 @import 'modules/newCommentCount';
 @import 'modules/noParticipation';
 @import 'modules/filteReddit';
@@ -156,14 +157,6 @@ body.res-console-open {
 		content: '\F04D';
 		color: #a0e0fd;
 		text-shadow: 0 0 1px #3d6da5, 0 0 1px #3d6da5, 0 0 1px #3d6da5, 0 0 1px #3d6da5, 0 0 1px #3d6da5, 0 0 1px #3d6da5, 0 0 1px #3d6da5, 0 0 1px #3d6da5;
-	}
-
-	#header-bottom-right & {
-		cursor: default; // firefox
-
-		&.newNotification {
-			cursor: pointer;
-		}
 	}
 }
 
