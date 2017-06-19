@@ -31,6 +31,25 @@
 		"matches": [
 			"https://*.reddit.com/*"
 		],
+		"exclude_matches": [
+			"https://mod.reddit.com/*",
+			"https://ads.reddit.com/*",
+			"https://i.reddit.com/*",
+			"https://m.reddit.com/*",
+			"https://static.reddit.com/*",
+			"https://thumbs.reddit.com/*",
+			"https://blog.reddit.com/*",
+			"https://code.reddit.com/*",
+			"https://about.reddit.com/*",
+			"https://*.reddit.com/*.compact",
+			"https://*.reddit.com/*.compact?*",
+			"https://*.reddit.com/*.mobile",
+			"https://*.reddit.com/*.mobile?*",
+			"https://*.reddit.com/*.json",
+			"https://*.reddit.com/*.json?*",
+			"https://*.reddit.com/*.json-html",
+			"https://*.reddit.com/*.json-html?*"
+		],
 		"js": [
 			"{{../chrome.entry.js}}",
 			"{{../../lib/main.entry.js}}"
