@@ -44,7 +44,7 @@ To load the extension into your browser, see [Loading RES into your browser](#lo
 
 **`npm run flow`** will run [Flow](https://flowtype.org/) type checking, and start the Flow server so future runs will complete faster. Use `npm run flow -- stop` to stop the server, or `npm run flow -- check` to run Flow once without starting the server.
 
-**`npm test`** will run unit tests (in `__tests__` directories) using [Ava](https://github.com/avajs/ava).
+**`npm test`** will run unit tests (in `__tests__` directories) using [Ava](https://github.com/avajs/ava). (requires Node 7.6+)
 
 **`npm run integration -- <browsers>`** will run integration tests (in `tests/`) using [Nightwatch.js](http://nightwatchjs.org/).
 Currently just `chrome` and `firefox` can be targeted.
