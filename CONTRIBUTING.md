@@ -28,11 +28,11 @@ To load the extension into your browser, see [Loading RES into your browser](#lo
 
 #### Build commands
 
-**`npm start [-- <browsers>]`** will clean `dist/`, then build RES (dev mode), and start a watch task that will rebuild RES when you make changes. Only changed files will be rebuilt.
+**`npm start [<browsers>]`** will clean `dist/`, then build RES (dev mode), and start a watch task that will rebuild RES when you make changes. Only changed files will be rebuilt.
 
-**`npm run once [-- <browsers>]`** will clean `dist/`, then build RES (dev mode) a single time.
+**`npm run once [<browsers>]`** will clean `dist/`, then build RES (dev mode) a single time.
 
-**`npm run build [-- <browsers>]`** will clean `dist/`, then build RES (release mode). Each build output will be compressed to a .zip file in `dist/zip/`.
+**`npm run build [<browsers>]`** will clean `dist/`, then build RES (release mode). Each build output will be compressed to a .zip file in `dist/zip/`.
 
 `<browsers>` is a comma-separated list of browsers to target, e.g. `chrome,firefox,edge`. `all` will build all targets. By default, `chrome` will be targeted.
 
@@ -46,7 +46,7 @@ To load the extension into your browser, see [Loading RES into your browser](#lo
 
 **`npm test`** will run unit tests (in `__tests__` directories) using [Ava](https://github.com/avajs/ava). (requires Node 7.6+)
 
-**`npm run integration -- <browsers>`** will run integration tests (in `tests/`) using [Nightwatch.js](http://nightwatchjs.org/).
+**`npm run integration -- <browsers> [-f <testFileGlob>]`** will run integration tests (in `tests/`) using [Nightwatch.js](http://nightwatchjs.org/).
 Currently just `chrome` and `firefox` can be targeted.
 
 To run integration tests locally, you need to run an instance of [Selenium Standalone Server](http://www.seleniumhq.org/download/) and have either [ChromeDriver](https://sites.google.com/a/chromium.org/chromedriver/home) or [GeckoDriver](https://github.com/mozilla/geckodriver) on your `PATH`.
