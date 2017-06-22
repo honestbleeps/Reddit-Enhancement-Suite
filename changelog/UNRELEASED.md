@@ -1,12 +1,5 @@
 
-### New Features
-
-- None (thanks nobody)
-
 ### Bug Fixes
 
-- None (thanks nobody)
-
-### Housekeeping / Other
-
-- None (thanks nobody)
+- Fix double expando buttons, mediaBrowseMode, and expanding self posts with keyboard nav (thanks @erikdesjardins)
+- Fix flair filters (thanks @erikdesjardins)
