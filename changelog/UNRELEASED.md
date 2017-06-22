@@ -1,17 +1,12 @@
 
 ### New Features
 
-- User tags are displayed in the User Info popup (thanks @corylulu)
-- Visited filter now works for Reddit Gold synced visited posts (thanks @sargon2)
+- None (thanks nobody)
 
 ### Bug Fixes
 
-- Fix Filterline dropdown not overlaying guiders (thanks @larsjohnsen)
-- Fix Wikipedia expandos containing raw MathML equations (thanks @jkayani)
-- Fix permissions-requiring expandos not unlocking when a sibling expando gets granted permission (thanks @larsjohnsen)
+- None (thanks nobody)
 
 ### Housekeeping / Other
 
-- Don't load at all on pages where RES is disabled (new modmail, mobile) instead of cancelling startup (thanks @erikdesjardins)
-- Cleanup module description representation (thanks @larsjohnsen)
-- Cleanup positioning of hover cards (thanks @larsjohnsen)
+- None (thanks nobody)
