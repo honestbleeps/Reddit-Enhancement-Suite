@@ -413,17 +413,9 @@ div.usertext-edit {
 	}
 
 	ul {
-		margin-bottom: 10px;
-		margin-top: 10px;
-
 		&.token-input-list-facebook {
 			margin: 0;
 		}
-	}
-
-	li {
-		list-style-type: disc;
-		margin-left: 15px;
 	}
 }
 
@@ -586,19 +578,6 @@ div.usertext-edit {
 		border-right: 1px dashed hsl(205, 50%, 78%);
 	}
 
-	.res-icon-button {
-		cursor: pointer;
-		width: 16px;
-		height: 16px;
-		margin-left: 2px;
-		margin-right: 2px;
-		opacity: .4;
-
-		&:hover {
-			opacity: 1;
-		}
-	}
-
 	table {
 		clear: both;
 		width: 100%;
@@ -606,23 +585,21 @@ div.usertext-edit {
 		margin-bottom: 10px;
 	}
 
-	tr .deleteButton,
-	.builderWrap .deleteButton {
-		opacity: .3;
-	}
-
-	tr:hover .deleteButton,
-	.builderWrap:hover > .builderTrailingControls .deleteButton {
-		opacity: 1;
-	}
-
-	.handle {
-		cursor: move;
-	}
-
 	.enum img {
 		max-width: 16px;
 	}
+}
+
+.res-icon-button {
+	cursor: pointer;
+	margin: 0 2px;
+	opacity: .4;
+
+	&:hover {
+		opacity: 1;
+	}
+
+	&.handle { cursor: grab; }
 }
 
 .optionTitle {
@@ -1563,47 +1540,13 @@ body.RESScrollLock {
 	bottom: 0;
 }
 
-// tr looks funny with ::after
-// and li looks funny with  ::before
-tr.RESSortPlaceholder::before,
-li.RESSortPlaceholder::after,
-div.RESSortPlaceholder::after {
+.RESSortPlaceholder::after {
 	border: medium dashed grey;
 	color: grey;
 	content: 'drop here';
 	text-align: center;
 	border-radius: 3px;
 	display: block;
-	margin-bottom: 5px;
-}
-
-.optionBuilder {
-	.RESSortPlaceholder::after {
-		padding: 1em 2em;
-	}
-
-	li {
-		list-style-type: none !important;
-		margin-top: .3em;
-		margin-bottom: .3em;
-
-		.dragged {
-			border: medium dashed grey;
-			border-radius: 3px;
-			background-color: #f0f3fc;
-		}
-	}
-
-	input[type='text'],
-	input[type='checkbox'] {
-		float: none;
-		margin-left: initial;
-		width: auto;
-	}
-
-	.handle {
-		cursor: move;
-	}
 }
 
 .builderItem {
@@ -1613,80 +1556,97 @@ div.RESSortPlaceholder::after {
 	padding: .4em .5em;
 	margin-top: .5em;
 	margin-bottom: .5em;
+	line-height: 18px;
 
-	> .handle,
-	> .builderItemControls .res-icon-button {
-		vertical-align: top;
-		font-size: 30pt;
-		width: auto;
-		height: auto;
+	> .builderWrap > .builderControls {
+		display: none;
 	}
 
-	> .builderItemControls .res-icon-button {
-		font-size: 20pt;
-	}
+	.builderItemControls {
+		display: flex;
+		margin-bottom: 5px;
 
-	.durationField {
-		display: inline-block;
+		> .builderControls {
+			padding: .3em .2em;
+		}
 
-		input[type='number'] {
-			width: 3em;
-			//margin-left: 1ex;
+		.res-icon-button {
+			font-size: 20px;
+
+			&.handle { font-size: 27px; }
 		}
 	}
 }
 
+.builderWrap {
+	display: flex;
+	align-items: center;
+	width: stretch;
+	position: relative;
+}
+
+.builderBlock {
+	width: stretch;
+	flex-wrap: wrap;
+	white-space: pre-wrap;
+}
+
 .builderControls {
-	float: left;
-	padding: .1em;
-	vertical-align: top;
+	padding: .2em .1em;
+	align-self: flex-start;
+
+	&.res-icon-button {
+		font-size: 14px;
+	}
 }
 
 .builderTrailingControls {
-	float: right;
+	& { margin-left: auto !important; }
+	& ~ & { margin-left: initial !important; }
+
+	.builderBlock[data-type='group'] + & {
+		position: absolute; // Avoids the delete button taking vertical space, shriking the recursive block
+		right: 0;
+	}
 }
 
 .builderMulti {
-	margin-top: 1em;
-	margin-bottom: 1em;
+	padding: 3px 0;
 
-	li::after {
-		content: ' ';
+	li {
+		padding: 3px 0;
+		list-style-type: none !important;
+
+		.dragged {
+			border: medium dashed grey;
+			border-radius: 3px;
+			background-color: #f0f3fc;
+		}
+
+		&:nth-of-type(2n) {
+			background-color: rgba(10, 10, 10, .05);
+		}
+	}
+
+	&:empty::before {
+		border: medium dashed grey;
+		border-radius: 3px;
+		color: grey;
+		content: 'nothing here yet. add something!';
+		padding: 5px 10px;
+		text-align: center;
 		display: block;
-		clear: both;
-		height: 0;
 	}
-
-	li + li {
-		border-top: 1px lightgray dashed;
-		margin-top: 1px;
-		padding-top: 3px;
-	}
-
-	li:nth-of-type(2n) {
-		background-color: rgba(10, 10, 10, .05);
-	}
-}
-
-
-
-.builderItemControls {
-	display: inline-block;
-	vertical-align: top;
-}
-
-.builderMulti:empty::before {
-	border: medium dashed grey;
-	border-radius: 3px;
-	color: grey;
-	content: 'nothing here yet. add something!';
-	padding: 5px 10px;
-	text-align: center;
-	display: block;
 }
 
 .addBuilderBlock {
-	margin-left: 1.5em;
+	margin: .4em 0 .4em .4em;
+}
+
+.durationField {
+	input[type='number'] {
+		width: 3em;
+	}
 }
 
 .checkset {
