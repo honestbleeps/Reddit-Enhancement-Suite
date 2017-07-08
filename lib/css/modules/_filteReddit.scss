@@ -9,8 +9,22 @@ body.hideOver18 {
 .search-result.RESFiltered {
 	// For some reason does the scss linter complain on body:not()
 	body.res:not(.res-filters-disabled):not(.res-show-filter-reason) &:not(.res-filterline-highlight-match) {
-		// !important since many custom stylesheets overrides it otherwise
-		display: none !important;
+		&:not(.res-thing-has-visible-child),
+		&.res-thing-has-visible-child.collapsed { // seperate line since :not() didn't work with multiple classes
+			// !important since many custom stylesheets overrides it otherwise
+			display: none !important;
+		}
+
+		&.res-thing-has-visible-child:not(.res-selected) {
+			> :not(.child) {
+				opacity: .3;
+			}
+
+			> .entry {
+				max-height: 60px;
+				position: relative; // Make sure that all children are confined
+			}
+		}
 	}
 
 	body.res &.res-filterline-highlight-match > .entry {
@@ -18,7 +32,9 @@ body.hideOver18 {
 	}
 
 	body.res-show-filter-reason & {
-		opacity: .7;
+		> :not(.child) {
+			opacity: .7;
+		}
 
 		&::before {
 			content: attr(filter-reason);
@@ -42,6 +58,10 @@ body.hideOver18 {
 	margin-bottom: 1px;
 	background-color: rgba(255, 255, 255, .9);
 	clear: left;
+
+	.comments-page & {
+		margin-left: 10px;
+	}
 }
 
 .res-filteReddit-filterline-pad-until-ready {
