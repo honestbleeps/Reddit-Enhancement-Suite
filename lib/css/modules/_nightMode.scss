@@ -1,3 +1,12 @@
+$background-color: hsl(0, 0%, 15%);
+$highlight-background-color: hsl(0, 0%, 20%);
+$header-background-color: rgb(105, 105, 105);
+$border-color: #777;
+$color:  #aaa;
+$link-color: hsl(210, 50%, 70%);
+$title-link-color: hsl(0, 0%, 87%);
+$title-link-visited-color: hsl(0, 0%, 65%);
+
 .res-nightmode {
 	body,
 	body .content,
@@ -14,19 +23,19 @@
 	.side .usertext-body .md ol ol li,
 	.modactionlisting table *,
 	.side .recommend-box .rec-item {
-		background-color: hsl(0, 0%, 15%);
-		border-color: #777;
+		background-color: $background-color;
+		border-color: $border-color;
 	}
 
 	.popup,
 	.guider,
 	.guider p {
-		background-color: hsl(0, 0%, 15%);
-		color: #aaa;
+		background-color: $background-color;
+		color: $color;
 	}
 
 	#login_login {
-		background-color: hsl(0, 0%, 20%);
+		background-color: $highlight-background-color;
 		color: #bbb;
 	}
 
@@ -35,7 +44,7 @@
 	.read-next,
 	.drop-choices {
 		border-color: hsl(0, 0%, 30%);
-		background-color: hsl(0, 0%, 20%);
+		background-color: $highlight-background-color;
 	}
 
 	.drop-choices {
@@ -55,7 +64,7 @@
 	}
 
 	.RESCloseButton:hover {
-		background-color: hsl(0, 0%, 20%);
+		background-color: $highlight-background-color;
 	}
 
 	#RESHoverContainer::after {
@@ -106,7 +115,7 @@
 	#RESShortcutsAddFormContainer {
 		color: #ddd;
 		border-color: hsl(0, 0%, 30%);
-		background-color: hsl(0, 0%, 20%);
+		background-color: $highlight-background-color;
 	}
 
 	.login-form-side {
@@ -120,7 +129,7 @@
 
 	#header,
 	.liveupdate-home .content {
-		background-color: rgb(105, 105, 105);
+		background-color: $header-background-color;
 	}
 
 	#jumpToContent {
@@ -298,7 +307,7 @@
 
 		&:hover {
 			border-color: hsl(0, 0%, 20%);
-			background: hsl(0, 0%, 20%);
+			background: $highlight-background-color;
 
 			a {
 				color: rgb(20, 150, 220);
@@ -325,7 +334,7 @@
 	.c-form-control {
 		color: #ccc;
 		border: 1px solid hsl(0, 0%, 30%);
-		background-color: hsl(0, 0%, 20%);
+		background-color: $highlight-background-color;
 	}
 
 	.content textarea {
@@ -358,7 +367,7 @@
 
 	.nextprev a {
 		background: #777;
-		border-color: hsl(0, 0%, 20%);
+		border-color: $highlight-background-color;
 		color: #ddd;
 	}
 
@@ -510,7 +519,7 @@
 	#header-bottom-right,
 	#srList,
 	.dropdown.lightdrop .drop-choices {
-		background-color: hsl(0, 0%, 20%);
+		background-color: $highlight-background-color;
 	}
 
 	#srList tr {
@@ -583,7 +592,7 @@
 	.deepthread a,
 	.policy-page .md h1 a,
 	.policy-page .md h3 a {
-		color: hsl(210, 50%, 70%);
+		color: $link-color;
 	}
 
 	.flairselector li a {
@@ -591,7 +600,7 @@
 	}
 
 	.thing .title {
-		color: hsl(0, 0%, 87%);
+		color: $title-link-color;
 
 		.res-nightMode-coloredLinks & {
 			color: hsl(210, 60%, 60%);
@@ -621,7 +630,7 @@
 	.combined-search-page .search-result a:visited,
 	.combined-search-page .search-result a:visited > mark {
 		// see also _styleTweaks.scss visitedStyle
-		color: hsl(0, 0%, 65%);
+		color: $title-link-visited-color;
 
 		.res-nightMode-coloredLinks & {
 			color: hsl(270, 50%, 65%);
@@ -702,7 +711,7 @@
 	#alert_message input {
 		color: #ccc;
 		border-color: hsl(0, 0%, 30%);
-		background-color: hsl(0, 0%, 20%);
+		background-color: $highlight-background-color;
 	}
 
 	#liveupdate-statusbar.live.connected {
@@ -716,7 +725,7 @@
 	}
 
 	.RESHoverInfoCard::after {
-		border-right-color: hsl(0, 0%, 20%);
+		border-right-color: $highlight-background-color;
 	}
 
 	.RESHoverInfoCard.right::before {
@@ -724,7 +733,7 @@
 	}
 
 	.RESHoverInfoCard.right::after {
-		border-left-color: hsl(0, 0%, 20%);
+		border-left-color: $highlight-background-color;
 	}
 
 	.RESDialogSmall > h3,
@@ -990,7 +999,7 @@
 	}
 
 	.server-seconds {
-		background: hsl(0, 0%, 20%);
+		background: $highlight-background-color;
 		border-color: hsl(0, 0%, 10%);
 	}
 
@@ -1387,5 +1396,39 @@
 			background-color: rgba(0, 0, 0, .9);
 			box-shadow: rgb(49, 49, 49) 1px 2px 4px;
 		}
+	}
+}
+
+.res-d2x-nightmode {
+	body {
+		background-color: $background-color;
+		border-color: $border-color;
+		color: $color;
+	}
+
+	a {
+		color: $link-color;
+	}
+
+	.StyledHtml {
+		color: $color;
+	}
+
+	.Post__titleLink {
+		color: $title-link-color;
+	}
+
+	.Post__titleLink:visited {
+		color: $title-link-visited-color;
+	}
+
+	.Media.m-profile.m-embed,
+	.Media.m-profile.m-image,
+	.Media.m-profile.m-video {
+		background: $highlight-background-color;
+	}
+
+	.BlueBar {
+		background: $header-background-color;
 	}
 }
