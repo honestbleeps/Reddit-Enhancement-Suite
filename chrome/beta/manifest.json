@@ -60,19 +60,16 @@
 		"run_at": "document_start"
 	}],
 	"permissions": [
+		"http://*.reddit.com/*",
+		"https://*.reddit.com/*",
+		"http://redditenhancementsuite.com/",
 		"cookies",
 		"identity",
 		"tabs",
 		"history",
 		"storage",
 		"unlimitedStorage",
-		"webRequest",
-
-		"http://redditenhancementsuite.com/",
-		"http://reddit.com/*",
-		"https://reddit.com/*",
-		"http://*.reddit.com/*",
-		"https://*.reddit.com/*"
+		"webRequest"
 	],
 	"optional_permissions": [
 		"https://api.twitter.com/*",
