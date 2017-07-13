@@ -1,17 +1,12 @@
 
 ### New Features
 
-- Basic Night Mode support for new profile pages (thanks @andytuba)
-- New focusOnSearchBox keyboard shortcut (alt-/ by default) (thanks @Propheis)
-- New s[earch] and sr command line commands for searching reddit or the current subreddit (thanks @Propheis)
-- Pornhub embeds (thanks @christophe-ph)
+- None (thanks nobody)
 
 ### Bug Fixes
 
-- Fix flair searching when post has a x-post link (thanks @erikdesjardins)
-- Fix commentDepth (thanks @erikdesjardins)
+- None (thanks nobody)
 
 ### Housekeeping / Other
 
-- Clean up some settings console builder CSS (thanks @larsjohnsen)
-- Remove some unused res.com host permissions (thanks @erikdesjardins)
+- None (thanks nobody)
