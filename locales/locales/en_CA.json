@@ -3,6 +3,10 @@
         "message": "Display Comment Navigator when a user is highlighted.",
         "description": ""
     },
+    "styleTweaksDesc": {
+        "message": "Provides a number of style tweaks to the Reddit interface. Also allow you to disable specific subreddit style (the [global setting](/prefs/#show_stylesheets) must be on).",
+        "description": ""
+    },
     "betteRedditShowTimestampCommentsDesc": {
         "message": "Show the precise date for comments / messages.",
         "description": ""
@@ -85,6 +89,10 @@
     },
     "messageMenuUrl": {
         "message": "url",
+        "description": ""
+    },
+    "keyboardNavFocusOnSearchBoxDesc": {
+        "message": "Focuses the cursor in the search box.",
         "description": ""
     },
     "subredditInfoFilterThisSubredditFromAllAndDomain": {
@@ -483,6 +491,10 @@
         "message": "Menu Item",
         "description": ""
     },
+    "keyboardNavFocusOnSearchBoxTitle": {
+        "message": "Focus on Search Box",
+        "description": ""
+    },
     "subredditManagerLinkRandomDesc": {
         "message": "Show \"RANDOM\" link in subreddit manager.",
         "description": ""
@@ -497,6 +509,14 @@
     },
     "styleTweaksPostTitleCapitalizationDesc": {
         "message": "Force a particular style of capitalization on post titles.",
+        "description": ""
+    },
+    "userInfoUserTag": {
+        "message": "User Tag:",
+        "description": ""
+    },
+    "menuGearIconClickActionDesc": {
+        "message": "What should happen when you click on the gear icon? Unless specified, hovering will open the menu.",
         "description": ""
     },
     "newCommentCountDesc": {
@@ -589,6 +609,10 @@
     },
     "nerHideDupesFade": {
         "message": "Fade",
+        "description": ""
+    },
+    "submitIssueDesc": {
+        "message": "If you have any problems with RES, visit /r/RESissues. If you have any requests or questions, visit /r/Enhancement.",
         "description": ""
     },
     "keyboardNavImageSizeDownFineDesc": {
@@ -775,10 +799,6 @@
         "message": "Show Ignored",
         "description": ""
     },
-    "commandLineLaunchFromMenuButtonDesc": {
-        "message": "Launch the command line by clicking the RES menu gear button",
-        "description": ""
-    },
     "showImagesMediaControlsTitle": {
         "message": "Media Controls",
         "description": ""
@@ -899,6 +919,10 @@
         "message": "Add this subreddit to your dashboard",
         "description": ""
     },
+    "userTaggerDesc": {
+        "message": "Adds a great deal of customization around users - tagging them, ignoring them, and more. You can manage tagged users on [Manage User Tags](/r/Dashboard/#userTaggerContents).\n\n**Ignoring users:** users will *not* be ignored in modmail, moderation queue or your inbox.",
+        "description": ""
+    },
     "toggleCommentsLeftEdgeWidthTitle": {
         "message": "Toggle Comments Left Edge Width",
         "description": ""
@@ -985,6 +1009,10 @@
     },
     "accountSwitcherKeepLoggedInTitle": {
         "message": "Keep Logged In",
+        "description": ""
+    },
+    "menuGearIconClickActionOpenSettings": {
+        "message": "Open settings console",
         "description": ""
     },
     "showImagesGalleryPreloadCountDesc": {
@@ -1285,6 +1313,10 @@
     },
     "pageNavDesc": {
         "message": "Provides tools for getting around the page.",
+        "description": ""
+    },
+    "menuGearIconClickActionTitle": {
+        "message": "Gear Icon Click Action",
         "description": ""
     },
     "accountSwitcherShowCurrentUserNameDesc": {
@@ -1755,6 +1787,10 @@
         "message": "Buffer Screens",
         "description": ""
     },
+    "saveCommentsDesc": {
+        "message": "To save comments with RES click the **save-RES** button below a comment. You can view saved comments on your user page under the [saved](/user/me/saved/#comments) tab.\n\nSaving with RES saves a comment locally in your browser. This means that you can view the comment you saved *as it looked when you saved it*, even if it is later edited or deleted. You can save comments with RES if you are not logged in, or if you are logged in to any account—all the comments will be visible in one location. You will only be able to view saved RES comments on whichever browser you have RES installed on.\n\nWhen saving comments with reddit, you must be logged into an account; the comment is saved specifically for that account; it won't be shown if you switch to a different account or log out. You can view these comments whenever you are logged into the reddit account you saved them from, including on other browsers or devices.\n\nVisually, saving comments with reddit looks the same as saving with RES—but the text is not saved locally, so the saved comment text shows the *current* state of the comment. If the comment has been edited or deleted since you saved it, the text that displays on your account's \"saved\" page will look different than it looked when you saved it.\n\nIf you have [reddit gold](/gold/about) on an account, you can add a category/tag to comments you have saved with reddit, then filter saved comments/posts by category. (You cannot sort or filter comments saved with RES.)",
+        "description": ""
+    },
     "showImagesHighlightSpoilerButtonTitle": {
         "message": "Highlight Spoiler Button",
         "description": ""
@@ -1837,6 +1873,10 @@
     },
     "penaltyBoxFeaturesMonitoring": {
         "message": "monitoring",
+        "description": ""
+    },
+    "accountSwitcherDesc": {
+        "message": "Store username/password pairs and switch accounts instantly while browsing Reddit!\n\nIf you forget a password which is stored in Account Switcher, [you can recover them from RES settings](/r/Enhancement/wiki/faq/passwords). Be aware that RES offers very little protection for stored passwords, so be careful when sharing your computer or settings!",
         "description": ""
     },
     "quickMessageHandleContentLinksDesc": {
@@ -1949,6 +1989,10 @@
     },
     "styleTweaksHighlightEditedTimeDesc": {
         "message": "Make edited timestamps bold (e.g. \"last edited 50 minutes ago\").",
+        "description": ""
+    },
+    "noPartDesc": {
+        "message": "Helps discourage brigading and helps you avoid getting banned, by warning against voting or commenting when following \"No Participation\" (np) links, and by providing options to prevent you from accidentally participating.\n\n[Find out more about \"No Participation\".](/r/NoParticipation/wiki/intro)",
         "description": ""
     },
     "userInfoFadeDelayTitle": {
@@ -3043,6 +3087,10 @@
         "message": "Open the RES Command Line",
         "description": ""
     },
+    "menuGearIconClickActionToggleMenuNoHover": {
+        "message": "Open menu (no hover)",
+        "description": ""
+    },
     "subredditInfoName": {
         "message": "Subreddit Info",
         "description": ""
@@ -3787,10 +3835,6 @@
         "message": "Show Parents",
         "description": ""
     },
-    "commandLineLaunchFromMenuButtonTitle": {
-        "message": "Launch From Menu Button",
-        "description": ""
-    },
     "userTaggerHardIgnoreTitle": {
         "message": "Hard Ignore",
         "description": ""
@@ -3849,6 +3893,10 @@
     },
     "noPartEvenIfSubscriberTitle": {
         "message": "Even If Subscriber",
+        "description": ""
+    },
+    "menuGearIconClickActionToggleMenu": {
+        "message": "Open menu",
         "description": ""
     },
     "subredditInfoAddThisSubredditToShortcuts": {
@@ -3941,6 +3989,10 @@
     },
     "aboutOptionsContributorsTitle": {
         "message": "Contributors",
+        "description": ""
+    },
+    "menuGearIconClickActionOpenCommandLine": {
+        "message": "Open command line",
         "description": ""
     },
     "showImagesHighlightSpoilerButtonDesc": {
@@ -5161,6 +5213,10 @@
     },
     "userInfoGiftRedditGold": {
         "message": "Gift Reddit Gold",
+        "description": ""
+    },
+    "troubleshooterDesc": {
+        "message": "Resolve common problems and clean/clear unwanted settings data.\n\nYour first line of defence against browser crashes/updates, or potential issues with RES, is a frequent backup.\n\nSee [here](/r/Enhancement/wiki/backing_up_res_settings) for details on backing up your RES settings.",
         "description": ""
     },
     "backupAndRestoreRestoreDesc": {
