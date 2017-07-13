@@ -1,4 +1,5 @@
 $background-color: hsl(0, 0%, 15%);
+$highlight-background-color: hsl(0, 0%, 20%);
 $header-background-color: rgb(105, 105, 105);
 $border-color: #777;
 $color:  #aaa;
@@ -34,7 +35,7 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 	}
 
 	#login_login {
-		background-color: hsl(0, 0%, 20%);
+		background-color: $highlight-background-color;
 		color: #bbb;
 	}
 
@@ -43,7 +44,7 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 	.read-next,
 	.drop-choices {
 		border-color: hsl(0, 0%, 30%);
-		background-color: hsl(0, 0%, 20%);
+		background-color: $highlight-background-color;
 	}
 
 	.drop-choices {
@@ -63,7 +64,7 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 	}
 
 	.RESCloseButton:hover {
-		background-color: hsl(0, 0%, 20%);
+		background-color: $highlight-background-color;
 	}
 
 	#RESHoverContainer::after {
@@ -114,7 +115,7 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 	#RESShortcutsAddFormContainer {
 		color: #ddd;
 		border-color: hsl(0, 0%, 30%);
-		background-color: hsl(0, 0%, 20%);
+		background-color: $highlight-background-color;
 	}
 
 	.login-form-side {
@@ -306,7 +307,7 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 
 		&:hover {
 			border-color: hsl(0, 0%, 20%);
-			background: hsl(0, 0%, 20%);
+			background: $highlight-background-color;
 
 			a {
 				color: rgb(20, 150, 220);
@@ -333,7 +334,7 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 	.c-form-control {
 		color: #ccc;
 		border: 1px solid hsl(0, 0%, 30%);
-		background-color: hsl(0, 0%, 20%);
+		background-color: $highlight-background-color;
 	}
 
 	.content textarea {
@@ -366,7 +367,7 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 
 	.nextprev a {
 		background: #777;
-		border-color: hsl(0, 0%, 20%);
+		border-color: $highlight-background-color;
 		color: #ddd;
 	}
 
@@ -518,7 +519,7 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 	#header-bottom-right,
 	#srList,
 	.dropdown.lightdrop .drop-choices {
-		background-color: hsl(0, 0%, 20%);
+		background-color: $highlight-background-color;
 	}
 
 	#srList tr {
@@ -710,7 +711,7 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 	#alert_message input {
 		color: #ccc;
 		border-color: hsl(0, 0%, 30%);
-		background-color: hsl(0, 0%, 20%);
+		background-color: $highlight-background-color;
 	}
 
 	#liveupdate-statusbar.live.connected {
@@ -724,7 +725,7 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 	}
 
 	.RESHoverInfoCard::after {
-		border-right-color: hsl(0, 0%, 20%);
+		border-right-color: $highlight-background-color;
 	}
 
 	.RESHoverInfoCard.right::before {
@@ -732,7 +733,7 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 	}
 
 	.RESHoverInfoCard.right::after {
-		border-left-color: hsl(0, 0%, 20%);
+		border-left-color: $highlight-background-color;
 	}
 
 	.RESDialogSmall > h3,
@@ -998,7 +999,7 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 	}
 
 	.server-seconds {
-		background: hsl(0, 0%, 20%);
+		background: $highlight-background-color;
 		border-color: hsl(0, 0%, 10%);
 	}
 
@@ -1409,12 +1410,22 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 		color: $link-color;
 	}
 
+	.StyledHtml {
+		color: $color;
+	}
+
 	.Post__titleLink {
 		color: $title-link-color;
 	}
 
 	.Post__titleLink:visited {
 		color: $title-link-visited-color;
+	}
+
+	.Media.m-profile.m-embed,
+	.Media.m-profile.m-image,
+	.Media.m-profile.m-video {
+		background: $highlight-background-color;
 	}
 
 	.BlueBar {
