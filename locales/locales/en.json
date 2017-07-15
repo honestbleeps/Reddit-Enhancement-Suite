@@ -1414,7 +1414,7 @@
 		"message": "Selected Entry"
 	},
 	"selectedEntryDesc": {
-		"message": "Style the currently selected submission or comment. For use with Keyboard Navigation."
+		"message": "Style the currently selected submission or comment."
 	},
 	"settingsConsoleName": {
 		"message": "Settings Console"
@@ -2671,37 +2671,31 @@
 	"selectedEntryAutoSelectOnScrollDesc": {
 		"message": "Automatically select the topmost item while scrolling"
 	},
-	"selectedEntrySelectThingOnLoadDesc": {
-		"message": "Automatically select a post/comment when the page loads"
-	},
 	"selectedEntrySelectLastThingOnLoadDesc": {
 		"message": "Automatically select the last thing you had selected"
 	},
 	"selectedEntryScrollToSelectedThingOnLoadDesc": {
 		"message": "Automatically scroll to the post/comment that is selected when the page loads"
 	},
-	"selectedEntrySelectOnClickDesc": {
-		"message": "Allows you to click on an item to select it"
+	"selectedEntryAddLineDesc": {
+		"message": "Show a line on right side."
 	},
-	"selectedEntryAddFocusBGColorDesc": {
-		"message": "Use a background color"
+	"selectedEntrySetColorsDesc": {
+		"message": "Set colors"
 	},
-	"selectedEntryFocusBGColorDesc": {
+	"selectedEntryBackgroundColorDesc": {
 		"message": "The background color"
 	},
-	"selectedEntryFocusBGColorNightDesc": {
+	"selectedEntryBackgroundColorNightDesc": {
 		"message": "The background color while using Night Mode"
 	},
-	"selectedEntryFocusFGColorNightDesc": {
+	"selectedEntryTextColorNightDesc": {
 		"message": "The text color while using Night Mode"
 	},
-	"selectedEntryAddFocusBorderDesc": {
-		"message": "Use a border"
-	},
-	"selectedEntryFocusBorderDesc": {
+	"selectedEntryOutlineStyleDesc": {
 		"message": "Border appearance. E.g. `1px dashed gray` (CSS)"
 	},
-	"selectedEntryFocusBorderNightDesc": {
+	"selectedEntryOutlineStyleNightDesc": {
 		"message": "Border appearance using Night Mode (as above)"
 	},
 	"settingsNavigationShowAllOptionsDesc": {
@@ -2924,38 +2918,32 @@
 	"selectedEntryAutoSelectOnScrollTitle": {
 		"message": "Auto Select On Scroll"
 	},
-	"selectedEntrySelectThingOnLoadTitle": {
-		"message": "Select Thing On Load"
-	},
 	"selectedEntrySelectLastThingOnLoadTitle": {
 		"message": "Select Last Thing On Load"
 	},
 	"selectedEntryScrollToSelectedThingOnLoadTitle": {
 		"message": "Scroll To Selected Thing On Load"
 	},
-	"selectedEntrySelectOnClickTitle": {
-		"message": "Select On Click"
+	"selectedEntryAddLineTitle": {
+		"message": "Add Line"
 	},
-	"selectedEntryAddFocusBGColorTitle": {
-		"message": "Add Focus BG Color"
+	"selectedEntrySetColorsTitle": {
+		"message": "Set Colors"
 	},
-	"selectedEntryFocusBGColorTitle": {
-		"message": "Focus BG Color"
+	"selectedEntryBackgroundColorTitle": {
+		"message": "Background Color"
 	},
-	"selectedEntryFocusBGColorNightTitle": {
-		"message": "Focus BG Color Night"
+	"selectedEntryBackgroundColorNightTitle": {
+		"message": "Background Color Night"
 	},
-	"selectedEntryFocusFGColorNightTitle": {
-		"message": "Focus FG Color Night"
+	"selectedEntryTextColorNightTitle": {
+		"message": "Text Color Night"
 	},
-	"selectedEntryAddFocusBorderTitle": {
-		"message": "Add Focus Border"
+	"selectedEntryOutlineStyleTitle": {
+		"message": "Outline Style"
 	},
-	"selectedEntryFocusBorderTitle": {
-		"message": "Focus Border"
-	},
-	"selectedEntryFocusBorderNightTitle": {
-		"message": "Focus Border Night"
+	"selectedEntryOutlineStyleNightTitle": {
+		"message": "Outline Style Night"
 	},
 	"RESTipsMenuItemTitle": {
 		"message": "Menu Item"
