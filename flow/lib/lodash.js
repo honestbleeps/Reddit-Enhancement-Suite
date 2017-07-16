@@ -73,8 +73,6 @@ declare interface CurryRight4<A, B, C, D, R> {
 	(a: A, b: B, c: C, d: D, ...args: void[]): R;
 }
 
-type NestedArray<T> = Array<Array<T>>;
-
 type OPredicate<O> = (value: any, key: string, object: O) => ?bool;
 type OIterateeWithResult<V, O, R> = (value: V, key: string, object: O) => R;
 type OIteratee<O> = OIterateeWithResult<any, O, any>;
@@ -176,17 +174,17 @@ declare module 'lodash' {
 		xorWith<T>(a1: Array<T>, a2: Array<T>, comparator?: Comparator<T>): Array<T>;
 		xorWith<T>(a1: Array<T>, a2: Array<T>, a3: Array<T>, comparator?: Comparator<T>): Array<T>;
 		xorWith<T>(a1: Array<T>, a2: Array<T>, a3: Array<T>, a4: Array<T>, comparator?: Comparator<T>): Array<T>;
-		zip<A>(a: A[]): ([A])[];
-		zip<A, B>(a: A[], b: B[]): ([A | void, B | void])[];
-		zip<A, B, C>(a: A[], b: B[], c: C[]): ([A | void, B | void, C | void])[];
 		zip<A, B, C, D>(a: A[], b: B[], c: C[], d: D[]): ([A | void, B | void, C | void, D | void])[];
+		zip<A, B, C>(a: A[], b: B[], c: C[]): ([A | void, B | void, C | void])[];
+		zip<A, B>(a: A[], b: B[]): ([A | void, B | void])[];
+		zip<A>(a: A[]): ([A])[];
 		zipObject(props?: Array<any>, values?: Array<any>): Object;
 		zipObjectDeep(props?: any[], values?: any): Object;
 		// Workaround until (...parameter: T, parameter2: U) works
-		zipWith<A, T>(a: A[], iteratee?: (a: A) => T): T[];
-		zipWith<A, B, T>(a: A[], b: B[], iteratee?: (a: A, b: B) => T): T[];
-		zipWith<A, B, C, T>(a: A[], b: B[], c: C[], iteratee?: (a: A, b: B, c: C) => T): T[];
-		zipWith<A, B, C, D, T>(a: A[], b: B[], c: C[], d: D[], iteratee?: (a: A, b: B, c: C, d: D) => T): T[];
+		zipWith<A, T>(a: Iterable<A>, iteratee?: (a: A) => T): T[];
+		zipWith<A, B, T>(a: Iterable<A>, b: Iterable<B>, iteratee?: (a: A, b: B) => T): T[];
+		zipWith<A, B, C, T>(a: Iterable<A>, b: Iterable<B>, c: Iterable<C>, iteratee?: (a: A, b: B, c: C) => T): T[];
+		zipWith<A, B, C, D, T>(a: Iterable<A>, b: Iterable<B>, c: Iterable<C>, d: Iterable<D>, iteratee?: (a: A, b: B, c: C, d: D) => T): T[];
 
 		// Collection
 		countBy<T>(array: ?Array<T>, iteratee?: Iteratee<T>): Object;
@@ -226,8 +224,8 @@ declare module 'lodash' {
 		map(str: ?string, iteratee?: (char: string, index: number, str: string) => any): string;
 		orderBy<T>(array: ?Array<T>, iteratees?: Array<Iteratee<T>>, orders?: Array<'asc' | 'desc'>): Array<T>;
 		orderBy<V, T: Object>(object: T, iteratees?: Array<OIteratee<*>>, orders?: Array<'asc' | 'desc'>): Array<V>;
-		partition<T>(array: ?Array<T>, predicate?: Predicate<T>): NestedArray<T>;
-		partition<V, T: Object>(object: T, predicate?: OPredicate<T>): NestedArray<V>;
+		partition<T>(array: ?Array<T>, predicate?: Predicate<T>): [T, T];
+		partition<V, T: Object>(object: T, predicate?: OPredicate<T>): [V, V];
 		reduce<T, U>(array: ?Array<T>, iteratee?: (accumulator: U, value: T, index: number, array: ?Array<T>) => U, accumulator?: U): U;
 		reduce<T: Object, U>(object: T, iteratee?: (accumulator: U, value: any, key: string, object: T) => U, accumulator?: U): U;
 		reduceRight<T, U>(array: ?Array<T>, iteratee?: (accumulator: U, value: T, index: number, array: ?Array<T>) => U, accumulator?: U): U;
@@ -393,17 +391,6 @@ declare module 'lodash' {
 		create<T>(prototype: T, properties?: Object): $Supertype<T>;
 		defaults(object?: ?Object, ...sources?: Array<Object>): Object;
 		defaultsDeep(object?: ?Object, ...sources?: Array<Object>): Object;
-		// alias for _.toPairs
-		entries(object?: ?Object): NestedArray<any>;
-		// alias for _.toPairsIn
-		entriesIn(object?: ?Object): NestedArray<any>;
-		// alias for _.assignIn
-		extend(object?: ?Object, ...sources?: Array<Object>): Object;
-		// alias for _.assignInWith
-		extendWith<T: Object, A: Object>(object: T, s1: A, customizer?: (objValue: any, srcValue: any, key: string, object: T, source: A) => any | void): Object;
-		extendWith<T: Object, A: Object, B: Object>(object: T, s1: A, s2: B, customizer?: (objValue: any, srcValue: any, key: string, object: T, source: A | B) => any | void): Object;
-		extendWith<T: Object, A: Object, B: Object, C: Object>(object: T, s1: A, s2: B, s3: C, customizer?: (objValue: any, srcValue: any, key: string, object: T, source: A | B | C) => any | void): Object;
-		extendWith<T: Object, A: Object, B: Object, C: Object, D: Object>(object: T, s1: A, s2: B, s3: C, s4: D, customizer?: (objValue: any, srcValue: any, key: string, object: T, source: A | B | C | D) => any | void): Object;
 		findKey(object?: ?Object, predicate?: OPredicate<*>): string | void;
 		findLastKey(object?: ?Object, predicate?: OPredicate<*>): string | void;
 		forIn(object?: ?Object, iteratee?: OIteratee<*>): Object;
@@ -436,8 +423,6 @@ declare module 'lodash' {
 		result(object?: ?Object, path?: ?Array<string> | string, defaultValue?: any): any;
 		set(object?: ?Object, path?: ?Array<string> | string, value: any): Object;
 		setWith<T>(object: T, path?: ?Array<string> | string, value: any, customizer?: (nsValue: any, key: string, nsObject: T) => any): Object;
-		toPairs(object?: ?Object | Array<*>): NestedArray<any>;
-		toPairsIn(object?: ?Object): NestedArray<any>;
 		transform(collection: Object | Array<any>, iteratee?: OIteratee<*>, accumulator?: any): any;
 		unset(object?: ?Object, path?: ?Array<string> | string): bool;
 		update(object: Object, path: string[] | string, updater: Function): Object;
@@ -489,7 +474,7 @@ declare module 'lodash' {
 		attempt(func: Function): any;
 		bindAll(object?: ?Object, methodNames: Array<string>): Object;
 		bindAll(object?: ?Object, ...methodNames: Array<string>): Object;
-		cond(pairs: NestedArray<Function>): Function;
+		cond(pairs: Array<[Function, Function]>): Function;
 		conforms(source: Object): Function;
 		constant<T>(value: T): () => T;
 		defaultTo<T1: string | boolean | Object, T2>(value: T1, def: T2): T1;
