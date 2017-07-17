@@ -1,14 +1,12 @@
 
 ### New Features
 
-- New subredditStyleCheckbox option to disable the sidebar subreddit style toggle (thanks @erikdesjardins)
-- New "module [name]" console command to quickly open a module's settings page (thanks @larsjohnsen)
+- None (thanks nobody)
 
 ### Bug Fixes
 
-- Fix "has expando" filter (thanks @erikdesjardins)
-- Fix submitting wiki page changes from the Big Editor (thanks @erikdesjardins)
+- None (thanks nobody)
 
 ### Housekeeping / Other
 
-- Reduce the impact of New Comment Count on startup time (thanks @larsjohnsen)
+- None (thanks nobody)
