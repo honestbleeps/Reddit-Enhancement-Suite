@@ -1,12 +1,5 @@
 
-### New Features
-
-- None (thanks nobody)
-
 ### Bug Fixes
 
-- None (thanks nobody)
-
-### Housekeeping / Other
-
-- None (thanks nobody)
+- Fix "use subreddit style" checkbox appearing on user pages (thanks @nishanthvijayan)
+- Potentially fix RES not starting in Chrome in some situations (thanks @erikdesjardins)
