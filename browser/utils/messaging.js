@@ -22,10 +22,6 @@ export type AddListener<Ctx> = (type: string, callback: ListenerCallback<Ctx>) =
 
 type ListenerCallback<Ctx> = (data: any, context: Ctx) => Promise<mixed> | mixed;
 
-function isPromise(maybePromise) {
-	return maybePromise && typeof maybePromise === 'object' && typeof maybePromise.then === 'function';
-}
-
 class MessageHandlerError extends Error {
 	constructor(message, stack) {
 		super();
@@ -93,7 +89,7 @@ export function createMessageHandler<MsgCtx, ListenerCtx>(_sendMessage: Internal
 			return false;
 		}
 
-		if (isPromise(response) /*:: && response instanceof Promise */) {
+		if (response instanceof Promise) {
 			response
 				.then(
 					data => sendResponse({ data }),
