@@ -55,6 +55,7 @@ export default (env = {}) => {
 		},
 		devtool: isProduction ? 'source-map' : 'cheap-source-map',
 		bail: isProduction,
+		node: false,
 		performance: false,
 		module: {
 			rules: [{
