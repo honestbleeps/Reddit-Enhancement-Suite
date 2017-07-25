@@ -1415,8 +1415,8 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 	}
 
 	.Post__titleLink,
-	.ProfileSidebar__description, 
-	.UserSpecialsListSidebar__title, 
+	.ProfileSidebar__description,
+	.UserSpecialsListSidebar__title,
 	.TrophyCaseSidebar__trophyTitle {
 		color: $title-link-color;
 	}
@@ -1430,7 +1430,7 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 	.Media.m-profile.m-video {
 		background: $highlight-background-color;
 	}
-	
+
 	.ProfileTemplate__sidebar {
 		background: $highlight-background-color;
 		z-index: 1;
@@ -1443,7 +1443,7 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 	.ProfileSidebar {
 		z-index: 3;
 	}
-	
+
 	.BlueBar {
 		background: $header-background-color;
 	}
