@@ -1414,7 +1414,10 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 		color: $color;
 	}
 
-	.Post__titleLink {
+	.Post__titleLink,
+	.ProfileSidebar__description,
+	.UserSpecialsListSidebar__title,
+	.TrophyCaseSidebar__trophyTitle {
 		color: $title-link-color;
 	}
 
@@ -1424,7 +1427,8 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 
 	.Media.m-profile.m-embed,
 	.Media.m-profile.m-image,
-	.Media.m-profile.m-video {
+	.Media.m-profile.m-video,
+	.ProfileTemplate__sidebar {
 		background: $highlight-background-color;
 	}
 
