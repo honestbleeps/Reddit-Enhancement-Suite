@@ -1397,6 +1397,30 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 			box-shadow: rgb(49, 49, 49) 1px 2px 4px;
 		}
 	}
+
+	.report-modal {
+		.report-form-bottom-panel .report-form-content-policy a,
+		.report-form-action-desc {
+			color: $link-color;
+		}
+
+		.report-form-bottom-panel .report-form-content-policy p,
+		.report-reason-item .report-reason-display,
+		.report-form-last-step-text,
+		.report-form-last-step-text-custom-rules,
+		.report-form-big-content-policy {
+			color: $color;
+		}
+
+		.c-close {
+			background-color: inherit;
+		}
+
+		.report-form-block-user img,
+		.report-form-blocked-user img {
+			filter: invert(100%);
+		}
+	}
 }
 
 .res-d2x-nightmode {
@@ -1406,9 +1430,7 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 		color: $color;
 	}
 
-	a,
-	.report-modal .report-form-bottom-panel .report-form-content-policy a,
-	.report-form-action-desc {
+	a {
 		color: $link-color;
 	}
 
@@ -1436,22 +1458,5 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 
 	.BlueBar {
 		background: $header-background-color;
-	}
-
-	.report-modal .report-form-bottom-panel .report-form-content-policy p,
-	.report-reason-display,
-	.report-form-last-step-text,
-	.report-form-last-step-text-custom-rules,
-	.report-form-big-content-policy {
-		color: $color !important;
-	}
-
-	.c-close {
-		background-color: #efeeee !important;
-	}
-
-	.report-modal .report-form-block-user img,
-	.report-modal .report-form-blocked-user img {
-		filter: invert(100%);
 	}
 }
