@@ -58,11 +58,11 @@
     ]
   },
   "dependencies": {
-    "dom4": "1.8.3",
+    "dom4": "1.8.5",
     "element-resize-detector": "1.1.12",
     "escape-string-regexp": "1.0.5",
     "favico.js": "0.3.10",
-    "intersection-observer": "0.3.3",
+    "intersection-observer": "0.4.0",
     "jquery": "3.2.1",
     "jquery-sortable": "0.9.13",
     "jquery.tokeninput": "Reddit-Enhancement-Suite/jquery-tokeninput",
@@ -73,7 +73,7 @@
     "snudown-js": "2.0.0",
     "suncalc": "1.8.0",
     "tinycolor2": "1.4.1",
-    "url-search-params": "0.9.0",
+    "url-search-params": "0.10.0",
     "whatwg-fetch": "2.0.3"
   },
   "devDependencies": {
@@ -109,7 +109,7 @@
     "file-loader": "0.11.2",
     "firefox-extension-deploy": "1.1.0",
     "flow-bin": "0.36.0",
-    "html-loader": "0.4.5",
+    "html-loader": "0.5.0",
     "inert-entry-webpack-plugin": "3.0.1",
     "interpolate-loader": "2.0.0",
     "jscodeshift": "0.3.32",
@@ -118,18 +118,18 @@
     "manifoldjs": "0.7.6",
     "nightwatch": "0.9.16",
     "node-sass": "4.5.3",
-    "nyc": "11.0.3",
-    "opera-extension-deploy": "0.2.1",
+    "nyc": "11.1.0",
+    "opera-extension-deploy": "0.2.2",
     "postcss-loader": "2.0.6",
     "progress-bar-webpack-plugin": "1.10.0",
     "prop-loader": "1.0.0",
     "rimraf": "2.6.1",
     "sass-lint": "1.10.2",
     "sass-loader": "6.0.6",
-    "semver": "5.3.0",
+    "semver": "5.4.1",
     "spawn-loader": "3.0.1",
     "url-loader": "0.5.9",
-    "webpack": "3.3.0",
+    "webpack": "3.4.1",
     "zip-webpack-plugin": "2.0.0"
   }
 }
