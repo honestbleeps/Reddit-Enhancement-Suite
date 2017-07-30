@@ -183,7 +183,7 @@
 		"operator-linebreak": [2, "after"],
 		"padded-blocks": [2, "never"],
 		"prefer-destructuring": 0,
-		"prefer-reflect": [2, { "exceptions": ["delete"] }],
+		"prefer-reflect": [2, { "exceptions": ["defineProperty", "getOwnPropertyDescriptor", "getPrototypeOf", "setPrototypeOf", "isExtensible", "getOwnPropertyNames", "preventExtensions", "delete"] }],
 		"quote-props": [2, "as-needed"],
 		"quotes": [2, "single"],
 		"require-jsdoc": 0,
