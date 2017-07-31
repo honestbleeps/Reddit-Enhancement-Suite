@@ -368,7 +368,7 @@ declare class JQueryStatic {
 
 	(object: JQuery): JQuery;
 
-	(...args: void[]): JQuery;
+	(): JQuery;
 
 	(html: string, ownerDocument?: Document): JQuery;
 
@@ -383,7 +383,7 @@ declare class JQueryStatic {
 	};
 	cssNumber: any;
 
-	data(element: Element, key: string, ...args: void[]): any;
+	data(element: Element, key: string): any;
 	data<T>(element: Element, key: string, value: T): T;
 	data(element: Element): any;
 
@@ -516,7 +516,7 @@ declare class JQuery {
 
 	attr(attributeName: string, value: string | number): JQuery;
 	attr(attributeName: string, func: (index: number, attr: string) => string | number): JQuery;
-	attr(attributeName: string, ...args: void[]): string;
+	attr(attributeName: string): string;
 	attr(attributes: Object): JQuery;
 
 	hasClass(className: string): boolean;
@@ -543,7 +543,7 @@ declare class JQuery {
 	css(propertyName: string, value: string | number): JQuery;
 	css(propertyName: string, value: (index: number, value: string) => string | number): JQuery;
 	css(properties: Object): JQuery;
-	css(propertyName: string, ...args: void[]): string;
+	css(propertyName: string): string;
 
 	height(value: number | string): JQuery;
 	height(): number;
@@ -577,7 +577,7 @@ declare class JQuery {
 
 	clearQueue(queueName?: string): JQuery;
 
-	data(key: string, ...args: void[]): any;
+	data(key: string): any;
 	data(key: string, value: any): JQuery;
 	data(obj: {
 		[key: string]: any;
@@ -588,7 +588,7 @@ declare class JQuery {
 
 	removeData(name: string): JQuery;
 	removeData(list: string[]): JQuery;
-	removeData(...args: void[]): JQuery;
+	removeData(): JQuery;
 
 	promise(type?: string, target?: Object): JQueryPromise<any>;
 

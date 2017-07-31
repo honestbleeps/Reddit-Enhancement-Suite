@@ -30,47 +30,47 @@ type ThrottleOptions = {
 };
 
 declare interface Curry1<A, R> {
-	(a: A, ...args: void[]): R;
+	(a: A): R;
 }
 
 declare interface Curry2<A, B, R> {
-	(a: A, ...args: void[]): Curry1<B, R>;
-	(a: A, b: B, ...args: void[]): R;
+	(a: A): Curry1<B, R>;
+	(a: A, b: B): R;
 }
 
 declare interface Curry3<A, B, C, R> {
-	(a: A, ...args: void[]): Curry2<B, C, R>;
-	(a: A, b: B, ...args: void[]): Curry1<C, R>;
-	(a: A, b: B, c: C, ...args: void[]): R;
+	(a: A): Curry2<B, C, R>;
+	(a: A, b: B): Curry1<C, R>;
+	(a: A, b: B, c: C): R;
 }
 
 declare interface Curry4<A, B, C, D, R> {
-	(a: A, ...args: void[]): Curry3<B, C, D, R>;
-	(a: A, b: B, ...args: void[]): Curry2<C, D, R>;
-	(a: A, b: B, c: C, ...args: void[]): Curry1<D, R>;
-	(a: A, b: B, c: C, d: D, ...args: void[]): R;
+	(a: A): Curry3<B, C, D, R>;
+	(a: A, b: B): Curry2<C, D, R>;
+	(a: A, b: B, c: C): Curry1<D, R>;
+	(a: A, b: B, c: C, d: D): R;
 }
 
 declare interface CurryRight1<A, R> {
-	(a: A, ...args: void[]): R;
+	(a: A): R;
 }
 
 declare interface CurryRight2<A, B, R> {
-	(b: B, ...args: void[]): CurryRight1<A, R>;
-	(a: A, b: B, ...args: void[]): R;
+	(b: B): CurryRight1<A, R>;
+	(a: A, b: B): R;
 }
 
 declare interface CurryRight3<A, B, C, R> {
-	(c: C, ...args: void[]): CurryRight2<A, B, R>;
-	(b: B, c: C, ...args: void[]): CurryRight1<A, R>;
-	(a: A, b: B, c: C, ...args: void[]): R;
+	(c: C): CurryRight2<A, B, R>;
+	(b: B, c: C): CurryRight1<A, R>;
+	(a: A, b: B, c: C): R;
 }
 
 declare interface CurryRight4<A, B, C, D, R> {
-	(d: D, ...args: void[]): CurryRight3<A, B, C, R>;
-	(c: C, d: D, ...args: void[]): CurryRight2<A, B, R>;
-	(b: B, c: C, d: D, ...args: void[]): CurryRight1<A, R>;
-	(a: A, b: B, c: C, d: D, ...args: void[]): R;
+	(d: D): CurryRight3<A, B, C, R>;
+	(c: C, d: D): CurryRight2<A, B, R>;
+	(b: B, c: C, d: D): CurryRight1<A, R>;
+	(a: A, b: B, c: C, d: D): R;
 }
 
 type OPredicate<O> = (value: any, key: string, object: O) => ?bool;
@@ -257,22 +257,22 @@ declare module 'lodash' {
 		bindKey<K: string, T>(obj: { [key: K]: (...args: any) => T }, key: string, ...partials: Array<any>): (...args: any) => T;
 
 		curry<A, R>(func: (a: A) => R, arity: 1): Curry1<A, R>;
-		curry<A, R>(func: (a: A, ...args: void[]) => R, arity: void): Curry1<A, R>;
+		curry<A, R>(func: (a: A) => R, arity: void): Curry1<A, R>;
 		curry<A, B, R>(func: (a: A, b: B) => R, arity: 2): Curry2<A, B, R>;
-		curry<A, B, R>(func: (a: A, b: B, ...args: void[]) => R, arity: void): Curry2<A, B, R>;
+		curry<A, B, R>(func: (a: A, b: B) => R, arity: void): Curry2<A, B, R>;
 		curry<A, B, C, R>(func: (a: A, b: B, c: C) => R, arity: 3): Curry3<A, B, C, R>;
-		curry<A, B, C, R>(func: (a: A, b: B, c: C, ...args: void[]) => R, arity: void): Curry3<A, B, C, R>;
+		curry<A, B, C, R>(func: (a: A, b: B, c: C) => R, arity: void): Curry3<A, B, C, R>;
 		curry<A, B, C, D, R>(func: (a: A, b: B, c: C, d: D) => R, arity: 4): Curry4<A, B, C, D, R>;
-		curry<A, B, C, D, R>(func: (a: A, b: B, c: C, d: D, ...args: void[]) => R, arity: void): Curry4<A, B, C, D, R>;
+		curry<A, B, C, D, R>(func: (a: A, b: B, c: C, d: D) => R, arity: void): Curry4<A, B, C, D, R>;
 
 		curryRight<A, R>(func: (a: A) => R, arity: 1): CurryRight1<A, R>;
-		curryRight<A, R>(func: (a: A, ...args: void[]) => R, arity: void): CurryRight1<A, R>;
+		curryRight<A, R>(func: (a: A) => R, arity: void): CurryRight1<A, R>;
 		curryRight<A, B, R>(func: (a: A, b: B) => R, arity: 2): CurryRight2<A, B, R>;
-		curryRight<A, B, R>(func: (a: A, b: B, ...args: void[]) => R, arity: void): CurryRight2<A, B, R>;
+		curryRight<A, B, R>(func: (a: A, b: B) => R, arity: void): CurryRight2<A, B, R>;
 		curryRight<A, B, C, R>(func: (a: A, b: B, c: C) => R, arity: 3): CurryRight3<A, B, C, R>;
-		curryRight<A, B, C, R>(func: (a: A, b: B, c: C, ...args: void[]) => R, arity: void): CurryRight3<A, B, C, R>;
+		curryRight<A, B, C, R>(func: (a: A, b: B, c: C) => R, arity: void): CurryRight3<A, B, C, R>;
 		curryRight<A, B, C, D, R>(func: (a: A, b: B, c: C, d: D) => R, arity: 4): CurryRight4<A, B, C, D, R>;
-		curryRight<A, B, C, D, R>(func: (a: A, b: B, c: C, d: D, ...args: void[]) => R, arity: void): CurryRight4<A, B, C, D, R>;
+		curryRight<A, B, C, D, R>(func: (a: A, b: B, c: C, d: D) => R, arity: void): CurryRight4<A, B, C, D, R>;
 
 		debounce<T: (...args: any) => void | Promise<void>>(func: T, wait?: number, options?: DebounceOptions): T;
 		defer(func: Function, ...args?: Array<any>): number;
@@ -527,38 +527,38 @@ declare module 'lodash' {
 }
 
 declare module 'lodash/fp' {
-	declare function compact<A>(a: A[], ...args: void[]): $NonMaybeType<A>[];
+	declare function compact<A>(a: A[]): $NonMaybeType<A>[];
 
-	declare function filter<A>(fn: (a: A) => ?boolean, ...args: void[]): Curry1<A[], A[]>;
+	declare function filter<A>(fn: (a: A) => ?boolean): Curry1<A[], A[]>;
 
 	declare function flow<A1, A2, A3, A4, R, F1: (a1: A1, a2: A2, a3: A3, a4: A4) => R>
-		(f1: F1, ...args: void[]): (a1: A1, a2: A2, a3: A3, a4: A4) => R;
+		(f1: F1): (a1: A1, a2: A2, a3: A3, a4: A4) => R;
 	declare function flow<A1, A2, A3, A4, B, R, F1: (a1: A1, a2: A2, a3: A3, a4: A4) => B, F2: (b: B) => R>
-		(f1: F1, f2: F2, ...args: void[]): (a1: A1, a2: A2, a3: A3, a4: A4) => R;
+		(f1: F1, f2: F2): (a1: A1, a2: A2, a3: A3, a4: A4) => R;
 	declare function flow<A1, A2, A3, A4, B, C, R, F1: (a1: A1, a2: A2, a3: A3, a4: A4) => B, F2: (b: B) => C, F3: (c: C) => R>
-		(f1: F1, f2: F2, f3: F3, ...args: void[]): (a1: A1, a2: A2, a3: A3, a4: A4) => R;
+		(f1: F1, f2: F2, f3: F3): (a1: A1, a2: A2, a3: A3, a4: A4) => R;
 	declare function flow<A1, A2, A3, A4, B, C, D, R, F1: (a1: A1, a2: A2, a3: A3, a4: A4) => B, F2: (b: B) => C, F3: (c: C) => D, F4: (d: D) => R>
-		(f1: F1, f2: F2, f3: F3, f4: F4, ...args: void[]): (a1: A1, a2: A2, a3: A3, a4: A4) => R;
+		(f1: F1, f2: F2, f3: F3, f4: F4): (a1: A1, a2: A2, a3: A3, a4: A4) => R;
 	declare function flow<A1, A2, A3, A4, B, C, D, E, R, F1: (a1: A1, a2: A2, a3: A3, a4: A4) => B, F2: (b: B) => C, F3: (c: C) => D, F4: (d: D) => E, F5: (e: E) => R>
-		(f1: F1, f2: F2, f3: F3, f4: F4, f5: F5, ...args: void[]): (a1: A1, a2: A2, a3: A3, a4: A4) => R;
+		(f1: F1, f2: F2, f3: F3, f4: F4, f5: F5): (a1: A1, a2: A2, a3: A3, a4: A4) => R;
 	declare function flow<A1, A2, A3, A4, B, C, D, E, F, R, F1: (a1: A1, a2: A2, a3: A3, a4: A4) => B, F2: (b: B) => C, F3: (c: C) => D, F4: (d: D) => E, F5: (e: E) => F, F6: (f: F) => R>
-		(f1: F1, f2: F2, f3: F3, f4: F4, f5: F5, f6: F6, ...args: void[]): (a1: A1, a2: A2, a3: A3, a4: A4) => R;
+		(f1: F1, f2: F2, f3: F3, f4: F4, f5: F5, f6: F6): (a1: A1, a2: A2, a3: A3, a4: A4) => R;
 
-	declare function groupBy<T, K>(fn: (x: T) => K, ...args: void[]): Curry1<T[], { [key: K]: T[] }>;
+	declare function groupBy<T, K>(fn: (x: T) => K): Curry1<T[], { [key: K]: T[] }>;
 
-	declare function join<S: string>(s: string, ...args: void[]): Curry1<S[], string>;
+	declare function join<S: string>(s: string): Curry1<S[], string>;
 
-	declare function keyBy<T, K>(fn: (x: T) => K, ...args: void[]): Curry1<T[], { [key: K]: T }>;
-	declare function keyBy<KA, KB, T>(fn: (x: T) => KB, ...args: void[]): Curry1<{ [key: KA]: T }, { [key: KB]: T }>;
+	declare function keyBy<T, K>(fn: (x: T) => K): Curry1<T[], { [key: K]: T }>;
+	declare function keyBy<KA, KB, T>(fn: (x: T) => KB): Curry1<{ [key: KA]: T }, { [key: KB]: T }>;
 
-	declare function map<A, B, K>(fn: (x: A) => B, ...args: void[]): Curry1<A[], B[]> & Curry1<{ [key: K]: A }, { [key: K]: B }>;
+	declare function map<A, B, K>(fn: (x: A) => B): Curry1<A[], B[]> & Curry1<{ [key: K]: A }, { [key: K]: B }>;
 
-	declare function mapValues<A, B, K>(fn: (x: A) => B, ...args: void[]): Curry1<{ [key: K]: A }, { [key: K]: B }>;
+	declare function mapValues<A, B, K>(fn: (x: A) => B): Curry1<{ [key: K]: A }, { [key: K]: B }>;
 
-	declare function slice<T>(from: number, to: number, ...args:void[]): Curry1<T[], T[]>;
+	declare function slice<T>(from: number, to: number): Curry1<T[], T[]>;
 
-	declare function sortBy<A>(fn: (a: A) => string | number, ...args: void[]): Curry1<A[], A[]>;
+	declare function sortBy<A>(fn: (a: A) => string | number): Curry1<A[], A[]>;
 
-	declare function zip<A, B>(a: A[], ...args: void[]): Curry1<B[], Array<[A, B]>>;
-	declare function zip<A, B>(a: A[], b: B[], ...args: void[]): Array<[A, B]>;
+	declare function zip<A, B>(a: A[]): Curry1<B[], Array<[A, B]>>;
+	declare function zip<A, B>(a: A[], b: B[]): Array<[A, B]>;
 }
