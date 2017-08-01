@@ -1,5 +1,4 @@
 sudo: false
-dist: precise
 language: node_js
 node_js: 8
 branches:
@@ -37,6 +36,9 @@ addons:
     secure: hHF06xHY6pLdxscwYhUHdSRuUH2CPA61AUrvPiW54lnMwwkDvCQakR+aY5HbjptFIfOwkWsS4xoqXH4pZTfhMOji32S/+ELT+AqLdkIgnLYDfBj4RcsZoXyvuiLx29i4PVCnGMikctBp4dM6wORgfd1tu3uwhcoQrBjxCMW1qmY=
 cache:
   yarn: true
+before_install:
+  - curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version 0.27.5
+  - export PATH=$HOME/.yarn/bin:$PATH
 install:
   - yarn install --frozen-lockfile
 matrix:
