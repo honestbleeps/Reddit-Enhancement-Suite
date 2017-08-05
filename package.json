@@ -17,6 +17,7 @@
     "preinstall": "npm -v && node -v && git rev-parse HEAD && git status --porcelain",
     "prestart": "rimraf dist",
     "start": "cross-env NODE_ENV=development webpack --watch --env.browsers",
+    "watch": "npm run start",
     "preonce": "rimraf dist",
     "once": "cross-env NODE_ENV=development webpack --env.browsers",
     "prebuild": "rimraf dist",
