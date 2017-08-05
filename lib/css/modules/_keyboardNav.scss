@@ -30,6 +30,13 @@
 	}
 }
 
+#goModePanel .RESDialogContents,
+#keyHelp {
+	td:first-child {
+		white-space: nowrap;
+	}
+}
+
 .keyNavAnnotation {
 	font-size: 9px;
 	line-height: 0;
