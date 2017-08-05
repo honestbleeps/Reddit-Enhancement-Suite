@@ -27,11 +27,14 @@
 }
 
 .res-orangered-hideEmptyMail #mail,
+.res-orangered-hideEmptyMail #message,
+.res-orangered-hideEmptyMail #notification,
 .res-orangered-hideEmptyModMail #modmail,
 .res-orangered-hideEmptyNewModMail #new_modmail {
 	&.nohavemail,
 	&.nohavemail + .separator,
-	&.nohavemail + .message-count + .separator {
+	&.nohavemail + .message-count + .separator,
+	&.nohavemail + .notification-count + .separator {
 		display: none;
 	}
 }
