@@ -67,3 +67,26 @@
 		content: none;
 	}
 }
+
+.fieldPair {
+	display: flex;
+	margin-bottom: 12px;
+
+	&-label {
+		float: left;
+		width: 140px;
+	}
+
+	&-text {
+		float: left;
+		min-width: 240px;
+
+		a {
+			display: block;
+			max-width: 25em;
+			text-overflow: ellipsis;
+			overflow: hidden;
+			white-space: nowrap;
+		}
+	}
+}
