@@ -1425,6 +1425,10 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 
 	.pinnable-content.pinned {
 		background-color: $background-color !important;
+
+		.c-close {
+			background-color: inherit;
+		}
 	}
 
 }
