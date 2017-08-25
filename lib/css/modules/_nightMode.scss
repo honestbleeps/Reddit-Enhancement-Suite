@@ -1422,6 +1422,11 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 			filter: invert(100%);
 		}
 	}
+
+	.pinnable-content.pinned {
+		background-color: $background-color !important;
+	}
+
 }
 
 .res-d2x-nightmode {
