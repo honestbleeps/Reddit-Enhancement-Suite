@@ -1422,6 +1422,34 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 			filter: invert(100%);
 		}
 	}
+
+	.crossposting-modal {
+		.crosspost-header-title,
+		.crosspost-label,
+		.crosspost-sublabel {
+			color: $color;
+		}
+
+		.crosspost-description {
+			background-color: rgb(51, 51, 51);
+			border-color: $border-color;
+		}
+
+		.modal-body,
+		.modal-content,
+		.crosspost-field,
+		.crosspost-preview {
+			background-color: $background-color;
+			color: $color;
+		}
+
+		.c-close {
+			background-color: inherit;
+			filter: invert(100%);
+		}
+
+	}
+
 }
 
 .res-d2x-nightmode {
