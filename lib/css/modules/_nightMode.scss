@@ -22,7 +22,8 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 	.side .usertext-body .md ol ol,
 	.side .usertext-body .md ol ol li,
 	.modactionlisting table *,
-	.side .recommend-box .rec-item {
+	.side .recommend-box .rec-item,
+	.crosspost-preview {
 		background-color: $background-color;
 		border-color: $border-color;
 	}
