@@ -1849,3 +1849,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 	display: block;
 	content: 'Since you are using RES with reddit beta, you should also check out /r/RESissues if you experience bugs.';
 }
+
+.pinnable-content.pinned .dismiss-pinnable {
+	top: 30px !important;
+}
