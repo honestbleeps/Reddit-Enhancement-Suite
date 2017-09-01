@@ -1449,6 +1449,35 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 		}
 	}
 
+	.tfa-login-modal {
+		.tfa-login-caption,
+		.modal-header-title {
+			color: $color;
+		}
+
+		.modal-header,
+		.field-otp {
+			background-color: rgb(51, 51, 51);
+			border-color: $border-color;
+			color: $color;
+		}
+
+		.tfa-switch-type-of-code {
+			color: $link-color,
+		}
+
+		.c-close {
+			background-color: inherit;
+			filter: invert(100%);
+		}
+		
+		.tfa-login-bottom-panel {
+			.tfa-login-having-trouble a {
+				color: $link-color,
+			}
+		}
+	}
+
 	.pinnable-content.pinned {
 		background-color: $background-color !important;
 
