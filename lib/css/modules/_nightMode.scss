@@ -1470,8 +1470,9 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 			background-color: inherit;
 			filter: invert(100%);
 		}
-		
+
 		.tfa-login-bottom-panel {
+			
 			.tfa-login-having-trouble a {
 				color: $link-color;
 			}
