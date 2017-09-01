@@ -1463,7 +1463,7 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 		}
 
 		.tfa-switch-type-of-code {
-			color: $link-color,
+			color: $link-color;
 		}
 
 		.c-close {
@@ -1473,7 +1473,7 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 		
 		.tfa-login-bottom-panel {
 			.tfa-login-having-trouble a {
-				color: $link-color,
+				color: $link-color;
 			}
 		}
 	}
