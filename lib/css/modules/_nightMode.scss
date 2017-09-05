@@ -1449,23 +1449,47 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 		}
 	}
 
-	.tfa-login-modal,
-	.enable-tfa-modal {
+	.tfa-login-modal {
 		.tfa-login-caption,
+		.modal-header-title {
+			color: $color;
+		}
+
+		.modal-header {
+			background-color: rgb(51, 51, 51);
+			border-color: $border-color;
+			color: $color;
+		}
+
+		.tfa-switch-type-of-code {
+			color: $link-color;
+		}
+
+		.c-close {
+			background-color: inherit;
+			filter: invert(100%);
+		}
+
+		.tfa-login-bottom-panel {
+			.tfa-login-having-trouble a {
+				color: $link-color;
+			}
+		}
+	}
+
+	.enable-tfa-modal {
 		.enable-tfa-caption,
 		.modal-header-title,
 		.pref-otp-qr li {
 			color: $color;
 		}
 
-		.modal-header,
-		.field-otp {
+		.modal-header {
 			background-color: rgb(51, 51, 51);
 			border-color: $border-color;
 			color: $color;
 		}
 
-		.tfa-switch-type-of-code,
 		.switch-barcode-and-code {
 			color: $link-color;
 		}
@@ -1475,15 +1499,56 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 			filter: invert(100%);
 		}
 
-		.tfa-login-bottom-panel,
 		.enable-tfa-bottom-panel {
-
-			.tfa-login-having-trouble a,
-			.enable-tfa-learn-more a,
-			.switch-barcode-and-code a {
-				color: $link-color;
+			.enable-tfa-learn-more,
+			.switch-barcode-and-code {
+				a { color: $link-color; }
 			}
 		}
+	}
+
+	.disable-tfa-modal {
+		.modal-header-title,
+		.disable-tfa-caption {
+			color: $color;
+		}
+
+		.c-close {
+			background-color: inherit;
+			filter: invert(100%);
+		}
+
+		.modal-header {
+			background-color: rgb(51, 51, 51);
+			border-color: $border-color;
+			color: $color;
+		}
+
+		.disable-tfa-bottom-panel {
+			.disable-tfa-learn-more {
+				a { color: $link-color; }
+			}
+		}
+
+	}
+
+	.backup-codes-modal {
+		.modal-header-title,
+		.backup-codes-caption {
+			color: $color;
+		}
+
+		.c-close {
+			background-color: inherit;
+			filter: invert(100%);
+		}
+
+		.modal-header {
+			background-color: rgb(51, 51, 51);
+			border-color: $border-color;
+			color: $color;
+		}
+
 	}
 
 	.pinnable-content.pinned {
