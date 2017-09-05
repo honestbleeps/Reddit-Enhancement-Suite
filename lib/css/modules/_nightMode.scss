@@ -1449,9 +1449,12 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 		}
 	}
 
-	.tfa-login-modal {
+	.tfa-login-modal,
+	.enable-tfa-modal {
 		.tfa-login-caption,
-		.modal-header-title {
+		.enable-tfa-caption,
+		.modal-header-title,
+		.pref-otp-qr li {
 			color: $color;
 		}
 
@@ -1462,7 +1465,8 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 			color: $color;
 		}
 
-		.tfa-switch-type-of-code {
+		.tfa-switch-type-of-code,
+		.switch-barcode-and-code {
 			color: $link-color;
 		}
 
@@ -1471,9 +1475,12 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 			filter: invert(100%);
 		}
 
-		.tfa-login-bottom-panel {
+		.tfa-login-bottom-panel,
+		.enable-tfa-bottom-panel {
 
-			.tfa-login-having-trouble a {
+			.tfa-login-having-trouble a,
+			.enable-tfa-learn-more a,
+			.switch-barcode-and-code a {
 				color: $link-color;
 			}
 		}
