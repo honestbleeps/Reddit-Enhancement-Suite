@@ -1399,6 +1399,24 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 		}
 	}
 
+	.modal {
+		.modal-header-title {
+			color: $color;
+		}
+
+		.modal-header,
+		.field-otp {
+			background-color: rgb(51, 51, 51);
+			border-color: $border-color;
+			color: $color;
+		}
+
+		.c-close {
+			background-color: inherit;
+			filter: invert(100%);
+		}
+	}
+
 	.report-modal {
 		.report-form-bottom-panel .report-form-content-policy a,
 		.report-form-action-desc {
@@ -1442,32 +1460,15 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 			background-color: $background-color;
 			color: $color;
 		}
-
-		.c-close {
-			background-color: inherit;
-			filter: invert(100%);
-		}
 	}
 
 	.tfa-login-modal {
-		.tfa-login-caption,
-		.modal-header-title {
-			color: $color;
-		}
-
-		.modal-header {
-			background-color: rgb(51, 51, 51);
-			border-color: $border-color;
+		.tfa-login-caption {
 			color: $color;
 		}
 
 		.tfa-switch-type-of-code {
 			color: $link-color;
-		}
-
-		.c-close {
-			background-color: inherit;
-			filter: invert(100%);
 		}
 
 		.tfa-login-bottom-panel {
@@ -1479,7 +1480,6 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 
 	.enable-tfa-modal {
 		.enable-tfa-caption,
-		.modal-header-title,
 		.pref-otp-qr li {
 			color: $color;
 		}
@@ -1488,19 +1488,8 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 			border: solid 5mm white;
 		}
 
-		.modal-header {
-			background-color: rgb(51, 51, 51);
-			border-color: $border-color;
-			color: $color;
-		}
-
 		.switch-barcode-and-code {
 			color: $link-color;
-		}
-
-		.c-close {
-			background-color: inherit;
-			filter: invert(100%);
 		}
 
 		.enable-tfa-bottom-panel {
@@ -1512,19 +1501,7 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 	}
 
 	.disable-tfa-modal {
-		.modal-header-title,
 		.disable-tfa-caption {
-			color: $color;
-		}
-
-		.c-close {
-			background-color: inherit;
-			filter: invert(100%);
-		}
-
-		.modal-header {
-			background-color: rgb(51, 51, 51);
-			border-color: $border-color;
 			color: $color;
 		}
 
@@ -1536,19 +1513,7 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 	}
 
 	.backup-codes-modal {
-		.modal-header-title,
 		.backup-codes-caption {
-			color: $color;
-		}
-
-		.c-close {
-			background-color: inherit;
-			filter: invert(100%);
-		}
-
-		.modal-header {
-			background-color: rgb(51, 51, 51);
-			border-color: $border-color;
 			color: $color;
 		}
 	}
