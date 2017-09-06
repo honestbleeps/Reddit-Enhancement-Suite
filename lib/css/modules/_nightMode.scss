@@ -1484,8 +1484,8 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 			color: $color;
 		}
 
-		.modal-body {
-			background-color: rgb(51, 51, 51);
+		.otp-secret-info canvas {
+			border: solid 5mm white;
 		}
 
 		.modal-header {
