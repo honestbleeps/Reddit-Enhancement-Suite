@@ -1399,6 +1399,24 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 		}
 	}
 
+	.modal {
+		.modal-header-title {
+			color: $color;
+		}
+
+		.modal-header,
+		.field-otp {
+			background-color: rgb(51, 51, 51);
+			border-color: $border-color;
+			color: $color;
+		}
+
+		.c-close {
+			background-color: inherit;
+			filter: invert(100%);
+		}
+	}
+
 	.report-modal {
 		.report-form-bottom-panel .report-form-content-policy a,
 		.report-form-action-desc {
@@ -1442,23 +1460,10 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 			background-color: $background-color;
 			color: $color;
 		}
-
-		.c-close {
-			background-color: inherit;
-			filter: invert(100%);
-		}
 	}
 
 	.tfa-login-modal {
-		.tfa-login-caption,
-		.modal-header-title {
-			color: $color;
-		}
-
-		.modal-header,
-		.field-otp {
-			background-color: rgb(51, 51, 51);
-			border-color: $border-color;
+		.tfa-login-caption {
 			color: $color;
 		}
 
@@ -1466,16 +1471,50 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 			color: $link-color;
 		}
 
-		.c-close {
-			background-color: inherit;
-			filter: invert(100%);
-		}
-
 		.tfa-login-bottom-panel {
-
 			.tfa-login-having-trouble a {
 				color: $link-color;
 			}
+		}
+	}
+
+	.enable-tfa-modal {
+		.enable-tfa-caption,
+		.pref-otp-qr li {
+			color: $color;
+		}
+
+		.otp-secret-info canvas {
+			border: solid 5mm white;
+		}
+
+		.switch-barcode-and-code {
+			color: $link-color;
+		}
+
+		.enable-tfa-bottom-panel {
+			.enable-tfa-learn-more,
+			.switch-barcode-and-code {
+				a { color: $link-color; }
+			}
+		}
+	}
+
+	.disable-tfa-modal {
+		.disable-tfa-caption {
+			color: $color;
+		}
+
+		.disable-tfa-bottom-panel {
+			.disable-tfa-learn-more {
+				a { color: $link-color; }
+			}
+		}
+	}
+
+	.backup-codes-modal {
+		.backup-codes-caption {
+			color: $color;
 		}
 	}
 
