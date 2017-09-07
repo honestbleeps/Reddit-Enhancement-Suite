@@ -1405,7 +1405,8 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 		}
 
 		.modal-header,
-		.field-otp {
+		.field-otp,
+		.modal-content {
 			background-color: rgb(51, 51, 51);
 			border-color: $border-color;
 			color: $color;
@@ -1524,6 +1525,31 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 		.c-close {
 			background-color: inherit;
 		}
+	}
+
+	.desktop-onboarding__description,
+	.desktop-onboarding-sign-up__form-note,
+	.desktop-onboarding-step_sign-up footer,
+	.subreddit-picker__subreddit-name strong {
+		color: $color;
+	}
+
+	.desktop-onboarding-step_sign-up footer{
+		a { color: $link-color; }
+	}
+
+	.desktop-onboarding__col_sign-up_image {
+		opacity: 0.7;
+	}
+	
+	.subreddit-picker,
+	.c-username-picker-shown .desktop-onboarding__col_username_picker {
+		background-color: $background-color;
+		border-color: $border-color;
+	}
+
+	.subreddit-picker__category_selected {
+		background-color: $highlight-background-color;
 	}
 }
 
