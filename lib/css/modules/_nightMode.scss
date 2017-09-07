@@ -1534,14 +1534,14 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 		color: $color;
 	}
 
-	.desktop-onboarding-step_sign-up footer{
+	.desktop-onboarding-step_sign-up footer {
 		a { color: $link-color; }
 	}
 
 	.desktop-onboarding__col_sign-up_image {
-		opacity: 0.7;
+		opacity: .7;
 	}
-	
+
 	.subreddit-picker,
 	.c-username-picker-shown .desktop-onboarding__col_username_picker {
 		background-color: $background-color;
