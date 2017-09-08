@@ -1534,6 +1534,23 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 			background-color: inherit;
 		}
 	}
+
+	.author-tooltip__head {
+		background-color: $background-color;
+		border-color: $border-color;
+	}
+
+	.author-tooltip__credentials-list strong,
+	.author-tooltip__head h3,
+	.author-tooltip__description {
+		color: $color;
+	}
+
+	.author-tooltip__link-list,
+	.author-tooltip__head {
+		a { color: $link-color; }
+		a:hover { color: $link-color; }
+	}
 }
 
 .res-d2x-nightmode {
