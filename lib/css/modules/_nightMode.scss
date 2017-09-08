@@ -1399,6 +1399,15 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 		}
 	}
 
+	.subreddit .usertext .md {
+		background-color: rgb(51, 51, 51);
+		border-color: $border-color;
+	}
+
+	.user-subreddit .path {
+		color: $link-color;
+	}
+
 	.modal {
 		.modal-header-title {
 			color: $color;
@@ -1527,6 +1536,23 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 		}
 	}
 
+	.author-tooltip__head {
+		background-color: $background-color;
+		border-color: $border-color;
+	}
+
+	.author-tooltip__credentials-list strong,
+	.author-tooltip__head h3,
+	.author-tooltip__description {
+		color: $color;
+	}
+
+	.author-tooltip__link-list,
+	.author-tooltip__head {
+		a { color: $link-color; }
+		a:hover { color: $link-color; }
+	}
+	
 	.desktop-onboarding__description,
 	.desktop-onboarding-sign-up__form-note,
 	.desktop-onboarding-step_sign-up footer,
@@ -1554,7 +1580,11 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 }
 
 .res-d2x-nightmode {
-	body {
+	body,
+	.CommentListing__comment,
+	.Post.m-profile,
+	.ListingPagination__navButton,
+	.ProfileSidebar__titleContainer {
 		background-color: $background-color;
 		border-color: $border-color;
 		color: $color;
@@ -1564,7 +1594,15 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 		color: $link-color;
 	}
 
-	.StyledHtml {
+	.ProfileSidebar__displayName,
+	.ProfileSidebar__counters,
+	.UserTopSubredditsSidebar__header,
+	.SubredditListItem__subscribers,
+	.UserModeratedSubredditsSidebar__header,
+	.UserSpecialsListSidebar__header,
+	.UserSpecialsListSidebar__date,
+	.TrophyCaseSidebar__header,
+	.TrophyCaseSidebar__trophyDescription {
 		color: $color;
 	}
 
@@ -1579,11 +1617,10 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 		color: $title-link-visited-color;
 	}
 
-	.Media.m-profile.m-embed,
-	.Media.m-profile.m-image,
-	.Media.m-profile.m-video,
-	.ProfileTemplate__sidebar {
-		background: $highlight-background-color;
+	.Post__crosspostExpando .Media.m-embed,
+	.Post__crosspostExpando .Media.m-image,
+	.Post__crosspostExpando .Media.m-video {
+		background-color: $background-color;
 	}
 
 	.BlueBar {
