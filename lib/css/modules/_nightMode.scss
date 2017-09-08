@@ -1399,6 +1399,15 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 		}
 	}
 
+	.subreddit .usertext .md {
+		background-color: rgb(51, 51, 51);
+		border-color: $border-color;
+	}
+
+	.user-subreddit .path {
+		color: $link-color;
+	}
+
 	.modal {
 		.modal-header-title {
 			color: $color;
