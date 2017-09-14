@@ -1580,50 +1580,130 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 }
 
 .res-d2x-nightmode {
-	body,
-	.CommentListing__comment,
-	.Post.m-profile,
-	.ListingPagination__navButton,
-	.ProfileSidebar__titleContainer {
+	.ProfileTemplate.m-updated,
+	.ProfileBarDropdown__list,
+	.ProfileSidebar__counterInfo,
+	.ProfileBetaConfirmationPage {
 		background-color: $background-color;
 		border-color: $border-color;
 		color: $color;
 	}
 
-	a {
+	.SubredditListExpander__more,
+	.SubredditListItem__subredditLink,
+	.TrendingProfilesSidebar__profileName,
+	.TrendingProfilesSidebar__link,
+	.TrendingProfilesSidebar__more,
+	.BlueBar__logout, 
+	.BlueBar__username,
+	.BlueBar__prefs,
+	.TabMenu__tab.m-active,
+	.TabMenu__tab,
+	.ProfileBarDropdown__title.m-opened,
+	.ProfileBarDropdown__title,
+	.ProfileBarDropdown__listItem,
+	.ProfileSidebar__reportUserLink,
+	.ProfileSidebar__nameTitleLink,
+	.Footer__link,
+	.Footer__userAgreementLink,
+	.Footer__privacyLink,
+	.Post__origin .Post__username,
+	.Post__authorComment .Post__username,
+	.Post__subredditLink,
+	.CommentTitle__postAuthor,
+	.CommentTitle__subredditName,
+	.Comment.m-op .Comment__author {
 		color: $link-color;
 	}
 
-	.ProfileSidebar__displayName,
-	.ProfileSidebar__counters,
+	.Post__titleLink,
+	.CommentTitle__postTitle {
+		color: $title-link-color;
+	}
+	
+	.Post__flatListItem,
+	.Post__titleLink:visited,
+	.CommentTitle__postTitle {
+		color: $title-link-visited-color;
+	}
+
+
+	.ProfileBarDropdown__list:hover
+	.ProfileBarDropdown__listItem:hover {
+		background-color: $header-background-color;
+	}
+
 	.UserTopSubredditsSidebar__header,
 	.SubredditListItem__subscribers,
 	.UserModeratedSubredditsSidebar__header,
 	.UserSpecialsListSidebar__header,
+	.UserSpecialsListSidebar__title,
 	.UserSpecialsListSidebar__date,
 	.TrophyCaseSidebar__header,
-	.TrophyCaseSidebar__trophyDescription {
-		color: $color;
-	}
-
-	.Post__titleLink,
+	.TrophyCaseSidebar__trophyTitle,
+	.TrophyCaseSidebar__trophyDescription,
+	.TrendingProfilesSidebar__header,
+	.BlueBar__karma,
+	.ProfileSidebar__displayName,
 	.ProfileSidebar__description,
-	.UserSpecialsListSidebar__title,
-	.TrophyCaseSidebar__trophyTitle {
-		color: $title-link-color;
-	}
-
-	.Post__titleLink:visited {
-		color: $title-link-visited-color;
-	}
-
-	.Post__crosspostExpando .Media.m-embed,
-	.Post__crosspostExpando .Media.m-image,
-	.Post__crosspostExpando .Media.m-video {
-		background-color: $background-color;
+	.ProfileSidebar__counters,
+	.ProfileSidebar__followDescription,
+	.Post__score,
+	.StyledHtml,
+	.Post__authorComment .StyledHtml,
+	.Post__commentContainer,
+	.ProfileVoiceAd__title,
+	.ProfileVoiceAd__description,
+	.ProfileVoiceAd__button {
+		color: $color;
 	}
 
 	.BlueBar {
 		background: $header-background-color;
+	}
+
+	.BlueBar__account,
+	.ProfileSidebar__titleContainer,
+	.Post,
+	.CommentListing__comment {
+		background-color: rgb(51, 51, 51);
+		border-color: $border-color;
+		color: $color;
+	}
+
+	.SubscriptionBar {
+		background-color: rgb(204, 204, 204);
+	}
+
+	.SubscriptionBar__subredditListTarget {
+		color: #000 !important;
+	}
+
+	.SubredditListItem__subscribe,
+	.SubredditListItem__unsubscribe,
+	.Post__crosspostExpando .Media.m-embed,
+	.Post__crosspostExpando .Media.m-image,
+	.Post__crosspostExpando .Media.m-video,
+	.Media.m-profile.m-embed,
+	.Media.m-profile.m-image,
+	.Media.m-profile.m-video {
+		background-color: $background-color;
+	}
+
+	.SubredditListDropdown,
+	.SubredditListDropdown__listItem,
+	.SubredditListDropdown__listMore {
+		background-color: $highlight-background-color;
+		color: $color;
+		border-color: $border-color;
+	}
+
+	.SubredditListDropdown__listItem:hover,
+	.Post__comment:hover {
+		background-color: rgb(62, 62, 62);
+	}
+
+	.ProfileVoiceAd {
+		background-color: #202020;
 	}
 }
