@@ -143,6 +143,9 @@
 	"accountSwitcherPassword": {
 		"message": "password"
 	},
+	"accountSwitcherRequiresOtp": {
+		"message": "requires OTP (2FA is enabled)"
+	},
 	"accountSwitcherSnoo": {
 		"message": "snoo (alien)"
 	},
@@ -281,7 +284,7 @@
 	},
 	"contributeDesc": {
 		"message": "RES is entirely free - If you like our work, a contribution would be greatly appreciated.\n\nIf you would like to donate to RES, visit our [Contribution page](https://redditenhancementsuite.com/contribute/).\n\nCan't contribute a few bucks? How about a few lines of code? Our source code can be viewed on our [Github page](https://github.com/honestbleeps/Reddit-Enhancement-Suite/)."
-	},	
+	},
 	"customTogglesName": {
 		"message": "Custom Toggles"
 	},
@@ -1661,6 +1664,9 @@
 	},
 	"accountSwitcherDropDownStyleDesc": {
 		"message": "Use the \"snoo\" icon, or older style dropdown?"
+	},
+	"accountSwitcherOptPrompt": {
+		"message": "Enter the 6 digit code from your authenticator app for $1"
 	},
 	"backupAndRestoreReloadWarningTitle": {
 		"message": "Reload Warning"
