@@ -10,7 +10,7 @@ module.exports = {
 			.url('https://www.reddit.com/r/RESIntegrationTests/comments/6341yq/page_navigator/')
 			.waitForElementVisible('#RESSettingsButton')
 			.waitForElementNotVisible('.pageNavigator[href="#header"]')
-			.moveToElement('.debuginfo', 0, 0)
+			.execute('document.querySelector(".footer").scrollIntoView()') // scroll to bottom
 			.waitForElementVisible('.pageNavigator[href="#header"]')
 			.end();
 	},
