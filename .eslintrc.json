@@ -27,7 +27,7 @@
 		"flowtype/define-flow-type": 2,
 		"flowtype/delimiter-dangle": [2, "always-multiline"],
 		"flowtype/generic-spacing": 2,
-		"flowtype/no-dupe-keys": 2,
+		"flowtype/no-dupe-keys": 0, // temporarily disabled, https://github.com/gajus/eslint-plugin-flowtype/pull/266
 		"flowtype/no-primitive-constructor-types": 2,
 		"flowtype/no-weak-types": [2, { "any": false }],
 		"flowtype/object-type-delimiter": 0,
