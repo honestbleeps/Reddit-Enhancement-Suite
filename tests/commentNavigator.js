@@ -10,7 +10,7 @@ module.exports = {
 			.url('https://www.reddit.com/r/RESIntegrationTests/comments/632wur/comment_navigator/')
 			.refresh() // get rid of update notification
 			.waitForElementVisible('#RESSettingsButton')
-			.moveToElement('.debuginfo', 0, 0) // scroll to bottom
+			.execute('document.querySelector(".footer").scrollIntoView()') // scroll to bottom
 			.keys(['n'])
 			.assert.visible('#REScommentNavBox')
 			.setValue('#commentNavBy', 'submitter')
