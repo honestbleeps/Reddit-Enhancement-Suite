@@ -8,7 +8,7 @@
 	"applications": {
 		"gecko": {
 			"id": "jid1-xUfzOsOFlzSOXg@jetpack",
-			"strict_min_version": "54.0"
+			"strict_min_version": "55.0"
 		}
 	},
 	"icons": {
@@ -27,7 +27,6 @@
 	},
 	"background": {
 		"scripts": [
-			"{{./firefox.entry.js}}",
 			"{{./background.entry.js}}"
 		]
 	},
@@ -55,7 +54,6 @@
 			"https://*.reddit.com/*.json-html?*"
 		],
 		"js": [
-			"{{./firefox.entry.js}}",
 			"{{../lib/main.entry.js}}"
 		],
 		"css": [
