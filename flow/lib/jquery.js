@@ -368,7 +368,7 @@ declare class JQueryStatic {
 
 	(object: JQuery): JQuery;
 
-	(...args: void[]): JQuery;
+	(): JQuery;
 
 	(html: string, ownerDocument?: Document): JQuery;
 
@@ -383,7 +383,7 @@ declare class JQueryStatic {
 	};
 	cssNumber: any;
 
-	data(element: Element, key: string, ...args: void[]): any;
+	data(element: Element, key: string): any;
 	data<T>(element: Element, key: string, value: T): T;
 	data(element: Element): any;
 
@@ -516,42 +516,36 @@ declare class JQuery {
 
 	attr(attributeName: string, value: string | number): JQuery;
 	attr(attributeName: string, func: (index: number, attr: string) => string | number): JQuery;
-	attr(attributeName: string, ...args: void[]): string;
+	attr(attributeName: string): string;
 	attr(attributes: Object): JQuery;
 
 	hasClass(className: string): boolean;
 
 	html(htmlString: string): JQuery;
-	html(func: (index: number, oldhtml: string) => string): JQuery;
 	html(): string;
 
 	prop(propertyName: string, value: string | number | boolean): JQuery;
 	prop(properties: Object): JQuery;
-	prop(propertyName: string, func: (index: number, oldPropertyValue: any) => any): JQuery;
 	prop(propertyName: string): any;
 
 	removeAttr(attributeName: string): JQuery;
 
 	removeClass(className?: string): JQuery;
-	removeClass(func: (index: number, className: string) => string): JQuery;
 
 	removeProp(propertyName: string): JQuery;
 
 	toggleClass(className: string, swtch?: boolean): JQuery;
 	toggleClass(swtch?: boolean): JQuery;
-	toggleClass(func: (index: number, className: string, swtch: boolean) => string, swtch?: boolean): JQuery;
 
 	val(value: string | string[] | number): JQuery;
-	val(func: (index: number, value: string) => string): JQuery;
 	val(): any;
 
 	css(propertyName: string, value: string | number): JQuery;
 	css(propertyName: string, value: (index: number, value: string) => string | number): JQuery;
 	css(properties: Object): JQuery;
-	css(propertyName: string, ...args: void[]): string;
+	css(propertyName: string): string;
 
 	height(value: number | string): JQuery;
-	height(func: (index: number, height: number) => number | string): JQuery;
 	height(): number;
 
 	innerHeight(height: number | string): JQuery;
@@ -561,7 +555,6 @@ declare class JQuery {
 	innerWidth(): number;
 
 	offset(coordinates: JQueryCoordinates): JQuery;
-	offset(func: (index: number, coords: JQueryCoordinates) => JQueryCoordinates): JQuery;
 	offset(): JQueryCoordinates;
 
 	outerHeight(height: number | string): JQuery;
@@ -584,7 +577,7 @@ declare class JQuery {
 
 	clearQueue(queueName?: string): JQuery;
 
-	data(key: string, ...args: void[]): any;
+	data(key: string): any;
 	data(key: string, value: any): JQuery;
 	data(obj: {
 		[key: string]: any;
@@ -595,7 +588,7 @@ declare class JQuery {
 
 	removeData(name: string): JQuery;
 	removeData(list: string[]): JQuery;
-	removeData(...args: void[]): JQuery;
+	removeData(): JQuery;
 
 	promise(type?: string, target?: Object): JQueryPromise<any>;
 
@@ -660,137 +653,93 @@ declare class JQuery {
 	toggle(options: JQueryAnimationOptions): JQuery;
 	toggle(showOrHide: boolean): JQuery;
 
-	bind(eventType: string, eventData: any, handler: (eventObject: JQueryEventObject) => any): JQuery;
-	bind(eventType: string, handler: (eventObject: JQueryEventObject) => any): JQuery;
-	bind(eventType: string, eventData: any, preventBubble: boolean): JQuery;
-	bind(eventType: string, preventBubble: boolean): JQuery;
-	bind(events: any): JQuery;
-
 	blur(): JQuery;
 	blur(handler: (eventObject: JQueryEventObject) => any): JQuery;
-	blur(eventData?: any, handler?: (eventObject: JQueryEventObject) => any): JQuery;
 
 	change(): JQuery;
 	change(handler: (eventObject: JQueryEventObject) => any): JQuery;
-	change(eventData?: any, handler?: (eventObject: JQueryEventObject) => any): JQuery;
 
 	click(): JQuery;
 	click(handler: (eventObject: JQueryEventObject) => any): JQuery;
-	click(eventData?: any, handler?: (eventObject: JQueryEventObject) => any): JQuery;
 
 	dblclick(): JQuery;
 	dblclick(handler: (eventObject: JQueryEventObject) => any): JQuery;
-	dblclick(eventData?: any, handler?: (eventObject: JQueryEventObject) => any): JQuery;
-
-	delegate(selector: any, eventType: string, handler: (eventObject: JQueryEventObject) => any): JQuery;
-	delegate(selector: any, eventType: string, eventData: any, handler: (eventObject: JQueryEventObject) => any): JQuery;
 
 	focus(): JQuery;
 	focus(handler: (eventObject: JQueryEventObject) => any): JQuery;
-	focus(eventData?: any, handler?: (eventObject: JQueryEventObject) => any): JQuery;
 
 	focusin(): JQuery;
 	focusin(handler: (eventObject: JQueryEventObject) => any): JQuery;
-	focusin(eventData: Object, handler: (eventObject: JQueryEventObject) => any): JQuery;
 
 	focusout(): JQuery;
 	focusout(handler: (eventObject: JQueryEventObject) => any): JQuery;
-	focusout(eventData: Object, handler: (eventObject: JQueryEventObject) => any): JQuery;
 
 	hover(handlerIn: (eventObject: JQueryEventObject) => any, handlerOut: (eventObject: JQueryEventObject) => any): JQuery;
 	hover(handlerInOut: (eventObject: JQueryEventObject) => any): JQuery;
 
 	keydown(): JQuery;
 	keydown(handler: (eventObject: JQueryKeyEventObject) => any): JQuery;
-	keydown(eventData?: any, handler?: (eventObject: JQueryKeyEventObject) => any): JQuery;
 
 	keypress(): JQuery;
 	keypress(handler: (eventObject: JQueryKeyEventObject) => any): JQuery;
-	keypress(eventData?: any, handler?: (eventObject: JQueryKeyEventObject) => any): JQuery;
 
 	keyup(): JQuery;
 	keyup(handler: (eventObject: JQueryKeyEventObject) => any): JQuery;
-	keyup(eventData?: any, handler?: (eventObject: JQueryKeyEventObject) => any): JQuery;
 
 	load(handler: (eventObject: JQueryEventObject) => any): JQuery;
-	load(eventData?: any, handler?: (eventObject: JQueryEventObject) => any): JQuery;
 
 	mousedown(): JQuery;
 	mousedown(handler: (eventObject: JQueryMouseEventObject) => any): JQuery;
-	mousedown(eventData: Object, handler: (eventObject: JQueryMouseEventObject) => any): JQuery;
 
 	mouseenter(): JQuery;
 	mouseenter(handler: (eventObject: JQueryMouseEventObject) => any): JQuery;
-	mouseenter(eventData: Object, handler: (eventObject: JQueryMouseEventObject) => any): JQuery;
 
 	mouseleave(): JQuery;
 	mouseleave(handler: (eventObject: JQueryMouseEventObject) => any): JQuery;
-	mouseleave(eventData: Object, handler: (eventObject: JQueryMouseEventObject) => any): JQuery;
 
 	mousemove(): JQuery;
 	mousemove(handler: (eventObject: JQueryMouseEventObject) => any): JQuery;
-	mousemove(eventData: Object, handler: (eventObject: JQueryMouseEventObject) => any): JQuery;
 
 	mouseout(): JQuery;
 	mouseout(handler: (eventObject: JQueryMouseEventObject) => any): JQuery;
-	mouseout(eventData: Object, handler: (eventObject: JQueryMouseEventObject) => any): JQuery;
 
 	mouseover(): JQuery;
 	mouseover(handler: (eventObject: JQueryMouseEventObject) => any): JQuery;
-	mouseover(eventData: Object, handler: (eventObject: JQueryMouseEventObject) => any): JQuery;
 
 	mouseup(): JQuery;
 	mouseup(handler: (eventObject: JQueryMouseEventObject) => any): JQuery;
-	mouseup(eventData: Object, handler: (eventObject: JQueryMouseEventObject) => any): JQuery;
 
 	off(): JQuery;
-	off(events: string, selector?: string, handler?: (eventObject: JQueryEventObject) => any): JQuery;
-	off(events: string, handler: (eventObject: JQueryEventObject, ...args: any[]) => any): JQuery;
-	off(events: string, handler: (eventObject: JQueryEventObject) => any): JQuery;
+	off(events: string, selector?: string, handler?: (...args: any[]) => any): JQuery;
+	off(events: string, handler: (...args: any[]) => any): JQuery;
 	off(events: {
 		[key: string]: any;
 	}, selector?: string): JQuery;
 
 
-	on(events: MouseEventTypes, handler: (eventObject: JQueryMouseEventObject, ...args: any[]) => any): JQuery;
-	on(events: KeyboardEventTypes, handler: (eventObject: JQueryKeyEventObject, ...args: any[]) => any): JQuery;
-	on(events: string, handler: (eventObject: JQueryEventObject, ...args: any[]) => any): JQuery;
+	on(events: MouseEventTypes, handler: (eventObject: JQueryMouseEventObject) => any): JQuery;
+	on(events: KeyboardEventTypes, handler: (eventObject: JQueryKeyEventObject) => any): JQuery;
+	on(events: string, handler: (eventObject: JQueryEventObject) => any): JQuery;
 
-	// on(events: MouseEventTypes, data: any, handler: (eventObject: JQueryMouseEventObject, ...args: any[]) => any): JQuery;
-	// on(events: KeyboardEventTypes, data: any, handler: (eventObject: JQueryKeyEventObject, ...args: any[]) => any): JQuery;
-	// on(events: string, data: any, handler: (eventObject: JQueryEventObject, ...args: any[]) => any): JQuery;
-
-	on(events: MouseEventTypes, selector: string, handler: (eventObject: JQueryMouseEventObject, ...eventData: any[]) => any): JQuery;
-	on(events: KeyboardEventTypes, selector: string, handler: (eventObject: JQueryKeyEventObject, ...eventData: any[]) => any): JQuery;
-	on(events: string, selector: string, handler: (eventObject: JQueryEventObject, ...eventData: any[]) => any): JQuery;
-
-	on(events: MouseEventTypes, selector: string, data: any, handler: (eventObject: JQueryMouseEventObject, ...eventData: any[]) => any): JQuery;
-	on(events: KeyboardEventTypes, selector: string, data: any, handler: (eventObject: JQueryKeyEventObject, ...eventData: any[]) => any): JQuery;
-	on(events: string, selector: string, data: any, handler: (eventObject: JQueryEventObject, ...eventData: any[]) => any): JQuery;
+	on(events: MouseEventTypes, selector: string, handler: (eventObject: JQueryMouseEventObject) => any): JQuery;
+	on(events: KeyboardEventTypes, selector: string, handler: (eventObject: JQueryKeyEventObject) => any): JQuery;
+	on(events: string, selector: string, handler: (eventObject: JQueryEventObject) => any): JQuery;
 
 	on(events: {
 		[key: string]: any;
-	}, selector?: string, data?: any): JQuery;
+	}, selector?: string): JQuery;
 
 	on(events: {
 		[key: string]: any;
-	}, data?: any): JQuery;
+	}): JQuery;
 
 	one(events: MouseEventTypes, handler: (eventObject: JQueryMouseEventObject) => any): JQuery;
 	one(events: KeyboardEventTypes, handler: (eventObject: JQueryKeyEventObject) => any): JQuery;
 	one(events: string, handler: (eventObject: JQueryEventObject) => any): JQuery;
 
-	one(events: MouseEventTypes, data: Object, handler: (eventObject: JQueryMouseEventObject) => any): JQuery;
-	one(events: KeyboardEventTypes, data: Object, handler: (eventObject: JQueryKeyEventObject) => any): JQuery;
-	one(events: string, data: Object, handler: (eventObject: JQueryEventObject) => any): JQuery;
-
 	one(events: MouseEventTypes, selector: string, handler: (eventObject: JQueryMouseEventObject) => any): JQuery;
 	one(events: KeyboardEventTypes, selector: string, handler: (eventObject: JQueryKeyEventObject) => any): JQuery;
 	one(events: string, selector: string, handler: (eventObject: JQueryEventObject) => any): JQuery;
-
-	one(events: MouseEventTypes, selector: string, data: any, handler: (eventObject: JQueryMouseEventObject) => any): JQuery;
-	one(events: KeyboardEventTypes, selector: string, data: any, handler: (eventObject: JQueryKeyEventObject) => any): JQuery;
-	one(events: string, selector: string, data: any, handler: (eventObject: JQueryEventObject) => any): JQuery;
 
 	one(events: {
 		[key: string]: any;
@@ -804,19 +753,15 @@ declare class JQuery {
 
 	resize(): JQuery;
 	resize(handler: (eventObject: JQueryEventObject) => any): JQuery;
-	resize(eventData: Object, handler: (eventObject: JQueryEventObject) => any): JQuery;
 
 	scroll(): JQuery;
 	scroll(handler: (eventObject: JQueryEventObject) => any): JQuery;
-	scroll(eventData: Object, handler: (eventObject: JQueryEventObject) => any): JQuery;
 
 	select(): JQuery;
 	select(handler: (eventObject: JQueryEventObject) => any): JQuery;
-	select(eventData: Object, handler: (eventObject: JQueryEventObject) => any): JQuery;
 
 	submit(): JQuery;
 	submit(handler: (eventObject: JQueryEventObject) => any): JQuery;
-	submit(eventData?: any, handler?: (eventObject: JQueryEventObject) => any): JQuery;
 
 	trigger(eventType: string, extraParameters?: any[] | Object): JQuery;
 	trigger(event: JQueryEventObject, extraParameters?: any[] | Object): JQuery;
@@ -834,14 +779,12 @@ declare class JQuery {
 	undelegate(namespace: string): JQuery;
 
 	unload(handler: (eventObject: JQueryEventObject) => any): JQuery;
-	unload(eventData?: any, handler?: (eventObject: JQueryEventObject) => any): JQuery;
 
 	context: Element;
 
 	jquery: string;
 
 	error(handler: (eventObject: JQueryEventObject) => any): JQuery;
-	error(eventData: any, handler: (eventObject: JQueryEventObject) => any): JQuery;
 
 	// inherited from Array.prototype?
 	push(...elements: HTMLElement[]): number;
