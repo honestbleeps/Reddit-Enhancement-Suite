@@ -92,6 +92,7 @@
 a.voteWeight {
 	text-decoration: none;
 	color: #369;
+	margin-left: 3px;
 
 	&:hover {
 		text-decoration: none;
@@ -101,8 +102,6 @@ a.voteWeight {
 	.md & {
 		user-select: none;
 	}
-
-	margin-left: 3px;
 }
 
 .RESUserTag {
