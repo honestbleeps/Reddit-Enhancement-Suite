@@ -69,7 +69,7 @@ matrix:
           on:
             tags: true
         - provider: script
-          script: node build/deploy.js
+          script: yarn run deploy
           skip_cleanup: true
           on:
             tags: true
