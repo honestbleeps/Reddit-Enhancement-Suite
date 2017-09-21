@@ -13,7 +13,7 @@ module.exports = {
 			.moveToElement('.thing.link .author', 0, 0)
 			.pause(1000)
 			.waitForElementVisible('.RESHover')
-			.assert.containsText('.RESHover', '/u/erikdesjardins')
+			.assert.containsText('.RESHover', 'erikdesjardins')
 			.assert.visible('.RESHover a[href$="/user/erikdesjardins"]')
 			.assert.visible('.RESHover a[href$="/user/erikdesjardins/submitted/"]')
 			.assert.visible('.RESHover a[href$="/user/erikdesjardins/comments/"]')

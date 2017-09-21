@@ -28,7 +28,7 @@ module.exports = {
 			.waitForElementVisible(tag(post))
 			.click(tag(post))
 			.assert.visible('#userTaggerToolTip')
-			.setValue('#userTaggerToolTip #userTaggerTag', ['test tag'])
+			.setValue('#userTaggerToolTip #userTaggerText', ['test tag'])
 			.click('#userTaggerSave')
 			.click(loadChildComment)
 			.waitForElementVisible(tag(childComment))
@@ -38,6 +38,14 @@ module.exports = {
 			.url('https://www.reddit.com/by_id/t3_5sgqzh')
 			.waitForElementVisible(tag(post))
 			.assert.containsText(tag(post), 'test tag')
+
+			// cli
+			.keys(['.'])
+			.assert.visible('#keyCommandLineWidget')
+			.keys(['tag tag via cli'])
+			.waitForElementVisible('#keyCommandInputTip:not(:empty)')
+			.keys([browser.Keys.ENTER])
+			.assert.containsText(tag(post), 'tag via cli')
 			.end();
 	},
 };
