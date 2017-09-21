@@ -1,4 +1,12 @@
 
+### New Features
+
+- None (thanks nobody)
+
 ### Bug Fixes
 
-- Fix reddit's user info cards being hidden by default
+- None (thanks nobody)
+
+### Housekeeping / Other
+
+- None (thanks nobody)
