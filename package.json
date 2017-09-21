@@ -33,7 +33,7 @@
     "coverage": "cross-env NODE_ENV=test nyc ava",
     "report-coverage": "nyc report --reporter=text-lcov | coveralls",
     "integration": "nightwatch --env",
-		"deploy": "node build/deploy.js",
+    "deploy": "node build/deploy.js",
     "version": "node build/version.js"
   },
   "ava": {
