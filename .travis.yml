@@ -45,6 +45,7 @@ matrix:
         - yarn run flow -- check --show-all-errors
         - yarn run eslint
         - yarn run sass-lint
+        - yarn run i18n-lint
     - env: RES_JOB=test
       script:
         - yarn run coverage && yarn run report-coverage
