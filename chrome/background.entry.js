@@ -10,7 +10,7 @@ addListener('addURLToHistory', url => {
 	chrome.history.addUrl({ url });
 });
 
-addListener('authFlow', ({ domain, clientId, scope, interactive }) => {
+addListener('authFlow', ({ domain, clientId, scope, loginHint, interactive }) => {
 	// Chrome supports chrome.identity.launchAuthFlow.
 	// However--and quite inexplicably--the auth process is performed in a separate context whose cookies
 	// are cleared whenever the browser is restarted, making noninteractive auth pretty much useless.
@@ -21,6 +21,9 @@ addListener('authFlow', ({ domain, clientId, scope, interactive }) => {
 	const url = new URL(domain);
 	url.searchParams.set('client_id', clientId);
 	url.searchParams.set('scope', scope);
+	if (loginHint) {
+		url.searchParams.set('login_hint', loginHint);
+	}
 	url.searchParams.set('response_type', 'token');
 	url.searchParams.set('redirect_uri', redirectUri);
 
@@ -30,6 +33,10 @@ addListener('authFlow', ({ domain, clientId, scope, interactive }) => {
 		return emulateAuthFlowInBackground(url.href);
 	}
 });
+
+addListener('saveEmail', async url =>
+	(await apiToPromise(chrome.history.getVisits)({ url })).length > 0
+);
 
 addListener('isURLVisited', async url =>
 	(await apiToPromise(chrome.history.getVisits)({ url })).length > 0

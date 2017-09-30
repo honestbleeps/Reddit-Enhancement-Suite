@@ -9,7 +9,7 @@ import { emulateAuthFlowInNewWindow, emulateAuthFlowInNewTab } from '../browser/
 addListener('addURLToHistory', () => {});
 addListener('isURLVisited', () => false);
 
-addListener('authFlow', ({ domain, clientId, scope, interactive }, { index: currentIndex }) => {
+addListener('authFlow', ({ domain, clientId, scope, loginHint, interactive }, { index: currentIndex }) => {
 	// Edge does not support chrome.identity.launchAuthFlow.
 	// Its chrome.webRequest API does not support requests made by extensions,
 	// so we can't emulate noninteractive auth without a new tab.
@@ -17,6 +17,9 @@ addListener('authFlow', ({ domain, clientId, scope, interactive }, { index: curr
 	const url = new URL(domain);
 	url.searchParams.set('client_id', clientId);
 	url.searchParams.set('scope', scope);
+	if (loginHint) {
+		url.searchParams.set('login_hint', loginHint);
+	}
 	url.searchParams.set('response_type', 'token');
 	url.searchParams.set('redirect_uri', redirectUri);
 

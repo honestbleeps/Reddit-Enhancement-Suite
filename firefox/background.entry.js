@@ -9,11 +9,14 @@ addListener('addURLToHistory', url => {
 	chrome.history.addUrl({ url });
 });
 
-addListener('authFlow', ({ domain, clientId, scope, interactive }) => {
+addListener('authFlow', ({ domain, clientId, scope, loginHint, interactive }) => {
 	const url = new URL(domain);
 	url.searchParams.set('client_id', clientId);
 	url.searchParams.set('scope', scope);
 	url.searchParams.set('response_type', 'token');
+	if (loginHint) {
+		url.searchParams.set('login_hint', loginHint);
+	}
 	url.searchParams.set('redirect_uri', 'https://redditenhancementsuite.com/oauth');
 
 	return apiToPromise(chrome.identity.launchWebAuthFlow)({ url: url.href, interactive });
