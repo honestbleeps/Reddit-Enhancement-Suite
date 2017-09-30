@@ -34,10 +34,6 @@ addListener('authFlow', ({ domain, clientId, scope, loginHint, interactive }) =>
 	}
 });
 
-addListener('saveEmail', async url =>
-	(await apiToPromise(chrome.history.getVisits)({ url })).length > 0
-);
-
 addListener('isURLVisited', async url =>
 	(await apiToPromise(chrome.history.getVisits)({ url })).length > 0
 );
