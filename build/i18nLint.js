@@ -8,6 +8,7 @@
 
 const { join } = require('path');
 const { readFileSync, readdirSync, statSync } = require('fs');
+const _ = require('lodash');
 const i18n = require('../locales/locales/en.json');
 
 function checkUnused() {
@@ -41,4 +42,29 @@ function checkUnused() {
 	}
 }
 
+function checkDupes() {
+	const EXCEPTIONS = [
+		['aboutCategory', 'aboutName'],
+		['commentsCategory', 'userInfoComments'],
+		['subredditsCategory', 'filteRedditSubredditsTitle'],
+	];
+
+	const keyGroups = _.invertBy(i18n, ({ message }) => message);
+	const dupeKeyGroups = Object.values(keyGroups)
+		.filter(keys => keys.length > 1)
+		.filter(keys => !EXCEPTIONS.find(except => _.isEqual(except, keys)));
+
+	if (dupeKeyGroups.length > 0) {
+		process.exitCode = 1;
+		console.error('ERROR: The following groups of i18n strings are not unique:');
+		for (const group of dupeKeyGroups) {
+			console.error(`\t${group.join(', ')}`);
+		}
+		console.error('To fix this, remove all but one from each group, remembering to replace usages in code.');
+	} else {
+		console.log(`Success! All ${keyGroups.length} i18n strings were unique.`);
+	}
+}
+
 checkUnused();
+checkDupes();

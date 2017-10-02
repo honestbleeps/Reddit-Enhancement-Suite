@@ -244,7 +244,7 @@
 		"message": "Comment Quick Collapse"
 	},
 	"commentQuickCollapseDesc": {
-		"message": "Toggles comment collapse when the header is double clicked."
+		"message": "Provides tools for quickly collapsing comments."
 	},
 	"hideCommentsOnHeaderDoubleClickDesc": {
 		"message": "Toggles comment collapse when the header is double clicked."
@@ -348,23 +348,29 @@
 	"hoverInstancesEnabled": {
 		"message": "enabled"
 	},
-	"hoverOpenDelayTitle": {
-		"message": "Open Delay"
+	"hoverDelayTitle": {
+		"message": "Hover Delay"
 	},
-	"hoverOpenDelayDesc": {
-		"message": "Default delay between mouseover and the popup opening."
+	"defaultHoverDelayDesc": {
+		"message": "Default delay, in milliseconds, before hover tooltip loads."
 	},
-	"hoverFadeDelayTitle": {
+	"hoverDelayDesc": {
+		"message": "Delay, in milliseconds, before hover tooltip loads."
+	},
+	"fadeDelayTitle": {
 		"message": "Fade Delay"
 	},
-	"hoverFadeDelayDesc": {
-		"message": "Default delay before the popup fades after mouseout."
+	"defaultFadeDelayDesc": {
+		"message": "Default delay, in milliseconds, before hover tooltip fades away."
 	},
-	"hoverFadeSpeedTitle": {
+	"fadeDelayDesc": {
+		"message": "Delay, in milliseconds, before hover tooltip fades away."
+	},
+	"fadeSpeedTitle": {
 		"message": "Fade Speed"
 	},
-	"hoverFadeSpeedDesc": {
-		"message": "Fade speed (in seconds)."
+	"fadeSpeedDesc": {
+		"message": "Fade animation's speed (in seconds)."
 	},
 	"hoverWidthTitle": {
 		"message": "Width"
@@ -927,10 +933,10 @@
 	"messageMenuAddShortcut": {
 		"message": "+add shortcut"
 	},
-	"messageMenuLabel": {
+	"label": {
 		"message": "label"
 	},
-	"messageMenuUrl": {
+	"url": {
 		"message": "url"
 	},
 	"messageMenuLinksTitle": {
@@ -944,24 +950,6 @@
 	},
 	"messageMenuUseQuickMessageDesc": {
 		"message": "Use Quick Message pop-up when composing a new message."
-	},
-	"messageMenuHoverDelayTitle": {
-		"message": "Hover Delay"
-	},
-	"messageMenuHoverDelayDesc": {
-		"message": "Delay, in milliseconds, before hover tooltip loads."
-	},
-	"messageMenuFadeDelayTitle": {
-		"message": "Fade Delay"
-	},
-	"messageMenuFadeDelayDesc": {
-		"message": "Delay, in milliseconds, before hover tooltip fades away."
-	},
-	"messageMenuFadeSpeedTitle": {
-		"message": "Fade Speed"
-	},
-	"messageMenuFadeSpeedDesc": {
-		"message": "Fade animation's speed (in seconds)."
 	},
 	"modhelperName": {
 		"message": "Mod Helper"
@@ -990,29 +978,8 @@
 	"multiredditNavbarAddShortcut": {
 		"message": "+add multireddit section shortcut"
 	},
-	"multiredditNavbarLabel": {
-		"message": "label"
-	},
-	"multiredditNavbarUrl": {
+	"url": {
 		"message": "url"
-	},
-	"multiredditNavbarHoverDelayTitle": {
-		"message": "Hover Delay"
-	},
-	"multiredditNavbarHoverDelayDesc": {
-		"message": "Delay, in milliseconds, before hover tooltip loads."
-	},
-	"multiredditNavbarFadeDelayTitle": {
-		"message": "Fade Delay"
-	},
-	"multiredditNavbarFadeDelayDesc": {
-		"message": "Delay, in milliseconds, before hover tooltip fades away."
-	},
-	"multiredditNavbarFadeSpeedTitle": {
-		"message": "Fade Speed"
-	},
-	"multiredditNavbarFadeSpeedDesc": {
-		"message": "Fade animation's speed (in seconds)."
 	},
 	"nerName": {
 		"message": "Never Ending Reddit"
@@ -1596,15 +1563,6 @@
 	"profileNavigatorSectionLinksDesc": {
 		"message": "Links to display in the profile hover menu."
 	},
-	"profileNavigatorHoverDelayDesc": {
-		"message": "Delay, in milliseconds, before hover tooltip loads."
-	},
-	"profileNavigatorFadeDelayDesc": {
-		"message": "Delay, in milliseconds, before hover tooltip fades away."
-	},
-	"profileNavigatorFadeSpeedDesc": {
-		"message": "Fade animation's speed (in seconds)."
-	},
 	"accountSwitcherKeepLoggedInTitle": {
 		"message": "Keep Logged In"
 	},
@@ -2079,9 +2037,6 @@
 	"commentToolsAddShortcut": {
 		"message": "+add shortcut"
 	},
-	"commentToolsLabel": {
-		"message": "label"
-	},
 	"commentToolsText": {
 		"message": "text"
 	},
@@ -2127,7 +2082,7 @@
 	"customTogglesToggleDesc": {
 		"message": "Enable or disable everything connected to this toggle; and optionally add a toggle to the RES gear dropdown menu."
 	},
-	"dashboardMenuItemTitle": {
+	"menuItemTitle": {
 		"message": "Menu Item"
 	},
 	"dashboardMenuItemDesc": {
@@ -2394,12 +2349,6 @@
 		"message": "Stop filtering from /r/all and /domain/*"
 	},
 	"subredditInfoFilterFromAllAndDomain": {
-		"message": "Filter this subreddit from /r/all and /domain/*"
-	},
-	"subredditInfoStopFilteringThisSubredditFromAllAndDomain": {
-		"message": "Stop filtering this subreddit from /r/all and /domain/*"
-	},
-	"subredditInfoFilterThisSubredditFromAllAndDomain": {
 		"message": "Filter this subreddit from /r/all and /domain/*"
 	},
 	"subredditInfoSubscribe": {
@@ -2855,9 +2804,6 @@
 	"commandLineLaunchDesc": {
 		"message": "Open the RES Command Line"
 	},
-	"commandLineMenuItemTitle": {
-		"message": "Menu Item"
-	},
 	"commandLineMenuItemDesc": {
 		"message": "Add a \"launch command line\" item to the RES dropdown menu"
 	},
@@ -2875,15 +2821,6 @@
 	},
 	"profileNavigatorSectionLinksTitle": {
 		"message": "Section Links"
-	},
-	"profileNavigatorHoverDelayTitle": {
-		"message": "Hover Delay"
-	},
-	"profileNavigatorFadeDelayTitle": {
-		"message": "Fade Delay"
-	},
-	"profileNavigatorFadeSpeedTitle": {
-		"message": "Fade Speed"
 	},
 	"quickMessageOpenQuickMessageTitle": {
 		"message": "Open Quick Message"
@@ -2969,9 +2906,6 @@
 	"selectedEntryOutlineStyleNightTitle": {
 		"message": "Outline Style Night"
 	},
-	"RESTipsMenuItemTitle": {
-		"message": "Menu Item"
-	},
 	"RESTipsDailyTipTitle": {
 		"message": "Daily Tip"
 	},
@@ -3046,24 +2980,6 @@
 	},
 	"showKarmaShowGoldDesc": {
 		"message": "Display gilded icon if current user has gold status."
-	},
-	"showParentHoverDelayTitle": {
-		"message": "Hover Delay"
-	},
-	"showParentHoverDelayDesc": {
-		"message": "Delay, in milliseconds, before parent hover loads."
-	},
-	"showParentFadeDelayTitle": {
-		"message": "Fade Delay"
-	},
-	"showParentFadeDelayDesc": {
-		"message": "Delay, in milliseconds, before parent hover fades away after the mouse leaves."
-	},
-	"showParentFadeSpeedTitle": {
-		"message": "Fade Speed"
-	},
-	"showParentFadeSpeedDesc": {
-		"message": "Fade animation's speed (in seconds)."
 	},
 	"showParentDirectionTitle": {
 		"message": "Direction"
@@ -3251,24 +3167,6 @@
 	"subredditInfoRequireDirectLinkDesc": {
 		"message": "Should the popup appear only for direct /r/ links, or for all links to a subreddit?"
 	},
-	"subredditInfoHoverDelayTitle": {
-		"message": "Hover Delay"
-	},
-	"subredditInfoHoverDelayDesc": {
-		"message": "Delay, in milliseconds, before hover tooltip loads."
-	},
-	"subredditInfoFadeDelayTitle": {
-		"message": "Fade Delay"
-	},
-	"subredditInfoFadeDelayDesc": {
-		"message": "Delay, in milliseconds, before hover tooltip fades away."
-	},
-	"subredditInfoFadeSpeedTitle": {
-		"message": "Fade Speed"
-	},
-	"subredditInfoFadeSpeedDesc": {
-		"message": "Fade animation's speed (in seconds)."
-	},
 	"troubleshooterClearCacheTitle": {
 		"message": "Clear Cache"
 	},
@@ -3382,24 +3280,6 @@
 	},
 	"userInfoUseQuickMessageDesc": {
 		"message": "Open the quick message dialog when clicking on the \"send message\" button in hover info, instead of going straight to reddit's message page."
-	},
-	"userInfoHoverDelayTitle": {
-		"message": "Hover Delay"
-	},
-	"userInfoHoverDelayDesc": {
-		"message": "Delay, in milliseconds, before hover tooltip loads."
-	},
-	"userInfoFadeDelayTitle": {
-		"message": "Fade Delay"
-	},
-	"userInfoFadeDelayDesc": {
-		"message": "Delay, in milliseconds, before hover tooltip fades away."
-	},
-	"userInfoFadeSpeedTitle": {
-		"message": "Fade Speed"
-	},
-	"userInfoFadeSpeedDesc": {
-		"message": "Fade animation's speed (in seconds)."
 	},
 	"userInfoGildCommentsTitle": {
 		"message": "Gild Comments"
@@ -3753,7 +3633,7 @@
 		"message": "User Defined Comment Coloration"
 	},
 	"voteEnhancementsUserDefinedCommentColorationDesc": {
-		"message": "Choose a color for colorLinkScore with a threshold of your choice."
+		"message": "Choose a color for colorCommentScore with a threshold of your choice."
 	},
 	"voteEnhancementsInterpolateScoreColorTitle": {
 		"message": "Interpolate Score Color"
