@@ -1630,25 +1630,25 @@
 		"message": "After switching accounts, automatically reload other tabs."
 	},
 	"accountSwitcherAutoSwitchOnPostTitle": {
-		"message": "Automatically Switch To Post OP"
+		"message": "Automatically Switch To Post Author"
 	},
 	"accountSwitcherAutoSwitchOnPostDesc": {
-		"message": "Automatically switch to alternative account if it's the OP of the post you are on."
+		"message": "Automatically switch to account in Account Switcher if that account submitted the current post."
 	},
 	"accountSwitcherAutoSwitchOnCommentTitle": {
-		"message": "Automatically Switch To Comment OP"
+		"message": "Automatically Switch To Comment Author"
 	},
 	"accountSwitcherAutoSwitchOnCommentDesc": {
-		"message": "Automatically switch to alternative account if a comment from one of your alternative accounts is on the page"
+		"message": "Automatically switch to account in Account Switcher if that account has submitted a comment to the current post."
 	},
 	"accountSwitcherAutoSwitchNotificationTitle": {
 		"message": "Account Switched"
 	},
 	"accountSwitcherAutoSwitchPostDesc": {
-		"message": "Your account has been switched to <b>$1</b> because it is the OP of this post"
+		"message": "You have been automatically switched to <b>u/$1</b> because this account submitted this post."
 	},
 	"accountSwitcherAutoSwitchCommentDesc": {
-		"message": "Your account has been switched to <b>$1</b> because a comment by it was found on this post."
+		"message": "You have been automatically switched to <b>u/$1</b> because this account submitted a comment on this post."
 	},
 	"accountSwitcherShowCurrentUserNameTitle": {
 		"message": "Show Current User Name"
