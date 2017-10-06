@@ -51,15 +51,13 @@ addListener('ajax', async ({ method, url, headers, data }) => {
 
 addListener('i18n', locale => getLocaleDictionary(locale));
 
-// Chakra bug https://github.com/Microsoft/ChakraCore/issues/2606
-// eslint-disable-next-line arrow-body-style
-addListener('multicast', async ({ name, args, crossIncognito }, { id: tabId, incognito }) => {
-	return Promise.all(
+addListener('multicast', async ({ name, args, crossIncognito }, { id: tabId, incognito }) =>
+	Promise.all(
 		(await apiToPromise(chrome.tabs.query)({ url: '*://*.reddit.com/*', status: 'complete' }))
 			.filter(tab => tab.id !== tabId && (crossIncognito || tab.incognito === incognito))
 			.map(({ id: tabId }) => sendMessage('multicast', { name, args }, tabId))
-	);
-});
+	)
+);
 
 chrome.pageAction.onClicked.addListener(({ id: tabId }) => {
 	sendMessage('pageActionClick', undefined, tabId);
