@@ -77,3 +77,7 @@ if (!('isIntersecting' in IntersectionObserverEntry.prototype)) {
 			},
 		});
 }
+
+if (typeof requestIdleCallback === 'undefined') {
+	window.requestIdleCallback = fn => requestAnimationFrame(() => { requestAnimationFrame(fn); });
+}
