@@ -2,6 +2,10 @@
 
 /* Microsoft Edge Support */
 
+// polyfill fetch()
+import './remove-fetch';
+import 'whatwg-fetch';
+
 window.chrome = window.browser; // eslint-disable-line no-native-reassign
 
 // DOM Collection iteration
