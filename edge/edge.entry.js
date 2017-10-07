@@ -17,7 +17,7 @@ function textNodeIfString(node) {
 
 function contentToNode(nodes) {
 	if (nodes.length === 1) {
-		return textNodeIfString(nodes);
+		return textNodeIfString(nodes[0]);
 	}
 	const fragment = document.createDocumentFragment();
 	for (const node of nodes) {
@@ -26,6 +26,7 @@ function contentToNode(nodes) {
 	return fragment;
 }
 
+DocumentFragment.prototype.prepend =
 Element.prototype.prepend = function prepend(...nodes) {
 	const firstChild = this.firstChild;
 	const node = contentToNode(nodes);
@@ -36,10 +37,13 @@ Element.prototype.prepend = function prepend(...nodes) {
 	}
 };
 
+DocumentFragment.prototype.append =
 Element.prototype.append = function append(...nodes) {
 	this.appendChild(contentToNode(nodes));
 };
 
+CharacterData.prototype.before =
+DocumentType.prototype.before =
 Element.prototype.before = function before(...nodes) {
 	const parentNode = this.parentNode;
 	if (parentNode) {
@@ -47,6 +51,8 @@ Element.prototype.before = function before(...nodes) {
 	}
 };
 
+CharacterData.prototype.after =
+DocumentType.prototype.after =
 Element.prototype.after = function after(...nodes) {
 	const parentNode = this.parentNode;
 	const nextSibling = this.nextSibling;
@@ -60,6 +66,8 @@ Element.prototype.after = function after(...nodes) {
 	}
 };
 
+CharacterData.prototype.replaceWith =
+DocumentType.prototype.replaceWith =
 Element.prototype.replaceWith = function replaceWith(...nodes) {
 	const parentNode = this.parentNode;
 	if (parentNode) {
