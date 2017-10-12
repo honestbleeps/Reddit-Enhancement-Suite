@@ -9,4 +9,4 @@ install:
   - yarn install --frozen-lockfile
 test_script:
   - yarn test
-  - yarn run build -- all
+  - yarn run build all
