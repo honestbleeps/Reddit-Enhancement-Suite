@@ -70,8 +70,9 @@
 		"history",
 		"storage",
 		"unlimitedStorage",
-		"downloads",
-
+		"downloads"
+	],
+	"optional_permissions": [
 		"https://api.twitter.com/1/statuses/oembed.json",
 		"https://backend.deviantart.com/oembed",
 		"https://api.gyazo.com/api/oembed",
@@ -79,6 +80,10 @@
 		"https://api.tumblr.com/v2/blog/*/posts",
 		"https://xkcd.com/*/info.0.json",
 		"https://api.steampowered.com/ISteamRemoteStorage/GetPublishedFileDetails/*",
-		"https://content.googleapis.com/drive/v3/*"
+		"https://content.googleapis.com/drive/v3/*",
+		"https://redditenhancementsuite.com/oauth",
+		"https://accounts.google.com/o/oauth2/v2/auth",
+		"https://www.dropbox.com/oauth2/authorize",
+		"https://login.live.com/oauth20_authorize.srf"
 	]
 }
