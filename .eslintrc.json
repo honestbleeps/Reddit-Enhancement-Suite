@@ -125,7 +125,7 @@
 		"no-restricted-globals": [2, "alert"],
 		"no-restricted-imports": [2, "jquery"], // import it from vendor/ instead
 		"no-restricted-modules": 0, // see import/no-nodejs-modules
-		"no-restricted-syntax": [2, "ForStatement"], // use for..of or Array.prototype methods
+		"no-restricted-syntax": [2, "ForStatement", "Property > Literal.key[raw=/ /]"], // use for..of or Array.prototype methods, no spaces in property names
 		"no-shadow": 0,
 		"no-sync": 0,
 		"no-tabs": 0,
