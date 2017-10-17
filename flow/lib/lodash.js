@@ -481,10 +481,6 @@ declare module 'lodash' {
 		// NaN is a number instead of its own type, otherwise it would behave like null/void
 		defaultTo<T1:number, T2>(value: T1, def: T2): T1 | T2;
 		defaultTo<T1:void | null, T2>(value: T1, def: T2): T2;
-		flow(...funcs?: Array<Function>): Function;
-		flow(funcs?: Array<Function>): Function;
-		flowRight(...funcs?: Array<Function>): Function;
-		flowRight(funcs?: Array<Function>): Function;
 		identity<T>(value: T): T;
 		iteratee(func?: any): Function;
 		matches(source: Object): Function;
