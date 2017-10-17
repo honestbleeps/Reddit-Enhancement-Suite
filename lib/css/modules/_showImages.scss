@@ -30,6 +30,17 @@ img {
 	}
 }
 
+// Place inline expandos so that they don't impact the line height
+.res-freetext-expando {
+	display: inline-block;
+	height: 1em;
+	margin: 0 4px !important;
+	vertical-align: middle;
+
+	.expando-button { margin: calc(calc(1em * .5) - 50%) 0 0 0  !important; }
+	+ .res-expando-box { margin-top: 5px !important; }
+}
+
 .expando-button {
 	cursor: pointer;
 	user-select: none;
@@ -48,27 +59,6 @@ img {
 		background-image: url('../images/expandoButtons.png');
 		margin-right: 6px;
 		padding: 0;
-	}
-
-	.comment > .parent > &.linkImg,
-	&.commentImg {
-		vertical-align: middle !important;
-		float: none;
-		display: inline-block;
-		margin: 0 4px;
-
-		+ .res-expando-box {
-			margin-top: 3px;
-		}
-
-		// Override native
-		&.selftext.expanded {
-			margin-bottom: initial;
-		}
-	}
-
-	.comment > .parent > &.linkImg {
-		margin-left: 0;
 	}
 
 	&-duplicate {
