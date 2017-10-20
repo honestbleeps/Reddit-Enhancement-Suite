@@ -30,6 +30,10 @@ steve@honestbleeps.com
 
 See [CONTRIBUTING.md](/CONTRIBUTING.md).
 
+## License
+
+See [LICENSE](/LICENSE).
+
 ## Changelog
 
 See the [`changelog/`](/changelog) directory for individual versions or https://redditenhancementsuite.com/releases/ for all versions.
