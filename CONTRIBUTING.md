@@ -57,9 +57,9 @@ The default host and port (`localhost` and `4444`) should work for most local in
 
 ##### Chrome
 
-1. Go to `Menu->Tools->Extensions` and tick the `Developer Mode` checkbox.
+1. Go to `Menu->More tools->Extensions` and tick the `Developer Mode` checkbox.
 1. Click `Load unpacked extension` and select the `/dist/chrome` folder (not the `/chrome` folder).
-1. Any time you make changes, you must go back to the `Menu->Tools->Extensions` page and `Reload` the extension.
+1. Any time you make changes, you must go back to the `Menu->More tools->Extensions` page and `Reload` the extension.
 
 ##### Microsoft Edge
 
