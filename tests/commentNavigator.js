@@ -13,7 +13,7 @@ module.exports = {
 			.execute('document.querySelector(".footer").scrollIntoView()') // scroll to bottom
 			.keys(['n'])
 			.assert.visible('#REScommentNavBox')
-			.click('#commentNavBy [name="submitter"]')
+			.click('#commentNavBy [value="submitter"]')
 			.assert.containsText('#REScommentNavBox', '1/2')
 			.assert.visible('#thing_t1_dfqvawk')
 			.click('#commentNavDown')
