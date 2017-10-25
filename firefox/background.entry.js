@@ -28,13 +28,14 @@ addListener('download', ({ url, filename }) => {
 	chrome.downloads.download({ url, filename });
 });
 
-// Firefox doesn't support openerTabId
-addListener('openNewTabs', ({ urls, focusIndex }, { index: currentIndex }) => {
+// Firefox doesn't support openerTabId, and needs cookieStoreId to open in correct container
+addListener('openNewTabs', ({ urls, focusIndex }, { index: currentIndex, cookieStoreId }) => {
 	urls.forEach((url, i) => {
 		chrome.tabs.create({
 			url,
 			active: i === focusIndex,
 			index: ++currentIndex,
+			cookieStoreId,
 		});
 	});
 });
