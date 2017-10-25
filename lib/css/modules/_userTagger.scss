@@ -105,6 +105,7 @@ a.voteWeight {
 }
 
 .RESUserTag {
+	color: black;
 	display: inline-block;
 
 	// unselectable in comments/markdown for usability
@@ -121,8 +122,6 @@ a.voteWeight {
 }
 
 .userTagLink {
-	color: black;
-
 	&:hover { text-decoration: none !important; }
 
 	&.hasTag {
