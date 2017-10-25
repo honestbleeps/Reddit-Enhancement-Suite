@@ -1,5 +1,7 @@
 module.exports = {
 	'image expando': browser => {
+		let oldWindowHandles;
+
 		browser
 			.url('https://www.reddit.com/r/RESIntegrationTests/comments/60edn3/image_expando/')
 			.waitForElementVisible('.expando-button')
@@ -14,12 +16,16 @@ module.exports = {
 			.assert.attributeEquals('.res-expando-box a', 'href', 'http://fc04.deviantart.net/fs51/i/2009/278/e/6/THEN_by_SamSaxton.jpg')
 
 			.pause(1000)
+			.window_handles(result => {
+				// store old window handles, to keep track of, e.g. beta release notes
+				oldWindowHandles = result.value;
+			})
 			.click('.res-expando-box img')
 			// old tab didn't navigate
 			.assert.urlEquals('https://www.reddit.com/r/RESIntegrationTests/comments/60edn3/image_expando/')
 			// image opened in new tab, focused
 			.window_handles(result => {
-				browser.switchWindow(result.value[1]);
+				browser.switchWindow(result.value.filter(win => !oldWindowHandles.includes(win))[0]);
 			})
 			// deviantart may redirect to a different CDN server
 			.assert.urlContains('/i/2009/278/e/6/then_by_samsaxton.jpg')
