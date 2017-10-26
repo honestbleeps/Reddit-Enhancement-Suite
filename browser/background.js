@@ -113,7 +113,7 @@ addListener('storage-cas', keyedMutex(async ([key, oldValue, newValue]) => {
 	return true;
 }, ([key]) => key));
 
-const cache = new Cache();
+const cache = new Cache(512);
 addListener('XHRCache', ([operation, key, value]) => {
 	switch (operation) {
 		case 'set':
