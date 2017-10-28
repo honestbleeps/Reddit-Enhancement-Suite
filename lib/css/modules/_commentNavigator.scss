@@ -20,6 +20,10 @@
 		padding: 8px;
 		border-radius: 3px;
 		box-shadow: rgb(144, 144, 144) 1px 2px 4px;
+
+		&[category=new] {
+			color: #9A7D2E;
+		}
 	}
 
 	&:hover &-choices { display: block; }
@@ -33,49 +37,52 @@
 		&:hover {
 			text-decoration: underline;
 		}
-
-		&-disabled {
-			text-decoration: line-through;
-		}
 	}
 }
 
 #REScommentNavBox {
 	clear: both;
-	margin-top: 10px;
-	width: 265px;
+	float: right;
+	width: 80px;
+	margin-top: 5px;
+	padding: 3px;
 	border: 1px solid gray;
 	background-color: #fff;
 	opacity: .3;
 	user-select: none;
 	transition: opacity .5s ease-in;
 
+	&:focus-within,
 	&:hover {
 		opacity: 1;
+	}
+
+	select {
+		width: 100%;
+
+		&:not(:focus) option span {
+			display: none;
+		}
 	}
 }
 
 #commentNavButtons {
-	display: none;
-	margin: auto auto auto 12px;
 	text-align: center;
-	user-select: none;
 }
 
 #commentNavUp,
 #commentNavDown {
-	cursor: pointer;
+	all: unset;
 	color: #1278D3;
-	border: none;
-	background: transparent;
-	padding: 0;
+	cursor: pointer;
 	font-size: 35px;
-	line-height: .9;
 
 	&:focus {
-		outline: none;
 		text-shadow: 0 0 5px #1278D3;
 	}
+
+	&#commentNavDown { margin: -5px 0 -5px 0; }
+	&#commentNavUp { margin: -9px 0 -5px 0; }
 
 	&[disabled] {
 		opacity: .3;
@@ -85,8 +92,4 @@
 
 #commentNavPostCount {
 	color: #1278d3;
-}
-
-.noNav #commentNavPostCount {
-	color: #666;
 }
