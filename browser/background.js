@@ -13,7 +13,7 @@ import cssOffSmall from '../images/css-off-small.png';
 import cssOn from '../images/css-on.png';
 import cssOnSmall from '../images/css-on-small.png';
 import { getLocaleDictionary } from '../locales';
-import { Cache } from '../lib/utils/Cache';
+import { LRUCache } from '../lib/utils/Cache';
 import { keyedMutex } from '../lib/utils/async';
 import { createMessageHandler } from './utils/messaging';
 import { apiToPromise } from './utils/api';
@@ -113,11 +113,12 @@ addListener('storage-cas', keyedMutex(async ([key, oldValue, newValue]) => {
 	return true;
 }, ([key]) => key));
 
-const cache = new Cache(512);
+const cache = new LRUCache(512);
 addListener('XHRCache', ([operation, key, value]) => {
 	switch (operation) {
 		case 'set':
-			return cache.set(key, value);
+			cache.set(key, value);
+			break;
 		case 'check':
 			return cache.get(key, value);
 		case 'delete':
