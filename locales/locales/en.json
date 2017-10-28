@@ -2797,6 +2797,9 @@
 	"userTaggerVWNumberDesc": {
 		"message": "Show the number (i.e. [+6]) rather than [vw]"
 	},
+	"userTaggerTruncateTagDesc": {
+		"message": "Truncates long tags to 30 characters. Hovering over them reveals the full content."
+	},
 	"scrollOnCollapseDesc": {
 		"message": "Scrolls to next comment when a comment is collapsed."
 	},
@@ -3064,6 +3067,9 @@
 	},
 	"userTaggerVwNumberTitle": {
 		"message": "VW Number"
+	},
+	"userTaggerTruncateTagTitle": {
+		"message": "Truncate Tags"
 	},
 	"singleClickOpenOrderTitle": {
 		"message": "Open Order"
