@@ -14,7 +14,7 @@
     "repository": "Reddit-Enhancement-Suite"
   },
   "scripts": {
-    "preinstall": "npm -v && node -v && git rev-parse HEAD && git status --porcelain",
+    "preinstall": "npm -v && node -v && python --version && git rev-parse HEAD && git status --porcelain",
     "prestart": "rimraf dist",
     "start": "cross-env NODE_ENV=development webpack --watch --env.browsers",
     "preonce": "rimraf dist",
