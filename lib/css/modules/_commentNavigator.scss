@@ -76,13 +76,12 @@
 	color: #1278D3;
 	cursor: pointer;
 	font-size: 35px;
+	clip-path: inset(10px 0);
+	margin: -10px 0;
 
 	&:focus {
 		text-shadow: 0 0 5px #1278D3;
 	}
-
-	&#commentNavDown { margin: -5px 0 -5px 0; }
-	&#commentNavUp { margin: -9px 0 -5px 0; }
 
 	&[disabled] {
 		opacity: .3;
