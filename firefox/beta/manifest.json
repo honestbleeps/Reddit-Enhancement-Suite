@@ -56,11 +56,11 @@
 		"js": [
 			"{{../../lib/main.entry.js}}"
 		],
-		"css": [
-			"{{../../lib/css/res.scss}}"
-		],
 		"run_at": "document_start"
 	}],
+	"web_accessible_resources": [
+		"{{../../lib/css/res.scss}}"
+	],
 	"permissions": [
 		"https://*.reddit.com/*",
 		"cookies",
