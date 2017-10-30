@@ -1,12 +1,21 @@
-#authorInfoToolTip {
-	.blueButton {
-		float: right;
-		margin-left: 8px;
-		margin-top: 12px;
+.author-tooltip {
+	h3, .res-tags {
+		display: inline-block;
+	}
+	.res-tags {
+		margin-left: .5em;
+		line-height: 26px;
+    	vertical-align: top;
 	}
 
-	.redButton {
-		float: right;
-		margin-left: 8px;
+	.author-tooltip__link-list {
+		a.blue, a.red {
+			background: #fff;
+			border: 0;
+			cursor: pointer;
+		}
+		a.red {
+			color: rgb(255, 87, 87);
+		}
 	}
 }
