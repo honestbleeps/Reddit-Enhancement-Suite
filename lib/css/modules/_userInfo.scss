@@ -1,17 +1,20 @@
 .author-tooltip {
-	h3, .res-tags {
+	h3, 
+	.res-tags {
 		display: inline-block;
 	}
+
 	.res-tags {
 		margin-left: .5em;
 		line-height: 26px;
-    	vertical-align: top;
+		vertical-align: top;
 	}
 
 	.author-tooltip__link-list {
-		a.blue, a.red {
+		a.blue, 
+		a.red {
 			background: #fff;
-			border: 0;
+			border: none;
 			cursor: pointer;
 		}
 		a.red {
