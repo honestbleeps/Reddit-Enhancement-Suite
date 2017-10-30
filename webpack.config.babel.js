@@ -83,6 +83,7 @@ export default (env = {}, argv = {}) => {
 									'process.env.BUILD_TARGET': conf.target,
 									'process.env.NODE_ENV': argv.mode,
 								}],
+								['module:nanohtml', { useImport: true }],
 								'lodash',
 							],
 							comments: !isProduction,
