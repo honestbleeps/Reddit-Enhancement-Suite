@@ -11,15 +11,31 @@
 	}
 
 	.author-tooltip__link-list {
-		a.blue,
-		a.red {
-			background: none;
-			border: none;
-			cursor: pointer;
-		}
+		display: flex;
+		justify-content: space-between;
+		padding: 0 16px;
 
-		a.red {
-			color: rgb(255, 87, 87);
+		li {
+			min-width: 0;
+
+			&:empty {
+				display: none;
+			}
+
+			a {
+				padding: 16px 0;
+			}
+
+			a.blue,
+			a.red {
+				background: none;
+				border: none;
+				cursor: pointer;
+			}
+
+			a.red {
+				color: rgb(255, 87, 87);
+			}
 		}
 	}
 
