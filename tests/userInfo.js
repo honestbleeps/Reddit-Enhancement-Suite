@@ -15,7 +15,7 @@ module.exports = {
 			.waitForElementVisible('.author-tooltip')
 			.assert.containsText('.author-tooltip', 'erikdesjardins')
 			.waitForElementVisible('#highlightUser')
-			.assert.containsText('.RESHover', 'Highlight')
+			.assert.containsText('.author-tooltip', 'Highlight')
 			.end();
 	},
 };
