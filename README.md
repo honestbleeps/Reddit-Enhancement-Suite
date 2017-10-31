@@ -13,7 +13,7 @@ For general documentation, visit the [Reddit Enhancement Suite Wiki](https://www
 
 ## Introduction
 
-Hi there! Thanks for checking out RES on GitHub. A few important notes:
+Hello there! Thanks for checking out RES on GitHub. A few important notes:
 
 1. RES is licensed under GPLv3, which means you're technically free to do whatever you wish in terms of redistribution as long as you maintain GPLv3 licensing. However, I ask out of courtesy that should you choose to release your own, separate distribution of RES, you please name it something else entirely. Unfortunately, I have run into problems in the past with people redistributing under the same name, and causing me tech support headaches.
 
