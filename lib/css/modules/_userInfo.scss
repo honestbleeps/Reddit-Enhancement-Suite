@@ -1,5 +1,5 @@
 .author-tooltip {
-	h3, 
+	h3,
 	.res-tags {
 		display: inline-block;
 	}
@@ -11,12 +11,13 @@
 	}
 
 	.author-tooltip__link-list {
-		a.blue, 
+		a.blue,
 		a.red {
 			background: #fff;
 			border: none;
 			cursor: pointer;
 		}
+
 		a.red {
 			color: rgb(255, 87, 87);
 		}
