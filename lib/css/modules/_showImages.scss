@@ -262,14 +262,16 @@ img {
 		&[first-piece=true] .res-gallery-previous {
 			transform: scaleX(-1);
 		}
+	}
 
-		.res-gallery-to-filmstrip {
-			margin-left: auto;
-			cursor: pointer;
+	&-to-filmstrip {
+		margin-left: auto;
+		cursor: pointer;
 
-			&::before {
-				content: '𐁖';
-			}
+		&::before {
+			content: '🎞';
+			display: block;
+			transform: rotate(90deg);
 		}
 	}
 
