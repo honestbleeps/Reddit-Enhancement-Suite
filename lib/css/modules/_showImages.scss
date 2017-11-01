@@ -190,6 +190,7 @@ img {
 	clear: left; // Necessary on some custom stylesheets where .entry .flat-list has no height
 
 	.res-expando-box-inner {
+		width: 100%;
 		// Reset a few possible parent styles
 		font-style: normal; // Italics
 		font-weight: normal; // Bold
@@ -235,6 +236,8 @@ img {
 }
 
 .res-gallery {
+	width: 100%;
+
 	.res-gallery-title {
 		margin: 3px;
 		font-size: 15px;
@@ -258,6 +261,15 @@ img {
 		&[last-piece=true] .res-gallery-next,
 		&[first-piece=true] .res-gallery-previous {
 			transform: scaleX(-1);
+		}
+
+		.res-gallery-to-filmstrip {
+			margin-left: auto;
+			cursor: pointer;
+
+			&::before {
+				content: '𐁖';
+			}
 		}
 	}
 
