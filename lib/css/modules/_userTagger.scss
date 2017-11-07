@@ -131,6 +131,15 @@ a.voteWeight {
 		border-radius: 3px;
 		font-size: .9em;
 	}
+
+	&.truncateTag {
+		max-width: 25ch;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		display: inherit;
+		margin: 0 0 -3px 0;
+	}
 }
 
 #userTaggerTable th {
