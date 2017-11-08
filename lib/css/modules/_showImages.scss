@@ -261,6 +261,17 @@ img {
 		}
 	}
 
+	&-to-filmstrip {
+		margin-left: 5px;
+		cursor: pointer;
+
+		&::before {
+			content: '🎞';
+			display: block;
+			transform: rotate(90deg);
+		}
+	}
+
 	.res-gallery-below {
 		margin: 0 5px 5px 5px;
 		font-size: 11px;
