@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites errors="1"
+            failures="0"
+            tests="4">
+
+  <testsuite name="hideSidebar"
+    errors="1" failures="0" hostname="" id="" package="hideSidebar" skipped="3"
+    tests="4" time="0.03300" timestamp="Sun, 29 Oct 2017 12:30:02 GMT">
+  
+    <testcase name="sidebar with sub navigation" classname="hideSidebar" time="0.03300" assertions="0">
+    </testcase>
+  
+
+  
+    <system-err>
+        Error while running [Hide Sidebar / sidebar with sub navigation]:
+
+  ReferenceError: self is not defined
+    at Object.sidebar with sub navigation (/Users/william/Development/Reddit-Enhancement-Suite/tests/hideSidebar.js:32:20)
+    at Module.call (/Users/william/Development/Reddit-Enhancement-Suite/node_modules/nightwatch/lib/runner/module.js:62:34)
+    at /Users/william/Development/Reddit-Enhancement-Suite/node_modules/nightwatch/lib/runner/testcase.js:70:29
+    at _fulfilled (/Users/william/Development/Reddit-Enhancement-Suite/node_modules/nightwatch/node_modules/q/q.js:834:54)
+    at self.promiseDispatch.done (/Users/william/Development/Reddit-Enhancement-Suite/node_modules/nightwatch/node_modules/q/q.js:863:30)
+    at Promise.promise.promiseDispatch (/Users/william/Development/Reddit-Enhancement-Suite/node_modules/nightwatch/node_modules/q/q.js:796:13)
+    at /Users/william/Development/Reddit-Enhancement-Suite/node_modules/nightwatch/node_modules/q/q.js:556:49
+    at runSingle (/Users/william/Development/Reddit-Enhancement-Suite/node_modules/nightwatch/node_modules/q/q.js:137:13)
+    at flush (/Users/william/Development/Reddit-Enhancement-Suite/node_modules/nightwatch/node_modules/q/q.js:125:13)
+    at _combinedTickCallback (internal/process/next_tick.js:131:7)
+    </system-err>
+  
+
+  
+    
+    <testcase
+      name="content with padding right" classname="hideSidebar">
+      <skipped />
+    </testcase>
+    
+    <testcase
+      name="content with margin right" classname="hideSidebar">
+      <skipped />
+    </testcase>
+    
+    <testcase
+      name="content with default" classname="hideSidebar">
+      <skipped />
+    </testcase>
+    
+  
+  </testsuite>
+</testsuites>
