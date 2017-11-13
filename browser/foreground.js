@@ -60,6 +60,8 @@ addInterceptor('storage', keyedMutex(async ([operation, key, value]) => {
 		case 'setMultiple':
 			return _set(value);
 		case 'patch':
+			return set(key, Object.assign(await get(key) || {}, value));
+		case 'patchDeep':
 			const extended = extendDeep(await get(key) || {}, value);
 			return set(key, extended);
 		case 'deletePath':
