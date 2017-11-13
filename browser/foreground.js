@@ -65,16 +65,13 @@ addInterceptor('storage', keyedMutex(async ([operation, key, value]) => {
 		case 'patchShallow':
 			return set(key, Object.assign(await get(key) || {}, value));
 		case 'deletePath':
-			try {
-				const stored = await get(key) || {};
-				value.split(',').reduce((obj, key, i, { length }) => {
-					if (i < length - 1) return obj[key];
-					delete obj[key];
-				}, stored);
-				return set(key, stored);
-			} catch (e) {
-				throw new Error(`Failed to delete path: ${value} on key: ${key} - error: ${e}`);
-			}
+			const stored = await get(key);
+			value.reduce((obj, key, i, { length }) => {
+				if (!obj) return;
+				if (i < length - 1) return obj[key];
+				delete obj[key];
+			}, stored);
+			return set(key, stored);
 		case 'delete':
 			return _delete(key);
 		case 'has':
