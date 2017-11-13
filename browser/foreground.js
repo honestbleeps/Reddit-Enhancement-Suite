@@ -48,7 +48,7 @@ addInterceptor('storage', keyedMutex(async ([operation, key, value]) => {
 			return get(key, null);
 		case 'getAll':
 			return _get(null);
-		case 'batch':
+		case 'getMultiple':
 			const defaults = {};
 			// key is an array here
 			for (const k of key) {
