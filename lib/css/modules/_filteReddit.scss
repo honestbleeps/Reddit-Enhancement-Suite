@@ -74,13 +74,9 @@ body.hideOver18 {
 		display: none;
 	}
 
-	&-preamble {
-		margin-top: -1px;
-
-		&::before {
-			@extend %res-filterline-icon;
-			margin: 0 2px;
-		}
+	&-preamble::before {
+		@extend %res-filterline-icon;
+		margin: 0 2px;
 	}
 
 	&-filters {
@@ -147,6 +143,7 @@ body.hideOver18 {
 				margin: 1px;
 				line-height: 12px;
 				padding: 3px 4px;
+				font-size: 12px;
 				.res-nightmode & { padding: 5px 4px; } // Compensate for smaller nightmode button
 			}
 
@@ -191,7 +188,7 @@ body.hideOver18 {
 	&-dropdown {
 		display: none;
 		position: absolute;
-		width: 154px;
+		width: 165px;
 		padding: 2px 0;
 		background-color: #f7f7f7;
 		border-radius: 0 2px 2px 2px;

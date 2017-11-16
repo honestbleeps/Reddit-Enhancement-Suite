@@ -1447,6 +1447,11 @@ body.RESScrollLock {
 	flex-wrap: wrap;
 	white-space: pre-wrap;
 
+	input,
+	select {
+		font-size: 1em;
+	}
+
 	&-error {
 		outline: 2px dotted darkred;
 
