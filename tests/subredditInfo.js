@@ -9,7 +9,8 @@ module.exports = {
 		browser
 			.url('https://en.reddit.com/by_id/t3_633w4z')
 			.refresh() // get rid of update notification
-			.refresh() // get rid of filterline guider
+			.pause(1000)
+			.click('.guiders_x_button') // get rid of filterline guider
 			.waitForElementVisible('.thing.link .subreddit')
 			.moveToElement('.thing.link .subreddit', 0, 0)
 			.pause(1000)

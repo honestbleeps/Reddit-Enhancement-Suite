@@ -28,6 +28,8 @@ export {
 
 addInterceptor('extensionId', () => chrome.runtime.id);
 
+addInterceptor('getUrl', path => chrome.extension.getURL(path));
+
 addInterceptor('isPrivateBrowsing', () => chrome.extension.inIncognitoContext);
 
 const _set = apiToPromise((items, callback) => chrome.storage.local.set(items, callback));
@@ -46,7 +48,7 @@ addInterceptor('storage', keyedMutex(async ([operation, key, value]) => {
 			return get(key, null);
 		case 'getAll':
 			return _get(null);
-		case 'batch':
+		case 'getMultiple':
 			const defaults = {};
 			// key is an array here
 			for (const k of key) {
@@ -60,17 +62,18 @@ addInterceptor('storage', keyedMutex(async ([operation, key, value]) => {
 		case 'patch':
 			const extended = extendDeep(await get(key) || {}, value);
 			return set(key, extended);
-		case 'deletePath':
-			try {
-				const stored = await get(key) || {};
-				value.split(',').reduce((obj, key, i, { length }) => {
+		case 'patchShallow':
+			return set(key, Object.assign(await get(key) || {}, value));
+		case 'deletePaths':
+			const stored = await get(key);
+			for (const path of value) {
+				path.reduce((obj, key, i, { length }) => {
+					if (!obj) return;
 					if (i < length - 1) return obj[key];
 					delete obj[key];
 				}, stored);
-				return set(key, stored);
-			} catch (e) {
-				throw new Error(`Failed to delete path: ${value} on key: ${key} - error: ${e}`);
 			}
+			return set(key, stored);
 		case 'delete':
 			return _delete(key);
 		case 'has':

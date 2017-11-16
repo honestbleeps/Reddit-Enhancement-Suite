@@ -13,6 +13,7 @@
 module.use_strict=true
 
 module.name_mapper='^exec-loader\(\?cache\)?!\(.+\)$'->'\2'
+module.name_mapper.extension='scss'->'<PROJECT_ROOT>/flow/stub/scss.js'
 
 esproposal.export_star_as=enable
 
