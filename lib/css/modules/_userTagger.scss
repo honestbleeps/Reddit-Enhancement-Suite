@@ -106,7 +106,8 @@ a.voteWeight {
 
 .RESUserTag {
 	color: black;
-	display: inline-block;
+	display: inline-flex;
+	height: 1.2em;
 
 	// unselectable in comments/markdown for usability
 	.md & {
@@ -122,23 +123,24 @@ a.voteWeight {
 }
 
 .userTagLink {
+	align-self: center;
+	height: 100%;
+
 	&:hover { text-decoration: none !important; }
 
 	&.hasTag {
 		padding: 0 4px;
-		line-height: normal;
 		border: 1px solid #c7c7c7;
 		border-radius: 3px;
 		font-size: .9em;
-	}
+		line-height: normal;
 
-	&.truncateTag {
-		max-width: 25ch;
-		overflow: hidden;
-		text-overflow: ellipsis;
-		white-space: nowrap;
-		display: inherit;
-		margin: 0 0 -3px 0;
+		&.truncateTag {
+			max-width: 25ch;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+		}
 	}
 }
 
