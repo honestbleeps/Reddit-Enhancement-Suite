@@ -249,7 +249,7 @@ module.exports = {
 				.execute(`
 					document.querySelector('#optionContainer-filteReddit-keywords input#keywords_subreddits_1').value = 'RESIntegrationTests';
 				`)
-				.click('#optionContainer-filteReddit-keywords input#keywords_applyTo_1-2' /* only on */)
+				.click('#optionContainer-filteReddit-keywords input#keywords_filteRedditApplyTo_1-2' /* only on */)
 			))
 			.url(byId(POST.A, POST.RESIntegrationTests2_A))
 			.waitForElementNotVisible(thing(POST.A))
@@ -262,7 +262,7 @@ module.exports = {
 
 			// except these subreddits (posted to)
 			.perform(editSettings(() => browser
-				.click('#optionContainer-filteReddit-keywords input#keywords_applyTo_0-1' /* everywhere but */)
+				.click('#optionContainer-filteReddit-keywords input#keywords_filteRedditApplyTo_0-1' /* everywhere but */)
 			))
 			.url(byId(POST.A, POST.RESIntegrationTests2_A))
 			.waitForElementNotVisible(thing(POST.RESIntegrationTests2_A))
@@ -278,7 +278,7 @@ module.exports = {
 				.execute(`
 					document.querySelector('#optionContainer-filteReddit-keywords input#keywords_subreddits_0').value = 'resinTegrAtiontEsts';
 				`)
-				.click('#optionContainer-filteReddit-keywords input#keywords_applyTo_0-2' /* only on */)
+				.click('#optionContainer-filteReddit-keywords input#keywords_filteRedditApplyTo_0-2' /* only on */)
 			))
 			.url(byId(POST.A, POST.RESIntegrationTests2_A))
 			.waitForElementNotVisible(thing(POST.A))
@@ -291,14 +291,14 @@ module.exports = {
 				.execute(`
 					document.querySelector('#optionContainer-filteReddit-keywords input#keywords_subreddits_0').value = 'all';
 				`)
-				.click('#optionContainer-filteReddit-keywords input#keywords_applyTo_0-2' /* only on */)
+				.click('#optionContainer-filteReddit-keywords input#keywords_filteRedditApplyTo_0-2' /* only on */)
 			))
 			.url('https://www.reddit.com/r/all/?limit=1')
 			.waitForElementNotVisible('#siteTable .thing' /* first thing */)
 
 			// browsing /r/all special case (except these subreddits)
 			.perform(editSettings(() => browser
-				.click('#optionContainer-filteReddit-keywords input#keywords_applyTo_0-1' /* everywhere but */)
+				.click('#optionContainer-filteReddit-keywords input#keywords_filteRedditApplyTo_0-1' /* everywhere but */)
 			))
 			.url('https://www.reddit.com/r/all/?limit=1')
 			.pause(1000)
@@ -311,14 +311,14 @@ module.exports = {
 				.execute(`
 					document.querySelector('#optionContainer-filteReddit-keywords input#keywords_subreddits_0').value = 'popular';
 				`)
-				.click('#optionContainer-filteReddit-keywords input#keywords_applyTo_0-2' /* only on */)
+				.click('#optionContainer-filteReddit-keywords input#keywords_filteRedditApplyTo_0-2' /* only on */)
 			))
 			.url('https://www.reddit.com/r/popular/?limit=1')
 			.waitForElementNotVisible('#siteTable .thing' /* first thing */)
 
 			// browsing /r/popular special case (except these subreddits)
 			.perform(editSettings(() => browser
-				.click('#optionContainer-filteReddit-keywords input#keywords_applyTo_0-1' /* everywhere but */)
+				.click('#optionContainer-filteReddit-keywords input#keywords_filteRedditApplyTo_0-1' /* everywhere but */)
 			))
 			.url('https://www.reddit.com/r/popular/?limit=1')
 			.pause(1000)
