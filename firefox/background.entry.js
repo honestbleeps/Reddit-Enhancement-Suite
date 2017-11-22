@@ -24,8 +24,8 @@ addListener('isURLVisited', async url =>
 );
 
 // Firefox <a download> is same-origin only
-addListener('download', ({ url, filename }) => {
-	chrome.downloads.download({ url, filename });
+addListener('download', ({ url, filename }, { incognito }) => {
+	chrome.downloads.download({ url, filename, incognito });
 });
 
 // Firefox needs cookieStoreId to open in correct container
