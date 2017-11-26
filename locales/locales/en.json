@@ -3962,6 +3962,12 @@
 	"showImagesClippyDesc": {
 		"message": "Show educational info, such as showing \"drag to resize\" in the media controls."
 	},
+	"showImagesCrosspostsTitle": {
+		"message": "Crossposts"
+	},
+	"showImagesCrosspostsDescription": {
+		"message": "Handle crossposts from other subreddits"
+	},
 	"showImagesDisplayImageCaptionsTitle": {
 		"message": "Display Image Captions"
 	},
@@ -4141,5 +4147,23 @@
 	},
 	"menuGearIconClickActionToggleMenuNoHover": {
 		"message": "Open menu (no hover)"
+	},
+	"numPoints": {
+		"message": "$1 points"
+	},
+	"numComments": {
+		"message": "$1 comments"
+	},
+	"submittedAtTime": {
+		"message": "submitted",
+		"description": "[post/comment] submitted [at $time]"
+	},
+	"submittedByAuthor": {
+		"message": "by",
+		"description": "[post/comment submitted...] by $username"
+	},
+	"submittedToSubreddit": {
+		"message": "to",
+		"description": "[post/comment submitted...] to $subreddit"
 	}
 }
