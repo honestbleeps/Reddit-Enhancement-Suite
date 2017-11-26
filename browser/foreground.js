@@ -28,8 +28,6 @@ export {
 
 addInterceptor('extensionId', () => chrome.runtime.id);
 
-addInterceptor('getUrl', path => chrome.extension.getURL(path));
-
 addInterceptor('isPrivateBrowsing', () => chrome.extension.inIncognitoContext);
 
 const _set = apiToPromise((items, callback) => chrome.storage.local.set(items, callback));
