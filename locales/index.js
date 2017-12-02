@@ -45,7 +45,7 @@ const getLocale = _.memoize(localeName => {
 	}
 });
 
-export const getLocaleDictionary = _.memoize((localeName: string): { [key: string]: string } => {
+export const getLocaleDictionary = _.memoize((localeName: string): { [string]: string } => {
 	const transifexLocale = redditLocaleToTransifexLocale(localeName);
 
 	const mergedLocales = {

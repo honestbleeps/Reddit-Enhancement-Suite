@@ -217,7 +217,7 @@ declare module 'lodash' {
 		includes(str: string, value: string, fromIndex?: number): bool;
 		invokeMap<T>(array: ?Array<T>, path: ((value: T) => Array<string> | string) | Array<string> | string, ...args?: Array<any>): Array<any>;
 		invokeMap<T: Object>(object: T, path: ((value: any) => Array<string> | string) | Array<string> | string, ...args?: Array<any>): Array<any>;
-		keyBy<T, V>(array: ?Array<T>, iteratee?: Iteratee2<T, V>): {[key: V]: T};
+		keyBy<T, V>(array: ?Array<T>, iteratee?: Iteratee2<T, V>): {[V]: T};
 		keyBy<V, T: Object>(object: T, iteratee?: OIteratee<T>): Object;
 		map<T, U>(array: ?Array<T>, iteratee?: MapIterator<T, U>): Array<U>;
 		map<V, T: Object, U>(object: ?T, iteratee?: OIterateeWithResult<V, T, U>): Array<U>;
@@ -254,7 +254,7 @@ declare module 'lodash' {
 		ary<T>(func: (...args: any) => T, n?: number): (...args: any) => T;
 		before<T: Function>(n: number, fn: T): T;
 		bind<T>(func: (...args: any) => T, thisArg: any, ...partials: Array<any>): (...args: any) => T;
-		bindKey<K: string, T>(obj: { [key: K]: (...args: any) => T }, key: string, ...partials: Array<any>): (...args: any) => T;
+		bindKey<K: string, T>(obj: { [K]: (...args: any) => T }, key: string, ...partials: Array<any>): (...args: any) => T;
 
 		curry<A, R>(func: (a: A) => R, arity: 1): Curry1<A, R>;
 		curry<A, R>(func: (a: A) => R, arity: void): Curry1<A, R>;
@@ -300,7 +300,7 @@ declare module 'lodash' {
 		cloneDeep<T>(value: T): T;
 		cloneDeepWith<T, U>(value: T, customizer?: ?(value: T, key: number | string, object: T, stack: any) => U): U;
 		cloneWith<T, U>(value: T, customizer?: ?(value: T, key: number | string, object: T, stack: any) => U): U;
-		conformsTo<T: { [key: string]: mixed }>(source: T, predicates: T & { [key: string]: (x: any) => boolean }): boolean;
+		conformsTo<T: { [string]: mixed }>(source: T, predicates: T & { [string]: (x: any) => boolean }): boolean;
 		eq(value: any, other: any): bool;
 		gt(value: any, other: any): bool;
 		gte(value: any, other: any): bool;
@@ -540,16 +540,16 @@ declare module 'lodash/fp' {
 	declare function flow<A1, A2, A3, A4, B, C, D, E, F, R, F1: (a1: A1, a2: A2, a3: A3, a4: A4) => B, F2: (b: B) => C, F3: (c: C) => D, F4: (d: D) => E, F5: (e: E) => F, F6: (f: F) => R>
 		(f1: F1, f2: F2, f3: F3, f4: F4, f5: F5, f6: F6): (a1: A1, a2: A2, a3: A3, a4: A4) => R;
 
-	declare function groupBy<T, K>(fn: (x: T) => K): Curry1<T[], { [key: K]: T[] }>;
+	declare function groupBy<T, K>(fn: (x: T) => K): Curry1<T[], { [K]: T[] }>;
 
 	declare function join<S: string>(s: string): Curry1<S[], string>;
 
-	declare function keyBy<T, K>(fn: (x: T) => K): Curry1<T[], { [key: K]: T }>;
-	declare function keyBy<KA, KB, T>(fn: (x: T) => KB): Curry1<{ [key: KA]: T }, { [key: KB]: T }>;
+	declare function keyBy<T, K>(fn: (x: T) => K): Curry1<T[], { [K]: T }>;
+	declare function keyBy<KA, KB, T>(fn: (x: T) => KB): Curry1<{ [KA]: T }, { [KB]: T }>;
 
-	declare function map<A, B, K>(fn: (x: A) => B): Curry1<A[], B[]> & Curry1<{ [key: K]: A }, { [key: K]: B }>;
+	declare function map<A, B, K>(fn: (x: A) => B): Curry1<A[], B[]> & Curry1<{ [K]: A }, { [K]: B }>;
 
-	declare function mapValues<A, B, K>(fn: (x: A) => B): Curry1<{ [key: K]: A }, { [key: K]: B }>;
+	declare function mapValues<A, B, K>(fn: (x: A) => B): Curry1<{ [K]: A }, { [K]: B }>;
 
 	declare function slice<T>(from: number, to: number): Curry1<T[], T[]>;
 
