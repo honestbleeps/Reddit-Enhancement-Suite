@@ -7,7 +7,7 @@
 // but the alternative is worse (having to type check every Object.entries/values call, even when the type is obvious)
 
 declare class Object {
-	static (o: ?void): {[key: any]: any};
+	static (o: ?void): {[any]: any};
 	static (o: boolean): Boolean; // eslint-disable-line flowtype/no-primitive-constructor-types
 	static (o: number): Number; // eslint-disable-line flowtype/no-primitive-constructor-types
 	static (o: string): String; // eslint-disable-line flowtype/no-primitive-constructor-types
@@ -16,7 +16,7 @@ declare class Object {
 	static create(o: any, properties?: any): any; // compiler magic
 	static defineProperties(o: any, properties: any): any;
 	static defineProperty(o: any, p: any, attributes: any): any;
-	static entries<K, V>(object: { [key: K]: V }): Array<[K, V]>;
+	static entries<K, V>(object: { [K]: V }): Array<[K, V]>;
 	static entries(object: any): Array<[string, mixed]>;
 	static freeze<T>(o: T): T;
 	static getOwnPropertyDescriptor(o: any, p: any): any;
@@ -31,12 +31,12 @@ declare class Object {
 	static preventExtensions(o: any): any;
 	static seal(o: any): any;
 	static setPrototypeOf(o: any, proto: ?Object): bool;
-	static values<T>(object: { [key: any]: T }): Array<T>;
+	static values<T>(object: { [any]: T }): Array<T>;
 	static values(object: any): Array<mixed>;
 	hasOwnProperty(prop: any): boolean;
 	propertyIsEnumerable(prop: any): boolean;
 	toLocaleString(): string;
 	toString(): string;
 	valueOf(): Object;
-	[key: any]: any;
+	[any]: any;
 }
