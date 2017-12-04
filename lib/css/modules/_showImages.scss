@@ -50,13 +50,11 @@ img {
 	&.expando-button-loading,
 	&.expando-button-requires-permission {
 		vertical-align: top !important;
-		float: left;
 		width: 23px;
 		height: 23px;
 		max-width: 23px;
 		max-height: 23px;
 		display: inline-block;
-		background-image: url('../images/expandoButtons.png');
 		margin-right: 6px;
 		padding: 0;
 	}
@@ -65,19 +63,49 @@ img {
 		filter: sepia(1);
 	}
 
-	@function _($i) { @return $i * -24px; }
+	&.image.collapsed {
+		background-image: url('../images/expandoImage.svg');
 
-	&.image.collapsed { background-position: 0 _(0); }
-	&.image.collapsed:hover { background-position: 0 _(1); }
-	&.image.gallery.collapsed { background-position: 0 _(2); }
-	&.image.gallery.collapsed:hover { background-position: 0 _(3); }
-	&.video-muted.collapsed { background-position: 0 _(4); }
-	&.video-muted.collapsed:hover { background-position: 0 _(5); }
-	&.expando-button-requires-permission { background-position: 0 _(6); }
-	&.expando-button-requires-permission:hover { background-position: 0 _(7); }
-	&.expando-button-loading { background-position: 0 _(8); }
-	&.expanded { background-position: 0 _(9); }
-	&.expanded:hover { background-position: 0 _(10); }
+		&:hover {
+			background-image: url('../images/expandoImage-active.svg');
+		}
+	}
+
+	&.image.gallery.collapsed {
+		background-image: url('../images/expandoImageGallery.svg');
+
+		&:hover {
+			background-image: url('../images/expandoImageGallery-active.svg');
+		}
+	}
+
+	&.video-muted.collapsed {
+		background-image: url('../images/expandoVideo.svg');
+
+		&:hover {
+			background-image: url('../images/expandoVideo-active.svg');
+		}
+	}
+
+	&.expando-button-requires-permission {
+		background-image: url('../images/expandoPadlock.svg');
+
+		&:hover {
+			background-image: url('../images/expandoPadlock-active.svg');
+		}
+	}
+
+	&.expanded {
+		background-image: url('../images/expandoClose.svg');
+
+		&:hover {
+			background-image: url('../images/expandoClose-active.svg');
+		}
+	}
+
+	&.expando-button-loading {
+		background-image: url('../images/expandoEmpty.svg');
+	}
 }
 
 .res-expando-siteAttribution {

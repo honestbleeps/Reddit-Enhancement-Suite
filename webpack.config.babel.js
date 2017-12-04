@@ -122,13 +122,13 @@ export default (env = {}) => {
 					{ loader: 'html-loader', options: { attrs: ['link:href', 'script:src'] } },
 				],
 			}, {
-				test: /\.(png|gif)$/,
+				test: /\.(png|gif|svg)$/,
 				exclude: path.join(__dirname, 'lib', 'images'),
 				use: [
 					{ loader: 'file-loader', options: { name: '[name].[ext]' } },
 				],
 			}, {
-				test: /\.(png|gif)$/,
+				test: /\.(png|gif|svg)$/,
 				include: path.join(__dirname, 'lib', 'images'),
 				use: [
 					{ loader: 'url-loader' },
