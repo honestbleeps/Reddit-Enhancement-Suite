@@ -34,10 +34,14 @@ img {
 .res-freetext-expando {
 	display: inline-block;
 	height: 1em;
-	margin: 0 4px !important;
+	margin: 0 !important;
 	vertical-align: middle;
 
-	.expando-button { margin: calc(calc(1em * .5) - 50%) 0 0 0  !important; }
+	.expando-button {
+		margin: calc(calc(1em * .5) - 50%) 0 0 0  !important;
+		transform: scale(0.8); // Try to not exceed height of line
+	}
+
 	+ .res-expando-box { margin-top: 5px !important; }
 }
 

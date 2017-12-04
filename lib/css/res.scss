@@ -605,8 +605,8 @@ div.usertext-edit {
 
 .optionTitle {
 	font-size: 14px;
-	flex: 0 0 auto;
 	min-width: 200px;
+	flex: 0 0 20%;
 }
 
 .optionKey {
@@ -614,12 +614,14 @@ div.usertext-edit {
 	color: #999;
 }
 
-.optionDescription {
-	line-height: 1.5;
-}
-
 .optionSetting {
 	white-space: nowrap;
+	flex: 0 0 20%;
+}
+
+.optionDescription {
+	line-height: 1.5;
+	flex-grow: 1;
 }
 
 #RESConsoleContainer input[type=radio],

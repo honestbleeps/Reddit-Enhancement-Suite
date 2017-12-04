@@ -138,3 +138,9 @@ blockquote.twitter-tweet {
 	display: flex;
 	align-items: center;
 }
+
+.res-styleTweaks-hideDomainLink {
+	.domain {
+		display: none;
+	}
+}

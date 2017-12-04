@@ -8,6 +8,12 @@ module.exports = {
 			.assert.containsText('.thing.link .viewSource textarea', 'Self post text')
 			.end();
 	},
+	'source button is placed after comments button on nsfw posts': browser => {
+		browser
+			.url('https://www.reddit.com/r/RESIntegrationTests/comments/7h66e8/source_button_position_on_nsfw_posts/')
+			.waitForElementVisible('#siteTable')
+			.assert.elementPresent('li.first ~ li.viewSource');
+	},
 	'can use source button more than once on a page': browser => {
 		const first = '.thing.id-t1_d9xbmol';
 		const second = '.thing.id-t1_d9xbmrf';
