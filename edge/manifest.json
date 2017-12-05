@@ -15,12 +15,12 @@
 			"38": "{{../images/css-on.png}}"
 		}
 	},
-	"options_page": "{{../browser/options.html}}",
+	"options_page": "{{../lib/options.html}}",
 	"background": {
 		"scripts": [
 			"{{file-loader?name=[name].[ext]!url-search-params/build/url-search-params.js}}",
 			"{{./edge.entry.js}}",
-			"{{./background.entry.js}}"
+			"{{../lib/background.entry.js}}"
 		],
 		"persistent": true
 	},
@@ -50,7 +50,7 @@
 		"js": [
 			"{{file-loader?name=[name].[ext]!url-search-params/build/url-search-params.js}}",
 			"{{./edge.entry.js}}",
-			"{{../lib/main.entry.js}}"
+			"{{../lib/foreground.entry.js}}"
 		],
 		"css": [
 			"{{../lib/css/res.scss}}"
