@@ -1701,6 +1701,9 @@
 	"accountSwitcherOptPrompt": {
 		"message": "Enter the 6 digit code from your authenticator app for $1"
 	},
+	"backupAndRestoreProvidersFile": {
+		"message": "File"
+	},
 	"backupAndRestoreReloadWarningTitle": {
 		"message": "Reload Warning"
 	},
@@ -1721,6 +1724,9 @@
 	},
 	"backupAndRestoreAutomaticBackupsDesc": {
 		"message": "Sync your backups to the specified provider.\n\nSyncing will occur periodically on pageload. If you use two computers simultaneously, some changes may be lost."
+	},
+	"backupAndRestoreAutomaticBackupsNone": {
+		"message": "None"
 	},
 	"backupAndRestoreWarnBeforeAutomaticRestoreTitle": {
 		"message": "Warn Before Automatic Restore"
@@ -1754,6 +1760,21 @@
 	},
 	"backupAndRestoreSavedNotification": {
 		"message": "Backup saved to $1."
+	},
+	"backupAndRestoreFoundBackup": {
+		"message": "Found new automatic backup from $1."
+	},
+	"backupAndRestoreBackupOverwriteWarning": {
+		"message": "Restoring a backup will permanently overwrite your current storage. Are you sure you want to do this?"
+	},
+	"backupAndRestoreAfterCancel": {
+		"message": "If you click cancel, you will be taken to the settings page where you can disable automatic backups or create a new backup to overwrite this one."
+	},
+	"backupAndRestoreBackupDate": {
+		"message": "Backup date: $1"
+	},
+	"backupAndRestoreBackupSize": {
+		"message": "Backup size: $1"
 	},
 	"betteRedditCommentsLinksNewTabTitle": {
 		"message": "Comments Links New Tabs"
@@ -1874,6 +1895,24 @@
 	},
 	"betteRedditCommentCollapseInInboxDesc": {
 		"message": "Show the [-] collapse button in the inbox."
+	},
+	"betteRedditHideLinkLabel": {
+		"message": "hide"
+	},
+	"betteRedditUnhideLinkLabel": {
+		"message": "unhide"
+	},
+	"betteRedditHideSubmissionError": {
+		"message": "Sorry, there was an error trying to hide your submission. Try clicking again."
+	},
+	"betteRedditUnhideSubmissionError": {
+		"message": "Sorry, there was an error trying to unhide your submission. Try clicking again."
+	},
+	"betteRedditVideoYouTubeTitle": {
+		"message": "YouTube title: $1"
+	},
+	"betteRedditVideoViewed": {
+		"message": "[Views: $1]"
 	},
 	"commentDepthDefaultCommentDepthTitle": {
 		"message": "Default Comment Depth"
@@ -2262,6 +2301,9 @@
 	"filteRedditSubredditsDesc": {
 		"message": "Hide posts submitted to certain subreddits.\nRegExp like `/(this|that|theother)/i` is allowed for subreddit.\n\nFind out more on the [/r/Enhancement wiki](/r/Enhancement/wiki/index/filters/filtereddit/regexp)."
 	},
+	"filteRedditSubredditsSubreddits": {
+		"message": "subreddits"
+	},
 	"filteRedditFilterSubredditsFromTitle": {
 		"message": "Filter Subreddits From"
 	},
@@ -2279,6 +2321,9 @@
 	},
 	"filteRedditForceSyncFiltersDesc": {
 		"message": "Immediately overwrite your native /r/all filters."
+	},
+	"filteRedditForceSyncFiltersLabel": {
+		"message": "sync"
 	},
 	"filteRedditDomainsTitle": {
 		"message": "Domains"
@@ -2298,6 +2343,12 @@
 	"filteRedditAllowNSFWDesc": {
 		"message": "Don't hide NSFW posts from certain subreddits when the NSFW filter is turned on."
 	},
+	"filteRedditAllowNSFWWhere": {
+		"message": "where"
+	},
+	"filteRedditAllowNSFWWhenBrowsingSubreddit": {
+		"message": "When browsing subreddit/multi-subreddit"
+	},
 	"filteRedditCustomFiltersTitle": {
 		"message": "Custom Filters"
 	},
@@ -2312,6 +2363,42 @@
 	},
 	"filteRedditEmptyNotificationToggleShowReason": {
 		"message": "Toggle show filter reasons"
+	},
+	"filteRedditKeyword": {
+		"message": "keyword"
+	},
+	"filteRedditApplyTo": {
+		"message": "apply to"
+	},
+	"filteRedditEverywhere": {
+		"message": "Everywhere"
+	},
+	"filteRedditEverywhereBut": {
+		"message": "Everywhere but:"
+	},
+	"filteRedditOnlyOn": {
+		"message": "Only on:"
+	},
+	"filteRedditFilterSubredditsEverywhereButSubreddit": {
+		"message": "Everywhere except inside a subreddit"
+	},
+	"filteRedditFilterSubredditsAllPopularAndDomain": {
+		"message": "/r/all, /r/popular and domain pages"
+	},
+	"filteRedditSubreddits": {
+		"message": "subreddits"
+	},
+	"filteRedditAddFilter": {
+		"message": "+add filter"
+	},
+	"filteRedditAddSubreddits": {
+		"message": "+add subreddits"
+	},
+	"filteRedditAddCustomFilter": {
+		"message": "+add custom filter"
+	},
+	"filteRedditCustomFiltersGroupOfConditions": {
+		"message": "Group of conditions"
 	},
 	"subredditManagerMultiCountTitle": {
 		"message": "/r/$1 is in $2 multireddits"
@@ -2333,6 +2420,12 @@
 	},
 	"nightModeToggleTitle": {
 		"message": "Toggle night and day"
+	},
+	"nsfwSwitchToggleText": {
+		"message": "nsfw filter"
+	},
+	"nsfwSwitchToggleTitle": {
+		"message": "Toggle NSFW Filter"
 	},
 	"RESSettingsConsole": {
 		"message": "RES settings console"
@@ -3353,6 +3446,15 @@
 	"subredditInfoFadeSpeedDesc": {
 		"message": "Fade animation's speed (in seconds)."
 	},
+	"troubleshooterClearLabel": {
+		"message": "Clear"
+	},
+	"troubleshooterResetLabel": {
+		"message": "Reset"
+	},
+	"troubleshooterDisableLabel": {
+		"message": "Disable"
+	},
 	"troubleshooterClearCacheTitle": {
 		"message": "Clear Cache"
 	},
@@ -3383,17 +3485,26 @@
 	"troubleshooterBreakpointDesc": {
 		"message": "Pause JavaScript execution to allow debugging."
 	},
+	"troubleshooterBreakpointLabel": {
+		"message": "Pause JavaScript"
+	},
 	"troubleshooterTestNotificationsTitle": {
 		"message": "Test Notifications"
 	},
 	"troubleshooterTestNotificationsDesc": {
 		"message": "Test notifications."
 	},
+	"troubleshooterTestNotificationsLabel": {
+		"message": "Test notifications"
+	},
 	"troubleshooterTestEnvironmentTitle": {
 		"message": "Test Environment"
 	},
 	"troubleshooterTestEnvironmentDesc": {
 		"message": "A few environment/browser specific tests."
+	},
+	"troubleshooterTestEnvironmentLabel": {
+		"message": "Test environment"
 	},
 	"tableToolsSortTitle": {
 		"message": "Sort"
