@@ -1,0 +1,15 @@
+.RES-dropdown-button {
+	visibility: hidden;
+	margin-left: 1em;
+	float: right;
+
+	form:hover & {
+		visibility: visible;
+		opacity: 0.5;
+	}
+
+	&:hover {
+		visibility: visible;
+		opacity: 1;
+	}
+}
