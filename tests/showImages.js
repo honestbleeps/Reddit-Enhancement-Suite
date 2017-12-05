@@ -114,8 +114,8 @@ module.exports = {
 			.waitForElementVisible('.res-expando-box')
 			.assert.cssClassPresent('.crosspost-preview', 'res-crosspost-preview')
 			.assert.containsText('.crosspost-preview .title', 'Original post with expandoable image for crossposting')
-			.assert.attributeEquals('.crosspost-preview a.author', 'href', '/user/andytubatest/')
-			.assert.attributeEquals('.crosspost-preview a.subreddit', 'href', '/r/RESIntegrationTests/')
+			.assert.attributeContains('.crosspost-preview a.author', 'href', '/user/andytuba/')
+			.assert.attributeContains('.crosspost-preview a.subreddit', 'href', '/r/RESIntegrationTests/')
 			.end();
 	},
 	'show images button': browser => {
