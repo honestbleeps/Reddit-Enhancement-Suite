@@ -1,15 +1,12 @@
 
 ### New Features
 
-- New crossposts option to display crosspost metadata above expandos (thanks @andytuba)
-- New highlightSelf option to highlight the current user (thanks @Double-A-92)
+- None (thanks nobody)
 
 ### Bug Fixes
 
-- Fix some issues caused by options being saved in an incorrect format (thanks @erikdesjardins)
-- (beta) Fix title character count being null (thanks @erikdesjardins)
+- None (thanks nobody)
 
 ### Housekeeping / Other
 
-- Avoid another forced reflow (thanks @erikdesjardins)
-- Updated the localization files
+- None (thanks nobody)
