@@ -130,13 +130,19 @@
 		"no-restricted-modules": 0, // see import/no-nodejs-modules
 		"no-restricted-syntax": [2, {
 			"selector": "ForStatement",
-			"message": "No C-style for-loops, use for..of or Array.prototype methods."
+			"message": "No C-style for-loops; use for..of or Array.prototype methods."
 		}, {
 			"selector": "AssignmentExpression[left.property.name='options'] > ObjectExpression > Property > Literal.key[value=/ /]",
 			"message": "No spaces in option names."
 		}, {
 			"selector": "Property[key.name='options'] > ObjectExpression > Property > Literal.key[value=/ /]",
 			"message": "No spaces in option names."
+		}, {
+			"selector": "ForInStatement",
+			"message": "No for-in loops; use for..of with Object.keys/values/entries."
+		}, {
+			"selector": "BinaryExpression[operator='in']",
+			"message": "No in keyword; use Set/Map or hasOwnProperty."
 		}],
 		"no-shadow": 0,
 		"no-sync": 0,
@@ -169,7 +175,6 @@
 		"func-style": [2, "declaration", { "allowArrowFunctions": true }],
 		"function-paren-newline": [0, "consistent"],
 		"generator-star-spacing": [0, { "before": false, "after": true }], // disabled pending https://github.com/eslint/eslint/issues/6195
-		"guard-for-in": 0,
 		"id-blacklist": 0,
 		"id-length": 0,
 		"id-match": 0,
@@ -189,7 +194,6 @@
 		"max-statements-per-line": 0,
 		"multiline-comment-style": 0,
 		"multiline-ternary": 0,
-		"new-cap": 0,
 		"newline-after-var": [0, "never"],
 		"newline-before-return": 0,
 		"newline-per-chained-call": 0,
