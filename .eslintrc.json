@@ -130,13 +130,19 @@
 		"no-restricted-modules": 0, // see import/no-nodejs-modules
 		"no-restricted-syntax": [2, {
 			"selector": "ForStatement",
-			"message": "No C-style for-loops, use for..of or Array.prototype methods."
+			"message": "No C-style for-loops; use for..of or Array.prototype methods."
 		}, {
 			"selector": "AssignmentExpression[left.property.name='options'] > ObjectExpression > Property > Literal.key[value=/ /]",
 			"message": "No spaces in option names."
 		}, {
 			"selector": "Property[key.name='options'] > ObjectExpression > Property > Literal.key[value=/ /]",
 			"message": "No spaces in option names."
+		}, {
+			"selector": "ForInStatement",
+			"message": "No for-in loops; use for..of with Object.keys/values/entries."
+		}, {
+			"selector": "BinaryExpression[operator='in']",
+			"message": "No in keyword; use Set/Map or hasOwnProperty."
 		}],
 		"no-shadow": 0,
 		"no-sync": 0,
