@@ -175,7 +175,6 @@
 		"func-style": [2, "declaration", { "allowArrowFunctions": true }],
 		"function-paren-newline": [0, "consistent"],
 		"generator-star-spacing": [0, { "before": false, "after": true }], // disabled pending https://github.com/eslint/eslint/issues/6195
-		"guard-for-in": 2,
 		"id-blacklist": 0,
 		"id-length": 0,
 		"id-match": 0,
@@ -195,7 +194,6 @@
 		"max-statements-per-line": 0,
 		"multiline-comment-style": 0,
 		"multiline-ternary": 0,
-		"new-cap": 2,
 		"newline-after-var": [0, "never"],
 		"newline-before-return": 0,
 		"newline-per-chained-call": 0,
