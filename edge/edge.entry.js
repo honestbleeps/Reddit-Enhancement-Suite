@@ -81,7 +81,7 @@ Element.prototype.replaceWith = function replaceWith(...nodes) {
 
 // polyfill IntersectionObserverEntry.prototype.isIntersecting
 // Snippet from https://github.com/WICG/IntersectionObserver/pull/224
-if (!('isIntersecting' in IntersectionObserverEntry.prototype)) {
+if (!IntersectionObserverEntry.prototype.hasOwnProperty('isIntersecting')) {
 	Object.defineProperty(IntersectionObserverEntry.prototype,
 		'isIntersecting', {
 			get() {
