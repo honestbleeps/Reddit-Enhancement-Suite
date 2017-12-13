@@ -3,6 +3,7 @@
 /* eslint-disable import/no-nodejs-modules */
 
 import path from 'path';
+import webpack from 'webpack';
 
 import InertEntryPlugin from 'inert-entry-webpack-plugin';
 import LodashModuleReplacementPlugin from 'lodash-webpack-plugin';
@@ -138,6 +139,7 @@ export default (env = {}) => {
 			}],
 		},
 		plugins: [
+			new webpack.optimize.ModuleConcatenationPlugin(),
 			new ProgressBarPlugin(),
 			new InertEntryPlugin(),
 			new LodashModuleReplacementPlugin(),
