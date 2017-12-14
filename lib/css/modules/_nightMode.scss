@@ -1577,6 +1577,16 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 	.subreddit-picker__category_selected {
 		background-color: $highlight-background-color;
 	}
+
+	.api-help .overview h2, 
+	.api-help .contents .introduction strong {
+		color: $color;
+	}
+
+	.api-help .contents .overview code,
+	.api-help .parameters {
+		background-color: $highlight-background-color;
+	}
 }
 
 .res-d2x-nightmode {
