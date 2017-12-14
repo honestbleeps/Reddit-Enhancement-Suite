@@ -23,6 +23,7 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 	.side .usertext-body .md ol ol li,
 	.modactionlisting table *,
 	.side .recommend-box .rec-item,
+	.crosspost-preview,
 	.crosspost-thing-preview {
 		background-color: $background-color;
 		border-color: $border-color;
@@ -1466,6 +1467,7 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 		.modal-body,
 		.modal-content,
 		.crosspost-field,
+		.crosspost-preview,
 		.crosspost-thing-preview {
 			background-color: $background-color;
 			color: $color;

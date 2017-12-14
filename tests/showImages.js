@@ -112,10 +112,10 @@ module.exports = {
 			.waitForElementVisible('.expando-button')
 			.click('.expando-button')
 			.waitForElementVisible('.res-expando-box')
-			.assert.cssClassPresent('.crosspost-thing-preview', 'res-crosspost-thing-preview')
-			.assert.containsText('.crosspost-thing-preview .title', 'Original post with expandoable image for crossposting')
-			.assert.attributeContains('.crosspost-thing-preview a.author', 'href', '/user/andytuba/')
-			.assert.attributeContains('.crosspost-thing-preview a.subreddit', 'href', '/r/RESIntegrationTests/')
+			.assert.cssClassPresent('.crosspost-preview', 'res-crosspost-preview')
+			.assert.containsText('.crosspost-preview .title', 'Original post with expandoable image for crossposting')
+			.assert.attributeContains('.crosspost-preview a.author', 'href', '/user/andytuba/')
+			.assert.attributeContains('.crosspost-preview a.subreddit', 'href', '/r/RESIntegrationTests/')
 			.end();
 	},
 	'show images button': browser => {
