@@ -1,14 +1,12 @@
 /* @flow */
 
 import _ from 'lodash';
-
-const localesContext = (require: any).context('./locales', false, /\.json$/);
-const validLocaleKeys = localesContext.keys();
+import locales from 'sibling-loader?import=default!./locales/en';
 
 const DEFAULT_TRANSIFEX_LOCALE = 'en';
 
-function localeNameToPath(localeName) {
-	return `./${localeName}.json`;
+function getLocale(locale) {
+	return locales[`${locale}.json`];
 }
 
 // `en-ca` -> `en_CA`
@@ -38,14 +36,7 @@ function redditLocaleToTransifexLocale(redditLocale) {
 	}
 }
 
-const getLocale = _.memoize(localeName => {
-	const path = localeNameToPath(localeName);
-	if (validLocaleKeys.includes(path)) {
-		return localesContext(path);
-	}
-});
-
-export const getLocaleDictionary = _.memoize((localeName: string): { [string]: string } => {
+export function getLocaleDictionary(localeName: string): { [string]: string } {
 	const transifexLocale = redditLocaleToTransifexLocale(localeName);
 
 	const mergedLocales = {
@@ -58,4 +49,4 @@ export const getLocaleDictionary = _.memoize((localeName: string): { [string]: s
 	};
 
 	return _.mapValues(mergedLocales, x => x.message);
-});
+}
