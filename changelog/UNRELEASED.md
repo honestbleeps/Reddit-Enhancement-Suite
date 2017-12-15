@@ -1,12 +1,14 @@
 
 ### New Features
 
-- None (thanks nobody)
+- New faviconNotificationBGColor option (thanks @BenMcGarry)
+- Expanding direct links to SVGs (thanks @erikdesjardins)
 
 ### Bug Fixes
 
-- None (thanks nobody)
+- Fix nightmode styles for crossposts (thanks @BenMcGarry)
+- Fix nightmode styles for API docs (thanks @BenMcGarry)
 
 ### Housekeeping / Other
 
-- None (thanks nobody)
+- Make bundle smaller (thanks @mc10, @erikdesjardins)
