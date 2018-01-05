@@ -1446,6 +1446,21 @@ body.RESScrollLock {
 	width: stretch;
 	flex-wrap: wrap;
 	white-space: pre-wrap;
+
+	input,
+	select {
+		font-size: 1em;
+	}
+
+	&-error {
+		outline: 2px dotted darkred;
+
+		&::before {
+			content: 'Error: ' attr(error);
+			display: block;
+			color: red;
+		}
+	}
 }
 
 .builderControls {

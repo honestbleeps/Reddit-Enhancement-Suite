@@ -1389,8 +1389,14 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 			}
 		}
 
-		&-dropdown-container { background-color: #313131; }
-		&-external-filter:hover { background-color: #444; }
+		&-dropdown {
+			background-color: #313131;
+			box-shadow: #3c3c3c 2px 2px 2px;
+
+			&-action {
+				border-bottom-color: #404040;
+			}
+		}
 	}
 
 	.res-commentNavToggle {

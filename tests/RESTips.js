@@ -1,11 +1,19 @@
 module.exports = {
-	'daily tips shows on first load, feature tips on second': browser => {
+	'daily tips shows on first load, featureTip when feature used first time': browser => {
 		browser
 			.url('https://www.reddit.com/?limit=1')
 			.waitForElementVisible('.guider.res-ordinaryTip')
 			.assert.containsText('.guider', 'Welcome to RES')
 			.refresh()
+			.waitForElementVisible('.res-toggle-filterline-visibility')
+			.click('.res-toggle-filterline-visibility')
 			.waitForElementVisible('.guider.res-featureTip')
+			.click('.guiders_x_button')
+			.refresh()
+			.waitForElementVisible('.res-toggle-filterline-visibility')
+			.click('.res-toggle-filterline-visibility')
+			.pause(2000)
+			.assert.elementNotPresent('.guider.res-featureTip')
 			.end();
 	},
 	'click through all tips': browser => {
