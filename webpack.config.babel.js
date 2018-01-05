@@ -9,6 +9,7 @@ import InertEntryPlugin from 'inert-entry-webpack-plugin';
 import LodashModuleReplacementPlugin from 'lodash-webpack-plugin';
 import ProgressBarPlugin from 'progress-bar-webpack-plugin';
 import ZipPlugin from 'zip-webpack-plugin';
+import commonjsPlugin from 'rollup-plugin-commonjs';
 
 const browserConfig = {
 	chrome: {
@@ -54,15 +55,30 @@ export default (env = {}) => {
 			path: path.join(__dirname, 'dist', conf.output),
 			filename: path.basename(conf.entry),
 		},
-		devtool: isProduction ? 'source-map' : 'cheap-source-map',
+		devtool: 'source-map',
 		bail: isProduction,
 		node: false,
 		performance: false,
+		resolve: {
+			// only needed for moment; fixed in moment > 2.18.1, but it hasn't been released...
+			mainFields: ['browser', 'module', 'jsnext:main', 'main'],
+		},
 		module: {
 			rules: [{
 				test: /\.entry\.js$/,
 				use: [
 					{ loader: 'spawn-loader' },
+					{
+						loader: 'webpack-rollup-loader',
+						options: {
+							plugins: [commonjsPlugin({ extensions: ['.js', '.json', '.png'] })],
+							treeshake: { propertyReadSideEffects: false },
+							external: [
+								'js-base64',
+								'suncalc',
+							],
+						},
+					},
 				],
 			}, {
 				test: /\.js$/,
@@ -140,7 +156,10 @@ export default (env = {}) => {
 		plugins: [
 			new ProgressBarPlugin(),
 			new InertEntryPlugin(),
-			new LodashModuleReplacementPlugin(),
+			new LodashModuleReplacementPlugin({
+				flattening: true,
+				currying: true,
+			}),
 			new webpack.optimize.ModuleConcatenationPlugin(),
 			(env.zip && !conf.noZip && new ZipPlugin({
 				path: path.join('..', 'zip'),

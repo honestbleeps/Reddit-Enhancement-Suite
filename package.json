@@ -123,6 +123,8 @@
     "progress-bar-webpack-plugin": "1.10.0",
     "prop-loader": "1.0.0",
     "rimraf": "2.6.2",
+    "rollup": "0.52.1",
+    "rollup-plugin-commonjs": "8.2.6",
     "sass-lint": "1.12.1",
     "sass-loader": "6.0.6",
     "semver": "5.4.1",
@@ -130,6 +132,7 @@
     "spawn-loader": "4.0.0",
     "url-loader": "0.6.2",
     "webpack": "3.10.0",
+    "webpack-rollup-loader": "0.6.0",
     "zip-webpack-plugin": "2.1.0"
   }
 }
