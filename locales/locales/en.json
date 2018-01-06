@@ -1164,6 +1164,24 @@
 	"newCommentCountMonitorPostsVisitedIncognitoDesc": {
 		"message": "Monitor the number of comments and edit dates of posts you have visited while browsing in incognito/private mode."
 	},
+	"readCommentsName": {
+		"message": "Read Comments"
+	},
+	"readCommentsDesc": {
+		"message": "Keep track of what comments you have read. Useful for filtering comments."
+	},
+	"readCommentsCleanCommentsTitle": {
+		"message": "Clean Comments"
+	},
+	"readCommentsCleanCommentsDesc": {
+		"message": "Number of days to keep track of a comment page."
+	},
+	"readCommentsMonitorWhenIncognitoTitle": {
+		"message": "Monitor When Incognito"
+	},
+	"readCommentsMonitorWhenIncognitoDesc": {
+		"message": "Keep track while browsing in incognito/private mode."
+	},
 	"nightModeName": {
 		"message": "Night Mode"
 	},
@@ -2276,12 +2294,6 @@
 	},
 	"filteRedditExcludeOwnPostsDesc": {
 		"message": "Don't filter your own posts."
-	},
-	"filteRedditExcludeCommentsPageTitle": {
-		"message": "Exclude Comments Page"
-	},
-	"filteRedditExcludeCommentsPageDesc": {
-		"message": "When visiting the comments page for a filtered link, allow the link/expando to be shown."
 	},
 	"filteRedditExcludeModqueueTitle": {
 		"message": "Exclude Modqueue"
