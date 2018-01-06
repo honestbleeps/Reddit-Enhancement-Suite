@@ -1,12 +1,17 @@
 
 ### New Features
 
-- None (thanks nobody)
+- Overhaul Filterline (thanks @larsjohnsen)
+- Add comment filtering (thanks @larsjohnsen)
+- Show start time of YouTube videos in post titles (thanks @metcorne)
+- New Go Mode (press G first) shortcuts shift-O and shift-P to navigate to overview legacy or new profiles (thanks @overdodactyl)
+- Never Ending Reddit will provide a warning if a loaded page is for an incorrect user (thanks @andytuba)
+- Empty comment navigator categories are hidden (thanks @rageandqq)
 
 ### Bug Fixes
 
-- None (thanks nobody)
+- (beta) Fix downvote->upvote being counted incorrectly (thanks @pll33)
 
 ### Housekeeping / Other
 
-- None (thanks nobody)
+- Clean up scripts (thanks @mc10)
