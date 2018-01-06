@@ -43,6 +43,10 @@
         "message": "Show link to my dashboard in RES menu.",
         "description": ""
     },
+    "readCommentsMonitorWhenIncognitoTitle": {
+        "message": "Monitor When Incognito",
+        "description": ""
+    },
     "userInfoUserHasRedditGold": {
         "message": "User has Reddit Gold",
         "description": ""
@@ -101,6 +105,10 @@
     },
     "keyboardNavFollowCommentsNewTabTitle": {
         "message": "Follow Comments New Tab",
+        "description": ""
+    },
+    "userHighlightHighlightSelfDesc": {
+        "message": "Highlight the logged in user's comments.",
         "description": ""
     },
     "subredditInfoUnsubscribe": {
@@ -368,7 +376,7 @@
         "description": ""
     },
     "filteRedditSubredditsDesc": {
-        "message": "Hide posts submitted to certain subreddits.\nRegExp like `/(this|that|theother)/i` is allowed for subreddit.\n\nFind out more on the [/r/Enhancement wiki](/r/Enhancement/wiki/index/filters/filtereddit/regexp).",
+        "message": "Hide posts submitted to certain subreddits.",
         "description": ""
     },
     "orangeredRetroUnreadCountTitle": {
@@ -577,6 +585,10 @@
     },
     "betteRedditDoNoCtrlFTitle": {
         "message": "Do No Ctrl+F",
+        "description": ""
+    },
+    "faviconNotificationBGColorTitle": {
+        "message": "Favicon Notification Background Colour",
         "description": ""
     },
     "commentDepthSubreddit": {
@@ -1071,6 +1083,10 @@
         "message": "Keep Logged In",
         "description": ""
     },
+    "readCommentsName": {
+        "message": "Read Comments",
+        "description": ""
+    },
     "menuGearIconClickActionOpenSettings": {
         "message": "Open settings console",
         "description": ""
@@ -1153,10 +1169,6 @@
     },
     "searchHelperDesc": {
         "message": "Provide help with the use of search.",
-        "description": ""
-    },
-    "filteRedditRegexpFiltersDesc": {
-        "message": "Allow RegExp in certain filteReddit fields.\nIf you have filters which start with `/` and don't know what RegExp is, you should turn this option off.\n\nFind out more on the [/r/Enhancement wiki](/r/Enhancement/wiki/index/filters/filtereddit/regexp).",
         "description": ""
     },
     "keyboardNavFollowLinkNewTabFocusTitle": {
@@ -1535,6 +1547,10 @@
         "message": "Enable For Ban Messages",
         "description": ""
     },
+    "userHighlightSelfColorHoverDesc": {
+        "message": "Colour used to highlight the logged in user on hover.",
+        "description": ""
+    },
     "orangeredOpenMailInNewTabTitle": {
         "message": "Open Mail In New Tab",
         "description": ""
@@ -1631,10 +1647,6 @@
         "message": "Open links found in comments in a new tab.",
         "description": ""
     },
-    "filteRedditExcludeCommentsPageTitle": {
-        "message": "Exclude Comments Page",
-        "description": ""
-    },
     "userHighlightAutoColorUsingDesc": {
         "message": "Select a method for setting colours for usernames.",
         "description": ""
@@ -1644,7 +1656,7 @@
         "description": ""
     },
     "commentToolsMacroPlaceholdersDesc": {
-        "message": "When using macros, replace placeholders in text via pop-up prompt.\nExample macro text:\nThe {{adj1}} {{adj2}} {{animal}} jumped over the lazy {{dog_color}} dog. The {{animal}} is so {{adj1}}!\n\nSome placeholders are automatically filled in when you use the macro:\n\n**{{subreddit}}**: The current subreddit, in the form /r/subreddit.\n\n**{{me}}**, **{{my_username}}**: Your username, in the form /u/username.\n\n**{{op}}**, **{{op_username}}**: The username of the original poster, in the form /u/username. On a post's comments page, this the person who made the post; on a PM / modmail, this is the person who started the conversation.\n\n**{{url}}**: The current page's URL.\n\n**{{reply_to}}**, **{{reply_to_username}}**: The username of person you're replying to, in the form /u/username.\n\n**{{selected}}**, **{{selection}}**: The text which is currently selected (highlighted).\n\n**{{escaped}}**: The selected text, escaped for snudown/markdown.\n\n**{{now}}**: The current date and time in your locale.\n\n**{{today}}**: The current date in your locale.\n\n**{{linkflair}}**: On comments pages, returns the flair text of the original link.",
+        "message": "When using macros, replace placeholders in text via pop-up prompt.\nExample macro text:\nThe {{adj1}} {{adj2}} {{animal}} jumped over the lazy {{dog_color}} dog. The {{animal}} is so {{adj1}}!\n\nSome placeholders are automatically filled in when you use the macro:\n\n**{{subreddit}}**: The current subreddit, in the form /r/subreddit.\n\n**{{me}}**, **{{my_username}}**: Your username, in the form /u/username.\n\n**{{op}}**, **{{op_username}}**: The username of the original poster, in the form /u/username. On a post's comments page, this is the person who made the post; on a PM / modmail, this is the person who started the conversation.\n\n**{{url}}**: The current page's URL.\n\n**{{reply_to}}**, **{{reply_to_username}}**: The username of person you're replying to, in the form /u/username.\n\n**{{selected}}**, **{{selection}}**: The text which is currently selected (highlighted).\n\n**{{escaped}}**: The selected text, escaped for snudown/markdown.\n\n**{{now}}**: The current date and time in your locale.\n\n**{{today}}**: The current date in your locale.\n\n**{{linkflair}}**: On comments pages, returns the flair text of the original link.",
         "description": ""
     },
     "profileNavigatorFadeSpeedTitle": {
@@ -1911,6 +1923,10 @@
         "message": "Buffer Screens",
         "description": ""
     },
+    "faviconNotificationTextColorDesc": {
+        "message": "Change the text colour of the notification on the favicon.",
+        "description": ""
+    },
     "saveCommentsDesc": {
         "message": "To save comments with RES click the **save-RES** button below a comment. You can view saved comments on your user page under the [saved](/user/me/saved/#comments) tab.\n\nSaving with RES saves a comment locally in your browser. This means that you can view the comment you saved *as it looked when you saved it*, even if it is later edited or deleted. You can save comments with RES if you are not logged in, or if you are logged in to any account—all the comments will be visible in one location. You will only be able to view saved RES comments on whichever browser you have RES installed on.\n\nWhen saving comments with reddit, you must be logged into an account; the comment is saved specifically for that account; it won't be shown if you switch to a different account or log out. You can view these comments whenever you are logged into the reddit account you saved them from, including on other browsers or devices.\n\nVisually, saving comments with reddit looks the same as saving with RES—but the text is not saved locally, so the saved comment text shows the *current* state of the comment. If the comment has been edited or deleted since you saved it, the text that displays on your account's \"saved\" page will look different than it looked when you saved it.\n\nIf you have [reddit gold](/gold/about) on an account, you can add a category/tag to comments you have saved with reddit, then filter saved comments/posts by category. (You cannot sort or filter comments saved with RES.)",
         "description": ""
@@ -1921,6 +1937,10 @@
     },
     "backupAndRestoreAutomaticBackupsDesc": {
         "message": "Sync your backups to the specified provider.\n\nSyncing will occur periodically on pageload. If you use two computers simultaneously, some changes may be lost.",
+        "description": ""
+    },
+    "userHighlightSelfColorHoverTitle": {
+        "message": "Self Colour Hover",
         "description": ""
     },
     "dashboardDefaultSortTitle": {
@@ -1960,7 +1980,7 @@
         "description": ""
     },
     "filteRedditShowFilterlineDesc": {
-        "message": "Show filterline controls by default.",
+        "message": "Show Filterline controls by default.",
         "description": ""
     },
     "pageNavShowLinkDesc": {
@@ -2123,6 +2143,10 @@
         "message": "Helps discourage brigading and helps you avoid getting banned, by warning against voting or commenting when following \"No Participation\" (np) links, and by providing options to prevent you from accidentally participating.\n\n[Find out more about \"No Participation\".](/r/NoParticipation/wiki/intro)",
         "description": ""
     },
+    "keyboardNavProfileViewTitle": {
+        "message": "New Profile",
+        "description": ""
+    },
     "userInfoFadeDelayTitle": {
         "message": "Fade Delay",
         "description": ""
@@ -2213,6 +2237,10 @@
     },
     "styleTweaksSubredditStyleDisabled": {
         "message": "Subreddit style disabled for subreddit: $1.",
+        "description": ""
+    },
+    "readCommentsCleanCommentsTitle": {
+        "message": "Clean Comments",
         "description": ""
     },
     "userHighlightFontColorDesc": {
@@ -2313,6 +2341,10 @@
     },
     "orangeredHideEmptyModMailDesc": {
         "message": "Hide the mod mail button when inbox is empty.",
+        "description": ""
+    },
+    "keyboardNavOverviewLegacyTitle": {
+        "message": "Legacy Profile",
         "description": ""
     },
     "betteRedditRestoreSavedTabDesc": {
@@ -2496,7 +2528,7 @@
         "description": ""
     },
     "filteRedditFlairDesc": {
-        "message": "Hide posts where certain keywords are in the post's link flair.\nRegExp like `/(this|that|theother)/i` is allowed for flair.\n\nFind out more on the [/r/Enhancement wiki](/r/Enhancement/wiki/index/filters/filtereddit/regexp).",
+        "message": "Hide posts where certain keywords are in the post's link flair.",
         "description": ""
     },
     "userHighlightFontColorTitle": {
@@ -2999,10 +3031,6 @@
         "message": "Open the current comment's permalink (comment pages only).",
         "description": ""
     },
-    "filteRedditRegexpFiltersTitle": {
-        "message": "Regexp Filters",
-        "description": ""
-    },
     "subredditInfoAddRemoveShortcut": {
         "message": "shortcut",
         "description": "as in '+shortcut' or '-shortcut'"
@@ -3117,10 +3145,6 @@
     },
     "keyboardNavEnterFilterCommandLineDesc": {
         "message": "Launch filter command line.",
-        "description": ""
-    },
-    "filteRedditCustomFiltersGroupOfConditions": {
-        "message": "Group of conditions",
         "description": ""
     },
     "backupAndRestoreBackupSize": {
@@ -3392,7 +3416,7 @@
         "description": ""
     },
     "filteRedditKeywordsDesc": {
-        "message": "Hide posts with certain keywords in the title.\nRegExp like `/(this|that|theother)/i` is allowed for keyword (but not unlessKeyword).\n\nFind out more on the [/r/Enhancement wiki](/r/Enhancement/wiki/index/filters/filtereddit/regexp).",
+        "message": "Hide posts with certain keywords in the title.",
         "description": ""
     },
     "orangeredShowUnreadCountInFaviconTitle": {
@@ -3577,6 +3601,10 @@
     },
     "numPoints": {
         "message": "$1 points",
+        "description": ""
+    },
+    "faviconNotificationBGColorDesc": {
+        "message": "Change the background colour of the notification on the favicon.",
         "description": ""
     },
     "aboutOptionsBackupTitle": {
@@ -3909,6 +3937,10 @@
     },
     "nightModeToggleTitle": {
         "message": "Toggle night and day",
+        "description": ""
+    },
+    "readCommentsCleanCommentsDesc": {
+        "message": "Number of days to keep track of a comment page.",
         "description": ""
     },
     "subredditManName": {
@@ -4363,10 +4395,6 @@
         "message": "requires OTP (2FA is enabled)",
         "description": ""
     },
-    "filteRedditExcludeCommentsPageDesc": {
-        "message": "When visiting the comments page for a filtered link, allow the link/expando to be shown.",
-        "description": ""
-    },
     "showImagesHostToggleDesc": {
         "message": "Display expandos for this host.",
         "description": ""
@@ -4376,7 +4404,7 @@
         "description": ""
     },
     "filteRedditDesc": {
-        "message": "Filter out NSFW content, or links by keyword, domain (use User Tagger to ignore by user) or subreddit (for /r/all or /domain/*).",
+        "message": "Filter out NSFW content, or links by keyword, domain (use User Tagger to ignore by user) or subreddit (for /r/all or /domain/*).\n\nRegExp like `/(this|that|theother)/i` is allowed in text boxes. Find out more on the [/r/Enhancement wiki](/r/Enhancement/wiki/index/filters/filtereddit/regexp).",
         "description": ""
     },
     "RESTipsMenuItemDesc": {
@@ -4503,6 +4531,10 @@
         "message": "Add colour to the \"controversial\" comment indicator.\n\nThis indicator can be enabled/disabled in your [reddit preferences](/prefs/#highlight_controversial).",
         "description": ""
     },
+    "faviconNotificationTextColorTitle": {
+        "message": "Favicon Notification Text Colour",
+        "description": ""
+    },
     "selectedEntryOutlineStyleNightTitle": {
         "message": "Outline Style Night",
         "description": ""
@@ -4541,6 +4573,10 @@
     },
     "commentPreviewOpenBigEditorDesc": {
         "message": "Open the current markdown field in the big editor. (Only when a markdown form is focused).",
+        "description": ""
+    },
+    "readCommentsMonitorWhenIncognitoDesc": {
+        "message": "Keep track while browsing in incognito/private mode.",
         "description": ""
     },
     "commentDepthCommentPermalinksContextDesc": {
@@ -4635,6 +4671,10 @@
         "message": "Enable Big Editor",
         "description": ""
     },
+    "userHighlightHighlightSelfTitle": {
+        "message": "Highlight Self",
+        "description": ""
+    },
     "penaltyBoxSuspendFeaturesNotificationHeader": {
         "message": "Suspended Feature",
         "description": ""
@@ -4725,6 +4765,10 @@
     },
     "keyboardNavFollowLinkAndCommentsNewTabTitle": {
         "message": "Follow Link And Comments New Tab",
+        "description": ""
+    },
+    "keyboardNavProfileViewDesc": {
+        "message": "Go to new profile (profile pages only).",
         "description": ""
     },
     "multiredditNavbarName": {
@@ -4905,6 +4949,10 @@
     },
     "keyboardNavImageSizeDownDesc": {
         "message": "Decrease the size of image(s) in the highlighted post area.",
+        "description": ""
+    },
+    "userHighlightSelfColorTitle": {
+        "message": "Self Colour",
         "description": ""
     },
     "commentToolsShowInputLengthTitle": {
@@ -5167,6 +5215,10 @@
         "message": "$1 friends",
         "description": ""
     },
+    "userHighlightSelfColorDesc": {
+        "message": "Colour to use to highlight the logged in user.",
+        "description": ""
+    },
     "nightModeNightModeOverrideHoursDesc": {
         "message": "Number of hours that the automatic night mode override lasts.\nYou can use a decimal number of hours here as well; e.g. 0.1 hours (which is 6 min).",
         "description": ""
@@ -5245,6 +5297,10 @@
     },
     "messageMenuLabel": {
         "message": "label",
+        "description": ""
+    },
+    "keyboardNavOverviewLegacyDesc": {
+        "message": "Go to legacy (overview) profile (profile pages only).",
         "description": ""
     },
     "userHighlightFirstCommentColorHoverDesc": {
@@ -5439,6 +5495,10 @@
         "message": "User suspended.",
         "description": ""
     },
+    "readCommentsDesc": {
+        "message": "Keep track of what comments you have read. Useful for filtering comments.",
+        "description": ""
+    },
     "showKarmaUseCommasTitle": {
         "message": "Use Commas",
         "description": ""
@@ -5452,7 +5512,7 @@
         "description": ""
     },
     "filteRedditDomainsDesc": {
-        "message": "Hide posts that link to certain domains.\nCaution: domain keywords like \"reddit\" would ignore \"reddit.com\" and \"fooredditbar.com\".\nRegExp like `/(this|that|theother)/i` is allowed for domain.\n\nFind out more on the [/r/Enhancement wiki](/r/Enhancement/wiki/index/filters/filtereddit/regexp).",
+        "message": "Hide posts that link to certain domains.\nCaution: domain keywords like \"reddit\" would ignore \"reddit.com\" and \"fooredditbar.com\".",
         "description": ""
     },
     "showImagesShowVideoControlsDesc": {
