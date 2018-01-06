@@ -1,12 +1,13 @@
 
 ### New Features
 
-- None (thanks nobody)
+- Add YouTube video time overlay to the thumbnail, like v.reddit (thanks @wojtekmaj)
 
 ### Bug Fixes
 
-- None (thanks nobody)
+- (beta) Fix i18n of builder add item text (thanks @larsjohnsen)
+- (beta) Fix forced reflow when selecting entries (thanks @larsjohnsen)
 
 ### Housekeeping / Other
 
-- None (thanks nobody)
+- (beta) Don't display simple string filters as regex (thanks @larsjohnsen)
