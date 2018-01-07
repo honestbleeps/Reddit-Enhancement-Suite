@@ -35,6 +35,7 @@
     "report-coverage": "nyc report --reporter=text-lcov | coveralls",
     "integration": "nightwatch --env",
     "deploy": "node build/deploy.js",
+    "deploy-changelog": "node build/deployChangelog.js",
     "version": "node build/version.js"
   },
   "ava": {
