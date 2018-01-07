@@ -1,3 +1,11 @@
+### New Features
+
+- None (thanks nobody)
+
 ### Bug Fixes
 
-- (beta) Restore keyboard nav performance (thanks @larsjohnsen)
+- None (thanks nobody)
+
+### Housekeeping / Other
+
+- None (thanks nobody)
