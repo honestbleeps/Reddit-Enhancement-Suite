@@ -33,7 +33,7 @@ const newChangelog = [
 	'tags:',
 	`- ${isBeta ? 'Pre-release' : 'Release'}`,
 	'---',
-	...changelogLines.slice(2),
+	...changelogLines.slice(1),
 ].join('\n');
 
 fs.writeFileSync(newChangelogFile, newChangelog);
