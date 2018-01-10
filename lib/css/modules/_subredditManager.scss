@@ -21,6 +21,7 @@
 	background-color: #FAFAFA;
 	width: auto;
 	overflow-y: auto;
+	overscroll-behavior-y: contain;
 
 	tr {
 		border-bottom: 1px solid gray;
