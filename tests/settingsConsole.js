@@ -31,6 +31,7 @@ module.exports = {
 	'change boolean option': browser => {
 		browser
 			.url('https://www.reddit.com/wiki/pages#res:settings/accountSwitcher')
+			.refresh() // get rid of update notification
 			.waitForElementVisible('#RESConsoleContainer')
 
 			// initial state, no options changed
@@ -55,6 +56,7 @@ module.exports = {
 	'change enum option': browser => {
 		browser
 			.url('https://www.reddit.com/wiki/pages#res:settings/accountSwitcher')
+			.refresh() // get rid of update notification
 			.waitForElementVisible('#RESConsoleContainer')
 
 			// initial state, no options changed
@@ -88,6 +90,7 @@ module.exports = {
 
 		browser
 			.url('https://www.reddit.com/wiki/pages#res:settings/quickMessage')
+			.refresh() // get rid of update notification
 			.waitForElementVisible('#RESConsoleContainer')
 
 			// initial state, no options changed
@@ -117,6 +120,7 @@ module.exports = {
 
 		browser
 			.url('https://www.reddit.com/wiki/pages#res:settings/accountSwitcher')
+			.refresh() // get rid of update notification
 			.waitForElementVisible('#RESConsoleContainer')
 
 			// initial state, no options changed
@@ -147,6 +151,7 @@ module.exports = {
 
 		browser
 			.url('https://www.reddit.com/wiki/pages#res:settings/accountSwitcher')
+			.refresh() // get rid of update notification
 			.waitForElementVisible('#RESConsoleContainer')
 
 			// add rows
@@ -177,6 +182,7 @@ module.exports = {
 	'disabling a module': browser => {
 		browser
 			.url('https://www.reddit.com/wiki/pages#res:settings/wheelBrowse')
+			.refresh() // get rid of update notification
 			.waitForElementVisible('#RESConsoleContainer')
 			.assert.cssClassPresent('.moduleToggle', 'enabled')
 			.click('.moduleToggle')
@@ -195,6 +201,7 @@ module.exports = {
 
 		browser
 			.url('https://www.reddit.com/wiki/pages#res:settings/accountSwitcher')
+			.refresh() // get rid of update notification
 			.waitForElementVisible('#RESConsoleContainer')
 			.click('#optionContainer-accountSwitcher-accounts .addRowButton')
 			.setValue('#accounts_accountSwitcherUsername_1', ['test'])

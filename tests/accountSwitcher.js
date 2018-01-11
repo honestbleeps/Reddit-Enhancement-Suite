@@ -10,6 +10,7 @@ module.exports = {
 
 		browser
 			.url('https://www.reddit.com/wiki/pages#res:settings/accountSwitcher')
+			.refresh() // get rid of update notification
 			.waitForElementVisible('#RESConsoleContainer')
 			.click('#optionContainer-accountSwitcher-accounts .addRowButton')
 			.setValue('#optionContainer-accountSwitcher-accounts input', [username])
@@ -34,6 +35,7 @@ module.exports = {
 
 		browser
 			.url('https://www.reddit.com/wiki/pages#res:settings/accountSwitcher')
+			.refresh() // get rid of update notification
 			.waitForElementVisible('#RESConsoleContainer')
 			.click('#optionContainer-accountSwitcher-accounts .addRowButton')
 			.setValue('#optionContainer-accountSwitcher-accounts input', [username])
