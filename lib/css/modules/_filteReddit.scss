@@ -196,13 +196,12 @@ body.hideOver18 {
 			display: inline-block;
 			line-height: 1em;
 			padding: 1px;
-			text-align: center;
 			width: 1em;
 			height: 1em;
-			content: '⏻';
+			font-family: Batch;
+			content: '\F069';
 			background: hsla(0, 0%, 50%, .06);
 			border-radius: 100%;
-			font-family: cursive;
 		}
 	}
 
