@@ -26,6 +26,7 @@ function editSettings(callback) {
 	return (browser, done) => {
 		browser
 			.url('https://www.reddit.com/wiki/pages/#res:settings/filteReddit')
+			.refresh() // get rid of update notification
 			.waitForElementVisible('#RESConsoleContainer')
 			.perform(callback)
 			.click('#moduleOptionsSave');

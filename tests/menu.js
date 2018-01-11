@@ -16,6 +16,7 @@ module.exports = {
 
 		browser
 			.url('https://www.reddit.com/wiki/pages')
+			.refresh() // get rid of update notification
 			.waitForElementVisible('#header')
 			.waitForElementVisible('#RESSettingsButton')
 			.moveToElement('#RESSettingsButton', 0, 0)
