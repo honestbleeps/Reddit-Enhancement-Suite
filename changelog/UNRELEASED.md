@@ -1,11 +1,4 @@
-### New Features
-
-- None (thanks nobody)
-
 ### Bug Fixes
 
-- None (thanks nobody)
-
-### Housekeeping / Other
-
-- None (thanks nobody)
+- Fix invalid entries breaking filtering entirely (thanks @larsjohnsen)
+- Fix sidebar live preview (thanks @erikdesjardins)
