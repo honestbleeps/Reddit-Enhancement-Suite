@@ -31,6 +31,7 @@ const browserConfig = {
 		target: 'firefox',
 		entry: 'firefox/manifest.json',
 		output: 'firefox',
+		noSourcemap: true,
 	},
 	firefoxbeta: {
 		target: 'firefox',
@@ -54,7 +55,11 @@ export default (env = {}) => {
 			path: path.join(__dirname, 'dist', conf.output),
 			filename: path.basename(conf.entry),
 		},
-		devtool: isProduction ? 'source-map' : 'cheap-source-map',
+		devtool: (() => {
+			if (!isProduction) return 'cheap-source-map';
+			if (!conf.noSourcemap) return 'source-map';
+			return false;
+		})(),
 		bail: isProduction,
 		node: false,
 		performance: false,
