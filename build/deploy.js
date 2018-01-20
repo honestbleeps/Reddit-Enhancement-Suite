@@ -15,7 +15,7 @@ if (isBetaVersion(version)) {
 	console.log(`Deploying ${version} beta release...`);
 
 	deployChromeBeta();
-	deployEdgeInternalBeta();
+	deployEdgeBeta();
 	deployFirefoxBeta();
 	// deployOperaBeta();
 } else {
@@ -23,8 +23,7 @@ if (isBetaVersion(version)) {
 
 	deployChromeBeta();
 	deployChromeStable();
-	deployEdgeInternalBeta();
-	deployEdgePublicBeta();
+	deployEdgeBeta();
 	deployEdgeStable();
 	deployFirefoxBeta();
 	deployFirefoxStable();
@@ -67,26 +66,8 @@ function deployChromeStable() {
 	});
 }
 
-function deployEdgeInternalBeta() {
-	console.log('Deploying Edge internal beta...');
-
-	edgeDeploy({
-		tenantId: process.env.EDGE_TENANT_ID,
-		clientId: process.env.EDGE_CLIENT_ID,
-		clientSecret: process.env.EDGE_CLIENT_SECRET,
-		appId: '9NBLGGH4NC12',
-		flightId: '013e109b-ff0c-42d5-ba6a-8797ecc5368a',
-		appx: fs.createReadStream(path.join(__dirname, '../dist/edgeextension/package/edgeExtension.appx')),
-	}).then(() => {
-		console.log('Edge internal beta deployment complete!');
-	}, err => {
-		console.log('Edge internal beta failed:', err);
-		process.exitCode = 1;
-	});
-}
-
-function deployEdgePublicBeta() {
-	console.log('Deploying Edge public beta...');
+function deployEdgeBeta() {
+	console.log('Deploying Edge beta...');
 
 	edgeDeploy({
 		tenantId: process.env.EDGE_TENANT_ID,
@@ -96,9 +77,9 @@ function deployEdgePublicBeta() {
 		flightId: '9be3ca4c-a87f-49d2-9191-3aa40c2c9d19',
 		appx: fs.createReadStream(path.join(__dirname, '../dist/edgeextension/package/edgeExtension.appx')),
 	}).then(() => {
-		console.log('Edge public beta deployment complete!');
+		console.log('Edge beta deployment complete!');
 	}, err => {
-		console.log('Edge public beta failed:', err);
+		console.log('Edge beta failed:', err);
 		process.exitCode = 1;
 	});
 }
