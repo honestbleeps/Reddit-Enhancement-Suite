@@ -1,11 +1,14 @@
 ### New Features
 
-- None (thanks nobody)
+- Add 'period' paramater to command line sort (e.g. `.` `/top week`) (thanks @larsjohnsen)
 
 ### Bug Fixes
 
-- None (thanks nobody)
+- Fix allowNSFW being ignored on comments pages (thanks @larsjohnsen)
+- Fix mediaBrowse not working when hiding posts (thanks @larsjohnsen)
+- Fix source buttons not appearing in the inbox (thanks @erikdesjardins)
+- Fix tags with "none" color having blue text (thanks @erikdesjardins)
 
 ### Housekeeping / Other
 
-- None (thanks nobody)
+- Combine Edge beta releases (thanks @BenMcGarry)
