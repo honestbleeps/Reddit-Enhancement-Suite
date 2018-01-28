@@ -140,7 +140,10 @@
 		margin-bottom: -1px;
 	}
 
-	.ProfileBarDropdown__title {
+  .ProfileBarDropdown__title {
+		margin: 2px 3px;
+		background-color: #eff7ff;
+		padding: 0 3px;
 		font-size: .68em;
 	}
 
@@ -174,12 +177,6 @@
 
 	.res-d2x-nightmode .ProfileBar__smallIcon {
 		color: #8cb3d9;
-	}
-
-	.ProfileBarDropdown__title {
-		margin: 2px 3px;
-		background-color: #eff7ff;
-		padding: 0 3px;
 	}
 
 	.m-arrow {
@@ -279,7 +276,7 @@
 	}
 
 	.ProfileSidebar__nameTitleLink {
-		font-family: arial,verdana,helvetica,sans-serif;
+		font-family: arial, verdana, helvetica, sans-serif;
 		margin: 0 0 5px;
 		font-weight: 700;
 		font-size: 19px;
@@ -310,8 +307,8 @@
 		background-color: #7bb850;
 	}
 
-	.ProfileSidebar__follow:before {
-		content: "+";
+	.ProfileSidebar__follow::before {
+		content: '+';
 	}
 
 	.ProfileSidebar__sendPM {
@@ -323,7 +320,7 @@
 		padding: 1px 1px 1px 20px;
 		background-color: transparent;
 		border: none;
-		background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAKCAMAAABcxfTLAAAACVBMVEW+vr7////a2trdmc6vAAAAMUlEQVR42mXLQRIAIAhCUeX+h46Y0NH+InyL4i87MZpJc4oy30cbOmFjLMfhuqiPuwMd6ABk3pQhaQAAAABJRU5ErkJggg==);
+		background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAKCAMAAABcxfTLAAAACVBMVEW+vr7////a2trdmc6vAAAAMUlEQVR42mXLQRIAIAhCUeX+h46Y0NH+InyL4i87MZpJc4oy30cbOmFjLMfhuqiPuwMd6ABk3pQhaQAAAABJRU5ErkJggg==");
 		margin-bottom: 4px;
 		background-repeat: no-repeat;
 		color: #369;
@@ -335,7 +332,7 @@
 
 	.ProfileSidebar__titleContainer > div:nth-child(7) > a:nth-child(1) {
 		width: 62px;
-		background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAjVJREFUSA21Vj1IQlEU7j1NTVKIpkxoaGhvUEQcmosMWiKCKKIpaGlqiYaW9paEIoLmfucMB9GW1garRaWhFgv86WnfJ155Pn1603xwOPee853vnnvu31MG2nyBQGC8XC4vQGYVRZkE1FODZyqVSkpV1TvIZTweT5vRKK0coVBorFgs7oNkHWJphRE2DKxBTmw2214sFssKu9BNA/h8vjk4L0DsEiAZjUFywC0nk8lbPb4hO5BvgfgMAIceJNm2A7fk9Xo/0+l0UsTUZ8DMQX4FhyqcXeoyZhMWM6kOwJoXCoXnv5bFLAGWy263T3FNqtnWFrRjzRH4QTEjFnYmSk72Fb/f74XhDdKwHgKs1xaLZZ59TdOu9fZWbSSiAT9hhTMsQ14j4U6R+sjJM6TyEElFdAEit4qp8IT25SM3SySOf8MgXExcA2sw1svicDieCMrn8zM6sAuZnqIkozqbaHq4i0qi1w9txcivIB4xkjMj424RmcN+b8Sb9DNcgxcTZ89mJJliiR56ZjIhqF7nbrf7HP5vE4zRzNPe8cQzCJXR+FYo7OCii2A6G2y3+7iz6Of6tMPRB/JIIpHY5DZlwDB1p0+GmBxIJMcHqNoOBoOuUqn0juChTgNI+huuaytuvUUE/if5tngLmJAV01lB9pLJmcNYFnibnkxu02lDWBbgA9iOoL8MvqYuMNwtET4w+swFkCf5EKAdGB4hx06n8yYajf4QgLdiF2oVmCAwvBQpgxDp35ZfyU7vmTVw4TwAAAAASUVORK5CYII=);
+		background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAjVJREFUSA21Vj1IQlEU7j1NTVKIpkxoaGhvUEQcmosMWiKCKKIpaGlqiYaW9paEIoLmfucMB9GW1garRaWhFgv86WnfJ155Pn1603xwOPee853vnnvu31MG2nyBQGC8XC4vQGYVRZkE1FODZyqVSkpV1TvIZTweT5vRKK0coVBorFgs7oNkHWJphRE2DKxBTmw2214sFssKu9BNA/h8vjk4L0DsEiAZjUFywC0nk8lbPb4hO5BvgfgMAIceJNm2A7fk9Xo/0+l0UsTUZ8DMQX4FhyqcXeoyZhMWM6kOwJoXCoXnv5bFLAGWy263T3FNqtnWFrRjzRH4QTEjFnYmSk72Fb/f74XhDdKwHgKs1xaLZZ59TdOu9fZWbSSiAT9hhTMsQ14j4U6R+sjJM6TyEElFdAEit4qp8IT25SM3SySOf8MgXExcA2sw1svicDieCMrn8zM6sAuZnqIkozqbaHq4i0qi1w9txcivIB4xkjMj424RmcN+b8Sb9DNcgxcTZ89mJJliiR56ZjIhqF7nbrf7HP5vE4zRzNPe8cQzCJXR+FYo7OCii2A6G2y3+7iz6Of6tMPRB/JIIpHY5DZlwDB1p0+GmBxIJMcHqNoOBoOuUqn0juChTgNI+huuaytuvUUE/if5tngLmJAV01lB9pLJmcNYFnibnkxu02lDWBbgA9iOoL8MvqYuMNwtET4w+swFkCf5EKAdGB4hx06n8yYajf4QgLdiF2oVmCAwvBQpgxDp35ZfyU7vmTVw4TwAAAAASUVORK5CYII=");
 		background-size: 12px 12px;
 	}
 
@@ -539,7 +536,7 @@
 	}
 
 	.Media__wrapper .StyledHtml .md {
-		font: 14px verdana,arial,helvetica,sans-serif
+		font: 14px verdana, arial, helvetica, sans-serif;
 	}
 
 	.ProfilePostList__postsList {
@@ -550,12 +547,12 @@
 
 .res-profileRedirect-activeCommunities {
 	.UserTopSubredditsSidebar {
-		 display: block !important;
+    display: block !important;
 	}
 }
 
 .res-profileRedirect-trendingProfiles {
 	.TrendingProfilesSidebar {
-		 display: block !important;
+    display: block !important;
 	}
 }
