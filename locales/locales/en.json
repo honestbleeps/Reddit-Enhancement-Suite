@@ -123,7 +123,7 @@
 		"message": "Account Switcher"
 	},
 	"accountSwitcherDesc": {
-		"message": "Store username/password pairs and switch accounts instantly while browsing Reddit!\n\nIf you forget a password which is stored in Account Switcher, [you can recover them from RES settings](/r/Enhancement/wiki/faq/passwords). Be aware that RES offers very little protection for stored passwords, so be careful when sharing your computer or settings!"
+		"message": "Store username/password pairs and switch accounts instantly while browsing Reddit!\n\nIf you forget a password which is stored in Account Switcher, [you can recover them from RES settings](/r/Enhancement/wiki/faq/passwords). Be aware that RES offers very little protection for stored passwords, so be careful when sharing your computer or settings!\n\nLeave a password box blank to be prompted for a password every time you switch to that account."
 	},
 	"accountSwitcherAddAccount": {
 		"message": "+add account"
@@ -1742,6 +1742,9 @@
 	},
 	"accountSwitcherOptPrompt": {
 		"message": "Enter the 6 digit code from your authenticator app for $1"
+	},
+	"accountSwitcherPasswordPrompt": {
+		"message": "Enter the password for $1"
 	},
 	"backupAndRestoreProvidersFile": {
 		"message": "File"
