@@ -16,8 +16,6 @@ if (isBetaVersion(version)) {
 
 	deployChromeBeta();
 	deployEdgeBeta();
-	deployFirefoxBeta();
-	// deployOperaBeta();
 } else {
 	console.log(`Deploying ${version} stable release...`);
 
@@ -25,9 +23,7 @@ if (isBetaVersion(version)) {
 	deployChromeStable();
 	deployEdgeBeta();
 	deployEdgeStable();
-	deployFirefoxBeta();
 	deployFirefoxStable();
-	// deployOperaBeta();
 	deployOperaStable();
 }
 
@@ -101,23 +97,6 @@ function deployEdgeStable() {
 	});
 }
 
-function deployFirefoxBeta() {
-	console.log('Deploying Firefox beta...');
-
-	firefoxDeploy({
-		issuer: process.env.FIREFOX_ISSUER,
-		secret: process.env.FIREFOX_SECRET,
-		id: 'jid1-xUfzOsOFlzSOXg@jetpack',
-		version: require('../dist/firefox-beta/manifest.json').version, // eslint-disable-line global-require
-		src: fs.createReadStream(path.join(__dirname, '../dist/zip/firefox-beta.zip')),
-	}).then(() => {
-		console.log('Firefox beta deployment complete!');
-	}, err => {
-		console.error('Firefox beta failed:', err);
-		process.exitCode = 1;
-	});
-}
-
 function deployFirefoxStable() {
 	console.log('Deploying Firefox stable...');
 
@@ -134,25 +113,6 @@ function deployFirefoxStable() {
 		process.exitCode = 1;
 	});
 }
-
-/*
-function deployOperaBeta() {
-	console.log('Deploying Opera beta...');
-
-	operaDeploy({
-		username: process.env.OPERA_USER,
-		password: process.env.OPERA_PASSWORD,
-		id: '228738',
-		// opera extensions must have a unique `name`
-		zip: fs.readFileSync(path.join(__dirname, '../dist/zip/chrome-beta.zip')),
-	}).then(() => {
-		console.log('Opera beta deployment complete!');
-	}, err => {
-		console.error('Opera beta failed:', err);
-		process.exitCode = 1;
-	});
-}
-*/
 
 function deployOperaStable() {
 	console.log('Deploying Opera stable...');
