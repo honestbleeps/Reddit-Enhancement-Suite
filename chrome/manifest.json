@@ -5,8 +5,8 @@
 	"description": "{{prop-loader?description!../package.json}}",
 	"author": "{{prop-loader?author!../package.json}}",
 	"homepage_url": "{{prop-loader?homepage!../package.json}}",
-	"minimum_chrome_version": "61",
-	"minimum_opera_version": "48",
+	"minimum_chrome_version": "64",
+	"minimum_opera_version": "51",
 	"icons": {
 		"48": "{{../images/icon48.png}}",
 		"128": "{{../images/icon128.png}}"

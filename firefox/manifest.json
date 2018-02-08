@@ -54,6 +54,7 @@
 			"https://*.reddit.com/*.json-html?*"
 		],
 		"js": [
+			"{{file-loader?name=[name].[ext]!resize-observer-polyfill/dist/ResizeObserver.global.js}}",
 			"{{../lib/foreground.entry.js}}"
 		],
 		"css": [
