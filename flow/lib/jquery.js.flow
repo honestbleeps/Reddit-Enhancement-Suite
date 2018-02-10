@@ -5,7 +5,7 @@
 // disabled one permutation of `$.fn.on` because it conflicts with delegated listeners (and we don't use it)
 // specialized `$.fn.on` and `$.fn.one` for keyboard and input event types
 // added overloadings of animation functions with only a callback (default delay)
-// added definitions for tokeninput, safehtml, sortable
+// added definitions for tokeninput, safehtml
 // added iterator
 // made JQueryXHR extend the native XMLHttpRequest object
 // switched to the `.then` implementation of native promises, à la jQuery 3
@@ -955,36 +955,6 @@ declare class JQuery {
 
 	// vendor/index.js
 	safeHtml(html: string): JQuery;
-
-	// jquery-sortable
-	sortable(options: {
-		drag?: boolean,
-		drop?: boolean,
-		exclude?: string,
-		nested?: boolean,
-		vertical?: boolean,
-		afterMove?: ($placeholder: JQuery, container: any, $closestItemOrContainer: JQuery) => void,
-		containerPath?: string,
-		containerSelector?: string,
-		distance?: number,
-		delay?: number,
-		handle?: string,
-		itemPath?: string,
-		itemSelector?: string,
-		bodyClass?: string,
-		draggedClass?: string,
-		isValidTarget?: ($item: JQuery, container: any) => boolean,
-		onCancel?: ($item: JQuery, container: any, _super: Function, event: Event) => void,
-		onDrag?: ($item: JQuery, container: any, _super: Function, event: Event) => void,
-		onDragStart?: ($item: JQuery, container: any, _super: Function, event: Event) => void,
-		onDrop?: ($item: JQuery, container: any, _super: Function, event: Event) => void,
-		onMousedown?: ($item: JQuery, _super: Function, event: Event) => void,
-		placeholderClass?: string,
-		placeholder?: string,
-		pullPLaceholder?: boolean,
-		serialize?: ($parent: JQuery, $children: JQuery, parentIsContainer: boolean) => { [key: string]: mixed },
-		tolerance?: number,
-	}): JQuery;
 }
 
 type TokenInputOptions<Item: { [key: any]: any }> = {
