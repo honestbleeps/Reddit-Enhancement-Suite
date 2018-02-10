@@ -1,6 +1,7 @@
 engines:
   eslint:
     enabled: true
+    channel: "eslint-4"
   duplication:
     enabled: true
     config:
