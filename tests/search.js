@@ -24,7 +24,7 @@ module.exports = {
 			.assert.containsText('#SearchRES-results', 'Test Environment')
 			.end();
 	},
-	'exporting links': browser => {
+	'exporting links to modules': browser => {
 		if (browser.options.desiredCapabilities.browserName === 'firefox') {
 			// geckodriver doesn't support moveto https://github.com/mozilla/geckodriver/issues/159
 			browser.end();
@@ -32,7 +32,6 @@ module.exports = {
 		}
 
 		browser
-			// to modules
 			.url('https://en.reddit.com/wiki/pages/#res:settings/search/showImages')
 			.refresh() // get the update notification out of the way of the search result button
 			.waitForElementVisible('#SearchRES-results')
@@ -43,7 +42,16 @@ module.exports = {
 				'**[Inline Image Viewer](#res:settings/showImages)** -- [](#gear) [RES settings console](#res:settings) > Productivity > [Inline Image Viewer](#res:settings/showImages "showImages")',
 				'links to modules'
 			)
-			// to options
+			.end();
+	},
+	'exporting links to options': browser => {
+		if (browser.options.desiredCapabilities.browserName === 'firefox') {
+			// geckodriver doesn't support moveto https://github.com/mozilla/geckodriver/issues/159
+			browser.end();
+			return;
+		}
+
+		browser
 			.url('https://en.reddit.com/wiki/pages/#res:settings/search/testEnvironment')
 			.refresh()
 			.waitForElementVisible('#SearchRES-results')
