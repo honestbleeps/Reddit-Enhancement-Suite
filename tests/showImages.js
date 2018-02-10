@@ -108,13 +108,13 @@ module.exports = {
 	},
 	'crosspost expando': browser => {
 		browser
-			.url('https://en.reddit.com/by_id/t3_7fsw5w/')
+			.url('https://en.reddit.com/by_id/t3_7wn64k/')
 			.waitForElementVisible('.expando-button')
 			.click('.expando-button')
 			.waitForElementVisible('.res-expando-box')
 			.assert.cssClassPresent('.crosspost-preview', 'res-crosspost-preview')
-			.assert.containsText('.crosspost-preview .title', 'Original post with expandoable image for crossposting')
-			.assert.attributeContains('.crosspost-preview a.author', 'href', '/user/andytuba/')
+			.assert.containsText('.crosspost-preview .title', 'Image Expando 2')
+			.assert.attributeContains('.crosspost-preview a.author', 'href', '/user/erikdesjardins/')
 			.assert.attributeContains('.crosspost-preview a.subreddit', 'href', '/r/RESIntegrationTests/')
 			.end();
 	},
