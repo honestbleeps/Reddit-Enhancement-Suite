@@ -49,7 +49,6 @@
 		],
 		"js": [
 			"{{file-loader?name=[name].[ext]!url-search-params/build/url-search-params.js}}",
-			"{{file-loader?name=[name].[ext]!resize-observer-polyfill/dist/ResizeObserver.global.js}}",
 			"{{./edge.entry.js}}",
 			"{{../lib/foreground.entry.js}}"
 		],
