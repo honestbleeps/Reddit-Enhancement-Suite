@@ -706,7 +706,6 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 	.usertext-edit textarea,
 	.RESDialogSmall,
 	.c-close,
-	#REScommentNavBox,
 	#BigEditor #BigText,
 	#liveupdate-statusbar,
 	#liveupdate-statusbar.complete,
@@ -1396,6 +1395,21 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 			&-action {
 				border-bottom-color: #404040;
 			}
+		}
+	}
+
+	#REScommentNavBox {
+		#commentNavBy {
+			background-color: #707070;
+		}
+
+		#commentNavUp,
+		#commentNavDown {
+			color: #434343;
+		}
+
+		#commentNavPostCount {
+			color: #9f9f9f;
 		}
 	}
 
