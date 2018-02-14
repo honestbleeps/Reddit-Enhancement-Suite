@@ -160,7 +160,7 @@ module.exports = {
 				.click('#optionContainer-filteReddit-flair .addRowButton')
 				.setValue('#optionContainer-filteReddit-flair input', ['A'])
 			))
-			.url(byId(POST.aWithFlaira, POST.bWithFlairA, POST.cWithFlair_a_, POST.CWithFlairC))
+			.url('https://www.reddit.com/r/RESIntegrationTests/search?q=flair%3Aa+OR+flair%3Ac&restrict_sr=on&t=all&feature=legacy_search')
 			.waitForElementNotVisible(thing(POST.aWithFlaira))
 			.waitForElementNotVisible(thing(POST.bWithFlairA))
 			.waitForElementNotVisible(thing(POST.cWithFlair_a_))
@@ -171,7 +171,7 @@ module.exports = {
 				.clearValue('#optionContainer-filteReddit-flair input')
 				.setValue('#optionContainer-filteReddit-flair input', ['[a]'])
 			))
-			.url(byId(POST.aWithFlaira, POST.cWithFlair_a_))
+			.url('https://www.reddit.com/r/RESIntegrationTests/search?q=flair%3Aa&restrict_sr=on&t=all&feature=legacy_search')
 			.waitForElementNotVisible(thing(POST.cWithFlair_a_))
 			.assert.visible(thing(POST.aWithFlaira))
 			.end();
