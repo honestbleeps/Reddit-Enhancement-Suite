@@ -79,3 +79,9 @@ matrix:
           skip_cleanup: true
           on:
             tags: true
+notifications:
+  irc:
+    channels:
+      - "irc.snoonet.org#enhancement"
+    on_success: change
+    on_failure: always
