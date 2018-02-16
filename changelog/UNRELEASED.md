@@ -1,11 +1,21 @@
 ### New Features
 
-- None (thanks nobody)
+- Account Switcher will prompt for your password if you leave the field blank (thanks @qenya)
+- Filterline comment filters can be used for comment navigation (thanks @larsjohnsen)
+- Basic support for user tags on the redesign alpha (thanks @erikdesjardins)
 
 ### Bug Fixes
 
-- None (thanks nobody)
+- Fix Hide Child Comments remembering "hide all" state for newly-loaded comments (never worked) (thanks @larsjohnsen)
+- Fix scrolling in subreddit dropdown also scrolling the page (thanks @Alexendoo)
+- Fix [l+c] Single Click Opener button opening duplicate tabs for i.redd.it images (thanks @tersers)
 
 ### Housekeeping / Other
 
-- None (thanks nobody)
+- Remove Firefox beta deployment, since Mozilla is removing the ability to release beta versions
+- New Comment Count filter counts all comments in unopened threads as new (thanks @larsjohnsen)
+- Minor update to contributing docs (thanks @BenMcGarry)
+- Codeclimate updates (thanks @mc10)
+- Use ResizeObserver in Chrome for improved expando resizing performance (thanks @larsjohnsen)
+- Avoid triggering another automatic backup on the pageload after restoring (thanks @erikdesjardins)
+- Make clicking to open expandos slightly faster (thanks @larsjohnsen)
