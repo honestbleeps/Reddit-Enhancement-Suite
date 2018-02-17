@@ -73,9 +73,11 @@ matrix:
           on:
             tags: true
         - provider: script
-          script:
-            - yarn run deploy
-            - yarn run deploy-changelog
+          script: |
+            status=0
+            yarn run deploy || status=1
+            yarn run deploy-changelog || status=1
+            exit $status
           skip_cleanup: true
           on:
             tags: true
