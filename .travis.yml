@@ -73,11 +73,7 @@ matrix:
           on:
             tags: true
         - provider: script
-          script: |
-            status=0
-            yarn run deploy || status=1
-            yarn run deploy-changelog || status=1
-            exit $status
+          script: build/travisDeploy.sh
           skip_cleanup: true
           on:
             tags: true
