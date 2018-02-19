@@ -30,6 +30,11 @@ img {
 	}
 }
 
+// Hide pinned Reddit-hosted videos
+.res-showImages-hidePinnedRedditVideos {
+	.pinnable-content.pinned { display: none; }
+}
+
 // Place inline expandos so that they don't impact the line height
 .res-freetext-expando {
 	display: inline-block;
