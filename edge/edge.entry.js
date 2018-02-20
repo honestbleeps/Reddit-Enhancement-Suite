@@ -93,3 +93,53 @@ if (!IntersectionObserverEntry.prototype.hasOwnProperty('isIntersecting')) {
 if (typeof requestIdleCallback === 'undefined') {
 	window.requestIdleCallback = fn => requestAnimationFrame(() => { requestAnimationFrame(fn); });
 }
+
+// polyfill KeyboardEvent.key
+// Edge names from https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key/Key_Values
+const SPEC_KEY_NAMES = {
+	Win: 'Meta',
+	Scroll: 'ScrollLock',
+
+	Spacebar: ' ',
+
+	Left: 'ArrowLeft',
+	Right: 'ArrowRight',
+	Up: 'ArrowUp',
+	Down: 'ArrowDown',
+
+	Del: 'Delete',
+	Crsel: 'CrSel',
+	Exsel: 'ExSel',
+
+	Esc: 'Escape',
+	Apps: 'ContextMenu',
+
+	Nonconvert: 'NonConvert',
+
+	MediaNextTrack: 'MediaTrackNext',
+	MediaPreviousTrack: 'MediaTrackPrevious',
+
+	VolumeUp: 'AudioVolumeUp',
+	VolumeDown: 'AudioVolumeDown',
+	VolumeMute: 'AudioVolumeMute',
+
+	Zoom: 'ZoomToggle',
+
+	SelectMedia: 'LaunchMediaPlayer',
+
+	Decimal: '.',
+	Multiply: '*',
+	Add: '+',
+	Divide: '/',
+	Subtract: '-',
+	Separator: ',',
+};
+
+const keyboardEventKeyDescriptor = Object.getOwnPropertyDescriptor(KeyboardEvent.prototype, 'key');
+
+Object.defineProperty(KeyboardEvent.prototype, 'key', {
+	get() {
+		const key = Reflect.apply(keyboardEventKeyDescriptor.get, this, []);
+		return SPEC_KEY_NAMES.hasOwnProperty(key) ? SPEC_KEY_NAMES[key] : key;
+	},
+});
