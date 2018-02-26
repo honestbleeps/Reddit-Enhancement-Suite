@@ -3,6 +3,7 @@
 	will-change: transform;
 	z-index: 10000000;
 	right: 8px;
+	line-height: 12px;
 }
 
 .res-floater-visibleAfterScroll > ul {
@@ -15,4 +16,8 @@
 	display: flex;
 	opacity: .7;
 	&:hover { opacity: 1; }
+
+	> :first-child {
+		margin-left: .5em;
+	}
 }

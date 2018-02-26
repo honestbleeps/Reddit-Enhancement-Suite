@@ -1,21 +1,8 @@
-#NREMail {
-	width: 15px;
-	height: 10px;
-	margin-left: 4px;
-	background: center center no-repeat;
-
-	&.nohavemail {
-		background-image: url('../images/mailgray.png');
+.res-floater-visibleAfterScroll {
+	.message-count,
+	.notification-count {
+		margin: 0 0 0 1px;
 	}
-
-	&.havemail {
-		background-image: url('../images/mail.png');
-	}
-}
-
-#NREMailCount {
-	line-height: 12px;
-	margin: 0 0 0 1px;
 }
 
 .res-orangered-hideModMail #modmail,
@@ -27,17 +14,21 @@
 }
 
 .res-orangered-hideEmptyMail #mail,
+.res-orangered-hideEmptyMail #message,
+.res-orangered-hideEmptyMail #notification,
 .res-orangered-hideEmptyModMail #modmail,
 .res-orangered-hideEmptyNewModMail #new_modmail {
 	&.nohavemail,
 	&.nohavemail + .separator,
-	&.nohavemail + .message-count + .separator {
+	&.nohavemail + .message-count + .separator,
+	&.nohavemail + .notification-count + .separator {
 		display: none;
 	}
 }
 
 .res-orangered-retroUnreadCount {
-	.message-count {
+	.message-count,
+	.notification-count {
 		background: none;
 		padding: 0;
 		color: inherit;
