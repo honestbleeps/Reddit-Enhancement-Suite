@@ -27,24 +27,24 @@ module.exports = {
 					.execute(`
 						return Array.from(document.querySelectorAll('.guiders_description')).slice(-1)[0].textContent;
 					`, [], ({ value: textContent }) => {
-							if (!textContent) {
-								browser.assert.fail('tip is empty');
-								return;
-							}
+						if (!textContent) {
+							browser.assert.fail('tip is empty');
+							return;
+						}
 
-							if (seenTips.has(textContent)) {
-								browser.assert.equal(seenTips.size, 21, 'saw all tips');
-								browser.end();
-								return;
-							}
+						if (seenTips.has(textContent)) {
+							browser.assert.equal(seenTips.size, 21, 'saw all tips');
+							browser.end();
+							return;
+						}
 
-							seenTips.add(textContent);
+						seenTips.add(textContent);
 
-							browser
-								.execute('document.querySelector(".guiders_button").click()') // button may not be in viewport
-								.execute('document.querySelector(".guider").remove()')
-								.perform(checkNext);
-						});
+						browser
+							.execute('document.querySelector(".guiders_button").click()') // button may not be in viewport
+							.execute('document.querySelector(".guider").remove()')
+							.perform(checkNext);
+					});
 
 				done();
 			})
