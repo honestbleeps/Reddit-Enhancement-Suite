@@ -32,7 +32,7 @@ const browserConfig = {
 		target: 'firefox',
 		entry: 'firefox/manifest.json',
 		output: 'firefox',
-		sourcemap: false,
+		devtool: false,
 	},
 	firefoxbeta: {
 		target: 'firefox',
@@ -43,7 +43,7 @@ const browserConfig = {
 		target: 'greasemonkey',
 		entry: 'lib/foreground.entry.js',
 		output: 'greasemonkey',
-		sourcemap: 'inline-source-map',
+		devtool: 'inline-source-map',
 	},
 };
 
@@ -69,8 +69,8 @@ export default (env = {}) => {
 			filename: path.basename(conf.entry),
 		},
 		devtool: (() => {
+			if (typeof conf.devtool !== undefined) return conf.devtool;
 			if (!isProduction) return 'cheap-source-map';
-			if (typeof conf.sourcemap !== undefined) return conf.sourcemap;
 			return 'source-map';
 		})(),
 		bail: isProduction,
