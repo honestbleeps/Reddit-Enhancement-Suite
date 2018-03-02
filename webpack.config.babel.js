@@ -2,6 +2,7 @@
 
 /* eslint-disable import/no-nodejs-modules */
 
+import fs from 'fs';
 import path from 'path';
 
 import webpack from 'webpack';
@@ -31,12 +32,18 @@ const browserConfig = {
 		target: 'firefox',
 		entry: 'firefox/manifest.json',
 		output: 'firefox',
-		noSourcemap: true,
+		sourcemap: false,
 	},
 	firefoxbeta: {
 		target: 'firefox',
 		entry: 'firefox/beta/manifest.json',
 		output: 'firefox-beta',
+	},
+	greasemonkey: {
+		target: 'greasemonkey',
+		entry: 'lib/foreground.entry.js',
+		output: 'greasemonkey',
+		sourcemap: 'inline-source-map',
 	},
 };
 
@@ -50,21 +57,27 @@ export default (env = {}) => {
 	const isProduction = process.env.NODE_ENV !== 'development';
 
 	const configs = browsers.map(b => browserConfig[b]).map(conf => ({
-		entry: `extricate-loader!interpolate-loader!./${conf.entry}`,
+		entry: (() => {
+			if (conf.target === "greasemonkey") {
+				return `./${conf.entry}`;
+			} else {
+				return `extricate-loader!interpolate-loader!./${conf.entry}`;
+			}
+		})(),
 		output: {
 			path: path.join(__dirname, 'dist', conf.output),
 			filename: path.basename(conf.entry),
 		},
 		devtool: (() => {
 			if (!isProduction) return 'cheap-source-map';
-			if (!conf.noSourcemap) return 'source-map';
-			return false;
+			if (typeof conf.sourcemap !== undefined) return conf.sourcemap;
+			return 'source-map';
 		})(),
 		bail: isProduction,
 		node: false,
 		performance: false,
 		module: {
-			rules: [{
+			rules: [conf.target !== "greasemonkey" && {
 				test: /\.entry\.js$/,
 				use: [
 					{ loader: 'spawn-loader' },
@@ -115,11 +128,26 @@ export default (env = {}) => {
 			}, {
 				test: /\.scss$/,
 				use: [
-					{ loader: 'file-loader', options: { name: '[name].css' } },
-					{ loader: 'extricate-loader', options: { resolve: '\\.js$' } },
+					...(() => {
+						if (conf.target === "greasemonkey") {
+							return [ { loader: 'style-loader' } ];
+						} else {
+							return [
+								{ loader: 'file-loader', options: { name: '[name].css' } },
+								{ loader: 'extricate-loader', options: { resolve: '\\.js$' } }
+							];
+						}
+					})(),
 					{ loader: 'css-loader' },
 					{ loader: 'postcss-loader' },
-					{ loader: 'sass-loader' },
+					{
+						loader: 'sass-loader',
+						options: {
+							includePaths: [
+								path.resolve(__dirname, './node_modules'),
+							]
+						},
+					}
 				],
 			}, {
 				test: /\.html$/,
@@ -140,12 +168,21 @@ export default (env = {}) => {
 				use: [
 					{ loader: 'url-loader' },
 				],
-			}],
+			}].filter(x => x),
 		},
 		plugins: [
 			new ProgressBarPlugin(),
-			new InertEntryPlugin(),
-			new LodashModuleReplacementPlugin(),
+			(conf.target === "greasemonkey" && (() => {
+				const banner = fs.readFileSync("./greasemonkey/header.js", {
+					encoding: 'utf8'
+				});
+				return new webpack.BannerPlugin({
+					banner: banner,
+					raw: true,
+				});
+			})()),
+			(conf.target !== "greasemonkey" && new InertEntryPlugin()),
+			(conf.target !== "greasemonkey" && new LodashModuleReplacementPlugin()),
 			new webpack.optimize.ModuleConcatenationPlugin(),
 			(env.zip && !conf.noZip && new ZipPlugin({
 				path: path.join('..', 'zip'),
