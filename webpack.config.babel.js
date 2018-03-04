@@ -4,10 +4,8 @@
 
 import path from 'path';
 
-import webpack from 'webpack';
 import InertEntryPlugin from 'inert-entry-webpack-plugin';
 import LodashModuleReplacementPlugin from 'lodash-webpack-plugin';
-import ProgressBarPlugin from 'progress-bar-webpack-plugin';
 import ZipPlugin from 'zip-webpack-plugin';
 
 const browserConfig = {
@@ -47,8 +45,6 @@ export default (env = {}) => {
 		env.browsers.split(',')
 	);
 
-	const isProduction = process.env.NODE_ENV !== 'development';
-
 	const configs = browsers.map(b => browserConfig[b]).map(conf => ({
 		entry: `extricate-loader!interpolate-loader!./${conf.entry}`,
 		output: {
@@ -56,11 +52,10 @@ export default (env = {}) => {
 			filename: path.basename(conf.entry),
 		},
 		devtool: (() => {
-			if (!isProduction) return 'cheap-source-map';
+			if (!env.production) return 'cheap-source-map';
 			if (!conf.noSourcemap) return 'source-map';
 			return false;
 		})(),
-		bail: isProduction,
 		node: false,
 		performance: false,
 		module: {
@@ -84,11 +79,11 @@ export default (env = {}) => {
 								'transform-dead-code-elimination',
 								['transform-define', {
 									'process.env.BUILD_TARGET': conf.target,
-									'process.env.NODE_ENV': isProduction ? 'production' : 'development',
+									'process.env.NODE_ENV': env.production ? 'production' : 'development',
 								}],
 								'lodash',
 							],
-							comments: !isProduction,
+							comments: !env.production,
 							babelrc: false,
 						},
 					},
@@ -103,7 +98,7 @@ export default (env = {}) => {
 							plugins: [
 								'transform-dead-code-elimination',
 								['transform-define', {
-									'process.env.NODE_ENV': isProduction ? 'production' : 'development',
+									'process.env.NODE_ENV': env.production ? 'production' : 'development',
 								}],
 							],
 							compact: true,
@@ -142,11 +137,13 @@ export default (env = {}) => {
 				],
 			}],
 		},
+		optimization: {
+			minimize: false,
+			concatenateModules: true,
+		},
 		plugins: [
-			new ProgressBarPlugin(),
 			new InertEntryPlugin(),
 			new LodashModuleReplacementPlugin(),
-			new webpack.optimize.ModuleConcatenationPlugin(),
 			(env.zip && !conf.noZip && new ZipPlugin({
 				path: path.join('..', 'zip'),
 				filename: conf.output,
