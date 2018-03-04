@@ -1,23 +1,17 @@
 /* @flow */
 
 import _ from 'lodash';
-import locales from 'sibling-loader?import=default!./locales/en';
-
-const DEFAULT_TRANSIFEX_LOCALE = 'en';
-
-function getLocale(locale) {
-	return locales[`${locale}.json`];
-}
+import locales from './locales';
 
 // `en-ca` -> `en_CA`
 function redditLocaleToTransifexLocale(redditLocale) {
 	switch (redditLocale) {
 		case 'leet':
-			return DEFAULT_TRANSIFEX_LOCALE; // doesn't appear to exist
+			return 'en'; // doesn't appear to exist
 		case 'lol':
-			return 'en@lolcat';
+			return 'en_lolcat';
 		case 'pir':
-			return 'en@pirate';
+			return 'en_pirate';
 		case 'es-ar': // argentina
 		case 'es-cl': // chile
 			return 'es_419'; // latin america
@@ -41,11 +35,11 @@ export function getLocaleDictionary(localeName: string): { [string]: string } {
 
 	const mergedLocales = {
 		// 3. Default (en)
-		...getLocale(DEFAULT_TRANSIFEX_LOCALE),
+		...locales.en,
 		// 2. Match without region (en_CA -> en)
-		...getLocale(transifexLocale.slice(0, transifexLocale.indexOf('_'))),
+		...locales[transifexLocale.slice(0, transifexLocale.indexOf('_'))],
 		// 1. Exact match (en_CA -> en_CA)
-		...getLocale(transifexLocale),
+		...locales[transifexLocale],
 	};
 
 	return _.mapValues(mergedLocales, x => x.message);
