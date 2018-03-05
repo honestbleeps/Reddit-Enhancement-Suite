@@ -20,7 +20,7 @@
     "preonce": "rimraf dist",
     "once": "webpack --progress --mode development --env.browsers",
     "prebuild": "rimraf dist",
-    "build": "webpack --progress --mode production --env.production --env.zip --env.browsers",
+    "build": "webpack --progress --mode production --env.zip --env.browsers",
     "manifoldjs-package": "manifoldjs -l debug -p edgeextension package dist/edgeextension/manifest",
     "autoi18n": "jscodeshift --parser flow --transform build/i18nTransformer.js",
     "postautoi18n": "eslint --fix lib/modules/*.js",
