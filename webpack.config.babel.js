@@ -38,7 +38,8 @@ const browserConfig = {
 	},
 };
 
-export default (env = {}) => {
+export default (env = {}, argv = {}) => {
+	const isProduction = argv.mode === 'production';
 	const browsers = (
 		typeof env.browsers !== 'string' ? ['chrome'] :
 		env.browsers === 'all' ? Object.keys(browserConfig) :
@@ -52,7 +53,7 @@ export default (env = {}) => {
 			filename: path.basename(conf.entry),
 		},
 		devtool: (() => {
-			if (!env.production) return 'cheap-source-map';
+			if (!isProduction) return 'cheap-source-map';
 			if (!conf.noSourcemap) return 'source-map';
 			return false;
 		})(),
@@ -79,11 +80,11 @@ export default (env = {}) => {
 								'transform-dead-code-elimination',
 								['transform-define', {
 									'process.env.BUILD_TARGET': conf.target,
-									'process.env.NODE_ENV': env.production ? 'production' : 'development',
+									'process.env.NODE_ENV': argv.mode,
 								}],
 								'lodash',
 							],
-							comments: !env.production,
+							comments: !isProduction,
 							babelrc: false,
 						},
 					},
@@ -98,7 +99,7 @@ export default (env = {}) => {
 							plugins: [
 								'transform-dead-code-elimination',
 								['transform-define', {
-									'process.env.NODE_ENV': env.production ? 'production' : 'development',
+									'process.env.NODE_ENV': argv.mode,
 								}],
 							],
 							compact: true,
