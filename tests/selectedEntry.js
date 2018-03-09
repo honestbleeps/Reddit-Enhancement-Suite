@@ -31,20 +31,20 @@ module.exports = {
 			.assert.cssClassPresent(stickiedComment, selectedClass)
 
 			.pause(1000)
-			.click(loadMoreComments)
-			.waitForElementVisible(childComment1)
-			.assert.cssClassPresent(childComment1, selectedClass)
-
-			.click(childComment2)
-			.assert.cssClassPresent(childComment2, selectedClass)
-
-			.pause(1000)
 			.click(loadMoreChildrenOfSticky)
 			.waitForElementVisible(childOfStickiedComment2)
 			.assert.cssClassPresent(childOfStickiedComment1, selectedClass)
 
 			.click(childOfStickiedComment2)
 			.assert.cssClassPresent(childOfStickiedComment2, selectedClass)
+
+			.pause(1000)
+			.click(loadMoreComments)
+			.waitForElementVisible(childComment1)
+			.assert.cssClassPresent(childComment1, selectedClass)
+
+			.click(childComment2)
+			.assert.cssClassPresent(childComment2, selectedClass)
 
 			.end();
 	},
