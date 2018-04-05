@@ -16,3 +16,23 @@
 	opacity: .7;
 	&:hover { opacity: 1; }
 }
+
+.res-floater-belowNavbar {
+	position: fixed;
+	z-index: 5;
+	right: 8px;
+	top: 60px;
+
+	> ul {
+		display: inline-flex;
+		align-items: center;
+		float: right;
+	}
+
+	> ul > li {
+		display: flex;
+		opacity: .7;
+		margin: 0.2em;
+		&:hover { opacity: 1; }
+	}
+}
