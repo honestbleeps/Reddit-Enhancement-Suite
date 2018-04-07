@@ -4,6 +4,7 @@ module.exports = {
 			.url('https://www.reddit.com/?limit=1')
 			.waitForElementVisible('.guider.res-ordinaryTip')
 			.assert.containsText('.guider', 'Welcome to RES')
+			.pause(5000)
 			.refresh()
 			.waitForElementVisible('.res-toggle-filterline-visibility')
 			.click('.res-toggle-filterline-visibility')
