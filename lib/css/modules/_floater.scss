@@ -24,9 +24,17 @@
 	top: 60px;
 
 	> ul {
+		&:empty {
+			display: none;
+		}
+
 		display: inline-flex;
 		align-items: center;
 		float: right;
+
+		padding: 0.2em 0.1em;
+		background: white;
+		border: 1px #ccc solid;
 	}
 
 	> ul > li {
