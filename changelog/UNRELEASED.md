@@ -1,14 +1,11 @@
 ### New Features
 
-- New "toggle" command line command for custom toggles (thanks @larsjohnsen, @octagonal)
-- Toggling a custom toggle updates all tabs where supported (thanks @larsjohnsen)
+- None (thanks nobody)
 
 ### Bug Fixes
 
-- (beta) Fix comment collapsing not collapsing enclosed expando (thanks @larsjohnsen)
+- None (thanks nobody)
 
 ### Housekeeping / Other
 
-- Remove dead media hosts (thanks @BenMcGarry)
-- Update redesign API usage (thanks @andytuba)
-- Update deps (thanks @mc10)
+- None (thanks nobody)
