@@ -16,3 +16,31 @@
 	opacity: .7;
 	&:hover { opacity: 1; }
 }
+
+.res-floater-belowNavbar {
+	position: fixed;
+	z-index: 5;
+	right: 8px;
+	top: 60px;
+
+	> ul {
+		display: inline-flex;
+		align-items: center;
+		float: right;
+
+		padding: 0.2em 0.1em;
+		background: white;
+		border: 1px #ccc solid;
+
+		&:empty {
+			display: none;
+		}
+	}
+
+	> ul > li {
+		display: flex;
+		opacity: .7;
+		margin: 0.2em;
+		&:hover { opacity: 1; }
+	}
+}
