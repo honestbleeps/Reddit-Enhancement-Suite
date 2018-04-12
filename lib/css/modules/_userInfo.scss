@@ -1,15 +1,4 @@
 .author-tooltip {
-	h3,
-	.res-tags {
-		display: inline-block;
-	}
-
-	.res-tags {
-		margin-left: .5em;
-		line-height: 26px;
-		vertical-align: top;
-	}
-
 	.author-tooltip__link-list {
 		display: flex;
 		justify-content: space-between;
@@ -43,5 +32,9 @@
 		position: absolute;
 		top: .5em;
 		right: .5em;
+	}
+
+	.RESUserTag {
+		float: right;
 	}
 }
