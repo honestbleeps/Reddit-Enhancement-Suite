@@ -12,5 +12,5 @@ declare module 'element-resize-detector' {
 		(options?: { strategy: 'scroll' | 'object' }): ElementResizeDetector;
 	}
 
-	declare var exports: ElementResizeDetectorFactory;
+	declare module.exports: ElementResizeDetectorFactory;
 }

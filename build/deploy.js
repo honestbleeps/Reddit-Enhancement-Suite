@@ -15,20 +15,15 @@ if (isBetaVersion(version)) {
 	console.log(`Deploying ${version} beta release...`);
 
 	deployChromeBeta();
-	deployEdgeInternalBeta();
-	deployFirefoxBeta();
-	// deployOperaBeta();
+	deployEdgeBeta();
 } else {
 	console.log(`Deploying ${version} stable release...`);
 
 	deployChromeBeta();
 	deployChromeStable();
-	deployEdgeInternalBeta();
-	deployEdgePublicBeta();
+	deployEdgeBeta();
 	deployEdgeStable();
-	deployFirefoxBeta();
 	deployFirefoxStable();
-	// deployOperaBeta();
 	deployOperaStable();
 }
 
@@ -67,26 +62,8 @@ function deployChromeStable() {
 	});
 }
 
-function deployEdgeInternalBeta() {
-	console.log('Deploying Edge internal beta...');
-
-	edgeDeploy({
-		tenantId: process.env.EDGE_TENANT_ID,
-		clientId: process.env.EDGE_CLIENT_ID,
-		clientSecret: process.env.EDGE_CLIENT_SECRET,
-		appId: '9NBLGGH4NC12',
-		flightId: '013e109b-ff0c-42d5-ba6a-8797ecc5368a',
-		appx: fs.createReadStream(path.join(__dirname, '../dist/edgeextension/package/edgeExtension.appx')),
-	}).then(() => {
-		console.log('Edge internal beta deployment complete!');
-	}, err => {
-		console.log('Edge internal beta failed:', err);
-		process.exitCode = 1;
-	});
-}
-
-function deployEdgePublicBeta() {
-	console.log('Deploying Edge public beta...');
+function deployEdgeBeta() {
+	console.log('Deploying Edge beta...');
 
 	edgeDeploy({
 		tenantId: process.env.EDGE_TENANT_ID,
@@ -96,9 +73,9 @@ function deployEdgePublicBeta() {
 		flightId: '9be3ca4c-a87f-49d2-9191-3aa40c2c9d19',
 		appx: fs.createReadStream(path.join(__dirname, '../dist/edgeextension/package/edgeExtension.appx')),
 	}).then(() => {
-		console.log('Edge public beta deployment complete!');
+		console.log('Edge beta deployment complete!');
 	}, err => {
-		console.log('Edge public beta failed:', err);
+		console.log('Edge beta failed:', err);
 		process.exitCode = 1;
 	});
 }
@@ -120,23 +97,6 @@ function deployEdgeStable() {
 	});
 }
 
-function deployFirefoxBeta() {
-	console.log('Deploying Firefox beta...');
-
-	firefoxDeploy({
-		issuer: process.env.FIREFOX_ISSUER,
-		secret: process.env.FIREFOX_SECRET,
-		id: 'jid1-xUfzOsOFlzSOXg@jetpack',
-		version: require('../dist/firefox-beta/manifest.json').version, // eslint-disable-line global-require
-		src: fs.createReadStream(path.join(__dirname, '../dist/zip/firefox-beta.zip')),
-	}).then(() => {
-		console.log('Firefox beta deployment complete!');
-	}, err => {
-		console.error('Firefox beta failed:', err);
-		process.exitCode = 1;
-	});
-}
-
 function deployFirefoxStable() {
 	console.log('Deploying Firefox stable...');
 
@@ -153,25 +113,6 @@ function deployFirefoxStable() {
 		process.exitCode = 1;
 	});
 }
-
-/*
-function deployOperaBeta() {
-	console.log('Deploying Opera beta...');
-
-	operaDeploy({
-		username: process.env.OPERA_USER,
-		password: process.env.OPERA_PASSWORD,
-		id: '228738',
-		// opera extensions must have a unique `name`
-		zip: fs.readFileSync(path.join(__dirname, '../dist/zip/chrome-beta.zip')),
-	}).then(() => {
-		console.log('Opera beta deployment complete!');
-	}, err => {
-		console.error('Opera beta failed:', err);
-		process.exitCode = 1;
-	});
-}
-*/
 
 function deployOperaStable() {
 	console.log('Deploying Opera stable...');

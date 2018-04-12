@@ -13,7 +13,7 @@
 
 	&-choices {
 		cursor: initial;
-		z-index: 1;
+		z-index: 41;
 		display: none;
 		position: absolute;
 		background-color: rgba(255, 255, 255, .9);
@@ -43,11 +43,9 @@
 #REScommentNavBox {
 	clear: both;
 	float: right;
-	width: 80px;
+	width: 50px;
 	margin-top: 5px;
 	padding: 3px;
-	border: 1px solid gray;
-	background-color: #fff;
 	opacity: .3;
 	user-select: none;
 	transition: opacity .5s ease-in;

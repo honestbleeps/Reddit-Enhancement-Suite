@@ -5,8 +5,8 @@
 	"description": "{{prop-loader?description!../../package.json}}",
 	"author": "{{prop-loader?author!../../package.json}}",
 	"homepage_url": "{{prop-loader?homepage!../../package.json}}",
-	"minimum_chrome_version": "61",
-	"minimum_opera_version": "48",
+	"minimum_chrome_version": "64",
+	"minimum_opera_version": "51",
 	"icons": {
 		"48": "{{../../images/beta48.png}}",
 		"128": "{{../../images/beta128.png}}"
@@ -18,12 +18,12 @@
 		}
 	},
 	"options_ui": {
-		"page": "{{../../browser/options.html}}",
+		"page": "{{../../lib/options.html}}",
 		"open_in_tab": true
 	},
 	"background": {
 		"scripts": [
-			"{{../background.entry.js}}"
+			"{{../../lib/background.entry.js}}"
 		]
 	},
 	"content_scripts": [{
@@ -50,13 +50,13 @@
 			"https://*.reddit.com/*.json-html?*"
 		],
 		"js": [
-			"{{../../lib/main.entry.js}}"
+			"{{../../lib/foreground.entry.js}}"
+		],
+		"css": [
+			"{{../../lib/css/res.scss}}"
 		],
 		"run_at": "document_start"
 	}],
-	"web_accessible_resources": [
-		"{{../../lib/css/res.scss}}"
-	],
 	"permissions": [
 		"https://*.reddit.com/*",
 		"cookies",
@@ -68,6 +68,8 @@
 		"webRequest"
 	],
 	"optional_permissions": [
+		"downloads",
+
 		"https://api.twitter.com/*",
 		"https://backend.deviantart.com/oembed",
 		"https://api.gyazo.com/api/oembed",

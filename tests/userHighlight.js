@@ -21,6 +21,7 @@ module.exports = {
 
 		browser
 			.url('https://www.reddit.com/wiki/pages/#res:settings/userHighlight')
+			.refresh() // get rid of update notification
 			.waitForElementVisible('#RESConsoleContainer')
 			.click('#highlightFirstCommenterContainer')
 			.click('#moduleOptionsSave')

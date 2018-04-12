@@ -12,8 +12,8 @@
 [options]
 module.use_strict=true
 
+module.name_mapper='^sibling-loader\(\?.+\)?!.+$'->'<PROJECT_ROOT>/flow/stub/sibling-loader.js'
 module.name_mapper='^exec-loader\(\?cache\)?!\(.+\)$'->'\2'
-module.name_mapper.extension='scss'->'<PROJECT_ROOT>/flow/stub/scss.js'
 
 esproposal.export_star_as=enable
 
@@ -22,7 +22,5 @@ suppress_type=$FlowIgnore
 suppress_comment=\\(.\\|\n\\)*\\$FlowIssue
 suppress_comment=\\(.\\|\n\\)*\\$FlowIgnore
 
-unsafe.enable_getters_and_setters=true
-
 [version]
-0.53.1
+0.68.0

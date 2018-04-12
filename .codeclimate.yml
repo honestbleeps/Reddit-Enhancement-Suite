@@ -1,6 +1,9 @@
-engines:
+version: "2"
+
+plugins:
   eslint:
     enabled: true
+    channel: "eslint-4"
   duplication:
     enabled: true
     config:
@@ -9,9 +12,5 @@ engines:
   fixme:
     enabled: true
 
-ratings:
-  paths:
-  - "**.js"
-
-exclude_paths:
-- "lib/vendor/*"
+exclude_patterns:
+- "lib/vendor/"

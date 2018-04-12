@@ -22,12 +22,12 @@
 		}
 	},
 	"options_ui": {
-		"page": "{{../../browser/options.html}}",
+		"page": "{{../../lib/options.html}}",
 		"open_in_tab": true
 	},
 	"background": {
 		"scripts": [
-			"{{../background.entry.js}}"
+			"{{../../lib/background.entry.js}}"
 		]
 	},
 	"content_scripts": [{
@@ -54,13 +54,13 @@
 			"https://*.reddit.com/*.json-html?*"
 		],
 		"js": [
-			"{{../../lib/main.entry.js}}"
+			"{{../../lib/foreground.entry.js}}"
+		],
+		"css": [
+			"{{../../lib/css/res.scss}}"
 		],
 		"run_at": "document_start"
 	}],
-	"web_accessible_resources": [
-		"{{../../lib/css/res.scss}}"
-	],
 	"permissions": [
 		"https://*.reddit.com/*",
 		"cookies",

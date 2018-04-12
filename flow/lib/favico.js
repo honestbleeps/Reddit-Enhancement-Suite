@@ -25,5 +25,5 @@ declare module 'favico.js' {
 		};
 	}
 
-	declare var exports: Class<Favico>;
+	declare module.exports: Class<Favico>;
 }

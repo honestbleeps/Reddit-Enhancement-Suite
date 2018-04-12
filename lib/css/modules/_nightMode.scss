@@ -23,7 +23,8 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 	.side .usertext-body .md ol ol li,
 	.modactionlisting table *,
 	.side .recommend-box .rec-item,
-	.crosspost-preview {
+	.crosspost-preview,
+	.crosspost-thing-preview {
 		background-color: $background-color;
 		border-color: $border-color;
 	}
@@ -705,7 +706,6 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 	.usertext-edit textarea,
 	.RESDialogSmall,
 	.c-close,
-	#REScommentNavBox,
 	#BigEditor #BigText,
 	#liveupdate-statusbar,
 	#liveupdate-statusbar.complete,
@@ -1388,8 +1388,29 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 			}
 		}
 
-		&-dropdown-container { background-color: #313131; }
-		&-external-filter:hover { background-color: #444; }
+		&-dropdown {
+			background-color: #313131;
+			box-shadow: #3c3c3c 2px 2px 2px;
+
+			&-action {
+				border-bottom-color: #404040;
+			}
+		}
+	}
+
+	#REScommentNavBox {
+		#commentNavBy {
+			background-color: #707070;
+		}
+
+		#commentNavUp,
+		#commentNavDown {
+			color: #434343;
+		}
+
+		#commentNavPostCount {
+			color: #9f9f9f;
+		}
 	}
 
 	.res-commentNavToggle {
@@ -1466,7 +1487,8 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 		.modal-body,
 		.modal-content,
 		.crosspost-field,
-		.crosspost-preview {
+		.crosspost-preview,
+		.crosspost-thing-preview {
 			background-color: $background-color;
 			color: $color;
 		}
@@ -1575,6 +1597,16 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 	}
 
 	.subreddit-picker__category_selected {
+		background-color: $highlight-background-color;
+	}
+
+	.api-help .overview h2,
+	.api-help .contents .introduction strong {
+		color: $color;
+	}
+
+	.api-help .contents .overview code,
+	.api-help .parameters {
 		background-color: $highlight-background-color;
 	}
 }

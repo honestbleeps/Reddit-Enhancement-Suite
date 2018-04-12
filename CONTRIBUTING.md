@@ -12,6 +12,8 @@ Thinking about contributing to RES? Awesome! We just ask that you follow a few s
 
 1. To check code style and autofix some formatting errors, see [Lint and test commands](#lint-and-test-commands).
 
+1. [Come chat with us on IRC](https://webchat.snoonet.org/#enhancement) if you would like to implement a new feature. It is the quickest way to get a response from the development team.
+
 ## Building development versions of the extension
 
 #### First time installation

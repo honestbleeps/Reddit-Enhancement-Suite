@@ -123,7 +123,7 @@
 		"message": "Account Switcher"
 	},
 	"accountSwitcherDesc": {
-		"message": "Store username/password pairs and switch accounts instantly while browsing Reddit!\n\nIf you forget a password which is stored in Account Switcher, [you can recover them from RES settings](/r/Enhancement/wiki/faq/passwords). Be aware that RES offers very little protection for stored passwords, so be careful when sharing your computer or settings!"
+		"message": "Store username/password pairs and switch accounts instantly while browsing Reddit!\n\nIf you forget a password which is stored in Account Switcher, [you can recover them from RES settings](/r/Enhancement/wiki/faq/passwords). Be aware that RES offers very little protection for stored passwords, so be careful when sharing your computer or settings!\n\nLeave a password box blank to be prompted for a password every time you switch to that account."
 	},
 	"accountSwitcherAddAccount": {
 		"message": "+add account"
@@ -307,7 +307,7 @@
 		"message": "filteReddit"
 	},
 	"filteRedditDesc": {
-		"message": "Filter out NSFW content, or links by keyword, domain (use User Tagger to ignore by user) or subreddit (for /r/all or /domain/*)."
+		"message": "Filter out NSFW content, or links by keyword, domain (use User Tagger to ignore by user) or subreddit (for /r/all or /domain/*).\n\nRegExp like `/(this|that|theother)/i` is allowed in text boxes. Find out more on the [/r/Enhancement wiki](/r/Enhancement/wiki/index/filters/filtereddit/regexp)."
 	},
 	"floaterName": {
 		"message": "Floating Islands"
@@ -433,7 +433,13 @@
 		"message": "Link Toggle Expando"
 	},
 	"keyboardNavLinkToggleExpandoDesc": {
-		"message": "When a link has an expando, toggle it instead of opening the link. Holding alt inverts this action."
+		"message": "When a link has an expando, toggle it instead of opening the link. Alt mode inverts this action."
+	},
+	"keyboardNavLinkNumberAltModeModifierTitle": {
+		"message": "Alt mode modifier"
+	},
+	"keyboardNavLinkNumberAltModeModifierDesc": {
+		"message": "Modifier used to invert toggling expando / opening link action."
 	},
 	"keyboardNavLinkNewTabTitle": {
 		"message": "Comments Link New Tab"
@@ -759,6 +765,18 @@
 	"keyboardNavEditDesc": {
 		"message": "Edit current comment or self-post."
 	},
+	"keyboardNavShowChildCommentsTitle": {
+		"message": "Show child comments"
+	},
+	"keyboardNavShowChildCommentsDesc": {
+		"message": "Show/hide the child comments tree (comment pages only)."
+	},
+	"keyboardNavShowAllChildCommentsTitle": {
+		"message": "Show all child comments"
+	},
+	"keyboardNavShowAllChildCommentsDesc": {
+		"message": "Show/hide all child comments on the page (comment pages only)."
+	},
 	"keyboardNavFollowPermalinkTitle": {
 		"message": "Follow Permalink"
 	},
@@ -873,6 +891,18 @@
 	"keyboardNavPrevPageDesc": {
 		"message": "Go to previous page (link list pages only)."
 	},
+	"keyboardNavOverviewLegacyTitle": {
+		"message": "Legacy Profile"
+	},
+	"keyboardNavOverviewLegacyDesc": {
+		"message": "Go to legacy (overview) profile (profile pages only)."
+	},
+	"keyboardNavProfileViewTitle": {
+		"message": "New Profile"
+	},
+	"keyboardNavProfileViewDesc": {
+		"message": "Go to new profile (profile pages only)."
+	},
 	"keyboardNavToggleCommentNavigatorTitle": {
 		"message": "Toggle Comment Navigator"
 	},
@@ -926,6 +956,9 @@
 	},
 	"logoLinkAll": {
 		"message": "/r/all"
+	},
+	"logoLinkHot": {
+		"message": "/hot"
 	},
 	"logoLinkDashboard": {
 		"message": "Dashboard"
@@ -1158,6 +1191,24 @@
 	"newCommentCountMonitorPostsVisitedIncognitoDesc": {
 		"message": "Monitor the number of comments and edit dates of posts you have visited while browsing in incognito/private mode."
 	},
+	"readCommentsName": {
+		"message": "Read Comments"
+	},
+	"readCommentsDesc": {
+		"message": "Keep track of what comments you have read. Useful for filtering comments."
+	},
+	"readCommentsCleanCommentsTitle": {
+		"message": "Clean Comments"
+	},
+	"readCommentsCleanCommentsDesc": {
+		"message": "Number of days to keep track of a comment page."
+	},
+	"readCommentsMonitorWhenIncognitoTitle": {
+		"message": "Monitor When Incognito"
+	},
+	"readCommentsMonitorWhenIncognitoDesc": {
+		"message": "Keep track while browsing in incognito/private mode."
+	},
 	"nightModeName": {
 		"message": "Night Mode"
 	},
@@ -1373,6 +1424,18 @@
 	},
 	"orangeredHideEmptyNewModMailDesc": {
 		"message": "Hide the new mod mail button when inbox is empty."
+	},
+	"faviconNotificationBGColorDesc": {
+		"message": "Change the background color of the notification on the favicon."
+	},
+	"faviconNotificationBGColorTitle": {
+		"message": "Favicon Notification Background Color"
+	},
+	"faviconNotificationTextColorDesc": {
+		"message": "Change the text color of the notification on the favicon."
+	},
+	"faviconNotificationTextColorTitle": {
+		"message": "Favicon Notification Text Color"
 	},
 	"pageNavName": {
 		"message": "Page Navigator"
@@ -1695,6 +1758,12 @@
 	"accountSwitcherOptPrompt": {
 		"message": "Enter the 6 digit code from your authenticator app for $1"
 	},
+	"accountSwitcherPasswordPrompt": {
+		"message": "Enter the password for $1"
+	},
+	"backupAndRestoreProvidersFile": {
+		"message": "File"
+	},
 	"backupAndRestoreReloadWarningTitle": {
 		"message": "Reload Warning"
 	},
@@ -1715,6 +1784,9 @@
 	},
 	"backupAndRestoreAutomaticBackupsDesc": {
 		"message": "Sync your backups to the specified provider.\n\nSyncing will occur periodically on pageload. If you use two computers simultaneously, some changes may be lost."
+	},
+	"backupAndRestoreAutomaticBackupsNone": {
+		"message": "None"
 	},
 	"backupAndRestoreWarnBeforeAutomaticRestoreTitle": {
 		"message": "Warn Before Automatic Restore"
@@ -1748,6 +1820,21 @@
 	},
 	"backupAndRestoreSavedNotification": {
 		"message": "Backup saved to $1."
+	},
+	"backupAndRestoreFoundBackup": {
+		"message": "Found new automatic backup from $1."
+	},
+	"backupAndRestoreBackupOverwriteWarning": {
+		"message": "Restoring a backup will permanently overwrite your current storage. Are you sure you want to do this?"
+	},
+	"backupAndRestoreAfterCancel": {
+		"message": "If you click cancel, you will be taken to the settings page where you can disable automatic backups or create a new backup to overwrite this one."
+	},
+	"backupAndRestoreBackupDate": {
+		"message": "Backup date: $1"
+	},
+	"backupAndRestoreBackupSize": {
+		"message": "Backup size: $1"
 	},
 	"betteRedditCommentsLinksNewTabTitle": {
 		"message": "Comments Links New Tabs"
@@ -1868,6 +1955,24 @@
 	},
 	"betteRedditCommentCollapseInInboxDesc": {
 		"message": "Show the [-] collapse button in the inbox."
+	},
+	"betteRedditHideLinkLabel": {
+		"message": "hide"
+	},
+	"betteRedditUnhideLinkLabel": {
+		"message": "unhide"
+	},
+	"betteRedditHideSubmissionError": {
+		"message": "Sorry, there was an error trying to hide your submission. Try clicking again."
+	},
+	"betteRedditUnhideSubmissionError": {
+		"message": "Sorry, there was an error trying to unhide your submission. Try clicking again."
+	},
+	"betteRedditVideoYouTubeTitle": {
+		"message": "YouTube title: $1"
+	},
+	"betteRedditVideoViewed": {
+		"message": "[Views: $1]"
 	},
 	"commentDepthDefaultCommentDepthTitle": {
 		"message": "Default Comment Depth"
@@ -2140,7 +2245,7 @@
 		"message": "Macro Placeholders"
 	},
 	"commentToolsMacroPlaceholdersDesc": {
-		"message": "When using macros, replace placeholders in text via pop-up prompt.\nExample macro text:\nThe {{adj1}} {{adj2}} {{animal}} jumped over the lazy {{dog_color}} dog. The {{animal}} is so {{adj1}}!\n\nSome placeholders are automatically filled in when you use the macro:\n\n**{{subreddit}}**: The current subreddit, in the form /r/subreddit.\n\n**{{me}}**, **{{my_username}}**: Your username, in the form /u/username.\n\n**{{op}}**, **{{op_username}}**: The username of the original poster, in the form /u/username. On a post's comments page, this the person who made the post; on a PM / modmail, this is the person who started the conversation.\n\n**{{url}}**: The current page's URL.\n\n**{{reply_to}}**, **{{reply_to_username}}**: The username of person you're replying to, in the form /u/username.\n\n**{{selected}}**, **{{selection}}**: The text which is currently selected (highlighted).\n\n**{{escaped}}**: The selected text, escaped for snudown/markdown.\n\n**{{now}}**: The current date and time in your locale.\n\n**{{today}}**: The current date in your locale.\n\n**{{linkflair}}**: On comments pages, returns the flair text of the original link."
+		"message": "When using macros, replace placeholders in text via pop-up prompt.\nExample macro text:\nThe {{adj1}} {{adj2}} {{animal}} jumped over the lazy {{dog_color}} dog. The {{animal}} is so {{adj1}}!\n\nSome placeholders are automatically filled in when you use the macro:\n\n**{{subreddit}}**: The current subreddit, in the form /r/subreddit.\n\n**{{me}}**, **{{my_username}}**: Your username, in the form /u/username.\n\n**{{op}}**, **{{op_username}}**: The username of the original poster, in the form /u/username. On a post's comments page, this is the person who made the post; on a PM / modmail, this is the person who started the conversation.\n\n**{{url}}**: The current page's URL.\n\n**{{reply_to}}**, **{{reply_to_username}}**: The username of person you're replying to, in the form /u/username.\n\n**{{selected}}**, **{{selection}}**: The text which is currently selected (highlighted).\n\n**{{escaped}}**: The selected text, escaped for snudown/markdown.\n\n**{{now}}**: The current date and time in your locale.\n\n**{{today}}**: The current date in your locale.\n\n**{{linkflair}}**: On comments pages, returns the flair text of the original link."
 	},
 	"commentToolsEnableOnBanMessagesTitle": {
 		"message": "Enable On Ban Messages"
@@ -2212,19 +2317,13 @@
 		"message": "Show Filterline"
 	},
 	"filteRedditShowFilterlineDesc": {
-		"message": "Show filterline controls by default."
+		"message": "Show Filterline controls by default."
 	},
 	"filteRedditExcludeOwnPostsTitle": {
 		"message": "Exclude Own Posts"
 	},
 	"filteRedditExcludeOwnPostsDesc": {
 		"message": "Don't filter your own posts."
-	},
-	"filteRedditExcludeCommentsPageTitle": {
-		"message": "Exclude Comments Page"
-	},
-	"filteRedditExcludeCommentsPageDesc": {
-		"message": "When visiting the comments page for a filtered link, allow the link/expando to be shown."
 	},
 	"filteRedditExcludeModqueueTitle": {
 		"message": "Exclude Modqueue"
@@ -2238,23 +2337,20 @@
 	"filteRedditExcludeUserPagesDesc": {
 		"message": "Don't filter anything on users' profile pages."
 	},
-	"filteRedditRegexpFiltersTitle": {
-		"message": "Regexp Filters"
-	},
-	"filteRedditRegexpFiltersDesc": {
-		"message": "Allow RegExp in certain filteReddit fields.\nIf you have filters which start with `/` and don't know what RegExp is, you should turn this option off.\n\nFind out more on the [/r/Enhancement wiki](/r/Enhancement/wiki/index/filters/filtereddit/regexp)."
-	},
 	"filteRedditKeywordsTitle": {
 		"message": "Keywords"
 	},
 	"filteRedditKeywordsDesc": {
-		"message": "Hide posts with certain keywords in the title.\nRegExp like `/(this|that|theother)/i` is allowed for keyword (but not unlessKeyword).\n\nFind out more on the [/r/Enhancement wiki](/r/Enhancement/wiki/index/filters/filtereddit/regexp)."
+		"message": "Hide posts with certain keywords in the title."
 	},
 	"filteRedditSubredditsTitle": {
 		"message": "Subreddits"
 	},
 	"filteRedditSubredditsDesc": {
-		"message": "Hide posts submitted to certain subreddits.\nRegExp like `/(this|that|theother)/i` is allowed for subreddit.\n\nFind out more on the [/r/Enhancement wiki](/r/Enhancement/wiki/index/filters/filtereddit/regexp)."
+		"message": "Hide posts submitted to certain subreddits."
+	},
+	"filteRedditSubredditsSubreddits": {
+		"message": "subreddits"
 	},
 	"filteRedditFilterSubredditsFromTitle": {
 		"message": "Filter Subreddits From"
@@ -2274,17 +2370,20 @@
 	"filteRedditForceSyncFiltersDesc": {
 		"message": "Immediately overwrite your native /r/all filters."
 	},
+	"filteRedditForceSyncFiltersLabel": {
+		"message": "sync"
+	},
 	"filteRedditDomainsTitle": {
 		"message": "Domains"
 	},
 	"filteRedditDomainsDesc": {
-		"message": "Hide posts that link to certain domains.\nCaution: domain keywords like \"reddit\" would ignore \"reddit.com\" and \"fooredditbar.com\".\nRegExp like `/(this|that|theother)/i` is allowed for domain.\n\nFind out more on the [/r/Enhancement wiki](/r/Enhancement/wiki/index/filters/filtereddit/regexp)."
+		"message": "Hide posts that link to certain domains.\nCaution: domain keywords like \"reddit\" would ignore \"reddit.com\" and \"fooredditbar.com\"."
 	},
 	"filteRedditFlairTitle": {
 		"message": "Flair"
 	},
 	"filteRedditFlairDesc": {
-		"message": "Hide posts where certain keywords are in the post's link flair.\nRegExp like `/(this|that|theother)/i` is allowed for flair.\n\nFind out more on the [/r/Enhancement wiki](/r/Enhancement/wiki/index/filters/filtereddit/regexp)."
+		"message": "Hide posts where certain keywords are in the post's link flair."
 	},
 	"filteRedditAllowNSFWTitle": {
 		"message": "Allow NSFW"
@@ -2292,8 +2391,17 @@
 	"filteRedditAllowNSFWDesc": {
 		"message": "Don't hide NSFW posts from certain subreddits when the NSFW filter is turned on."
 	},
-	"filteRedditCustomFiltersTitle": {
-		"message": "Custom Filters"
+	"filteRedditAllowNSFWWhere": {
+		"message": "where"
+	},
+	"filteRedditAllowNSFWWhenBrowsingSubreddit": {
+		"message": "When browsing subreddit/multi-subreddit"
+	},
+	"filteRedditCustomFiltersPTitle": {
+		"message": "Custom Post Filters"
+	},
+	"filteRedditCustomFiltersCTitle": {
+		"message": "Custom Comment Filters"
 	},
 	"filteRedditCustomFiltersDesc": {
 		"message": "Hide posts based on complex custom criteria.\n\nThis is a very advanced feature, please [read the guide](/r/Enhancement/wiki/customfilters) before asking questions."
@@ -2306,6 +2414,39 @@
 	},
 	"filteRedditEmptyNotificationToggleShowReason": {
 		"message": "Toggle show filter reasons"
+	},
+	"filteRedditKeyword": {
+		"message": "keyword"
+	},
+	"filteRedditApplyTo": {
+		"message": "apply to"
+	},
+	"filteRedditEverywhere": {
+		"message": "Everywhere"
+	},
+	"filteRedditEverywhereBut": {
+		"message": "Everywhere but:"
+	},
+	"filteRedditOnlyOn": {
+		"message": "Only on:"
+	},
+	"filteRedditFilterSubredditsEverywhereButSubreddit": {
+		"message": "Everywhere except inside a subreddit"
+	},
+	"filteRedditFilterSubredditsAllPopularAndDomain": {
+		"message": "/r/all, /r/popular and domain pages"
+	},
+	"filteRedditSubreddits": {
+		"message": "subreddits"
+	},
+	"filteRedditAddFilter": {
+		"message": "+add filter"
+	},
+	"filteRedditAddSubreddits": {
+		"message": "+add subreddits"
+	},
+	"filteRedditAddCustomFilter": {
+		"message": "+add custom filter"
 	},
 	"subredditManagerMultiCountTitle": {
 		"message": "/r/$1 is in $2 multireddits"
@@ -2327,6 +2468,12 @@
 	},
 	"nightModeToggleTitle": {
 		"message": "Toggle night and day"
+	},
+	"nsfwSwitchToggleText": {
+		"message": "nsfw filter"
+	},
+	"nsfwSwitchToggleTitle": {
+		"message": "Toggle NSFW Filter"
 	},
 	"RESSettingsConsole": {
 		"message": "RES settings console"
@@ -3275,6 +3422,12 @@
 	"styleTweaksPostTitleCapitalizationDesc": {
 		"message": "Force a particular style of capitalization on post titles."
 	},
+	"styleTweaksHideDomainLink": {
+		"message": "Hide Domain Link"
+	},
+	"styleTweaksHideDomainLinkDesc":{
+		"message": "Hides the domain link in post taglines."
+	},
 	"subRedditTaggerSubRedditsTitle": {
 		"message": "Sub Reddits"
 	},
@@ -3305,6 +3458,15 @@
 	"subredditInfoFadeSpeedDesc": {
 		"message": "Fade animation's speed (in seconds)."
 	},
+	"troubleshooterClearLabel": {
+		"message": "Clear"
+	},
+	"troubleshooterResetLabel": {
+		"message": "Reset"
+	},
+	"troubleshooterDisableLabel": {
+		"message": "Disable"
+	},
 	"troubleshooterClearCacheTitle": {
 		"message": "Clear Cache"
 	},
@@ -3329,23 +3491,14 @@
 	"troubleshooterDisableRESDesc": {
 		"message": "Reloads the page and disables RES for this tab only. RES will still be enabled in any other reddit tabs or windows you currently have open or open after this. This feature can be used for troubleshooting, as well as to quickly hide usernotes, vote counts, subreddit shortcuts, and other RES data for clean screenshotting."
 	},
-	"troubleshooterProfileStartupTitle": {
-		"message": "Profile Startup"
-	},
-	"troubleshooterProfileStartupDesc": {
-		"message": "Reloads the page and profiles startup time. Future reloads in the current tab will also be profiled."
-	},
-	"troubleshooterProfileModulesTitle": {
-		"message": "Profile Modules"
-	},
-	"troubleshooterProfileModulesDesc": {
-		"message": "Reloads the page and profiles the duration of each module stage (with the User Timing API). Future reloads in the current tab will also be profiled."
-	},
 	"troubleshooterBreakpointTitle": {
 		"message": "Breakpoint"
 	},
 	"troubleshooterBreakpointDesc": {
 		"message": "Pause JavaScript execution to allow debugging."
+	},
+	"troubleshooterBreakpointLabel": {
+		"message": "Pause JavaScript"
 	},
 	"troubleshooterTestNotificationsTitle": {
 		"message": "Test Notifications"
@@ -3353,11 +3506,17 @@
 	"troubleshooterTestNotificationsDesc": {
 		"message": "Test notifications."
 	},
+	"troubleshooterTestNotificationsLabel": {
+		"message": "Test notifications"
+	},
 	"troubleshooterTestEnvironmentTitle": {
 		"message": "Test Environment"
 	},
 	"troubleshooterTestEnvironmentDesc": {
 		"message": "A few environment/browser specific tests."
+	},
+	"troubleshooterTestEnvironmentLabel": {
+		"message": "Test environment"
 	},
 	"tableToolsSortTitle": {
 		"message": "Sort"
@@ -3448,6 +3607,24 @@
 	},
 	"redditUserInfoHideTitle": {
 		"message": "Hide Native Tooltip"
+	},
+	"userHighlightHighlightSelfTitle": {
+		"message": "Highlight Self"
+	},
+	"userHighlightHighlightSelfDesc": {
+		"message": "Highlight the logged in user's comments."
+	},
+	"userHighlightSelfColorTitle": {
+		"message": "Self Color"
+	},
+	"userHighlightSelfColorDesc": {
+		"message": "Color to use to highlight the logged in user."
+	},
+	"userHighlightSelfColorHoverTitle": {
+		"message": "Self Color Hover"
+	},
+	"userHighlightSelfColorHoverDesc": {
+		"message": "Color used to highlight the logged in user on hover."
 	},
 	"userHighlightHighlightOPTitle": {
 		"message": "Highlight OP"
@@ -3914,6 +4091,12 @@
 	"showImagesClippyDesc": {
 		"message": "Show educational info, such as showing \"drag to resize\" in the media controls."
 	},
+	"showImagesCrosspostsTitle": {
+		"message": "Crossposts"
+	},
+	"showImagesCrosspostsDescription": {
+		"message": "Handle crossposts from other subreddits"
+	},
 	"showImagesDisplayImageCaptionsTitle": {
 		"message": "Display Image Captions"
 	},
@@ -4040,8 +4223,29 @@
 	"showImagesAutoplayVideoDesc": {
 		"message": "Autoplay inline videos."
 	},
+	"showImagesHidePinnedRedditVideosTitle": {
+		"message": "Hide pinned reddit videos"
+	},
+	"showImagesHidePinnedRedditVideosDesc": {
+		"message": "Hide pinned Reddit-hosted videos when scrolling on comments page."
+	},
 	"showImagesHostToggleDesc": {
 		"message": "Display expandos for this host."
+	},
+	"temporaryDropdownLinksName": {
+		"message": "Temporary Dropdown Links"
+	},
+	"temporaryDropdownLinksDesc": {
+		"message": "Offers temporary links for dropdowns on /top and /controversial pages."
+	},
+	"temporaryDropdownLinksAlwaysTitle": {
+		"message": "Always"
+	},
+	"temporaryDropdownLinksAlwaysDesc": {
+		"message": "Always change change links to temporary ones."
+	},
+	"temporaryDropdownLinksTemporarily": {
+		"message": "(temporarily?)"
 	},
 	"imgurPreferResAlbumsTitle": {
 		"message": "Prefer RES Albums"
@@ -4090,5 +4294,29 @@
 	},
 	"menuGearIconClickActionToggleMenuNoHover": {
 		"message": "Open menu (no hover)"
+	},
+	"numPoints": {
+		"message": "$1 points"
+	},
+	"numComments": {
+		"message": "$1 comments"
+	},
+	"submittedAtTime": {
+		"message": "submitted",
+		"description": "[post/comment] submitted [at $time]"
+	},
+	"submittedByAuthor": {
+		"message": "by",
+		"description": "[post/comment submitted...] by $username"
+	},
+	"submittedToSubreddit": {
+		"message": "to",
+		"description": "[post/comment submitted...] to $subreddit"
+	},
+	"faviconUseLegacyTitle": {
+		"message": "Use Legacy Favicon"
+	},
+	"faviconUseLegacyDesc": {
+		"message": "If you don't like the new orange Reddit tab icon, revert to using the old Reddit icon instead."
 	}
 }

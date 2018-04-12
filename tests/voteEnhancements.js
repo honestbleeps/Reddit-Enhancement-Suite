@@ -6,6 +6,7 @@ module.exports = {
 
 		browser
 			.url('https://www.reddit.com/wiki/pages/#res:settings/voteEnhancements')
+			.refresh() // get rid of update notification
 			.waitForElementVisible('#RESConsoleContainer')
 			// enable colorCommentScore user-defined coloration
 			.click('#colorCommentScore input[value=user]')

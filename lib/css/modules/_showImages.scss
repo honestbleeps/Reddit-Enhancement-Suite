@@ -30,14 +30,23 @@ img {
 	}
 }
 
+// Hide pinned Reddit-hosted videos
+.res-showImages-hidePinnedRedditVideos {
+	.pinnable-content.pinned { display: none; }
+}
+
 // Place inline expandos so that they don't impact the line height
 .res-freetext-expando {
 	display: inline-block;
 	height: 1em;
-	margin: 0 4px !important;
+	margin: 0 !important;
 	vertical-align: middle;
 
-	.expando-button { margin: calc(calc(1em * .5) - 50%) 0 0 0  !important; }
+	.expando-button {
+		margin: calc(calc(1em * .5) - 50%) 0 0 0  !important;
+		transform: scale(0.8); // Try to not exceed height of line
+	}
+
 	+ .res-expando-box { margin-top: 5px !important; }
 }
 
@@ -50,13 +59,11 @@ img {
 	&.expando-button-loading,
 	&.expando-button-requires-permission {
 		vertical-align: top !important;
-		float: left;
 		width: 23px;
 		height: 23px;
 		max-width: 23px;
 		max-height: 23px;
 		display: inline-block;
-		background-image: url('../images/expandoButtons.png');
 		margin-right: 6px;
 		padding: 0;
 	}
@@ -65,19 +72,49 @@ img {
 		filter: sepia(1);
 	}
 
-	@function _($i) { @return $i * -24px; }
+	&.image.collapsed {
+		background-image: url('../images/expandoImage.svg');
 
-	&.image.collapsed { background-position: 0 _(0); }
-	&.image.collapsed:hover { background-position: 0 _(1); }
-	&.image.gallery.collapsed { background-position: 0 _(2); }
-	&.image.gallery.collapsed:hover { background-position: 0 _(3); }
-	&.video-muted.collapsed { background-position: 0 _(4); }
-	&.video-muted.collapsed:hover { background-position: 0 _(5); }
-	&.expando-button-requires-permission { background-position: 0 _(6); }
-	&.expando-button-requires-permission:hover { background-position: 0 _(7); }
-	&.expando-button-loading { background-position: 0 _(8); }
-	&.expanded { background-position: 0 _(9); }
-	&.expanded:hover { background-position: 0 _(10); }
+		&:hover {
+			background-image: url('../images/expandoImage-active.svg');
+		}
+	}
+
+	&.image.gallery.collapsed {
+		background-image: url('../images/expandoImageGallery.svg');
+
+		&:hover {
+			background-image: url('../images/expandoImageGallery-active.svg');
+		}
+	}
+
+	&.video-muted.collapsed {
+		background-image: url('../images/expandoVideo.svg');
+
+		&:hover {
+			background-image: url('../images/expandoVideo-active.svg');
+		}
+	}
+
+	&.expando-button-requires-permission {
+		background-image: url('../images/expandoPadlock.svg');
+
+		&:hover {
+			background-image: url('../images/expandoPadlock-active.svg');
+		}
+	}
+
+	&.expanded {
+		background-image: url('../images/expandoClose.svg');
+
+		&:hover {
+			background-image: url('../images/expandoClose-active.svg');
+		}
+	}
+
+	&.expando-button-loading {
+		background-image: url('../images/expandoEmpty.svg');
+	}
 }
 
 .res-expando-siteAttribution {
@@ -111,18 +148,16 @@ img {
 	}
 }
 
-.res-media-keep-visible,
-.res-media-rotatable,
-.res-media-movable {
-	position: relative;
-}
-
 .res-media-dragging {
 	pointer-events: none;
 }
 
 .res-media-rotatable {
-	min-height: 46px;
+	&[rotation] { transform-origin: top left; }
+	&[rotation='0'] { transform: initial; }
+	&[rotation='1'] { transform: rotate(90deg) translateY(-100%); }
+	&[rotation='2'] { transform: rotate(180deg) translate(-100%, -100%); }
+	&[rotation='3'] { transform: rotate(270deg) translateX(-100%); }
 }
 
 .res-media-controls {
@@ -175,13 +210,18 @@ img {
 		&-expanded::after { content: '\2713'; }
 	}
 
-	.res-media-rotatable:hover & {
-		opacity: .8;
-	}
-
 	.res-media-dragging &,
 	.res-media-load-error & {
 		display: none !important;
+	}
+}
+
+.res-media-with-controls-wrapper {
+	min-height: 46px;
+	position: relative;
+
+	&:hover .res-media-controls {
+		opacity: .8;
 	}
 }
 
@@ -204,6 +244,7 @@ img {
 	.res-media-independent {
 		z-index: 35;
 		position: absolute;
+		will-change: transform;
 	}
 
 	&[hidden],
@@ -259,16 +300,16 @@ img {
 		&[first-piece=true] .res-gallery-previous {
 			transform: scaleX(-1);
 		}
-	}
 
-	&-to-filmstrip {
-		margin-left: 5px;
-		cursor: pointer;
+		.res-gallery-to-filmstrip {
+			margin-left: 1em;
+			cursor: pointer;
 
-		&::before {
-			content: '🎞';
-			display: block;
-			transform: rotate(90deg);
+			&::before {
+				content: '🎞';
+				display: block;
+				transform: rotate(90deg);
+			}
 		}
 	}
 
@@ -563,7 +604,7 @@ body:not(.res-showImages-displayImageCaptions) {
 }
 
 // Extras for certain text expando's
-.res-media-host-wikipedia {
+.res-expando-box[data-host='wikipedia'] {
 	.md {
 		padding: 5px;
 		max-width: none;

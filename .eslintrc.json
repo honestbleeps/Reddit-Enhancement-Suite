@@ -1,4 +1,5 @@
 {
+	"root": true,
 	"parser": "babel-eslint",
 	"plugins": [
 		"flowtype",
@@ -27,14 +28,19 @@
 		"flowtype/define-flow-type": 2,
 		"flowtype/delimiter-dangle": [2, "always-multiline"],
 		"flowtype/generic-spacing": 2,
+		"flowtype/newline-after-flow-annotation": 0,
 		"flowtype/no-dupe-keys": 0, // temporarily disabled, https://github.com/gajus/eslint-plugin-flowtype/pull/266
+		"flowtype/no-existential-type": 0,
+		"flowtype/no-flow-fix-me-comments": 0,
 		"flowtype/no-mutable-array": 0,
 		"flowtype/no-primitive-constructor-types": 2,
 		"flowtype/no-unused-expressions": 2,
 		"flowtype/no-weak-types": [2, { "any": false }],
 		"flowtype/object-type-delimiter": 0,
+		"flowtype/require-exact-type": 0,
 		"flowtype/require-parameter-type": 0,
 		"flowtype/require-return-type": 0,
+		"flowtype/require-types-at-top": 0,
 		"flowtype/require-valid-file-annotation": [2, "always"],
 		"flowtype/require-variable-type": 0,
 		"flowtype/semi": 2,
@@ -43,6 +49,7 @@
 		"flowtype/space-before-generic-bracket": 2,
 		"flowtype/space-before-type-colon": 2,
 		"flowtype/type-id-match": [2, "^([A-Z][a-z0-9]+)+$"],
+		"flowtype/type-import-style": [2, "declaration"],
 		"flowtype/union-intersection-spacing": 2,
 		"flowtype/use-flow-type": 0, // this doesn't seem to be necessary, except in flow/ where they aren't used directly
 		"flowtype/valid-syntax": 2,
@@ -59,10 +66,6 @@
 		"filenames/match-exported": 2,
 		"filenames/no-index": 0,
 
-		"import/no-unresolved": 2,
-		"import/named": 2,
-		"import/default": 2,
-		"import/namespace": 2,
 		"import/no-restricted-paths": [2, { "zones": [
 			{ "target": "./lib/core", "from": "./lib/modules" },
 			{ "target": "./lib/environment", "from": "./lib/modules" },
@@ -72,28 +75,36 @@
 			{ "target": "./lib/vendor", "from": "./lib/modules" },
 			{ "target": "./lib/vendor", "from": "./lib/core" }
 		] }],
+		"import/default": 2,
 		"import/export": 2,
-		"import/no-named-as-default": 2,
-		"import/no-named-as-default-member": 2,
+		"import/exports-last": 0,
+		"import/extensions": [2, { "js": "never" }],
+		"import/group-exports": 0,
+		"import/imports-first": 2,
+		"import/named": 2,
+		"import/namespace": 2,
+		"import/newline-after-import": 2,
 		"import/no-absolute-path": 2,
+		"import/no-amd": 2,
 		"import/no-anonymous-default-export": 0,
+		"import/no-commonjs": 2,
+		"import/no-default-export": 0,
 		"import/no-deprecated": 2,
+		"import/no-duplicates": 2,
 		"import/no-dynamic-require": 0,
 		"import/no-extraneous-dependencies": 2,
-		"import/no-mutable-exports": 0,
-		"import/no-commonjs": 2,
-		"import/no-amd": 2,
-		"import/no-nodejs-modules": 2,
-		"import/imports-first": 2,
-		"import/exports-last": 0,
-		"import/no-duplicates": 2,
 		"import/no-internal-modules": 0,
+		"import/no-mutable-exports": 0,
+		"import/no-named-as-default": 2,
+		"import/no-named-as-default-member": 2,
 		"import/no-namespace": 0,
+		"import/no-nodejs-modules": 2,
+		"import/no-self-import": 2,
 		"import/no-unassigned-import": 0,
+		"import/no-unresolved": 2,
+		"import/no-useless-path-segments": 0,
 		"import/no-webpack-loader-syntax": 0,
-		"import/extensions": [2, { "js": "never" }],
 		"import/order": 2,
-		"import/newline-after-import": 2,
 		"import/prefer-default-export": 0,
 		"import/unambiguous": 0,
 
@@ -130,13 +141,19 @@
 		"no-restricted-modules": 0, // see import/no-nodejs-modules
 		"no-restricted-syntax": [2, {
 			"selector": "ForStatement",
-			"message": "No C-style for-loops, use for..of or Array.prototype methods."
+			"message": "No C-style for-loops; use for..of or Array.prototype methods."
 		}, {
 			"selector": "AssignmentExpression[left.property.name='options'] > ObjectExpression > Property > Literal.key[value=/ /]",
 			"message": "No spaces in option names."
 		}, {
 			"selector": "Property[key.name='options'] > ObjectExpression > Property > Literal.key[value=/ /]",
 			"message": "No spaces in option names."
+		}, {
+			"selector": "ForInStatement",
+			"message": "No for-in loops; use for..of with Object.keys/values/entries."
+		}, {
+			"selector": "BinaryExpression[operator='in']",
+			"message": "No in keyword; use Set/Map or hasOwnProperty."
 		}],
 		"no-shadow": 0,
 		"no-sync": 0,
@@ -169,10 +186,10 @@
 		"func-style": [2, "declaration", { "allowArrowFunctions": true }],
 		"function-paren-newline": [0, "consistent"],
 		"generator-star-spacing": [0, { "before": false, "after": true }], // disabled pending https://github.com/eslint/eslint/issues/6195
-		"guard-for-in": 0,
 		"id-blacklist": 0,
 		"id-length": 0,
 		"id-match": 0,
+		"implicit-arrow-linebreak": 0,
 		"indent": [2, "tab", { "SwitchCase": 1, "flatTernaryExpressions": true }],
 		"init-declarations": 0,
 		"linebreak-style": 0,
@@ -188,7 +205,6 @@
 		"max-statements-per-line": 0,
 		"multiline-comment-style": 0,
 		"multiline-ternary": 0,
-		"new-cap": 0,
 		"newline-after-var": [0, "never"],
 		"newline-before-return": 0,
 		"newline-per-chained-call": 0,

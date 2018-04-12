@@ -43,6 +43,10 @@
         "message": "Zeige einen Link zu meinem Dashboard im RES-Menü.",
         "description": ""
     },
+    "readCommentsMonitorWhenIncognitoTitle": {
+        "message": "Monitor When Incognito",
+        "description": ""
+    },
     "userInfoUserHasRedditGold": {
         "message": "Der Benutzer hat Reddit Gold",
         "description": ""
@@ -101,6 +105,10 @@
     },
     "keyboardNavFollowCommentsNewTabTitle": {
         "message": "Kommentare in neuem Tab weiterverfolgen",
+        "description": ""
+    },
+    "userHighlightHighlightSelfDesc": {
+        "message": "Highlight the logged in user's comments.",
         "description": ""
     },
     "subredditInfoUnsubscribe": {
@@ -187,12 +195,20 @@
         "message": "show \"PROFILES\" link in subreddit manager.",
         "description": ""
     },
+    "filteRedditOnlyOn": {
+        "message": "Only on:",
+        "description": ""
+    },
     "userHighlightFirstCommentColorHoverTitle": {
         "message": "First Comment Color Hover",
         "description": ""
     },
     "necLoadChildCommentsDesc": {
         "message": "Should on-screen child comments be expanded when paused, in addition to top-level comments?",
+        "description": ""
+    },
+    "keyboardNavEditTitle": {
+        "message": "Edit",
         "description": ""
     },
     "userTaggerName": {
@@ -243,8 +259,12 @@
         "message": "Highlight the person who has the first comment in a tree, within that tree.",
         "description": ""
     },
+    "nightModeToggleText": {
+        "message": "night mode",
+        "description": ""
+    },
     "keyboardNavFollowLinkNewTabDesc": {
-        "message": "Follow link in new tab (link pages only).",
+        "message": "Link in neuem Tab weiterverfolgen (nur auf Link-Seiten)",
         "description": ""
     },
     "onboardingDesc": {
@@ -351,12 +371,16 @@
         "message": "Fehlerbehebung",
         "description": ""
     },
+    "temporaryDropdownLinksAlwaysDesc": {
+        "message": "Always change change links to temporary ones.",
+        "description": ""
+    },
     "filteRedditSubredditsDesc": {
-        "message": "Hide posts submitted to certain subreddits.\nRegExp like `/(this|that|theother)/i` is allowed for subreddit.\n\nFind out more on the [/r/Enhancement wiki](/r/Enhancement/wiki/index/filters/filtereddit/regexp).",
+        "message": "Hide posts submitted to certain subreddits.",
         "description": ""
     },
     "orangeredRetroUnreadCountTitle": {
-        "message": "Retro Unread Count",
+        "message": "Ungelesene Anzahl im Retro-Stil",
         "description": ""
     },
     "messageMenuUseQuickMessageDesc": {
@@ -369,6 +393,10 @@
     },
     "keyboardNavFollowPermalinkNewTabDesc": {
         "message": "Open the current comment's permalink in a new tab (comment pages only).",
+        "description": ""
+    },
+    "selectedEntrySetColorsDesc": {
+        "message": "Set colors",
         "description": ""
     },
     "stylesheetLoggedInUserClassDesc": {
@@ -387,12 +415,16 @@
         "message": "RES Begrüßungskomitee ",
         "description": ""
     },
+    "selectedEntryBackgroundColorNightTitle": {
+        "message": "Background Color Night",
+        "description": ""
+    },
     "subredditInfoStopFilteringFromAllAndDomain": {
         "message": "Filtere diesen Subreddit in /r/all und /domain/* nicht mehr",
         "description": ""
     },
     "keyboardNavMoveDownThreadDesc": {
-        "message": "Move to the topmost comment of the next thread (in comments).",
+        "message": "Zum obersten Kommentar im nachfolgenden Thread springen.",
         "description": ""
     },
     "hoverName": {
@@ -405,6 +437,10 @@
     },
     "spamButtonDesc": {
         "message": "Fügt einen Spam-Button für einfaches Melden hinzu.",
+        "description": ""
+    },
+    "betteRedditUnhideLinkLabel": {
+        "message": "unhide",
         "description": ""
     },
     "showImagesGalleryRememberWidthDesc": {
@@ -429,6 +465,10 @@
     },
     "commentToolsLabel": {
         "message": "Markierung",
+        "description": ""
+    },
+    "donateToRES": {
+        "message": "donate to RES",
         "description": ""
     },
     "quickMessageDefaultSubjectDesc": {
@@ -479,16 +519,16 @@
         "message": "Color used to highlight a selected user on hover.",
         "description": ""
     },
-    "selectedEntryFocusFGColorNightTitle": {
-        "message": "Focus FG Color Night",
-        "description": ""
-    },
     "notificationFadeOutLengthDesc": {
         "message": "In milliseconds, length of time available to stop a notification from disappearing.",
         "description": ""
     },
     "commandLineMenuItemTitle": {
         "message": "Menüpunkt",
+        "description": ""
+    },
+    "filteRedditCustomFiltersCTitle": {
+        "message": "Custom Comment Filters",
         "description": ""
     },
     "keyboardNavFocusOnSearchBoxTitle": {
@@ -509,6 +549,10 @@
     },
     "styleTweaksPostTitleCapitalizationDesc": {
         "message": "Erzwinge einen bestimmten Stil der Großschreibung bei Beitragstiteln.",
+        "description": ""
+    },
+    "announcementsNewPostByUser": {
+        "message": "A new post has been made to /r/$1 by /u/$2",
         "description": ""
     },
     "userInfoUserTag": {
@@ -547,6 +591,10 @@
         "message": "Do No Ctrl+F",
         "description": ""
     },
+    "faviconNotificationBGColorTitle": {
+        "message": "Favicon Notification Background Color",
+        "description": ""
+    },
     "commentDepthSubreddit": {
         "message": "Subreddit",
         "description": ""
@@ -563,16 +611,16 @@
         "message": "Display Text",
         "description": ""
     },
-    "penaltyBoxFeaturesOptionKey": {
-        "message": "optionKey",
-        "description": ""
-    },
     "commentToolsShowInputLengthDesc": {
         "message": "Zeige beim Einreichen von Posts die Anzahl der eingegebenen Zeichen im Titel- und Textfeld und zeige an, wenn sie das 300 Zeichen-Limit beim Titel überschreiten.",
         "description": ""
     },
+    "redditUserInfoName": {
+        "message": "Reddit User Info",
+        "description": ""
+    },
     "keyboardNavImageSizeUpFineDesc": {
-        "message": "Increase the size of image(s) in the highlighted post area (finer control).",
+        "message": "Die Größe der Bilder im markierten Beitragsbereich erhöhen (genauere Kontrolle).",
         "description": ""
     },
     "nerName": {
@@ -607,6 +655,10 @@
         "message": "What to replace your username with.",
         "description": ""
     },
+    "profileRedirectCustomFromLandingPageTitle": {
+        "message": "Custom Target From Landing Page",
+        "description": ""
+    },
     "nerHideDupesFade": {
         "message": "Verblassen",
         "description": ""
@@ -616,7 +668,15 @@
         "description": ""
     },
     "keyboardNavImageSizeDownFineDesc": {
-        "message": "Decrease the size of image(s) in the highlighted post area (finer control).",
+        "message": "Die Bilder im markierten Beitragsbereich verkleinern (genauere Kontrolle).",
+        "description": ""
+    },
+    "selectedEntryBackgroundColorDesc": {
+        "message": "The background color",
+        "description": ""
+    },
+    "searchRESSettings": {
+        "message": "search RES settings",
         "description": ""
     },
     "keyboardNavNextPageDesc": {
@@ -707,10 +767,6 @@
         "message": "Benutzername",
         "description": ""
     },
-    "radditAlwaysShowSidebarPlaylisterTitle": {
-        "message": "Always Show Sidebar Playlister",
-        "description": ""
-    },
     "multiredditNavbarSectionLinksDesc": {
         "message": "Links to display in the dropdown.",
         "description": ""
@@ -723,12 +779,16 @@
         "message": "Video-Steuerung anzeigen",
         "description": ""
     },
-    "troubleshooterProfileModulesTitle": {
-        "message": "Profile Modules",
+    "temporaryDropdownLinksTemporarily": {
+        "message": "(temporarily?)",
         "description": ""
     },
     "nightModeNightModeStartTitle": {
         "message": "Nachtmodus Start",
+        "description": ""
+    },
+    "subredditManagerFilterListTitle": {
+        "message": "Subreddit Quick Filter",
         "description": ""
     },
     "userbarHiderUserBarHidden": {
@@ -747,6 +807,10 @@
         "message": "Swap Big Editor Layout",
         "description": ""
     },
+    "keyboardNavShowChildCommentsDesc": {
+        "message": "Show/hide the child comments tree (comment pages only).",
+        "description": ""
+    },
     "nerAutoLoadTitle": {
         "message": "Automatisch laden",
         "description": ""
@@ -760,7 +824,7 @@
         "description": ""
     },
     "keyboardNavMoveDownParentSiblingDesc": {
-        "message": "Move to parent's next sibling (in comments).",
+        "message": "Springe zum nachfolgenden übergeordneten Kommentar.",
         "description": ""
     },
     "accountSwitcherRateLimitError": {
@@ -768,7 +832,7 @@
         "description": ""
     },
     "orangeredUpdateOtherTabsDesc": {
-        "message": "Update all open tabs when RES checks for orangereds.",
+        "message": "Alle offenen Tabs aktualisieren, wenn RES auf orangereds überprüft",
         "description": ""
     },
     "showImagesMediaBrowseTitle": {
@@ -786,6 +850,10 @@
     "iredditPreferRedditMediaDesc": {
         "message": "Try to load images and video from Reddit's media servers.",
         "description": ""
+    },
+    "submittedToSubreddit": {
+        "message": "to",
+        "description": "[post/comment submitted...] to $subreddit"
     },
     "stylesheetSubredditClassDesc": {
         "message": "When browsing a subreddit, add the subreddit name as a class to the body.\nFor example, /r/ExampleSubreddit adds `body.res-r-examplesubreddit`.",
@@ -855,12 +923,20 @@
         "message": "Zeige den Abonnier Button?",
         "description": ""
     },
+    "filteRedditKeyword": {
+        "message": "keyword",
+        "description": ""
+    },
     "toggleCommentsLeftEdgeHoverColorDesc": {
         "message": "Color of the bar when hovered.",
         "description": ""
     },
     "backupAndRestoreBackupDesc": {
-        "message": "Make a backup of your current RES state. Download it with \"File\", or upload it to a cloud backup provider.",
+        "message": "Sichert deinen aktuellen RES-Zustand. Lade es über \"Datei\" herunter oder lade es zu einem Cloud-Anbieter hoch.",
+        "description": ""
+    },
+    "selectedEntrySetColorsTitle": {
+        "message": "Set Colors",
         "description": ""
     },
     "showImagesAutoMaxHeightTitle": {
@@ -901,10 +977,6 @@
     },
     "styleTweaksUseSubredditStyle": {
         "message": "Subreddit-Stil verwenden",
-        "description": ""
-    },
-    "selectedEntryFocusBorderNightDesc": {
-        "message": "Rahmen-Aussehen bei Nacht-Modus (wie oben)",
         "description": ""
     },
     "userHighlightModColorDesc": {
@@ -955,8 +1027,12 @@
         "message": "Links to show in the mail icon drop down menu.",
         "description": ""
     },
-    "extensionDescription": {
-        "message": "Eine Sammlung praktischer Module, die das Stöbern auf Reddit verbessern.",
+    "keyboardNavUndoMoveTitle": {
+        "message": "Undo Move",
+        "description": ""
+    },
+    "selectedEntryTextColorNightDesc": {
+        "message": "The text color while using Night Mode",
         "description": ""
     },
     "subredditManagerLastUpdateDesc": {
@@ -980,7 +1056,7 @@
         "description": ""
     },
     "keyboardNavMoveUpSiblingDesc": {
-        "message": "Move to previous sibling (in comments) - skips to previous sibling at the same depth.",
+        "message": "Zu vorherigem Kindkommentar springen - Springt zum vorherigen Kindkommentar auf der selben Tiefe",
         "description": ""
     },
     "commentStyleCommentHoverBorderDesc": {
@@ -1011,6 +1087,10 @@
         "message": "Angemeldet bleiben",
         "description": ""
     },
+    "readCommentsName": {
+        "message": "Read Comments",
+        "description": ""
+    },
     "menuGearIconClickActionOpenSettings": {
         "message": "Open settings console",
         "description": ""
@@ -1028,7 +1108,11 @@
         "description": ""
     },
     "messageMenuFadeDelayDesc": {
-        "message": "Delay, in milliseconds, before hover tooltip fades away.",
+        "message": "Verzögerung in Millisekunden, bevor der Tooltip verschwindet.",
+        "description": ""
+    },
+    "saveOptions": {
+        "message": "save options",
         "description": ""
     },
     "selectedEntryScrollToSelectedThingOnLoadTitle": {
@@ -1075,6 +1159,10 @@
         "message": "Entwurfs-Stil",
         "description": ""
     },
+    "RESSettingsConsole": {
+        "message": "RES settings console",
+        "description": ""
+    },
     "betteRedditShowTimestampWikiDesc": {
         "message": "Genaues Datum im Wiki anzeigen.",
         "description": ""
@@ -1085,10 +1173,6 @@
     },
     "searchHelperDesc": {
         "message": "Stellt Hilfe zur Suchfunktion zur Verfügung.",
-        "description": ""
-    },
-    "filteRedditRegexpFiltersDesc": {
-        "message": "Allow RegExp in certain filteReddit fields.\nIf you have filters which start with `/` and don't know what RegExp is, you should turn this option off.\n\nFind out more on the [/r/Enhancement wiki](/r/Enhancement/wiki/index/filters/filtereddit/regexp).",
         "description": ""
     },
     "keyboardNavFollowLinkNewTabFocusTitle": {
@@ -1119,6 +1203,10 @@
         "message": "Design Verbesserungen",
         "description": ""
     },
+    "selectedEntryOutlineStyleTitle": {
+        "message": "Outline Style",
+        "description": ""
+    },
     "showImagesSfwHistoryDesc": {
         "message": "Keeps NSFW links from being added to your browser history *by the markVisited feature*.\n\n*If you chose the second option, then links will be blue again on refresh.*\n\n***This does not change your basic browser behavior. If you click on a link then it will still be added to your history normally. This is not a substitute for using your browser's privacy mode.***",
         "description": ""
@@ -1141,6 +1229,10 @@
     },
     "betteRedditShowTimestampSidebarTitle": {
         "message": "Show Timestamp Sidebar",
+        "description": ""
+    },
+    "profileRedirectCustomFromLandingPageDesc": {
+        "message": "Redirect to a custom view of a profile when loading the landing page, e.g. /user/username/{this}",
         "description": ""
     },
     "messageMenuFadeSpeedTitle": {
@@ -1219,8 +1311,16 @@
         "message": "Zeige die Kommentar-Werkzeuge im Bann-Notiz Textfeld.",
         "description": ""
     },
+    "temporaryDropdownLinksDesc": {
+        "message": "Offers temporary links for dropdowns on /top and /controversial pages.",
+        "description": ""
+    },
     "keyboardNavFollowSubredditNewTabDesc": {
         "message": "Go to subreddit of selected link in a new tab (link pages only).",
+        "description": ""
+    },
+    "showImagesCrosspostsDescription": {
+        "message": "Handle crossposts from other subreddits",
         "description": ""
     },
     "nightModeAutomaticNightModeDenied": {
@@ -1283,6 +1383,10 @@
         "message": "By default, store a link to the comments when tagging a user in a link post. Otherwise, the link (that the post refers to) will be used.",
         "description": ""
     },
+    "tipsAndTricks": {
+        "message": "tips & tricks",
+        "description": ""
+    },
     "notificationCloseDelayTitle": {
         "message": "Close Delay",
         "description": ""
@@ -1301,6 +1405,10 @@
     },
     "quickMessageOpenQuickMessageDesc": {
         "message": "Keyboard shortcut to open the quick message dialog.",
+        "description": ""
+    },
+    "nsfwSwitchToggleText": {
+        "message": "nsfw filter",
         "description": ""
     },
     "showParentDirectionTitle": {
@@ -1371,6 +1479,10 @@
         "message": "Profil-Navigator",
         "description": ""
     },
+    "profileRedirectName": {
+        "message": "Profile Redirect",
+        "description": ""
+    },
     "stylesheetBodyClassesDesc": {
         "message": "CSS-Klassen, die zum <body> hinzugefügt werden sollen.",
         "description": ""
@@ -1397,6 +1509,10 @@
     },
     "keyboardNavShowParentsDesc": {
         "message": "Übergeordnete Kommentare anzeigen.",
+        "description": ""
+    },
+    "profileRedirectFromLandingPageDesc": {
+        "message": "Redirect to a particular view of a profile when loading the default landing page (i.e. reddit.com/user/u_example/).",
         "description": ""
     },
     "aboutOptionsPresets": {
@@ -1435,12 +1551,20 @@
         "message": "Für Bann-Benachrichtigungen aktivieren",
         "description": ""
     },
+    "userHighlightSelfColorHoverDesc": {
+        "message": "Color used to highlight the logged in user on hover.",
+        "description": ""
+    },
     "orangeredOpenMailInNewTabTitle": {
-        "message": "Open Mail In New Tab",
+        "message": "Nachrichten in neuem Tab öffnen",
         "description": ""
     },
     "versionDesc": {
         "message": "Verwalte aktuelle/vorherige Versionsprüfungen.",
+        "description": ""
+    },
+    "selectedEntryBackgroundColorTitle": {
+        "message": "Background Color",
         "description": ""
     },
     "showImagesMediaControlsPositionTitle": {
@@ -1527,10 +1651,6 @@
         "message": "Öffne Links aus Kommentaren in einem neuen Tab.",
         "description": ""
     },
-    "filteRedditExcludeCommentsPageTitle": {
-        "message": "ausgenommen Kommentarseite",
-        "description": ""
-    },
     "userHighlightAutoColorUsingDesc": {
         "message": "Select a method for setting colors for usernames.",
         "description": ""
@@ -1540,7 +1660,7 @@
         "description": ""
     },
     "commentToolsMacroPlaceholdersDesc": {
-        "message": "When using macros, replace placeholders in text via pop-up prompt.\nExample macro text:\nThe {{adj1}} {{adj2}} {{animal}} jumped over the lazy {{dog_color}} dog. The {{animal}} is so {{adj1}}!\n\nSome placeholders are automatically filled in when you use the macro:\n\n**{{subreddit}}**: The current subreddit, in the form /r/subreddit.\n\n**{{me}}**, **{{my_username}}**: Your username, in the form /u/username.\n\n**{{op}}**, **{{op_username}}**: The username of the original poster, in the form /u/username. On a post's comments page, this the person who made the post; on a PM / modmail, this is the person who started the conversation.\n\n**{{url}}**: The current page's URL.\n\n**{{reply_to}}**, **{{reply_to_username}}**: The username of person you're replying to, in the form /u/username.\n\n**{{selected}}**, **{{selection}}**: The text which is currently selected (highlighted).\n\n**{{escaped}}**: The selected text, escaped for snudown/markdown.\n\n**{{now}}**: The current date and time in your locale.\n\n**{{today}}**: The current date in your locale.\n\n**{{linkflair}}**: On comments pages, returns the flair text of the original link.",
+        "message": "When using macros, replace placeholders in text via pop-up prompt.\nExample macro text:\nThe {{adj1}} {{adj2}} {{animal}} jumped over the lazy {{dog_color}} dog. The {{animal}} is so {{adj1}}!\n\nSome placeholders are automatically filled in when you use the macro:\n\n**{{subreddit}}**: The current subreddit, in the form /r/subreddit.\n\n**{{me}}**, **{{my_username}}**: Your username, in the form /u/username.\n\n**{{op}}**, **{{op_username}}**: The username of the original poster, in the form /u/username. On a post's comments page, this is the person who made the post; on a PM / modmail, this is the person who started the conversation.\n\n**{{url}}**: The current page's URL.\n\n**{{reply_to}}**, **{{reply_to_username}}**: The username of person you're replying to, in the form /u/username.\n\n**{{selected}}**, **{{selection}}**: The text which is currently selected (highlighted).\n\n**{{escaped}}**: The selected text, escaped for snudown/markdown.\n\n**{{now}}**: The current date and time in your locale.\n\n**{{today}}**: The current date in your locale.\n\n**{{linkflair}}**: On comments pages, returns the flair text of the original link.",
         "description": ""
     },
     "profileNavigatorFadeSpeedTitle": {
@@ -1592,11 +1712,15 @@
         "description": ""
     },
     "keyboardNavMoveDownSiblingDesc": {
-        "message": "Move to next sibling (in comments) - skips to next sibling at the same depth.",
+        "message": "Zu nachfolgendem Kindkommentar springen - Springt zum nachfolgenden Kindkommentar auf der selben Tiefe",
         "description": ""
     },
     "showImagesAutoExpandSelfTextFirstVisibleNonMutedDesc": {
         "message": "In selftexts, expand the first visible potentially non-muted expando.",
+        "description": ""
+    },
+    "profileRedirectFromLandingPageNotificationText": {
+        "message": "RES can redirect to the \"overview\" legacy user page or other views of the profile. This is especially useful for moderating.",
         "description": ""
     },
     "userInfoFadeSpeedTitle": {
@@ -1631,6 +1755,10 @@
         "message": "Kommentar-Karma anzeigen",
         "description": ""
     },
+    "subredditManagerLinkUsersTitle": {
+        "message": "Link Users",
+        "description": ""
+    },
     "keyboardNavToggleHelpDesc": {
         "message": "Hilfe für Tastenkürzel einblenden.",
         "description": ""
@@ -1647,6 +1775,10 @@
         "message": "Auto-play at most this many muted videos simultaneously. (0 for no limit)",
         "description": ""
     },
+    "selectedEntryOutlineStyleNightDesc": {
+        "message": "Border appearance using Night Mode (as above)",
+        "description": ""
+    },
     "keyboardNavHideTitle": {
         "message": "Verstecken",
         "description": ""
@@ -1655,9 +1787,17 @@
         "message": "Link:",
         "description": ""
     },
+    "filteRedditAddCustomFilter": {
+        "message": "+add custom filter",
+        "description": ""
+    },
     "submitHelperTimeAgo": {
         "message": "vor $1",
         "description": "As in '1 day ago'"
+    },
+    "selectedEntryBackgroundColorNightDesc": {
+        "message": "The background color while using Night Mode",
+        "description": ""
     },
     "userTaggerTrackVoteWeightTitle": {
         "message": "Stimmgewicht verfolgen",
@@ -1715,10 +1855,6 @@
         "message": "Hide links instantaneously.",
         "description": ""
     },
-    "selectedEntryFocusBorderDesc": {
-        "message": "Rahmen-Aussehen. Z.B. '1px dashed gray' (CSS)",
-        "description": ""
-    },
     "settingsNavigationShowAllOptionsDesc": {
         "message": "Standardmäßig werden alle Optionen angezeigt. Diese Box abwählen, um erweiterte Optionen auszublenden.",
         "description": ""
@@ -1763,16 +1899,20 @@
         "message": "Erlaubt dir Untergeordnete Kommentare zu verbergen.",
         "description": ""
     },
+    "accountSwitcherOptPrompt": {
+        "message": "Enter the 6 digit code from your authenticator app for $1",
+        "description": ""
+    },
     "userHighlightAdminColorHoverTitle": {
         "message": "Admin Color Hover",
         "description": ""
     },
-    "userTaggerSetATag": {
-        "message": "Lege einen Tag fest",
-        "description": ""
-    },
     "submitHelperName": {
         "message": "Beiträge",
+        "description": ""
+    },
+    "myDashboard": {
+        "message": "my dashboard",
         "description": ""
     },
     "searchHelperSearchBySubredditDesc": {
@@ -1787,6 +1927,10 @@
         "message": "Buffer Screens",
         "description": ""
     },
+    "faviconNotificationTextColorDesc": {
+        "message": "Change the text color of the notification on the favicon.",
+        "description": ""
+    },
     "saveCommentsDesc": {
         "message": "To save comments with RES click the **save-RES** button below a comment. You can view saved comments on your user page under the [saved](/user/me/saved/#comments) tab.\n\nSaving with RES saves a comment locally in your browser. This means that you can view the comment you saved *as it looked when you saved it*, even if it is later edited or deleted. You can save comments with RES if you are not logged in, or if you are logged in to any account—all the comments will be visible in one location. You will only be able to view saved RES comments on whichever browser you have RES installed on.\n\nWhen saving comments with reddit, you must be logged into an account; the comment is saved specifically for that account; it won't be shown if you switch to a different account or log out. You can view these comments whenever you are logged into the reddit account you saved them from, including on other browsers or devices.\n\nVisually, saving comments with reddit looks the same as saving with RES—but the text is not saved locally, so the saved comment text shows the *current* state of the comment. If the comment has been edited or deleted since you saved it, the text that displays on your account's \"saved\" page will look different than it looked when you saved it.\n\nIf you have [reddit gold](/gold/about) on an account, you can add a category/tag to comments you have saved with reddit, then filter saved comments/posts by category. (You cannot sort or filter comments saved with RES.)",
         "description": ""
@@ -1797,6 +1941,10 @@
     },
     "backupAndRestoreAutomaticBackupsDesc": {
         "message": "Sync your backups to the specified provider.\n\nSyncing will occur periodically on pageload. If you use two computers simultaneously, some changes may be lost.",
+        "description": ""
+    },
+    "userHighlightSelfColorHoverTitle": {
+        "message": "Self Color Hover",
         "description": ""
     },
     "dashboardDefaultSortTitle": {
@@ -1813,6 +1961,10 @@
     },
     "keyboardNavImageSizeUpTitle": {
         "message": "Bild vergrößern",
+        "description": ""
+    },
+    "betteRedditUnhideSubmissionError": {
+        "message": "Sorry, there was an error trying to unhide your submission. Try clicking again.",
         "description": ""
     },
     "styleTweaksToggleSubredditStyleOnOffFor": {
@@ -1832,7 +1984,7 @@
         "description": ""
     },
     "filteRedditShowFilterlineDesc": {
-        "message": "Bedienelemente der Filterleiste immer anzeigen",
+        "message": "Show Filterline controls by default.",
         "description": ""
     },
     "pageNavShowLinkDesc": {
@@ -1911,6 +2063,10 @@
         "message": "Reddit Logo Ziel",
         "description": ""
     },
+    "filteRedditForceSyncFiltersLabel": {
+        "message": "sync",
+        "description": ""
+    },
     "aboutDesc": {
         "message": "Reddit Enhancement Suite ist eine Sammlung an Modulen die das durchstöbern von Reddit sehr viel einfacher macht.",
         "description": ""
@@ -1949,10 +2105,6 @@
     },
     "keyboardNavMoveToParentDesc": {
         "message": "Springe zum übergeordneten Kommentar.",
-        "description": ""
-    },
-    "xPostLinksCategory": {
-        "message": "Beiträge",
         "description": ""
     },
     "keyboardNavGoModeDesc": {
@@ -1995,6 +2147,10 @@
         "message": "Helps discourage brigading and helps you avoid getting banned, by warning against voting or commenting when following \"No Participation\" (np) links, and by providing options to prevent you from accidentally participating.\n\n[Find out more about \"No Participation\".](/r/NoParticipation/wiki/intro)",
         "description": ""
     },
+    "keyboardNavProfileViewTitle": {
+        "message": "New Profile",
+        "description": ""
+    },
     "userInfoFadeDelayTitle": {
         "message": "Ausblend-Verzögerung",
         "description": ""
@@ -2005,10 +2161,6 @@
     },
     "userTaggerShowTaggingIconTitle": {
         "message": "Show Tagging Icon",
-        "description": ""
-    },
-    "troubleshooterProfileModulesDesc": {
-        "message": "Reloads the page and profiles the duration of each module stage (with the User Timing API). Future reloads in the current tab will also be profiled.",
         "description": ""
     },
     "dashboardDesc": {
@@ -2023,6 +2175,10 @@
         "message": "Subreddits",
         "description": ""
     },
+    "filteRedditAllowNSFWWhere": {
+        "message": "where",
+        "description": ""
+    },
     "keyboardNavImageMoveDownDesc": {
         "message": "Move the image(s) in the highlighted post area down.",
         "description": ""
@@ -2032,7 +2188,7 @@
         "description": ""
     },
     "keyboardNavFollowPermalinkNewTabTitle": {
-        "message": "Follow Permalink New Tab",
+        "message": "Perma-Link in neuem Tab folgen",
         "description": ""
     },
     "keyboardNavImageSizeAnyHeightDesc": {
@@ -2051,12 +2207,12 @@
         "message": "Request the \"legacy layout\" feature for reddit search.\n\n\nThis will only be available for a limited time.",
         "description": ""
     },
-    "selectedEntryFocusBGColorNightTitle": {
-        "message": "Focus BG Color Night",
+    "keyboardNavFollowProfileNewTabTitle": {
+        "message": "Follow Profile New Tab",
         "description": ""
     },
     "showImagesConvertGifstoGfycatTitle": {
-        "message": "Convert Gifsto Gfycat",
+        "message": "Convert Gifs to Gfycat",
         "description": ""
     },
     "submitIssueName": {
@@ -2067,12 +2223,16 @@
         "message": "FAQ",
         "description": ""
     },
-    "selectedEntryAddFocusBGColorDesc": {
-        "message": "Eine Hintergrundfarbe verwenden",
-        "description": ""
-    },
     "accountSwitcherShowUserDetailsTitle": {
         "message": "Benutzerdetails anzeigen",
+        "description": ""
+    },
+    "selectedEntryAddLineDesc": {
+        "message": "Show a line on right side.",
+        "description": ""
+    },
+    "redditUserInfoHideDesc": {
+        "message": "Hide the new Reddit tooltip.",
         "description": ""
     },
     "nightModeDesc": {
@@ -2083,12 +2243,16 @@
         "message": "Subreddit-Stil deaktiviert für den Subreddit: $1",
         "description": ""
     },
+    "readCommentsCleanCommentsTitle": {
+        "message": "Clean Comments",
+        "description": ""
+    },
     "userHighlightFontColorDesc": {
         "message": "Farbe für hervorgehobenen Text.",
         "description": ""
     },
     "orangeredUpdateCurrentTabTitle": {
-        "message": "Update Current Tab",
+        "message": "Aktiven Tab aktualisieren",
         "description": ""
     },
     "keyboardNavCommentNavigatorMoveUpTitle": {
@@ -2121,10 +2285,6 @@
     },
     "nightModeNightModeStartDesc": {
         "message": "Uhrzeit zu der der automatische Nachtmodus beginnt.",
-        "description": ""
-    },
-    "troubleshooterProfileStartupDesc": {
-        "message": "Reloads the page and profiles startup time. Future reloads in the current tab will also be profiled.",
         "description": ""
     },
     "showImagesMediaControlsPositionDesc": {
@@ -2171,6 +2331,10 @@
         "message": "Open the subreddit front page when clicking [l=c] on self posts.",
         "description": ""
     },
+    "backupAndRestoreGoogleAccountDesc": {
+        "message": "If, and only if, you have multiple Google accounts logged in at once, enter the email of the account you want to use.\n\nIn most cases you will not need to use this option.",
+        "description": ""
+    },
     "subredditInfoFadeSpeedDesc": {
         "message": "Ausblend Animations-Geschwindigkeit (in Sekunden).",
         "description": ""
@@ -2183,16 +2347,12 @@
         "message": "Hide the mod mail button when inbox is empty.",
         "description": ""
     },
-    "radditShowPlaylisterToggleTitle": {
-        "message": "Show Playlister Toggle",
+    "keyboardNavOverviewLegacyTitle": {
+        "message": "Legacy Profile",
         "description": ""
     },
     "betteRedditRestoreSavedTabDesc": {
         "message": "Der Tab \"gespeichert\" befindet sich jetzt in der Multireddit Seitenleiste. Dies wird den \"gespeichert\" Link in Titelleiste wiederherstellen (neben den Tabs \"beliebt, \"neu\", etc.).",
-        "description": ""
-    },
-    "troubleshooterProfileStartupTitle": {
-        "message": "Profile Startup",
         "description": ""
     },
     "toggleCommentsLeftEdgeColorDesc": {
@@ -2213,6 +2373,10 @@
     },
     "userInfoHighlightButtonDesc": {
         "message": "Show \"highlight\" button in user hover info, for distinguishing posts/comments from particular users.",
+        "description": ""
+    },
+    "betteRedditVideoYouTubeTitle": {
+        "message": "YouTube title: $1",
         "description": ""
     },
     "betteRedditShowTimestampWikiTitle": {
@@ -2251,6 +2415,14 @@
         "message": "Cache leeren",
         "description": ""
     },
+    "filteRedditEverywhere": {
+        "message": "Everywhere",
+        "description": ""
+    },
+    "redditUserInfoHideTitle": {
+        "message": "Hide Native Tooltip",
+        "description": ""
+    },
     "accountSwitcherAddAccount": {
         "message": "+add Account",
         "description": ""
@@ -2284,7 +2456,7 @@
         "description": ""
     },
     "keyboardNavMoveUpThreadDesc": {
-        "message": "Move to the topmost comment of the previous thread (in comments).",
+        "message": "Zum obersten Kommentar im vorherigen Thread springen.",
         "description": ""
     },
     "commentToolsFormattingToolButtonsDesc": {
@@ -2299,8 +2471,20 @@
         "message": "Show \"MOD\" link in subreddit manager.",
         "description": ""
     },
+    "troubleshooterBreakpointLabel": {
+        "message": "Pause JavaScript",
+        "description": ""
+    },
+    "subredditManagerFilterListDesc": {
+        "message": "Show the subreddit list quick-filter box at the top of the your subreddits list.",
+        "description": ""
+    },
     "keyboardNavMoveBottomTitle": {
         "message": "Nach unten bewegen",
+        "description": ""
+    },
+    "backupAndRestoreBackupDate": {
+        "message": "Backup date: $1",
         "description": ""
     },
     "userHighlightModColorHoverTitle": {
@@ -2348,7 +2532,7 @@
         "description": ""
     },
     "filteRedditFlairDesc": {
-        "message": "Hide posts where certain keywords are in the post's link flair.\nRegExp like `/(this|that|theother)/i` is allowed for flair.\n\nFind out more on the [/r/Enhancement wiki](/r/Enhancement/wiki/index/filters/filtereddit/regexp).",
+        "message": "Hide posts where certain keywords are in the post's link flair.",
         "description": ""
     },
     "userHighlightFontColorTitle": {
@@ -2423,12 +2607,20 @@
         "message": "Sortieren",
         "description": ""
     },
+    "RESSettings": {
+        "message": "RES settings",
+        "description": ""
+    },
     "filteRedditNSFWfilterDesc": {
         "message": "Alle NSFW-markierten Links filtern.",
         "description": ""
     },
     "logoLinkName": {
         "message": "Logo-Link",
+        "description": ""
+    },
+    "profileRedirectFromLandingPageNotificationTitle": {
+        "message": "Change Profile Landing Page",
         "description": ""
     },
     "aboutOptionsBugs": {
@@ -2467,12 +2659,20 @@
         "message": "ausgenommen Nutzerseiten",
         "description": ""
     },
+    "troubleshooterResetLabel": {
+        "message": "Reset",
+        "description": ""
+    },
     "subredditManagerButtonEditTitle": {
         "message": "Button Edit",
         "description": ""
     },
     "hoverInstancesName": {
         "message": "Name",
+        "description": ""
+    },
+    "filteRedditCustomFiltersPTitle": {
+        "message": "Custom Post Filters",
         "description": ""
     },
     "selectedEntryAutoSelectOnScrollTitle": {
@@ -2489,6 +2689,10 @@
     },
     "commentStyleCommentIndentDesc": {
         "message": "Rücke Kommentare um [x] Pixel ein (Nur die Nummer eingeben, kein 'px')",
+        "description": ""
+    },
+    "numComments": {
+        "message": "$1 comments",
         "description": ""
     },
     "troubleshooterDisableRESTitle": {
@@ -2531,16 +2735,16 @@
         "message": "Show a 'show images' tab at the top of each subreddit, to easily toggle showing all images at once.",
         "description": ""
     },
-    "filteRedditCustomFiltersTitle": {
-        "message": "Benutzerdefinierte Filter",
-        "description": ""
-    },
     "accountSwitcherShowGoldDesc": {
         "message": "Den Gold-Status aller Accounts im Account-Wechsler anzeigen.",
         "description": ""
     },
     "keyboardNavMoveToParentTitle": {
         "message": "Zu Übergeordneten Kommentar gehen",
+        "description": ""
+    },
+    "troubleshooterTestEnvironmentLabel": {
+        "message": "Test environment",
         "description": ""
     },
     "toggleCommentsOnClickLeftEdgeTitle": {
@@ -2557,6 +2761,10 @@
     },
     "showImagesConserveMemoryDesc": {
         "message": "Conserve memory by temporarily hiding images when they are offscreen.",
+        "description": ""
+    },
+    "announcementsMarkAsRead": {
+        "message": "mark as read",
         "description": ""
     },
     "styleTweaksDisableAnimationsDesc": {
@@ -2593,6 +2801,10 @@
     },
     "keyboardNavLinkToggleExpandoTitle": {
         "message": "Link Toggle Expando",
+        "description": ""
+    },
+    "userTaggerTruncateTagDesc": {
+        "message": "Truncates long tags to 30 characters. Hovering over them reveals the full content.",
         "description": ""
     },
     "commentDepthCommentDepth": {
@@ -2691,8 +2903,16 @@
         "message": "Limitiere Suche auf Subreddit",
         "description": ""
     },
+    "filteRedditAddSubreddits": {
+        "message": "+add subreddits",
+        "description": ""
+    },
     "showImagesUseSlideshowWhenLargerThanDesc": {
         "message": "Show gallery as 'slideshow' when the total number of pieces is larger than this number. (0 for no limit)",
+        "description": ""
+    },
+    "imgurUseGifOverGifVTitle": {
+        "message": "Use GIFs instead of GIFV",
         "description": ""
     },
     "betteRedditShowTimestampModerationLogTitle": {
@@ -2709,6 +2929,10 @@
     },
     "multiredditNavbarDesc": {
         "message": "Verbessert die Navigationsleiste links auf der Startseite.",
+        "description": ""
+    },
+    "troubleshooterTestNotificationsLabel": {
+        "message": "Test notifications",
         "description": ""
     },
     "commentToolsQuoteKeyTitle": {
@@ -2729,6 +2953,10 @@
     },
     "xPostLinksName": {
         "message": "X-Post Links",
+        "description": ""
+    },
+    "backupAndRestoreAfterCancel": {
+        "message": "If you click cancel, you will be taken to the settings page where you can disable automatic backups or create a new backup to overwrite this one.",
         "description": ""
     },
     "subredditManagerSubredditShortcutTitle": {
@@ -2807,16 +3035,16 @@
         "message": "Öffnen Sie den Permalink des aktuellen Kommentars (nur Kommentarseiten).",
         "description": ""
     },
-    "filteRedditRegexpFiltersTitle": {
-        "message": "Regexp Filter",
-        "description": ""
-    },
     "subredditInfoAddRemoveShortcut": {
         "message": "Verknüpfung",
         "description": "as in '+shortcut' or '-shortcut'"
     },
     "penaltyBoxName": {
         "message": "RES Feature-Verzögerung",
+        "description": ""
+    },
+    "styleTweaksHideDomainLinkDesc": {
+        "message": "Hides the domain link in post taglines.",
         "description": ""
     },
     "styleTweaksColorBlindFriendlyTitle": {
@@ -2871,12 +3099,24 @@
         "message": "Change the default context value on context link.",
         "description": ""
     },
+    "styleTweaksHideDomainLink": {
+        "message": "Hide Domain Link",
+        "description": ""
+    },
     "keyboardNavImageSizeUpFineTitle": {
         "message": "Bild vergrößern (genau)",
         "description": ""
     },
     "pageNavToCommentDesc": {
         "message": "Add an icon to every page that takes you to the new comment area when clicked.",
+        "description": ""
+    },
+    "profileRedirectFromLandingPageNotificationButton": {
+        "message": "Change profile landing page",
+        "description": ""
+    },
+    "backupAndRestoreAutomaticBackupsNone": {
+        "message": "None",
         "description": ""
     },
     "orangeredShowUnreadCountInFaviconDesc": {
@@ -2911,6 +3151,10 @@
         "message": "Filter-Befehlszeile starten.",
         "description": ""
     },
+    "backupAndRestoreBackupSize": {
+        "message": "Backup size: $1",
+        "description": ""
+    },
     "userTaggerTagCanNotSetTag": {
         "message": "Kann Markierung nicht setzen - kein Post/Kommentar ausgewählt.",
         "description": ""
@@ -2925,6 +3169,10 @@
     },
     "showImagesMarkVisitedDesc": {
         "message": "Mark non-selftext links visited when opening the expando.",
+        "description": ""
+    },
+    "filteRedditSubreddits": {
+        "message": "subreddits",
         "description": ""
     },
     "keyboardNavUpVoteWithoutTogglingTitle": {
@@ -2960,15 +3208,23 @@
         "description": ""
     },
     "keyboardNavFollowLinkNewTabTitle": {
-        "message": "Follow Link New Tab",
+        "message": "Link im neuen Tab weiterverfolgen",
         "description": ""
     },
     "keyboardNavAmbiguousShortcutPromptFollowUp": {
         "message": "Du kannst dies später in den $1-Einstellungen ändern.",
         "description": ""
     },
+    "subredditManagerLinkUsersDesc": {
+        "message": "Show \"USERS\" link in subreddit manager.",
+        "description": ""
+    },
     "customTogglesToggleTitle": {
         "message": "Schalter",
+        "description": ""
+    },
+    "temporaryDropdownLinksName": {
+        "message": "Temporary Dropdown Links",
         "description": ""
     },
     "accountSwitcherUpdateOtherTabsDesc": {
@@ -2983,12 +3239,16 @@
         "message": "Color to use to highlight the first-commenter.",
         "description": ""
     },
+    "troubleshooterClearLabel": {
+        "message": "Clear",
+        "description": ""
+    },
     "backupDesc": {
         "message": "Sicherung und Wiederherstellung deiner Reddit Enhancement Suite Einstellungen",
         "description": ""
     },
     "accountSwitcherDropDownStyleTitle": {
-        "message": "Drop Down Style",
+        "message": "Drop-Down-Menü-Stil",
         "description": ""
     },
     "subredditManagerLinkFrontDesc": {
@@ -2998,6 +3258,10 @@
     "styleTweaksVisitedStyleTitle": {
         "message": "Visited Style",
         "description": ""
+    },
+    "submittedByAuthor": {
+        "message": "by",
+        "description": "[post/comment submitted...] by $username"
     },
     "commentToolsCtrolEnterSubmitsPostsDesc": {
         "message": "Drücken sie Ctrl+Enter oder Cmd+Enter um ihren Post einzureichen.",
@@ -3017,6 +3281,10 @@
     },
     "stylesheetDesc": {
         "message": "Lade extra CSS oder deinen eigenen CSS-Code",
+        "description": ""
+    },
+    "showAdvancedOptions": {
+        "message": "Show advanced options",
         "description": ""
     },
     "accountSwitcherPassword": {
@@ -3119,6 +3387,10 @@
         "message": "Autoplay inline videos.",
         "description": ""
     },
+    "showImagesCrosspostsTitle": {
+        "message": "Crossposts",
+        "description": ""
+    },
     "userTaggerUseCommentsLinkAsSourceTitle": {
         "message": "Use Comments Link As Source",
         "description": ""
@@ -3140,7 +3412,7 @@
         "description": ""
     },
     "orangeredResetFaviconOnLeaveDesc": {
-        "message": "Reset the favicon before leaving the page.\n\nThis prevents the unread badge from appearing in bookmarks, but may hurt browser caching.",
+        "message": "Favicon vorm Verlassen einer Seite zurücksetzen.\n\nVerhindert, dass \"Ungelesene Nachricht\" bei Lesezeichen auftaucht, verschlechtert jedoch unter Umständen das Browser-Caching.",
         "description": ""
     },
     "commentDepthName": {
@@ -3148,7 +3420,7 @@
         "description": ""
     },
     "filteRedditKeywordsDesc": {
-        "message": "Hide posts with certain keywords in the title.\nRegExp like `/(this|that|theother)/i` is allowed for keyword (but not unlessKeyword).\n\nFind out more on the [/r/Enhancement wiki](/r/Enhancement/wiki/index/filters/filtereddit/regexp).",
+        "message": "Hide posts with certain keywords in the title.",
         "description": ""
     },
     "orangeredShowUnreadCountInFaviconTitle": {
@@ -3187,12 +3459,20 @@
         "message": "Schlüssel",
         "description": ""
     },
+    "keyboardNavShowChildCommentsTitle": {
+        "message": "Show child comments",
+        "description": ""
+    },
     "userHighlightAutoColorUsernamesTitle": {
         "message": "Benutzernamen automatisch einfärben",
         "description": ""
     },
     "commentStyleName": {
         "message": "Kommentarstil",
+        "description": ""
+    },
+    "selectedEntryTextColorNightTitle": {
+        "message": "Text Color Night",
         "description": ""
     },
     "settingsNavigationShowAllOptionsTitle": {
@@ -3220,7 +3500,7 @@
         "description": ""
     },
     "orangeredOpenMailInNewTabDesc": {
-        "message": "When clicking the mail envelope or modmail icon, open mail in a new tab?",
+        "message": "Sollen Nachrichten beim Klick auf den Umschlag oder das ModMail-Symbol in einem neuen Tab geöffnet werden?",
         "description": ""
     },
     "showImagesImageMoveTitle": {
@@ -3255,6 +3535,10 @@
         "message": "Diesen Subreddit aus Deiner Schnellwahlleiste entfernen.",
         "description": ""
     },
+    "betteRedditVideoViewed": {
+        "message": "[Views: $1]",
+        "description": ""
+    },
     "keyboardNavPrevPageTitle": {
         "message": "Vorherige Seite",
         "description": ""
@@ -3269,6 +3553,10 @@
     },
     "commentStyleCommentBoxesDesc": {
         "message": "Kommentarfelder hervorheben für bessere Lesbarkeit / einfacheres Ausfindigmachen in grossen Threads.",
+        "description": ""
+    },
+    "filteRedditFilterSubredditsEverywhereButSubreddit": {
+        "message": "Everywhere except inside a subreddit",
         "description": ""
     },
     "styleTweaksSubredditStyleBrowserToolbarButtonTitle": {
@@ -3315,6 +3603,14 @@
         "message": "Über RES",
         "description": ""
     },
+    "numPoints": {
+        "message": "$1 points",
+        "description": ""
+    },
+    "faviconNotificationBGColorDesc": {
+        "message": "Change the background color of the notification on the favicon.",
+        "description": ""
+    },
     "aboutOptionsBackupTitle": {
         "message": "Sicherung",
         "description": ""
@@ -3336,7 +3632,7 @@
         "description": ""
     },
     "keyboardNavMoveToTopCommentDesc": {
-        "message": "Move to the topmost comment of the current thread (in comments).",
+        "message": "Zum obersten Kommentar im momentanen Thread springen.",
         "description": ""
     },
     "userHighlightFirstCommentColorTitle": {
@@ -3364,7 +3660,7 @@
         "description": ""
     },
     "filteRedditForceSyncFiltersDesc": {
-        "message": "Immediately overwrite your native /r/all filters.",
+        "message": "Überschreibe alle standardmäßigen /r/all Filter sofort",
         "description": ""
     },
     "searchHelperSearchPageTabsDesc": {
@@ -3439,6 +3735,10 @@
         "message": "Hover Info",
         "description": ""
     },
+    "submittedAtTime": {
+        "message": "submitted",
+        "description": "[post/comment] submitted [at $time]"
+    },
     "usernameHiderDesc": {
         "message": "Diese Funktion versteckt deinen Benutzernamen auf deinem Bildschirm, wenn du in Reddit eingeloggt bist. Wenn dir jemand bei der Arbeit über die Schulter guckt oder du einen Screenshot machst, wird dein Benutzername nicht gezeigt. Die Funktion betrifft nur deinen Bildschirm, es gibt keine Möglichkeit, auf Reddit zu posten oder zu kommentieren, ohne den Post mit dem Account zu verknüpfen, mit dem der Post abgesendet wurde.",
         "description": ""
@@ -3467,8 +3767,16 @@
         "message": "Wiki Autovervollständigung",
         "description": ""
     },
+    "filteRedditEverywhereBut": {
+        "message": "Everywhere but:",
+        "description": ""
+    },
     "commentToolsUserAutoCompleteTitle": {
         "message": "Benutzer Autovervollständigung",
+        "description": ""
+    },
+    "keyboardNavFollowProfileTitle": {
+        "message": "Follow Profile",
         "description": ""
     },
     "multiredditNavbarFadeSpeedTitle": {
@@ -3505,6 +3813,10 @@
     },
     "keyboardNavImageMoveUpDesc": {
         "message": "Move the image(s) in the highlighted post area up.",
+        "description": ""
+    },
+    "keyboardNavEditDesc": {
+        "message": "Edit current comment or self-post.",
         "description": ""
     },
     "aboutOptionsDonateTitle": {
@@ -3553,14 +3865,6 @@
     },
     "modhelperName": {
         "message": "Mod-Helfer",
-        "description": ""
-    },
-    "selectedEntryAddFocusBorderDesc": {
-        "message": "Einen Rahmen verwenden",
-        "description": ""
-    },
-    "selectedEntryFocusBGColorDesc": {
-        "message": "Die Hintergrundfarbe",
         "description": ""
     },
     "multiredditNavbarUrl": {
@@ -3635,8 +3939,12 @@
         "message": "Formatiere oder zeige zusätzliche Informationen über die Abstimmung zu Beiträgen oder Kommentaren.",
         "description": ""
     },
-    "radditShowPlaylisterToggleDesc": {
-        "message": "Show a toggle for radd.it embeds in subreddits with sidebar links to a raddit.com/r/subreddit playlist.",
+    "nightModeToggleTitle": {
+        "message": "Toggle night and day",
+        "description": ""
+    },
+    "readCommentsCleanCommentsDesc": {
+        "message": "Number of days to keep track of a comment page.",
         "description": ""
     },
     "subredditManName": {
@@ -3711,10 +4019,6 @@
         "message": "Nachtmodus Ende",
         "description": ""
     },
-    "userTaggerVoteWeight": {
-        "message": "Gewichtung der Stimme.",
-        "description": ""
-    },
     "showKarmaShowGoldDesc": {
         "message": "Display gilded icon if current user has gold status.",
         "description": ""
@@ -3725,6 +4029,10 @@
     },
     "noPartEscapeNPTitle": {
         "message": "Escape NP",
+        "description": ""
+    },
+    "redditUserInfoDesc": {
+        "message": "Reddits new native hover tooltip for users.",
         "description": ""
     },
     "showImagesShowSiteAttributionDesc": {
@@ -3739,12 +4047,20 @@
         "message": "When clicking the \"give gold\" button on the user hover info on a comment, give gold to the comment.",
         "description": ""
     },
+    "backupAndRestoreProvidersFile": {
+        "message": "File",
+        "description": ""
+    },
     "coreCategory": {
         "message": "Kern",
         "description": ""
     },
     "styleTweaksSubredditStyleBrowserToolbarButtonDesc": {
         "message": "Add a toolbar/omnibar icon to disable/enable current subreddit style - note this may be behind a hamburger menu in some browsers.",
+        "description": ""
+    },
+    "filteRedditSubredditsSubreddits": {
+        "message": "subreddits",
         "description": ""
     },
     "penaltyBoxFeaturesPenalty": {
@@ -3769,6 +4085,10 @@
     },
     "commentToolsCtrlEnterSavesLiveThreadsDesc": {
         "message": "Drücken sie Ctrl+Enter oder Cmd+Enter um Updates an ihrem Live-Thread zu speichern.",
+        "description": ""
+    },
+    "betteRedditHideLinkLabel": {
+        "message": "hide",
         "description": ""
     },
     "aboutOptionsLicense": {
@@ -3797,10 +4117,6 @@
     },
     "RESTipsDailyTipTitle": {
         "message": "Täglicher Hinweis",
-        "description": ""
-    },
-    "selectedEntryAddFocusBGColorTitle": {
-        "message": "Add Focus BG Color",
         "description": ""
     },
     "keyboardNavLinkNumberPositionTitle": {
@@ -3895,6 +4211,14 @@
         "message": "Diesen Subreddit zu Deiner Schnellwahlleiste hinzufügen.",
         "description": ""
     },
+    "keyboardNavUndoMoveDesc": {
+        "message": "Move to the previously selected thing.",
+        "description": ""
+    },
+    "userTaggerVotesUp": {
+        "message": "Upvotes",
+        "description": ""
+    },
     "accountSwitcherReloadOtherTabsTitle": {
         "message": "Andere Tabs neu laden",
         "description": ""
@@ -3912,11 +4236,7 @@
         "description": ""
     },
     "selectedEntryDesc": {
-        "message": "Ausgewählten Beitrag oder Kommentar hervorheben. Verwendbar mit der Tastaturnavigation.",
-        "description": ""
-    },
-    "selectedEntryFocusBorderTitle": {
-        "message": "Focus Border",
+        "message": "Style the currently selected submission or comment.",
         "description": ""
     },
     "appearanceCategory": {
@@ -3933,10 +4253,6 @@
     },
     "commentToolsItalicKeyTitle": {
         "message": "Kursiv-Schalter",
-        "description": ""
-    },
-    "selectedEntryFocusBorderNightTitle": {
-        "message": "Focus Border Night",
         "description": ""
     },
     "filteRedditUseRedditFiltersTitle": {
@@ -3999,12 +4315,8 @@
         "message": "Hilfe ein-/ausschalten",
         "description": ""
     },
-    "defaultTitle": {
-        "message": "Subreddit-Stil verwenden",
-        "description": ""
-    },
     "keyboardNavFollowLinkNewTabFocusDesc": {
-        "message": "When following a link in new tab - focus the tab?",
+        "message": "Fokussiere den Tab wenn ein neuer Tab mit einem Link geöffnet wurde",
         "description": ""
     },
     "aboutOptionsFAQ": {
@@ -4027,20 +4339,12 @@
         "message": "Upvote selected link or comment (or remove the upvote).",
         "description": ""
     },
-    "selectedEntryAddFocusBorderTitle": {
-        "message": "Add Focus Border",
-        "description": ""
-    },
-    "selectedEntryFocusFGColorNightDesc": {
-        "message": "Die Textfarbe, während der Nacht-Modus verwendet wird",
-        "description": ""
-    },
     "singleClickOpenFrontpageTitle": {
         "message": "Open Frontpage",
         "description": ""
     },
     "messageMenuHoverDelayDesc": {
-        "message": "Delay, in milliseconds, before hover tooltip loads.",
+        "message": "Verzögerung in Millisekunden, bevor der Tooltip lädt.",
         "description": ""
     },
     "keyboardNavFollowSubredditDesc": {
@@ -4063,12 +4367,12 @@
         "message": "Kommentare zum Link in neuem Tab weiterverfolgen",
         "description": ""
     },
-    "selectedEntrySelectThingOnLoadDesc": {
-        "message": "Beim Laden der Seite automatisch einen Post/Kommentar auswählen",
-        "description": ""
-    },
     "showImagesMarkSelftextVisitedDesc": {
         "message": "Mark selftext links visited when opening the expando.",
+        "description": ""
+    },
+    "filteRedditFilterSubredditsAllPopularAndDomain": {
+        "message": "/r/all, /r/popular and domain pages",
         "description": ""
     },
     "backupAndRestoreBackupTitle": {
@@ -4091,8 +4395,8 @@
         "message": "Setze benutzerdefinierte an/aus-Schalter für verschiedene RES-Einstellungen.",
         "description": ""
     },
-    "filteRedditExcludeCommentsPageDesc": {
-        "message": "Zeige den (expandierten) Link beim Besuch der Kommentarseite eines gefilterten Links.",
+    "accountSwitcherRequiresOtp": {
+        "message": "requires OTP (2FA is enabled)",
         "description": ""
     },
     "showImagesHostToggleDesc": {
@@ -4104,7 +4408,7 @@
         "description": ""
     },
     "filteRedditDesc": {
-        "message": "Filtere NSFW Inhalte sowie Links nach Schlüsselwörtern, Domäne (nutze den Benutzer-Markierer um Inhalte von bestimmten Benutzern zu ignorieren) oder Subreddit (für /r/all oder /domain/*).",
+        "message": "Filter out NSFW content, or links by keyword, domain (use User Tagger to ignore by user) or subreddit (for /r/all or /domain/*).\n\nRegExp like `/(this|that|theother)/i` is allowed in text boxes. Find out more on the [/r/Enhancement wiki](/r/Enhancement/wiki/index/filters/filtereddit/regexp).",
         "description": ""
     },
     "RESTipsMenuItemDesc": {
@@ -4231,6 +4535,14 @@
         "message": "Add color to the \"controversial\" comment indicator.\n\nThis indicator can be enabled/disabled in your [reddit preferences](/prefs/#highlight_controversial).",
         "description": ""
     },
+    "faviconNotificationTextColorTitle": {
+        "message": "Favicon Notification Text Color",
+        "description": ""
+    },
+    "selectedEntryOutlineStyleNightTitle": {
+        "message": "Outline Style Night",
+        "description": ""
+    },
     "accountSwitcherSnoo": {
         "message": "snoo (Alien)",
         "description": ""
@@ -4267,6 +4579,10 @@
         "message": "Das aktuelle Markdown-Feld im grossen Editor öffnen. (Nur wenn ein Markdown-Formular fokussiert ist).",
         "description": ""
     },
+    "readCommentsMonitorWhenIncognitoDesc": {
+        "message": "Keep track while browsing in incognito/private mode.",
+        "description": ""
+    },
     "commentDepthCommentPermalinksContextDesc": {
         "message": "Die Tiefe einstellen, welche bei Links zu einzelnen Kommentaren mit Kontext verwendet wird.",
         "description": ""
@@ -4276,7 +4592,7 @@
         "description": ""
     },
     "notificationsCooldown": {
-        "message": "cooldown",
+        "message": "Abklingzeit",
         "description": ""
     },
     "keyboardNavsSubredditFrontPageDesc": {
@@ -4301,10 +4617,6 @@
     },
     "keyboardNavLinkNewTabTitle": {
         "message": "Comments Link New Tab",
-        "description": ""
-    },
-    "selectedEntryFocusBGColorNightDesc": {
-        "message": "Die Hintergrundfarbe, während der Nacht-Modus verwendet wird",
         "description": ""
     },
     "backupAndRestoreReloadWarningWarn": {
@@ -4340,7 +4652,7 @@
         "description": ""
     },
     "keyboardNavImageSizeUpDesc": {
-        "message": "Increase the size of image(s) in the highlighted post area.",
+        "message": "Die Größe der Bilder im markierten Beitragsbereich erhöhen.",
         "description": ""
     },
     "floaterDesc": {
@@ -4363,8 +4675,16 @@
         "message": "Großen Editor aktivieren",
         "description": ""
     },
+    "userHighlightHighlightSelfTitle": {
+        "message": "Highlight Self",
+        "description": ""
+    },
     "penaltyBoxSuspendFeaturesNotificationHeader": {
         "message": "Suspended Feature",
+        "description": ""
+    },
+    "backupAndRestoreGoogleAccountTitle": {
+        "message": "Google Account",
         "description": ""
     },
     "onboardingBetaUpdateNotificationName": {
@@ -4419,8 +4739,16 @@
         "message": "Body Klassen",
         "description": ""
     },
+    "backupAndRestoreFoundBackup": {
+        "message": "Found new automatic backup from $1.",
+        "description": ""
+    },
     "subredditManagerLinkRandNSFWDesc": {
         "message": "Show \"RANDNSFW\" link in subreddit manager.",
+        "description": ""
+    },
+    "styleTweaksSubredditStyleCheckboxTitle": {
+        "message": "Subreddit Style Checkbox",
         "description": ""
     },
     "keyboardNavFollowCommentsDesc": {
@@ -4441,6 +4769,10 @@
     },
     "keyboardNavFollowLinkAndCommentsNewTabTitle": {
         "message": "Link und Kommentare in neuem Tab weiterverfolgen",
+        "description": ""
+    },
+    "keyboardNavProfileViewDesc": {
+        "message": "Go to new profile (profile pages only).",
         "description": ""
     },
     "multiredditNavbarName": {
@@ -4493,6 +4825,10 @@
     },
     "commentDepthCommentPermaLinksDesc": {
         "message": "Die Tiefe einstellen, welche bei Links zu einzelnen Kommentaren verwendet wird.",
+        "description": ""
+    },
+    "profileRedirectFromLandingPageTitle": {
+        "message": "From Landing Page",
         "description": ""
     },
     "profileNavigatorSectionMenuDesc": {
@@ -4572,7 +4908,7 @@
         "description": ""
     },
     "orangeredUpdateOtherTabsTitle": {
-        "message": "Update Other Tabs",
+        "message": "Andere Tabs aktualisieren",
         "description": ""
     },
     "notificationsNotificationID": {
@@ -4581,6 +4917,10 @@
     },
     "showImagesCaptionsPositionDesc": {
         "message": "Where to display captions around an image.",
+        "description": ""
+    },
+    "filteRedditAllowNSFWWhenBrowsingSubreddit": {
+        "message": "When browsing subreddit/multi-subreddit",
         "description": ""
     },
     "sourceSnudownName": {
@@ -4599,6 +4939,10 @@
         "message": "Bilder-Anzeige umschalten",
         "description": ""
     },
+    "contributeDesc": {
+        "message": "RES is entirely free - If you like our work, a contribution would be greatly appreciated.\n\nIf you would like to donate to RES, visit our [Contribution page](https://redditenhancementsuite.com/contribute/).\n\nCan't contribute a few bucks? How about a few lines of code? Our source code can be viewed on our [Github page](https://github.com/honestbleeps/Reddit-Enhancement-Suite/).",
+        "description": ""
+    },
     "aboutOptionsBackup": {
         "message": "Sichere deine RES Einstellungen und stelle sie wieder her.",
         "description": ""
@@ -4608,7 +4952,11 @@
         "description": ""
     },
     "keyboardNavImageSizeDownDesc": {
-        "message": "Decrease the size of image(s) in the highlighted post area.",
+        "message": "Die Bilder im markierten Beitragsbereich verkleinern.",
+        "description": ""
+    },
+    "userHighlightSelfColorTitle": {
+        "message": "Self Color",
         "description": ""
     },
     "commentToolsShowInputLengthTitle": {
@@ -4625,6 +4973,10 @@
     },
     "nerDesc": {
         "message": "Inspiriert von Modulen wie River of Reddit und Auto Pager – gibt dir einen endlosen Strom von Reddit-Freude.",
+        "description": ""
+    },
+    "userTaggerTruncateTagTitle": {
+        "message": "Truncate Tags",
         "description": ""
     },
     "filteRedditExcludeUserPagesDesc": {
@@ -4679,6 +5031,10 @@
         "message": "Zeige Linien für den Kommentar Fluss an.",
         "description": ""
     },
+    "filteRedditApplyTo": {
+        "message": "apply to",
+        "description": ""
+    },
     "subredditInfoStopFilteringThisSubredditFromAllAndDomain": {
         "message": "Filtere diesen Subreddit in /r/all und /domain/* nicht mehr",
         "description": ""
@@ -4703,12 +5059,20 @@
         "message": "Privatsphäre",
         "description": ""
     },
+    "styleTweaksSubredditStyleCheckboxDesc": {
+        "message": "Add a checkbox in the sidebar to disable/enable current subreddit style.",
+        "description": ""
+    },
     "submitHelperFocusFormOnLoadTitle": {
         "message": "Focus Form On Load",
         "description": ""
     },
     "sourceSnudownDesc": {
         "message": "Ein Werkzeug, um den ursprünglichen Text von Beiträgen und Kommentaren anzuzeigen, bevor Reddit ihn formatiert.",
+        "description": ""
+    },
+    "selectedEntryOutlineStyleDesc": {
+        "message": "Border appearance. E.g. `1px dashed gray` (CSS)",
         "description": ""
     },
     "keyboardNavMoveDownCommentDesc": {
@@ -4719,12 +5083,20 @@
         "message": "Verzögerung in Millisekunden, bevor der hover Tooltip erscheint.",
         "description": ""
     },
+    "userTaggerVotesDown": {
+        "message": "Downvotes",
+        "description": ""
+    },
     "submitHelperDesc": {
         "message": "Bietet Hilfen zum Abschicken von Beiträgen.",
         "description": ""
     },
     "hideChildCommentsAutomaticTitle": {
         "message": "Automatisch",
+        "description": ""
+    },
+    "troubleshooterDisableLabel": {
+        "message": "Disable",
         "description": ""
     },
     "showKarmaSeparatorTitle": {
@@ -4740,7 +5112,7 @@
         "description": ""
     },
     "logoLinkRedditLogoDestinationDesc": {
-        "message": "Location when you click on the reddit logo.",
+        "message": "Ziel beim Klick auf das Reddit-Logo.",
         "description": ""
     },
     "settingsConsoleName": {
@@ -4771,8 +5143,16 @@
         "message": "Gehe zur Modmail",
         "description": ""
     },
+    "nsfwSwitchToggleTitle": {
+        "message": "Toggle NSFW Filter",
+        "description": ""
+    },
     "userHighlightHighlightModTitle": {
         "message": "Highlight Mod",
+        "description": ""
+    },
+    "imgurUseGifOverGifVDesc": {
+        "message": "Use GIFs in place of GIFV for imgur links",
         "description": ""
     },
     "dashboardDefaultSortDesc": {
@@ -4781,6 +5161,10 @@
     },
     "accountSwitcherReloadOtherTabsDesc": {
         "message": "Nach dem Kontowechsel alle anderen Tabs neu laden.",
+        "description": ""
+    },
+    "subredditManagerFilterPlaceholder": {
+        "message": "Filter subreddits...",
         "description": ""
     },
     "styleTweaksDisableAnimationsTitle": {
@@ -4805,10 +5189,6 @@
     },
     "modhelperDesc": {
         "message": "Hilft Moderatoren mit Tips und Tricks, um mit RES zusammenzuarbeiten.",
-        "description": ""
-    },
-    "selectedEntrySelectThingOnLoadTitle": {
-        "message": "Select Thing On Load",
         "description": ""
     },
     "quickMessageName": {
@@ -4839,8 +5219,8 @@
         "message": "$1 Freunde",
         "description": ""
     },
-    "penaltyBoxFeaturesModuleID": {
-        "message": "moduleID",
+    "userHighlightSelfColorDesc": {
+        "message": "Color to use to highlight the logged in user.",
         "description": ""
     },
     "nightModeNightModeOverrideHoursDesc": {
@@ -4857,10 +5237,6 @@
     },
     "spoilerTagsTransitionDesc": {
         "message": "Verzögere das Einblenden von Spoiler-Text für einen Moment.",
-        "description": ""
-    },
-    "selectedEntryFocusBGColorTitle": {
-        "message": "Focus BG Color",
         "description": ""
     },
     "nerShowPauseButtonDesc": {
@@ -4887,10 +5263,6 @@
         "message": "When jumping to a entry (moveUpThread/moveDownThread, moveUpSibling/moveDownSibling, moveToParent, and moveDownParentSibling), when and how should RES scroll the window?",
         "description": ""
     },
-    "selectedEntrySelectOnClickDesc": {
-        "message": "Erlaubt, ein Element anzuklicken, um es auszuwählen",
-        "description": ""
-    },
     "subredditInfoFadeDelayTitle": {
         "message": "Ausblend-Verzögerung",
         "description": ""
@@ -4899,12 +5271,12 @@
         "message": "Keep ultra-long comment pages flowing.",
         "description": ""
     },
-    "showImagesImageMoveDesc": {
-        "message": "Allow dragging while holding shift to move images.",
+    "keyboardNavFollowProfileDesc": {
+        "message": "Go to profile of selected thing's author.",
         "description": ""
     },
-    "selectedEntrySelectOnClickTitle": {
-        "message": "Select On Click",
+    "showImagesImageMoveDesc": {
+        "message": "Allow dragging while holding shift to move images.",
         "description": ""
     },
     "troubleshooterCachesCleared": {
@@ -4919,10 +5291,6 @@
         "message": "Ecken der Kommentarfelder abrunden.",
         "description": ""
     },
-    "radditAlwaysShowSidebarPlaylisterDesc": {
-        "message": "Always show the radd.it embed in the sidebar when applicable.",
-        "description": ""
-    },
     "subredditManagerButtonEditDesc": {
         "message": "Show \"EDIT\" button in subreddit manager.",
         "description": ""
@@ -4933,6 +5301,10 @@
     },
     "messageMenuLabel": {
         "message": "Markierung",
+        "description": ""
+    },
+    "keyboardNavOverviewLegacyDesc": {
+        "message": "Go to legacy (overview) profile (profile pages only).",
         "description": ""
     },
     "userHighlightFirstCommentColorHoverDesc": {
@@ -4987,8 +5359,16 @@
         "message": "Folgen",
         "description": ""
     },
+    "keyboardNavFollowProfileNewTabDesc": {
+        "message": "Go to profile of selected thing's author in a new tab.",
+        "description": ""
+    },
     "keyboardNavDownVoteDesc": {
         "message": "Ausgewählten Kommentar oder Link negativ Bewerten (oder die Bewertung entfernen).",
+        "description": ""
+    },
+    "backupAndRestoreBackupOverwriteWarning": {
+        "message": "Restoring a backup will permanently overwrite your current storage. Are you sure you want to do this?",
         "description": ""
     },
     "subredditManagerSubredditShortcutDesc": {
@@ -5099,6 +5479,10 @@
         "message": "After restoring a backup, either manually or automatically, how should other tabs be reloaded? Tabs must be reloaded for restored settings to take effect.",
         "description": ""
     },
+    "temporaryDropdownLinksAlwaysTitle": {
+        "message": "Always",
+        "description": ""
+    },
     "troubleshooterThisWillKillYourSettings": {
         "message": "Dies wird alle ihre Einstellungen und gespeicherten Daten entfernen. Geben sie \"$1\" ein wenn sie sicher sind.",
         "description": ""
@@ -5115,6 +5499,10 @@
         "message": "Nutzer suspendiert.",
         "description": ""
     },
+    "readCommentsDesc": {
+        "message": "Keep track of what comments you have read. Useful for filtering comments.",
+        "description": ""
+    },
     "showKarmaUseCommasTitle": {
         "message": "Verwende Kommas",
         "description": ""
@@ -5128,7 +5516,7 @@
         "description": ""
     },
     "filteRedditDomainsDesc": {
-        "message": "Hide posts that link to certain domains.\nCaution: domain keywords like \"reddit\" would ignore \"reddit.com\" and \"fooredditbar.com\".\nRegExp like `/(this|that|theother)/i` is allowed for domain.\n\nFind out more on the [/r/Enhancement wiki](/r/Enhancement/wiki/index/filters/filtereddit/regexp).",
+        "message": "Hide posts that link to certain domains.\nCaution: domain keywords like \"reddit\" would ignore \"reddit.com\" and \"fooredditbar.com\".",
         "description": ""
     },
     "showImagesShowVideoControlsDesc": {
@@ -5212,7 +5600,7 @@
         "description": ""
     },
     "backupAndRestoreRestoreDesc": {
-        "message": "Restore a backup of your RES settings.",
+        "message": "Stelle eine Sicherung deiner RES-Einstellungen wieder her.",
         "description": ""
     },
     "commentPreviewEnableForCommentsDesc": {
@@ -5233,6 +5621,10 @@
     },
     "commentToolsKeyboardShortcutsDesc": {
         "message": "Benutze Tastenkürzel um den Stil des ausgewählten Textes zu verändern.",
+        "description": ""
+    },
+    "profileRedirectDesc": {
+        "message": "Prefer loading a particular view of a profile page",
         "description": ""
     },
     "searchHelperHideSearchOptionsDesc": {
@@ -5261,10 +5653,6 @@
     },
     "singleClickHideLECTitle": {
         "message": "Hide LEC",
-        "description": ""
-    },
-    "extensionNameAuthor": {
-        "message": "Reddit Enhancement Suite",
         "description": ""
     },
     "toggleCommentsLeftEdgeWidthDesc": {
@@ -5311,6 +5699,10 @@
         "message": "Prefer Reddit Media",
         "description": ""
     },
+    "filteRedditAddFilter": {
+        "message": "+add filter",
+        "description": ""
+    },
     "accountSwitcherShowUserDetailsDesc": {
         "message": "Details jedes Accounts im Accountwechsler anzeigen, wie z. B. Karma oder Goldstatus.",
         "description": ""
@@ -5319,12 +5711,20 @@
         "message": "Stöbern",
         "description": ""
     },
+    "announcementsNewPost": {
+        "message": "A new post has been made to /r/$1",
+        "description": ""
+    },
     "styleTweaksHighlightTopLevelDesc": {
         "message": "Draws a line to separate top-level comments for easier distinction.",
         "description": ""
     },
     "userTaggerAreYouSureYouWantToDeleteTag": {
         "message": "Sind sie sicher, dass sie den Tag für den Benutzer $1 löschen wollen?",
+        "description": ""
+    },
+    "selectedEntryAddLineTitle": {
+        "message": "Add Line",
         "description": ""
     },
     "imgurPreferredImgurLinkDesc": {
@@ -5361,6 +5761,10 @@
     },
     "accountSwitcherLoggedOut": {
         "message": "Du wurdest abgemeldet.",
+        "description": ""
+    },
+    "betteRedditHideSubmissionError": {
+        "message": "Sorry, there was an error trying to hide your submission. Try clicking again.",
         "description": ""
     },
     "commentNavigatorShowByDefaultTitle": {

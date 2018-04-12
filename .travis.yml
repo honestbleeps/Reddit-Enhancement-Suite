@@ -27,6 +27,9 @@ env:
     - secure: qDNnqBq0tTuvFd7b39JJB6jHIe6FA8iKFmkuZaiCJXezZaZDOnGTq0ZdFhR+4Zbxvpin2iaJQMaFVsh0J6RE1tZM3D6cyWpwNQDoVrxGFNzpUzddvbVzqsYtTprmttHr1Kq4sA9U66wQgrePWvnPHDViiVXcV0E8NcAutatZVUM=
     # OPERA_PASSWORD
     - secure: AZeNzWDrEQI7l6vA2675rk+KuTjq7qQ5fN4ndZoXRTwCSLjell2tONuxQHbdJOePwLBE+ow+hfOGUbbzZCwetWfGML1HbngOYVapekPjCTuviErHRwXH0ST2iJ75E5ki3+GE2K3DmlS8DRNr8BehfkjSZkxsev04vameQX+d7c0=
+    - BOT_USER=Reddit-Enhancement-Suite-Bot
+    # BOT_PASSWORD
+    - secure: ZBBtGxs7i536e3jEUsVTXu7/PfcXGWslftul6G3l9e9I9mqUcxsZY0ET/YbJib9pjmw2O9SAT5E+3uAftPpfgHxXcqm+/+Hw7qXqqG2woR18s2jxZmW9m0paa5uqsG0GZv/MYzoWGIBPfFmxEdYAKwHYy9ei4uXRwQZLc/aZXEE=
     - SAUCE_USERNAME=RES-Auto
     - SELENIUM_HOST=ondemand.saucelabs.com
     - SELENIUM_PORT=80
@@ -42,18 +45,18 @@ matrix:
   include:
     - env: RES_JOB=lint_flow
       script:
-        - yarn run flow -- check --show-all-errors
+        - yarn run flow check --show-all-errors
         - yarn run eslint
         - yarn run sass-lint
         - yarn run i18n-lint
     - env: RES_JOB=test
       script:
         - yarn run coverage && yarn run report-coverage
-        - yarn run build -- chrome,firefox
-        - yarn run integration -- chrome --retries 2 && yarn run integration -- firefox --retries 2
+        - yarn run build chrome,firefox
+        - yarn run integration chrome --retries 2 && yarn run integration firefox --retries 2
     - env: RES_JOB=build_deploy
       script:
-        - yarn run build -- all
+        - yarn run build all
         - yarn run manifoldjs-package
       deploy:
         - provider: releases
@@ -70,7 +73,14 @@ matrix:
           on:
             tags: true
         - provider: script
-          script: yarn run deploy
+          script: build/travisDeploy.sh
           skip_cleanup: true
           on:
             tags: true
+notifications:
+  irc:
+    channels:
+      - "irc.snoonet.org#enhancement"
+    on_success: change
+    on_failure: always
+    skip_join: true

@@ -26,6 +26,7 @@ function editSettings(callback) {
 	return (browser, done) => {
 		browser
 			.url('https://www.reddit.com/wiki/pages/#res:settings/filteReddit')
+			.refresh() // get rid of update notification
 			.waitForElementVisible('#RESConsoleContainer')
 			.perform(callback)
 			.click('#moduleOptionsSave');
@@ -71,17 +72,6 @@ module.exports = {
 			.url(byId(POST.ABC, POST.A))
 			.waitForElementNotVisible(thing(POST.A))
 			.assert.visible(thing(POST.ABC))
-
-			// unlesskeyword is not regex
-			.perform(editSettings(() => browser
-				.clearValue('#optionContainer-filteReddit-keywords input')
-				.setValue('#optionContainer-filteReddit-keywords input', ['a'])
-				.clearValue('#optionContainer-filteReddit-keywords input#keywords_unlessKeyword_0')
-				.setValue('#optionContainer-filteReddit-keywords input#keywords_unlessKeyword_0', ['/[a-c]/i'])
-			))
-			.url(byId(POST.ABC, POST.ABCLikeRegex))
-			.waitForElementNotVisible(thing(POST.ABC))
-			.assert.visible(thing(POST.ABCLikeRegex))
 			.end();
 	},
 	'post domains': browser => {
@@ -170,7 +160,7 @@ module.exports = {
 				.click('#optionContainer-filteReddit-flair .addRowButton')
 				.setValue('#optionContainer-filteReddit-flair input', ['A'])
 			))
-			.url(byId(POST.aWithFlaira, POST.bWithFlairA, POST.cWithFlair_a_, POST.CWithFlairC))
+			.url('https://www.reddit.com/r/RESIntegrationTests/search?q=flair%3Aa+OR+flair%3Ac&restrict_sr=on&t=all&feature=legacy_search')
 			.waitForElementNotVisible(thing(POST.aWithFlaira))
 			.waitForElementNotVisible(thing(POST.bWithFlairA))
 			.waitForElementNotVisible(thing(POST.cWithFlair_a_))
@@ -181,7 +171,7 @@ module.exports = {
 				.clearValue('#optionContainer-filteReddit-flair input')
 				.setValue('#optionContainer-filteReddit-flair input', ['[a]'])
 			))
-			.url(byId(POST.aWithFlaira, POST.cWithFlair_a_))
+			.url('https://www.reddit.com/r/RESIntegrationTests/search?q=flair%3Aa&restrict_sr=on&t=all&feature=legacy_search')
 			.waitForElementNotVisible(thing(POST.cWithFlair_a_))
 			.assert.visible(thing(POST.aWithFlaira))
 			.end();
@@ -249,7 +239,7 @@ module.exports = {
 				.execute(`
 					document.querySelector('#optionContainer-filteReddit-keywords input#keywords_subreddits_1').value = 'RESIntegrationTests';
 				`)
-				.click('#optionContainer-filteReddit-keywords input#keywords_applyTo_1-2' /* only on */)
+				.click('#optionContainer-filteReddit-keywords input#keywords_filteRedditApplyTo_1-2' /* only on */)
 			))
 			.url(byId(POST.A, POST.RESIntegrationTests2_A))
 			.waitForElementNotVisible(thing(POST.A))
@@ -262,7 +252,7 @@ module.exports = {
 
 			// except these subreddits (posted to)
 			.perform(editSettings(() => browser
-				.click('#optionContainer-filteReddit-keywords input#keywords_applyTo_0-1' /* everywhere but */)
+				.click('#optionContainer-filteReddit-keywords input#keywords_filteRedditApplyTo_0-1' /* everywhere but */)
 			))
 			.url(byId(POST.A, POST.RESIntegrationTests2_A))
 			.waitForElementNotVisible(thing(POST.RESIntegrationTests2_A))
@@ -278,7 +268,7 @@ module.exports = {
 				.execute(`
 					document.querySelector('#optionContainer-filteReddit-keywords input#keywords_subreddits_0').value = 'resinTegrAtiontEsts';
 				`)
-				.click('#optionContainer-filteReddit-keywords input#keywords_applyTo_0-2' /* only on */)
+				.click('#optionContainer-filteReddit-keywords input#keywords_filteRedditApplyTo_0-2' /* only on */)
 			))
 			.url(byId(POST.A, POST.RESIntegrationTests2_A))
 			.waitForElementNotVisible(thing(POST.A))
@@ -291,14 +281,14 @@ module.exports = {
 				.execute(`
 					document.querySelector('#optionContainer-filteReddit-keywords input#keywords_subreddits_0').value = 'all';
 				`)
-				.click('#optionContainer-filteReddit-keywords input#keywords_applyTo_0-2' /* only on */)
+				.click('#optionContainer-filteReddit-keywords input#keywords_filteRedditApplyTo_0-2' /* only on */)
 			))
 			.url('https://www.reddit.com/r/all/?limit=1')
 			.waitForElementNotVisible('#siteTable .thing' /* first thing */)
 
 			// browsing /r/all special case (except these subreddits)
 			.perform(editSettings(() => browser
-				.click('#optionContainer-filteReddit-keywords input#keywords_applyTo_0-1' /* everywhere but */)
+				.click('#optionContainer-filteReddit-keywords input#keywords_filteRedditApplyTo_0-1' /* everywhere but */)
 			))
 			.url('https://www.reddit.com/r/all/?limit=1')
 			.pause(1000)
@@ -311,43 +301,18 @@ module.exports = {
 				.execute(`
 					document.querySelector('#optionContainer-filteReddit-keywords input#keywords_subreddits_0').value = 'popular';
 				`)
-				.click('#optionContainer-filteReddit-keywords input#keywords_applyTo_0-2' /* only on */)
+				.click('#optionContainer-filteReddit-keywords input#keywords_filteRedditApplyTo_0-2' /* only on */)
 			))
 			.url('https://www.reddit.com/r/popular/?limit=1')
 			.waitForElementNotVisible('#siteTable .thing' /* first thing */)
 
 			// browsing /r/popular special case (except these subreddits)
 			.perform(editSettings(() => browser
-				.click('#optionContainer-filteReddit-keywords input#keywords_applyTo_0-1' /* everywhere but */)
+				.click('#optionContainer-filteReddit-keywords input#keywords_filteRedditApplyTo_0-1' /* everywhere but */)
 			))
 			.url('https://www.reddit.com/r/popular/?limit=1')
 			.pause(1000)
 			.assert.visible('#siteTable .thing' /* first thing */)
-			.end();
-	},
-	'filterline basic usage': browser => {
-		const normalPost = '#thing_t3_6331zg';
-		const nsfwPost = '#thing_t3_63320d';
-
-		browser
-			.url('https://www.reddit.com/by_id/t3_6331zg,t3_63320d')
-			.waitForElementVisible('.res-toggle-filterline-visibility')
-			.assert.elementNotPresent('.res-filterline')
-			.assert.visible(normalPost)
-			.assert.visible(nsfwPost)
-			.click('.res-toggle-filterline-visibility')
-			.assert.visible('.res-filterline')
-			.assert.visible(normalPost)
-			.assert.visible(nsfwPost)
-			.click('.res-filterline-filter[filter-key="isNSFW"]')
-			.waitForElementNotVisible(normalPost)
-			.assert.visible(nsfwPost)
-			.click('.res-filterline-filter[filter-key="isNSFW"]')
-			.waitForElementNotVisible(nsfwPost)
-			.assert.visible(normalPost)
-			.click('.res-filterline-filter[filter-key="isNSFW"]')
-			.assert.visible(normalPost)
-			.assert.visible(nsfwPost)
 			.end();
 	},
 };
