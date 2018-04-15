@@ -68,7 +68,7 @@
 	}
 }
 
-.fieldPair {
+.fieldPair:not([hidden]) {
 	display: flex;
 	margin-bottom: 12px;
 
