@@ -69,8 +69,10 @@
 }
 
 .fieldPair {
-	display: flex;
-	margin-bottom: 12px;
+	&:not([hidden]) {
+		display: flex;
+		margin-bottom: 12px;
+	}
 
 	&-label {
 		float: left;
