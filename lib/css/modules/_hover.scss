@@ -68,9 +68,11 @@
 	}
 }
 
-.fieldPair:not([hidden]) {
-	display: flex;
-	margin-bottom: 12px;
+.fieldPair {
+	&:not([hidden]) {
+		display: flex;
+		margin-bottom: 12px;
+	}
 
 	&-label {
 		float: left;
