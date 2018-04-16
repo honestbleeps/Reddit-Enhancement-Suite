@@ -1,11 +1,13 @@
 ### New Features
 
-- None (thanks nobody)
+- New User Tagger preset tags (thanks @pll33)
+- New "front" command line command (thanks @vogon101)
+- New streamja.com host (thanks @ngdio)
 
 ### Bug Fixes
 
-- None (thanks nobody)
+- (beta) Fix Subreddit Tagger doing nothing (thanks @erikdesjardins)
 
 ### Housekeeping / Other
 
-- None (thanks nobody)
+- Update dependencies (thanks @mc10)
