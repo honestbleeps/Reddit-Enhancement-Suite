@@ -9,7 +9,7 @@ module.exports = {
 		const comment = '#thing_t1_dc7kvtv';
 
 		browser
-			.url('https://www.reddit.com/r/RESIntegrationTests/comments/5mzxff/comment_quick_collapse/')
+			.url('https://en.reddit.com/r/RESIntegrationTests/comments/5mzxff/comment_quick_collapse/')
 			.waitForElementVisible(comment)
 			.moveToElement(`${comment} time`, 0, 0)
 			.doubleClick()

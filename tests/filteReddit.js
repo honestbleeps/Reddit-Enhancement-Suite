@@ -15,7 +15,7 @@ const POST = {
 };
 
 function byId(...posts) {
-	return `https://www.reddit.com/by_id/${posts.join(',')}`;
+	return `https://en.reddit.com/by_id/${posts.join(',')}`;
 }
 
 function thing(post) {
@@ -25,7 +25,7 @@ function thing(post) {
 function editSettings(callback) {
 	return (browser, done) => {
 		browser
-			.url('https://www.reddit.com/wiki/pages/#res:settings/filteReddit')
+			.url('https://en.reddit.com/wiki/pages/#res:settings/filteReddit')
 			.refresh() // get rid of update notification
 			.waitForElementVisible('#RESConsoleContainer')
 			.perform(callback)
@@ -128,7 +128,7 @@ module.exports = {
 			.assert.visible(thing(POST.restests))
 
 			// basic, browsing subreddit (should not filter by default)
-			.url(`https://www.reddit.com/r/RESIntegrationTests/new/?after=${POST.B}&limit=1`)
+			.url(`https://en.reddit.com/r/RESIntegrationTests/new/?after=${POST.B}&limit=1`)
 			.pause(1000)
 			.assert.visible(thing(POST.A))
 
@@ -160,7 +160,7 @@ module.exports = {
 				.click('#optionContainer-filteReddit-flair .addRowButton')
 				.setValue('#optionContainer-filteReddit-flair input', ['A'])
 			))
-			.url('https://www.reddit.com/r/RESIntegrationTests/search?q=flair%3Aa+OR+flair%3Ac&restrict_sr=on&t=all&feature=legacy_search')
+			.url('https://en.reddit.com/r/RESIntegrationTests/search?q=flair%3Aa+OR+flair%3Ac&restrict_sr=on&t=all&feature=legacy_search')
 			.waitForElementNotVisible(thing(POST.aWithFlaira))
 			.waitForElementNotVisible(thing(POST.bWithFlairA))
 			.waitForElementNotVisible(thing(POST.cWithFlair_a_))
@@ -171,7 +171,7 @@ module.exports = {
 				.clearValue('#optionContainer-filteReddit-flair input')
 				.setValue('#optionContainer-filteReddit-flair input', ['[a]'])
 			))
-			.url('https://www.reddit.com/r/RESIntegrationTests/search?q=flair%3Aa&restrict_sr=on&t=all&feature=legacy_search')
+			.url('https://en.reddit.com/r/RESIntegrationTests/search?q=flair%3Aa&restrict_sr=on&t=all&feature=legacy_search')
 			.waitForElementNotVisible(thing(POST.cWithFlair_a_))
 			.assert.visible(thing(POST.aWithFlaira))
 			.end();
@@ -246,7 +246,7 @@ module.exports = {
 			.assert.visible(thing(POST.RESIntegrationTests2_A))
 
 			// only these subreddits (when browsing)
-			.url(`https://www.reddit.com/r/RESIntegrationTests/new/?after=${POST.CWithFlairC}&limit=2`)
+			.url(`https://en.reddit.com/r/RESIntegrationTests/new/?after=${POST.CWithFlairC}&limit=2`)
 			.waitForElementNotVisible(thing(POST.A))
 			.assert.visible(thing(POST.B))
 
@@ -259,7 +259,7 @@ module.exports = {
 			.assert.visible(thing(POST.A))
 
 			// except these subreddits (when browsing)
-			.url(`https://www.reddit.com/r/RESIntegrationTests/new/?after=${POST.B}&limit=2`)
+			.url(`https://en.reddit.com/r/RESIntegrationTests/new/?after=${POST.B}&limit=2`)
 			.pause(1000)
 			.assert.visible(thing(POST.A))
 
@@ -283,14 +283,14 @@ module.exports = {
 				`)
 				.click('#optionContainer-filteReddit-keywords input#keywords_filteRedditApplyTo_0-2' /* only on */)
 			))
-			.url('https://www.reddit.com/r/all/?limit=1')
+			.url('https://en.reddit.com/r/all/?limit=1')
 			.waitForElementNotVisible('#siteTable .thing' /* first thing */)
 
 			// browsing /r/all special case (except these subreddits)
 			.perform(editSettings(() => browser
 				.click('#optionContainer-filteReddit-keywords input#keywords_filteRedditApplyTo_0-1' /* everywhere but */)
 			))
-			.url('https://www.reddit.com/r/all/?limit=1')
+			.url('https://en.reddit.com/r/all/?limit=1')
 			.pause(1000)
 			.assert.visible('#siteTable .thing' /* first thing */)
 
@@ -303,14 +303,14 @@ module.exports = {
 				`)
 				.click('#optionContainer-filteReddit-keywords input#keywords_filteRedditApplyTo_0-2' /* only on */)
 			))
-			.url('https://www.reddit.com/r/popular/?limit=1')
+			.url('https://en.reddit.com/r/popular/?limit=1')
 			.waitForElementNotVisible('#siteTable .thing' /* first thing */)
 
 			// browsing /r/popular special case (except these subreddits)
 			.perform(editSettings(() => browser
 				.click('#optionContainer-filteReddit-keywords input#keywords_filteRedditApplyTo_0-1' /* everywhere but */)
 			))
-			.url('https://www.reddit.com/r/popular/?limit=1')
+			.url('https://en.reddit.com/r/popular/?limit=1')
 			.pause(1000)
 			.assert.visible('#siteTable .thing' /* first thing */)
 			.end();

@@ -17,7 +17,7 @@ module.exports = {
 
 		browser
 			// tag icon appears correctly
-			.url('https://www.reddit.com/r/RESIntegrationTests/comments/5sgqzh/user_tagger/?limit=1')
+			.url('https://en.reddit.com/r/RESIntegrationTests/comments/5sgqzh/user_tagger/?limit=1')
 			.waitForElementVisible(tag(post), 'post icon tag visible')
 			.waitForElementVisible(tag(parentComment), 'parent comment tag icon visible')
 			.click(loadChildComment)
@@ -35,7 +35,7 @@ module.exports = {
 			.assert.containsText(tag(childComment), 'test tag')
 
 			// works in post listings
-			.url('https://www.reddit.com/by_id/t3_5sgqzh')
+			.url('https://en.reddit.com/by_id/t3_5sgqzh')
 			.waitForElementVisible(tag(post))
 			.assert.containsText(tag(post), 'test tag')
 

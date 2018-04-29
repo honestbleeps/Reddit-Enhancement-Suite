@@ -1,7 +1,7 @@
 module.exports = {
 	'default (en) locale': browser => {
 		browser
-			.url('https://www.reddit.com/wiki/pages/#res:settings/about')
+			.url('https://en.reddit.com/wiki/pages/#res:settings/about')
 			.waitForElementVisible('#RESConsoleContainer')
 			.assert.containsText('#RESConfigPanelOptions .moduleName', 'About RES')
 			.end();

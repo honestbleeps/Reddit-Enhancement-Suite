@@ -1,7 +1,7 @@
 module.exports = {
 	'ignores source textareas': browser => {
 		browser
-			.url('https://www.reddit.com/r/RESIntegrationTests/comments/5uicy8/comment_tools/')
+			.url('https://en.reddit.com/r/RESIntegrationTests/comments/5uicy8/comment_tools/')
 			.waitForElementVisible('#siteTable')
 			.click('.thing.link .viewSource a')
 			.waitForElementVisible('.thing.link .viewSource textarea')

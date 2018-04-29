@@ -13,7 +13,7 @@ function toggleChildren(thingSelector) {
 module.exports = {
 	'basic functionality': browser => {
 		browser
-			.url('https://www.reddit.com/r/RESIntegrationTests/comments/5sq835/hide_child_comments/')
+			.url('https://en.reddit.com/r/RESIntegrationTests/comments/5sq835/hide_child_comments/')
 			.waitForElementVisible(toggleChildren(parent))
 			.assert.visible(child)
 			.assert.visible(subchild)
@@ -43,7 +43,7 @@ module.exports = {
 	'hide all': browser => {
 		browser
 			// when clicking "hide all"
-			.url('https://www.reddit.com/r/RESIntegrationTests/comments/5sq835/hide_child_comments/')
+			.url('https://en.reddit.com/r/RESIntegrationTests/comments/5sq835/hide_child_comments/')
 			.waitForElementVisible(hideAll)
 			.assert.visible(parent)
 			.assert.visible(child)
@@ -65,11 +65,11 @@ module.exports = {
 			.assert.visible(subchild2)
 
 			// with automatic hiding
-			.url('https://www.reddit.com/wiki/pages/#res:settings/hideChildComments')
+			.url('https://en.reddit.com/wiki/pages/#res:settings/hideChildComments')
 			.waitForElementVisible('#RESConsoleContainer')
 			.click('#automaticContainer')
 			.click('#moduleOptionsSave')
-			.url('https://www.reddit.com/r/RESIntegrationTests/comments/5sq835/hide_child_comments/')
+			.url('https://en.reddit.com/r/RESIntegrationTests/comments/5sq835/hide_child_comments/')
 			.waitForElementNotVisible(subchild)
 			.waitForElementNotVisible(subchild2)
 			.waitForElementNotVisible(child)

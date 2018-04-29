@@ -20,13 +20,13 @@ module.exports = {
 		const transparent = 'rgba(0, 0, 0, 0)';
 
 		browser
-			.url('https://www.reddit.com/wiki/pages/#res:settings/userHighlight')
+			.url('https://en.reddit.com/wiki/pages/#res:settings/userHighlight')
 			.refresh() // get rid of update notification
 			.waitForElementVisible('#RESConsoleContainer')
 			.click('#highlightFirstCommenterContainer')
 			.click('#moduleOptionsSave')
 
-			.url('https://www.reddit.com/r/RESIntegrationTests/comments/5pp8jz/highlight_first_commenter/')
+			.url('https://en.reddit.com/r/RESIntegrationTests/comments/5pp8jz/highlight_first_commenter/')
 			.waitForElementVisible('.commentarea')
 			.assert.cssProperty(a, 'background-color', opColor)
 			.assert.cssProperty(a_b, 'background-color', transparent)

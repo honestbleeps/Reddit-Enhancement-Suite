@@ -32,7 +32,7 @@ module.exports = {
 		const nsfwPost = '#thing_t3_63320d';
 
 		browser
-			.url('https://www.reddit.com/by_id/t3_6331zg,t3_63320d')
+			.url('https://en.reddit.com/by_id/t3_6331zg,t3_63320d')
 			.perform(initialize)
 			.assert.elementNotPresent('.res-filterline')
 			.assert.visible(normalPost)
@@ -63,7 +63,7 @@ module.exports = {
 
 		browser
 			// add a domain filter
-			.url('https://www.reddit.com/wiki/pages/#res:settings/filteReddit')
+			.url('https://en.reddit.com/wiki/pages/#res:settings/filteReddit')
 			.refresh() // get rid of update notification
 			.waitForElementVisible('#RESConsoleContainer')
 			.click('#optionContainer-filteReddit-domains .addRowButton')
@@ -71,7 +71,7 @@ module.exports = {
 			.click('#moduleOptionsSave')
 
 			// navigate to site matching filter
-			.url('https://www.reddit.com/by_id/t3_5nacp4')
+			.url('https://en.reddit.com/by_id/t3_5nacp4')
 			.perform(initialize)
 			.assert.hidden(thing)
 
@@ -129,7 +129,7 @@ module.exports = {
 		hideInfocard = false;
 
 		browser
-			.url('https://www.reddit.com/by_id/t3_5nacp4')
+			.url('https://en.reddit.com/by_id/t3_5nacp4')
 			.perform(initialize)
 			.click('.res-toggle-filterline-visibility')
 			.waitForElementVisible('.res-filterline-preamble')
@@ -168,7 +168,7 @@ module.exports = {
 		const thing = '#thing_t3_5nacp4';
 
 		browser
-			.url('https://www.reddit.com/by_id/t3_5nacp4')
+			.url('https://en.reddit.com/by_id/t3_5nacp4')
 			.perform(initialize)
 			.keys(['f'])
 			.waitForElementVisible('#keyCommandLineWidget')
@@ -223,7 +223,7 @@ module.exports = {
 		}
 
 		browser
-			.url('https://www.reddit.com/by_id/t3_5nacp4')
+			.url('https://en.reddit.com/by_id/t3_5nacp4')
 			.perform(initialize)
 			.click('.res-toggle-filterline-visibility')
 			.waitForElementVisible('.res-filterline-preamble')
@@ -250,7 +250,7 @@ module.exports = {
 		const nsfwPost = '#thing_t3_63320d';
 
 		browser
-			.url('https://www.reddit.com/by_id/t3_6331zg,t3_63320d')
+			.url('https://en.reddit.com/by_id/t3_6331zg,t3_63320d')
 			.perform(initialize)
 			.click('.res-toggle-filterline-visibility')
 			.waitForElementVisible('.res-filterline-preamble')
@@ -307,7 +307,7 @@ module.exports = {
 		const nsfwPost = '#thing_t3_63320d';
 
 		browser
-			.url('https://www.reddit.com/by_id/t3_6331zg,t3_63320d')
+			.url('https://en.reddit.com/by_id/t3_6331zg,t3_63320d')
 			.perform(initialize)
 			.click('.res-toggle-filterline-visibility')
 			.click(`${filter}[type="isNSFW"]`)

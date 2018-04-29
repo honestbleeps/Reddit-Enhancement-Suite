@@ -1,7 +1,7 @@
 module.exports = {
 	'daily tips shows on first load, featureTip when feature used first time': browser => {
 		browser
-			.url('https://www.reddit.com/?limit=1')
+			.url('https://en.reddit.com/?limit=1')
 			.waitForElementVisible('.guider.res-ordinaryTip')
 			.assert.containsText('.guider', 'Welcome to RES')
 			.pause(5000)
@@ -21,7 +21,7 @@ module.exports = {
 		const seenTips = new Set();
 
 		browser
-			.url('https://www.reddit.com/?limit=1')
+			.url('https://en.reddit.com/?limit=1')
 			.perform(function checkNext(browser, done) {
 				browser
 					.waitForElementPresent('.guider')
