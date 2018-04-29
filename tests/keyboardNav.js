@@ -16,7 +16,7 @@ module.exports = {
 		const activeThing = 'RES-keyNav-activeThing';
 
 		browser
-			.url('https://www.reddit.com/r/RESIntegrationTests/comments/5pxfg2/keyboard_nav/?sort=old')
+			.url('https://en.reddit.com/r/RESIntegrationTests/comments/5pxfg2/keyboard_nav/?sort=old')
 			.waitForElementVisible(`${post}.${activeThing}`)
 			.keys(['j'])
 			.assert.cssClassNotPresent(post, activeThing, 'move down normally (post -> comments)')
@@ -59,7 +59,7 @@ module.exports = {
 		const activeThing = 'RES-keyNav-activeThing';
 
 		browser
-			.url('https://www.reddit.com/r/RESIntegrationTests/comments/5pxfg2/keyboard_nav/?sort=old')
+			.url('https://en.reddit.com/r/RESIntegrationTests/comments/5pxfg2/keyboard_nav/?sort=old')
 			.waitForElementVisible(`${post}.${activeThing}`)
 			.keys(['j', 'k'])
 			.assert.cssClassPresent(post, activeThing)
@@ -75,14 +75,14 @@ module.exports = {
 
 		browser
 			// go to subreddit frontpage
-			.url('https://www.reddit.com/r/RESIntegrationTests/comments/5n61yd/go_mode/')
+			.url('https://en.reddit.com/r/RESIntegrationTests/comments/5n61yd/go_mode/')
 			.waitForElementVisible('#RESSettingsButton')
 			.keys(['g', 'F'])
-			.assert.urlEquals('https://www.reddit.com/r/RESIntegrationTests/')
+			.assert.urlEquals('https://en.reddit.com/r/RESIntegrationTests/')
 			// go to frontpage
 			.waitForElementVisible('#RESSettingsButton')
 			.keys(['g', 'f'])
-			.assert.urlEquals('https://www.reddit.com/')
+			.assert.urlEquals('https://en.reddit.com/')
 			.end();
 	},
 	'blurs target': browser => {
@@ -93,7 +93,7 @@ module.exports = {
 		}
 
 		browser
-			.url('https://www.reddit.com/r/RESIntegrationTests/comments/5pxfg2/keyboard_nav/?sort=old')
+			.url('https://en.reddit.com/r/RESIntegrationTests/comments/5pxfg2/keyboard_nav/?sort=old')
 			.waitForElementVisible('#thing_t1_dcuk08v > .entry .toggleChildren')
 			.click('#thing_t1_dcuk08v > .entry .toggleChildren')
 			// moving down should blur "hide child comments"
@@ -127,7 +127,7 @@ module.exports = {
 		}
 
 		browser
-			.url('https://www.reddit.com/r/RESIntegrationTests/comments/633x7q/link_number_annotations/')
+			.url('https://en.reddit.com/r/RESIntegrationTests/comments/633x7q/link_number_annotations/')
 			.waitForElementVisible('.thing.link')
 			.click('.thing.link .md strong')
 			.assert.visible('.thing.link .keyNavAnnotation')

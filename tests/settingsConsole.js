@@ -3,15 +3,15 @@
 module.exports = {
 	'opens on links to #res:settings': browser => {
 		browser
-			.url('https://www.reddit.com/wiki/pages#res:settings')
+			.url('https://en.reddit.com/wiki/pages#res:settings')
 			.waitForElementVisible('#RESConsoleContainer')
 			.end();
 	},
 	'opens on old-style links to #!settings and redirects to new style': browser => {
 		browser
-			.url('https://www.reddit.com/wiki/pages#!settings')
+			.url('https://en.reddit.com/wiki/pages#!settings')
 			.waitForElementVisible('#RESConsoleContainer')
-			.assert.urlEquals('https://www.reddit.com/wiki/pages#res:settings/about')
+			.assert.urlEquals('https://en.reddit.com/wiki/pages#res:settings/about')
 			.end();
 	},
 	'press escape to close': browser => {
@@ -22,7 +22,7 @@ module.exports = {
 		}
 
 		browser
-			.url('https://www.reddit.com/wiki/pages#res:settings')
+			.url('https://en.reddit.com/wiki/pages#res:settings')
 			.waitForElementVisible('#RESConsoleContainer')
 			.keys([browser.Keys.ESCAPE])
 			.waitForElementNotVisible('#RESConsoleContainer', 1000)
@@ -30,7 +30,7 @@ module.exports = {
 	},
 	'change boolean option': browser => {
 		browser
-			.url('https://www.reddit.com/wiki/pages#res:settings/accountSwitcher')
+			.url('https://en.reddit.com/wiki/pages#res:settings/accountSwitcher')
 			.refresh() // get rid of update notification
 			.waitForElementVisible('#RESConsoleContainer')
 
@@ -55,7 +55,7 @@ module.exports = {
 	},
 	'change enum option': browser => {
 		browser
-			.url('https://www.reddit.com/wiki/pages#res:settings/accountSwitcher')
+			.url('https://en.reddit.com/wiki/pages#res:settings/accountSwitcher')
 			.refresh() // get rid of update notification
 			.waitForElementVisible('#RESConsoleContainer')
 
@@ -89,7 +89,7 @@ module.exports = {
 		}
 
 		browser
-			.url('https://www.reddit.com/wiki/pages#res:settings/quickMessage')
+			.url('https://en.reddit.com/wiki/pages#res:settings/quickMessage')
 			.refresh() // get rid of update notification
 			.waitForElementVisible('#RESConsoleContainer')
 
@@ -119,7 +119,7 @@ module.exports = {
 		}
 
 		browser
-			.url('https://www.reddit.com/wiki/pages#res:settings/accountSwitcher')
+			.url('https://en.reddit.com/wiki/pages#res:settings/accountSwitcher')
 			.refresh() // get rid of update notification
 			.waitForElementVisible('#RESConsoleContainer')
 
@@ -150,7 +150,7 @@ module.exports = {
 		}
 
 		browser
-			.url('https://www.reddit.com/wiki/pages#res:settings/accountSwitcher')
+			.url('https://en.reddit.com/wiki/pages#res:settings/accountSwitcher')
 			.refresh() // get rid of update notification
 			.waitForElementVisible('#RESConsoleContainer')
 
@@ -181,7 +181,7 @@ module.exports = {
 	},
 	'disabling a module': browser => {
 		browser
-			.url('https://www.reddit.com/wiki/pages#res:settings/wheelBrowse')
+			.url('https://en.reddit.com/wiki/pages#res:settings/wheelBrowse')
 			.refresh() // get rid of update notification
 			.waitForElementVisible('#RESConsoleContainer')
 			.assert.cssClassPresent('.moduleToggle', 'enabled')
@@ -200,7 +200,7 @@ module.exports = {
 		}
 
 		browser
-			.url('https://www.reddit.com/wiki/pages#res:settings/accountSwitcher')
+			.url('https://en.reddit.com/wiki/pages#res:settings/accountSwitcher')
 			.refresh() // get rid of update notification
 			.waitForElementVisible('#RESConsoleContainer')
 			.click('#optionContainer-accountSwitcher-accounts .addRowButton')
@@ -215,7 +215,7 @@ module.exports = {
 	},
 	'color options are revealed when changing the option they depend on': browser => {
 		browser
-			.url('https://www.reddit.com/wiki/pages#res:settings/commentQuickCollapse')
+			.url('https://en.reddit.com/wiki/pages#res:settings/commentQuickCollapse')
 			.waitForElementVisible('#RESConsoleContainer')
 			.waitForElementNotVisible('#optionContainer-commentQuickCollapse-leftEdgeColor')
 			.click('#toggleCommentsOnClickLeftEdgeContainer')

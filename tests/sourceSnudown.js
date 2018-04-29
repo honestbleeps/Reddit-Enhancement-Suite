@@ -1,7 +1,7 @@
 module.exports = {
 	'source of self posts': browser => {
 		browser
-			.url('https://www.reddit.com/r/RESIntegrationTests/comments/5cmspt/')
+			.url('https://en.reddit.com/r/RESIntegrationTests/comments/5cmspt/')
 			.waitForElementVisible('#siteTable')
 			.click('.thing.link .viewSource a')
 			.waitForElementVisible('.thing.link .viewSource textarea')
@@ -10,7 +10,7 @@ module.exports = {
 	},
 	'source button is placed after comments button on nsfw posts': browser => {
 		browser
-			.url('https://www.reddit.com/r/RESIntegrationTests/comments/7h66e8/source_button_position_on_nsfw_posts/')
+			.url('https://en.reddit.com/r/RESIntegrationTests/comments/7h66e8/source_button_position_on_nsfw_posts/')
 			.waitForElementVisible('#siteTable')
 			.assert.elementPresent('li.first ~ li.viewSource');
 	},
@@ -19,7 +19,7 @@ module.exports = {
 		const second = '.thing.id-t1_d9xbmrf';
 
 		browser
-			.url('https://www.reddit.com/r/RESIntegrationTests/comments/5claa9/')
+			.url('https://en.reddit.com/r/RESIntegrationTests/comments/5claa9/')
 			.waitForElementVisible('.commentarea')
 
 			.click(`${first} .viewSource a`)
@@ -36,7 +36,7 @@ module.exports = {
 		const comment = '.thing.id-t1_dbdw7vk';
 
 		browser
-			.url('https://www.reddit.com/r/RESIntegrationTests/comments/5j7fmf/handling_of_unicode_characters_%E0%B8%94%E0%B8%94%E0%B8%94/')
+			.url('https://en.reddit.com/r/RESIntegrationTests/comments/5j7fmf/handling_of_unicode_characters_%E0%B8%94%E0%B8%94%E0%B8%94/')
 			.waitForElementVisible('.commentarea')
 			.click(`${comment} .viewSource a`)
 			.waitForElementVisible(`${comment} .viewSource textarea`)

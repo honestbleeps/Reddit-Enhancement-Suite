@@ -4,7 +4,7 @@ module.exports = {
 		const second = '.thing.id-t1_datqbao';
 
 		browser
-			.url('https://www.reddit.com/r/RESIntegrationTests/comments/5go51r/ressaving_comments/')
+			.url('https://en.reddit.com/r/RESIntegrationTests/comments/5go51r/ressaving_comments/')
 			.waitForElementVisible('.commentarea')
 
 			// save first comment

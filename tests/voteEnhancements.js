@@ -5,14 +5,14 @@ module.exports = {
 		const color = browser.options.desiredCapabilities.browserName === 'firefox' ? 'rgb(110, 155, 192)' : 'rgba(110, 155, 192, 1)';
 
 		browser
-			.url('https://www.reddit.com/wiki/pages/#res:settings/voteEnhancements')
+			.url('https://en.reddit.com/wiki/pages/#res:settings/voteEnhancements')
 			.refresh() // get rid of update notification
 			.waitForElementVisible('#RESConsoleContainer')
 			// enable colorCommentScore user-defined coloration
 			.click('#colorCommentScore input[value=user]')
 			.click('#moduleOptionsSave')
 
-			.url('https://www.reddit.com/r/RESIntegrationTests/comments/5jmvjf/vote_enhancements/')
+			.url('https://en.reddit.com/r/RESIntegrationTests/comments/5jmvjf/vote_enhancements/')
 			// root level comment, visible at start
 			.waitForElementVisible(`${rootComment} > .entry > .tagline`)
 			.assert.cssProperty(`${rootComment} > .entry > .tagline .score.unvoted`, 'color', color)

@@ -3,7 +3,7 @@ module.exports = {
 		let oldWindowHandles;
 
 		browser
-			.url('https://www.reddit.com/r/RESIntegrationTests/comments/60edn3/image_expando/')
+			.url('https://en.reddit.com/r/RESIntegrationTests/comments/60edn3/image_expando/')
 			.waitForElementVisible('.expando-button')
 			.assert.cssClassPresent('.expando-button', 'image')
 			.assert.cssClassPresent('.expando-button', 'collapsedExpando')
@@ -22,7 +22,7 @@ module.exports = {
 			})
 			.click('.res-expando-box img')
 			// old tab didn't navigate
-			.assert.urlEquals('https://www.reddit.com/r/RESIntegrationTests/comments/60edn3/image_expando/')
+			.assert.urlEquals('https://en.reddit.com/r/RESIntegrationTests/comments/60edn3/image_expando/')
 			// image opened in new tab, focused
 			.window_handles(result => {
 				browser.switchWindow(result.value.filter(win => !oldWindowHandles.includes(win))[0]);
@@ -34,7 +34,7 @@ module.exports = {
 	},
 	'video expando': browser => {
 		browser
-			.url('https://www.reddit.com/r/RESIntegrationTests/comments/60ef59/video_expando/')
+			.url('https://en.reddit.com/r/RESIntegrationTests/comments/60ef59/video_expando/')
 			.waitForElementVisible('.expando-button')
 			.assert.cssClassPresent('.expando-button', 'video')
 			.assert.cssClassNotPresent('.expando-button', 'video-muted')
@@ -48,7 +48,7 @@ module.exports = {
 	},
 	'audio expando': browser => {
 		browser
-			.url('https://www.reddit.com/r/RESIntegrationTests/comments/60efz8/audio_expando/')
+			.url('https://en.reddit.com/r/RESIntegrationTests/comments/60efz8/audio_expando/')
 			.waitForElementVisible('.expando-button')
 			.assert.cssClassPresent('.expando-button', 'video')
 			.assert.cssClassPresent('.expando-button', 'collapsedExpando')
@@ -61,7 +61,7 @@ module.exports = {
 	},
 	'iframe expando': browser => {
 		browser
-			.url('https://www.reddit.com/r/RESIntegrationTests/comments/60egvo/iframe_expando/')
+			.url('https://en.reddit.com/r/RESIntegrationTests/comments/60egvo/iframe_expando/')
 			.waitForElementVisible('.expando-button')
 			.assert.cssClassPresent('.expando-button', 'video')
 			.assert.cssClassPresent('.expando-button', 'collapsedExpando')
@@ -75,7 +75,7 @@ module.exports = {
 	},
 	'generic expando': browser => {
 		browser
-			.url('https://www.reddit.com/r/RESIntegrationTests/comments/60eh9o/generic_expando/')
+			.url('https://en.reddit.com/r/RESIntegrationTests/comments/60eh9o/generic_expando/')
 			.waitForElementVisible('.expando-button')
 			.assert.cssClassPresent('.expando-button', 'selftext')
 			.assert.cssClassPresent('.expando-button', 'collapsedExpando')

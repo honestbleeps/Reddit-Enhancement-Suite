@@ -10,7 +10,7 @@ module.exports = {
 		const b = '#thing_t1_dcuk1bk';
 
 		browser
-			.url('https://www.reddit.com/r/RESIntegrationTests/comments/5pxfg2/keyboard_nav/')
+			.url('https://en.reddit.com/r/RESIntegrationTests/comments/5pxfg2/keyboard_nav/')
 			.waitForElementVisible('.res-toggle-filterline-visibility')
 			.click(`${a} > .entry`)
 

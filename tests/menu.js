@@ -2,7 +2,7 @@ module.exports = {
 	'settings button exists': browser => {
 		browser
 			// lightweight page that still has the userbar
-			.url('https://www.reddit.com/wiki/pages')
+			.url('https://en.reddit.com/wiki/pages')
 			.waitForElementVisible('#header')
 			.waitForElementVisible('#RESSettingsButton')
 			.end();
@@ -15,7 +15,7 @@ module.exports = {
 		}
 
 		browser
-			.url('https://www.reddit.com/wiki/pages')
+			.url('https://en.reddit.com/wiki/pages')
 			.refresh() // get rid of update notification
 			.waitForElementVisible('#header')
 			.waitForElementVisible('#RESSettingsButton')
