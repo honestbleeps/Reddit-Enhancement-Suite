@@ -1,14 +1,11 @@
 ### New Features
 
-- Options which refer to Custom Toggles are now selectable from a dropdown (thanks @larsjohnsen)
+- None (thanks nobody)
 
 ### Bug Fixes
 
-- Fix continuous redirect when navigating back from redirected profile page (thanks @mudkip908)
-- Fix multiple User Tagger icons appearing on users in the redesign (thanks @andytuba)
-- (beta) Fix automatic Night Mode handling from outdated tabs (thanks @larsjohnsen)
-- (beta) Fix Comment Navigator not initializing using keyboard shortcuts without opening the widget (thanks @larsjohnsen)
+- None (thanks nobody)
 
 ### Housekeeping / Other
 
-- Fix tests (thanks @andytuba)
+- None (thanks nobody)
