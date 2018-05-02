@@ -43,6 +43,10 @@
         "message": "Show link to my dashboard in RES menu.",
         "description": ""
     },
+    "faviconUseLegacyDesc": {
+        "message": "If you don't like the new orange Reddit tab icon, revert to using the old Reddit icon instead.",
+        "description": ""
+    },
     "readCommentsMonitorWhenIncognitoTitle": {
         "message": "Monitor When Incognito",
         "description": ""
@@ -137,6 +141,10 @@
     },
     "userHighlightHighlightModDesc": {
         "message": "Highlight Mod's comments.",
+        "description": ""
+    },
+    "keyboardNavShowAllChildCommentsDesc": {
+        "message": "Show/hide all child comments on the page (comment pages only).",
         "description": ""
     },
     "filteRedditKeywordsTitle": {
@@ -396,7 +404,7 @@
         "description": ""
     },
     "selectedEntrySetColorsDesc": {
-        "message": "Set colors",
+        "message": "Set colours",
         "description": ""
     },
     "stylesheetLoggedInUserClassDesc": {
@@ -416,7 +424,7 @@
         "description": ""
     },
     "selectedEntryBackgroundColorNightTitle": {
-        "message": "Background Color Night",
+        "message": "Background Colour Night",
         "description": ""
     },
     "subredditInfoStopFilteringFromAllAndDomain": {
@@ -449,6 +457,10 @@
     },
     "styleTweaksFloatingSideBarTitle": {
         "message": "Floating Side Bar",
+        "description": ""
+    },
+    "userTaggerPresetTagsDesc": {
+        "message": "Preset tags to be shown when tagging a user.",
         "description": ""
     },
     "subredditManagerLinkRandNSFWTitle": {
@@ -563,6 +575,10 @@
         "message": "What should happen when you click on the gear icon? Unless specified, hovering will open the menu.",
         "description": ""
     },
+    "userTaggerPresetTagsTitle": {
+        "message": "Preset Tags",
+        "description": ""
+    },
     "newCommentCountDesc": {
         "message": "Tells you how many comments have been posted since you last viewed a thread.",
         "description": ""
@@ -592,7 +608,7 @@
         "description": ""
     },
     "faviconNotificationBGColorTitle": {
-        "message": "Favicon Notification Background Color",
+        "message": "Favicon Notification Background Colour",
         "description": ""
     },
     "commentDepthSubreddit": {
@@ -672,7 +688,7 @@
         "description": ""
     },
     "selectedEntryBackgroundColorDesc": {
-        "message": "The background color",
+        "message": "The background colour",
         "description": ""
     },
     "searchRESSettings": {
@@ -855,6 +871,10 @@
         "message": "to",
         "description": "[post/comment submitted...] to $subreddit"
     },
+    "showImagesHidePinnedRedditVideosDesc": {
+        "message": "Hide pinned Reddit-hosted videos when scrolling on comments page.",
+        "description": ""
+    },
     "stylesheetSubredditClassDesc": {
         "message": "When browsing a subreddit, add the subreddit name as a class to the body.\nFor example, /r/ExampleSubreddit adds `body.res-r-examplesubreddit`.",
         "description": ""
@@ -896,7 +916,7 @@
         "description": ""
     },
     "keyboardNavLinkToggleExpandoDesc": {
-        "message": "When a link has an expando, toggle it instead of opening the link. Holding alt inverts this action.",
+        "message": "When a link has an expando, toggle it instead of opening the link. Alt mode inverts this action.",
         "description": ""
     },
     "styleTweaksShowExpandosDesc": {
@@ -936,7 +956,7 @@
         "description": ""
     },
     "selectedEntrySetColorsTitle": {
-        "message": "Set Colors",
+        "message": "Set Colours",
         "description": ""
     },
     "showImagesAutoMaxHeightTitle": {
@@ -1032,7 +1052,7 @@
         "description": ""
     },
     "selectedEntryTextColorNightDesc": {
-        "message": "The text color while using Night Mode",
+        "message": "The text colour while using Night Mode",
         "description": ""
     },
     "subredditManagerLastUpdateDesc": {
@@ -1177,6 +1197,10 @@
     },
     "keyboardNavFollowLinkNewTabFocusTitle": {
         "message": "Follow Link New Tab Focus",
+        "description": ""
+    },
+    "showImagesHidePinnedRedditVideosTitle": {
+        "message": "Hide pinned reddit videos",
         "description": ""
     },
     "profileNavigatorHoverDelayTitle": {
@@ -1552,7 +1576,7 @@
         "description": ""
     },
     "userHighlightSelfColorHoverDesc": {
-        "message": "Color used to highlight the logged in user on hover.",
+        "message": "Colour used to highlight the logged in user on hover.",
         "description": ""
     },
     "orangeredOpenMailInNewTabTitle": {
@@ -1564,7 +1588,7 @@
         "description": ""
     },
     "selectedEntryBackgroundColorTitle": {
-        "message": "Background Color",
+        "message": "Background Colour",
         "description": ""
     },
     "showImagesMediaControlsPositionTitle": {
@@ -1796,7 +1820,7 @@
         "description": "As in '1 day ago'"
     },
     "selectedEntryBackgroundColorNightDesc": {
-        "message": "The background color while using Night Mode",
+        "message": "The background colour while using Night Mode",
         "description": ""
     },
     "userTaggerTrackVoteWeightTitle": {
@@ -1928,7 +1952,7 @@
         "description": ""
     },
     "faviconNotificationTextColorDesc": {
-        "message": "Change the text color of the notification on the favicon.",
+        "message": "Change the text colour of the notification on the favicon.",
         "description": ""
     },
     "saveCommentsDesc": {
@@ -1944,7 +1968,7 @@
         "description": ""
     },
     "userHighlightSelfColorHoverTitle": {
-        "message": "Self Color Hover",
+        "message": "Self Colour Hover",
         "description": ""
     },
     "dashboardDefaultSortTitle": {
@@ -2028,7 +2052,11 @@
         "description": ""
     },
     "accountSwitcherDesc": {
-        "message": "Store username/password pairs and switch accounts instantly while browsing Reddit!\n\nIf you forget a password which is stored in Account Switcher, [you can recover them from RES settings](/r/Enhancement/wiki/faq/passwords). Be aware that RES offers very little protection for stored passwords, so be careful when sharing your computer or settings!",
+        "message": "Store username/password pairs and switch accounts instantly while browsing Reddit!\n\nIf you forget a password which is stored in Account Switcher, [you can recover them from RES settings](/r/Enhancement/wiki/faq/passwords). Be aware that RES offers very little protection for stored passwords, so be careful when sharing your computer or settings!\n\nLeave a password box blank to be prompted for a password every time you switch to that account.",
+        "description": ""
+    },
+    "logoLinkHot": {
+        "message": "/hot",
         "description": ""
     },
     "quickMessageHandleContentLinksDesc": {
@@ -2133,6 +2161,10 @@
     },
     "commandLineName": {
         "message": "RES Command Line",
+        "description": ""
+    },
+    "keyboardNavLinkNumberAltModeModifierDesc": {
+        "message": "Modifier used to invert toggling expando / opening link action.",
         "description": ""
     },
     "keyboardNavImageMoveLeftTitle": {
@@ -2349,6 +2381,10 @@
     },
     "keyboardNavOverviewLegacyTitle": {
         "message": "Legacy Profile",
+        "description": ""
+    },
+    "keyboardNavLinkNumberAltModeModifierTitle": {
+        "message": "Alt mode modifier",
         "description": ""
     },
     "betteRedditRestoreSavedTabDesc": {
@@ -3159,6 +3195,10 @@
         "message": "can't set tag - no post/comment selected.",
         "description": ""
     },
+    "faviconUseLegacyTitle": {
+        "message": "Use Legacy Favicon",
+        "description": ""
+    },
     "toggleOn": {
         "message": "on",
         "description": ""
@@ -3472,7 +3512,7 @@
         "description": ""
     },
     "selectedEntryTextColorNightTitle": {
-        "message": "Text Color Night",
+        "message": "Text Colour Night",
         "description": ""
     },
     "settingsNavigationShowAllOptionsTitle": {
@@ -3608,7 +3648,7 @@
         "description": ""
     },
     "faviconNotificationBGColorDesc": {
-        "message": "Change the background color of the notification on the favicon.",
+        "message": "Change the background colour of the notification on the favicon.",
         "description": ""
     },
     "aboutOptionsBackupTitle": {
@@ -3705,6 +3745,10 @@
     },
     "filteRedditAllowNSFWDesc": {
         "message": "Don't hide NSFW posts from certain subreddits when the NSFW filter is turned on.",
+        "description": ""
+    },
+    "keyboardNavShowAllChildCommentsTitle": {
+        "message": "Show all child comments",
         "description": ""
     },
     "userbarHiderDesc": {
@@ -4536,7 +4580,7 @@
         "description": ""
     },
     "faviconNotificationTextColorTitle": {
-        "message": "Favicon Notification Text Color",
+        "message": "Favicon Notification Text Colour",
         "description": ""
     },
     "selectedEntryOutlineStyleNightTitle": {
@@ -4956,7 +5000,7 @@
         "description": ""
     },
     "userHighlightSelfColorTitle": {
-        "message": "Self Color",
+        "message": "Self Colour",
         "description": ""
     },
     "commentToolsShowInputLengthTitle": {
@@ -5072,7 +5116,7 @@
         "description": ""
     },
     "selectedEntryOutlineStyleDesc": {
-        "message": "Border appearance. E.g. `1px dashed gray` (CSS)",
+        "message": "Border appearance. E.g. `1px dashed grey` (CSS)",
         "description": ""
     },
     "keyboardNavMoveDownCommentDesc": {
@@ -5220,7 +5264,7 @@
         "description": ""
     },
     "userHighlightSelfColorDesc": {
-        "message": "Color to use to highlight the logged in user.",
+        "message": "Colour to use to highlight the logged in user.",
         "description": ""
     },
     "nightModeNightModeOverrideHoursDesc": {
@@ -5501,6 +5545,10 @@
     },
     "readCommentsDesc": {
         "message": "Keep track of what comments you have read. Useful for filtering comments.",
+        "description": ""
+    },
+    "accountSwitcherPasswordPrompt": {
+        "message": "Enter the password for $1",
         "description": ""
     },
     "showKarmaUseCommasTitle": {

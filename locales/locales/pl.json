@@ -43,6 +43,10 @@
         "message": "Pokaż link do mojego panelu w menu RES.",
         "description": ""
     },
+    "faviconUseLegacyDesc": {
+        "message": "If you don't like the new orange Reddit tab icon, revert to using the old Reddit icon instead.",
+        "description": ""
+    },
     "readCommentsMonitorWhenIncognitoTitle": {
         "message": "Monitor When Incognito",
         "description": ""
@@ -137,6 +141,10 @@
     },
     "userHighlightHighlightModDesc": {
         "message": "Wyróżnij komentarze moderatorów.",
+        "description": ""
+    },
+    "keyboardNavShowAllChildCommentsDesc": {
+        "message": "Show/hide all child comments on the page (comment pages only).",
         "description": ""
     },
     "filteRedditKeywordsTitle": {
@@ -451,6 +459,10 @@
         "message": "Pływający pasek boczny",
         "description": ""
     },
+    "userTaggerPresetTagsDesc": {
+        "message": "Preset tags to be shown when tagging a user.",
+        "description": ""
+    },
     "subredditManagerLinkRandNSFWTitle": {
         "message": "Link Losowe 18+",
         "description": ""
@@ -561,6 +573,10 @@
     },
     "menuGearIconClickActionDesc": {
         "message": "Co powinno się stać po kliknięciu ikony zębatki? Jeśli nic nie zostanie wybrane, najechanie myszą otworzy menu.",
+        "description": ""
+    },
+    "userTaggerPresetTagsTitle": {
+        "message": "Preset Tags",
         "description": ""
     },
     "newCommentCountDesc": {
@@ -855,6 +871,10 @@
         "message": "do",
         "description": "[post/comment submitted...] to $subreddit"
     },
+    "showImagesHidePinnedRedditVideosDesc": {
+        "message": "Hide pinned Reddit-hosted videos when scrolling on comments page.",
+        "description": ""
+    },
     "stylesheetSubredditClassDesc": {
         "message": "Na stronach subreddita, dodaj nazwę subreddita jako klasę CSS do elementu body.\nNa przykład, /r/ExampleSubreddit będzie miał klasę \"body.res-r-examplesubreddit\".",
         "description": ""
@@ -896,7 +916,7 @@
         "description": ""
     },
     "keyboardNavLinkToggleExpandoDesc": {
-        "message": "When a link has an expando, toggle it instead of opening the link. Holding alt inverts this action.",
+        "message": "When a link has an expando, toggle it instead of opening the link. Alt mode inverts this action.",
         "description": ""
     },
     "styleTweaksShowExpandosDesc": {
@@ -1177,6 +1197,10 @@
     },
     "keyboardNavFollowLinkNewTabFocusTitle": {
         "message": "Aktywacja nowej karty po kliknięciu w linka",
+        "description": ""
+    },
+    "showImagesHidePinnedRedditVideosTitle": {
+        "message": "Hide pinned reddit videos",
         "description": ""
     },
     "profileNavigatorHoverDelayTitle": {
@@ -2028,7 +2052,11 @@
         "description": ""
     },
     "accountSwitcherDesc": {
-        "message": "Store username/password pairs and switch accounts instantly while browsing Reddit!\n\nIf you forget a password which is stored in Account Switcher, [you can recover them from RES settings](/r/Enhancement/wiki/faq/passwords). Be aware that RES offers very little protection for stored passwords, so be careful when sharing your computer or settings!",
+        "message": "Store username/password pairs and switch accounts instantly while browsing Reddit!\n\nIf you forget a password which is stored in Account Switcher, [you can recover them from RES settings](/r/Enhancement/wiki/faq/passwords). Be aware that RES offers very little protection for stored passwords, so be careful when sharing your computer or settings!\n\nLeave a password box blank to be prompted for a password every time you switch to that account.",
+        "description": ""
+    },
+    "logoLinkHot": {
+        "message": "/hot",
         "description": ""
     },
     "quickMessageHandleContentLinksDesc": {
@@ -2133,6 +2161,10 @@
     },
     "commandLineName": {
         "message": "Linia Komend RES",
+        "description": ""
+    },
+    "keyboardNavLinkNumberAltModeModifierDesc": {
+        "message": "Modifier used to invert toggling expando / opening link action.",
         "description": ""
     },
     "keyboardNavImageMoveLeftTitle": {
@@ -2349,6 +2381,10 @@
     },
     "keyboardNavOverviewLegacyTitle": {
         "message": "Legacy Profile",
+        "description": ""
+    },
+    "keyboardNavLinkNumberAltModeModifierTitle": {
+        "message": "Alt mode modifier",
         "description": ""
     },
     "betteRedditRestoreSavedTabDesc": {
@@ -3159,6 +3195,10 @@
         "message": "nie można ustawić znacznika - nie wybrano postu/komentarza.",
         "description": ""
     },
+    "faviconUseLegacyTitle": {
+        "message": "Use Legacy Favicon",
+        "description": ""
+    },
     "toggleOn": {
         "message": "wł",
         "description": ""
@@ -3705,6 +3745,10 @@
     },
     "filteRedditAllowNSFWDesc": {
         "message": "Nie chowaj postów NSFW (18+) z danych subredditów, kiedy filtr NSFW jest włączony.",
+        "description": ""
+    },
+    "keyboardNavShowAllChildCommentsTitle": {
+        "message": "Show all child comments",
         "description": ""
     },
     "userbarHiderDesc": {
@@ -5501,6 +5545,10 @@
     },
     "readCommentsDesc": {
         "message": "Keep track of what comments you have read. Useful for filtering comments.",
+        "description": ""
+    },
+    "accountSwitcherPasswordPrompt": {
+        "message": "Enter the password for $1",
         "description": ""
     },
     "showKarmaUseCommasTitle": {
