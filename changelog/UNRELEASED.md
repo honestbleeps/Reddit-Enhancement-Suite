@@ -1,15 +1,15 @@
 ### New Features
 
-- Very preliminary support for the reddit redesign
+- Very preliminary support for the Reddit redesign
 	- Account Switcher (thanks @andytuba)
 	- User tags (thanks @erikdesjardins)
 	- Settings menu (thanks @andytuba)
-- New hidePinnedRedditVideos option to hide reddit's video overlay that appears when you scroll down (thanks @overdodactyl)
+- New hidePinnedRedditVideos option to hide Reddit's video overlay that appears when you scroll down (thanks @overdodactyl)
 - New Orangered faviconUseLegacy option to use the old Reddit favicon (thanks @corylulu)
 - New Keyboard Navigation linkNumberAltModeModifier option to disable or change the alt-number shortcuts (thanks @larsjohnsen)
-- New option for redditLogoDestination to make the reddit logo link to /hot instead of the new /best sort (thanks @BenMcGarry)
+- New option for redditLogoDestination to make the Reddit logo link to /hot instead of the new /best sort (thanks @BenMcGarry)
 - New "toggle" command line command for custom toggles (thanks @larsjohnsen, @octagonal)
-- New "front" command line command (thanks @vogon101)
+- New "front" command line command to go to frontpage (thanks @vogon101)
 - New shift-C keyboard shortcut to hide all child comments (thanks @honestbleeps)
 - User Tagger supports creating preset tags (thanks @pll33)
 - Account Switcher will prompt for your password if you leave the field blank (thanks @qenya)
@@ -31,13 +31,14 @@
 - Fix Night Mode getting disabled everywhere when loading a page in the redesign (thanks @erikdesjardins)
 - Fix Go Mode panel showing keyboard shortcuts that don't work on the current page (thanks @corylulu)
 - Fix media downloads in Chrome (thanks @erikdesjardins)
-- Fix nonfunctional Night Mode CSS being enabled in the Reddit Alpha when toggling it (thanks @larsjohnsen)
+- Fix new profile Night Mode bleeding into Reddit redesign (thanks @andytuba)
+- Fix nonfunctional Night Mode CSS still being enabled in redesign when toggling it (thanks @larsjohnsen)
 - Fix continuous redirect when navigating back from redirected profile page (thanks @mudkip908)
 - Fix multiple User Tagger icons appearing on users in the redesign (thanks @andytuba)
 
 ### Housekeeping / Other
 
-- Remove Firefox beta deployment, since Mozilla is removing the ability to release beta versions
+- Remove Firefox beta deployment, since Mozilla is removing the ability to distribute beta versions through AMO
 - New Comment Count filter counts all comments in unopened threads as new (thanks @larsjohnsen)
 - Minor update to contributing docs (thanks @BenMcGarry)
 - Codeclimate updates (thanks @mc10)
@@ -53,4 +54,4 @@
 - Remove dead media hosts (thanks @BenMcGarry)
 - Update redesign API usage (thanks @andytuba)
 - Update dependencies, tweak build (thanks @mc10)
-- Fix tests (thanks @andytuba)
+- Fix tests breaking from unexpectedly running on redesign (thanks @andytuba)
