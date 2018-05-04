@@ -1,9 +1,11 @@
+### New Features
+
+- None (thanks nobody)
+
 ### Bug Fixes
 
-- Fix Night Mode not working on new (but non-redesign) profile pages (thanks @andytuba)
-- Fix cleanSlate preset (thanks @erikdesjardins)
+- None (thanks nobody)
 
 ### Housekeeping / Other
 
-- Updated the localization files
-- Don't run on /chat pages (thanks @andytuba)
+- None (thanks nobody)
