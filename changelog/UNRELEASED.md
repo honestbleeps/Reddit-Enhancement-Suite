@@ -6,3 +6,4 @@
 ### Housekeeping / Other
 
 - Updated the localization files
+- Don't run on /chat pages (thanks @andytuba)
