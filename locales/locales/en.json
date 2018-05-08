@@ -1725,6 +1725,27 @@
 	"accountSwitcherReloadOtherTabsDesc": {
 		"message": "After switching accounts, automatically reload other tabs."
 	},
+	"accountSwitcherAutoSwitchOnPostTitle": {
+		"message": "Automatically Switch To Post Author"
+	},
+	"accountSwitcherAutoSwitchOnPostDesc": {
+		"message": "Automatically switch to account in Account Switcher if that account submitted the current post."
+	},
+	"accountSwitcherAutoSwitchOnCommentTitle": {
+		"message": "Automatically Switch To Comment Author"
+	},
+	"accountSwitcherAutoSwitchOnCommentDesc": {
+		"message": "Automatically switch to account in Account Switcher if that account has submitted a comment to the current post."
+	},
+	"accountSwitcherAutoSwitchNotificationTitle": {
+		"message": "Account Switched"
+	},
+	"accountSwitcherAutoSwitchPostDesc": {
+		"message": "You have been automatically switched to <b>u/$1</b> because this account submitted this post."
+	},
+	"accountSwitcherAutoSwitchCommentDesc": {
+		"message": "You have been automatically switched to <b>u/$1</b> because this account submitted a comment on this post."
+	},
 	"accountSwitcherShowCurrentUserNameTitle": {
 		"message": "Show Current User Name"
 	},
