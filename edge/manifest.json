@@ -18,7 +18,6 @@
 	"options_page": "{{../lib/options.html}}",
 	"background": {
 		"scripts": [
-			"{{file-loader?name=[name].[ext]!url-search-params/build/url-search-params.js}}",
 			"{{./edge.entry.js}}",
 			"{{../lib/background.entry.js}}"
 		],
@@ -49,7 +48,6 @@
 			"https://*.reddit.com/*.json-html?*"
 		],
 		"js": [
-			"{{file-loader?name=[name].[ext]!url-search-params/build/url-search-params.js}}",
 			"{{./edge.entry.js}}",
 			"{{../lib/foreground.entry.js}}"
 		],
