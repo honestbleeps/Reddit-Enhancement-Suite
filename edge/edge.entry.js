@@ -79,6 +79,8 @@ Element.prototype.replaceWith = function replaceWith(...nodes) {
 	}
 };
 
+
+// https://developer.microsoft.com/en-us/microsoft-edge/platform/status/requestidlecallback/
 if (typeof requestIdleCallback === 'undefined') {
 	window.requestIdleCallback = fn => requestAnimationFrame(() => { requestAnimationFrame(fn); });
 }
