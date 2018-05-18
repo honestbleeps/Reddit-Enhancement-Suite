@@ -79,6 +79,9 @@ Element.prototype.replaceWith = function replaceWith(...nodes) {
 	}
 };
 
+if (typeof requestIdleCallback === 'undefined') {
+	window.requestIdleCallback = fn => requestAnimationFrame(() => { requestAnimationFrame(fn); });
+}
 
 // polyfill KeyboardEvent.key
 // Edge names from https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key/Key_Values
