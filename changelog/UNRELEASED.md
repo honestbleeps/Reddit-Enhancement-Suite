@@ -1,11 +1,13 @@
 ### New Features
 
-- None (thanks nobody)
+- Subreddit Info popups now work on the reddit redesign (thanks @prasoc)
 
 ### Bug Fixes
 
-- None (thanks nobody)
+- Fix Account Switcher on the reddit redesign (thanks @andytuba)
+- Fix visible images unloading when scrolling horizontally (thanks @larsjohnsen)
+- Fix video expandos not pausing when collapsing the containing comment (thanks @larsjohnsen)
 
 ### Housekeeping / Other
 
-- None (thanks nobody)
+- Never Ending Reddit prefetches the next page when approaching the bottom (thanks @larsjohnsen)
