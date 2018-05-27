@@ -1,11 +1,5 @@
-### New Features
-
-- None (thanks nobody)
-
 ### Bug Fixes
 
-- None (thanks nobody)
-
-### Housekeeping / Other
-
-- None (thanks nobody)
+- Fix Subreddit Info appearing on comments links in the reddit redesign (thanks @erikdesjardins)
+- Fix User Tagger not appearing in the reddit redesign in Firefox (thanks @andytuba)
+- Fix Comment Navigator navigating to partially filtered comments (thanks @larsjohnsen)
