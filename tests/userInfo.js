@@ -12,14 +12,10 @@ module.exports = {
 			.waitForElementVisible('.thing.link .author')
 			.moveToElement('.thing.link .author', 0, 0)
 			.pause(1000)
-			.waitForElementVisible('.RESHover')
-			.assert.containsText('.RESHover', 'erikdesjardins')
-			.assert.visible('.RESHover a[href$="/user/erikdesjardins"]')
-			.assert.visible('.RESHover a[href$="/user/erikdesjardins/submitted/"]')
-			.assert.visible('.RESHover a[href$="/user/erikdesjardins/comments/"]')
-			.assert.containsText('.RESHover', 'Redditor since:')
-			.click('.RESHover .RESCloseButton')
-			.waitForElementNotVisible('.RESHover')
+			.waitForElementVisible('.author-tooltip')
+			.assert.containsText('.author-tooltip', 'erikdesjardins')
+			.waitForElementVisible('#highlightUser')
+			.assert.containsText('.author-tooltip', 'HIGHLIGHT')
 			.end();
 	},
 };

@@ -34,7 +34,7 @@ module.exports = {
 						}
 
 						if (seenTips.has(textContent)) {
-							browser.assert.equal(seenTips.size, 21, 'saw all tips');
+							browser.assert.equal(seenTips.size, 20, 'saw all tips');
 							browser.end();
 							return;
 						}

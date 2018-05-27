@@ -1,12 +1,35 @@
-#authorInfoToolTip {
-	.blueButton {
-		float: right;
-		margin-left: 8px;
-		margin-top: 12px;
+.author-tooltip {
+	.author-tooltip__link-list {
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		padding: 10px 16px;
+
+		li {
+			min-width: 0;
+
+			&:empty {
+				display: none;
+			}
+
+			a {
+				padding: 6px 0;
+			}
+
+			a.blue,
+			a.red {
+				background: none;
+				border: none;
+				cursor: pointer;
+			}
+
+			a.red {
+				color: rgb(255, 87, 87);
+			}
+		}
 	}
 
-	.redButton {
+	.RESUserTag {
 		float: right;
-		margin-left: 8px;
 	}
 }
