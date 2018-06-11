@@ -1423,6 +1423,10 @@ body.RESScrollLock {
 		display: flex;
 		margin-bottom: 5px;
 
+		> .builderCustomOptions {
+			margin-left: 10px;
+		}
+
 		> .builderControls {
 			padding: .3em .2em;
 		}
@@ -1432,6 +1436,10 @@ body.RESScrollLock {
 
 			&.handle { font-size: 27px; }
 		}
+	}
+
+	input[type='checkbox'] {
+		vertical-align: text-bottom !important;
 	}
 }
 
