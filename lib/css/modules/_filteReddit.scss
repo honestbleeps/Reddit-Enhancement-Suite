@@ -10,7 +10,7 @@ body.hideOver18 {
 	// For some reason does the scss linter complain on body:not()
 	body.res:not(.res-filters-disabled):not(.res-show-filter-reason) &:not(.res-filterline-highlight-match) {
 		&:not(.res-thing-has-visible-child),
-		&.res-thing-has-visible-child.collapsed { // seperate line since :not() didn't work with multiple classes
+		&.res-thing-filter-propagate {
 			// !important since many custom stylesheets overrides it otherwise
 			display: none !important;
 		}
@@ -148,6 +148,14 @@ body.hideOver18 {
 					& #{$v}-button {
 						width: max-content;
 					}
+				}
+			}
+
+			&-options {
+				float: right;
+
+				input {
+					vertical-align: text-bottom;
 				}
 			}
 
