@@ -4,8 +4,14 @@ $header-background-color: rgb(105, 105, 105);
 $border-color: #777;
 $color:  #aaa;
 $link-color: hsl(210, 50%, 70%);
+$src-link-color: hsl(0, 0%, 80%);
+$src-link-visited-color: hsl(0, 0%, 60%);
 $title-link-color: hsl(0, 0%, 87%);
 $title-link-visited-color: hsl(0, 0%, 65%);
+$nm-src-link-color: hsl(210, 60%, 50%);
+$nm-src-link-visited-color: hsl(270, 50%, 58%);
+$nm-title-link-color: hsl(210, 60%, 60%);
+$nm-title-link-visited-color: hsl(270, 50%, 65%);
 
 .res-nightmode {
 	body,
@@ -605,15 +611,15 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 		color: $title-link-color;
 
 		.res-nightMode-coloredLinks & {
-			color: hsl(210, 60%, 60%);
+			color: $nm-title-link-color;
 		}
 	}
 
 	.thing .source-url {
-		color: hsl(0, 0%, 80%);
+		color: $src-link-color;
 
 		.res-nightMode-coloredLinks & {
-			color: hsl(210, 60%, 50%);
+			color: $nm-src-link-color;
 		}
 	}
 
@@ -635,15 +641,15 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 		color: $title-link-visited-color;
 
 		.res-nightMode-coloredLinks & {
-			color: hsl(270, 50%, 65%);
+			color: $nm-title-link-visited-color;
 		}
 	}
 
 	.thing .source-url:visited {
-		color: hsl(0, 0%, 60%);
+		color: $src-link-visited-color;
 
 		.res-nightMode-coloredLinks & {
-			color: hsl(270, 50%, 58%);
+			color: $nm-src-link-visited-color;
 		}
 	}
 
@@ -1660,7 +1666,7 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 	}
 
 
-	.ProfileBarDropdown__list:hover
+	.ProfileBarDropdown__list:hover,
 	.ProfileBarDropdown__listItem:hover {
 		background-color: $header-background-color;
 	}
@@ -1739,5 +1745,179 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 
 	.ProfileVoiceAd {
 		background-color: #202020;
+	}
+}
+
+.res-mm2x-nightmode #container > .App {
+	.App__sidebarFooterIcon,
+	.App__sidebarFooterText,
+	.Header__user,
+	.Login__tfa-header,
+	.FancySelect:not([class*=' m-']) .FancySelect__value.m-nocolor,
+	.FancySelect.m-error .FancySelect__value.m-nocolor,
+	.FancySelect__option,
+	.FormattingHelp,
+	.FormattingHelp__tableCol,
+	.Header__tooltipItem,
+	.InfoBar__controlText,
+	.InfoBar__recentsNone,
+	.InfoBar__username:not(:hover),
+	.Input,
+	.Message__author:not(.m-mod):not(.m-admin):not(:hover),
+	.Message__internalNote,
+	.ModAction__text,
+	div[class^='NewThread__']:not(.icon):not(.NewThread__errors),
+	.Sidebar__newMessage,
+	.Sidebar__title,
+	.StyledHtml,
+	.Textarea,
+	div[class^='Thread__groupedText'],
+	*[class^='ThreadPreview__']:not(.m-mod):not(.m-admin):not(:hover),
+	div[class^='ThreadPreview__']:not(.icon):hover,
+	.ThreadPreviewViewerHeader__iconLabel,
+	.ThreadPreviewViewerHeader__select,
+	*[class^='ThreadTitle__']:not(:hover),
+	div[class^='ThreadTitle__']:hover,
+	.ThreadViewerHeader__controlText,
+	.ThreadViewerHeader__backText,
+	.ThreadViewerReplyForm__replyOptions:not(.m-hiddenAuthor):not(.m-internal),
+	input:checked + label + label {
+		color: $color;
+	}
+
+	.App__body,
+	.App__header,
+	.App__page,
+	.App__sidebar,
+	.FormattingHelp,
+	.FormattingHelp__code,
+	.NewThread__form,
+	.Sidebar__communities,
+	.Sidebar__title,
+	.SidebarNav__top,
+	div[class^='Thread__groupedText'],
+	div[class^='ThreadPreviewViewer__'],
+	.ThreadPreviewViewer__header,
+	.ThreadPreviewViewer__thread.m-read,
+	.ThreadViewer,
+	.ThreadViewer__header {
+		background-color: $background-color;
+		border-color: $border-color;
+	}
+
+	.App__sidebarFooter,
+	.FancySelect__option,
+	.FancySelect__tooltip,
+	.FormattingHelp__codeLine,
+	.FormattingHelp__tableCol pre,
+	.Header__tooltip,
+	.Header__tooltipItem,
+	.Input:not(.m-error),
+	.Input.m-error:focus,
+	.Textarea:not(.m-error),
+	.Textarea.m-error:focus,
+	.Thread__modAction,
+	.ThreadPreviewViewer__thread:not(.m-read),
+	.ThreadViewer__thread {
+		background-color: $highlight-background-color !important;
+		border-color: $border-color;
+	}
+
+	.FancySelect.m-error:not(:focus),
+	.Input.m-error:not(:focus),
+	.Textarea.m-error:not(:focus) {
+		background-color: rgb(71, 51, 51);
+	}
+
+	.m-error {
+		border-color: #EA0027 !important;
+	}
+
+	.App__sidebarFooterLink,
+	.FormattingHelp__tableRow,
+	.Thread__title,
+	.ThreadViewer__infobarContainer,
+	.ThreadViewer__replyContainer {
+		border-color: $border-color;
+	}
+
+	.FancySelect__option:hover,
+	.FormattingHelp__tableCol.m-highlight,
+	.Header__tooltipItem:hover,
+	.Thread__grouped {
+		background-color: $header-background-color !important;
+		color: $title-link-color;
+	}
+
+	div[class$='__tooltip__arrow'] {
+		border-bottom-color: $border-color !important;
+	}
+
+	.FormattingHelp {
+		overflow: auto;
+	}
+
+	.Header__icon {
+		filter: invert(79%) hue-rotate(180deg);
+	}
+
+	.InfoBar__age,
+	.InfoBar__recentsTitle,
+	.Login__tfa-desc,
+	input:not(:checked) + label,
+	input:not(:checked) + label + label,
+	div[class$='__formattingHelp']:not(:hover) {
+		color: hsl(0, 0%, 45%) !important;
+	}
+
+	.RESDialogSmall {
+		color: #ccc;
+		border-color: hsl(0, 0%, 30%);
+		background-color: $highlight-background-color;
+	}
+
+	.RESDialogSmall > h3,
+	.NERPageMarker {
+		color: inherit;
+		border-color: hsl(0, 0%, 30%);
+		background-color: transparent;
+	}
+
+	.Sidebar__newMessage.icon-edit:hover::before  {
+		color: rgb(13, 211, 187);
+	}
+
+	.SidebarCommunity__blankIcon,
+	.SidebarCommunity__name {
+		color: $color;
+		opacity: .3;
+	}
+
+	.SidebarCommunity:hover .SidebarCommunity__blankIcon,
+	.SidebarCommunity__name.m-selected {
+		opacity: unset;
+	}
+
+	.StyledHtml a:not(:active) {
+		color: $link-color;
+	}
+
+	.StyledHtml a:visited:not(:active) {
+		color: $nm-title-link-visited-color;
+	}
+
+	.FormattingHelp__tableCol blockquote,
+	.StyledHtml blockquote {
+		background-color: hsl(0, 0%, 25%);
+		color: hsl(0, 0%, 80%);
+		border-color: $border-color;
+	}
+
+	.ThreadPreviewViewer__thread {
+		box-shadow: 0 2px 4px rgba(255, 255, 255, .14);
+	}
+
+	.ThreadPreviewViewer__thread:hover {
+		outline: 1px solid $border-color;
 	}
 }
