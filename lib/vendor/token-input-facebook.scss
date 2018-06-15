@@ -1,8 +1,7 @@
-/* Example tokeninput style #2: Facebook style */
+// Example tokeninput style #2: Facebook style
 ul.token-input-list-facebook {
 	overflow: hidden;
 	height: auto !important;
-	height: 1%;
 	width: 400px;
 	border: 1px solid #8496ba;
 	cursor: text;
@@ -18,18 +17,17 @@ ul.token-input-list-facebook {
 }
 
 ul.token-input-list-facebook li input {
-	border: 0;
+	border: none;
 	width: 100px;
 	padding: 3px 8px;
 	background-color: white;
 	margin: 2px 0;
-	-webkit-appearance: caret;
+	appearance: caret;
 }
 
 li.token-input-token-facebook {
 	overflow: hidden;
 	height: auto !important;
-	height: 15px;
 	margin: 3px;
 	padding: 1px 3px;
 	background-color: #eff2f7;
@@ -38,8 +36,6 @@ li.token-input-token-facebook {
 	border: 1px solid #ccd5e4;
 	font-size: 11px;
 	border-radius: 5px;
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
 	float: left;
 	white-space: nowrap;
 }
