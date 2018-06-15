@@ -54,16 +54,19 @@
 	background-position: 0 0;
 	right: -42px;
 }
+
 .guiders_arrow_down {
 	display: block;
 	background-position: 0 -42px;
 	bottom: -42px;
 }
+
 .guiders_arrow_up {
 	display: block;
 	background-position: 0 -126px;
 	top: -42px;
 }
+
 .guiders_arrow_left {
 	display: block;
 	background-position: 0 -84px;
@@ -151,31 +154,39 @@
 .guiders_content h2 {
 	margin-top: 1em;
 }
+
 .guiders_content td {
 	vertical-align: top;
 	line-height: 1.7em;
 }
+
 .guiders_content td + td {
 	padding-left: 1em;
 }
+
 .guider_contents td code {
 	white-space: nowrap;
 }
+
 .guiders_buttons_container label {
 	display: flex;
 	align-items: center;
 }
+
 .guiders_buttons_container label input[type=checkbox] {
 	margin-right: 5px;
 }
+
 .guiders_content ul {
 	list-style-type: circle;
 	margin-left: 12px;
 }
+
 .guiders_content strong {
 	font-style: initial;
 	font-weight: bold;
 }
+
 .restips-increased-z-index {
 	z-index: 900003 !important;
 }
