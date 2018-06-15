@@ -79,17 +79,8 @@ Element.prototype.replaceWith = function replaceWith(...nodes) {
 	}
 };
 
-// polyfill IntersectionObserverEntry.prototype.isIntersecting
-// Snippet from https://github.com/WICG/IntersectionObserver/pull/224
-if (!IntersectionObserverEntry.prototype.hasOwnProperty('isIntersecting')) {
-	Object.defineProperty(IntersectionObserverEntry.prototype,
-		'isIntersecting', {
-			get() {
-				return this.intersectionRatio > 0;
-			},
-		});
-}
 
+// https://developer.microsoft.com/en-us/microsoft-edge/platform/status/requestidlecallback/
 if (typeof requestIdleCallback === 'undefined') {
 	window.requestIdleCallback = fn => requestAnimationFrame(() => { requestAnimationFrame(fn); });
 }
