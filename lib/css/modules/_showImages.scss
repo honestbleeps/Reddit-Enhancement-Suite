@@ -362,14 +362,6 @@ img {
 		overflow: hidden;
 		position: relative;
 		display: inline-block;
-
-		&:hover .video-advanced-interface:not(.video-advanced-push-below) {
-			display: block;
-			background: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, .6));
-			position: absolute;
-			bottom: 0;
-			width: 100%;
-		}
 	}
 
 	video {
@@ -493,16 +485,25 @@ img {
 				}
 			}
 		}
+	}
 
-		&.video-advanced-push-below {
-			display: block;
-			background: rgba(52, 47, 38, 1);
+	&:not(&-has-native-controls):hover .video-advanced-interface {
+		display: block;
+		background: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, .6));
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+	}
 
-			.video-advanced-toggle-pause,
-			.video-advanced-position-thumb,
-			.video-advanced-position {
-				display: none !important;
-			}
+	// Push below and remove hide progress bar if native controls are visible
+	&-has-native-controls .video-advanced-interface {
+		display: block;
+		background: rgba(52, 47, 38, 1);
+
+		.video-advanced-toggle-pause,
+		.video-advanced-position-thumb,
+		.video-advanced-position {
+			display: none !important;
 		}
 	}
 
