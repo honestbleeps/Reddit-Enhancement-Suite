@@ -1,3 +1,11 @@
+### New Features
+
+- None (thanks nobody)
+
 ### Bug Fixes
 
-- Fix Imgur videos with audio not being handled correctly (thanks @larsjohnsen)
+- None (thanks nobody)
+
+### Housekeeping / Other
+
+- None (thanks nobody)
