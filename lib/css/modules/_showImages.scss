@@ -483,6 +483,36 @@ img {
 						}
 					}
 				}
+
+				.video-advanced-volume {
+					position: relative;
+
+					&:not(:hover) .video-advanced-volume-level {
+						display: none;
+					}
+
+					.video-advanced-volume-level {
+						position: absolute;
+						background-color: rgba(0, 0, 0, 0.67);
+						cursor: pointer;
+						height: 50px;
+						width: 16px;
+						bottom: 100%;
+						left: 0;
+						border-radius: 4px;
+						padding: 2px;
+						display: flex;
+						margin-left: -2px;
+
+						.video-advanced-volume-percentage {
+							width: 100%;
+							background-color: white;
+							border-radius: 4px;
+							pointer-events: none;
+							align-self: flex-end;
+						}
+					}
+				}
 			}
 		}
 	}
@@ -517,6 +547,11 @@ img {
 	.video-advanced-time-increase::after { content: '\f16e'; }
 	.video-advanced-speed-decrease::after { content: '\f14d'; }
 	.video-advanced-speed-increase::after { content: '\f14c'; }
+
+	.video-advanced-volume[level='0']::after { content: '\f038'; }
+	.video-advanced-volume[level='1']::after { content: '\f039'; }
+	.video-advanced-volume[level='2']::after { content: '\f03a'; }
+	.video-advanced-volume[level='3']::after { content: '\f03b'; }
 }
 
 // style expando text content in comments
