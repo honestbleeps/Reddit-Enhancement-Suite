@@ -125,7 +125,7 @@ module.exports = {
 
 		const thing = '#thing_t3_5nacp4';
 
-		tempAdditionalFilterSelector = '[type="group"]';
+		tempAdditionalFilterSelector = ':last-child';
 		hideInfocard = false;
 
 		browser
@@ -142,7 +142,7 @@ module.exports = {
 			.click('.res-filterline-preamble')
 			.click('.res-filterline-new-group')
 			.click('.res-filterline-new-group .res-filterline-filter-new')
-			.waitForElementVisible(`${filter}${tempAdditionalFilterSelector}`)
+			.waitForElementVisible(`${filter}[type="group"]`)
 			.perform(switchActiveState)
 			.waitForElementNotVisible(thing)
 			.perform(switchActiveState)
@@ -150,6 +150,8 @@ module.exports = {
 			.moveToElement(`${filter}[type="group"]`, 0, 0)
 			.waitForElementVisible(`${cardButton}[action="to-ondemand"]`)
 			.click(`${cardButton}[action="to-ondemand"]`)
+			.setAlertText('new-ondemand-filter')
+			.acceptAlert()
 			.perform(switchActiveState)
 			.waitForElementNotVisible(thing)
 
