@@ -270,7 +270,12 @@ body.hideOver18 {
 		line-height: 18px;
 		display: flex;
 		cursor: default;
-		align-items: center;
+
+		> div:first-child {
+			text-overflow: ellipsis;
+			overflow: hidden;
+			white-space: nowrap;
+		}
 
 		.gearIcon {
 			margin: 0 4px 0 0;
@@ -279,8 +284,8 @@ body.hideOver18 {
 
 		.toggleButton {
 			transform: scale(.8);
-			position: absolute;
-			right: 0;
+			margin-right: -4px;
+			margin-left: auto;
 		}
 	}
 
