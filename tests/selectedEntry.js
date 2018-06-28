@@ -35,7 +35,7 @@ module.exports = {
 			.waitForElementVisible(childOfStickiedComment2)
 			.assert.cssClassPresent(childOfStickiedComment1, selectedClass)
 
-			.click(childOfStickiedComment2)
+			.click(`${childOfStickiedComment2} .md p`)
 			.assert.cssClassPresent(childOfStickiedComment2, selectedClass)
 
 			.pause(1000)
