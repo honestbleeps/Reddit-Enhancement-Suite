@@ -7,6 +7,7 @@ import path from 'path';
 import InertEntryPlugin from 'inert-entry-webpack-plugin';
 import LodashModuleReplacementPlugin from 'lodash-webpack-plugin';
 import ZipPlugin from 'zip-webpack-plugin';
+import sass from 'sass';
 
 const browserConfig = {
 	chrome: {
@@ -115,7 +116,7 @@ export default (env = {}, argv = {}) => {
 					{ loader: 'extricate-loader', options: { resolve: '\\.js$' } },
 					{ loader: 'css-loader' },
 					{ loader: 'postcss-loader' },
-					{ loader: 'sass-loader' },
+					{ loader: 'sass-loader', options: { implementation: sass } },
 				],
 			}, {
 				test: /\.html$/,
