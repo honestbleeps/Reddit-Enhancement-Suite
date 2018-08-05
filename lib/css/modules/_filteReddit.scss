@@ -67,7 +67,7 @@ body.hideOver18 {
 
 .res-filteReddit-filterline-pad-until-ready {
 	.listing-page .content[role=main] > .spacer:nth-of-type(2)::before {
-		@include filterline-basic-layout
+		@include filterline-basic-layout;
 		content: ' ';
 	}
 }
@@ -84,7 +84,7 @@ body.hideOver18 {
 }
 
 .res-filterline {
-	@include filterline-basic-layout
+	@include filterline-basic-layout;
 
 	$c: &;
 
@@ -235,7 +235,7 @@ body.hideOver18 {
 
 		&-action {
 			cursor: pointer;
-			margin: 1 3px;
+			margin: 1px 3px;
 			margin-left: 16px;
 			border-bottom: 1px solid #fafafa;
 			padding-bottom: 1px;
