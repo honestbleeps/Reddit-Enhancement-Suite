@@ -40,7 +40,7 @@ module.exports = {
 		firefox: {
 			desiredCapabilities: {
 				browserName: 'firefox',
-				version: 'dev',
+				version: 'beta',
 				firefox_profile: getFirefoxProfile(),
 			},
 		},

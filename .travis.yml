@@ -43,40 +43,10 @@ install:
   - yarn install --frozen-lockfile
 matrix:
   include:
-    - env: RES_JOB=lint_flow
-      script:
-        - yarn run flow check --show-all-errors
-        - yarn run eslint
-        - yarn run sass-lint
-        - yarn run i18n-lint
     - env: RES_JOB=test
       script:
-        - yarn run coverage && yarn run report-coverage
         - yarn run build chrome,firefox
-        - yarn run integration chrome --retries 2 && yarn run integration firefox --retries 2
-    - env: RES_JOB=build_deploy
-      script:
-        - yarn run build all
-        - yarn run manifoldjs-package
-      deploy:
-        - provider: releases
-          api_key:
-            secure: F0CNYZBoZbLiZDm+KkIpX/FjWhwUKMQs4O+bg6EUT32GOb17ed1HBS1Dw9DCTClyydEkhtCMZTFHQUbfNhlU7xkZxy8J/Ac9UykngVmjJBz3+ZKmbGsokjwCm8r08VCMzB0AJrvIodRwegzg9J5muXvMGNBzKxi7Q7XiNsxLNDc=
-          prerelease: true
-          file:
-            - dist/zip/chrome.zip
-            - dist/zip/chrome-beta.zip
-            - dist/edgeextension/package/edgeExtension.appx
-            - dist/zip/firefox.zip
-            - dist/zip/firefox-beta.zip
-          skip_cleanup: true
-          on:
-            tags: true
-        - provider: script
-          script: build/travisDeploy.sh
-          skip_cleanup: true
-          on:
-            tags: true
+        - yarn run integration firefox --retries 2
 notifications:
   irc:
     channels:
