@@ -19,9 +19,9 @@ module.exports = {
 			.url('https://en.reddit.com/r/RESIntegrationTests/wiki/pages')
 			.waitForElementVisible('#RESAccountSwitcherIcon')
 			.click('#RESAccountSwitcherIcon')
-			.assert.visible('#RESAccountSwitcherDropdown')
-			.assert.containsText('#RESAccountSwitcherDropdown', username)
-			.assert.containsText('#RESAccountSwitcherDropdown', 'add account')
+			.assert.visible('.RESAccountSwitcherDropdown')
+			.assert.containsText('.RESAccountSwitcherDropdown', username)
+			.assert.containsText('.RESAccountSwitcherDropdown', 'add account')
 			.end();
 	},
 	'errors on invalid username/password': browser => {
@@ -46,7 +46,7 @@ module.exports = {
 			.url('https://en.reddit.com/r/RESIntegrationTests/wiki/pages')
 			.waitForElementVisible('#RESAccountSwitcherIcon')
 			.click('#RESAccountSwitcherIcon')
-			.click('#RESAccountSwitcherDropdown .accountName')
+			.click('.RESAccountSwitcherDropdown .accountName')
 			.waitForElementVisible('#alert_message')
 			.assert.containsText('#alert_message', `Could not log in as ${username}`)
 			.end();
