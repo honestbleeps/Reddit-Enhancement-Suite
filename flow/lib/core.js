@@ -13,13 +13,13 @@ declare class Object {
 	static (o: string): String; // eslint-disable-line flowtype/no-primitive-constructor-types
 	static <T: Object>(o: T): T;
 	static assign: Object$Assign;
-	static create(o: any, properties?: any): any; // compiler magic
-	static defineProperties(o: any, properties: any): any;
-	static defineProperty(o: any, p: any, attributes: any): any;
+	static create(o: any, properties?: PropertyDescriptorMap): any; // compiler magic
+	static defineProperties(o: any, properties: PropertyDescriptorMap): any;
+	static defineProperty<T>(o: any, p: any, attributes: PropertyDescriptor<T>): any;
 	static entries<K, V>(object: { [K]: V }): Array<[K, V]>;
 	static entries(object: any): Array<[string, mixed]>;
 	static freeze<T>(o: T): T;
-	static getOwnPropertyDescriptor(o: any, p: any): any;
+	static getOwnPropertyDescriptor<T>(o: any, p: any): PropertyDescriptor<T> | void;
 	static getOwnPropertyNames(o: any): Array<string>;
 	static getOwnPropertySymbols(o: any): Symbol[];
 	static getPrototypeOf: Object$GetPrototypeOf;
@@ -28,12 +28,13 @@ declare class Object {
 	static isFrozen(o: any): boolean;
 	static isSealed(o: any): boolean;
 	static keys(o: any): Array<string>;
-	static preventExtensions(o: any): any;
-	static seal(o: any): any;
-	static setPrototypeOf(o: any, proto: ?Object): bool;
+	static preventExtensions<T>(o: T): T;
+	static seal<T>(o: T): T;
+	static setPrototypeOf(o: any, proto: ?Object): any;
 	static values<T>(object: { [any]: T }): Array<T>;
 	static values(object: any): Array<mixed>;
 	hasOwnProperty(prop: any): boolean;
+	isPrototypeOf(o: any): boolean;
 	propertyIsEnumerable(prop: any): boolean;
 	toLocaleString(): string;
 	toString(): string;
