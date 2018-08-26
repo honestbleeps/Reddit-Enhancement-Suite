@@ -1,11 +1,25 @@
 ### New Features
 
-- None (thanks nobody)
+- Support Style Tweaks highlightTopLevel option in redesign (thanks @prasoc)
+- New FilteReddit custom comment filters option to hide children of filtered comments (thanks @larsjohnsen)
+- Use the name of the post as the filename when downloading media, where applicable (thanks @kdreagle)
+- Add volume control to embedded videos (thanks @larsjohnsen)
+- New znipe.tv media host (thanks @ralcar)
+- Support new Deviantart URL style (thanks @erikdesjardins)
 
 ### Bug Fixes
 
-- None (thanks nobody)
+- Many FilteReddit fixes (thanks @larsjohnsen)
+- Fix videos in galleries not collapsing correctly (thanks @larsjohnsen)
+- Fix User Tagger not applying to newly expanded self text (thanks @kdreagle)
+- Fix error when custom post or comment filters not present (thanks @corylulu)
+- Fix User Tagger and User Info applying to some invalid usernames (thanks @kdreagle)
+- Fix Imgur subreddit album links (thanks @kdreagle)
+- Fix positioning of hover elements inside redesign lightbox (thanks @larsjohnsen)
+- Fix Account Switcher and other features on new.reddit.com (thanks @andytuba, @corylulu)
 
 ### Housekeeping / Other
 
-- None (thanks nobody)
+- Restructure custom filter options implementation (thanks @larsjohnsen)
+- Remove Gfycat reverse, as it is being removed from the site itself (thanks @erikdesjardins)
+- Avoid flashing the lock icon for expandos which require already-granted permissions (thanks @larsjohnsen)
