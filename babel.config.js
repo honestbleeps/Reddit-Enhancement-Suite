@@ -19,7 +19,6 @@ module.exports = {
 		'lodash',
 		'minify-dead-code-elimination',
 	],
-	sourceMaps: 'inline',
 	comments: !isProduction,
 	overrides: [
 		{
