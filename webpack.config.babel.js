@@ -74,20 +74,11 @@ export default (env = {}, argv = {}) => {
 						loader: 'babel-loader',
 						options: {
 							plugins: [
-								'@babel/plugin-proposal-export-default-from',
-								'@babel/plugin-proposal-export-namespace-from',
-								['@babel/plugin-proposal-class-properties', { loose: true }],
-								['@babel/plugin-proposal-object-rest-spread', { loose: true, useBuiltIns: true }],
-								'@babel/plugin-transform-flow-strip-types',
-								'minify-dead-code-elimination',
 								['transform-define', {
 									'process.env.BUILD_TARGET': conf.target,
-									'process.env.NODE_ENV': argv.mode,
 								}],
-								'lodash',
 							],
-							comments: !isProduction,
-							babelrc: false,
+							cacheDirectory: true,
 						},
 					},
 				],
@@ -95,20 +86,7 @@ export default (env = {}, argv = {}) => {
 				test: /\.js$/,
 				include: path.join(__dirname, 'node_modules'),
 				use: [
-					{
-						loader: 'babel-loader',
-						options: {
-							plugins: [
-								'minify-dead-code-elimination',
-								['transform-define', {
-									'process.env.NODE_ENV': argv.mode,
-								}],
-							],
-							compact: true,
-							comments: false,
-							babelrc: false,
-						},
-					},
+					{ loader: 'babel-loader', options: { cacheDirectory: true } },
 				],
 			}, {
 				test: /\.scss$/,
