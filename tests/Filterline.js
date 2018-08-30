@@ -185,11 +185,11 @@ module.exports = {
 			.keys(['!exp', browser.Keys.ENTER])
 			.waitForElementNotVisible(thing)
 
-			// clear criterion
+			// disable
 			.keys(['f'])
 			.waitForElementVisible('#keyCommandLineWidget')
 			.keys(['/exp', browser.Keys.ENTER])
-			.assert.elementNotPresent(`${filter}[type="hasExpando"].res-filterline-filter-active`)
+			.assert.elementPresent(`${filter}[type="hasExpando"]:not(.res-filterline-filter-active)`)
 
 			.end();
 	},
@@ -298,9 +298,9 @@ module.exports = {
 			.waitForElementVisible(`${filter}[type="group"]`)
 			.moveToElement(`${filter}[type="group"]`, 0, 0)
 			.pause(1000)
-			.waitForElementVisible(`${cardButton}[action="clear"]`)
-			.click(`${cardButton}[action="clear"]`)
-			.waitForElementNotVisible(`${cardButton}[action="clear"]`)
+			.waitForElementVisible(`${cardButton}[action="remove"]`)
+			.click(`${cardButton}[action="remove"]`)
+			.waitForElementNotVisible(`${cardButton}`)
 			.waitForElementVisible(nsfwPost)
 			.end();
 	},
