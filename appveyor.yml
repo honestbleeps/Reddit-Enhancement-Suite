@@ -1,5 +1,6 @@
 build: off
 version: '{build}'
+image: Visual Studio 2017
 environment:
   nodejs_version: 8
 cache:
