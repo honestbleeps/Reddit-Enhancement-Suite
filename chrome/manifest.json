@@ -84,5 +84,8 @@
 		"https://accounts.google.com/o/oauth2/v2/auth",
 		"https://www.dropbox.com/oauth2/authorize",
 		"https://login.live.com/oauth20_authorize.srf"
+	],
+	"web_accessible_resources": [
+		"{{../lib/fonts/batch-icons-webfont.woff}}"
 	]
 }
