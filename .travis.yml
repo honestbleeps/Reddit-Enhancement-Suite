@@ -33,10 +33,6 @@ env:
     - SAUCE_USERNAME=RES-Auto
     - SELENIUM_HOST=ondemand.saucelabs.com
     - SELENIUM_PORT=80
-addons:
-  jwt:
-    # SAUCE_ACCESS_KEY=<secure>
-    secure: hHF06xHY6pLdxscwYhUHdSRuUH2CPA61AUrvPiW54lnMwwkDvCQakR+aY5HbjptFIfOwkWsS4xoqXH4pZTfhMOji32S/+ELT+AqLdkIgnLYDfBj4RcsZoXyvuiLx29i4PVCnGMikctBp4dM6wORgfd1tu3uwhcoQrBjxCMW1qmY=
 cache:
   yarn: true
 install:
