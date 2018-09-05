@@ -5,7 +5,7 @@
 // disabled one permutation of `$.fn.on` because it conflicts with delegated listeners (and we don't use it)
 // specialized `$.fn.on` and `$.fn.one` for keyboard and input event types
 // added overloadings of animation functions with only a callback (default delay)
-// added definitions for tokeninput, edgescroll, safehtml, sortable
+// added definitions for tokeninput, edgescroll, sortable
 // added iterator
 // made JQueryXHR extend the native XMLHttpRequest object
 // switched to the `.then` implementation of native promises, à la jQuery 3
@@ -961,9 +961,6 @@ declare class JQuery {
 	tokenInput(op: 'destroy'): JQuery;
 	tokenInput<T>(op: 'init', urlOrDataOrFunction: string | Function, options: TokenInputOptions<T>): JQuery;
 	tokenInput<T>(urlOrDataOrFunction: string | Function, options: TokenInputOptions<T>): JQuery;
-
-	// vendor/index.js
-	safeHtml(html: string): JQuery;
 
 	// jquery-sortable
 	sortable(options: {

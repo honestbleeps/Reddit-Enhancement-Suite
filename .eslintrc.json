@@ -162,6 +162,9 @@
 		}, {
 			"selector": "BinaryExpression[operator='in']",
 			"message": "No in keyword; use Set/Map or hasOwnProperty."
+		}, {
+			"selector": "Identifier[name='DOMParser']",
+			"message": "No manual DOMParser usage; use safeParse instead."
 		}],
 		"no-shadow": 0,
 		"no-sync": 0,
