@@ -9,6 +9,9 @@ import LodashModuleReplacementPlugin from 'lodash-webpack-plugin';
 import ZipPlugin from 'zip-webpack-plugin';
 import sass from 'sass';
 
+// todo fix expando caption/credits/ text src relying on html
+// todo forbid innerHTML/outerHTML/manual DOMParser
+
 const browserConfig = {
 	chrome: {
 		target: 'chrome',
