@@ -18,7 +18,7 @@
 		}
 	},
 	"options_ui": {
-		"page": "{{../../lib/options.html}}",
+		"page": "{{../../lib/options/options.html}}",
 		"open_in_tab": true
 	},
 	"background": {
@@ -86,6 +86,7 @@
 		"https://login.live.com/oauth20_authorize.srf"
 	],
 	"web_accessible_resources": [
-		"{{../../lib/fonts/batch-icons-webfont.woff}}"
+		"{{../../lib/fonts/batch-icons-webfont.woff}}",
+		"{{../../lib/options/options.html}}"
 	]
 }

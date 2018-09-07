@@ -22,7 +22,7 @@
 		}
 	},
 	"options_ui": {
-		"page": "{{../../lib/options.html}}",
+		"page": "{{../../lib/options/options.html}}",
 		"open_in_tab": true
 	},
 	"background": {
@@ -82,6 +82,7 @@
 		"https://content.googleapis.com/drive/v3/*"
 	],
 	"web_accessible_resources": [
-		"{{../../lib/fonts/batch-icons-webfont.woff}}"
+		"{{../../lib/fonts/batch-icons-webfont.woff}}",
+		"{{../../lib/options/options.html}}"
 	]
 }
