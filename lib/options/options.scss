@@ -1,20 +1,30 @@
+html {
+	padding: 10px;
+}
+
 body {
-	background: rgba(0, 0, 0, 0);
 	color: #000;
 	font-size: 12px;
-	top: 15px;
-	right: 25px;
-	bottom: 100%;
-	left: 25px;
-	overflow: hidden;
-	box-shadow: 5px 5px 10px rgba(0, 0, 0, .2);
+	margin: 0;
+	width: 100%;
+	height: 100%;
+	box-sizing: border-box;
 	border-radius: 3px;
-	background-color: #fff;
-	transition: bottom .4s;
+	box-shadow: 5px 5px 10px rgba(0, 0, 0, .2);
 
 	em {
 		font-style: italic;
 	}
+}
+
+ul,
+li {
+	display: block;
+	padding: 0;
+}
+
+#RESConsoleContainer {
+	background-color: #fff;
 }
 
 .RESDonateButton {
@@ -64,7 +74,7 @@ body {
 	padding-right: 30px;
 	margin: 0;
 	height: auto;
-	position: static;
+	position: relative;
 
 	h1 {
 		display: inline-block;
@@ -91,13 +101,9 @@ body {
 
 #RESConsoleContent {
 	display: flex;
-	max-height: 100%;
-	position: absolute;
 	top: 41px;
-	right: 0;
-	bottom: 0;
-	left: 0;
 	padding-left: 15px;
+	height: calc(100vh - 61px);
 
 	&.advanced-options-disabled .SearchRES-result-item.advanced,
 	&.advanced-options-disabled .optionContainer.advanced {
@@ -119,9 +125,8 @@ body {
 }
 
 #RESConfigPanelOptions {
-	display: block;
-	overflow: auto;
 	padding: 15px 15px 0 15px;
+	overflow: auto;
 	flex-grow: 1;
 
 	.moduleDescription {
