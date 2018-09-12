@@ -2730,14 +2730,6 @@
 	"userTaggerAreYouSureYouWantToDeleteTag": {
 		"message": "Are you sure you want to delete the tag for user: $1?"
 	},
-	"userTaggerIgnoredPlaceholder": {
-		"message": "ignored.",
-		"description": "Replaces the content of ignored comments."
-	},
-	"userTaggerShowAnyway": {
-		"message": "show anyway?",
-		"description": "for showing ignored comments"
-	},
 	"userTaggerYourVotesFor": {
 		"message": "your votes for $1: $2",
 		"description": "As in `your votes for username: 42`"
@@ -2925,12 +2917,6 @@
 	},
 	"userTaggerShowTaggingIconDesc": {
 		"message": "Always show a tag tool icon after every username."
-	},
-	"userTaggerHardIgnoreDesc": {
-		"message": "Completely remove links and comments posted by ignored users. If an ignored comment has replies, collapse it and hide its contents instead of removing it."
-	},
-	"userTaggerShowIgnoredDesc": {
-		"message": "Provide a link to reveal an ignored link or comment."
 	},
 	"userTaggerStoreSourceLinkDesc": {
 		"message": "By default, store a link to the link/comment you tagged a user on"
@@ -3199,12 +3185,6 @@
 	},
 	"userTaggerShowTaggingIconTitle": {
 		"message": "Show Tagging Icon"
-	},
-	"userTaggerHardIgnoreTitle": {
-		"message": "Hard Ignore"
-	},
-	"userTaggerShowIgnoredTitle": {
-		"message": "Show Ignored"
 	},
 	"userTaggerStoreSourceLinkTitle": {
 		"message": "Store Source Link"
