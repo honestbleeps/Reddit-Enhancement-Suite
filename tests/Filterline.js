@@ -143,6 +143,7 @@ module.exports = {
 			.click('.res-filterline-new-group')
 			.click('.res-filterline-new-group .res-filterline-filter-new')
 			.waitForElementVisible(`${filter}[type="group"]`)
+			.perform(switchActiveState) // enable
 			.perform(switchActiveState)
 			.waitForElementNotVisible(thing)
 			.perform(switchActiveState)
