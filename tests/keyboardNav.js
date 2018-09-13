@@ -142,7 +142,7 @@ module.exports = {
 			.window_handles(result => {
 				browser.switchWindow(result.value[1]);
 			})
-			.assert.urlEquals('https://www.reddit.com/r/RESIntegrationTests/')
+			.assert.urlContains('https://www.reddit.com/r/RESIntegrationTests')
 			.end();
 	},
 };
