@@ -307,7 +307,7 @@
 		"message": "filteReddit"
 	},
 	"filteRedditDesc": {
-		"message": "Filter out NSFW content, or links by keyword, domain (use User Tagger to ignore by user) or subreddit (for /r/all or /domain/*).\n\nRegExp like `/(this|that|theother)/i` is allowed in text boxes. Find out more on the [/r/Enhancement wiki](/r/Enhancement/wiki/index/filters/filtereddit/regexp)."
+		"message": "Filter out NSFW content, or links by keyword, domain or subreddit (for /r/all or /domain/*).\n\nRegExp like `/(this|that|theother)/i` is allowed in text boxes. Find out more on the [/r/Enhancement wiki](/r/Enhancement/wiki/index/filters/filtereddit/regexp)."
 	},
 	"floaterName": {
 		"message": "Floating Islands"
@@ -1654,7 +1654,7 @@
 		"message": "User Tagger"
 	},
 	"userTaggerDesc": {
-		"message": "Adds a great deal of customization around users - tagging them, ignoring them, and more. You can manage tagged users on [Manage User Tags](/r/Dashboard/#userTaggerContents).\n\n**Ignoring users:** users will *not* be ignored in modmail, moderation queue or your inbox."
+		"message": "Adds a great deal of customization around users - tagging them, ignoring them, and more. You can manage tagged users on [Manage User Tags](/r/Dashboard/#userTaggerContents)."
 	},
 	"versionName": {
 		"message": "Version Manager"
@@ -2385,6 +2385,15 @@
 	"filteRedditFlairDesc": {
 		"message": "Hide posts where certain keywords are in the post's link flair."
 	},
+	"filteRedditUsername": {
+		"message": "Username"
+	},
+	"filteRedditUsersTitle": {
+		"message": "Users"
+	},
+	"filteRedditUsersDesc": {
+		"message": "Hide posts and commment from these users (except on user pages)."
+	},
 	"filteRedditAllowNSFWTitle": {
 		"message": "Allow NSFW"
 	},
@@ -2580,12 +2589,6 @@
 		"message": "Stop filtering from /r/all and /domain/*"
 	},
 	"subredditInfoFilterFromAllAndDomain": {
-		"message": "Filter this subreddit from /r/all and /domain/*"
-	},
-	"subredditInfoStopFilteringThisSubredditFromAllAndDomain": {
-		"message": "Stop filtering this subreddit from /r/all and /domain/*"
-	},
-	"subredditInfoFilterThisSubredditFromAllAndDomain": {
 		"message": "Filter this subreddit from /r/all and /domain/*"
 	},
 	"subredditInfoSubscribe": {
