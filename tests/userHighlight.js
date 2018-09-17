@@ -20,8 +20,7 @@ module.exports = {
 		const transparent = 'rgba(0, 0, 0, 0)';
 
 		browser
-			.url('https://en.reddit.com/wiki/pages/#res:settings/userHighlight')
-			.refresh() // get rid of update notification
+			.url('https://en.reddit.com/wiki/pages/#res:settings-redirect-standalone-options-page/userHighlight')
 			.waitForElementVisible('#RESConsoleContainer')
 			.click('#highlightFirstCommenterContainer')
 			.click('#moduleOptionsSave')

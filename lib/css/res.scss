@@ -50,7 +50,7 @@ body.res-console-open {
 	overflow: hidden;
 }
 
-#modalOverlay {
+#console-container {
 	z-index: $zindex-console-container - 1;
 	position: fixed;
 	top: 0;

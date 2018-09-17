@@ -65,7 +65,7 @@ module.exports = {
 			.assert.visible(subchild2)
 
 			// with automatic hiding
-			.url('https://en.reddit.com/wiki/pages/#res:settings/hideChildComments')
+			.url('https://en.reddit.com/wiki/pages/#res:settings-redirect-standalone-options-page/hideChildComments')
 			.waitForElementVisible('#RESConsoleContainer')
 			.click('#automaticContainer')
 			.click('#moduleOptionsSave')

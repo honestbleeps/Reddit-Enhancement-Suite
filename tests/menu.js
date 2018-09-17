@@ -22,7 +22,7 @@ module.exports = {
 			.moveToElement('#RESSettingsButton', 0, 0)
 			.click('#RESSettingsButton')
 			.click('#SettingsConsole')
-			.waitForElementVisible('#RESConsoleContainer')
+			.waitForElementVisible('#console-container')
 			.end();
 	},
 };

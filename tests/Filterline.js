@@ -63,8 +63,7 @@ module.exports = {
 
 		browser
 			// add a domain filter
-			.url('https://en.reddit.com/wiki/pages/#res:settings/filteReddit')
-			.refresh() // get rid of update notification
+			.url('https://en.reddit.com/wiki/pages/#res:settings-redirect-standalone-options-page/filteReddit')
 			.waitForElementVisible('#RESConsoleContainer')
 			.click('#optionContainer-filteReddit-domains .addRowButton')
 			.setValue('#optionContainer-filteReddit-domains input', ['youtube.com'])
