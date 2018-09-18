@@ -136,12 +136,6 @@ li {
 	p {
 		margin-bottom: 10px;
 	}
-
-	ul {
-		&.token-input-list-facebook {
-			margin: 0;
-		}
-	}
 }
 
 #allOptionsContainer {
@@ -367,8 +361,7 @@ li {
 		width: 100%;
 	}
 
-	textarea,
-	ul.token-input-list-facebook {
+	textarea {
 		width: 100%;
 		min-width: 300px;
 		box-sizing: border-box;
