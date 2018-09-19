@@ -213,13 +213,12 @@ li {
 }
 
 .optionContainer {
-	position: relative;
 	border: 1px solid hsl(205, 50%, 78%);
 	border-radius: 2px;
 	padding: 10px 20px;
 	background-color: #f0f3fc;
 	margin: 10px 0;
-	overflow: auto;
+	overflow-x: auto;
 	clear: both;
 	display: flex;
 

@@ -301,8 +301,6 @@ div.usertext-edit {
 	&:hover {
 		opacity: 1;
 	}
-
-	&.handle { cursor: grab; }
 }
 
 .toggleButton {
@@ -775,19 +773,13 @@ body.RESScrollLock {
 	background-color: lightblue;
 }
 
-// Edgescroll plugin
-.edgescroll {
-	left: 0;
-	right: 0;
-	//background-color: rgba(0, 0, 255, .5);
+.handle,
+.dragging {
+	cursor: grab !important;
 }
 
-.edgescroll-top {
-	top: 0;
-}
-
-.edgescroll-bottom {
-	bottom: 0;
+.dragging {
+	pointer-events:  none;
 }
 
 .RESSortPlaceholder::after {
