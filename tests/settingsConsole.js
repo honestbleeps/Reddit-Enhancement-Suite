@@ -14,20 +14,6 @@ module.exports = {
 			.assert.urlEquals('https://en.reddit.com/wiki/pages#res:settings')
 			.end();
 	},
-	'press escape to close': browser => {
-		if (browser.options.desiredCapabilities.browserName === 'firefox') {
-			// geckodriver doesn't support elementSendKeys https://github.com/mozilla/geckodriver/issues/159
-			browser.end();
-			return;
-		}
-
-		browser
-			.url('https://en.reddit.com/wiki/pages#res:settings')
-			.waitForElementVisible('#console-container')
-			.keys([browser.Keys.ESCAPE])
-			.waitForElementNotVisible('#console-container', 1000)
-			.end();
-	},
 	'change boolean option': browser => {
 		browser
 			.url('https://en.reddit.com/wiki/pages#res:settings-redirect-standalone-options-page/accountSwitcher')
