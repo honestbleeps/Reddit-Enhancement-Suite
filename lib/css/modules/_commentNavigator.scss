@@ -57,6 +57,7 @@
 
 	select {
 		width: 100%;
+		border: none;
 
 		&:not(:focus) option span {
 			display: none;
@@ -79,6 +80,7 @@
 
 	&:focus {
 		text-shadow: 0 0 5px #1278D3;
+		outline: none;
 	}
 
 	&[disabled] {
