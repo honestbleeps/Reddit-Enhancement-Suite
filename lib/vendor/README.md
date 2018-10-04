@@ -6,20 +6,6 @@ Vendor libraries typically ship `.css` files. They are stored here as `.scss` fi
 
 # Libraries
 
-## jQuery EdgeScroll
-
-### Source
-
-https://github.com/gamefreak/jquery-edgescroll
-
-### Files
-
-* jquery.edgescroll-v0.1.js
-
-### Release Version
-
-v0.1 @ [62b96ac](https://github.com/gamefreak/jquery-edgescroll/commit/62b96acb87820f188a056eb75a74364db02d4ec1)
-
 ## Guiders.js
 
 ### Source
@@ -34,19 +20,6 @@ https://github.com/pickhardt/Guiders-JS
 ### Release Version
 
 v2.0.0 @ [69334e7](https://github.com/pickhardt/Guiders-JS/commit/69334e7101948c77c24b95ce3ee5fae6fc938b98#diff-9fa5dfa2572f020ae815e7a5e5a2b5a9)
-
-## jQuery TokenInput
-
-### Source
-
-This library was forked by the Reddit Enhancement Suite team in order to fix a small packaging issue.  That library is installed via package.json. Ancillary files which are not included in the library are stored in this directory.
-
-Original: https://github.com/loopj/jquery-tokeninput
-Fork: https://github.com/Reddit-Enhancement-Suite/jquery-tokeninput
-
-### Files
-
-* `token-input-facebook.scss`
 
 ## HTMLPasteurizer
 
@@ -66,6 +39,33 @@ This library was contributed directly to Reddit Enhancement Suite by [@JordanMil
 ### Release version
 
 @ [a85653e](https://github.com/JordanMilne/Reddit-Enhancement-Suite/blob/a85653e1e0ff93732672a37d68d0b906c478bb82/lib/HTMLPasteurizer.js)
+
+## jQuery EdgeScroll
+
+### Source
+
+https://github.com/gamefreak/jquery-edgescroll
+
+### Files
+
+* jquery.edgescroll-v0.1.js
+
+### Release Version
+
+v0.1 @ [62b96ac](https://github.com/gamefreak/jquery-edgescroll/commit/62b96acb87820f188a056eb75a74364db02d4ec1)
+
+## jQuery TokenInput
+
+### Source
+
+This library was forked by the Reddit Enhancement Suite team in order to fix a small packaging issue.  That library is installed via package.json. Ancillary files which are not included in the library are stored in this directory.
+
+Original: https://github.com/loopj/jquery-tokeninput
+Fork: https://github.com/Reddit-Enhancement-Suite/jquery-tokeninput
+
+### Files
+
+* `token-input-facebook.scss`
 
 # Ancillary Files
 
