@@ -413,10 +413,10 @@ img {
 
 	&-main {
 		display: flex;
-		padding: 3px 5px;
+		padding: 3px 5px 5px 5px;
 		justify-content: space-between;
 		flex-wrap: wrap;
-		color: rgba(256, 256, 256, .9);
+		color: rgba(256, 256, 256, .95);
 
 		> * {
 			height: 20px;
