@@ -20,6 +20,6 @@ gitAdd(unreleasedChangelog);
 gitAdd(newChangelog);
 
 function gitAdd(file) {
-	console.log('git add', file);
-	return execSync(`git add ${file}`);
+				console.log('git add', file);
+				return execSync(`git add ${file}`);
 }
