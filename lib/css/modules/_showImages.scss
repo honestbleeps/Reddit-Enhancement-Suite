@@ -375,8 +375,10 @@ img {
 
 		.video-advanced-progress {
 			width: 100%;
-			height: 2px;
-			background-color: rgba(256, 256, 256, .06);
+			height: 12px;
+			padding: 8px 0 2px 0;
+			background-clip: content-box;
+			background-color: rgba(255, 255, 255, 0.2);
 			box-sizing: border-box;
 
 			.video-advanced-position-thumb {

@@ -1,26 +1,20 @@
 div.RESAccountSwitcherDropdown {
 	max-height: calc(100vh - 80px);
 	min-width: 110px;
+	width: auto;
 
 	li {
+		display: flex;
+		align-items: center;
 		line-height: 20px;
 		padding: 2px 5px 2px 10px;
 
-		span {
-			margin-left: 8px;
-		}
 	}
 
 	.linkIcon {
-		display: inline;
-		float: right;
 		font-size: .9rem;
-		padding-top: 3px;
-		margin-left: 8px;
-
-		&::before {
-			content: '\F02E';
-		}
+		&::before { content: '\F02E'; }
+		&:hover { color: #dbf1ff; }
 	}
 }
 

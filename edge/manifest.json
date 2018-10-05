@@ -52,7 +52,8 @@
 			"{{../lib/foreground.entry.js}}"
 		],
 		"css": [
-			"{{../lib/css/res.scss}}"
+			"{{../lib/css/res.scss}}",
+			"{{./fonts.scss}}"
 		],
 		"run_at": "document_start"
 	}],

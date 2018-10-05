@@ -74,7 +74,6 @@ export default (env = {}, argv = {}) => {
 						loader: 'babel-loader',
 						options: {
 							plugins: [
-								'@babel/plugin-proposal-export-default-from',
 								'@babel/plugin-proposal-export-namespace-from',
 								['@babel/plugin-proposal-class-properties', { loose: true }],
 								['@babel/plugin-proposal-object-rest-spread', { loose: true, useBuiltIns: true }],
@@ -137,6 +136,13 @@ export default (env = {}, argv = {}) => {
 				include: path.join(__dirname, 'lib', 'images'),
 				use: [
 					{ loader: 'url-loader' },
+				],
+			}, {
+				test: /\.woff$/,
+				use: [
+					conf.target === 'edge' ?
+						{ loader: 'url-loader' } :
+						{ loader: 'file-loader', options: { name: '[name].[ext]' } },
 				],
 			}],
 		},

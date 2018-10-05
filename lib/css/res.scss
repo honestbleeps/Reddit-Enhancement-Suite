@@ -1,7 +1,6 @@
 @import '../vendor/index';
 
 @import 'zindex';
-@import 'fonts/batch';
 @import 'modules/nightMode';
 @import 'modules/version';
 @import 'modules/commentStyle';
@@ -1000,6 +999,15 @@ span.multi-count {
 #SearchRES-input-container {
 	position: relative;
 	margin-bottom: 10px;
+
+	&::after {
+		position: absolute;
+		right: 0;
+		padding: 5px;
+		color: rgb(130, 177, 210);
+		font: normal 16px/1 'Batch';
+		content: '\f094';
+	}
 }
 
 #SearchRES-input {
@@ -1009,24 +1017,6 @@ span.multi-count {
 	padding: 5px 25px 5px 3px;
 	border: 1px solid rgb(171, 204, 227);
 	border-radius: 2px;
-}
-
-#SearchRES-input-submit {
-	position: absolute;
-	border: none;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	width: 25px;
-	height: auto;
-	margin: 0;
-	padding: 0;
-	background: transparent;
-	box-shadow: none;
-
-	span {
-		color: rgb(130, 177, 210);
-	}
 }
 
 .RESMenuItemButton {
