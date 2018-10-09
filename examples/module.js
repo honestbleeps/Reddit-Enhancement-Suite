@@ -42,3 +42,4 @@ module.go = () => { // Optional: runs after <body> is ready and `beforeLoad` (in
 module.afterLoad = () => { // Optional: runs after `go` (in all modules) is complete
 	// Do unimportant stuff after everything else is done
 };
+//comment added
