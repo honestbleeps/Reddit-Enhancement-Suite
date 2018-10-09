@@ -26,3 +26,4 @@ https://developer.microsoft.com/en-us/microsoft-edge/platform/documentation/exte
 https://dev.opera.com/extensions/publishing-guidelines/
 
 1. Upload `chrome.zip` to https://addons.opera.com/developer/
+//comment
