@@ -1554,7 +1554,7 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 		background-color: $background-color !important;
 
 		.c-close {
-			background-color: inherit;
+			background-color: $header-background-color;
 		}
 	}
 
