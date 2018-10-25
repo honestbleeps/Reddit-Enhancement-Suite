@@ -39,3 +39,10 @@
 	background: white;
 	border: 1px #ccc solid;
 }
+
+.res-floater-inNavbar {
+	position: fixed;
+	right: 6px;
+	top: 14px;
+	z-index: 100;
+}
