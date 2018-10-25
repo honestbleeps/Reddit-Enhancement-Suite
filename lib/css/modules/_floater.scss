@@ -1,3 +1,28 @@
+.res-floater-list {
+	all: initial;
+
+	display: inline-flex;
+	align-items: center;
+	float: right;
+
+	font-size: 10px;
+
+	&:empty {
+		display: none;
+	}
+
+	> li {
+		display: flex;
+		opacity: .7;
+		&:hover { opacity: 1; }
+
+		// The child element may be hidden, so avoid
+		> * {
+			padding: 2px;
+		}
+	}
+}
+
 .res-floater-visibleAfterScroll {
 	position: fixed;
 	will-change: transform;
@@ -5,42 +30,12 @@
 	right: 8px;
 }
 
-.res-floater-visibleAfterScroll > ul {
-	display: inline-flex;
-	align-items: center;
-	float: right;
-}
-
-.res-floater-visibleAfterScroll > ul > li {
-	display: flex;
-	opacity: .7;
-	&:hover { opacity: 1; }
-}
-
 .res-floater-belowNavbar {
 	position: fixed;
 	z-index: 5;
 	right: 8px;
 	top: 60px;
-
-	> ul {
-		display: inline-flex;
-		align-items: center;
-		float: right;
-
-		padding: 0.2em 0.1em;
-		background: white;
-		border: 1px #ccc solid;
-
-		&:empty {
-			display: none;
-		}
-	}
-
-	> ul > li {
-		display: flex;
-		opacity: .7;
-		margin: 0.2em;
-		&:hover { opacity: 1; }
-	}
+	padding: 0.2em 0.1em;
+	background: white;
+	border: 1px #ccc solid;
 }
