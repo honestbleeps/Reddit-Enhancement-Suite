@@ -278,17 +278,6 @@ div.usertext-edit {
 	}
 }
 
-#keyCodeModal {
-	display: none;
-	width: 200px;
-	height: 40px;
-	position: absolute;
-	z-index: $zindex-console-container + 1;
-	background-color: #FFF;
-	padding: 4px;
-	border: 2px solid #CCC;
-}
-
 #RESMenu li h3:hover {
 	border-color: #000;
 }
@@ -1117,4 +1106,16 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 .pinnable-content.pinned .dismiss-pinnable {
 	top: 30px !important;
+}
+
+.RES-spoiler {
+	&-title {
+		font-style: italic;
+		text-decoration: dotted underline;
+		cursor: help;
+	}
+
+	&:not(:hover):not(:active) &-contents {
+		display: none;
+	}
 }

@@ -4,6 +4,7 @@ html {
 
 body {
 	color: #000;
+	font-family: verdana, arial, helvetica, sans-serif;
 	font-size: 12px;
 	margin: 0;
 	width: 100%;
@@ -11,10 +12,6 @@ body {
 	box-sizing: border-box;
 	border-radius: 3px;
 	box-shadow: 5px 5px 10px rgba(0, 0, 0, .2);
-
-	em {
-		font-style: italic;
-	}
 }
 
 ul,
@@ -542,21 +539,12 @@ a.RESConsoleButton {
 	border-radius: 2px;
 }
 
-.outdated {
-	float: right;
-	font-size: 11px;
-	margin-right: 15px;
-	margin-top: 5px;
-}
-
-.RES-spoiler {
-	.RES-spoiler-title {
-		font-style: italic;
-		text-decoration: dotted underline;
-		cursor: help;
-	}
-
-	&:not(:hover):not(:active) .RES-spoiler-contents {
-		display: none;
-	}
+#keyCodeModal {
+	display: none;
+	width: 200px;
+	height: 40px;
+	position: absolute;
+	background-color: #FFF;
+	padding: 4px;
+	border: 2px solid #CCC;
 }
