@@ -1,4 +1,4 @@
-{
+{ // this starts the program
 	"manifest_version": 2,
 	"name": "{{prop-loader?title!../package.json}}",
 	"version": "{{prop-loader?version!../package.json}}",
