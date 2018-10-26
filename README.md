@@ -26,7 +26,7 @@ Thanks!
 Steve Sobel
 steve@honestbleeps.com
 
-## Building and contributing
+## Building and Contributing
 
 See [CONTRIBUTING.md](/CONTRIBUTING.md).
 
