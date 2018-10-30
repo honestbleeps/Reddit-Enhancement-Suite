@@ -5,7 +5,7 @@ import locales from './locales';
 
 // `en-ca` -> `en_CA`
 function redditLocaleToTransifexLocale(redditLocale) {
-	switch (redditLocale) {
+	switch(redditLocale) {
 		case 'leet':
 			return 'en'; // doesn't appear to exist
 		case 'lol':
