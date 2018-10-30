@@ -1737,3 +1737,9 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 		background-color: #202020;
 	}
 }
+
+.res-nightmode .linkflairlabel[style*="color"] {
+	color: rgb(200, 200, 200) !important;
+	background-color: rgb(64, 64, 64) !important;
+	border-color: rgb(77, 77, 77);
+}
