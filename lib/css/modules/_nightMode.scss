@@ -1181,6 +1181,12 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 		border-color: hsl(0, 0%, 30%);
 	}
 
+	.flairrichtext[style*="color"] {
+		color: rgb(200, 200, 200) !important;
+		background-color: rgb(64, 64, 64) !important;
+		border-color: rgb(77, 77, 77);
+	}
+
 	#NERContent {
 		background-color: rgb(160, 160, 160);
 	}
