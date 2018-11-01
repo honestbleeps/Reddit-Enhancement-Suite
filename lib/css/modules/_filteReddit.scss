@@ -1,23 +1,22 @@
 body.hideOver18 {
-	.thing.over18:not(.allowOver18),
-	.search-result.over18:not(.allowOver18) {
+	.over18:not(.allowOver18) {
 		display: none !important;
 	}
 }
 
-.thing.RESFiltered,
-.search-result.RESFiltered {
-	// For some reason does the scss linter complain on body:not()
-	body.res:not(.res-filters-disabled):not(.res-show-filter-reason) &:not(.res-filterline-highlight-match) {
-		&:not(.res-thing-has-visible-child),
-		&.res-thing-filter-propagate {
+body:not(.res-filters-disabled):not(.res-show-filter-reason) {
+	.RESFiltered:not(.res-filterline-highlight-match) {
+		&:not(.res-thing-partial),
+		&.res-thing-partial.res-thing-hide-children,
+		&.res-thing-hide-children > .child {
 			// !important since many custom stylesheets overrides it otherwise
 			display: none !important;
 		}
 
-		&.res-thing-has-visible-child:not(.res-selected) {
+		&.res-thing-partial:not(.res-selected) {
 			> .entry {
 				max-height: 60px;
+				overflow: hidden !important;
 				position: relative; // Make sure that all children are confined
 				opacity: .3;
 			}
@@ -27,27 +26,27 @@ body.hideOver18 {
 			}
 		}
 	}
+}
 
-	&.res-filterline-highlight-match > .entry {
-		background-color: rgba(255, 155, 155, .16);
+.res-filterline-highlight-match > .entry {
+	background-color: rgba(255, 155, 155, .16);
+}
+
+body.res-show-filter-reason .RESFiltered {
+	> .entry {
+		opacity: .7;
 	}
 
-	body.res-show-filter-reason & {
-		> .entry {
-			opacity: .7;
-		}
-
-		&::before {
-			content: attr(filter-reason);
-		}
+	&::before {
+		content: attr(filter-reason);
 	}
+}
 
-	.res-filter-remove-entry {
-		cursor: pointer;
+.res-filter-remove-entry {
+	cursor: pointer;
 
-		&::after {
-			content: ' — click here to remove matching filter entry';
-		}
+	&::after {
+		content: ' — click here to remove matching filter entry';
 	}
 }
 
