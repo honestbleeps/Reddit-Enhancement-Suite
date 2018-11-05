@@ -8,4 +8,5 @@
 
 ### Housekeeping / Other
 
-- None (thanks nobody)
+- Removed miiverse media host (site is defunct) (thanks andytuba, XenoBen)
+
