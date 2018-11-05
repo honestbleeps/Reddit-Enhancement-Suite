@@ -9,4 +9,4 @@
 ### Housekeeping / Other
 
 - Removed miiverse media host (site is defunct) (thanks andytuba, XenoBen)
-
+- Improved "sanitize HTML for displaying as text" (thanks andytuba)
