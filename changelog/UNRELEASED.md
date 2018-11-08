@@ -9,4 +9,5 @@
 ### Housekeeping / Other
 
 - Removed miiverse media host (site is defunct) (thanks andytuba, XenoBen)
+- Rename flow/lib/*.js to ...js.flow to signal contents do not require functional review (thanks andytuba)
 - Improved "sanitize HTML for displaying as text" (thanks andytuba)
