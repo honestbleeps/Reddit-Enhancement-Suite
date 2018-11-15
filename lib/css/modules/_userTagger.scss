@@ -1,3 +1,17 @@
+.userTagger-dialog-head {
+	display: flex;
+
+	span { margin-right: 3px; }
+
+	.res-usertag-ignore {
+		margin-left: auto;
+		margin-right: 40px; // Don't overlap close button
+
+		// The icons are sufficient to toggle ignore
+		.toggleThumb { display: none; }
+	}
+}
+
 #userTaggerToolTip {
 	.fieldPair-label {
 		width: 85px;
@@ -44,48 +58,6 @@
 		margin-bottom: 0;
 		display: flex;
 		align-items: center;
-	}
-}
-
-.res-ignored-message {
-	color: rgb(170, 170, 170);
-	cursor: default;
-
-	.comment & {
-		line-height: 2;
-	}
-
-	.res-icon {
-		font-size: inherit;
-	}
-}
-
-.res-ignored-content {
-	&.link {
-		a.title,
-		.expando-button,
-		.expando {
-			display: none !important;
-		}
-
-		.thumbnail {
-			visibility: hidden !important;
-		}
-	}
-
-	&.comment > .entry {
-		.md {
-			display: none !important;
-		}
-	}
-
-	&.search-result {
-		a.search-title,
-		.search-expando,
-		.search-expando-button,
-		.search-result-footer {
-			display: none !important;
-		}
 	}
 }
 

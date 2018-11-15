@@ -307,7 +307,7 @@
 		"message": "filteReddit"
 	},
 	"filteRedditDesc": {
-		"message": "Filter out NSFW content, or links by keyword, domain (use User Tagger to ignore by user) or subreddit (for /r/all or /domain/*).\n\nRegExp like `/(this|that|theother)/i` is allowed in text boxes. Find out more on the [/r/Enhancement wiki](/r/Enhancement/wiki/index/filters/filtereddit/regexp)."
+		"message": "Filter out NSFW content, or links by keyword, domain or subreddit (for /r/all or /domain/*).\n\nRegExp like `/(this|that|theother)/i` is allowed in text boxes. Find out more on the [/r/Enhancement wiki](/r/Enhancement/wiki/index/filters/filtereddit/regexp)."
 	},
 	"floaterName": {
 		"message": "Floating Islands"
@@ -1660,7 +1660,7 @@
 		"message": "User Tagger"
 	},
 	"userTaggerDesc": {
-		"message": "Adds a great deal of customization around users - tagging them, ignoring them, and more. You can manage tagged users on [Manage User Tags](/r/Dashboard/#userTaggerContents).\n\n**Ignoring users:** users will *not* be ignored in modmail, moderation queue or your inbox."
+		"message": "Adds a great deal of customization around users - tagging them, ignoring them, and more. You can manage tagged users on [Manage User Tags](/r/Dashboard/#userTaggerContents)."
 	},
 	"versionName": {
 		"message": "Version Manager"
@@ -2391,6 +2391,15 @@
 	"filteRedditFlairDesc": {
 		"message": "Hide posts where certain keywords are in the post's link flair."
 	},
+	"filteRedditUsername": {
+		"message": "Username"
+	},
+	"filteRedditUsersTitle": {
+		"message": "Users"
+	},
+	"filteRedditUsersDesc": {
+		"message": "Hide posts and commment from these users (except on user pages)."
+	},
 	"filteRedditAllowNSFWTitle": {
 		"message": "Allow NSFW"
 	},
@@ -2588,12 +2597,6 @@
 	"subredditInfoFilterFromAllAndDomain": {
 		"message": "Filter this subreddit from /r/all and /domain/*"
 	},
-	"subredditInfoStopFilteringThisSubredditFromAllAndDomain": {
-		"message": "Stop filtering this subreddit from /r/all and /domain/*"
-	},
-	"subredditInfoFilterThisSubredditFromAllAndDomain": {
-		"message": "Filter this subreddit from /r/all and /domain/*"
-	},
 	"subredditInfoSubscribe": {
 		"message": "subscribe"
 	},
@@ -2705,9 +2708,6 @@
 	"userTaggerTag": {
 		"message": "Tag"
 	},
-	"userTaggerIgnored": {
-		"message": "Ignored"
-	},
 	"userTaggerColor": {
 		"message": "Color"
 	},
@@ -2735,14 +2735,6 @@
 	},
 	"userTaggerAreYouSureYouWantToDeleteTag": {
 		"message": "Are you sure you want to delete the tag for user: $1?"
-	},
-	"userTaggerIgnoredPlaceholder": {
-		"message": "ignored.",
-		"description": "Replaces the content of ignored comments."
-	},
-	"userTaggerShowAnyway": {
-		"message": "show anyway?",
-		"description": "for showing ignored comments"
 	},
 	"userTaggerYourVotesFor": {
 		"message": "your votes for $1: $2",
@@ -2931,12 +2923,6 @@
 	},
 	"userTaggerShowTaggingIconDesc": {
 		"message": "Always show a tag tool icon after every username."
-	},
-	"userTaggerHardIgnoreDesc": {
-		"message": "Completely remove links and comments posted by ignored users. If an ignored comment has replies, collapse it and hide its contents instead of removing it."
-	},
-	"userTaggerShowIgnoredDesc": {
-		"message": "Provide a link to reveal an ignored link or comment."
 	},
 	"userTaggerStoreSourceLinkDesc": {
 		"message": "By default, store a link to the link/comment you tagged a user on"
@@ -3205,12 +3191,6 @@
 	},
 	"userTaggerShowTaggingIconTitle": {
 		"message": "Show Tagging Icon"
-	},
-	"userTaggerHardIgnoreTitle": {
-		"message": "Hard Ignore"
-	},
-	"userTaggerShowIgnoredTitle": {
-		"message": "Show Ignored"
 	},
 	"userTaggerStoreSourceLinkTitle": {
 		"message": "Store Source Link"

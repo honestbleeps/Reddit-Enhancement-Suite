@@ -59,6 +59,10 @@ body.res-show-filter-reason .RESFiltered {
 	background-color: rgba(255, 255, 255, .9);
 	clear: left;
 
+	&[hidden] {
+		display: none;
+	}
+
 	.comments-page & {
 		margin-left: 10px;
 	}
@@ -90,10 +94,6 @@ body.res-show-filter-reason .RESFiltered {
 	font: normal 12px sans-serif, arial;
 	color: gray;
 
-	body:not(.res-filteReddit-show-filterline) & {
-		display: none;
-	}
-
 	&-preamble::before {
 		@extend %res-filterline-icon;
 		margin: 0 2px;
@@ -109,6 +109,8 @@ body.res-show-filter-reason .RESFiltered {
 		margin: 0 3px;
 		border-bottom: 1px solid #efefef;
 		padding-bottom: 1px;
+
+		&-hidden { display: none; }
 
 		&:hover { border-bottom: 1px solid #bfbfbf; }
 
