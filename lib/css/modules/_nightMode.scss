@@ -1372,7 +1372,8 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 		}
 	}
 
-	&.res-filteReddit-filterline-pad-until-ready .listing-page .content[role=main] > .spacer:nth-of-type(2)::before,
+	&.res-filteReddit-filterline-pad-until-ready.listing-page #siteTable::before,
+	&.res-filteReddit-filterline-pad-until-ready.comments-page .nestedlisting::before,
 	.res-filterline {
 		background-color: rgba(38, 38, 38, .9);
 	}
@@ -1381,8 +1382,8 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 		&-filter {
 			border-bottom-color: #383838;
 
-			&-active,
-			&-active:hover {
+			&-hiding,
+			&-hiding:hover {
 				border-bottom-color: #e4e4e4;
 				color: #e4e4e4;
 			}

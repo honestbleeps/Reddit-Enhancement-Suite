@@ -20,7 +20,7 @@ function switchActiveState(browser, done) {
 		.execute(`
 			const element = document.querySelector('${filter}${tempAdditionalFilterSelector}');
 			element.click();
-			if (!element.classList.contains('res-filterline-filter-active')) element.click();
+			if (!element.classList.contains('res-filterline-filter-hiding')) element.click();
 		`);
 
 	done();
@@ -96,21 +96,21 @@ module.exports = {
 			.click('.res-filterline-external-filter[type="domains"] .toggleButton')
 			.waitForElementNotVisible(thing)
 
-			// show filter reason
-			.click('.res-filterline-show-reason')
-			.waitForElementVisible(`${thing} .res-filter-remove-entry`)
+			// show hide reason
+			.click('.res-filterline-display-match-reason')
+			.waitForElementVisible(`${thing} .res-thing-filter-remove-matching-entry`)
 			.assert.visible(thing)
-			.click('.res-filterline-show-reason')
-			.waitForElementNotPresent(`${thing} .res-filter-remove-entry`)
+			.click('.res-filterline-display-match-reason')
+			.waitForElementNotPresent(`${thing} .res-thing-filter-remove-matching-entry`)
 			.assert.hidden(thing)
-			.click('.res-filterline-show-reason')
-			.waitForElementVisible(`${thing} .res-filter-remove-entry`)
+			.click('.res-filterline-display-match-reason')
+			.waitForElementVisible(`${thing} .res-thing-filter-remove-matching-entry`)
 
 			// delete filter
 			.click('.res-toggle-filterline-visibility') // Hide the dropbox — Firefox evidently can't click when it partially obscures the element
-			.waitForElementNotVisible('.res-filterline-show-reason')
-			.click('.res-filter-remove-entry')
-			.waitForElementNotPresent(`${thing} .res-filter-remove-entry`)
+			.waitForElementNotVisible('.res-filterline-display-match-reason')
+			.click('.res-thing-filter-remove-matching-entry')
+			.waitForElementNotPresent(`${thing} .res-thing-filter-remove-matching-entry`)
 			.refresh()
 			.perform(initialize)
 			.waitForElementVisible(thing)
@@ -176,8 +176,8 @@ module.exports = {
 			.keys(['f'])
 			.waitForElementVisible('#keyCommandLineWidget')
 			.keys(['+=exp', browser.Keys.ENTER])
-			.waitForElementVisible(`${filter}[type="hasExpando"].res-filterline-filter-active:last-of-type`)
-			.assert.elementNotPresent(`${filter}[type="hasExpando"]:not(.res-filterline-filter-active):first-of-type`)
+			.waitForElementVisible(`${filter}[type="hasExpando"].res-filterline-filter-hiding:last-of-type`)
+			.assert.elementNotPresent(`${filter}[type="hasExpando"]:not(.res-filterline-filter-hiding):first-of-type`)
 			.assert.visible(thing)
 
 			// invert state
@@ -190,7 +190,7 @@ module.exports = {
 			.keys(['f'])
 			.waitForElementVisible('#keyCommandLineWidget')
 			.keys(['/exp', browser.Keys.ENTER])
-			.assert.elementPresent(`${filter}[type="hasExpando"]:not(.res-filterline-filter-active)`)
+			.assert.elementPresent(`${filter}[type="hasExpando"]:not(.res-filterline-filter-hiding)`)
 
 			.end();
 	},
@@ -208,7 +208,7 @@ module.exports = {
 		function testNextType(browser, done) {
 			const type = types.pop();
 			if (type) {
-				tempAdditionalFilterSelector = `.res-filterline-filter-active[type="${type}"]`;
+				tempAdditionalFilterSelector = `.res-filterline-filter-hiding[type="${type}"]`;
 
 				browser
 					.click('.res-filterline-preamble')
@@ -271,37 +271,35 @@ module.exports = {
 			.click('.addBuilderBlock [value="isNSFW"]')
 			.waitForElementVisible('.builderBlock[data-type="isNSFW"]')
 
-			// Hide matches
-			.waitForElementVisible(`${cardButton}[action="state-false"]`)
-			.click(`${cardButton}[action="state-false"]`)
-			.waitForElementVisible(normalPost)
-			.waitForElementNotVisible(nsfwPost)
-
-			// Show matches
-			.waitForElementVisible(`${cardButton}[action="state-true"]`)
-			.click(`${cardButton}[action="state-true"]`)
+			// Hide non-matches
+			.waitForElementVisible(`${cardButton}[action="hide-true"]`)
+			.click(`${cardButton}[action="hide-true"]`)
 			.waitForElementNotVisible(normalPost)
 			.waitForElementVisible(nsfwPost)
 
 			// Hide matches
-			.waitForElementVisible(`${cardButton}[action="state-false"]`)
-			.click(`${cardButton}[action="state-false"]`)
+			.waitForElementVisible(`${cardButton}[action="invert"]`)
+			.click(`${cardButton}[action="invert"]`)
 			.waitForElementVisible(normalPost)
 			.waitForElementNotVisible(nsfwPost)
 
 			// State persists on refresh
 			.refresh()
 			.perform(initialize)
-			.waitForElementNotVisible(nsfwPost)
 			.waitForElementVisible(normalPost)
+			.waitForElementNotVisible(nsfwPost)
 
-			// Remove
+			// Hide non-matches
 			.waitForElementVisible(`${filter}[type="group"]`)
 			.moveToElement(`${filter}[type="group"]`, 0, 0)
-			.pause(1000)
-			.waitForElementVisible(`${cardButton}[action="remove"]`)
+			.waitForElementVisible(`${cardButton}[action="invert"]`)
+			.click(`${cardButton}[action="invert"]`)
+			.waitForElementNotVisible(normalPost)
+			.waitForElementVisible(nsfwPost)
+
+			// Remove
 			.click(`${cardButton}[action="remove"]`)
-			.waitForElementNotVisible(`${cardButton}`)
+			.waitForElementVisible(normalPost)
 			.waitForElementVisible(nsfwPost)
 			.end();
 	},
