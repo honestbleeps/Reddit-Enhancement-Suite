@@ -152,7 +152,8 @@ blockquote.twitter-tweet {
 		width: auto;
 		vertical-align: initial;
 	}
-	.flairemoji:after {
+	
+	.flairemoji::after {
 		content: attr(title);
 	}
 }
