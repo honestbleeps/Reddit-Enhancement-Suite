@@ -146,13 +146,13 @@ blockquote.twitter-tweet {
 }
 
 .res-styleTweaks-flairEmojiAsText-always,
-.res-styleTweaks-flairEmojiAsText-nosubstyle body.res-srstyle-disabled {
-    .flairemoji[style]  {
-        background-image: none !important;
-        width: auto;
-        vertical-align: initial;
-    }
-    .flairemoji:after {
-        content: attr(title);
-    }
+.res-styleTweaks-flairEmojiAsText-nosubstyle.res-srstyle-disabled {
+	.flairemoji[style]  {
+		background-image: none !important;
+		width: auto;
+		vertical-align: initial;
+	}
+	.flairemoji:after {
+		content: attr(title);
+	}
 }
