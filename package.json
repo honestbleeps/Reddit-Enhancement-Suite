@@ -46,6 +46,11 @@
       "@babel/register"
     ]
   },
+  "husky": {
+    "hooks": {
+      "pre-push": "npm run flow && npm run lint && npm test"
+    }
+  },
   "nyc": {
     "all": true,
     "exclude": [
@@ -108,6 +113,7 @@
     "firefox-extension-deploy": "1.1.1",
     "flow-bin": "0.82.0",
     "html-loader": "0.5.5",
+    "husky": "^1.1.4",
     "inert-entry-webpack-plugin": "4.0.2",
     "interpolate-loader": "2.0.0",
     "jscodeshift": "0.5.1",
