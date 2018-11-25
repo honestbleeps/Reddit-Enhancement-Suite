@@ -69,7 +69,9 @@
 		"tabs",
 		"history",
 		"storage",
-		"unlimitedStorage",
+		"unlimitedStorage"
+	],
+	"optional_permissions": [
 		"downloads",
 
 		"https://api.twitter.com/*",
@@ -83,6 +85,8 @@
 	],
 	"web_accessible_resources": [
 		"{{../../lib/fonts/batch-icons-webfont.woff}}",
+		"{{../../lib/environment/background/permissions/prompt.html}}",
+		"{{../../lib/environment/background/permissions/prompt.entry.js}}",
 		"{{../../lib/options/options.html}}"
 	]
 }
