@@ -4,8 +4,8 @@ body.hideOver18 {
 	}
 }
 
-body:not(.res-filters-disabled):not(.res-show-filter-reason) {
-	.RESFiltered:not(.res-filterline-highlight-match) {
+body:not(.res-filters-disabled):not(.res-display-match-reason) {
+	.res-thing-filter-hide {
 		&:not(.res-thing-partial),
 		&.res-thing-partial.res-thing-hide-children,
 		&.res-thing-hide-children > .child {
@@ -28,26 +28,8 @@ body:not(.res-filters-disabled):not(.res-show-filter-reason) {
 	}
 }
 
-.res-filterline-highlight-match > .entry {
-	background-color: rgba(255, 155, 155, .16);
-}
-
-body.res-show-filter-reason .RESFiltered {
-	> .entry {
-		opacity: .7;
-	}
-
-	&::before {
-		content: attr(filter-reason);
-	}
-}
-
-.res-filter-remove-entry {
+.res-thing-filter-remove-matching-entry {
 	cursor: pointer;
-
-	&::after {
-		content: ' — click here to remove matching filter entry';
-	}
 }
 
 @mixin filterline-basic-layout {
@@ -63,13 +45,14 @@ body.res-show-filter-reason .RESFiltered {
 		display: none;
 	}
 
-	.comments-page & {
+	body.comments-page & {
 		margin-left: 10px;
 	}
 }
 
-.res-filteReddit-filterline-pad-until-ready {
-	.listing-page .content[role=main] > .spacer:nth-of-type(2)::before {
+body.res-filteReddit-filterline-pad-until-ready {
+	&.comments-page .nestedlisting::before,
+	&.listing-page #siteTable::before {
 		@include filterline-basic-layout;
 		content: ' ';
 	}
@@ -110,19 +93,19 @@ body.res-show-filter-reason .RESFiltered {
 		border-bottom: 1px solid #efefef;
 		padding-bottom: 1px;
 
-		&-hidden { display: none; }
+		&::before {
+			content: attr(text);
+		}
 
 		&:hover { border-bottom: 1px solid #bfbfbf; }
 
-		&-active,
-		&-active:hover {
+		&-disabled { display: none; }
+
+		&-hiding,
+		&-hiding:hover {
 			border-bottom: 2px solid greenyellow;
 			padding-bottom: 0;
 			color: black;
-		}
-
-		&-name::before {
-			content: attr(name);
 		}
 
 		&-hover {
