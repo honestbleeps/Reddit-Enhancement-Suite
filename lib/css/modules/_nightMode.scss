@@ -7,7 +7,7 @@ $link-color: hsl(210, 50%, 70%);
 $title-link-color: hsl(0, 0%, 87%);
 $title-link-visited-color: hsl(0, 0%, 65%);
 
-.res-nightmode {
+.res-nightmode, .res-d2x-nightmode {
 	body,
 	body .content,
 	.modal-body,
@@ -420,16 +420,6 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 		z-index: 1;
 	}
 
-	button,
-	submit,
-	input[type='button'],
-	input[type='submit'],
-	input[type='reset'] {
-		color: #fff;
-		border: 1px outset hsl(0, 0%, 50%);
-		background-color: hsl(0, 0%, 30%);
-	}
-
 	.create-reddit .title {
 		background-color: rgba(24, 24, 24, .2);
 		color: #8AD;
@@ -571,30 +561,6 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 
 	&.res-searchHelper-searchPageTabs .combined-search-page .search-result-group .search-result-group-header {
 		border-bottom-color: rgb(128, 128, 128);
-	}
-
-	a,
-	.md a,
-	.share-button .option,
-	#subscribe a,
-	.share .option,
-	.wired a,
-	.side a,
-	.link .score.dislikes,
-	.linkcompressed .score.dislikes,
-	a[rel='tag'],
-	.dsq-help,
-	#authorInfoToolTip h3 a,
-	.reddiquette,
-	.parent .author,
-	.parent .subreddit,
-	.combined-search-page .search-result a,
-	.combined-search-page .search-result a > mark,
-	.hoverHelp,
-	.deepthread a,
-	.policy-page .md h1 a,
-	.policy-page .md h3 a {
-		color: $link-color;
 	}
 
 	.flairselector li a {
@@ -1736,5 +1702,42 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 
 	.ProfileVoiceAd {
 		background-color: #202020;
+	}
+}
+
+// Old redesign has extra styling
+.res-nightmode {
+	button,
+	submit,
+	input[type='button'],
+	input[type='submit'],
+	input[type='reset'] {
+		color: #fff;
+		border: 1px outset hsl(0, 0%, 50%);
+		background-color: hsl(0, 0%, 30%);
+	}
+
+	a,
+	.md a,
+	.share-button .option,
+	#subscribe a,
+	.share .option,
+	.wired a,
+	.side a,
+	.link .score.dislikes,
+	.linkcompressed .score.dislikes,
+	a[rel='tag'],
+	.dsq-help,
+	#authorInfoToolTip h3 a,
+	.reddiquette,
+	.parent .author,
+	.parent .subreddit,
+	.combined-search-page .search-result a,
+	.combined-search-page .search-result a > mark,
+	.hoverHelp,
+	.deepthread a,
+	.policy-page .md h1 a,
+	.policy-page .md h3 a {
+		color: $link-color;
 	}
 }
