@@ -4202,7 +4202,7 @@
 		"message": "Sfw History"
 	},
 	"showImagesSfwHistoryDesc": {
-		"message": "Keeps NSFW links from being added to your browser history *by the markVisited feature*.\n\n*If you chose the second option, then links will be blue again on refresh.*\n\n***This does not change your basic browser behavior. If you click on a link then it will still be added to your history normally. This is not a substitute for using your browser's privacy mode.***"
+		"message": "Keeps NSFW links from being added to your browser history *by the markVisited feature*.\n\n***This does not change your basic browser behavior. If you click on a link then it will still be added to your history normally. This is not a substitute for using your browser's privacy mode.***"
 	},
 	"showImagesGalleryRememberWidthTitle": {
 		"message": "Gallery Remember Width"
@@ -4308,6 +4308,12 @@
 	},
 	"showImagesHostToggleDesc": {
 		"message": "Display expandos for this host."
+	},
+	"showImagesMarkVisitedPermission": {
+		"message": "RES automatically marks links visited when you expand media, but doing so requires the permission to modify your browser's history.  \n\nTo disable this feature and avoid future prompts, disable $1."
+	},
+	"showImagesMarkVisitedDisable": {
+		"message": "Disable feature"
 	},
 	"temporaryDropdownLinksName": {
 		"message": "Temporary Dropdown Links"

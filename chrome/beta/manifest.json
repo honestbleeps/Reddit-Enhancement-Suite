@@ -63,13 +63,13 @@
 		"cookies",
 		"identity",
 		"tabs",
-		"history",
 		"storage",
 		"unlimitedStorage",
 		"webRequest"
 	],
 	"optional_permissions": [
 		"downloads",
+		"history",
 
 		"https://api.twitter.com/*",
 		"https://backend.deviantart.com/oembed",
