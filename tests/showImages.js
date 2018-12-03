@@ -79,9 +79,6 @@ module.exports = {
 			.waitForElementVisible('.expando-button')
 			.assert.cssClassPresent('.expando-button', 'collapsedExpando')
 			.assert.attributeEquals('.expando-button', 'data-host', 'codepen')
-			.click('.expando-button')
-			.waitForElementVisible('.res-expando-box')
-			.assert.attributeEquals('.res-expando-box', 'data-host', 'codepen')
 			.end();
 	},
 	'gallery expando': browser => {
