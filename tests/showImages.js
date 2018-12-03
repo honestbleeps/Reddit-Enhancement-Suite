@@ -75,14 +75,13 @@ module.exports = {
 	},
 	'generic expando': browser => {
 		browser
-			.url('https://en.reddit.com/r/RESIntegrationTests/comments/60eh9o/generic_expando/')
+			.url('https://en.reddit.com/r/RESIntegrationTests/comments/a2pudd/generic_expando/')
 			.waitForElementVisible('.expando-button')
-			.assert.cssClassPresent('.expando-button', 'selftext')
 			.assert.cssClassPresent('.expando-button', 'collapsedExpando')
-			.assert.attributeEquals('.expando-button', 'data-host', 'miiverse')
+			.assert.attributeEquals('.expando-button', 'data-host', 'codepen')
 			.click('.expando-button')
 			.waitForElementVisible('.res-expando-box')
-			.assert.attributeEquals('.res-expando-box', 'data-host', 'miiverse')
+			.assert.attributeEquals('.res-expando-box', 'data-host', 'codepen')
 			.end();
 	},
 	'gallery expando': browser => {
