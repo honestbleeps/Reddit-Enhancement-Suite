@@ -68,6 +68,15 @@ body.res-console-open {
 	height: auto;
 }
 
+.res-logo {
+	display: inline-block;
+	margin-right: 5px;
+	vertical-align: middle;
+	width: 60px;
+	height: 30px;
+	background-image: url('../images/icon60x30.png');
+}
+
 .gearIcon {
 	text-decoration: none !important;
 	position: relative;
