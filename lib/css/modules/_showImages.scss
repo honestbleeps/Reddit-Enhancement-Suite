@@ -355,7 +355,7 @@ img {
 	}
 }
 
-.video-advanced {
+.res-video {
 	$va: &;
 
 	display: inline-block;
@@ -528,14 +528,14 @@ img {
 		width: 100%;
 	}
 
-	// Push below and remove hide progress bar if native controls are visible
+	// Push below and remove progress bar and redundant button if native browser controls are visible
 	&-has-native-controls &-interface {
 		display: block;
 		background: rgba(52, 47, 38, 1);
+		border-top: 1px solid #e4e4e4;
 
 		#{$va}-toggle-pause,
-		#{$va}-position-thumb,
-		#{$va}-position {
+		#{$va}-progress {
 			display: none !important;
 		}
 	}
@@ -577,7 +577,7 @@ body:not(.res-showImages-displayImageCaptions) {
 .res-showImages-captionsPosition {
 	@at-root {
 		.res-image,
-		.video-advanced,
+		.res-video,
 		.res-gallery {
 			display: inline-flex;
 			flex-direction: column;
