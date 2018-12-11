@@ -50,88 +50,31 @@ body.res-console-open {
 	overflow: hidden;
 }
 
-#RESConsoleContainer {
-	visibility: hidden;
-	color: #000;
-	font-size: 12px;
-	z-index: $zindex-console-container;
-	position: fixed;
-	top: 15px;
-	right: 25px;
-	bottom: 100%;
-	left: 25px;
-	overflow: hidden;
-	box-shadow: 5px 5px 10px rgba(0, 0, 0, .2);
-	border-radius: 3px;
-	background-color: #fff;
-	transition: bottom .4s;
-
-	&.slideIn {
-		visibility: visible;
-		bottom: 1.5%;
-	}
-
-	&.slideOut {
-		visibility: visible;
-		bottom: 100%;
-		padding: 0;
-
-		#RESConfigPanelOptions {
-			overflow: hidden; // try to smooth the transition
-		}
-	}
-
-	em {
-		font-style: italic;
-	}
-}
-
-.RESDonateButton {
-	display: inline-block;
-	background-color: white;
-	color: orangered;
-	border-radius: 10px;
-	padding: 10px 20px;
-	border: 1px solid rgb(255, 69, 0);
-}
-
-.donateOption {
-	margin-top: 25px;
-	text-align: center;
-	float: left;
-	width: 50%;
-	height: 150px;
-}
-
-.donateOption:last-child {
-	margin-right: 0;
-}
-
-#modalOverlay {
-	visibility: hidden;
+#console-container {
 	z-index: $zindex-console-container - 1;
 	position: fixed;
 	top: 0;
 	right: 0;
 	bottom: 0;
 	left: 0;
-	background: rgba(0, 0, 0, 0);
-	transition: background .4s, visibility .4s;
-
-	&.fadeIn {
-		visibility: visible;
-		background: rgba(0, 0, 0, .5);
-	}
-
-	&.fadeOut {
-		background: rgba(0, 0, 0, 0);
-	}
+	width: 100%;
+	height: 100%;
+	border: none;
 }
 
 #DashboardLink a {
 	display: block;
 	width: auto;
 	height: auto;
+}
+
+.res-logo {
+	display: inline-block;
+	margin-right: 5px;
+	vertical-align: middle;
+	width: 60px;
+	height: 30px;
+	background-image: url('../images/icon60x30.png');
 }
 
 .gearIcon {
@@ -238,50 +181,6 @@ body.res-console-open {
 	height: 22px;
 }
 
-#RESLogo {
-	display: inline-block;
-	margin-right: 5px;
-	vertical-align: middle;
-	width: 60px;
-	height: 30px;
-	background-image: url('../images/icon60x30.png');
-}
-
-.RESDialogTopBar {
-	border-radius: 3px 3px 0 0;
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	height: 40px;
-	margin-bottom: 10px;
-	padding: 10px 10px 0 10px;
-	border-bottom: 1px solid #c7c7c7;
-	background-color: #F0F3FC;
-}
-
-#RESConsoleTopBar {
-	padding-right: 30px;
-	margin: 0;
-	height: auto;
-	position: static;
-
-	h1 {
-		display: inline-block;
-		margin: 0;
-		padding: 0;
-		font-size: 14px;
-		vertical-align: middle;
-	}
-}
-
-#RESConsoleSubredditLink {
-	display: inline-block;
-	margin-left: 1em;
-	font-size: 10px;
-	vertical-align: middle;
-}
-
 #RESKnownBugs,
 #RESKnownFeatureRequests {
 	list-style-type: disc;
@@ -307,18 +206,6 @@ body.res-console-open {
 		border-color: #999;
 		background-color: #ddd;
 	}
-
-	#RESConsoleTopBar & {
-		top: 8px;
-		right: 8px;
-	}
-}
-
-#RESAllOptionsSpan {
-	display: flex; // removes white space
-	margin: 10px 0;
-	color: #868686;
-	font-size: 11px;
 }
 
 .RESDialogSmall {
@@ -371,85 +258,6 @@ div.usertext-edit {
 	background-color: #fff;
 }
 
-#RESConsoleContent {
-	display: flex;
-	max-height: 100%;
-	position: absolute;
-	top: 41px;
-	right: 0;
-	bottom: 0;
-	left: 0;
-	padding-left: 15px;
-
-	&.advanced-options-disabled .SearchRES-result-item.advanced,
-	&.advanced-options-disabled .optionContainer.advanced {
-		display: none;
-	}
-
-	#contributeContents {
-		padding-top: 15px;
-
-		p {
-			margin-bottom: 20px;
-			font-size: 14px;
-		}
-
-		h1 {
-			margin-top: 40px;
-		}
-	}
-}
-
-#RESConfigPanelOptions {
-	display: block;
-	overflow: auto;
-	padding: 15px 15px 0 15px;
-	flex-grow: 1;
-
-	.moduleDescription {
-		margin-top: 5px;
-	}
-
-	p {
-		margin-bottom: 10px;
-	}
-
-	ul {
-		&.token-input-list-facebook {
-			margin: 0;
-		}
-	}
-}
-
-#allOptionsContainer {
-	position: relative;
-	max-width: 1150px;
-}
-
-#moduleOptionsScrim {
-	display: none;
-	position: absolute;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
-	z-index: 1;
-	background-color: rgba(255, 255, 255, .7);
-
-	&.visible {
-		display: block;
-	}
-}
-
-#RESConfigPanelModulesPane {
-	position: relative;
-	width: 200px;
-	padding-top: 15px;
-	flex-shrink: 0;
-	overflow-y: auto;
-	overflow-x: hidden;
-}
-
 .clear {
 	clear: both;
 }
@@ -479,117 +287,8 @@ div.usertext-edit {
 	}
 }
 
-#keyCodeModal {
-	display: none;
-	width: 200px;
-	height: 40px;
-	position: absolute;
-	z-index: $zindex-console-container + 1;
-	background-color: #FFF;
-	padding: 4px;
-	border: 2px solid #CCC;
-}
-
-#RESConfigPanelModulesList {
-	color: rgb(80, 80, 80);
-	margin-top: 15px;
-
-	> ul {
-		border: 1px solid rgb(230, 230, 230);
-		border-radius: 2px;
-	}
-
-	ul ul {
-		padding: 10px 0;
-		display: none;
-	}
-
-	li h3 {
-		text-align: left;
-		padding: 5px 10px;
-		margin: 0;
-		cursor: pointer;
-		border-top: 1px solid rgb(230, 230, 230);
-		font-weight: normal;
-	}
-
-	li:first-child h3 {
-		border: none;
-	}
-
-	li.active h3 {
-		border-bottom: 1px solid rgb(230, 230, 230);
-		background: rgb(245, 245, 245);
-	}
-}
-
 #RESMenu li h3:hover {
 	border-color: #000;
-}
-
-%warning-icon {
-	content: '\F15A';
-	margin-left: 3px;
-	color: rgb(230, 30, 30);
-	font: normal 11px 'Batch';
-}
-
-#RESAllOptionsSpan::after {
-	@extend %warning-icon;
-}
-
-.optionContainer {
-	position: relative;
-	border: 1px solid hsl(205, 50%, 78%);
-	border-radius: 2px;
-	padding: 10px 20px;
-	background-color: #f0f3fc;
-	margin: 10px 0;
-	overflow: auto;
-	clear: both;
-	display: flex;
-
-	&.table,
-	&.specialOptionType {
-		display: block;
-	}
-
-	// for when the functionality is there
-	&.depends {
-		margin-top: -11px;
-		border-radius: 0 0 2px 2px;
-		background-color: rgb(251, 252, 255);
-	}
-
-	&.highlight {
-		box-shadow: 0 0 5px 1px rgb(171, 204, 227);
-
-		.optionTitle {
-			font-weight: bold;
-		}
-	}
-
-	&.advanced .optionTitle::before {
-		@extend %warning-icon;
-		margin: 0 4px 0 -15px; // 4+(-15) = 11 == Batch font-size
-	}
-
-	&:not(.table):not(.specialOptionType) .optionSetting {
-		padding: 0 10px;
-		margin-right: 10px;
-		border-right: 1px dashed hsl(205, 50%, 78%);
-	}
-
-	table {
-		clear: both;
-		width: 100%;
-		margin-top: 20px;
-		margin-bottom: 10px;
-	}
-
-	.enum img {
-		max-width: 16px;
-	}
 }
 
 .res-icon-button {
@@ -600,59 +299,9 @@ div.usertext-edit {
 	&:hover {
 		opacity: 1;
 	}
-
-	&.handle { cursor: grab; }
-}
-
-.optionTitle {
-	font-size: 14px;
-	min-width: 200px;
-	flex: 0 0 20%;
-}
-
-.optionKey {
-	font-size: .75em;
-	color: #999;
-}
-
-.optionSetting {
-	white-space: nowrap;
-	flex: 0 0 20%;
-}
-
-.optionDescription {
-	line-height: 1.5;
-	flex-grow: 1;
-}
-
-#RESConsoleContainer input[type=radio],
-#RESConsoleContainer input[type=checkbox] {
-	vertical-align: bottom;
-	margin-right: 3px;
-}
-
-.moduleButton {
-	font: 12px sans-serif;
-	color: rgb(180, 180, 180);
-	padding: 7px 10px;
-	cursor: pointer;
-
-	&.enabled {
-		color: rgb(80, 80, 80);
-	}
-
-	&.active {
-		font-weight: bold;
-		box-shadow: inset 5px 0 0 0 rgb(171, 204, 227);
-	}
-
-	small {
-		display: block;
-	}
 }
 
 .toggleButton {
-
 	position: relative;
 	display: inline-flex;
 	cursor: pointer;
@@ -746,122 +395,6 @@ div.usertext-edit {
 	}
 }
 
-.moduleToggle {
-	display: inline-flex; // removes white space
-	vertical-align: middle;
-}
-
-.moduleName {
-	font: 20px segoe ui, arial, sans-serif;
-	margin-right: 10px;
-	display: inline-block;
-	vertical-align: middle;
-}
-
-.moduleKey {
-	font-size: .75em;
-	color: #999;
-}
-
-.optionsTable {
-	th {
-		font-weight: bold;
-		font-size: 14px;
-		color: white;
-		text-shadow: 1px 1px 1px rgba(0, 0, 0, .3);
-		padding: 7px 5px;
-		background-color: rgb(150, 191, 232);
-	}
-
-	tr:nth-child(even) {
-		background-color: hsl(215, 40%, 93%);
-	}
-
-	td {
-		padding: 5px;
-	}
-
-	tr.dragged {
-		width: 80% !important;
-		background-color: transparent;
-
-		input[type=text] {
-			width: auto !important;
-		}
-	}
-
-	input[type=text] {
-		width: 100%;
-	}
-
-	textarea,
-	ul.token-input-list-facebook {
-		width: 100%;
-		min-width: 300px;
-		box-sizing: border-box;
-	}
-}
-
-#RESConsoleVersionDisplay {
-	display: inline-block;
-	font-size: 10px;
-	margin-left: 1em;
-	vertical-align: middle;
-}
-
-.RESConsoleButton {
-	padding: 3px 5px;
-	font-size: 12px;
-	border: 1px solid #636363;
-	border-radius: 3px;
-	overflow: hidden; // Contain the spinner when executing callback
-
-	+ .RESConsoleButton {
-		margin-left: 4px;
-	}
-}
-
-a.RESConsoleButton {
-	display: inline-block;
-}
-
-#moduleOptionsSave {
-	float: right;
-	cursor: pointer;
-	padding: 0 10px;
-	height: auto;
-	margin: -2px 1em 0 0;
-	font-size: 12px;
-	line-height: 22px;
-	color: #fff;
-	border: 1px solid #636363;
-	border-radius: 3px;
-	background-color: rgba(16, 122, 196, .9);
-
-	&:hover {
-		background-color: rgb(16, 122, 196);
-	}
-
-	&::before {
-		content: '';
-		display: inline-block;
-		margin: 0 7px 0 0;
-		height: 8px;
-		width: 8px;
-		border-radius: 100%;
-		background: white;
-	}
-
-	&.optionsSaved::before {
-		background: #259;
-	}
-
-	&::-moz-focus-inner {
-		border: none;
-		padding: 0;
-	}
-}
-
 .addRowButton {
 	cursor: pointer;
 	padding: 2px 5px;
@@ -873,58 +406,6 @@ a.RESConsoleButton {
 
 .addRowButton:hover {
 	background-color: #289dee;
-}
-
-#moduleOptionsSaveStatus {
-	display: none;
-	float: right;
-	padding: 4px;
-	margin-right: 1em;
-	background-color: #FFFACD;
-}
-
-#AboutRESTeamImage {
-	width: 100%;
-	background-color: #000;
-	margin-bottom: 12px;
-
-	img {
-		display: block;
-		margin: auto;
-	}
-}
-
-#SearchRES-results-container {
-	display: none;
-
-	+ #SearchRES-boilerplate {
-		margin-top: 1em;
-		border-top: 1px black solid;
-		padding-top: 1em;
-	}
-
-	li {
-		list-style-type: none;
-		border-bottom: 1px dashed #ccc;
-		cursor: pointer;
-		margin-left: 0;
-		padding-left: 10px;
-		padding-top: 24px;
-		padding-bottom: 24px;
-
-		&:hover {
-			background-color: #FAFAFF;
-		}
-	}
-}
-
-#SearchRES-results-hidden {
-	display: none;
-	font-style: italic;
-}
-
-.advanced-options-disabled #SearchRES-results-hidden.advancedResults {
-	display: inline;
 }
 
 // Universal subreddit toggle button (subscribe, filter, shortcut, etc)
@@ -956,69 +437,6 @@ span.multi-count {
 	color: white;
 }
 
-.SearchRES-result-header {
-	margin-bottom: 12px;
-	color: #666;
-}
-
-.SearchRES-result-title {
-	font-weight: bold;
-
-	.advanced & {
-		font-style: italic;
-	}
-}
-
-.SearchRES-result-title,
-.SearchRES-breadcrumb {
-	display: block;
-}
-
-.SearchRES-breadcrumb {
-	font-weight: normal;
-	color: #888;
-}
-
-.SearchRES-result-copybutton {
-	float: right;
-	opacity: .4;
-	padding: 10px;
-	width: 26px;
-	height: 22px;
-	visibility: hidden;
-}
-
-#SearchRES-results li:hover .SearchRES-result-copybutton {
-	visibility: visible;
-}
-
-#SearchRES-results .SearchRES-result-copybutton:hover {
-	color: #888;
-}
-
-#SearchRES-input-container {
-	position: relative;
-	margin-bottom: 10px;
-
-	&::after {
-		position: absolute;
-		right: 0;
-		padding: 5px;
-		color: rgb(130, 177, 210);
-		font: normal 16px/1 'Batch';
-		content: '\f094';
-	}
-}
-
-#SearchRES-input {
-	box-sizing: border-box;
-	width: 100%;
-	font-size: 14px;
-	padding: 5px 25px 5px 3px;
-	border: 1px solid rgb(171, 204, 227);
-	border-radius: 2px;
-}
-
 .RESMenuItemButton {
 	display: block;
 	position: absolute;
@@ -1033,25 +451,6 @@ span.multi-count {
 
 .RESMenuItemButton:hover {
 	background-color: #C8DBEC;
-}
-
-.outdated {
-	float: right;
-	font-size: 11px;
-	margin-right: 15px;
-	margin-top: 5px;
-}
-
-.RES-spoiler {
-	.RES-spoiler-title {
-		font-style: italic;
-		text-decoration: dotted underline;
-		cursor: help;
-	}
-
-	&:not(:hover):not(:active) .RES-spoiler-contents {
-		display: none;
-	}
 }
 
 .guider ol {
@@ -1372,19 +771,13 @@ body.RESScrollLock {
 	background-color: lightblue;
 }
 
-// Edgescroll plugin
-.edgescroll {
-	left: 0;
-	right: 0;
-	//background-color: rgba(0, 0, 255, .5);
+.handle,
+.dragging {
+	cursor: grab !important;
 }
 
-.edgescroll-top {
-	top: 0;
-}
-
-.edgescroll-bottom {
-	bottom: 0;
+.dragging {
+	pointer-events:  none;
 }
 
 .RESSortPlaceholder::after {
@@ -1722,4 +1115,16 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 .pinnable-content.pinned .dismiss-pinnable {
 	top: 30px !important;
+}
+
+.RES-spoiler {
+	&-title {
+		font-style: italic;
+		text-decoration: dotted underline;
+		cursor: help;
+	}
+
+	&:not(:hover):not(:active) &-contents {
+		display: none;
+	}
 }

@@ -1,7 +1,7 @@
 module.exports = {
 	'basic functionality': browser => {
 		browser
-			.url('https://en.reddit.com/wiki/pages/#res:settings/spamButton')
+			.url('https://en.reddit.com/wiki/pages/#res:settings-redirect-standalone-options-page/spamButton')
 			.waitForElementVisible('#RESConsoleContainer')
 			.click('.moduleToggle')
 			.url('https://en.reddit.com/r/RESIntegrationTests/comments/5ui5yr/spam_button/')

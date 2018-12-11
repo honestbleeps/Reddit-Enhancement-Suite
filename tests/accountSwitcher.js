@@ -9,8 +9,7 @@ module.exports = {
 		const username = 'this_username_is_too_long';
 
 		browser
-			.url('https://en.reddit.com/wiki/pages#res:settings/accountSwitcher')
-			.refresh() // get rid of update notification
+			.url('https://en.reddit.com/wiki/pages#res:settings-redirect-standalone-options-page/accountSwitcher')
 			.waitForElementVisible('#RESConsoleContainer')
 			.click('#optionContainer-accountSwitcher-accounts .addRowButton')
 			.setValue('#optionContainer-accountSwitcher-accounts input', [username])
@@ -35,8 +34,7 @@ module.exports = {
 		const username = 'this_username_is_too_long_anyway';
 
 		browser
-			.url('https://en.reddit.com/wiki/pages#res:settings/accountSwitcher')
-			.refresh() // get rid of update notification
+			.url('https://en.reddit.com/wiki/pages#res:settings-redirect-standalone-options-page/accountSwitcher')
 			.waitForElementVisible('#RESConsoleContainer')
 			.click('#optionContainer-accountSwitcher-accounts .addRowButton')
 			.setValue('#optionContainer-accountSwitcher-accounts input[type=text]', [username])

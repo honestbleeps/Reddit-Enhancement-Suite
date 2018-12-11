@@ -5,8 +5,7 @@ module.exports = {
 		const color = browser.options.desiredCapabilities.browserName === 'firefox' ? 'rgb(110, 155, 192)' : 'rgba(110, 155, 192, 1)';
 
 		browser
-			.url('https://en.reddit.com/wiki/pages/#res:settings/voteEnhancements')
-			.refresh() // get rid of update notification
+			.url('https://en.reddit.com/wiki/pages/#res:settings-redirect-standalone-options-page/voteEnhancements')
 			.waitForElementVisible('#RESConsoleContainer')
 			// enable colorCommentScore user-defined coloration
 			.click('#colorCommentScore input[value=user]')
