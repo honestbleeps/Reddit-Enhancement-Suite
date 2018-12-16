@@ -18,7 +18,7 @@ execSync(`git clone --depth=1 https://github.com/Reddit-Enhancement-Suite/Reddit
 let releaseTimestamp;
 try {
     releaseTimestamp = (/^tagger.+?\s(\d+)\s/m).exec(execSync(`git cat-file tag v${version}`, { encoding: 'utf8' }))[1];
-} except (e) {
+} catch (e) {
     releaseTimestamp = (/^committer.+?\s(\d+)\s/m).exec(execSync(`git cat-file commit v${version}`, { encoding: 'utf8' }))[1];
 }
 const releaseDate = new Date(releaseTimestamp * 1000);
