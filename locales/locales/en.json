@@ -4389,27 +4389,15 @@
 		"message": "Hide quarantine warnings"
 	},
 	"quarantineHideFlairTitle": {
-		"message": "Hide flair"
+		"message": "Hide post flair"
 	},
 	"quarantineHideFlairDesc": {
-		"message": "Hide Quarantined post flair"
+		"message": "Hide \"Quarantined\" post flair (regardless of where the post is being viewed from)"
 	},
-	"quarantineHideSidebarTitle": {
-		"message": "Hide sidebar warning"
-	},
-	"quarantineHideSidebarDesc": {
-		"message": "Hide warning in sidebar of quarantined subreddits"
-	},
-	"quarantineHideWarningTitle": {
-		"message": "Skip warning"
-	},
-	"quarantineHideWarningDesc": {
-		"message": "Automatically click continue on the warning page when first visiting quarantined subreddits"
-	},
-	"quarantineHideFixHeaderImgTitle": {
-		"message": "Fix header image"
-	},
-	"quarantineHideFixHeaderImgDesc": {
-		"message": "Replace yellow triangle header image with default reddit header image on quarantined subreddits"
-	}
+    "quarantineHideInSubTitle": {
+        "message": "Hide subreddit warnings"
+    },
+    "quarantineHideInSubDesc": {
+        "message": "Hide all warnings of quarantine while viewing a quarantined subreddit"
+    }
 }
