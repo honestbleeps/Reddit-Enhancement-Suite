@@ -37,7 +37,7 @@ img {
 
 // Place inline expandos so that they don't impact the line height
 .res-freetext-expando {
-	display: inline-block;
+	display: inline-flex;
 	height: 1em;
 	margin: 0 !important;
 	vertical-align: middle;
@@ -53,20 +53,12 @@ img {
 .expando-button {
 	cursor: pointer;
 	user-select: none;
-
-	&.image,
-	&.video-muted,
-	&.expando-button-loading,
-	&.expando-button-requires-permission {
-		vertical-align: top !important;
-		width: 23px;
-		height: 23px;
-		max-width: 23px;
-		max-height: 23px;
-		display: inline-block;
-		margin-right: 6px;
-		padding: 0;
-	}
+	vertical-align: top !important;
+	width: 23px;
+	height: 23px;
+	display: inline-block;
+	margin-right: 5px;
+	padding: 0;
 
 	&-duplicate {
 		filter: sepia(1);
