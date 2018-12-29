@@ -383,7 +383,7 @@ img {
 		top: -9px;
 		height: 16px;
 		width: 16px;
-		margin-left: -8px;
+		margin-left: -8px !important;
 		border-radius: 50%;
 		background-color: white;
 		box-shadow: -1px -1px 2px -1px inset;
@@ -398,7 +398,7 @@ img {
 		height: 100%;
 		position: relative;
 		width: 2%;
-		margin-left: -1%;
+		margin-left: -1% !important;
 		background-color: rgba(255, 47, 0, .6);
 		border-radius: 1px;
 	}
@@ -424,7 +424,7 @@ img {
 	}
 
 	&-info {
-		margin-left: auto;
+		margin-left: auto !important;
 	}
 
 	&-link {
@@ -443,7 +443,7 @@ img {
 
 	&-button {
 		cursor: pointer;
-		margin-right: 7px;
+		margin-right: 7px !important;
 
 		&:hover {
 			color: rgba(256, 256, 256, .8);
@@ -456,7 +456,7 @@ img {
 		position: relative;
 
 		#{$va}-button {
-			margin-right: 0;
+			margin-right: 0 !important;
 		}
 	}
 
@@ -500,7 +500,7 @@ img {
 			border-radius: 4px;
 			padding: 2px;
 			display: flex;
-			margin-left: -2px;
+			margin-left: -2px !important;
 		}
 
 		&-percentage {
