@@ -20,10 +20,13 @@ div.RESAccountSwitcherDropdown {
 
 #RESAccountSwitcherIcon {
 	cursor: pointer;
-	margin-left: 3px;
 	display: inline-block;
 	width: 12px;
 	height: 16px;
+
+	.user & {
+		margin-left: 3px;
+	}
 }
 
 .res-accountSwitcher-dropDownStyle-alien {
@@ -31,6 +34,7 @@ div.RESAccountSwitcherDropdown {
 		vertical-align: middle;
 		background-image: url('../images/accountSwitcherSnoo.png');
 		background-repeat: no-repeat;
+		background-origin: content-box;
 	}
 }
 
