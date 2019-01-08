@@ -654,6 +654,11 @@ body.RESScrollLock {
 	content: attr(data-text);
 }
 
+.transitionToTransparent {
+	transition: opacity 3s ease-in-out;
+	opacity: 0;
+}
+
 .RESLoadingSpinner {
 	color: hsl(210, 80%, 50%);
 	font-size: inherit; // Determines size of the icon.
