@@ -1,5 +1,3 @@
-@import '../zindex';
-
 .NERPageMarker {
 	text-align: center;
 	color: #7f7f7f;
@@ -12,7 +10,6 @@
 	border: 1px solid #c7c7c7;
 	border-radius: 3px;
 	padding: 3px 0;
-
 
 	&.NERPageMarkerLast {
 		min-height: 30px;
@@ -31,16 +28,6 @@
 		a + a {
 			margin-left: 2em;
 		}
-	}
-}
-
-// hide next/prev page and random subreddit indicators
-.res-ner-listing {
-	// for /about/log
-	~ .nextprev,
-	div.nav-buttons,
-	.nav-buttons .nextprev {
-		display: none;
 	}
 }
 
@@ -90,16 +77,11 @@
 		height: 10px;
 		border: 1px solid #888;
 		border-radius: 50%;
-	}
-
-	&::after,
-	&.paused.reversePause::after {
 		content: '\F16C';
 		padding: 2px;
 	}
 
-	&.paused::after,
-	&.reversePause::after {
+	&.paused::after {
 		content: '\F16B';
 		padding: 2px 1px 2px 3px;
 	}
