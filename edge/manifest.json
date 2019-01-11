@@ -15,7 +15,7 @@
 			"38": "{{../images/css-on.png}}"
 		}
 	},
-	"options_page": "{{../lib/options/options.html}}",
+	"options_page": "{{./options.html}}",
 	"background": {
 		"scripts": [
 			"{{./edge.entry.js}}",
@@ -85,6 +85,6 @@
 		"https://content.dropboxapi.com/*"
 	],
 	"web_accessible_resources": [
-		"{{../lib/options/options.html}}"
+		"{{./options.html}}"
 	]
 }
