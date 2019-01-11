@@ -1,11 +1,34 @@
 ### New Features
 
-- None (thanks nobody)
+- Show more Youtube info, and make them more distinguished (thanks @corylulu)
+- Add muted as default for host "mixer" (thanks @BenMcGarry)
+- gfycat: Add support for "ifr" URLs and non-muted videos (thanks @larsjohnsen)
+- Show context link on comment button 'parents' popup if no visible parents (thanks @YahyaZ)
+- Better intergrate floaters in redesign (thanks @larsjohnsen)
 
 ### Bug Fixes
 
-- None (thanks nobody)
+- Fixed "add subreddit" control being above on top of expanded images (thanks @jaysc)
+- Fix color of redesign flair in old reddit with nightmode (thanks @SirKitboard)
+- styleTweaks: Only add subreddit style controls when stylesheet is available (thanks @larsjohnsen)
+- orangered: Don't multicast outdated unread count (thanks @larsjohnsen)
+- Add /me/f/mod/about to the modqueue pagetype (thanks @Brcrwilliams)
+- Localize show/hide child comment buttons (thanks @IvanFon)
+- hover: Make closeOnMouseout more stable, improve animation (thanks @larsjohnsen)
 
-### Housekeeping / Other
+##: Housekeeping / Other
 
-- None (thanks nobody)
+- Settings console as embedded page (thanks @larsjohnsen)
+- Added a preintegration script to package.json to ensure availability of nightwatch's RES-bundle dependencies (thanks @ackinc)
+- Remove defunct hosts: vidlit, oddshot (thanks @larsjohnsen)
+- username clean-up: Move selector and getUsernameFromLink to utils (thanks @larsjohnsen)
+- showImages: Remove option 'showVideoControls' (thanks @larsjohnsen)
+- username autocompletion: Improve performance, restrict selection to upvoted / tagged / on page (thanks @larsjohnsen)
+- r2 watcher: Simplify interface and adjust callback aggregation (thanks @larsjohnsen)
+- Optimize Filterline (thanks @larsjohnsen)
+- showImages: Optimize modulesForHostname (thanks @larsjohnsen)
+- r2: Don't display (broken) RESTips (thanks @larsjohnsen)
+- menu: Clean-up, defer building items (thanks @larsjohnsen)
+- ner: Separate load logic from UI, simplify (thanks @larsjohnsen)
+- Close menu dropdown menu on action by default (thanks @larsjohnsen)
+- Make legacyFavicon independent of option showUnreadCountInFavicon (thanks @larsjohnsen)
