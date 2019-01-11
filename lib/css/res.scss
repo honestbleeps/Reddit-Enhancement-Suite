@@ -13,7 +13,6 @@
 @import 'modules/commentPreview';
 @import 'modules/commentTools';
 @import 'modules/dashboard';
-@import 'modules/menu';
 @import 'modules/newCommentCount';
 @import 'modules/noParticipation';
 @import 'modules/notifications';
@@ -60,12 +59,6 @@ body.res-console-open {
 	width: 100%;
 	height: 100%;
 	border: none;
-}
-
-#DashboardLink a {
-	display: block;
-	width: auto;
-	height: auto;
 }
 
 .res-logo {
@@ -120,11 +113,6 @@ body.res-console-open {
 @keyframes pop {
 	from { transform: scale(0, 0); }
 	to { transform: scale(1.5, 1.5); }
-}
-
-#RESSettingsButton,
-#openRESPrefs {
-	display: inline-block;
 }
 
 .RESDropdownList {
@@ -287,10 +275,6 @@ div.usertext-edit {
 	}
 }
 
-#RESMenu li h3:hover {
-	border-color: #000;
-}
-
 .res-icon-button {
 	cursor: pointer;
 	margin: 0 2px;
@@ -353,6 +337,7 @@ div.usertext-edit {
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
+		min-width: 3ex;
 
 		// Custom toggle labels
 		&[data-disabled-text]::before {
