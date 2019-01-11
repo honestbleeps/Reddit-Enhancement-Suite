@@ -7,16 +7,11 @@
 
 	font-size: 10px;
 
-	&:empty {
-		display: none;
-	}
-
 	> li {
 		display: flex;
 		opacity: .7;
 		&:hover { opacity: 1; }
 
-		// The child element may be hidden, so avoid
 		> * {
 			padding: 2px;
 		}
