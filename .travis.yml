@@ -1,6 +1,6 @@
 sudo: false
 language: node_js
-node_js: 10
+node_js: 11
 branches:
   only:
     - master
@@ -69,6 +69,7 @@ matrix:
             - dist/zip/firefox.zip
             - dist/zip/firefox-beta.zip
           skip_cleanup: true
+          overwrite: true
           on:
             tags: true
         - provider: script
