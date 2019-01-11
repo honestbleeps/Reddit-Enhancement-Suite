@@ -19,7 +19,7 @@ module.exports = {
 			.assert.visible('.RESHover a[href$="/user/erikdesjardins/comments/"]')
 			.assert.containsText('.RESHover', 'Redditor since:')
 			.click('.RESHover .RESCloseButton')
-			.waitForElementNotVisible('.RESHover')
+			.waitForElementNotPresent('.RESHover')
 			.end();
 	},
 };
