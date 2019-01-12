@@ -5,7 +5,6 @@
 const fs = require('fs');
 const path = require('path');
 const chromeDeploy = require('chrome-extension-deploy');
-const edgeDeploy = require('edge-extension-deploy');
 const firefoxDeploy = require('firefox-extension-deploy');
 const operaDeploy = require('opera-extension-deploy');
 const { version } = require('../package.json');
@@ -15,14 +14,11 @@ if (isBetaVersion(version)) {
 	console.log(`Deploying ${version} beta release...`);
 
 	deployChromeBeta();
-	deployEdgeBeta();
 } else {
 	console.log(`Deploying ${version} stable release...`);
 
 	deployChromeBeta();
 	deployChromeStable();
-	deployEdgeBeta();
-	deployEdgeStable();
 	deployFirefoxStable();
 	deployOperaStable();
 }
@@ -58,41 +54,6 @@ function deployChromeStable() {
 		console.log('Chrome stable deployment complete!');
 	}, err => {
 		console.error('Chrome stable failed:', err);
-		process.exitCode = 1;
-	});
-}
-
-function deployEdgeBeta() {
-	console.log('Deploying Edge beta...');
-
-	edgeDeploy({
-		tenantId: process.env.EDGE_TENANT_ID,
-		clientId: process.env.EDGE_CLIENT_ID,
-		clientSecret: process.env.EDGE_CLIENT_SECRET,
-		appId: '9NBLGGH4NC12',
-		flightId: '9be3ca4c-a87f-49d2-9191-3aa40c2c9d19',
-		appx: fs.createReadStream(path.join(__dirname, '../dist/edgeextension/package/edgeExtension.appx')),
-	}).then(() => {
-		console.log('Edge beta deployment complete!');
-	}, err => {
-		console.log('Edge beta failed:', err);
-		process.exitCode = 1;
-	});
-}
-
-function deployEdgeStable() {
-	console.log('Deploying Edge stable...');
-
-	edgeDeploy({
-		tenantId: process.env.EDGE_TENANT_ID,
-		clientId: process.env.EDGE_CLIENT_ID,
-		clientSecret: process.env.EDGE_CLIENT_SECRET,
-		appId: '9NBLGGH4NC12',
-		appx: fs.createReadStream(path.join(__dirname, '../dist/edgeextension/package/edgeExtension.appx')),
-	}).then(() => {
-		console.log('Edge stable deployment complete!');
-	}, err => {
-		console.log('Edge stable failed:', err);
 		process.exitCode = 1;
 	});
 }
