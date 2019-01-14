@@ -1,18 +1,11 @@
 ### New Features
 
-- Add capability to set default sort and time options on sidebar search form (thanks @a-marquez)
-- Add quarantineHide module for hiding quarantine warnings (thanks @git-uname)
-- Added sort feature to the search widget in dashboard (thanks @taylankasap)
-- New module: Disable chat (thanks @larsjohnsen)
-- redesign: Add expandos in comments (thanks @larsjohnsen)
+- None (thanks nobody)
 
 ### Bug Fixes
 
-- Fix userHighlight highlightFirstCommenter slowdown (thanks @larsjohnsen)
+- None (thanks nobody)
 
 ### Housekeeping / Other
 
-- Remove res-entry-is-selected bodyClass (thanks @larsjohnsen)
-- Remove Edge Build/Deploy Pipeline (thanks @BenMcGarry)
-- Support for optional permissions in Firefox (thanks @larsjohnsen) 
-- SettingsConsole requests (optional) permissions on behalf of modules that need them (thanks @ackinc)
+- None (thanks nobody)
