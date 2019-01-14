@@ -26,6 +26,16 @@ module.options = {
 	},
 };
 
+module.permissions = {
+	// extra permissions this module requires; these permissions must be listed in the
+	//   optional_permissions section of the manifest file
+	requiredPermissions: ['webRequest'],
+	// if any of the optional permissions we're requesting will result in a warning prompt,
+	//   (see https://developer.chrome.com/apps/permission_warnings#permissions_with_warnings)
+	//   being shown to the user, use this field to explain to the user why we need the permission(s)
+	message: 'This module needs some extra permissions to function',
+};
+
 // See PageType (utils/location.js) for other page types
 module.include = ['linklist']; // Optional: defaults to including all pages
 module.exclude = []; // Optional: defaults to excluding no pages
