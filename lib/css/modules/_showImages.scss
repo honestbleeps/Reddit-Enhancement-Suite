@@ -60,8 +60,17 @@ img {
 	margin-right: 5px;
 	padding: 0;
 
+	background-image: url('../images/expandoEmpty.svg');
+
 	&-duplicate {
 		filter: sepia(1);
+	}
+
+	// TODO Use a better icon for the catch-all button
+	&.video.collapsed::after {
+		content: '▷';
+		color: white;
+		padding-left: 6px;
 	}
 
 	&.image.collapsed {
@@ -102,10 +111,6 @@ img {
 		&:hover {
 			background-image: url('../images/expandoClose-active.svg');
 		}
-	}
-
-	&.expando-button-loading {
-		background-image: url('../images/expandoEmpty.svg');
 	}
 }
 
