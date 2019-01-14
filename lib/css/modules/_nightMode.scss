@@ -1204,7 +1204,7 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 
 	// Affects RES console header img.
 	// Subreddit stylesheets can't override filter, so we only use when it won't affect them.
-	#RESLogo {
+	.res-logo {
 		filter: invert(79%) grayscale(100%);
 	}
 
