@@ -10,8 +10,8 @@ module.exports = {
 
 		browser
 			.url('https://en.reddit.com/wiki/pages#res:settings-redirect-standalone-options-page/accountSwitcher')
-			.waitForElementVisible('#RESConsoleContainer')
 			.refresh() // get rid of update notification
+			.waitForElementVisible('#RESConsoleContainer')
 			.click('#optionContainer-accountSwitcher-accounts .addRowButton')
 			.setValue('#optionContainer-accountSwitcher-accounts input', [username])
 			.click('#moduleOptionsSave')
@@ -36,8 +36,8 @@ module.exports = {
 
 		browser
 			.url('https://en.reddit.com/wiki/pages#res:settings-redirect-standalone-options-page/accountSwitcher')
-			.waitForElementVisible('#RESConsoleContainer')
 			.refresh() // get rid of update notification
+			.waitForElementVisible('#RESConsoleContainer')
 			.click('#optionContainer-accountSwitcher-accounts .addRowButton')
 			.setValue('#optionContainer-accountSwitcher-accounts input[type=text]', [username])
 			.setValue('#optionContainer-accountSwitcher-accounts input[type=password]', [password])
