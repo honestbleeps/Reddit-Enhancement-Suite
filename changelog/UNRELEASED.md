@@ -37,6 +37,7 @@
 - Fix neverEndingReddit returnToPrev issue on Firefox (thanks @larsjohnsen)
 - Fix newCommentCount count incorrectly changing in some instances (thanks @larsjohnsen)
 - Fix orangered multicasting outdated unread count (thanks @larsjohnsen)
+- Fix announcement biff not showing in redesign (thanks @andytuba)
 - Fix pageNavigator showLink ad sometimes being shown instead of submission (thanks @larsjohnsen)
 - Fix subreddit subreddit style checkbox always being shown (thanks @larsjohnsen)
 - Fix userHighlight highlightFirstCommenter slowdown (thanks @larsjohnsen)
