@@ -10,13 +10,13 @@ module.exports = {
 
 		browser
 			.url('https://en.reddit.com/wiki/pages#res:settings-redirect-standalone-options-page/accountSwitcher')
-			.refresh() // get rid of update notification
 			.waitForElementVisible('#RESConsoleContainer')
 			.click('#optionContainer-accountSwitcher-accounts .addRowButton')
 			.setValue('#optionContainer-accountSwitcher-accounts input', [username])
 			.click('#moduleOptionsSave')
 
 			.url('https://en.reddit.com/r/RESIntegrationTests/wiki/pages')
+			.refresh() // get rid of update notification
 			.waitForElementVisible('#RESAccountSwitcherIcon')
 			.click('#RESAccountSwitcherIcon')
 			.waitForElementVisible('.RESAccountSwitcherDropdown')
@@ -36,7 +36,6 @@ module.exports = {
 
 		browser
 			.url('https://en.reddit.com/wiki/pages#res:settings-redirect-standalone-options-page/accountSwitcher')
-			.refresh() // get rid of update notification
 			.waitForElementVisible('#RESConsoleContainer')
 			.click('#optionContainer-accountSwitcher-accounts .addRowButton')
 			.setValue('#optionContainer-accountSwitcher-accounts input[type=text]', [username])
@@ -44,6 +43,7 @@ module.exports = {
 			.click('#moduleOptionsSave')
 
 			.url('https://en.reddit.com/r/RESIntegrationTests/wiki/pages')
+			.refresh() // get rid of update notification
 			.waitForElementVisible('#RESAccountSwitcherIcon')
 			.click('#RESAccountSwitcherIcon')
 			.waitForElementVisible('.RESAccountSwitcherDropdown')
