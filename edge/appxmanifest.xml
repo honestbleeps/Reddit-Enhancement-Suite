@@ -1,6 +1,4 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<!-- Create generationInfo.json for manifoldjs -->
-<!-- {{file-loader?name=../generationInfo.json!./generationInfo.json}} -->
 <Package
 	xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
 	xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
@@ -42,8 +40,6 @@
 						Id="EdgeExtension"
 						PublicFolder="Extension"
 						DisplayName="{{prop-loader?title!../package.json}}">
-						<!-- Generate extension -->
-						<!-- {{spawn-loader?inert&path=Extension!extricate-loader!interpolate-loader!./manifest.json}} -->
 					</uap3:AppExtension>
 				</uap3:Extension>
 			</Extensions>
