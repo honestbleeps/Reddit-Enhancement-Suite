@@ -2331,11 +2331,11 @@
 	"dashboardTagsPerPageDesc": {
 		"message": "How many user tags to show per page on the [my users tags](/r/Dashboard/#userTaggerContents) tab. (enter zero to show all on one page)"
 	},
-	"filteRedditHardIgnoreUsersTitle": {
-		"message": "Hard Ignore Users"
+	"filteRedditUsersMatchActionUsersTitle": {
+		"message": "Users Match Action"
 	},
-	"filteRedditHardIgnoreUsersDesc": {
-		"message": "Completely remove links and comments posted by ignored users."
+	"filteRedditUsersMatchActionUsersDesc": {
+		"message": "**Default**: Completely remove links, and display comments only if they have replies.\n\n**Placeholder**: Show a placeholder that can be clicked on to display content.\n\n**Hard**: Completely remove links and comments posted by ignored users, including replies and replies."
 	},
 	"filteRedditNSFWfilterTitle": {
 		"message": "NSFW Filter"
