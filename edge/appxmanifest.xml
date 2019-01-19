@@ -40,6 +40,8 @@
 						Id="EdgeExtension"
 						PublicFolder="Extension"
 						DisplayName="{{prop-loader?title!../package.json}}">
+						<!-- Generate extension -->
+						<!-- {{spawn-loader?inert&path=Extension!extricate-loader!interpolate-loader!./manifest.json}} -->
 					</uap3:AppExtension>
 				</uap3:Extension>
 			</Extensions>
