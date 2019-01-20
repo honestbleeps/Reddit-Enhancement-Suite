@@ -11,6 +11,7 @@ module.exports = {
 			.setAlertText('yes')
 			.acceptAlert() // "do you want to apply preset"
 			.dismissAlert() // "do you want to reload"
+			.pause(1000) // Let the preset process complete
 
 			.url('https://en.reddit.com/r/RESIntegrationTests/?limit=1')
 			.waitForElementVisible('#RESSettingsButton')
