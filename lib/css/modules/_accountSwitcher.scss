@@ -1,5 +1,6 @@
 div.RESAccountSwitcherDropdown {
 	max-height: calc(100vh - 80px);
+	overflow-y: auto;
 	min-width: 110px;
 	width: auto;
 
