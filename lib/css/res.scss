@@ -1118,3 +1118,17 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		display: none;
 	}
 }
+
+.res-page-requires-reload::before {
+	position: fixed;
+	content: 'This page must be reloaded for Reddit Extension Suite to function correctly';
+	right: 20px;
+	bottom: 20px;
+	z-index: 99999999;
+	color: red;
+	font-size: 1em;
+	background-color: wheat;
+	padding: 3px;
+	border-radius: 3px;
+	opacity: 0.5;
+}
