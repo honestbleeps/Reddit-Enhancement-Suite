@@ -2331,11 +2331,17 @@
 	"dashboardTagsPerPageDesc": {
 		"message": "How many user tags to show per page on the [my users tags](/r/Dashboard/#userTaggerContents) tab. (enter zero to show all on one page)"
 	},
-	"filteRedditUsersMatchActionUsersTitle": {
+	"filteRedditUsersMatchActionTitle": {
 		"message": "Users Match Action"
 	},
-	"filteRedditUsersMatchActionUsersDesc": {
-		"message": "**Default**: Completely remove links, and display comments only if they have replies.\n\n**Placeholder**: Show a placeholder that can be clicked on to display content.\n\n**Hard**: Completely remove links and comments posted by ignored users, including replies and replies."
+	"filteRedditUsersMatchActionDesc": {
+		"message": "When filtering (ignored) users in the above list, how should they be ignored?\n\n**Hidden**: Hide all links, and hide comments unless they have visible replies, in which case fade and reduce its size.\n\n**Replaced with a placeholder**: Display a placeholder which can be clicked on to display the post's original content."
+	},
+	"filteRedditUsersMatchRepliesActionTitle": {
+		"message": "Users Match Replies Action"
+	},
+	"filteRedditUsersMatchRepliesActionDesc": {
+		"message": "What should be done to replies of filtered comments?"
 	},
 	"filteRedditNSFWfilterTitle": {
 		"message": "NSFW Filter"
