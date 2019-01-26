@@ -36,3 +36,9 @@
 #header-bottom-right.res-userbar-toggle > .user {
 	margin-left: 16px;
 }
+
+.res-hide-userbar {
+	#header-bottom-right > :not(#userbarToggle) {
+		display: none;
+	}
+}

@@ -20,8 +20,8 @@ module.exports = {
 			.keys(['f'])
 			.waitForElementVisible('#keyCommandLineWidget')
 			.keys(['isRead', browser.Keys.ENTER])
-			.waitForElementPresent(`${b}.RESFiltered`)
-			.assert.elementNotPresent(`${a}.RESFiltered`)
+			.waitForElementPresent(`${b}.res-thing-filter-hide`)
+			.assert.elementNotPresent(`${a}.res-thing-filter-hide`)
 			.end();
 	},
 };

@@ -4,34 +4,19 @@ module.exports = {
 	'opens on links to #res:settings': browser => {
 		browser
 			.url('https://en.reddit.com/wiki/pages#res:settings')
-			.waitForElementVisible('#RESConsoleContainer')
+			.waitForElementVisible('#console-container')
 			.end();
 	},
 	'opens on old-style links to #!settings and redirects to new style': browser => {
 		browser
 			.url('https://en.reddit.com/wiki/pages#!settings')
-			.waitForElementVisible('#RESConsoleContainer')
-			.assert.urlEquals('https://en.reddit.com/wiki/pages#res:settings/about')
-			.end();
-	},
-	'press escape to close': browser => {
-		if (browser.options.desiredCapabilities.browserName === 'firefox') {
-			// geckodriver doesn't support elementSendKeys https://github.com/mozilla/geckodriver/issues/159
-			browser.end();
-			return;
-		}
-
-		browser
-			.url('https://en.reddit.com/wiki/pages#res:settings')
-			.waitForElementVisible('#RESConsoleContainer')
-			.keys([browser.Keys.ESCAPE])
-			.waitForElementNotVisible('#RESConsoleContainer', 1000)
+			.waitForElementVisible('#console-container')
+			.assert.urlEquals('https://en.reddit.com/wiki/pages#res:settings')
 			.end();
 	},
 	'change boolean option': browser => {
 		browser
-			.url('https://en.reddit.com/wiki/pages#res:settings/accountSwitcher')
-			.refresh() // get rid of update notification
+			.url('https://en.reddit.com/wiki/pages#res:settings-redirect-standalone-options-page/accountSwitcher')
 			.waitForElementVisible('#RESConsoleContainer')
 
 			// initial state, no options changed
@@ -55,8 +40,7 @@ module.exports = {
 	},
 	'change enum option': browser => {
 		browser
-			.url('https://en.reddit.com/wiki/pages#res:settings/accountSwitcher')
-			.refresh() // get rid of update notification
+			.url('https://en.reddit.com/wiki/pages#res:settings-redirect-standalone-options-page/accountSwitcher')
 			.waitForElementVisible('#RESConsoleContainer')
 
 			// initial state, no options changed
@@ -89,8 +73,7 @@ module.exports = {
 		}
 
 		browser
-			.url('https://en.reddit.com/wiki/pages#res:settings/quickMessage')
-			.refresh() // get rid of update notification
+			.url('https://en.reddit.com/wiki/pages#res:settings-redirect-standalone-options-page/quickMessage')
 			.waitForElementVisible('#RESConsoleContainer')
 
 			// initial state, no options changed
@@ -119,8 +102,7 @@ module.exports = {
 		}
 
 		browser
-			.url('https://en.reddit.com/wiki/pages#res:settings/accountSwitcher')
-			.refresh() // get rid of update notification
+			.url('https://en.reddit.com/wiki/pages#res:settings-redirect-standalone-options-page/accountSwitcher')
 			.waitForElementVisible('#RESConsoleContainer')
 
 			// initial state, no options changed
@@ -150,8 +132,7 @@ module.exports = {
 		}
 
 		browser
-			.url('https://en.reddit.com/wiki/pages#res:settings/accountSwitcher')
-			.refresh() // get rid of update notification
+			.url('https://en.reddit.com/wiki/pages#res:settings-redirect-standalone-options-page/accountSwitcher')
 			.waitForElementVisible('#RESConsoleContainer')
 
 			// add rows
@@ -181,8 +162,7 @@ module.exports = {
 	},
 	'disabling a module': browser => {
 		browser
-			.url('https://en.reddit.com/wiki/pages#res:settings/wheelBrowse')
-			.refresh() // get rid of update notification
+			.url('https://en.reddit.com/wiki/pages#res:settings-redirect-standalone-options-page/wheelBrowse')
 			.waitForElementVisible('#RESConsoleContainer')
 			.assert.cssClassPresent('.moduleToggle', 'enabled')
 			.click('.moduleToggle')
@@ -200,8 +180,7 @@ module.exports = {
 		}
 
 		browser
-			.url('https://en.reddit.com/wiki/pages#res:settings/accountSwitcher')
-			.refresh() // get rid of update notification
+			.url('https://en.reddit.com/wiki/pages#res:settings-redirect-standalone-options-page/accountSwitcher')
 			.waitForElementVisible('#RESConsoleContainer')
 			.click('#optionContainer-accountSwitcher-accounts .addRowButton')
 			.setValue('#accounts_accountSwitcherUsername_1', ['test'])
@@ -215,7 +194,7 @@ module.exports = {
 	},
 	'color options are revealed when changing the option they depend on': browser => {
 		browser
-			.url('https://en.reddit.com/wiki/pages#res:settings/commentQuickCollapse')
+			.url('https://en.reddit.com/wiki/pages#res:settings-redirect-standalone-options-page/commentQuickCollapse')
 			.waitForElementVisible('#RESConsoleContainer')
 			.waitForElementNotVisible('#optionContainer-commentQuickCollapse-leftEdgeColor')
 			.click('#toggleCommentsOnClickLeftEdgeContainer')

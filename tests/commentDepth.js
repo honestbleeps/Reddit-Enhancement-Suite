@@ -1,7 +1,7 @@
 module.exports = {
 	'basic functionality': browser => {
 		browser
-			.url('https://en.reddit.com/wiki/pages/#res:settings/commentDepth')
+			.url('https://en.reddit.com/wiki/pages/#res:settings-redirect-standalone-options-page/commentDepth')
 			.waitForElementVisible('#RESConsoleContainer')
 			.click('.moduleToggle')
 			// link with insufficient comments

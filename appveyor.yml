@@ -1,7 +1,8 @@
 build: off
 version: '{build}'
+image: Visual Studio 2017
 environment:
-  nodejs_version: 8
+  nodejs_version: 10
 cache:
   - '%LOCALAPPDATA%\Yarn'
 install:

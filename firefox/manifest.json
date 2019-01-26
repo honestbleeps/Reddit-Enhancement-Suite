@@ -8,7 +8,7 @@
 	"applications": {
 		"gecko": {
 			"id": "jid1-xUfzOsOFlzSOXg@jetpack",
-			"strict_min_version": "57.0"
+			"strict_min_version": "60.0"
 		}
 	},
 	"icons": {
@@ -22,7 +22,7 @@
 		}
 	},
 	"options_ui": {
-		"page": "{{../lib/options.html}}",
+		"page": "{{../lib/options/options.html}}",
 		"open_in_tab": true
 	},
 	"background": {
@@ -69,7 +69,9 @@
 		"tabs",
 		"history",
 		"storage",
-		"unlimitedStorage",
+		"unlimitedStorage"
+	],
+	"optional_permissions": [
 		"downloads",
 
 		"https://api.twitter.com/*",
@@ -79,6 +81,13 @@
 		"https://api.tumblr.com/v2/blog/*/posts",
 		"https://xkcd.com/*/info.0.json",
 		"https://api.steampowered.com/ISteamRemoteStorage/GetPublishedFileDetails/*",
+		"https://*.googleusercontent.com/download/drive/v3/*",
 		"https://content.googleapis.com/drive/v3/*"
+	],
+	"web_accessible_resources": [
+		"{{../lib/fonts/batch-icons-webfont.woff}}",
+		"{{../lib/environment/background/permissions/prompt.html}}",
+		"{{../lib/environment/background/permissions/prompt.entry.js}}",
+		"{{../lib/options/options.html}}"
 	]
 }

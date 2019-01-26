@@ -1,35 +1,33 @@
 div.RESAccountSwitcherDropdown {
 	max-height: calc(100vh - 80px);
+	overflow-y: auto;
 	min-width: 110px;
+	width: auto;
 
 	li {
+		display: flex;
+		align-items: center;
 		line-height: 20px;
 		padding: 2px 5px 2px 10px;
 
-		span {
-			margin-left: 8px;
-		}
 	}
 
 	.linkIcon {
-		display: inline;
-		float: right;
 		font-size: .9rem;
-		padding-top: 3px;
-		margin-left: 8px;
-
-		&::before {
-			content: '\F02E';
-		}
+		&::before { content: '\F02E'; }
+		&:hover { color: #dbf1ff; }
 	}
 }
 
 #RESAccountSwitcherIcon {
 	cursor: pointer;
-	margin-left: 3px;
 	display: inline-block;
 	width: 12px;
 	height: 16px;
+
+	.user & {
+		margin-left: 3px;
+	}
 }
 
 .res-accountSwitcher-dropDownStyle-alien {
@@ -37,6 +35,7 @@ div.RESAccountSwitcherDropdown {
 		vertical-align: middle;
 		background-image: url('../images/accountSwitcherSnoo.png');
 		background-repeat: no-repeat;
+		background-origin: content-box;
 	}
 }
 

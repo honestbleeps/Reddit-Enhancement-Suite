@@ -1,6 +1,6 @@
 sudo: false
 language: node_js
-node_js: 8
+node_js: 10
 branches:
   only:
     - master
@@ -17,12 +17,6 @@ env:
     - secure: RVoTaF6KaKCTcxuDD0VKTUnQatFgvpw8nzSpzJs/A9RJ0OspmSRCKDFUOvMrwtIs8PRBhYsc84GP/0uhHLwxqLarYDetysTV4tOcTK/VbBCkYdiaf++MBKFChe6l04U1gaQH813yCHkDDiNVqOzO8AYymVjJmTFFHOdUR1eR7CA=
     # FIREFOX_SECRET
     - secure: dY750kjkoKhqQL7a4E2JnncvMwC4uRkHSP8UzHX92tXbRgKyTFgfekzVExq3gMyNESO/WQh7jUZE5zCM5QnL1q+Xv8hyueHV+piP9imCbw/126Zm0pCsrHVNsBAauqf2CQCE0DyIMADvnPgyANLGe2scz5KuNVZBF/yOJTFK9Kc=
-    # EDGE_TENANT_ID
-    - secure: TiWe3fdefeqFTbOxBrBub9KD5uDfvU6DyogTFdhTeD22GwmJY8MkfQUIH1LWIrMmdSRF4qd4hVWd9RlaHXnYDKESpUBdudkwnuv05ikTqv/L+KHIqRYHt1yF17fETjTFvNo9929mOYOL0xjbvHK6j8anaGiaWtzDyaCBZhfb4qQ=
-    # EDGE_CLIENT_ID
-    - secure: SwMtDPNzHqk9wBz3z28FCvsx/g4cBZsqDQRRZFHKoAmrjPWCIVA3ufCmkGYP8j5Bl+e9kKd35udn74tU/AFOXCRPL2XmOuJHAVn1gwXTDwk3IhgiNi26ApjKNYV2zKAeSP9h6FZ9220tm8CpMqwQZ8wyekLNbiJ41kQUaggrDok=
-    # EDGE_CLIENT_SECRET
-    - secure: fz118ANxEWzHSYlzoVDmSsKc0epIRemR1egrbzwH/s1lsqpbC4VLocMeuDQ9AyE8RQmkyeC9jz7/ZZlrlakWLhfRP90T2RWRG7/wrCVAhKnjoBYdVHGcHPttNYRC8QaZTUcoxdOVtn8BOgqkiMke9/XuPDns5ITOBZPTCNUzBIg=
     # OPERA_USER
     - secure: qDNnqBq0tTuvFd7b39JJB6jHIe6FA8iKFmkuZaiCJXezZaZDOnGTq0ZdFhR+4Zbxvpin2iaJQMaFVsh0J6RE1tZM3D6cyWpwNQDoVrxGFNzpUzddvbVzqsYtTprmttHr1Kq4sA9U66wQgrePWvnPHDViiVXcV0E8NcAutatZVUM=
     # OPERA_PASSWORD
@@ -52,12 +46,10 @@ matrix:
     - env: RES_JOB=test
       script:
         - yarn run coverage && yarn run report-coverage
-        - yarn run build chrome,firefox
         - yarn run integration chrome --retries 2 # && yarn run integration firefox --retries 2
     - env: RES_JOB=build_deploy
       script:
         - yarn run build all
-        - yarn run manifoldjs-package
       deploy:
         - provider: releases
           api_key:
@@ -66,10 +58,10 @@ matrix:
           file:
             - dist/zip/chrome.zip
             - dist/zip/chrome-beta.zip
-            - dist/edgeextension/package/edgeExtension.appx
             - dist/zip/firefox.zip
             - dist/zip/firefox-beta.zip
           skip_cleanup: true
+          overwrite: true
           on:
             tags: true
         - provider: script

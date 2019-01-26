@@ -1,23 +1,22 @@
 body.hideOver18 {
-	.thing.over18:not(.allowOver18),
-	.search-result.over18:not(.allowOver18) {
+	.over18:not(.allowOver18) {
 		display: none !important;
 	}
 }
 
-.thing.RESFiltered,
-.search-result.RESFiltered {
-	// For some reason does the scss linter complain on body:not()
-	body.res:not(.res-filters-disabled):not(.res-show-filter-reason) &:not(.res-filterline-highlight-match) {
-		&:not(.res-thing-has-visible-child),
-		&.res-thing-filter-propagate {
+html:not(.res-filters-disabled):not(.res-display-match-reason) {
+	.res-thing-filter-hide {
+		&:not(.res-thing-partial),
+		&.res-thing-partial.res-thing-hide-children,
+		&.res-thing-hide-children > .child {
 			// !important since many custom stylesheets overrides it otherwise
 			display: none !important;
 		}
 
-		&.res-thing-has-visible-child:not(.res-selected) {
+		&.res-thing-partial:not(.res-selected) {
 			> .entry {
 				max-height: 60px;
+				overflow: hidden !important;
 				position: relative; // Make sure that all children are confined
 				opacity: .3;
 			}
@@ -27,28 +26,52 @@ body.hideOver18 {
 			}
 		}
 	}
+}
 
-	&.res-filterline-highlight-match > .entry {
-		background-color: rgba(255, 155, 155, .16);
+.res-thing-placeholder-message {
+	color: rgb(170, 170, 170);
+	cursor: pointer;
+
+	.comment & {
+		line-height: 2;
 	}
 
-	body.res-show-filter-reason & {
-		> .entry {
-			opacity: .7;
+	.res-icon {
+		font-size: inherit;
+	}
+}
+
+.res-thing-has-placeholder {
+	&.link {
+		a.title,
+		.expando-button,
+		.expando {
+			display: none !important;
 		}
 
-		&::before {
-			content: attr(filter-reason);
+		.thumbnail {
+			visibility: hidden !important;
 		}
 	}
 
-	.res-filter-remove-entry {
-		cursor: pointer;
-
-		&::after {
-			content: ' — click here to remove matching filter entry';
+	&.comment > .entry {
+		.md {
+			display: none !important;
 		}
 	}
+
+	&.search-result {
+		a.search-title,
+		.search-expando,
+		.search-expando-button,
+		.search-result-footer {
+			display: none !important;
+		}
+	}
+}
+
+.res-thing-filter-remove-matching-entry {
+	cursor: pointer;
 }
 
 @mixin filterline-basic-layout {
@@ -60,13 +83,18 @@ body.hideOver18 {
 	background-color: rgba(255, 255, 255, .9);
 	clear: left;
 
-	.comments-page & {
+	&[hidden] {
+		display: none;
+	}
+
+	body.comments-page & {
 		margin-left: 10px;
 	}
 }
 
-.res-filteReddit-filterline-pad-until-ready {
-	.listing-page .content[role=main] > .spacer:nth-of-type(2)::before {
+body.res-filteReddit-filterline-pad-until-ready {
+	&.comments-page .nestedlisting::before,
+	&.listing-page #siteTable::before {
 		@include filterline-basic-layout;
 		content: ' ';
 	}
@@ -91,10 +119,6 @@ body.hideOver18 {
 	font: normal 12px sans-serif, arial;
 	color: gray;
 
-	body:not(.res-filteReddit-show-filterline) & {
-		display: none;
-	}
-
 	&-preamble::before {
 		@extend %res-filterline-icon;
 		margin: 0 2px;
@@ -111,17 +135,19 @@ body.hideOver18 {
 		border-bottom: 1px solid #efefef;
 		padding-bottom: 1px;
 
+		&::before {
+			content: attr(text);
+		}
+
 		&:hover { border-bottom: 1px solid #bfbfbf; }
 
-		&-active,
-		&-active:hover {
+		&-disabled { display: none; }
+
+		&-hiding,
+		&-hiding:hover {
 			border-bottom: 2px solid greenyellow;
 			padding-bottom: 0;
 			color: black;
-		}
-
-		&-name::before {
-			content: attr(name);
 		}
 
 		&-hover {
@@ -303,7 +329,7 @@ body.hideOver18 {
 			font-weight: bold;
 		}
 
-		body.res-entry-is-selected &-from-selected {
+		&-from-selected {
 			margin-left: auto;
 			padding-left: 3px;
 

@@ -74,11 +74,11 @@ export default (env = {}, argv = {}) => {
 						loader: 'babel-loader',
 						options: {
 							plugins: [
-								'transform-export-extensions',
-								'transform-class-properties',
-								['transform-object-rest-spread', { useBuiltIns: true }],
-								'transform-flow-strip-types',
-								'transform-dead-code-elimination',
+								'@babel/plugin-proposal-export-namespace-from',
+								['@babel/plugin-proposal-class-properties', { loose: true }],
+								['@babel/plugin-proposal-object-rest-spread', { loose: true, useBuiltIns: true }],
+								'@babel/plugin-transform-flow-strip-types',
+								'minify-dead-code-elimination',
 								['transform-define', {
 									'process.env.BUILD_TARGET': conf.target,
 									'process.env.NODE_ENV': argv.mode,
@@ -98,7 +98,7 @@ export default (env = {}, argv = {}) => {
 						loader: 'babel-loader',
 						options: {
 							plugins: [
-								'transform-dead-code-elimination',
+								'minify-dead-code-elimination',
 								['transform-define', {
 									'process.env.NODE_ENV': argv.mode,
 								}],
@@ -136,6 +136,13 @@ export default (env = {}, argv = {}) => {
 				include: path.join(__dirname, 'lib', 'images'),
 				use: [
 					{ loader: 'url-loader' },
+				],
+			}, {
+				test: /\.woff$/,
+				use: [
+					conf.target === 'edge' ?
+						{ loader: 'url-loader' } :
+						{ loader: 'file-loader', options: { name: '[name].[ext]' } },
 				],
 			}],
 		},

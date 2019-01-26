@@ -307,7 +307,7 @@
 		"message": "filteReddit"
 	},
 	"filteRedditDesc": {
-		"message": "Filter out NSFW content, or links by keyword, domain (use User Tagger to ignore by user) or subreddit (for /r/all or /domain/*).\n\nRegExp like `/(this|that|theother)/i` is allowed in text boxes. Find out more on the [/r/Enhancement wiki](/r/Enhancement/wiki/index/filters/filtereddit/regexp)."
+		"message": "Filter out NSFW content, or links by keyword, domain or subreddit (for /r/all or /domain/*).\n\nRegExp like `/(this|that|theother)/i` is allowed in text boxes. Find out more on the [/r/Enhancement wiki](/r/Enhancement/wiki/index/filters/filtereddit/regexp)."
 	},
 	"floaterName": {
 		"message": "Floating Islands"
@@ -338,6 +338,18 @@
 	},
 	"hideChildCommentsHideNestedDesc": {
 		"message": "Hide children for nested comments when hiding all child comments."
+	},
+	"hideChildCommentsShowAllLinkLabel": {
+		"message": "show all child comments"
+	},
+	"hideChildCommentsHideAllLinkLabel": {
+		"message": "hide all child comments"
+	},
+	"hideChildCommentsShowLinkLabel": {
+		"message": "show $1 child comments"
+	},
+	"hideChildCommentsHideLinkLabel": {
+		"message": "hide child comments"
 	},
 	"hoverName": {
 		"message": "RES Pop-up Hover"
@@ -392,6 +404,12 @@
 	},
 	"keyboardNavDesc": {
 		"message": "Keyboard navigation for reddit!"
+	},
+	"disableChatName": {
+		"message": "Disable Chat"
+	},
+	"disableChatDesc": {
+		"message": "Prevent Reddit's chat from running and improve page load speed."
 	},
 	"showImagesMediaBrowseTitle": {
 		"message": "Media Browse"
@@ -1155,6 +1173,12 @@
 	"newCommentCountDesc": {
 		"message": "Tells you how many comments have been posted since you last viewed a thread."
 	},
+	"newCommentCountHideWhenUnchangedTitle": {
+		"message": "Hide When Unchanged"
+	},
+	"newCommentCountHideWhenUnchangedDesc": {
+		"message": "Only display the count when there are new comments."
+	},
 	"newCommentCountCleanCommentsTitle": {
 		"message": "Clean Comments"
 	},
@@ -1208,6 +1232,12 @@
 	},
 	"readCommentsMonitorWhenIncognitoDesc": {
 		"message": "Keep track while browsing in incognito/private mode."
+	},
+	"addCommentSortPrefMenuItemDesc": {
+		"message": "Add a preferences shortcut link to sort by drop down menu."
+	},
+	"addCommentSortPrefMenuItemLinkTitle": {
+		"message": "Set default sort by preferences"
 	},
 	"nightModeName": {
 		"message": "Night Mode"
@@ -1509,12 +1539,6 @@
 	"selectedEntryDesc": {
 		"message": "Style the currently selected submission or comment."
 	},
-	"settingsConsoleName": {
-		"message": "Settings Console"
-	},
-	"settingsConsoleDesc": {
-		"message": "Manage your RES settings and preferences."
-	},
 	"settingsConsoleDefaultAddRowText": {
 		"message": "Add Row"
 	},
@@ -1654,7 +1678,7 @@
 		"message": "User Tagger"
 	},
 	"userTaggerDesc": {
-		"message": "Adds a great deal of customization around users - tagging them, ignoring them, and more. You can manage tagged users on [Manage User Tags](/r/Dashboard/#userTaggerContents).\n\n**Ignoring users:** users will *not* be ignored in modmail, moderation queue or your inbox."
+		"message": "Adds a great deal of customization around users - tagging them, ignoring them, and more. You can manage tagged users on [Manage User Tags](/r/Dashboard/#userTaggerContents)."
 	},
 	"versionName": {
 		"message": "Version Manager"
@@ -2289,6 +2313,12 @@
 	"dashboardDefaultSortDesc": {
 		"message": "Default sort method for new widgets."
 	},
+	"dashboardDefaultSortSearchTitle": {
+		"message": "Default Search Sort"
+	},
+	"dashboardDefaultSortSearchDesc": {
+		"message": "Default sort method for new search widgets."
+	},
 	"dashboardDashboardShortcutTitle": {
 		"message": "Dashboard Shortcut"
 	},
@@ -2300,6 +2330,18 @@
 	},
 	"dashboardTagsPerPageDesc": {
 		"message": "How many user tags to show per page on the [my users tags](/r/Dashboard/#userTaggerContents) tab. (enter zero to show all on one page)"
+	},
+	"filteRedditUsersMatchActionTitle": {
+		"message": "Users Match Action"
+	},
+	"filteRedditUsersMatchActionDesc": {
+		"message": "When filtering (ignored) users in the above list, how should they be ignored?\n\n**Hidden**: Hide all links, and hide comments unless they have visible replies, in which case fade and reduce its size.\n\n**Replaced with a placeholder**: Display a placeholder which can be clicked on to display the post's original content."
+	},
+	"filteRedditUsersMatchRepliesActionTitle": {
+		"message": "Users Match Replies Action"
+	},
+	"filteRedditUsersMatchRepliesActionDesc": {
+		"message": "What should be done to replies of filtered comments?"
 	},
 	"filteRedditNSFWfilterTitle": {
 		"message": "NSFW Filter"
@@ -2384,6 +2426,15 @@
 	},
 	"filteRedditFlairDesc": {
 		"message": "Hide posts where certain keywords are in the post's link flair."
+	},
+	"filteRedditUsername": {
+		"message": "Username"
+	},
+	"filteRedditUsersTitle": {
+		"message": "Users"
+	},
+	"filteRedditUsersDesc": {
+		"message": "Hide posts and commment from these users (except on user pages)."
 	},
 	"filteRedditAllowNSFWTitle": {
 		"message": "Allow NSFW"
@@ -2582,12 +2633,6 @@
 	"subredditInfoFilterFromAllAndDomain": {
 		"message": "Filter this subreddit from /r/all and /domain/*"
 	},
-	"subredditInfoStopFilteringThisSubredditFromAllAndDomain": {
-		"message": "Stop filtering this subreddit from /r/all and /domain/*"
-	},
-	"subredditInfoFilterThisSubredditFromAllAndDomain": {
-		"message": "Filter this subreddit from /r/all and /domain/*"
-	},
 	"subredditInfoSubscribe": {
 		"message": "subscribe"
 	},
@@ -2699,9 +2744,6 @@
 	"userTaggerTag": {
 		"message": "Tag"
 	},
-	"userTaggerIgnored": {
-		"message": "Ignored"
-	},
 	"userTaggerColor": {
 		"message": "Color"
 	},
@@ -2729,14 +2771,6 @@
 	},
 	"userTaggerAreYouSureYouWantToDeleteTag": {
 		"message": "Are you sure you want to delete the tag for user: $1?"
-	},
-	"userTaggerIgnoredPlaceholder": {
-		"message": "ignored.",
-		"description": "Replaces the content of ignored comments."
-	},
-	"userTaggerShowAnyway": {
-		"message": "show anyway?",
-		"description": "for showing ignored comments"
 	},
 	"userTaggerYourVotesFor": {
 		"message": "your votes for $1: $2",
@@ -2848,6 +2882,12 @@
 	"quickMessageLinkToCurrentPageDesc": {
 		"message": "Automatically start with a link to the current page in the message body (or, if opened from the user info popup, a link to the current post or comment)."
 	},
+	"requestPermissionsName": {
+		"message": "Request Permissions"
+	},
+	"requestPermissionsDesc": {
+		"message": "Grant optional permissions now so that prompts won't appear later.\n\nIf no prompt appears when enabling this, permissions are already granted."
+	},
 	"RESTipsDailyTipDesc": {
 		"message": "Show a random tip once every 24 hours."
 	},
@@ -2887,6 +2927,12 @@
 	"searchHelperSearchBySubredditDesc": {
 		"message": "Search the current subreddit by default when using the search box, instead of all of reddit."
 	},
+	"searchHelperDefaultSortOptionDesc": {
+		"message": "Set a default sort on the search form of the side panel."
+	},
+	"searchHelperDefaultTimeOptionDesc": {
+		"message": "Set a default time on the search form of the side panel."
+	},
 	"selectedEntryAutoSelectOnScrollDesc": {
 		"message": "Automatically select the topmost item while scrolling"
 	},
@@ -2925,12 +2971,6 @@
 	},
 	"userTaggerShowTaggingIconDesc": {
 		"message": "Always show a tag tool icon after every username."
-	},
-	"userTaggerHardIgnoreDesc": {
-		"message": "Completely remove links and comments posted by ignored users. If an ignored comment has replies, collapse it and hide its contents instead of removing it."
-	},
-	"userTaggerShowIgnoredDesc": {
-		"message": "Provide a link to reveal an ignored link or comment."
 	},
 	"userTaggerStoreSourceLinkDesc": {
 		"message": "By default, store a link to the link/comment you tagged a user on"
@@ -3152,6 +3192,12 @@
 	"searchHelperSearchBySubredditTitle": {
 		"message": "Limit Search To Subreddit"
 	},
+	"searchHelperDefaultSortOptionTitle": {
+		"message": "Default Sort Option"
+	},
+	"searchHelperDefaultTimeOptionTitle": {
+		"message": "Default Time Option"
+	},
 	"settingsNavigationShowAllOptionsTitle": {
 		"message": "Show All Options"
 	},
@@ -3199,12 +3245,6 @@
 	},
 	"userTaggerShowTaggingIconTitle": {
 		"message": "Show Tagging Icon"
-	},
-	"userTaggerHardIgnoreTitle": {
-		"message": "Hard Ignore"
-	},
-	"userTaggerShowIgnoredTitle": {
-		"message": "Show Ignored"
 	},
 	"userTaggerStoreSourceLinkTitle": {
 		"message": "Store Source Link"
@@ -3703,6 +3743,24 @@
 	},
 	"userHighlightOPColorHoverDesc": {
 		"message": "Color used to highlight OP on hover."
+	},
+	"userHighlightOpMentionsTitle": {
+		"message": "Highlight OP mentions"
+	},
+	"userHighlightOpMentionsDesc": {
+		"message": "Highlight users who are mentioned by the OP in self-posts."
+	},
+	"userHighlightOpMentionsColorTitle": {
+		"message": "Mentioned User Color"
+	},
+	"userHighlightOpMentionsColorDesc": {
+		"message": "Color to use to highlight mentioned users."
+	},
+	"userHighlightOpMentionsHoverTitle": {
+		"message": "Mentioned User Hover"
+	},
+	"userHighlightOpMentionsHoverDesc": {
+		"message": "Color to use to highlight mentioned users on hover."
 	},
 	"userHighlightHighlightAdminTitle": {
 		"message": "Highlight Admin"
@@ -4259,12 +4317,6 @@
 	"showImagesExpandoCommentRedirectsDesc": {
 		"message": "How should RES handle posts where the link is redirected to the comments page with preview expanded?"
 	},
-	"showImagesShowVideoControlsTitle": {
-		"message": "Show Video Controls"
-	},
-	"showImagesShowVideoControlsDesc": {
-		"message": "Show controls such as pause/play, step and playback rate."
-	},
 	"showImagesOnlyPlayMutedWhenVisibleTitle": {
 		"message": "Only Play Muted When Visible"
 	},
@@ -4381,5 +4433,23 @@
 	},
 	"faviconUseLegacyDesc": {
 		"message": "If you don't like the new orange Reddit tab icon, revert to using the old Reddit icon instead."
-	}
+	},
+	"quarantineHideName": {
+		"message": "Quarantine Hider"
+	},
+	"quarantineHideDesc": {
+		"message": "Hide quarantine warnings"
+	},
+	"quarantineHideFlairTitle": {
+		"message": "Hide post flair"
+	},
+	"quarantineHideFlairDesc": {
+		"message": "Hide \"Quarantined\" post flair (regardless of where the post is being viewed from)"
+	},
+    "quarantineHideInSubTitle": {
+        "message": "Hide subreddit warnings"
+    },
+    "quarantineHideInSubDesc": {
+        "message": "Hide all warnings of quarantine while viewing a quarantined subreddit"
+    }
 }

@@ -15,7 +15,7 @@
 			"38": "{{../images/css-on.png}}"
 		}
 	},
-	"options_page": "{{../lib/options.html}}",
+	"options_page": "{{./options.html}}",
 	"background": {
 		"scripts": [
 			"{{./edge.entry.js}}",
@@ -52,7 +52,8 @@
 			"{{../lib/foreground.entry.js}}"
 		],
 		"css": [
-			"{{../lib/css/res.scss}}"
+			"{{../lib/css/res.scss}}",
+			"{{./fonts.scss}}"
 		],
 		"run_at": "document_start"
 	}],
@@ -71,6 +72,7 @@
 		"https://api.tumblr.com/v2/blog/*/posts",
 		"https://xkcd.com/*/info.0.json",
 		"https://api.steampowered.com/ISteamRemoteStorage/GetPublishedFileDetails/*",
+		"https://*.googleusercontent.com/download/drive/v3/*",
 		"https://content.googleapis.com/drive/v3/*",
 
 		"https://api.photobucket.com/v2/media/fromurl",
@@ -82,5 +84,8 @@
 		"https://www.googleapis.com/*",
 		"https://api.dropboxapi.com/*",
 		"https://content.dropboxapi.com/*"
+	],
+	"web_accessible_resources": [
+		"{{./options.html}}"
 	]
 }

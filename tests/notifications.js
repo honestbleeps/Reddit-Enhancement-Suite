@@ -6,8 +6,7 @@ module.exports = {
 		// so Firefox didn't scroll it into view and just silently failed to click it
 		// (it probably clicked on the overlay below the settings console instead)
 		browser
-			.url('https://en.reddit.com/wiki/pages/#res:settings/troubleshooter')
-			.refresh() // get the update notification out of the way
+			.url('https://en.reddit.com/wiki/pages/#res:settings-redirect-standalone-options-page/troubleshooter')
 			.waitForElementVisible('#RESConsoleContainer')
 			.click('#testNotifications')
 			.assert.containsText('.RESNotification .RESNotificationHeader', 'Template test')

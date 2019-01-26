@@ -1,10 +1,10 @@
 {
 	"plugins": [
-		"transform-export-extensions",
-		"transform-class-properties",
-		["transform-object-rest-spread", { "useBuiltIns": true }],
-		"transform-es2015-modules-commonjs",
-		"transform-flow-strip-types"
+		"@babel/plugin-proposal-export-namespace-from",
+		["@babel/plugin-proposal-class-properties", { "loose": true }],
+		["@babel/plugin-proposal-object-rest-spread", { "loose": true, "useBuiltIns": true }],
+		"@babel/plugin-transform-modules-commonjs",
+		"@babel/plugin-transform-flow-strip-types"
 	],
 	"sourceMaps": "inline"
 }

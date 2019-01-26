@@ -5,8 +5,8 @@
 	"description": "{{prop-loader?description!../../package.json}}",
 	"author": "{{prop-loader?author!../../package.json}}",
 	"homepage_url": "{{prop-loader?homepage!../../package.json}}",
-	"minimum_chrome_version": "64",
-	"minimum_opera_version": "51",
+	"minimum_chrome_version": "70",
+	"minimum_opera_version": "57",
 	"icons": {
 		"48": "{{../../images/beta48.png}}",
 		"128": "{{../../images/beta128.png}}"
@@ -18,7 +18,7 @@
 		}
 	},
 	"options_ui": {
-		"page": "{{../../lib/options.html}}",
+		"page": "{{../../lib/options/options.html}}",
 		"open_in_tab": true
 	},
 	"background": {
@@ -78,11 +78,16 @@
 		"https://api.tumblr.com/v2/blog/*/posts",
 		"https://xkcd.com/*/info.0.json",
 		"https://api.steampowered.com/ISteamRemoteStorage/GetPublishedFileDetails/*",
+		"https://*.googleusercontent.com/download/drive/v3/*",
 		"https://content.googleapis.com/drive/v3/*",
 
 		"https://redditenhancementsuite.com/oauth",
 		"https://accounts.google.com/o/oauth2/v2/auth",
 		"https://www.dropbox.com/oauth2/authorize",
 		"https://login.live.com/oauth20_authorize.srf"
+	],
+	"web_accessible_resources": [
+		"{{../../lib/fonts/batch-icons-webfont.woff}}",
+		"{{../../lib/options/options.html}}"
 	]
 }
