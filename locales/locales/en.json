@@ -1600,7 +1600,7 @@
 		"message": "Style Tweaks"
 	},
 	"styleTweaksDesc": {
-		"message": "Provides a number of style tweaks to the Reddit interface. Also allow you to disable specific subreddit style (the [global setting](/prefs/#show_stylesheets) must be on)."
+		"message": "Provides a number of style tweaks to the Reddit interface."
 	},
 	"submitHelperName": {
 		"message": "Submission Helper"
@@ -2544,42 +2544,13 @@
 	"toggleOff": {
 		"message": "off"
 	},
-	"styleTweaksRedditPrefsMessage": {
+	"subredditStyleToggleRedditPrefsMessage": {
 		"message": "RES allows you to disable specific subreddit styles!"
 	},
-	"styleTweaksClickToLearnMore": {
+	"subredditStyleToggleClickToLearnMore": {
 		"message": "Click here to learn more"
 	},
-	"styleTweaksCommandLineDescription": {
-		"message": "toggle subreddit style on/off (if no subreddit is specified, uses current subreddit)."
-	},
-	"styleTweaksToggleSubredditStyle": {
-		"message": "toggle subreddit style"
-	},
-	"styleTweaksToggleSubredditStyleOnOff": {
-		"message": "toggle subreddit style $1",
-		"description": "As in 'toggle subreddit style off'"
-	},
-	"styleTweaksToggleSubredditStyleOnOffFor": {
-		"message": "toggle subreddit style $1 for: $2",
-		"description": "As in 'toggle subreddit style off for: subreddit'"
-	},
-	"styleTweaksNoSubredditSpecified": {
-		"message": "No subreddit specified."
-	},
-	"styleTweaksYouMustSpecifyXOrY": {
-		"message": "You must specify \"$1\" or \"$2\"."
-	},
-	"styleTweaksSubredditStyle": {
-		"message": "Subreddit Style"
-	},
-	"styleTweaksSubredditStyleEnabled": {
-		"message": "Subreddit style enabled for subreddit: $1."
-	},
-	"styleTweaksSubredditStyleDisabled": {
-		"message": "Subreddit style disabled for subreddit: $1."
-	},
-	"styleTweaksUseSubredditStyle": {
+	"subredditStyleToggleUse": {
 		"message": "Use subreddit style"
 	},
 	"submitHelperTimeAgo": {
@@ -3456,17 +3427,23 @@
 	"styleTweaksColorBlindFriendlyDesc": {
 		"message": "Use colorblind friendly styles when possible."
 	},
-	"styleTweaksSubredditStyleBrowserToolbarButtonTitle": {
-		"message": "Subreddit Style Browser Toolbar Button"
+	"subredditStyleToggleName": {
+		"message": "Subreddit Style Toggle"
 	},
-	"styleTweaksSubredditStyleBrowserToolbarButtonDesc": {
-		"message": "Add a toolbar/omnibar icon to disable/enable current subreddit style - note this may be behind a hamburger menu in some browsers."
+	"subredditStyleToggleDesc": {
+		"message": "Lets you disable specific subreddit styles (the [global setting](/prefs/#show_stylesheets) must be on)."
 	},
-	"styleTweaksSubredditStyleCheckboxTitle": {
-		"message": "Subreddit Style Checkbox"
+	"subredditStyleToggleBrowserToolbarButtonTitle": {
+		"message": "Browser Toolbar Button"
 	},
-	"styleTweaksSubredditStyleCheckboxDesc": {
-		"message": "Add a checkbox in the sidebar to disable/enable current subreddit style."
+	"subredditStyleToggleBrowserToolbarButtonDesc": {
+		"message": "Add a toolbar/omnibar toggle - note this may be behind a hamburger menu in some browsers."
+	},
+	"subredditStyleToggleCheckboxTitle": {
+		"message": "Checkbox"
+	},
+	"subredditStyleToggleCheckboxDesc": {
+		"message": "Add a checkbox in the sidebar."
 	},
 	"styleTweaksScrollSubredditDropdownTitle": {
 		"message": "Scroll Subreddit Dropdown"
