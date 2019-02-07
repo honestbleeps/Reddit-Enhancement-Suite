@@ -640,7 +640,7 @@ body.RESScrollLock {
 }
 
 .transitionToTransparent {
-	transition: opacity 3s ease-in-out;
+	transition: opacity 3s cubic-bezier(.82, 0, 1, .55); // Change fast towards the end
 	opacity: 0;
 }
 
