@@ -82,15 +82,15 @@ li {
 
 #RESAllOptionsSpan {
 	display: flex; // removes white space
-	margin: 10px 0;
 	color: #868686;
 	font-size: 11px;
+	margin-top: 5px;
 }
 
 #RESConsoleContent {
 	display: flex;
 	top: 41px;
-	padding-left: 15px;
+	padding-left: 5px;
 	height: calc(100vh - 61px);
 
 	&.advanced-options-disabled .SearchRES-result-item.advanced,
@@ -113,7 +113,7 @@ li {
 }
 
 #RESConfigPanelOptions {
-	padding: 15px 15px 0 15px;
+	padding: 10px 10px 0 10px;
 	overflow: auto;
 	flex-grow: 1;
 
@@ -147,29 +147,33 @@ li {
 }
 
 #RESConfigPanelModulesPane {
-	position: relative;
 	width: 200px;
-	padding-top: 15px;
+	padding-top: 5px;
 	flex-shrink: 0;
-	overflow-y: auto;
-	overflow-x: hidden;
 }
 
 #RESConfigPanelModulesList {
 	color: rgb(80, 80, 80);
-	margin-top: 15px;
+	height: calc(100% - 50px);
+	overflow-y: auto;
 
 	> ul {
+		margin: 0;
 		border: 1px solid rgb(230, 230, 230);
 		border-radius: 2px;
 	}
+}
 
-	ul ul {
-		padding: 10px 0;
-		display: none;
+.RESConfigPanelCategory {
+	max-height: 26px;
+	overflow-y: hidden;
+	transition: 0.3s;
+
+	&.active {
+		max-height: 1000px;
 	}
 
-	li h3 {
+	h3 {
 		text-align: left;
 		padding: 5px 10px;
 		margin: 0;
@@ -178,16 +182,11 @@ li {
 		font-weight: normal;
 	}
 
-	li:first-child h3 {
-		border: none;
-	}
-
 	li.active h3 {
 		border-bottom: 1px solid rgb(230, 230, 230);
 		background: rgb(245, 245, 245);
 	}
 }
-
 
 %warning-icon {
 	content: '\F15A';
@@ -246,6 +245,7 @@ li {
 		width: 100%;
 		margin-top: 20px;
 		margin-bottom: 10px;
+		border-collapse: collapse;
 	}
 
 	.enum img {
@@ -509,7 +509,7 @@ a.RESConsoleButton {
 
 #SearchRES-input-container {
 	position: relative;
-	margin-bottom: 10px;
+	margin: 5px 0 10px 0;
 
 	&::after {
 		position: absolute;
@@ -525,7 +525,6 @@ a.RESConsoleButton {
 	box-sizing: border-box;
 	width: 100%;
 	font-size: 14px;
-	padding: 5px 25px 5px 3px;
 	border: 1px solid rgb(171, 204, 227);
 	border-radius: 2px;
 }
