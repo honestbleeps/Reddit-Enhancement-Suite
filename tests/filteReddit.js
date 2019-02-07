@@ -47,6 +47,8 @@ module.exports = {
 			.perform(editSettings(() => browser
 				.click('#optionContainer-filteReddit-keywords .addRowButton')
 				.setValue('#optionContainer-filteReddit-keywords input', ['B'])
+				.click('#optionContainer-filteReddit-keywords .addRowButton')
+				.setValue('#optionContainer-filteReddit-keywords tr:nth-child(2) input', ['This shouldn\'t match anything'])
 			))
 			.url(byId(POST.ABC, POST.A))
 			.waitForElementNotVisible(thing(POST.ABC))
@@ -85,6 +87,8 @@ module.exports = {
 			.perform(editSettings(() => browser
 				.click('#optionContainer-filteReddit-domains .addRowButton')
 				.setValue('#optionContainer-filteReddit-domains input', ['sElf.resinTegrAtiontEsts'])
+				.click('#optionContainer-filteReddit-domains .addRowButton')
+				.setValue('#optionContainer-filteReddit-domains tr:nth-child(2) input', ['This shouldn\'t match anything'])
 			))
 			.url(byId(POST.ABC, POST.youtubeDomain))
 			.waitForElementNotVisible(thing(POST.ABC))
@@ -121,6 +125,8 @@ module.exports = {
 			.perform(editSettings(() => browser
 				.click('#optionContainer-filteReddit-subreddits .addRowButton')
 				.setValue('#optionContainer-filteReddit-subreddits input', ['RESIntegrationTests'])
+				.click('#optionContainer-filteReddit-subreddits .addRowButton')
+				.setValue('#optionContainer-filteReddit-subreddits tr:nth-child(2) input', ['This shouldn\'t match anything'])
 			))
 			.url(byId(POST.ABC, POST.restests))
 			.waitForElementNotVisible(thing(POST.ABC))
@@ -158,6 +164,8 @@ module.exports = {
 			.perform(editSettings(() => browser
 				.click('#optionContainer-filteReddit-flair .addRowButton')
 				.setValue('#optionContainer-filteReddit-flair input', ['A'])
+				.click('#optionContainer-filteReddit-flair .addRowButton')
+				.setValue('#optionContainer-filteReddit-flair tr:nth-child(2) input', ['This shouldn\'t match anything'])
 			))
 			.url('https://en.reddit.com/r/RESIntegrationTests/search?q=flair%3Aa+OR+flair%3Ac&restrict_sr=on&t=all&feature=legacy_search')
 			.waitForElementNotVisible(thing(POST.aWithFlaira))
@@ -187,6 +195,8 @@ module.exports = {
 			.perform(editSettings(() => browser
 				.click('#optionContainer-filteReddit-keywords .addRowButton')
 				.setValue('#optionContainer-filteReddit-keywords input', ['/A/'])
+				.click('#optionContainer-filteReddit-keywords .addRowButton')
+				.setValue('#optionContainer-filteReddit-keywords tr:nth-child(2) input', ['This shouldn\'t match anything'])
 			))
 			.url(byId(POST.ABC, POST.B))
 			.waitForElementNotVisible(thing(POST.ABC))
@@ -198,6 +208,8 @@ module.exports = {
 				.click('#optionContainer-filteReddit-subreddits .addRowButton')
 				.clearValue('#optionContainer-filteReddit-subreddits input')
 				.setValue('#optionContainer-filteReddit-subreddits input', ['/\\wIntegrationTests(?!2)/'])
+				.click('#optionContainer-filteReddit-subreddits .addRowButton')
+				.setValue('#optionContainer-filteReddit-subreddits tr:nth-child(2) input', ['This shouldn\'t match anything'])
 			))
 			.url(byId(POST.B, POST.RESIntegrationTests2))
 			.waitForElementNotVisible(thing(POST.B))
@@ -235,6 +247,8 @@ module.exports = {
 			.perform(editSettings(() => browser
 				.click('#optionContainer-filteReddit-keywords .addRowButton')
 				.setValue('#optionContainer-filteReddit-keywords input', ['A'])
+				.click('#optionContainer-filteReddit-keywords .addRowButton')
+				.setValue('#optionContainer-filteReddit-keywords tr:nth-child(2) input', ['This shouldn\'t match anything'])
 				.execute(`
 					document.querySelector('#optionContainer-filteReddit-keywords input#keywords_subreddits_1').value = 'RESIntegrationTests';
 				`)
