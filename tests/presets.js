@@ -10,8 +10,8 @@ module.exports = {
 			.click('#cleanSlate button')
 			.setAlertText('yes')
 			.acceptAlert() // "do you want to apply preset"
-			.dismissAlert() // "do you want to reload"
 			.pause(1000) // Let the preset process complete
+			.dismissAlert() // "do you want to reload"
 
 			.url('https://en.reddit.com/r/RESIntegrationTests/?limit=1')
 			.waitForElementVisible('#RESSettingsButton')
