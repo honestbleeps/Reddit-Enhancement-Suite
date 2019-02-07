@@ -1119,9 +1119,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 	}
 }
 
-.res-page-requires-reload::before {
+html[res-warning]::before {
 	position: fixed;
-	content: 'This page must be reloaded for Reddit Extension Suite to function correctly';
+	content: attr(res-warning);
 	right: 20px;
 	bottom: 20px;
 	z-index: 99999999;
