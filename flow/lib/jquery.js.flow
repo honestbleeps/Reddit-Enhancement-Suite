@@ -5,7 +5,7 @@
 // disabled one permutation of `$.fn.on` because it conflicts with delegated listeners (and we don't use it)
 // specialized `$.fn.on` and `$.fn.one` for keyboard and input event types
 // added overloadings of animation functions with only a callback (default delay)
-// added definitions for tokeninput, edgescroll, safehtml, sortable
+// added definitions for tokeninput, safehtml, sortable
 // added iterator
 // made JQueryXHR extend the native XMLHttpRequest object
 // switched to the `.then` implementation of native promises, à la jQuery 3
@@ -941,15 +941,6 @@ declare class JQuery {
 	queue(queueName: string, callback: Function): JQuery;
 
 	// jQuery Plugins
-
-	// vendor/jquery.edgescroll-0.1.js
-	edgescroll(opts: 'stop' | {
-		padding?: number,
-		triggerClass?: string,
-		topClass?: string,
-		bottomClass?: string,
-		speed?: number,
-	}): JQuery;
 
 	// jquery.tokeninput
 	tokenInput(op: 'clear'): JQuery;
