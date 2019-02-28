@@ -38,13 +38,8 @@
 	td {
 		padding: 3px 8px;
 
-		&.RESvisited,
-		&.RESshortcut {
+		&.RESvisited {
 			text-transform: none;
-		}
-
-		&.RESshortcut {
-			cursor: pointer;
 		}
 
 		a {
