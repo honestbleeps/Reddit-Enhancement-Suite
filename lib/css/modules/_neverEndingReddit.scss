@@ -66,11 +66,12 @@
 
 #NREPause {
 	cursor: pointer;
+	font-size: 10px;
 
 	&::after {
 		font: normal 100% Batch;
 		color: #888;
-		display: flex;
+		display: inline-flex;
 		align-items: center;
 		width: 10px;
 		height: 10px;
