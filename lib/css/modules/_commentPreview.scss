@@ -72,18 +72,8 @@ body.RESScrollLock {
 		margin: 1em .5em;
 	}
 
-	.RESDialogContents {
-		position: absolute !important;
-		top: 0;
-		bottom: 0;
-
-		.markdownEditor-wrapper {
-			display: block;
-		}
-	}
-
 	.markdownEditor-wrapper {
-		display: none; // unused
+		margin-left: 2em;
 	}
 }
 
@@ -130,7 +120,7 @@ body.RESScrollLock {
 #BigText {
 	resize: none;
 	width: 100%;
-	height: 100%;
+	height: calc(100vh - 200px);
 }
 
 .BEFoot {
@@ -143,8 +133,4 @@ body.RESScrollLock {
 	.errorList {
 		margin-left: 1em;
 	}
-}
-
-.BESideHide {
-	display: none;
 }
