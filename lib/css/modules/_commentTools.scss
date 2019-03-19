@@ -1,3 +1,5 @@
+@import '../zindex';
+
 .markdownEditor-wrapper { width: 500px; } // same as textarea.
 
 //  Formatting tools container
@@ -136,6 +138,10 @@
 	}
 }
 
+.highlightedAltAccount {
+	font-weight: bold;
+}
+
 // Table editor
 #alert_message table.commentPreview td {
 	border: 1px solid black;
@@ -155,6 +161,11 @@
 }
 
 // Autocomplete
+#autocomplete_dropdown {
+	display: inline-block;
+	z-index: $zindex-autocomplete-dropdown;
+}
+
 .selectedItem {
 	color: #fff;
 	background-color: #5f99cf;
@@ -165,5 +176,17 @@
 	#newlink-with-image-upload #suggest-title {
 		top: 2px; // move it up for better alignment with our counter
 		right: 80px;
+	}
+}
+
+span.RESCharCounter {
+	color: gray;
+	float: right;
+	font-size: 15px;
+	// needed to keep the wiki textarea from being pushed down
+	margin-bottom: -2px;
+
+	&.tooLong {
+		color: red;
 	}
 }

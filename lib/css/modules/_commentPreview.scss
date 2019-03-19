@@ -1,3 +1,9 @@
+.content .RESBigEditorPop {
+	float: right;
+	margin-top: 5px;
+	margin-left: 5px;
+}
+
 .RESDialogSmall.livePreview {
 	position: relative;
 	width: auto;
@@ -45,4 +51,100 @@
 	.livePreview {
 		background: repeating-linear-gradient(-225deg, transparent, transparent 40px, rgba(166, 166, 166, .07) 40px, rgba(166, 166, 166, .07) 80px);
 	}
+}
+
+// Big Editor
+body.RESScrollLock {
+	height: 100%;
+	overflow: hidden;
+}
+
+#BigEditor {
+	position: fixed;
+	z-index: $zindex-big-editor;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(0, 0, 0, .75);
+
+	> div {
+		margin: 1em .5em;
+	}
+
+	.RESDialogContents {
+		position: absolute !important;
+		top: 0;
+		bottom: 0;
+
+		.markdownEditor-wrapper {
+			display: block;
+		}
+	}
+
+	.markdownEditor-wrapper {
+		display: none; // unused
+	}
+}
+
+.BELeft,
+.BERight {
+	position: absolute !important;
+	top: 0;
+	bottom: 0;
+	width: 49%;
+	box-sizing: border-box;
+	overflow: hidden;
+}
+
+.BELeft {
+	left: 0;
+	margin-right: 0;
+
+	.RESDialogContents {
+		left: 0;
+		right: 0;
+		margin: 0 1em;
+		padding-top: 52px;
+	}
+}
+
+.BERight {
+	right: 0;
+	margin-left: 0;
+
+	.md {
+		max-width: none;
+	}
+
+	.RESDialogContents,
+	.RESDialogContents.wiki-page-content {
+		overflow: auto;
+		padding: 12px;
+		margin: 4em 1em 1em 0;
+		left: 0;
+		right: 0;
+	}
+}
+
+#BigText {
+	resize: none;
+	width: 100%;
+	height: 100%;
+}
+
+.BEFoot {
+	margin-top: .5em;
+
+	button {
+		display: inline-block;
+	}
+
+	.errorList {
+		margin-left: 1em;
+	}
+}
+
+.BESideHide {
+	display: none;
 }

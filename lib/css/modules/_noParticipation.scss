@@ -12,3 +12,15 @@
 		}
 	}
 }
+
+.RES-spoiler {
+	&-title {
+		font-style: italic;
+		text-decoration: dotted underline;
+		cursor: help;
+	}
+
+	&:not(:hover):not(:active) &-contents {
+		display: none;
+	}
+}

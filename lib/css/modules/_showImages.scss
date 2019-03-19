@@ -3,6 +3,14 @@
 	.expando {
 		position: initial !important;
 	}
+
+	.usertext iframe {
+		border: none;
+	}
+
+	.md .usertext-body img {
+		display: inherit;
+	}
 }
 
 //Image Viewer

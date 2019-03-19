@@ -13,6 +13,7 @@
 @import 'modules/commentPreview';
 @import 'modules/commentTools';
 @import 'modules/dashboard';
+@import 'modules/easterEgg';
 @import 'modules/newCommentCount';
 @import 'modules/noParticipation';
 @import 'modules/notifications';
@@ -20,6 +21,7 @@
 @import 'modules/floater';
 @import 'modules/hover';
 @import 'modules/keyboardNav';
+@import 'modules/modhelper';
 @import 'modules/neverEndingReddit';
 @import 'modules/orangered';
 @import 'modules/pageNavigator';
@@ -115,54 +117,6 @@ body.res-console-open {
 	to { transform: scale(1.5, 1.5); }
 }
 
-.RESDropdownList {
-	position: absolute;
-	list-style-type: none;
-	background-color: #5f99cf;
-	width: 180px;
-	border-radius: 0 0 3px 3px;
-	border: 1px solid #369;
-	border-bottom: none;
-	margin: 0 !important;
-	font-size: 10px;
-
-	li {
-		position: relative;
-		cursor: pointer;
-		border-bottom: 1px solid #369;
-		line-height: 34px;
-		font-weight: bold;
-		color: #c9def2;
-		padding-left: 10px;
-		box-sizing: content-box;
-	}
-
-	.toggleButton {
-		line-height: 14px;
-		right: 5px;
-		top: 9px;
-		position: absolute;
-	}
-
-	a {
-		display: block;
-
-		&,
-		&:link,
-		&:visited {
-			color: inherit;
-			text-decoration: none;
-		}
-	}
-
-	li:hover,
-	a:hover {
-		background-color: #9cc6ec;
-		color: #369;
-		text-decoration: none;
-	}
-}
-
 .editButton {
 	cursor: pointer;
 	width: 24px;
@@ -248,31 +202,6 @@ div.usertext-edit {
 
 .clear {
 	clear: both;
-}
-
-#goModePanel {
-	display: none;
-	position: fixed;
-	top: 50%;
-	left: 50%;
-	width: 250px;
-	margin-left: -125px;
-	margin-top: -140px;
-	z-index: $zindex-go-mode-panel;
-
-	table {
-		width: 100%;
-
-		td {
-			padding: 4px 2px;
-			border: none;
-
-			&.arrow {
-				padding: 4px 12px;
-				border: none;
-			}
-		}
-	}
 }
 
 .res-icon-button {
@@ -386,7 +315,6 @@ div.usertext-edit {
 	color: #fff;
 	border: 1px solid #636363;
 	border-radius: 3px;
-	background-color: #107ac4;
 }
 
 .addRowButton:hover {
@@ -438,37 +366,6 @@ span.multi-count {
 	background-color: #C8DBEC;
 }
 
-.guider ol {
-	margin: 1em 1em 1em 2em;
-}
-
-.guider dl {
-	margin-top: .6em;
-	margin-bottom: .6em;
-}
-
-.guider em {
-	font-weight: bolder;
-}
-
-#baconBit {
-	position: fixed;
-	width: 32px;
-	height: 32px;
-	background-image: url('../images/bacon.png');
-	top: -5%;
-	left: -5%;
-	z-index: $zindex-baconbit;
-	transform: rotate(0deg);
-	transition: all 2s linear;
-
-	&.makeitrain {
-		top: 100%;
-		left: 100%;
-		transform: rotate(2000deg);
-	}
-}
-
 .blueButton {
 	cursor: pointer;
 	padding: 3px 5px;
@@ -503,136 +400,6 @@ span.multi-count {
 	&:hover {
 		background-color: #DDD;
 	}
-}
-
-// Stuff added to force specificty
-span.RESCharCounter {
-	color: gray;
-	float: right;
-	font-size: 15px;
-	// needed to keep the wiki textarea from being pushed down
-	margin-bottom: -2px;
-
-	&.tooLong {
-		color: red;
-	}
-}
-
-// Big Editor
-body.RESScrollLock {
-	height: 100%;
-	overflow: hidden;
-}
-
-#BigEditor {
-	position: fixed;
-	z-index: $zindex-big-editor;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	background-color: rgba(0, 0, 0, .75);
-
-	> div {
-		margin: 1em .5em;
-	}
-
-	.RESDialogContents {
-		position: absolute !important;
-		top: 0;
-		bottom: 0;
-
-		.markdownEditor-wrapper {
-			display: block;
-		}
-	}
-
-	.markdownEditor-wrapper {
-		display: none; // unused
-	}
-}
-
-.BELeft,
-.BERight {
-	position: absolute !important;
-	top: 0;
-	bottom: 0;
-	width: 49%;
-	box-sizing: border-box;
-	overflow: hidden;
-}
-
-.BELeft {
-	left: 0;
-	margin-right: 0;
-
-	.RESDialogContents {
-		left: 0;
-		right: 0;
-		margin: 0 1em;
-		padding-top: 52px;
-	}
-}
-
-.BERight {
-	right: 0;
-	margin-left: 0;
-
-	.md {
-		max-width: none;
-	}
-
-	.RESDialogContents,
-	.RESDialogContents.wiki-page-content {
-		overflow: auto;
-		padding: 12px;
-		margin: 4em 1em 1em 0;
-		left: 0;
-		right: 0;
-	}
-}
-
-#BigText {
-	resize: none;
-	width: 100%;
-	height: 100%;
-}
-
-.BEFoot {
-	margin-top: .5em;
-
-	button {
-		display: inline-block;
-	}
-
-	.errorList {
-		margin-left: 1em;
-	}
-}
-
-.BESideHide {
-	display: none;
-}
-
-.RESFadeButton {
-	pointer-events: auto;
-	right: 38px;
-	font-family: Webdings;
-}
-
-.content .RESBigEditorPop {
-	float: right;
-	margin-top: 5px;
-	margin-left: 5px;
-}
-
-#autocomplete_dropdown {
-	display: inline-block;
-	z-index: $zindex-autocomplete-dropdown;
-}
-
-.usertext iframe {
-	border: none;
 }
 
 .noCtrlF::before {
@@ -747,14 +514,6 @@ body.RESScrollLock {
 	&[data-icon]::before {
 		content: attr(data-icon);
 	}
-}
-
-.md .usertext-body img {
-	display: inherit;
-}
-
-.highlightedAltAccount {
-	font-weight: bold;
 }
 
 #show_stylesheets:target + label {
@@ -1002,50 +761,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 	}
 }
 
-.RESCenteredLoadIndicator {
-	display: flex;
-	justify-content: center;
-}
-
-#RESStyleSheetTipPane {
-	display: none;
-	position: relative;
-	border: 1px solid #ddd;
-	margin-bottom: 10px;
-	width: calc(100% - 320px);
-}
-
-#RESStyleSheetTipPane-header {
-	cursor: pointer;
-	font-size: 20px;
-	padding: 10px;
-	border-bottom: 1px solid #ddd;
-
-	span.details {
-		margin-left: 20px;
-		font-size: 12px;
-		visibility: hidden;
-	}
-
-	&.minimized span.details {
-		visibility: visible;
-	}
-}
-
-#RESStyleSheetTipPane-contents {
-	display: none; // hide by default
-	padding: 10px;
-
-	ul {
-		list-style: initial;
-		margin: 0 0 0 1em;
-	}
-
-	li p {
-		margin: .75em 0;
-	}
-}
-
 .res-step {
 	cursor: pointer;
 	user-select: none;
@@ -1063,15 +778,15 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		color: #6286f4;
 	}
 
-	&.res-step-reverse::after {
+	&-reverse::after {
 		transform: scaleX(-1);
 	}
-}
 
-.res-step-progress {
-	font-size: 13px;
-	min-width: 60px;
-	text-align: center;
+	&-progress {
+		font-size: 13px;
+		min-width: 60px;
+		text-align: center;
+	}
 }
 
 .tabmenu li.res-tabmenu-button {
@@ -1105,18 +820,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 .pinnable-content.pinned .dismiss-pinnable {
 	top: 30px !important;
-}
-
-.RES-spoiler {
-	&-title {
-		font-style: italic;
-		text-decoration: dotted underline;
-		cursor: help;
-	}
-
-	&:not(:hover):not(:active) &-contents {
-		display: none;
-	}
 }
 
 html[res-warning]::before {
