@@ -388,3 +388,11 @@ ul.widgetStateButtons {
 		&.selected a:first-child { pointer-events: none; }
 	}
 }
+
+iframe.dashboard {
+	position: fixed;
+	z-index: 100;
+	width: 100%;
+	height: 100%;
+	display: none;
+}
