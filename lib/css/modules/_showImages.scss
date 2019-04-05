@@ -233,6 +233,7 @@ img {
 .res-expando-box {
 	display: block;
 	clear: left; // Necessary on some custom stylesheets where .entry .flat-list has no height
+	min-height: 20px;
 
 	.res-expando-box-inner {
 		// Reset a few possible parent styles
