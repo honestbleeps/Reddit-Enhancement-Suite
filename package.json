@@ -38,14 +38,6 @@
     "deploy-changelog": "node build/deployChangelog.js",
     "version": "node build/version.js"
   },
-  "ava": {
-    "files": [
-      "**/__tests__/*.js"
-    ],
-    "require": [
-      "@babel/register"
-    ]
-  },
   "husky": {
     "hooks": {
       "pre-push": "npm run flow && npm run lint && npm test"
@@ -119,7 +111,7 @@
     "jszip": "2.6.1",
     "lodash-webpack-plugin": "0.11.5",
     "nightwatch": "0.9.21",
-    "nyc": "13.1.0",
+    "nyc": "13.3.0",
     "opera-extension-deploy": "0.2.3",
     "postcss-loader": "3.0.0",
     "prop-loader": "1.0.0",
