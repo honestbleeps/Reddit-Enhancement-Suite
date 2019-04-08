@@ -131,6 +131,11 @@ export default (env = {}, argv = {}) => {
 				use: [
 					{ loader: 'url-loader' },
 				],
+			}, {
+				test: /\.woff$/,
+				use: [
+					{ loader: 'file-loader', options: { name: '[name].[ext]' } },
+				],
 			}],
 		},
 		optimization: {
