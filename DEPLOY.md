@@ -14,13 +14,6 @@ https://developer.mozilla.org/en-US/Add-ons/Distribution
 
 1. Upload `firefox.zip` to https://addons.mozilla.org/en-US/developers/addon/submit/1
 
-## Edge
-
-https://developer.microsoft.com/en-us/microsoft-edge/platform/documentation/extensions/guides/packaging/using-ManifoldJS-to-package-extensions/
-
-1. Run `npm run manifoldjs-package`
-1. Upload `edgeExtension.appx` to https://developer.microsoft.com/en-us/dashboard/apps/overview
-
 ## Opera 
 
 https://dev.opera.com/extensions/publishing-guidelines/

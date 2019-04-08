@@ -20,12 +20,6 @@ const browserConfig = {
 		entry: 'chrome/beta/manifest.json',
 		output: 'chrome-beta',
 	},
-	edge: {
-		target: 'edge',
-		entry: 'edge/appxmanifest.xml',
-		output: 'edgeextension/manifest',
-		noZip: true,
-	},
 	firefox: {
 		target: 'firefox',
 		entry: 'firefox/manifest.json',
@@ -136,13 +130,6 @@ export default (env = {}, argv = {}) => {
 				include: path.join(__dirname, 'lib', 'images'),
 				use: [
 					{ loader: 'url-loader' },
-				],
-			}, {
-				test: /\.woff$/,
-				use: [
-					conf.target === 'edge' ?
-						{ loader: 'url-loader' } :
-						{ loader: 'file-loader', options: { name: '[name].[ext]' } },
 				],
 			}],
 		},
