@@ -35,7 +35,7 @@ To load the extension into your browser, see [Loading RES into your browser](#lo
 
 **`npm run build [<browsers>]`** will clean `dist/`, then build RES (release mode). Each build output will be compressed to a .zip file in `dist/zip/`.
 
-`<browsers>` is a comma-separated list of browsers to target, e.g. `chrome,firefox,edge`. `all` will build all targets. By default, `chrome` will be targeted.
+`<browsers>` is a comma-separated list of browsers to target, e.g. `chrome,firefox`. `all` will build all targets. By default, `chrome` will be targeted.
 
 #### Lint and test commands
 
@@ -62,12 +62,6 @@ The default host and port (`localhost` and `4444`) should work for most local in
 1. Click `Load unpacked extension` and select the `/dist/chrome` folder (not the `/chrome` folder).
 1. Any time you make changes, you must go back to the `Menu->More tools->Extensions` page and `Reload` the extension.
 
-##### Microsoft Edge
-
-1. Go to `about:flags` and tick the `Enable extension developer features` checkbox.
-1. Click `Load extension` on the extensions menu and select the `/dist/edgeextension/manifest/Extension` folder (not the `/edge` folder).
-1. Any time you make changes, you must go back to the `Menu->Extensions` page, go to the extension's settings and `Reload` the extension.
-
 ##### Firefox
 
 1. Go to `about:debugging` and tick the `Enable add-on debugging` checkbox.
@@ -84,7 +78,6 @@ The default host and port (`localhost` and `4444`) should work for most local in
   - `changelog/`: release changelogs
   - `chrome/`: Chrome-specific RES files
   - `dist/`: build output
-  - `edge/`: Microsoft Edge-specific RES files
   - `examples/`: example code for new hosts/modules
   - `firefox/`: Firefox-specific RES files
   - `images/`: images for RES logo and CSS icons
