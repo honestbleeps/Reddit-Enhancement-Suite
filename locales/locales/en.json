@@ -1866,6 +1866,12 @@
 	"betteRedditCommentsLinksNewTabDesc": {
 		"message": "Open links found in comments in a new tab."
 	},
+	"filteRedditHideUntilProcessedTitle": {
+		"message": "Hide Until Processed"
+	},
+	"filteRedditHideUntilProcessedDesc": {
+		"message": "Don't show posts and comments until they have been processed by the filters."
+	},
 	"betteRedditFixHideLinksTitle": {
 		"message": "Fix Hide Links"
 	},
@@ -1979,6 +1985,12 @@
 	},
 	"betteRedditCommentCollapseInInboxDesc": {
 		"message": "Show the [-] collapse button in the inbox."
+	},
+	"betteRedditRestrictScrollEventsTitle": {
+		"message": "Restrict Scroll Events"
+	},
+	"betteRedditRestrictScrollEventsDesc": {
+		"message": "Reddit performs much work every time you scroll, which may cause lag on pages with many comments. Reducing the number of scroll events it processes improves performance."
 	},
 	"betteRedditHideLinkLabel": {
 		"message": "hide"
@@ -2895,9 +2907,6 @@
 	"selectedEntryAutoSelectOnScrollDesc": {
 		"message": "Automatically select the topmost item while scrolling"
 	},
-	"selectedEntryScrollToSelectedThingOnLoadDesc": {
-		"message": "Automatically scroll to the post/comment that is selected when the page loads"
-	},
 	"selectedEntryAddLineDesc": {
 		"message": "Show a line on right side."
 	},
@@ -3162,9 +3171,6 @@
 	},
 	"selectedEntryAutoSelectOnScrollTitle": {
 		"message": "Auto Select On Scroll"
-	},
-	"selectedEntryScrollToSelectedThingOnLoadTitle": {
-		"message": "Scroll To Selected Thing On Load"
 	},
 	"selectedEntryAddLineTitle": {
 		"message": "Add Line"

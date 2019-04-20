@@ -4,6 +4,16 @@ body.hideOver18 {
 	}
 }
 
+.res-hideUntilProcessed-post .thing.link,
+.res-hideUntilProcessed-comment .thing.comment {
+	&:not([res-initial-filtering-done]) {
+		&,
+		& ~ * {
+			display: none !important;
+		}
+	}
+}
+
 html:not(.res-filters-disabled):not(.res-display-match-reason) {
 	.res-thing-filter-hide {
 		&:not(.res-thing-partial),
@@ -89,14 +99,6 @@ html:not(.res-filters-disabled):not(.res-display-match-reason) {
 
 	body.comments-page & {
 		margin-left: 10px;
-	}
-}
-
-body.res-filteReddit-filterline-pad-until-ready {
-	&.comments-page .nestedlisting::before,
-	&.listing-page #siteTable::before {
-		@include filterline-basic-layout;
-		content: ' ';
 	}
 }
 
