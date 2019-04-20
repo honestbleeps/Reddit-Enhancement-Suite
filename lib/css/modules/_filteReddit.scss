@@ -4,6 +4,16 @@ body.hideOver18 {
 	}
 }
 
+.res-hideUntilProcessed-post .thing.link,
+.res-hideUntilProcessed-comment .thing.comment {
+	&:not([res-initial-filtering-done]) {
+		&,
+		& ~ * {
+			display: none !important;
+		}
+	}
+}
+
 html:not(.res-filters-disabled):not(.res-display-match-reason) {
 	.res-thing-filter-hide {
 		&:not(.res-thing-partial),
