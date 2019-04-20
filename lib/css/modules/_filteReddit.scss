@@ -102,14 +102,6 @@ html:not(.res-filters-disabled):not(.res-display-match-reason) {
 	}
 }
 
-body.res-filteReddit-filterline-pad-until-ready {
-	&.comments-page .nestedlisting::before,
-	&.listing-page #siteTable::before {
-		@include filterline-basic-layout;
-		content: ' ';
-	}
-}
-
 %res-filterline-icon {
 	display: inline-block;
 	transform: rotate(180deg);
