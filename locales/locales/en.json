@@ -1986,6 +1986,12 @@
 	"betteRedditCommentCollapseInInboxDesc": {
 		"message": "Show the [-] collapse button in the inbox."
 	},
+	"betteRedditRestrictScrollEventsTitle": {
+		"message": "Restrict Scroll Events"
+	},
+	"betteRedditRestrictScrollEventsDesc": {
+		"message": "Reddit performs much work every time you scroll, which may cause lag on pages with many comments. Reducing the number of scroll events it processes improves performance."
+	},
 	"betteRedditHideLinkLabel": {
 		"message": "hide"
 	},
