@@ -4,16 +4,8 @@
 
 ### Bug Fixes
 
-- Fix issue with Thing elements cache (thanks @larsjohnsen)
-- floater inNavBar: Fix padding (thanks @larsjohnsen)
-- redesign: Add support for sorting tables (thanks @CAVillalobos)
-- selectedEntry: Fix regression preventing certain clicks bubbling (thanks @larsjohnsen)
-- showImages: Remomve badly-implemented text based 'catch-all' icon (thanks @larsjohnsen)
+- None (thanks nobody)
 
 ### Housekeeping / Other
 
-- Load fonts after sourceLoaded earlier to avoid additional reflow (thanks @larsjohnsen)
-- Remove superfluous init stage bodyReady (thanks @larsjohnsen)
-- Update module example with contentStart phase (thanks @larsjohnsen)
-- showImages: Remove unnecessary option bufferScreens (thanks @larsjohnsen)
-- utils throttle: Invoke when microtask queue is empty rather than on `setTimeout` callback (thanks @larsjohnsen)
+- None (thanks nobody)
