@@ -74,13 +74,6 @@ img {
 		filter: sepia(1);
 	}
 
-	// TODO Use a better icon for the catch-all button
-	&.video.collapsed::after {
-		content: '▷';
-		color: white;
-		padding-left: 6px;
-	}
-
 	&.image.collapsed {
 		background-image: url('../images/expandoImage.svg');
 

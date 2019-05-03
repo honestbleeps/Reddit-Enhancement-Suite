@@ -40,8 +40,13 @@ module.permissions = {
 module.include = ['linklist']; // Optional: defaults to including all pages
 module.exclude = []; // Optional: defaults to excluding no pages
 
-module.beforeLoad = () => { // Optional: runs after <head> is ready and the module's options are loaded
+module.beforeLoad = () => { // Optional: runs after the module's options are loaded
 	// Preload stuff if necessary
+};
+
+module.contentStart = () => { // Optional: runs when the first Thing (and its children) is ready; at this stage is also the header and sidebar ready
+	// Do stuff now!
+	// This is where your code goes...
 };
 
 module.go = () => { // Optional: runs after <body> is ready and `beforeLoad` (in all modules) is complete
