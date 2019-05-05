@@ -32,8 +32,9 @@
     "test": "cross-env NODE_ENV=test ava",
     "coverage": "cross-env NODE_ENV=test nyc ava",
     "report-coverage": "nyc report --reporter=text-lcov | coveralls",
+    "integration-only": "nightwatch --env",
     "preintegration": "npm run build chrome,firefox",
-    "integration": "nightwatch --env",
+    "integration": "npm run integration-only --",
     "deploy": "node build/deploy.js",
     "deploy-changelog": "node build/deployChangelog.js",
     "version": "node build/version.js"
