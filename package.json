@@ -1,7 +1,7 @@
 {
   "title": "Reddit Enhancement Suite",
   "name": "reddit-enhancement-suite",
-  "version": "5.15.1",
+  "version": "5.15.2",
   "description": "A suite of modules that enhance your Reddit browsing experience",
   "author": "Reddit Enhancement Suite contributors",
   "license": "GPL-3.0",
@@ -32,8 +32,9 @@
     "test": "cross-env NODE_ENV=test ava",
     "coverage": "cross-env NODE_ENV=test nyc ava",
     "report-coverage": "nyc report --reporter=text-lcov | coveralls",
+    "integration-only": "nightwatch --env",
     "preintegration": "npm run build chrome,firefox",
-    "integration": "nightwatch --env",
+    "integration": "npm run integration-only --",
     "deploy": "node build/deploy.js",
     "deploy-changelog": "node build/deployChangelog.js",
     "version": "node build/version.js"
@@ -73,7 +74,6 @@
     "@babel/core": "7.4.3",
     "@babel/plugin-proposal-class-properties": "7.4.0",
     "@babel/plugin-proposal-export-namespace-from": "7.2.0",
-    "@babel/plugin-proposal-object-rest-spread": "7.4.3",
     "@babel/plugin-transform-flow-strip-types": "7.4.0",
     "@babel/plugin-transform-modules-commonjs": "7.4.3",
     "@babel/register": "7.4.0",

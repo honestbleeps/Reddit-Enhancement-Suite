@@ -70,7 +70,6 @@ export default (env = {}, argv = {}) => {
 							plugins: [
 								'@babel/plugin-proposal-export-namespace-from',
 								['@babel/plugin-proposal-class-properties', { loose: true }],
-								['@babel/plugin-proposal-object-rest-spread', { loose: true, useBuiltIns: true }],
 								'@babel/plugin-transform-flow-strip-types',
 								'minify-dead-code-elimination',
 								['transform-define', {
