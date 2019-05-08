@@ -40,20 +40,6 @@ This library was contributed directly to Reddit Enhancement Suite by [@JordanMil
 
 @ [a85653e](https://github.com/JordanMilne/Reddit-Enhancement-Suite/blob/a85653e1e0ff93732672a37d68d0b906c478bb82/lib/HTMLPasteurizer.js)
 
-## jQuery EdgeScroll
-
-### Source
-
-https://github.com/gamefreak/jquery-edgescroll
-
-### Files
-
-* jquery.edgescroll-v0.1.js
-
-### Release Version
-
-v0.1 @ [62b96ac](https://github.com/gamefreak/jquery-edgescroll/commit/62b96acb87820f188a056eb75a74364db02d4ec1)
-
 ## jQuery TokenInput
 
 ### Source

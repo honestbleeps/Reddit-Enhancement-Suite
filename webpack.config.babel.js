@@ -20,12 +20,6 @@ const browserConfig = {
 		entry: 'chrome/beta/manifest.json',
 		output: 'chrome-beta',
 	},
-	edge: {
-		target: 'edge',
-		entry: 'edge/appxmanifest.xml',
-		output: 'edgeextension/manifest',
-		noZip: true,
-	},
 	firefox: {
 		target: 'firefox',
 		entry: 'firefox/manifest.json',
@@ -76,7 +70,6 @@ export default (env = {}, argv = {}) => {
 							plugins: [
 								'@babel/plugin-proposal-export-namespace-from',
 								['@babel/plugin-proposal-class-properties', { loose: true }],
-								['@babel/plugin-proposal-object-rest-spread', { loose: true, useBuiltIns: true }],
 								'@babel/plugin-transform-flow-strip-types',
 								'minify-dead-code-elimination',
 								['transform-define', {
@@ -140,9 +133,7 @@ export default (env = {}, argv = {}) => {
 			}, {
 				test: /\.woff$/,
 				use: [
-					conf.target === 'edge' ?
-						{ loader: 'url-loader' } :
-						{ loader: 'file-loader', options: { name: '[name].[ext]' } },
+					{ loader: 'file-loader', options: { name: '[name].[ext]' } },
 				],
 			}],
 		},

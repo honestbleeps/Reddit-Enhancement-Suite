@@ -74,13 +74,6 @@ img {
 		filter: sepia(1);
 	}
 
-	// TODO Use a better icon for the catch-all button
-	&.video.collapsed::after {
-		content: '▷';
-		color: white;
-		padding-left: 6px;
-	}
-
 	&.image.collapsed {
 		background-image: url('../images/expandoImage.svg');
 
@@ -233,6 +226,7 @@ img {
 .res-expando-box {
 	display: block;
 	clear: left; // Necessary on some custom stylesheets where .entry .flat-list has no height
+	min-height: 20px;
 
 	.res-expando-box-inner {
 		// Reset a few possible parent styles

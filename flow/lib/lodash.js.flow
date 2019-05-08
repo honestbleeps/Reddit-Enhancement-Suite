@@ -551,6 +551,8 @@ declare module 'lodash/fp' {
 
 	declare function mapValues<A, B, K>(fn: (x: A) => B): Curry1<{ [K]: A }, { [K]: B }>;
 
+	declare function once<T: Function>(func: T): T;
+
 	declare function slice<T>(from: number, to: number): Curry1<T[], T[]>;
 
 	declare function sortBy<A>(fn: (a: A) => string | number): Curry1<A[], A[]>;

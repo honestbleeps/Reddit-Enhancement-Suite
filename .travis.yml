@@ -46,7 +46,7 @@ matrix:
     - env: RES_JOB=test
       script:
         - yarn run coverage && yarn run report-coverage
-        - yarn run integration chrome --retries 2 # && yarn run integration firefox --retries 2
+        - yarn run integration chrome --retries 2 && yarn run integration-only firefox --retries 2
     - env: RES_JOB=build_deploy
       script:
         - yarn run build all
@@ -72,7 +72,8 @@ matrix:
 notifications:
   irc:
     channels:
-      - "irc.snoonet.org#enhancement"
+      # irc.snoonet.org#enhancement (encrypted so forks don't send notifications)
+      - secure: WeniQ6F8g8c5lO/XaTvX66JHiqXoz1Hc77Bh9CJoFUpqZYB9Gpy9DHpV/nCPZhkNlNAWkUoOpa1aCah9VV84I8YeWl9Yo54MwyZc1aAMoiXAKBqbxO5whkGb6ql2elCrdecV7L1GtPSpnrToVvxXUKr8F/5M6UEspLIaT7gJTiw=
     on_success: change
     on_failure: always
     skip_join: true

@@ -226,6 +226,7 @@
 		"operator-assignment": [2, "always"],
 		"operator-linebreak": [2, "after"],
 		"padded-blocks": [2, "never"],
+		"prefer-named-capture-group": 0,
 		"prefer-destructuring": 0,
 		"prefer-object-spread": 2,
 		"prefer-reflect": [2, { "exceptions": ["defineProperty", "getOwnPropertyDescriptor", "getPrototypeOf", "setPrototypeOf", "isExtensible", "getOwnPropertyNames", "preventExtensions", "delete"] }],

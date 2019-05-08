@@ -1368,13 +1368,9 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 		}
 	}
 
-	&.res-filteReddit-filterline-pad-until-ready.listing-page #siteTable::before,
-	&.res-filteReddit-filterline-pad-until-ready.comments-page .nestedlisting::before,
 	.res-filterline {
 		background-color: rgba(38, 38, 38, .9);
-	}
 
-	.res-filterline {
 		&-filter {
 			border-bottom-color: #383838;
 
