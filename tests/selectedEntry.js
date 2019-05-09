@@ -20,6 +20,9 @@ module.exports = {
 			.url('https://en.reddit.com/wiki/pages#res:settings-redirect-standalone-options-page/userInfo')
 			.waitForElementVisible('#RESConsoleContainer')
 			.click('.moduleToggle')
+			// Disable neverEndigComments, as that may auto click the "load more comments" buttons
+			.url('https://en.reddit.com/wiki/pages#res:settings-redirect-standalone-options-page/neverEndingComments')
+			.click('.moduleToggle')
 
 			// Run the actual test...
 			.url('https://en.reddit.com/r/RESIntegrationTests/comments/5lfy0v/selected_entry_selecting_comments/?limit=1')
