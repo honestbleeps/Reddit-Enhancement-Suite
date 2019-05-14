@@ -7,10 +7,9 @@ body.hideOver18 {
 .res-hideUntilProcessed-post .thing.link,
 .res-hideUntilProcessed-comment .thing.comment {
 	&:not([res-initial-filtering-done]) {
-		&,
-		& ~ * {
-			display: none !important;
-		}
+		// Let the first thing be rendered (but invisible) so that the sidebar flows properly
+		& { visibility: hidden; }
+		& ~ * { display: none !important; }
 	}
 }
 
