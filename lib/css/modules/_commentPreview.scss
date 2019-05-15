@@ -75,6 +75,14 @@ body.RESScrollLock {
 	.markdownEditor-wrapper {
 		margin-left: 2em;
 	}
+
+	.RESDialogContents {
+		left: 0;
+		right: 0;
+		margin: 0 1em;
+		height: calc(100vh - 10em);
+		overflow: auto;
+	}
 }
 
 .BELeft,
@@ -90,13 +98,6 @@ body.RESScrollLock {
 .BELeft {
 	left: 0;
 	margin-right: 0;
-
-	.RESDialogContents {
-		left: 0;
-		right: 0;
-		margin: 0 1em;
-		padding-top: 52px;
-	}
 }
 
 .BERight {
@@ -106,21 +107,12 @@ body.RESScrollLock {
 	.md {
 		max-width: none;
 	}
-
-	.RESDialogContents,
-	.RESDialogContents.wiki-page-content {
-		overflow: auto;
-		padding: 12px;
-		margin: 4em 1em 1em 0;
-		left: 0;
-		right: 0;
-	}
 }
 
 #BigText {
 	resize: none;
 	width: 100%;
-	height: calc(100vh - 200px);
+	height: calc(100% - 5em);
 }
 
 .BEFoot {
