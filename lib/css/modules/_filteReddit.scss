@@ -4,13 +4,10 @@ body.hideOver18 {
 	}
 }
 
-.res-hideUntilProcessed-post .thing.link,
-.res-hideUntilProcessed-comment .thing.comment {
-	&:not([res-initial-filtering-done]) {
-		// Let the first thing be rendered (but invisible) so that the sidebar flows properly
-		& { visibility: hidden; }
-		& ~ * { display: none !important; }
-	}
+.res-thing-filter-unprocessed {
+	// Let the first thing be rendered (but invisible) so that the sidebar flows properly
+	& { opacity: 0 !important; }
+	& ~ * { display: none !important; }
 }
 
 html:not(.res-filters-disabled):not(.res-display-match-reason) {
