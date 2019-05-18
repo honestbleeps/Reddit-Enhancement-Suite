@@ -120,7 +120,6 @@ module.exports = {
 			.refresh() // get rid of update notification
 			.waitForElementVisible('.res-show-images')
 			.assert.containsText('.res-show-images', 'show images')
-			.assert.attributeContains('.res-show-images a', 'aftercontent', '(2)')
 			.assert.cssClassNotPresent('.res-show-images', 'selected')
 			.click('.res-show-images')
 			.assert.cssClassPresent('.res-show-images', 'selected')
