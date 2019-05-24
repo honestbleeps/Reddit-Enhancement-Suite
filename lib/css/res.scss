@@ -831,3 +831,7 @@ html[res-warning]::before {
 	border-radius: 3px;
 	opacity: 0.5;
 }
+
+.res-thing-hide-following ~ * {
+	display: none !important;
+}
