@@ -70,6 +70,11 @@ img {
 
 	background-image: url('../images/expandoEmpty.svg');
 
+	// Race conditions may cause Reddit to add an expando after ours
+	& + & {
+		display: none !important;
+	}
+
 	&-duplicate {
 		filter: sepia(1);
 	}
