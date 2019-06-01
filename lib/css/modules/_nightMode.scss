@@ -24,10 +24,19 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 	.modactionlisting table *,
 	.side .recommend-box .rec-item,
 	.crosspost-preview,
-	.crosspost-thing-preview,
-	.link {
+	.crosspost-thing-preview {
 		background-color: $background-color;
 		border-color: $border-color;
+	}
+
+	.link,
+	.helpcenter-form .section-content {
+		background-color: $background-color;
+		border: none;
+	}
+
+	.helpcenter-form .helpcenter-bottom-panel .helpcenter-content-policy p {
+		color: $color;
 	}
 
 	.popup,
