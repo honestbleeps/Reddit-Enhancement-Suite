@@ -37,7 +37,9 @@
     "integration": "npm run integration-only --",
     "deploy": "node build/deploy.js",
     "deploy-changelog": "node build/deployChangelog.js",
-    "version": "node build/version.js"
+    "version": "node build/version.js",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "husky": {
     "hooks": {
@@ -68,7 +70,8 @@
     "resize-observer-lite": "Reddit-Enhancement-Suite/resize-observer-lite#59af4a859cb7da7859fec1f6bceecf26dd278916",
     "snudown-js": "3.1.5",
     "suncalc": "1.8.0",
-    "tinycolor2": "1.4.1"
+    "tinycolor2": "1.4.1",
+    "snyk": "^1.189.0"
   },
   "devDependencies": {
     "@babel/core": "7.4.3",
@@ -125,5 +128,6 @@
     "webpack": "4.29.6",
     "webpack-cli": "3.3.0",
     "zip-webpack-plugin": "3.0.0"
-  }
+  },
+  "snyk": true
 }
