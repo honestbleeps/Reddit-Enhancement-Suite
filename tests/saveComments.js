@@ -9,20 +9,17 @@ module.exports = {
 
 			// save first comment
 			.click(`${first} .saveComments`)
-			.assert.elementPresent(`${first} .unsaveComments`)
-
 			.refresh()
-			.waitForElementVisible('.commentarea')
-			.waitForElementVisible(`${first} .RES-saved`)
 
 			// save second comment
 			.click(`${second} .saveComments`)
-			.assert.elementPresent(`${second} .unsaveComments`)
 
-			.refresh()
-			.waitForElementVisible('.commentarea')
-			.waitForElementVisible(`${second} .RES-saved`)
-
+			// go to saved comments page
+			.pause(100)
+			.click(`${second} .saveComments`)
+			.pause(1000)
+			.waitForElementVisible('.res-savedComment [href^="https://en.reddit.com/r/RESIntegrationTests/comments/5go51r/ressaving_comments/datqb30"]')
+			.waitForElementVisible('.res-savedComment [href^="https://en.reddit.com/r/RESIntegrationTests/comments/5go51r/ressaving_comments/datqbao"]')
 			.end();
 	},
 };
