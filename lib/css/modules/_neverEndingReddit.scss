@@ -31,16 +31,6 @@
 	}
 }
 
-.NERdupe {
-	opacity: .3;
-
-	p.title::after {
-		color: #000;
-		font-size: 10px;
-		content: ' (duplicate from previous page)';
-	}
-}
-
 // set the style for our little loader widget
 #progressIndicator {
 	height: 60px;
