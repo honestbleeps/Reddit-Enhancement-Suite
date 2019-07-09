@@ -78,7 +78,8 @@ module.exports = {
 			.url('https://en.reddit.com/r/RESIntegrationTests/comments/a2pudd/generic_expando/')
 			.waitForElementVisible('.expando-button')
 			.assert.cssClassPresent('.expando-button', 'collapsedExpando')
-			.assert.attributeEquals('.expando-button', 'data-host', 'codepen')
+			// the codepen expando requires permissions
+			.assert.cssClassPresent('.expando-button', 'expando-button-requires-permission')
 			.end();
 	},
 	'gallery expando': browser => {
