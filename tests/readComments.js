@@ -10,18 +10,20 @@ module.exports = {
 		const b = '#thing_t1_dcuk1bk';
 
 		browser
+			// disable auto hide
+			.url('https://en.reddit.com/wiki/pages#res:settings-redirect-standalone-options-page/autoHide')
+			.waitForElementVisible('#RESConsoleContainer')
+			.click('.moduleToggle')
+
 			.url('https://en.reddit.com/r/RESIntegrationTests/comments/5pxfg2/keyboard_nav/')
 			.waitForElementVisible('.res-toggle-filterline-visibility')
 			.click(`${a} > .entry`)
 
-			// See that the comment is remember read by filtering out read comments
 			.refresh()
-			.waitForElementVisible('.res-toggle-filterline-visibility')
-			.keys(['f'])
-			.waitForElementVisible('#keyCommandLineWidget')
-			.keys(['isRead', browser.Keys.ENTER])
-			.waitForElementPresent(`${b}.res-thing-filter-hide`)
-			.assert.elementNotPresent(`${a}.res-thing-filter-hide`)
+			.waitForElementVisible('.readComments-hidePrevious')
+			.click('.readComments-hidePrevious button')
+			.waitForElementPresent(`${a}.res-thing-filter-hide`)
+			.assert.elementNotPresent(`${b}.res-thing-filter-hide`)
 			.end();
 	},
 };
