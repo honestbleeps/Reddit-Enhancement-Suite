@@ -2,7 +2,7 @@
 
 #RESNotifications {
 	position: fixed;
-	top: 0;
+	bottom: 7px;
 	right: 7px;
 	height: auto;
 	width: 300px;
@@ -17,23 +17,9 @@
 	background-color: #fff;
 	border: 1px solid rgb(255, 255, 255);
 	box-shadow: 0 2px 8px 0 rgba(0, 0, 0, .3);
-	z-index: 1;
-	opacity: 0;
-	top: -10px;
-	transition: top .2s; // opacity handled with JS
-
-	&:not(:first-of-type) {
-		margin-top: 5px;
-	}
-
-	&.transition {
-		top: 0;
-		opacity: 1;
-	}
-
-	&.timerOn {
-		animation: fadeOut, 3s, ease-in, 3s, 1, normal, forwards, running;
-	}
+	max-height: 0;
+	margin-bottom: 5px;
+	transition: max-height .15s;
 
 	a {
 		color: #369;
@@ -68,10 +54,6 @@
 	&:hover .RESNotificationFooter {
 		opacity: 1;
 	}
-}
-
-@keyframes fadeOut {
-	to { opacity: 0; }
 }
 
 .RESNotificationContent {

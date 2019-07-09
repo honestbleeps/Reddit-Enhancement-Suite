@@ -16,7 +16,6 @@ module.exports = {
 			.click('#moduleOptionsSave')
 
 			.url('https://en.reddit.com/r/RESIntegrationTests/wiki/pages')
-			.refresh() // get rid of update notification
 			.waitForElementVisible('#RESAccountSwitcherIcon')
 			.click('#RESAccountSwitcherIcon')
 			.waitForElementVisible('.RESAccountSwitcherDropdown')

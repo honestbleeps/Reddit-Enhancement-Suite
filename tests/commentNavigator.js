@@ -8,7 +8,6 @@ module.exports = {
 
 		browser
 			.url('https://en.reddit.com/r/RESIntegrationTests/comments/632wur/comment_navigator/')
-			.refresh() // get rid of update notification
 			.waitForElementVisible('#RESSettingsButton')
 			.execute('document.querySelector(".footer").scrollIntoView()') // scroll to bottom
 			.keys(['n'])
