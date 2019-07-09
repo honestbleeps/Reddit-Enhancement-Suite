@@ -371,13 +371,19 @@ ul.widgetStateButtons {
 	color: #369;
 }
 
-.res-dashboard {
+body.res-dashboard {
+	.id-t3_8qcn09 {
+		display: none;
+	}
+
 	.tabmenu li:not(.res-tabmenu-button),
 	.pagename {
 		display: none;
 	}
 
-	.tabmenu.res-dashboard-tabmenu-ready { display: inline-block; }
+	.side {
+		display: none;
+	}
 
 	.res-dashboard-tab {
 		font-variant: small-caps;
@@ -386,5 +392,9 @@ ul.widgetStateButtons {
 
 		// We want the tabs to act as a radio, i.e. don't allow deselect the currently selected
 		&.selected a:first-child { pointer-events: none; }
+	}
+
+	.tabmenu {
+		display: inline-block !important;
 	}
 }
