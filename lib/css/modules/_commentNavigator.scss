@@ -43,7 +43,6 @@
 #REScommentNavBox {
 	clear: both;
 	float: right;
-	width: 50px;
 	margin-top: 5px;
 	padding: 3px;
 	opacity: .3;
@@ -56,7 +55,7 @@
 	}
 
 	select {
-		width: 100%;
+		width: 60px;
 		border: none;
 
 		&:not(:focus) option span {
