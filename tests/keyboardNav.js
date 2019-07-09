@@ -139,7 +139,7 @@ module.exports = {
 			.assert.elementNotPresent('.thing.link .keyNavAnnotation')
 			.keys(['1'])
 			// switch to newly opened background tab
-			.window_handles(result => {
+			.windowHandles(result => {
 				browser.switchWindow(result.value[1]);
 			})
 			.assert.urlContains('https://www.reddit.com/r/RESIntegrationTests')

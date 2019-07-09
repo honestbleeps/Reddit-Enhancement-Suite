@@ -2,7 +2,7 @@
 
 /* eslint-disable import/no-commonjs, import/no-nodejs-modules */
 
-const path = require('path');
+const path = require('path'); // eslint-disable-line import/no-extraneous-dependencies
 
 const dir = 'changelog';
 

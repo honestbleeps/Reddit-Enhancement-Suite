@@ -2,8 +2,8 @@
 
 /* eslint-disable import/no-commonjs, import/no-nodejs-modules */
 
-const fs = require('fs');
-const path = require('path');
+const fs = require('fs'); // eslint-disable-line import/no-extraneous-dependencies
+const path = require('path'); // eslint-disable-line import/no-extraneous-dependencies
 const chromeDeploy = require('chrome-extension-deploy');
 const firefoxDeploy = require('firefox-extension-deploy');
 const operaDeploy = require('opera-extension-deploy');

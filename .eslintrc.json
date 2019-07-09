@@ -232,6 +232,7 @@
 		"prefer-reflect": [2, { "exceptions": ["defineProperty", "getOwnPropertyDescriptor", "getPrototypeOf", "setPrototypeOf", "isExtensible", "getOwnPropertyNames", "preventExtensions", "delete"] }],
 		"quote-props": [2, "as-needed"],
 		"quotes": [2, "single"],
+		"require-atomic-updates": 0,
 		"require-jsdoc": 0,
 		"require-unicode-regexp": 0,
 		"sort-imports": 0, // see import/order

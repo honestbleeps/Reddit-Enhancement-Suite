@@ -3,7 +3,7 @@
 /* eslint-disable import/no-nodejs-modules */
 
 import fs from 'fs';
-import path from 'path';
+import path from 'path'; // eslint-disable-line import/no-extraneous-dependencies
 import _ from 'lodash';
 
 export default function i18nTransformer(file, api) {

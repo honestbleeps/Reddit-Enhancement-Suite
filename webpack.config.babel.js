@@ -2,7 +2,7 @@
 
 /* eslint-disable import/no-nodejs-modules */
 
-import path from 'path';
+import path from 'path'; // eslint-disable-line import/no-extraneous-dependencies
 
 import InertEntryPlugin from 'inert-entry-webpack-plugin';
 import LodashModuleReplacementPlugin from 'lodash-webpack-plugin';
