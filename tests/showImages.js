@@ -6,7 +6,7 @@ module.exports = {
 			.url('https://en.reddit.com/r/RESIntegrationTests/comments/60edn3/image_expando/')
 			.waitForElementVisible('.expando-button')
 			.assert.cssClassPresent('.expando-button', 'image')
-			.assert.cssClassPresent('.expando-button', 'collapsedExpando')
+			.assert.cssClassPresent('.expando-button', 'collapsed')
 			.assert.attributeEquals('.expando-button', 'data-host', 'default')
 
 			.click('.expando-button')
@@ -38,7 +38,7 @@ module.exports = {
 			.waitForElementVisible('.expando-button')
 			.assert.cssClassPresent('.expando-button', 'video')
 			.assert.cssClassNotPresent('.expando-button', 'video-muted')
-			.assert.cssClassPresent('.expando-button', 'collapsedExpando')
+			.assert.cssClassPresent('.expando-button', 'collapsed')
 			.assert.attributeEquals('.expando-button', 'data-host', 'defaultVideo')
 			.click('.expando-button')
 			.waitForElementVisible('.res-expando-box')
@@ -51,7 +51,7 @@ module.exports = {
 			.url('https://en.reddit.com/r/RESIntegrationTests/comments/60efz8/audio_expando/')
 			.waitForElementVisible('.expando-button')
 			.assert.cssClassPresent('.expando-button', 'video')
-			.assert.cssClassPresent('.expando-button', 'collapsedExpando')
+			.assert.cssClassPresent('.expando-button', 'collapsed')
 			.assert.attributeEquals('.expando-button', 'data-host', 'defaultAudio')
 			.click('.expando-button')
 			.waitForElementVisible('.res-expando-box')
@@ -64,7 +64,7 @@ module.exports = {
 			.url('https://en.reddit.com/r/RESIntegrationTests/comments/60egvo/iframe_expando/')
 			.waitForElementVisible('.expando-button')
 			.assert.cssClassPresent('.expando-button', 'video')
-			.assert.cssClassPresent('.expando-button', 'collapsedExpando')
+			.assert.cssClassPresent('.expando-button', 'collapsed')
 			.assert.attributeEquals('.expando-button', 'data-host', 'youtube')
 			.click('.expando-button')
 			.waitForElementVisible('.res-expando-box')
@@ -77,7 +77,7 @@ module.exports = {
 		browser
 			.url('https://en.reddit.com/r/RESIntegrationTests/comments/a2pudd/generic_expando/')
 			.waitForElementVisible('.expando-button')
-			.assert.cssClassPresent('.expando-button', 'collapsedExpando')
+			.assert.cssClassPresent('.expando-button', 'collapsed')
 			// the codepen expando requires permissions
 			.assert.cssClassPresent('.expando-button', 'expando-button-requires-permission')
 			.end();
@@ -88,7 +88,7 @@ module.exports = {
 			.waitForElementVisible('.expando-button')
 			.assert.cssClassPresent('.expando-button', 'image')
 			.assert.cssClassPresent('.expando-button', 'gallery')
-			.assert.cssClassPresent('.expando-button', 'collapsedExpando')
+			.assert.cssClassPresent('.expando-button', 'collapsed')
 			.assert.attributeEquals('.expando-button', 'data-host', 'imgur')
 			.assert.attributeEquals('.expando-button', 'title', '2 items in gallery')
 			.click('.expando-button')
