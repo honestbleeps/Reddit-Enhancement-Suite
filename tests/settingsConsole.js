@@ -11,7 +11,7 @@ module.exports = {
 		browser
 			.url('https://en.reddit.com/wiki/pages#!settings')
 			.waitForElementVisible('#console-container')
-			.assert.urlEquals('https://en.reddit.com/wiki/pages#res:settings')
+			.assert.urlContains('https://en.reddit.com/wiki/pages#res:settings')
 			.end();
 	},
 	'change boolean option': browser => {

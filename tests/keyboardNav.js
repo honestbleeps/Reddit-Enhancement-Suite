@@ -78,11 +78,11 @@ module.exports = {
 			.url('https://en.reddit.com/r/RESIntegrationTests/comments/5n61yd/go_mode/')
 			.waitForElementVisible('#RESSettingsButton')
 			.keys(['g', 'F'])
-			.assert.urlEquals('https://en.reddit.com/r/RESIntegrationTests/')
+			.assert.urlContains('https://en.reddit.com/r/RESIntegrationTests/')
 			// go to frontpage
 			.waitForElementVisible('#RESSettingsButton')
 			.keys(['g', 'f'])
-			.assert.urlEquals('https://en.reddit.com/')
+			.assert.urlContains('https://en.reddit.com/')
 			.end();
 	},
 	'blurs target': browser => {

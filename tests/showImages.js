@@ -22,7 +22,7 @@ module.exports = {
 			})
 			.click('.res-expando-box img')
 			// old tab didn't navigate
-			.assert.urlEquals('https://en.reddit.com/r/RESIntegrationTests/comments/60edn3/image_expando/')
+			.assert.urlContains('https://en.reddit.com/r/RESIntegrationTests/comments/60edn3/image_expando/')
 			// image opened in new tab, focused
 			.windowHandles(result => {
 				browser.switchWindow(result.value.filter(win => !oldWindowHandles.includes(win))[0]);
