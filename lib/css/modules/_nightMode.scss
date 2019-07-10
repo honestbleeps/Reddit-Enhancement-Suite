@@ -29,12 +29,12 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 		border-color: $border-color;
 	}
 
-	.embedded-page .content>.sitetable,
+	.embedded-page .content > .sitetable,
 	.embedded-page.helpcenter-page .content,
 	.embedded-page.compose-page .content,
-	.embedded-page .content>.sitetable>div:nth-of-type(4n+1),
-	.embedded-page.helpcenter-page .content>div:nth-of-type(4n+1),
-	.embedded-page.compose-page .content>div:nth-of-type(4n+1) {
+	.embedded-page .content > .sitetable > div:nth-of-type(4n+1),
+	.embedded-page.helpcenter-page .content > div:nth-of-type(4n+1),
+	.embedded-page.compose-page .content > div:nth-of-type(4n+1) {
 		background-color: $background-color;
 		color: $color;
 	}
