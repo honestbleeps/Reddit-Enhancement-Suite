@@ -71,7 +71,7 @@ img {
 	background-image: url('../images/expandoEmpty.svg');
 
 	// Race conditions may cause Reddit to add an expando after ours
-	& + & {
+	&[data-host] + & {
 		display: none !important;
 	}
 
@@ -209,8 +209,6 @@ img {
 			content: '\2139';
 			padding: 0 2px;
 		}
-
-		&-expanded::after { content: '\2713'; }
 	}
 
 	.res-media-dragging &,

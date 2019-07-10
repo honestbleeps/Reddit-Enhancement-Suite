@@ -82,7 +82,8 @@
 		"https://xkcd.com/*/info.0.json",
 		"https://api.steampowered.com/ISteamRemoteStorage/GetPublishedFileDetails/*",
 		"https://*.googleusercontent.com/download/drive/v3/*",
-		"https://content.googleapis.com/drive/v3/*"
+		"https://content.googleapis.com/drive/v3/*",
+		"https://v.redd.it/*/DASHPlaylist.mpd"
 	],
 	"web_accessible_resources": [
 		"{{../lib/fonts/batch-icons-webfont.woff}}",
