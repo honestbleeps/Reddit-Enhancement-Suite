@@ -20,8 +20,8 @@ module.exports = {
 			.click(`${a} > .entry`)
 
 			.refresh()
-			.waitForElementVisible('.readComments-hidePrevious')
-			.click('.readComments-hidePrevious button')
+			.waitForElementVisible('.RESNotification[data-id="readComments-hidePrevious"]')
+			.click('.RESNotification[data-id="readComments-hidePrevious"] button')
 			.waitForElementPresent(`${a}.res-thing-filter-hide`)
 			.assert.elementNotPresent(`${b}.res-thing-filter-hide`)
 			.end();
