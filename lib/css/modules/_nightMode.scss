@@ -8,6 +8,7 @@ $title-link-color: hsl(0, 0%, 87%);
 $title-link-visited-color: hsl(0, 0%, 65%);
 
 .res-nightmode {
+	html#{&},
 	body,
 	body .content,
 	.modal-body,
