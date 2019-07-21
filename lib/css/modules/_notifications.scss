@@ -29,94 +29,89 @@
 		}
 	}
 
-	.RESNotificationClose {
-		top: 5px;
-		right: 5px;
-		background: hsl(0, 70%, 55%);
-		color: rgb(255, 255, 255);
-		font-weight: bold;
-
-		&:hover {
-			background-color: rgb(200, 20, 20);
+	&:not(:hover) {
+		.RESNotificationHeader .gearIcon,
+		.RESCloseButton,
+		.RESNotificationFooter {
+			opacity: .3;
+			transition: opacity .3s linear;
 		}
 	}
 
-	.RESNotificationToggle {
-		margin-top: .5em;
-		font-size: smaller;
-		font-weight: normal;
-	}
-
-	.RESNotificationButtonBlue {
+	&ButtonBlue {
 		padding: 5px 10px;
 		color: white !important;
 		background-color: #107ac4;
 		text-decoration: none;
 	}
 
-	.RESNotificationHeader .gearIcon,
-	.RESNotificationClose,
-	.RESNotificationFooter {
-		opacity: .3;
-		transition: opacity .3s linear;
+	&Content {
+		overflow: auto;
+		padding: 15px 10px;
+		color: rgb(0, 0, 0);
+		border-top: 1px solid rgb(230, 230, 230);
+		border-bottom: 1px solid rgb(230, 230, 230);
+
+		h2 {
+			color: #000;
+			margin-bottom: 10px;
+		}
+
+		p {
+			margin: .5em 0;
+		}
+
+		strong {
+			font-weight: bolder;
+		}
 	}
 
-	&:hover .RESNotificationHeader .gearIcon,
-	&:hover .RESNotificationClose,
-	&:hover .RESNotificationFooter {
-		opacity: 1;
-	}
-}
+	&Footer {
+		padding: 4px;
+		color: rgb(140, 140, 140);
+		font-size: 11px;
 
-.RESNotificationContent {
-	overflow: auto;
-	padding: 15px 10px;
-	color: rgb(0, 0, 0);
-	border-top: 1px solid rgb(230, 230, 230);
-	border-bottom: 1px solid rgb(230, 230, 230);
+		.RESNotificationToggle {
+			margin-top: .5em;
+			font-size: smaller;
+			font-weight: normal;
+		}
 
-	h2 {
-		color: #000;
-		margin-bottom: 10px;
+		input {
+			vertical-align: middle;
+		}
 	}
 
-	p {
-		margin: .5em 0;
-	}
+	&Header {
+		height: 34px;
+		color: rgb(255, 255, 255);
+		background-color: rgb(60, 60, 60);
+		border-bottom: #c7c7c7;
+		display: flex;
+		width: 100%;
+		padding: 0 5px;
+		box-sizing: border-box;
+		align-items: center;
 
-	strong {
-		font-weight: bolder;
-	}
+		h3 {
+			margin: 0;
+			font-size: 12px;
+			font-weight: normal;
+			margin-right: 5px;
+		}
 
-	.RESNotificationCTA {
-		margin: 1.5em 0 0;
-	}
-}
+		.RESCloseButton {
+			margin-left: auto;
 
-.RESNotificationFooter {
-	padding: 4px;
-	color: rgb(140, 140, 140);
-	font-size: 11px;
+			&::after {
+				background: hsl(0, 70%, 55%);
+				color: rgb(255, 255, 255);
+				font-weight: bold;
 
-	input {
-		vertical-align: middle;
-	}
-}
-
-.RESNotificationHeader {
-	height: 34px;
-	color: rgb(255, 255, 255);
-	background-color: rgb(60, 60, 60);
-	border-bottom: #c7c7c7;
-
-	h3 {
-		margin: 0;
-		padding-top: 6px;
-		font-size: 12px;
-		font-weight: normal;
-	}
-
-	.gearIcon {
-		margin: 0 5px;
+				&:hover {
+					background-color: rgb(200, 20, 20);
+				}
+			}
+		}
 	}
 }

@@ -128,10 +128,9 @@ body.res-console-open {
 	list-style-type: disc;
 }
 
-.RESCloseButton {
-	position: absolute;
-	top: 8px;
-	right: 8px;
+.RESCloseButton::after {
+	content: '✕';
+	display: block;
 	font: 12px/22px Verdana, sans-serif;
 	background-color: #fff;
 	border: 1px solid #d7d9dc;
@@ -144,10 +143,17 @@ body.res-console-open {
 	cursor: pointer;
 	box-sizing: border-box;
 
+
 	&:hover {
 		border-color: #999;
 		background-color: #ddd;
 	}
+}
+
+.RESCloseButtonTopRight::after {
+	position: absolute;
+	top: 8px;
+	right: 8px;
 }
 
 .RESDialogSmall {
