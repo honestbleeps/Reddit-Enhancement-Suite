@@ -55,6 +55,10 @@
       "@babel/register"
     ]
   },
+  "browserslist": [
+    "chrome 70",
+    "firefox 68"
+  ],
   "dependencies": {
     "dayjs": "1.8.15",
     "dompurify": "1.0.11",
