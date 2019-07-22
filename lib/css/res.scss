@@ -143,14 +143,13 @@ body.res-console-open {
 	cursor: pointer;
 	box-sizing: border-box;
 
-
 	&:hover {
 		border-color: #999;
 		background-color: #ddd;
 	}
 }
 
-.RESCloseButtonTopRight::after {
+.RESCloseButtonTopRight {
 	position: absolute;
 	top: 8px;
 	right: 8px;
