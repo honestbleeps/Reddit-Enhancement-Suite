@@ -432,17 +432,7 @@ span.multi-count {
 	100% { transform: rotate(360deg); }
 }
 
-// Handle multireddit bar on savedComments page
-.with-listing-chooser #savedLinksList {
-	margin-left: 120px;
-}
-
-.listing-chooser-collapsed #savedLinksList {
-	margin-left: 8px;
-}
-
 #alert_message {
-	display: none;
 	position: fixed;
 	top: 0;
 	right: 0;
@@ -501,10 +491,6 @@ span.multi-count {
 
 .res-left {
 	float: left;
-}
-
-.res-right {
-	float: right;
 }
 
 .res-icon {
