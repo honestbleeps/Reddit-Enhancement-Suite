@@ -511,22 +511,8 @@ span.multi-count {
 	background-color: lightblue;
 }
 
-.handle,
-.dragging {
+.handle {
 	cursor: grab !important;
-}
-
-.dragging {
-	pointer-events:	none;
-}
-
-.RESSortPlaceholder::after {
-	border: medium dashed grey;
-	color: grey;
-	content: 'drop here';
-	text-align: center;
-	border-radius: 3px;
-	display: block;
 }
 
 .builderItem {
