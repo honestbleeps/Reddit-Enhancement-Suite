@@ -808,7 +808,7 @@ html[res-warning]::before {
 	opacity: 0.5;
 }
 
-.res-thing-hide-following ~ * {
+.res-hide-following ~ * {
 	display: none !important;
 }
 
