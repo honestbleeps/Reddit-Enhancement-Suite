@@ -18,7 +18,6 @@
 @import 'modules/noParticipation';
 @import 'modules/notifications';
 @import 'modules/filteReddit';
-@import 'modules/floater';
 @import 'modules/hover';
 @import 'modules/keyboardNav';
 @import 'modules/modhelper';
@@ -811,4 +810,50 @@ html[res-warning]::before {
 
 .res-thing-hide-following ~ * {
 	display: none !important;
+}
+
+.res-floater {
+	&-list {
+		all: initial;
+
+		display: inline-flex;
+		align-items: center;
+		float: right;
+
+		font-size: 10px;
+
+		> li {
+			display: flex;
+			opacity: .7;
+			&:hover { opacity: 1; }
+
+			> * {
+				padding: 2px;
+			}
+		}
+	}
+
+	&-visibleAfterScroll {
+		position: fixed;
+		will-change: transform;
+		z-index: 10000000;
+		right: 8px;
+	}
+
+	&-belowNavbar {
+		position: fixed;
+		z-index: 5;
+		right: 8px;
+		top: 60px;
+		padding: 0.2em 0.1em;
+		background: white;
+		border: 1px #ccc solid;
+	}
+
+	&-inNavbar {
+		position: fixed;
+		right: 6px;
+		top: 14px;
+		z-index: 100;
+	}
 }
