@@ -9,10 +9,6 @@ const firefoxManifest = require('./firefox/manifest.json');
 
 module.exports = {
 	src_folders: ['tests'],
-	test_workers: {
-		enabled: true,
-		workers: 5,
-	},
 	detailed_output: false,
 	test_settings: {
 		default: {
