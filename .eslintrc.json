@@ -145,7 +145,6 @@
 		"no-process-exit": 0,
 		"no-prototype-builtins": 0,
 		"no-restricted-globals": [2, "alert"],
-		"no-restricted-imports": [2, "jquery"], // import it from vendor/ instead
 		"no-restricted-modules": 0, // see import/no-nodejs-modules
 		"no-restricted-syntax": [2, {
 			"selector": "ForStatement",

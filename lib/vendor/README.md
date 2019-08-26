@@ -21,25 +21,6 @@ https://github.com/pickhardt/Guiders-JS
 
 v2.0.0 @ [69334e7](https://github.com/pickhardt/Guiders-JS/commit/69334e7101948c77c24b95ce3ee5fae6fc938b98#diff-9fa5dfa2572f020ae815e7a5e5a2b5a9)
 
-## HTMLPasteurizer
-
-Sanitize strings for safely inserting into the DOM as raw HTML
-
-### Files
-
-* `HTMLPasteurizer.js`
-
-### Source
-
-This library was contributed directly to Reddit Enhancement Suite by [@JordanMilne](https://github.com/JordanMilne). It has not been released separately.
-
-[Source commit](https://github.com/JordanMilne/Reddit-Enhancement-Suite/commit/a4fb73b6d90bed5701e3a3672b6ee4a9da78d60a#diff-caf84e354a71ff687c7e8bdac5a137b5)
-[Merge commit](https://github.com/honestbleeps/reddit-enhancement-suite/commit/a4fb73b6d90bed5701e3a3672b6ee4a9da78d60a)
-
-### Release version
-
-@ [a85653e](https://github.com/JordanMilne/Reddit-Enhancement-Suite/blob/a85653e1e0ff93732672a37d68d0b906c478bb82/lib/HTMLPasteurizer.js)
-
 # Ancillary Files
 
 Several files are included in this folder to assist in loading the libraries into the project and runtime environment. These files belong to Reddit Enhancement Suite, not any particular vendor library.
@@ -49,5 +30,3 @@ Several files are included in this folder to assist in loading the libraries int
 * `README.md`
 * `index.js`
 * `index.scss`
-* `jquery.js`
-* `jqueryPlugins.js`

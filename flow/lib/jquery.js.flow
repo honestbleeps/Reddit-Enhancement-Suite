@@ -5,7 +5,6 @@
 // disabled one permutation of `$.fn.on` because it conflicts with delegated listeners (and we don't use it)
 // specialized `$.fn.on` and `$.fn.one` for keyboard and input event types
 // added overloadings of animation functions with only a callback (default delay)
-// added definitions for safehtml
 // added iterator
 // made JQueryXHR extend the native XMLHttpRequest object
 // switched to the `.then` implementation of native promises, à la jQuery 3
@@ -939,11 +938,6 @@ declare class JQuery {
 	queue(callback: Function): JQuery;
 	queue(queueName: string, newQueue: Function[]): JQuery;
 	queue(queueName: string, callback: Function): JQuery;
-
-	// jQuery Plugins
-
-	// vendor/index.js
-	safeHtml(html: string): JQuery;
 }
 
 declare module 'jquery' {
