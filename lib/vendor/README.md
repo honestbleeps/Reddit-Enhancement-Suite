@@ -40,19 +40,6 @@ This library was contributed directly to Reddit Enhancement Suite by [@JordanMil
 
 @ [a85653e](https://github.com/JordanMilne/Reddit-Enhancement-Suite/blob/a85653e1e0ff93732672a37d68d0b906c478bb82/lib/HTMLPasteurizer.js)
 
-## jQuery TokenInput
-
-### Source
-
-This library was forked by the Reddit Enhancement Suite team in order to fix a small packaging issue.  That library is installed via package.json. Ancillary files which are not included in the library are stored in this directory.
-
-Original: https://github.com/loopj/jquery-tokeninput
-Fork: https://github.com/Reddit-Enhancement-Suite/jquery-tokeninput
-
-### Files
-
-* `token-input-facebook.scss`
-
 # Ancillary Files
 
 Several files are included in this folder to assist in loading the libraries into the project and runtime environment. These files belong to Reddit Enhancement Suite, not any particular vendor library.

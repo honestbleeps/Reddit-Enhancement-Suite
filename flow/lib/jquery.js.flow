@@ -5,7 +5,7 @@
 // disabled one permutation of `$.fn.on` because it conflicts with delegated listeners (and we don't use it)
 // specialized `$.fn.on` and `$.fn.one` for keyboard and input event types
 // added overloadings of animation functions with only a callback (default delay)
-// added definitions for tokeninput, safehtml
+// added definitions for safehtml
 // added iterator
 // made JQueryXHR extend the native XMLHttpRequest object
 // switched to the `.then` implementation of native promises, à la jQuery 3
@@ -942,68 +942,9 @@ declare class JQuery {
 
 	// jQuery Plugins
 
-	// jquery.tokeninput
-	tokenInput(op: 'clear'): JQuery;
-	tokenInput(op: 'add', item: mixed): JQuery;
-	tokenInput(op: 'remove', item: mixed): JQuery;
-	tokenInput(op: 'get'): any[];
-	tokenInput(op: 'toggleDisabled', disabled: boolean): JQuery;
-	tokenInput<T>(op: 'setOptions', options: TokenInputOptions<T>): JQuery;
-	tokenInput(op: 'destroy'): JQuery;
-	tokenInput<T>(op: 'init', urlOrDataOrFunction: string | Function, options: TokenInputOptions<T>): JQuery;
-	tokenInput<T>(urlOrDataOrFunction: string | Function, options: TokenInputOptions<T>): JQuery;
-
 	// vendor/index.js
 	safeHtml(html: string): JQuery;
 }
-
-type TokenInputOptions<Item: { [key: any]: any }> = {
-	method?: string,
-	queryParam?: string,
-	searchDelay?: number,
-	minChars?: number,
-	resultsRoot?: mixed,
-	propertyToSearch?: string,
-	jsonContainer?: mixed,
-	contentType?: string,
-
-	prePopulate?: Item[],
-	processPrePopulate?: boolean,
-
-	hintText?: string,
-	noResultsText?: string,
-	searchingText?: string,
-	deleteText?: string,
-	animateDropdown?: boolean,
-	placeholder?: string,
-	theme?: string,
-	zindex?: number,
-	resultsLimit?: ?number,
-
-	enableHTML?: boolean,
-
-	resultsFormatter?: (item: Item) => string,
-	tokenFormatter?: (item: Item) => string,
-
-	tokenLimit?: number,
-	tokenDelimiter?: string,
-	preventDuplicates?: boolean,
-	tokenValue?: string,
-
-	allowFreeTagging?: boolean,
-	allowTabOut?: boolean,
-
-	onResult?: (response: any) => Item[],
-	onCachedResult?: (response: any) => Item[],
-	onAdd?: (item: Item) => void,
-	onFreeTaggingAdd?: (token: string) => string,
-	onDelete?: (item: Item) => void,
-	onReady?: () => void,
-
-	idPrefix?: string,
-
-	disabled?: boolean,
-};
 
 declare module 'jquery' {
 	declare module.exports: JQueryStatic;

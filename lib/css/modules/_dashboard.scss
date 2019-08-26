@@ -184,26 +184,10 @@
 	display: inline-block;
 }
 
-#addUser {
-	width: 200px;
-	height: 24px;
-}
-
-#addRedditFormContainer ul.token-input-list-facebook,
-#editRedditFormContainer ul.token-input-list-facebook {
-	float: left;
-}
-
-#addReddit {
-	width: 115px;
-	background-color: #fff;
-	border: 1px solid #96bfe8;
-	margin-left: 6px;
-	margin-right: 6px;
-	padding: 1px 2px;
-}
-
+#addUser,
+#addReddit,
 #addRedditDisplayName,
+#editReddit,
 #editRedditDisplayName {
 	width: 140px;
 	height: 24px;
@@ -212,10 +196,6 @@
 	margin-left: 6px;
 	margin-right: 6px;
 	padding: 1px 2px;
-}
-
-#editReddit {
-	width: 5px;
 }
 
 .addButton,
