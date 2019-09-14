@@ -84,7 +84,8 @@
 		"https://api.steampowered.com/ISteamRemoteStorage/GetPublishedFileDetails/*",
 		"https://*.googleusercontent.com/download/drive/v3/*",
 		"https://content.googleapis.com/drive/v3/*",
-		"https://v.redd.it/*/DASHPlaylist.mpd"
+		"https://v.redd.it/*/DASHPlaylist.mpd",
+		"https://www.flickr.com/services/oembed"
 	],
 	"web_accessible_resources": [
 		"{{../lib/fonts/batch-icons-webfont.woff}}",
