@@ -190,6 +190,7 @@
 		"consistent-return": 0, // Flow effectively does this, and does a better job
 		"consistent-this": [2, "this"], // do not alias `this`, use arrow functions
 		"curly": [2, "multi-line"],
+		"default-param-last": 0,
 		"dot-location": [2, "property"],
 		"func-names": 0, // all anonymous functions should be arrows (when this is turned on)
 		"func-style": [2, "declaration", { "allowArrowFunctions": true }],
