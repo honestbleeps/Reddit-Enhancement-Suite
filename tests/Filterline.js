@@ -141,6 +141,7 @@ module.exports = {
 			.click('.res-filterline-preamble')
 			.click('.res-filterline-new-group')
 			.click('.res-filterline-new-group .res-filterline-filter-new')
+			.moveToElement('#header', 0, 0) // Close the dropdown
 			.waitForElementVisible(`${filter}[type="group"]`)
 			.perform(switchActiveState) // enable
 			.perform(switchActiveState)
