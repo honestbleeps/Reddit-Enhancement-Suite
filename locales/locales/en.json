@@ -310,7 +310,13 @@
 		"message": "Auto Hide"
 	},
 	"autoHideDesc": {
-		"message": "Automatically mark link posts or comments as read when viewed for more than 2 seconds. To hide comments, make sure the module [readComments](#res:settings/readComments) is enabled."
+		"message": "Automatically hide viewed link posts or comments. To hide comments, make sure the module [readComments](#res:settings/readComments) is enabled."
+	},
+	"autoHideMustBeVisibleDurationTitle": {
+		"message": "Must Be Visible Duration"
+	},
+	"autoHideMustBeVisibleDurationDesc": {
+		"message": "How long must a post be viewed before being hidden (in ms)?"
 	},
 	"autoHideTypesTitle": {
 		"message": "Types"
@@ -1226,6 +1232,12 @@
 	},
 	"readCommentsCleanCommentsDesc": {
 		"message": "Number of days to keep track of a comment page."
+	},
+	"readCommentsMonitorSelectedTitle": {
+		"message": "Monitor Selected"
+	},
+	"readCommentsMonitorSelectedDesc": {
+		"message": "Mark selected posts as read."
 	},
 	"readCommentsMonitorWhenIncognitoTitle": {
 		"message": "Monitor When Incognito"
