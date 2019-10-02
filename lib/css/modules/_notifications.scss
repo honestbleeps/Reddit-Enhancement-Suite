@@ -10,6 +10,11 @@
 	z-index: $zindex-notifications !important;
 	font: 12px/1.6 verdana, arial, sans-serif;
 	color: #000;
+
+	// Compatibility with Toolbox 5, which may block part of the notification
+	body.tb-modbar-shown & {
+		bottom: 37px;
+	}
 }
 
 .RESNotification {
