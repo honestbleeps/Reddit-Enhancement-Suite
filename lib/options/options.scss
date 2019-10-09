@@ -249,6 +249,11 @@ li {
 		border-collapse: collapse;
 	}
 
+	&.table .optionSetting {
+		max-height: 70vh;
+		overflow-x: scroll;
+	}
+
 	.enum img {
 		max-width: 16px;
 	}
