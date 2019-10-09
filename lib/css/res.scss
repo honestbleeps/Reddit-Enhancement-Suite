@@ -857,3 +857,70 @@ html[res-warning]::before {
 		z-index: 100;
 	}
 }
+
+body.res-dashboard {
+	.id-t3_qi5iy, // this first line hides the "you need RES 4.0+ to view the dashboard" link
+	.id-t3_8qcn09,
+	.tabmenu li:not(.res-tabmenu-button),
+	.pagename,
+	.side {
+		display: none;
+	}
+
+	.res-dashboard-tab {
+		font-variant: small-caps;
+		font-size: 1.2em;
+		vertical-align: bottom;
+
+		// We want the tabs to act as a radio, i.e. don't allow deselect the currently selected
+		&.selected a:first-child { pointer-events: none; }
+	}
+
+	.tabmenu {
+		display: inline-block !important;
+	}
+
+	// some styles to override /r/dashboard stylesheet.
+	#userTaggerContents,
+	#newCommentsContents {
+		margin-right: 305px;
+		font-size: small;
+	}
+
+	#userTaggerContents table,
+	#newCommentsContents table {
+		margin: 0;
+		width: 100%;
+	}
+
+	#userTaggerTable th,
+	#newCommentsTable th,
+	#userTaggerTable td,
+	#newCommentsTable td {
+		min-width: 0;
+		padding: 5px 8px;
+		border: 1px solid rgb(200, 200, 200);
+	}
+
+	#newCommentsTable th,
+	#userTaggerTable th,
+	#newCommentsTable td {
+		white-space: nowrap;
+	}
+
+	#newCommentsTable td:first-child,
+	#newCommentsTable th:first-child {
+		width: auto;
+		white-space: normal;
+	}
+
+	#newCommentsTable .deleteIcon,
+	#userTaggerTable .deleteIcon {
+		color: rgba(0, 0, 0, 0);
+	}
+
+	#newCommentsTable tr:hover .deleteIcon,
+	#userTaggerTable tr:hover .deleteIcon {
+		color: #369;
+	}
+}
