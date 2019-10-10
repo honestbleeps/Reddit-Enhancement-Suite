@@ -244,9 +244,19 @@ li {
 	table {
 		clear: both;
 		width: 100%;
-		margin-top: 20px;
 		margin-bottom: 10px;
 		border-collapse: collapse;
+	}
+
+	.wholeTableVisible {
+		max-height: 70vh;
+		overflow-y: auto;
+
+		th {
+			position: sticky;
+			top: 0;
+			z-index: 1;
+		}
 	}
 
 	.enum img {
