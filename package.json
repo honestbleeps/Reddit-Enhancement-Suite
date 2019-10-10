@@ -61,7 +61,7 @@
   ],
   "dependencies": {
     "dayjs": "1.8.16",
-    "dompurify": "2.0.3",
+    "dompurify": "2.0.6",
     "fast-levenshtein": "2.0.6",
     "favico.js": "0.3.10",
     "jquery": "3.4.1",
@@ -72,10 +72,10 @@
     "tinycolor2": "1.4.1"
   },
   "devDependencies": {
-    "@babel/core": "7.6.2",
+    "@babel/core": "7.6.3",
     "@babel/plugin-proposal-class-properties": "7.5.5",
     "@babel/plugin-proposal-export-namespace-from": "7.5.2",
-    "@babel/plugin-transform-flow-strip-types": "7.4.4",
+    "@babel/plugin-transform-flow-strip-types": "7.6.3",
     "@babel/plugin-transform-modules-commonjs": "7.6.0",
     "@babel/register": "7.6.2",
     "autoprefixer": "9.6.4",
