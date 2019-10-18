@@ -10,13 +10,34 @@ body.hideOver18 {
 	& ~ * { display: none !important; }
 }
 
-html:not(.res-filters-disabled):not(.res-display-match-reason) {
+body:not(.res-filters-disabled):not(.res-display-match-reason) {
 	.res-thing-filter-hide {
 		&:not(.res-thing-partial),
 		&.res-thing-partial.res-thing-hide-children,
 		&.res-thing-hide-children > .child {
-			// !important since many custom stylesheets overrides it otherwise
-			display: none !important;
+			html.res-r2-app & {
+				// !important since many custom stylesheets overrides it otherwise
+				display: none !important;
+			}
+
+			html.res-d2x-app & {
+				position: relative;
+				pointer-events: none;
+
+				> * {
+					opacity: 0;
+					height: 1.5em;
+				}
+
+				&::after {
+					opacity: 1;
+					content: 'filtered';
+					position: absolute;
+					top: 0.3em;
+					left: 1em;
+
+				}
+			}
 		}
 
 		&.res-thing-partial:not(.res-selected) {
@@ -95,6 +116,10 @@ html:not(.res-filters-disabled):not(.res-display-match-reason) {
 
 	body.comments-page & {
 		margin-left: 10px;
+	}
+
+	.res-d2x-app & {
+		clear: right;
 	}
 }
 
