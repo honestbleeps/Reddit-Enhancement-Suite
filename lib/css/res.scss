@@ -348,6 +348,10 @@ div.usertext-edit {
 	}
 }
 
+.subscription-box .subButtons {
+	font-size: larger;
+}
+
 span.multi-count {
 	@extend %res-fancy-toggle-button;
 	background: #FF7500;
