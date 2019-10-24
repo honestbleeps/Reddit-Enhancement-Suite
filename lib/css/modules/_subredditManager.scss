@@ -38,10 +38,6 @@
 	td {
 		padding: 3px 8px;
 
-		&.RESvisited {
-			text-transform: none;
-		}
-
 		a {
 			width: 100%;
 			display: block;
@@ -346,27 +342,6 @@
 
 .srSep {
 	margin-left: 6px;
-}
-
-.sortAsc,
-.sortDesc {
-	float: right;
-}
-
-.sortAsc::after,
-.sortDesc::after {
-	width: 12px;
-	line-height: 12px;
-	font-size: 12px;
-	color: #82a3c0;
-}
-
-.sortAsc::after {
-	content: '\25B2';
-}
-
-.sortDesc::after {
-	content: '\25BC';
 }
 
 #RESShortcutsAddFormContainer {

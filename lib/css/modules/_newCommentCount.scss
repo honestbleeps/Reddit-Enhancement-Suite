@@ -31,19 +31,9 @@
 		}
 	}
 
-	.deleteIcon {
-		float: right;
+	abbr {
+		cursor: help;
+		border-bottom: 1px dotted;
+		text-decoration: none;
 	}
-}
-
-.sortAsc,
-.sortDesc {
-	float: none;
-	margin-left: 5px;
-}
-
-abbr {
-	cursor: help;
-	border-bottom: 1px dotted;
-	text-decoration: none;
 }
