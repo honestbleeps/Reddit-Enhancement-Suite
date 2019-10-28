@@ -877,10 +877,15 @@ body.res-dashboard {
 
 		// We want the tabs to act as a radio, i.e. don't allow deselect the currently selected
 		&.selected a:first-child { pointer-events: none; }
+
+		&:not(.selected) a + .gearIcon {
+			display: none;
+		}
 	}
 
 	.tabmenu {
-		display: inline-block !important;
+		display: inline-flex !important;
+		align-items: flex-end;
 	}
 
 	// some styles to override /r/dashboard stylesheet.
