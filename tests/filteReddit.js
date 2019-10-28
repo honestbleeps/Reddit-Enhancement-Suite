@@ -48,7 +48,7 @@ module.exports = {
 				.click('#optionContainer-filteReddit-keywords .addRowButton')
 				.setValue('#optionContainer-filteReddit-keywords input', ['B'])
 				.click('#optionContainer-filteReddit-keywords .addRowButton')
-				.setValue('#optionContainer-filteReddit-keywords tr:nth-child(2) input', ['This shouldn\'t match anything'])
+				.setValue('#optionContainer-filteReddit-keywords tr:nth-child(2) input', ['This shouldn\'t match anything']),
 			))
 			.url(byId(POST.ABC, POST.A))
 			.waitForElementNotVisible(thing(POST.ABC))
@@ -57,7 +57,7 @@ module.exports = {
 			// case insensitivity
 			.perform(editSettings(() => browser
 				.clearValue('#optionContainer-filteReddit-keywords input')
-				.setValue('#optionContainer-filteReddit-keywords input', ['b'])
+				.setValue('#optionContainer-filteReddit-keywords input', ['b']),
 			))
 			.url(byId(POST.ABC, POST.A))
 			.waitForElementNotVisible(thing(POST.ABC))
@@ -68,7 +68,7 @@ module.exports = {
 				.clearValue('#optionContainer-filteReddit-keywords input')
 				.setValue('#optionContainer-filteReddit-keywords input', ['a'])
 				.clearValue('#optionContainer-filteReddit-keywords input#keywords_unlessKeyword_0')
-				.setValue('#optionContainer-filteReddit-keywords input#keywords_unlessKeyword_0', ['b'])
+				.setValue('#optionContainer-filteReddit-keywords input#keywords_unlessKeyword_0', ['b']),
 			))
 			.url(byId(POST.ABC, POST.A))
 			.waitForElementNotVisible(thing(POST.A))
@@ -88,7 +88,7 @@ module.exports = {
 				.click('#optionContainer-filteReddit-domains .addRowButton')
 				.setValue('#optionContainer-filteReddit-domains input', ['sElf.resinTegrAtiontEsts'])
 				.click('#optionContainer-filteReddit-domains .addRowButton')
-				.setValue('#optionContainer-filteReddit-domains tr:nth-child(2) input', ['This shouldn\'t match anything'])
+				.setValue('#optionContainer-filteReddit-domains tr:nth-child(2) input', ['This shouldn\'t match anything']),
 			))
 			.url(byId(POST.ABC, POST.youtubeDomain))
 			.waitForElementNotVisible(thing(POST.ABC))
@@ -97,7 +97,7 @@ module.exports = {
 			// link post domain
 			.perform(editSettings(() => browser
 				.clearValue('#optionContainer-filteReddit-domains input')
-				.setValue('#optionContainer-filteReddit-domains input', ['youtube.com'])
+				.setValue('#optionContainer-filteReddit-domains input', ['youtube.com']),
 			))
 			.url(byId(POST.ABC, POST.youtubeDomain))
 			.waitForElementNotVisible(thing(POST.youtubeDomain))
@@ -106,7 +106,7 @@ module.exports = {
 			// partial match
 			.perform(editSettings(() => browser
 				.clearValue('#optionContainer-filteReddit-domains input')
-				.setValue('#optionContainer-filteReddit-domains input', ['youtube'])
+				.setValue('#optionContainer-filteReddit-domains input', ['youtube']),
 			))
 			.url(byId(POST.ABC, POST.youtubeDomain))
 			.waitForElementNotVisible(thing(POST.youtubeDomain))
@@ -126,7 +126,7 @@ module.exports = {
 				.click('#optionContainer-filteReddit-subreddits .addRowButton')
 				.setValue('#optionContainer-filteReddit-subreddits input', ['RESIntegrationTests'])
 				.click('#optionContainer-filteReddit-subreddits .addRowButton')
-				.setValue('#optionContainer-filteReddit-subreddits tr:nth-child(2) input', ['This shouldn\'t match anything'])
+				.setValue('#optionContainer-filteReddit-subreddits tr:nth-child(2) input', ['This shouldn\'t match anything']),
 			))
 			.url(byId(POST.ABC, POST.restests))
 			.waitForElementNotVisible(thing(POST.ABC))
@@ -140,7 +140,7 @@ module.exports = {
 			// case insensitivity
 			.perform(editSettings(() => browser
 				.clearValue('#optionContainer-filteReddit-subreddits input')
-				.setValue('#optionContainer-filteReddit-subreddits input', ['resinTegrAtiontEsts'])
+				.setValue('#optionContainer-filteReddit-subreddits input', ['resinTegrAtiontEsts']),
 			))
 			.url(byId(POST.ABC, POST.restests))
 			.waitForElementNotVisible(thing(POST.ABC))
@@ -165,7 +165,7 @@ module.exports = {
 				.click('#optionContainer-filteReddit-flair .addRowButton')
 				.setValue('#optionContainer-filteReddit-flair input', ['A'])
 				.click('#optionContainer-filteReddit-flair .addRowButton')
-				.setValue('#optionContainer-filteReddit-flair tr:nth-child(2) input', ['This shouldn\'t match anything'])
+				.setValue('#optionContainer-filteReddit-flair tr:nth-child(2) input', ['This shouldn\'t match anything']),
 			))
 			.url('https://en.reddit.com/r/RESIntegrationTests/search?q=flair%3Aa+OR+flair%3Ac&restrict_sr=on&t=all&feature=legacy_search')
 			.waitForElementNotVisible(thing(POST.aWithFlaira))
@@ -176,7 +176,7 @@ module.exports = {
 			// [flair] isn't treated as a regex set (which filters `f`)
 			.perform(editSettings(() => browser
 				.clearValue('#optionContainer-filteReddit-flair input')
-				.setValue('#optionContainer-filteReddit-flair input', ['[a]'])
+				.setValue('#optionContainer-filteReddit-flair input', ['[a]']),
 			))
 			.url('https://en.reddit.com/r/RESIntegrationTests/search?q=flair%3Aa&restrict_sr=on&t=all&feature=legacy_search')
 			.waitForElementNotVisible(thing(POST.cWithFlair_a_))
@@ -196,7 +196,7 @@ module.exports = {
 				.click('#optionContainer-filteReddit-keywords .addRowButton')
 				.setValue('#optionContainer-filteReddit-keywords input', ['/A/'])
 				.click('#optionContainer-filteReddit-keywords .addRowButton')
-				.setValue('#optionContainer-filteReddit-keywords tr:nth-child(2) input', ['This shouldn\'t match anything'])
+				.setValue('#optionContainer-filteReddit-keywords tr:nth-child(2) input', ['This shouldn\'t match anything']),
 			))
 			.url(byId(POST.ABC, POST.B))
 			.waitForElementNotVisible(thing(POST.ABC))
@@ -209,7 +209,7 @@ module.exports = {
 				.clearValue('#optionContainer-filteReddit-subreddits input')
 				.setValue('#optionContainer-filteReddit-subreddits input', ['/\\wIntegrationTests(?!2)/'])
 				.click('#optionContainer-filteReddit-subreddits .addRowButton')
-				.setValue('#optionContainer-filteReddit-subreddits tr:nth-child(2) input', ['This shouldn\'t match anything'])
+				.setValue('#optionContainer-filteReddit-subreddits tr:nth-child(2) input', ['This shouldn\'t match anything']),
 			))
 			.url(byId(POST.B, POST.RESIntegrationTests2))
 			.waitForElementNotVisible(thing(POST.B))
@@ -218,7 +218,7 @@ module.exports = {
 			// case sensitivity
 			.perform(editSettings(() => browser
 				.clearValue('#optionContainer-filteReddit-subreddits input')
-				.setValue('#optionContainer-filteReddit-subreddits input', ['/inTegrAtiontEsts/'])
+				.setValue('#optionContainer-filteReddit-subreddits input', ['/inTegrAtiontEsts/']),
 			))
 			.url(byId(POST.B, POST.RESIntegrationTests2))
 			.pause(1000)
@@ -228,7 +228,7 @@ module.exports = {
 			// flags (case insensitivity)
 			.perform(editSettings(() => browser
 				.clearValue('#optionContainer-filteReddit-subreddits input')
-				.setValue('#optionContainer-filteReddit-subreddits input', ['/inTegrAtiontEsts/i'])
+				.setValue('#optionContainer-filteReddit-subreddits input', ['/inTegrAtiontEsts/i']),
 			))
 			.url(byId(POST.B, POST.RESIntegrationTests2))
 			.waitForElementNotVisible(thing(POST.B))
@@ -252,7 +252,7 @@ module.exports = {
 				.execute(`
 					document.querySelector('#optionContainer-filteReddit-keywords input#keywords_subreddits_1').value = 'RESIntegrationTests';
 				`)
-				.click('#optionContainer-filteReddit-keywords input#keywords_filteRedditApplyTo_1-2' /* only on */)
+				.click('#optionContainer-filteReddit-keywords input#keywords_filteRedditApplyTo_1-2' /* only on */),
 			))
 			.url(byId(POST.A, POST.RESIntegrationTests2_A))
 			.waitForElementNotVisible(thing(POST.A))
@@ -265,7 +265,7 @@ module.exports = {
 
 			// except these subreddits (posted to)
 			.perform(editSettings(() => browser
-				.click('#optionContainer-filteReddit-keywords input#keywords_filteRedditApplyTo_0-1' /* everywhere but */)
+				.click('#optionContainer-filteReddit-keywords input#keywords_filteRedditApplyTo_0-1' /* everywhere but */),
 			))
 			.url(byId(POST.A, POST.RESIntegrationTests2_A))
 			.waitForElementNotVisible(thing(POST.RESIntegrationTests2_A))
@@ -281,7 +281,7 @@ module.exports = {
 				.execute(`
 					document.querySelector('#optionContainer-filteReddit-keywords input#keywords_subreddits_0').value = 'resinTegrAtiontEsts';
 				`)
-				.click('#optionContainer-filteReddit-keywords input#keywords_filteRedditApplyTo_0-2' /* only on */)
+				.click('#optionContainer-filteReddit-keywords input#keywords_filteRedditApplyTo_0-2' /* only on */),
 			))
 			.url(byId(POST.A, POST.RESIntegrationTests2_A))
 			.waitForElementNotVisible(thing(POST.A))
@@ -294,14 +294,14 @@ module.exports = {
 				.execute(`
 					document.querySelector('#optionContainer-filteReddit-keywords input#keywords_subreddits_0').value = 'all';
 				`)
-				.click('#optionContainer-filteReddit-keywords input#keywords_filteRedditApplyTo_0-2' /* only on */)
+				.click('#optionContainer-filteReddit-keywords input#keywords_filteRedditApplyTo_0-2' /* only on */),
 			))
 			.url('https://en.reddit.com/r/all/?limit=1')
 			.waitForElementNotVisible('#siteTable .thing' /* first thing */)
 
 			// browsing /r/all special case (except these subreddits)
 			.perform(editSettings(() => browser
-				.click('#optionContainer-filteReddit-keywords input#keywords_filteRedditApplyTo_0-1' /* everywhere but */)
+				.click('#optionContainer-filteReddit-keywords input#keywords_filteRedditApplyTo_0-1' /* everywhere but */),
 			))
 			.url('https://en.reddit.com/r/all/?limit=1')
 			.pause(1000)
@@ -314,14 +314,14 @@ module.exports = {
 				.execute(`
 					document.querySelector('#optionContainer-filteReddit-keywords input#keywords_subreddits_0').value = 'popular';
 				`)
-				.click('#optionContainer-filteReddit-keywords input#keywords_filteRedditApplyTo_0-2' /* only on */)
+				.click('#optionContainer-filteReddit-keywords input#keywords_filteRedditApplyTo_0-2' /* only on */),
 			))
 			.url('https://en.reddit.com/r/popular/?limit=1')
 			.waitForElementNotVisible('#siteTable .thing' /* first thing */)
 
 			// browsing /r/popular special case (except these subreddits)
 			.perform(editSettings(() => browser
-				.click('#optionContainer-filteReddit-keywords input#keywords_filteRedditApplyTo_0-1' /* everywhere but */)
+				.click('#optionContainer-filteReddit-keywords input#keywords_filteRedditApplyTo_0-1' /* everywhere but */),
 			))
 			.url('https://en.reddit.com/r/popular/?limit=1')
 			.pause(1000)

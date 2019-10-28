@@ -236,7 +236,7 @@ module.exports = {
 			.execute(
 				'return Array.from(document.querySelectorAll(\'.res-filterline-filter-new-from-selected\')).map(v => v.closest(\'.res-filterline-filter-new\').getAttribute(\'type\'))',
 				[],
-				({ value }) => { types = value; }
+				({ value }) => { types = value; },
 			).perform(testNextType)
 			.end();
 	},

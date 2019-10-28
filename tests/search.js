@@ -38,7 +38,7 @@ module.exports = {
 			.assert.valueContains(
 				'#alert_message textarea',
 				'**[Inline Image Viewer](#res:settings/showImages)** -- [](#gear) [RES settings console](#res:settings) > Productivity > [Inline Image Viewer](#res:settings/showImages "showImages")',
-				'links to modules'
+				'links to modules',
 			)
 			.end();
 	},
@@ -57,7 +57,7 @@ module.exports = {
 			.assert.valueContains(
 				'#alert_message textarea',
 				'**[testEnvironment](#res:settings/troubleshooter/testEnvironment)** -- [](#gear) [RES settings console](#res:settings) > About RES > [Troubleshooter](#res:settings/troubleshooter "troubleshooter") > [testEnvironment](#res:settings/troubleshooter/testEnvironment)',
-				'links to options'
+				'links to options',
 			)
 			.end();
 	},
