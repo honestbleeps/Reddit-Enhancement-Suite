@@ -1,0 +1,91 @@
+name: CI
+
+on:
+  push:
+    branches:
+    - master
+    tags:
+      - v*.*.*
+  pull_request:
+
+jobs:
+  lint_flow:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - uses: actions/setup-node@v1
+      with:
+        node-version: '12.x'
+    - run: yarn install --frozen-lockfile
+
+    - run: yarn flow check --show-all-errors
+    - run: yarn eslint
+    - run: yarn sass-lint
+    - run: yarn i18n-lint
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - uses: actions/setup-node@v1
+      with:
+        node-version: '12.x'
+    - run: yarn install --frozen-lockfile
+
+    - run: yarn coverage
+    - uses: coverallsapp/github-action@v1.0.1
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+    - run: yarn integration chrome --retries 2 && yarn integration-only firefox --retries 2
+      env:
+        SAUCE_USERNAME: RES-Auto
+        SELENIUM_HOST: ondemand.saucelabs.com
+        SELENIUM_PORT: 80
+        SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
+
+  build_deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - uses: actions/setup-node@v1
+      with:
+        node-version: '12.x'
+    - run: yarn install --frozen-lockfile
+
+    - run: yarn build all
+
+    - uses: softprops/action-gh-release@v1
+      if: startsWith(github.ref, 'refs/tags/')
+      with:
+        files: |
+          dist/zip/chrome.zip
+          dist/zip/chrome-beta.zip
+          dist/zip/firefox.zip
+          dist/zip/firefox-beta.zip
+        prerelease: true
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - run: ./build/travisDeploy.sh
+      if: startsWith(github.ref, 'refs/tags/')
+      env:
+        CHROME_CLIENT_ID: ${{ secrets.CHROME_CLIENT_ID }}
+        CHROME_CLIENT_SECRET: ${{ secrets.CHROME_CLIENT_SECRET }}
+        CHROME_REFRESH_TOKEN: ${{ secrets.CHROME_REFRESH_TOKEN }}
+        FIREFOX_ISSUER: ${{ secrets.FIREFOX_ISSUER }}
+        FIREFOX_SECRET: ${{ secrets.FIREFOX_SECRET }}
+        OPERA_USER: ${{ secrets.OPERA_USER }}
+        OPERA_PASSWORD: ${{ secrets.OPERA_PASSWORD }}
+        BOT_USER: Reddit-Enhancement-Suite-Bot
+        BOT_PASSWORD: ${{ secrets.BOT_PASSWORD }}
+
+  windows:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v1
+    - uses: actions/setup-node@v1
+      with:
+        node-version: '12.x'
+    - run: yarn install --frozen-lockfile
+
+    - run: yarn test
+    - run: yarn build all
