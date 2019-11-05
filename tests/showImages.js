@@ -3,7 +3,7 @@ module.exports = {
 		let oldWindowHandles;
 
 		browser
-			.url('https://en.reddit.com/r/RESIntegrationTests/comments/60edn3/image_expando/')
+			.url('https://en.reddit.com/r/RESIntegrationTests/comments/drz1sx/image_expando/')
 			.waitForElementVisible('.expando-button')
 			.assert.cssClassPresent('.expando-button', 'image')
 			.assert.cssClassPresent('.expando-button', 'collapsed')
@@ -12,8 +12,8 @@ module.exports = {
 			.click('.expando-button')
 			.waitForElementVisible('.res-expando-box')
 			.assert.attributeEquals('.res-expando-box', 'data-host', 'default')
-			.assert.attributeEquals('.res-expando-box img', 'src', 'http://fc04.deviantart.net/fs51/i/2009/278/e/6/THEN_by_SamSaxton.jpg')
-			.assert.attributeEquals('.res-expando-box a', 'href', 'http://fc04.deviantart.net/fs51/i/2009/278/e/6/THEN_by_SamSaxton.jpg')
+			.assert.attributeEquals('.res-expando-box img', 'src', 'https://media.snl.no/system/images/59080/article_topimage_flagg2.png')
+			.assert.attributeEquals('.res-expando-box a', 'href', 'https://media.snl.no/system/images/59080/article_topimage_flagg2.png')
 
 			.pause(1000)
 			.windowHandles(result => {
@@ -22,13 +22,12 @@ module.exports = {
 			})
 			.click('.res-expando-box img')
 			// old tab didn't navigate
-			.assert.urlContains('https://en.reddit.com/r/RESIntegrationTests/comments/60edn3/image_expando/')
+			.assert.urlContains('https://en.reddit.com/r/RESIntegrationTests/comments/drz1sx/image_expando/')
 			// image opened in new tab, focused
 			.windowHandles(result => {
-				browser.switchWindow(result.value.filter(win => !oldWindowHandles.includes(win))[0]);
+				browser.switchWindow(result.value.find(win => !oldWindowHandles.includes(win)));
 			})
-			// deviantart may redirect to a different CDN server
-			.assert.urlContains('/i/2009/278/e/6/then_by_samsaxton.jpg')
+			.assert.urlContains('/article_topimage_flagg2.png')
 
 			.end();
 	},
