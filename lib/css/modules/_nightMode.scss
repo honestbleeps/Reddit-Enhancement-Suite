@@ -865,6 +865,11 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 		color: inherit;
 	}
 
+	.comment.spam>.child,
+	.message.spam>.child {
+		background-color: transparent;
+	}
+
 	.nextprev a:hover,
 	.next-suggestions a:hover {
 		border-color: transparent;
