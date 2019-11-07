@@ -865,8 +865,8 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 		color: inherit;
 	}
 
-	.comment.spam>.child,
-	.message.spam>.child {
+	.comment.spam > .child,
+	.message.spam > .child {
 		background-color: transparent;
 	}
 
