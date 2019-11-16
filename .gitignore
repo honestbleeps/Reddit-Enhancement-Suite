@@ -70,7 +70,6 @@ $RECYCLE.BIN/
 ## IntelliJ ##
 .idea
 *.iml
-.nyc_output
 
 ## Visual Studio ##
 .vscode
@@ -78,3 +77,7 @@ $RECYCLE.BIN/
 
 ## NPM package lock ##
 package-lock.json
+
+# code coverage
+.nyc_output
+coverage
