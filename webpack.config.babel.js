@@ -105,7 +105,7 @@ export default (env = {}, argv = {}) => {
 			}, {
 				test: /\.scss$/,
 				use: [
-					{ loader: 'file-loader', options: { name: '[name].css' } },
+					{ loader: 'file-loader', options: { esModule: false, name: '[name].css' } },
 					{ loader: 'extricate-loader', options: { resolve: '\\.js$' } },
 					{ loader: 'css-loader' },
 					{ loader: 'postcss-loader' },
@@ -114,7 +114,7 @@ export default (env = {}, argv = {}) => {
 			}, {
 				test: /\.html$/,
 				use: [
-					{ loader: 'file-loader', options: { name: '[name].[ext]' } },
+					{ loader: 'file-loader', options: { esModule: false, name: '[name].[ext]' } },
 					{ loader: 'extricate-loader' },
 					{ loader: 'html-loader', options: { attrs: ['link:href', 'script:src'] } },
 				],
@@ -122,18 +122,18 @@ export default (env = {}, argv = {}) => {
 				test: /\.(png|gif|svg)$/,
 				exclude: path.join(__dirname, 'lib', 'images'),
 				use: [
-					{ loader: 'file-loader', options: { name: '[name].[ext]' } },
+					{ loader: 'file-loader', options: { esModule: false, name: '[name].[ext]' } },
 				],
 			}, {
 				test: /\.(png|gif|svg)$/,
 				include: path.join(__dirname, 'lib', 'images'),
 				use: [
-					{ loader: 'url-loader' },
+					{ loader: 'url-loader', options: { esModule: false } },
 				],
 			}, {
 				test: /\.woff$/,
 				use: [
-					{ loader: 'file-loader', options: { name: '[name].[ext]' } },
+					{ loader: 'file-loader', options: { esModule: false, name: '[name].[ext]' } },
 				],
 			}],
 		},

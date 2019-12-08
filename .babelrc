@@ -1,7 +1,7 @@
 {
 	"ignore": ["ava.config.js"],
-    "plugins": [
-		"@babel/plugin-proposal-export-namespace-from",
+	"plugins": [
+		'@babel/plugin-proposal-export-namespace-from',
 		["@babel/plugin-proposal-class-properties", { "loose": true }],
 		"@babel/plugin-transform-modules-commonjs",
 		"@babel/plugin-transform-flow-strip-types"
