@@ -639,7 +639,7 @@ body:not(.res-showImages-displayImageCaptions) {
 }
 
 // Extras for certain text expando's
-.res-expando-box[data-host='wikipedia'] {
+.res-expando-box[data-host='wikipedia'], .res-expando-box[data-host='liquipedia'] {
 	.md {
 		padding: 5px;
 		max-width: none;
@@ -681,6 +681,81 @@ body:not(.res-showImages-displayImageCaptions) {
 
 		&::after {
 			clear: both;
+		}
+	}
+}
+
+.res-expando-box[data-host='liquipedia'] {
+	.md .fo-nttax-infobox {
+		width: 100%;
+		max-width: 300px;
+		border: none;
+		background: #eee;
+		margin-left: 8px;
+		float: right;
+		
+		.infobox-cell-2 {
+			width: 46%;
+		}
+		
+		> div:nth-child(2n+1) {
+			.res-nightmode & {
+				background-color: rgb(57, 57, 57);
+				color: rgb(221, 221, 221);
+			}
+			background-color: #eeeeee
+		}
+
+		> div:nth-child(2n) {
+			.res-nightmode & {
+				background-color: rgb(60, 60, 60);
+				color: rgb(221, 221, 221);
+			}
+			background-color: #f5f5f5
+		}
+		
+		> div > div.infobox-image:not(.infobox-fixed-size-image) img {
+			width: 97%;
+			height: auto
+		}
+		
+		> div {
+			display: table;
+			width: 100%
+		}
+		
+		> div > div {
+			width: 100%;
+			float: left;
+			height: inherit;
+			padding: 5px
+		}
+
+		.league-icon-small-image img, .icon-small img {
+			max-width: 25px;
+			max-height: 25px;
+		}
+		
+		.flag img {
+			width: 18px;
+			height: 12px;
+			vertical-align: middle;
+		}
+		
+		.infobox-arrow-icon img {
+			max-width: 9px;
+			max-height: 18px;
+		}
+		
+		.infobox-header {
+			font-weight: 700;
+			text-align: center;
+			font-size: 20px
+		}
+		
+		.infobox-description {
+			font-weight: bold;
+			text-align: right
 		}
 	}
 }
