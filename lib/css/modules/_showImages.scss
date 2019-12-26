@@ -693,11 +693,11 @@ body:not(.res-showImages-displayImageCaptions) {
 		background: #eee;
 		margin-left: 8px;
 		float: right;
-		
+
 		.infobox-cell-2 {
 			width: 46%;
 		}
-		
+
 		> div:nth-child(2n+1) {
 			.res-nightmode & {
 				background-color: rgb(57, 57, 57);
@@ -705,7 +705,7 @@ body:not(.res-showImages-displayImageCaptions) {
 			}
 			background-color: #eeeeee
 		}
-
+		
 		> div:nth-child(2n) {
 			.res-nightmode & {
 				background-color: rgb(60, 60, 60);
@@ -713,17 +713,17 @@ body:not(.res-showImages-displayImageCaptions) {
 			}
 			background-color: #f5f5f5
 		}
-		
+
 		> div > div.infobox-image:not(.infobox-fixed-size-image) img {
 			width: 97%;
 			height: auto
 		}
-		
+
 		> div {
 			display: table;
 			width: 100%
 		}
-		
+
 		> div > div {
 			width: 100%;
 			float: left;
@@ -741,18 +741,18 @@ body:not(.res-showImages-displayImageCaptions) {
 			height: 12px;
 			vertical-align: middle;
 		}
-		
+
 		.infobox-arrow-icon img {
 			max-width: 9px;
 			max-height: 18px;
 		}
-		
+
 		.infobox-header {
 			font-weight: 700;
 			text-align: center;
 			font-size: 20px
 		}
-		
+
 		.infobox-description {
 			font-weight: bold;
 			text-align: right
