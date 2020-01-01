@@ -6,8 +6,8 @@ module.exports = {
 			.click('.thing.link .viewSource a')
 			.waitForElementVisible('.thing.link .viewSource textarea')
 			.click('.thing.link .viewSource textarea')
-			.assert.elementNotPresent('.markdownEditor-wrapper')
-			.assert.elementNotPresent('.livePreview')
+			.assert.not.elementPresent('.markdownEditor-wrapper')
+			.assert.not.elementPresent('.livePreview')
 			.end();
 	},
 };

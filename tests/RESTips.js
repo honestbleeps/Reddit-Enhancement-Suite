@@ -14,7 +14,7 @@ module.exports = {
 			.waitForElementVisible('.res-toggle-filterline-visibility')
 			.click('.res-toggle-filterline-visibility')
 			.pause(2000)
-			.assert.elementNotPresent('.guider.res-featureTip')
+			.assert.not.elementPresent('.guider.res-featureTip')
 			.end();
 	},
 	'click through all tips': browser => {

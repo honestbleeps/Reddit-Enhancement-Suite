@@ -34,7 +34,7 @@ module.exports = {
 		browser
 			.url('https://en.reddit.com/by_id/t3_6331zg,t3_63320d')
 			.perform(initialize)
-			.assert.elementNotPresent('.res-filterline')
+			.assert.not.elementPresent('.res-filterline')
 			.assert.visible(normalPost)
 			.assert.visible(nsfwPost)
 			.click('.res-toggle-filterline-visibility')
@@ -72,7 +72,7 @@ module.exports = {
 			// navigate to site matching filter
 			.url('https://en.reddit.com/by_id/t3_5nacp4')
 			.perform(initialize)
-			.assert.hidden(thing)
+			.assert.not.visible(thing)
 
 			// disable domains filter
 			.click('.res-toggle-filterline-visibility')
@@ -101,7 +101,7 @@ module.exports = {
 			.assert.visible(thing)
 			.click('.res-filterline-display-match-reason')
 			.waitForElementNotPresent(`${thing} .res-thing-filter-remove-matching-entry`)
-			.assert.hidden(thing)
+			.assert.not.visible(thing)
 			.click('.res-filterline-display-match-reason')
 			.waitForElementVisible(`${thing} .res-thing-filter-remove-matching-entry`)
 
@@ -177,7 +177,7 @@ module.exports = {
 			.waitForElementVisible('#keyCommandLineWidget')
 			.keys(['+=exp', browser.Keys.ENTER])
 			.waitForElementVisible(`${filter}[type="hasExpando"].res-filterline-filter-hiding:last-of-type`)
-			.assert.elementNotPresent(`${filter}[type="hasExpando"]:not(.res-filterline-filter-hiding):first-of-type`)
+			.assert.not.elementPresent(`${filter}[type="hasExpando"]:not(.res-filterline-filter-hiding):first-of-type`)
 			.assert.visible(thing)
 
 			// invert state
@@ -318,7 +318,7 @@ module.exports = {
 			.assert.visible(normalPost)
 			.assert.visible(nsfwPost)
 			.click('.res-filterline-toggle-powered')
-			.assert.hidden(normalPost)
+			.assert.not.visible(normalPost)
 			.assert.visible(nsfwPost)
 			.end();
 	},
