@@ -99,7 +99,7 @@ module.exports = {
 			.assert.containsText('.res-expando-box', '1 of 2')
 			.assert.attributeEquals('.res-expando-box .res-gallery-pieces > div:not([hidden]) img', 'src', 'https://i.imgur.com/rXZWEIB.jpg')
 			.assert.attributeEquals('.res-expando-box .res-gallery-pieces > div:not([hidden]) a', 'href', 'https://imgur.com/rXZWEIB,eutVEAv#rXZWEIB')
-			.click('.res-expando-box .res-gallery-next')
+			.click('.res-expando-box .res-step-next')
 			.assert.containsText('.res-expando-box', '2 of 2')
 			.assert.attributeEquals('.res-expando-box .res-gallery-pieces > div:not([hidden]) img', 'src', 'https://i.imgur.com/eutVEAv.jpg')
 			.assert.attributeEquals('.res-expando-box .res-gallery-pieces > div:not([hidden]) a', 'href', 'https://imgur.com/rXZWEIB,eutVEAv#eutVEAv')
