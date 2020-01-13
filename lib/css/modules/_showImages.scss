@@ -289,20 +289,6 @@ img {
 	}
 
 	.res-gallery-individual-controls {
-		display: flex;
-		align-items: center;
-		margin: 4px 0 4px 10px;
-
-		&[last-piece=true] .res-gallery-next::after,
-		&[first-piece=true] .res-gallery-previous::after {
-			content: '\F157';
-		}
-
-		&[last-piece=true] .res-gallery-next,
-		&[first-piece=true] .res-gallery-previous {
-			transform: scaleX(-1);
-		}
-
 		.res-gallery-to-filmstrip {
 			margin-left: 1em;
 			cursor: pointer;
