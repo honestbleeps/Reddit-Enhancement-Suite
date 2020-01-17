@@ -51,7 +51,7 @@ img {
 	vertical-align: middle;
 
 	.expando-button {
-		margin: calc(calc(1em * .5) - 50%) 0 0 0  !important;
+		margin: calc(calc(1em * .5) - 50%) 0 0 0 !important;
 		transform: scale(0.8); // Try to not exceed height of line
 	}
 
@@ -288,16 +288,14 @@ img {
 		font-size: 12px;
 	}
 
-	.res-gallery-individual-controls {
-		.res-gallery-to-filmstrip {
-			margin-left: 1em;
-			cursor: pointer;
+	.res-gallery-to-filmstrip {
+		margin-left: 1em;
+		cursor: pointer;
 
-			&::before {
-				content: '🎞';
-				display: block;
-				transform: rotate(90deg);
-			}
+		&::before {
+			content: '🎞';
+			display: block;
+			transform: rotate(90deg);
 		}
 	}
 
