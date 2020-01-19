@@ -313,12 +313,6 @@ img {
 			cursor: pointer;
 		}
 	}
-
-	&:not(.res-gallery-slideshow) {
-		.res-gallery-individual-controls {
-			display: none;
-		}
-	}
 }
 
 .res-image {
