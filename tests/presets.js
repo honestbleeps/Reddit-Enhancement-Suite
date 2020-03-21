@@ -16,7 +16,7 @@ module.exports = {
 			.url('https://en.reddit.com/r/RESIntegrationTests/?limit=1')
 			.waitForElementVisible('#RESSettingsButton')
 			.pause(1000)
-			.assert.elementNotPresent('.res-toggle-filterline-visibility', 'cleanslate disables filterline')
+			.assert.not.elementPresent('.res-toggle-filterline-visibility', 'cleanslate disables filterline')
 
 			.end();
 	},

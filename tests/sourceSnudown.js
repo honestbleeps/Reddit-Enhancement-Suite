@@ -48,7 +48,7 @@ module.exports = {
 			.waitForElementVisible('#RESSettingsButton')
 			.pause(1000)
 			.assert.visible('.thing.link')
-			.assert.elementNotPresent('.thing.link .viewSource')
+			.assert.not.elementPresent('.thing.link .viewSource')
 			.end();
 	},
 };

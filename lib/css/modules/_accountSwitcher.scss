@@ -19,6 +19,11 @@ div.RESAccountSwitcherDropdown {
 	}
 }
 
+html.res-accountSwitcher-in-progress {
+	cursor: wait;
+	body { pointer-events: none; }
+}
+
 #RESAccountSwitcherIcon {
 	cursor: pointer;
 	display: inline-block;

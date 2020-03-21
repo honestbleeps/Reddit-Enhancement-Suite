@@ -740,6 +740,26 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 	cursor: pointer;
 	user-select: none;
 
+	&-container {
+		display: flex;
+		align-items: center;
+		margin: 4px 0 4px 10px;
+
+		&[first-piece=true] .res-step-previous::after,
+		&[last-piece=true] .res-step-next::after {
+			content: '\F157';
+		}
+
+		&[first-piece=true] .res-step-previous,
+		&[last-piece=true] .res-step-next {
+			transform: scaleX(-1);
+		}
+
+		&[first-piece=true][last-piece=true] {
+			display: none;
+		}
+	}
+
 	&::after {
 		font: normal 18px/16px Batch;
 		content: '\F158';
@@ -749,12 +769,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		width: 16px;
 	}
 
-	&:hover::after {
-		color: #6286f4;
+	&-next::after {
+		transform: scaleX(-1);
 	}
 
-	&-reverse::after {
-		transform: scaleX(-1);
+	&:hover::after {
+		color: #6286f4;
 	}
 
 	&-progress {
@@ -888,47 +908,30 @@ body.res-dashboard {
 		align-items: flex-end;
 	}
 
-	// some styles to override /r/dashboard stylesheet.
-	#userTaggerContents,
-	#newCommentsContents {
-		margin-right: 305px;
-		font-size: small;
-	}
+	.dashboardPane {
+		table {
+			margin: 0;
+			width: 100%;
+		}
 
-	#userTaggerContents table,
-	#newCommentsContents table {
-		margin: 0;
-		width: 100%;
-	}
+		th {
+			min-width: 0;
+			padding: 5px 8px;
+			border: 1px solid rgb(200, 200, 200);
 
-	#userTaggerTable th,
-	#newCommentsTable th,
-	#userTaggerTable td,
-	#newCommentsTable td {
-		min-width: 0;
-		padding: 5px 8px;
-		border: 1px solid rgb(200, 200, 200);
-	}
+			&:first-child {
+				width: auto;
+				white-space: normal;
+			}
+		}
 
-	#newCommentsTable th,
-	#userTaggerTable th,
-	#newCommentsTable td {
-		white-space: nowrap;
-	}
+		.deleteIcon {
+			color: rgba(0, 0, 0, 0);
+			cursor: button;
+		}
 
-	#newCommentsTable td:first-child,
-	#newCommentsTable th:first-child {
-		width: auto;
-		white-space: normal;
-	}
-
-	#newCommentsTable .deleteIcon,
-	#userTaggerTable .deleteIcon {
-		color: rgba(0, 0, 0, 0);
-	}
-
-	#newCommentsTable tr:hover .deleteIcon,
-	#userTaggerTable tr:hover .deleteIcon {
-		color: #369;
+		tr:hover .deleteIcon {
+			color: #369;
+		}
 	}
 }

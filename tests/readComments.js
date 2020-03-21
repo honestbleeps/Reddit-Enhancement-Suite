@@ -23,7 +23,7 @@ module.exports = {
 			.waitForElementVisible('.RESNotification[data-id="readComments-hideRead"]')
 			.click('.RESNotification[data-id="readComments-hideRead"] button')
 			.waitForElementPresent(`${a}.res-thing-filter-hide`)
-			.assert.elementNotPresent(`${b}.res-thing-filter-hide`)
+			.assert.not.elementPresent(`${b}.res-thing-filter-hide`)
 			.end();
 	},
 };
