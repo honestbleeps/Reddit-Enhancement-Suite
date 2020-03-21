@@ -446,8 +446,11 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 		color: #8AD;
 	}
 
-	.linefield .linefield-content {
+	.linefield,
+	.linefield .linefield-content,
+	.linefield.mobile {
 		border-color: hsl(0, 0%, 10%);
+		background-color: hsl(0, 0%, 30%);
 	}
 
 	#RESShortcutsEditContainer,
