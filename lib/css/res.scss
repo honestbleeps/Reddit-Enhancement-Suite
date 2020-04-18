@@ -315,13 +315,13 @@ div.usertext-edit {
 .addRowButton {
 	cursor: pointer;
 	padding: 2px 5px;
-	color: #fff;
 	border: 1px solid #636363;
 	border-radius: 3px;
 }
 
 .addRowButton:hover {
 	background-color: #289dee;
+	color: #fff;
 }
 
 // Universal subreddit toggle button (subscribe, filter, shortcut, etc)
