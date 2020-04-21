@@ -3,11 +3,11 @@
 /* eslint-disable import/no-commonjs, import/no-nodejs-modules */
 
 const fs = require('fs'); // eslint-disable-line import/no-extraneous-dependencies
+const { version } = require('../package.json');
+const isBetaVersion = require('./isBetaVersion');
 const path = require('path'); // eslint-disable-line import/no-extraneous-dependencies
 const chromeDeploy = require('chrome-extension-deploy');
 const firefoxDeploy = require('firefox-extension-deploy');
-const { version } = require('../package.json');
-const isBetaVersion = require('./isBetaVersion');
 
 if (isBetaVersion(version)) {
 	console.log(`Deploying ${version} beta release...`);

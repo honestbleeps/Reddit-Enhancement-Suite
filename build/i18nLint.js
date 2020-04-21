@@ -7,8 +7,8 @@
 // This is required not only for this script, but also so that developers can always grep for usages of an i18n key.
 
 const { readFileSync, readdirSync, statSync } = require('fs');
-const { join } = require('path'); // eslint-disable-line import/no-extraneous-dependencies
 const i18n = require('../locales/locales/en.json');
+const { join } = require('path'); // eslint-disable-line import/no-extraneous-dependencies
 
 function checkUnused() {
 	let allFiles = '';

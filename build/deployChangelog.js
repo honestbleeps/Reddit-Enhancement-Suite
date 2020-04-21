@@ -4,11 +4,11 @@
 
 const { execSync } = require('child_process');
 const fs = require('fs');
-const path = require('path'); // eslint-disable-line import/no-extraneous-dependencies
-const rimraf = require('rimraf');
 const { version } = require('../package.json');
 const { changelogPathFromVersion } = require('./utils/changelog');
 const isBetaVersion = require('./isBetaVersion');
+const rimraf = require('rimraf');
+const path = require('path'); // eslint-disable-line import/no-extraneous-dependencies
 
 const tempDir = path.join(__dirname, '..', 'dist', 'temp');
 

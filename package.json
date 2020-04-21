@@ -41,7 +41,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-push": "npm run flow && npm run lint && npm test"
+      "pre-push": "yarn flow && yarn lint && yarn test"
     }
   },
   "nyc": {

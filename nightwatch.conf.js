@@ -3,9 +3,9 @@
 /* eslint-disable import/no-commonjs, import/no-nodejs-modules */
 
 const fs = require('fs');
-const JSZip = require('jszip');
 const chromeManifest = require('./chrome/manifest.json');
 const firefoxManifest = require('./firefox/manifest.json');
+const JSZip = require('jszip');
 
 module.exports = {
 	src_folders: ['tests'],

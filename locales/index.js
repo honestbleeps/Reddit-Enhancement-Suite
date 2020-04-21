@@ -1,7 +1,7 @@
 /* @flow */
 
-import _ from 'lodash';
 import locales from './locales';
+import _ from 'lodash';
 
 // `en-ca` -> `en_CA`
 function redditLocaleToTransifexLocale(redditLocale) {
