@@ -617,8 +617,7 @@ body:not(.res-showImages-displayImageCaptions) {
 }
 
 // Extras for certain text expando's
-.res-expando-box[data-host='wikipedia'],
-.res-expando-box[data-host='liquipedia'] {
+.res-expando-box[data-host='wikipedia'] {
 	.md {
 		padding: 5px;
 		max-width: none;
@@ -660,108 +659,6 @@ body:not(.res-showImages-displayImageCaptions) {
 
 		&::after {
 			clear: both;
-		}
-	}
-}
-
-.res-expando-box[data-host='liquipedia'] {
-	.md {
-		.fo-nttax-infobox {
-			width: 100%;
-			max-width: 300px;
-			border: none;
-			background: #eee;
-			margin-left: 8px;
-			float: right;
-
-			.infobox-cell-2 {
-				width: 46%;
-			}
-
-			.res-nightmode & {
-				color: rgb(221, 221, 221);
-
-				> div:nth-child(2n) {
-					background-color: rgb(60, 60, 60);
-				}
-
-				> div:nth-child(2n+1) {
-					background-color: rgb(57, 57, 57);
-				}
-			}
-
-			> div:nth-child(2n) {
-				background-color: #f5f5f5;
-			}
-
-			> div:nth-child(2n+1) {
-				background-color: #eee;
-			}
-
-			> div > div.infobox-image:not(.infobox-fixed-size-image) img {
-				width: 97%;
-				height: auto;
-			}
-
-			> div {
-				display: table;
-				width: 100%;
-			}
-
-			> div > div {
-				width: 100%;
-				float: left;
-				height: inherit;
-				padding: 5px;
-			}
-
-			.infobox-arrow-icon img {
-				max-width: 9px;
-				max-height: 18px;
-			}
-
-			.infobox-header {
-				font-weight: 700;
-				text-align: center;
-				font-size: 20px;
-			}
-
-			.infobox-description {
-				font-weight: bold;
-				text-align: right;
-			}
-
-			.infobox-icon-small img {
-				max-width: 20px;
-				max-height: 20px;
-				vertical-align: top;
-			}
-		}
-
-		.icon-16px {
-			width: 16px;
-			height: 16px;
-			text-align: center;
-			display: inline-block;
-		}
-
-		.icon-16px img {
-			width: auto;
-			height: auto;
-			max-width: 16px;
-			max-height: 16px;
-		}
-
-		.league-icon-small-image img,
-		.icon-small img {
-			max-width: 25px;
-			max-height: 25px;
-		}
-
-		.flag img {
-			width: 18px;
-			height: 12px;
-			vertical-align: middle;
 		}
 	}
 }
