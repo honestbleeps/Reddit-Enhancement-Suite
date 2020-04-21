@@ -39,11 +39,6 @@
     "deploy-changelog": "node build/deployChangelog.js",
     "version": "node build/version.js"
   },
-  "husky": {
-    "hooks": {
-      "pre-push": "npm run flow && npm run lint && npm test"
-    }
-  },
   "nyc": {
     "all": true,
     "exclude": [
@@ -104,7 +99,6 @@
     "firefox-extension-deploy": "1.1.2",
     "flow-bin": "0.84.0",
     "html-loader": "0.5.5",
-    "husky": "4.2.3",
     "inert-entry-webpack-plugin": "4.0.2",
     "interpolate-loader": "2.0.1",
     "jscodeshift": "0.7.0",
