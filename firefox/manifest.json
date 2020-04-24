@@ -63,6 +63,7 @@
 		],
 		"run_at": "document_start"
 	}],
+	"content_security_policy": "default-src 'self'; img-src 'self' data:; connect-src https:; frame-ancestors https://*.reddit.com",
 	"permissions": [
 		"https://*.reddit.com/*",
 		"cookies",
