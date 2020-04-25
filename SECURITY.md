@@ -25,7 +25,7 @@ Mozilla Firefox ESR 68: We will backport depending on the impact of the vulnerab
 In order to report a vulnerability/security concern, please send an email to: ben@redditenhancementsuite.com and we will respond confirming the report. Please provide as much detail as possible for initial triage, a public PGP key is provided below if you would like to use it.
 
 We will aim to respond in 24 hours, if you do not get a response in this timeframe place raise a GitHub issue stating you are having problems contacting us.
-
+~~~
 -----BEGIN PGP PUBLIC KEY BLOCK-----
 
 mQENBF6jZT8BCADeOB44ztxiKfou2eM5eoMwwY6jY/gHm9MtBXjPRaWUw8MFDMJw
@@ -55,5 +55,6 @@ ux+SMqzlLWk+AqvPXsZ8UuCTqtLQSkh813dUkj09NhE8RZYb8ozSs+42UTaGudCb
 SF/pnmUp/cyUk3CRiASwIWBK7b0K29Nb+cRt/6D9vOvotA13OVrFgNcSMZk+gpik
 M2+9lf53dSyHP2LbgHf7b5ZKsTTQz8LHeLq4qmWlImJJMQ06IBsk4AUZO+g1Qw==
 =Jcd3
-
 -----END PGP PUBLIC KEY BLOCK-----
+
+~~~
