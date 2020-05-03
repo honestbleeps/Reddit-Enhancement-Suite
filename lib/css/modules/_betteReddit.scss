@@ -1,3 +1,9 @@
+.res-betteReddit-permanentVerticalScrollbar {
+	body {
+		overflow-y: scroll;
+	}
+}
+
 .res-betteReddit-showLastEditedTimestamp {
 	.edited-timestamp[title]::after {
 		content: ' (' attr(title) ')';
