@@ -997,7 +997,7 @@
 		"message": "/r/all"
 	},
 	"logoLinkHot": {
-		"message": "/hot"
+		"message": "/hot/"
 	},
 	"logoLinkDashboard": {
 		"message": "Dashboard"
@@ -1845,6 +1845,9 @@
 	"backupAndRestoreRestoreDesc": {
 		"message": "Restore a backup of your RES settings."
 	},
+	"backupAndRestoreRestoreDescFirefox": {
+		"message": "Restore a backup of your RES settings. Note that OneDrive backups for Firefox are separate from OneDrive backups for other browsers."
+	},
 	"backupAndRestoreImported": {
 		"message": "Your RES storage has been imported. Reloading reddit."
 	},
@@ -1922,6 +1925,12 @@
 	},
 	"betteRedditPinHeaderDesc": {
 		"message": "Pin the subreddit bar, user menu, or header to top, floating down as you scroll."
+	},
+	"betteRedditPermanentVerticalScrollbarTitle": {
+		"message": "Permanent vertical scrollbar"
+	},
+	"betteRedditPermanentVerticalScrollbarDesc": {
+		"message": "Display the vertical body scrollbar during the entire page lifespan. This prevents the content shifting during load."
 	},
 	"betteRedditShowLastEditedTimestampTitle": {
 		"message": "Show Last Edited Timestamp"
@@ -2698,10 +2707,6 @@
 	"userTaggerMyUserTags": {
 		"message": "My User Tags"
 	},
-	"userTaggerShow": {
-		"message": "Show",
-		"description": "As in 'Show tagged users' or 'Show all users'"
-	},
 	"userTaggerTaggedUsers": {
 		"message": "tagged users"
 	},
@@ -2765,7 +2770,7 @@
 		"message": "Automatic Night Mode"
 	},
 	"nightModeAutomaticNightModeDesc": {
-		"message": "Enable automatic night mode.\n\nIn automatic mode, you will be prompted to share your location. Your location will only be used to calculate sunrise & sunset times.\n\nIn user-defined hours mode, night mode automatically starts and stops at the times configured below.\n\nFor the times below, a 24-hour clock (\"military time\") from 0:00 to 23:59 is used.\ne.g. the time 8:20pm would be written as 20:20, and 12:30am would be written as 00:30 or 0:30.\n\nTo temporarily override automatic night mode, manually flip the night mode switch.\nConfigure how long the override lasts below."
+		"message": "Enable automatic night mode.\n\nIn **automatic** mode, you will be prompted to share your location. Your location will only be used to calculate sunrise & sunset times.\n\nIn **user-defined hours** mode, night mode automatically starts and stops at the times configured below.\n\nFor the times below, a 24-hour clock (\"military time\") from 0:00 to 23:59 is used.\ne.g. the time 8:20pm would be written as 20:20, and 12:30am would be written as 00:30 or 0:30.\n\nBy choosing **system preference**, night mode is enabled only when the browser or OS indicates that a dark theme is preferred.\n\nTo temporarily override automatic night mode, manually flip the night mode switch.\nConfigure how long the override lasts below."
 	},
 	"nightModeAutomaticNightModeNone": {
 		"message": "Disabled"
@@ -2775,6 +2780,9 @@
 	},
 	"nightModeAutomaticNightModeUser": {
 		"message": "User-defined hours"
+	},
+	"nightModeAutomaticNightModeSystem": {
+		"message": "System preference"
 	},
 	"nightModeAutomaticNightModeDenied": {
 		"message": "Access to your current location was denied. It is required to calculate sunset and sunrise times for automatic night mode. To disable this functionality, click \"$1\"."
@@ -2852,7 +2860,7 @@
 		"message": "Request Permissions"
 	},
 	"requestPermissionsDesc": {
-		"message": "Grant optional permissions now so that prompts won't appear later.\n\nIf no prompt appears when enabling this, permissions are already granted."
+		"message": "Grant optional permissions now so that prompts won't appear later.\n\nIf no prompt appears when enabling this, permissions are likely already granted."
 	},
 	"RESTipsDailyTipDesc": {
 		"message": "Show a random tip once every 24 hours."

@@ -24,7 +24,7 @@ module.exports = {
 
 			// enable keepLoggedIn
 			.click('#keepLoggedInContainer')
-			.assert.cssClassNotPresent('#moduleOptionsSave', 'optionsSaved', 'options staged')
+			.assert.not.cssClassPresent('#moduleOptionsSave', 'optionsSaved', 'options staged')
 
 			// click save
 			.click('#moduleOptionsSave')
@@ -51,7 +51,7 @@ module.exports = {
 
 			// select "simple arrow" dropdown style
 			.click('#dropDownStyle-1')
-			.assert.cssClassNotPresent('#moduleOptionsSave', 'optionsSaved', 'options staged')
+			.assert.not.cssClassPresent('#moduleOptionsSave', 'optionsSaved', 'options staged')
 
 			// click save
 			.click('#moduleOptionsSave')
@@ -82,7 +82,7 @@ module.exports = {
 			// set a value for defaultSubject
 			.setValue('#defaultSubject', ['test subject'])
 			.pause(1000)
-			.assert.cssClassNotPresent('#moduleOptionsSave', 'optionsSaved', 'options staged')
+			.assert.not.cssClassPresent('#moduleOptionsSave', 'optionsSaved', 'options staged')
 
 			// click save
 			.click('#moduleOptionsSave')
@@ -112,7 +112,7 @@ module.exports = {
 			.click('#optionContainer-accountSwitcher-accounts .addRowButton')
 			.setValue('#accounts_accountSwitcherUsername_1', ['test'])
 			.pause(1000)
-			.assert.cssClassNotPresent('#moduleOptionsSave', 'optionsSaved', 'options staged')
+			.assert.not.cssClassPresent('#moduleOptionsSave', 'optionsSaved', 'options staged')
 
 			// click save
 			.click('#moduleOptionsSave')
@@ -130,10 +130,10 @@ module.exports = {
 			.waitForElementVisible('#RESConsoleContainer')
 			.assert.cssClassPresent('.moduleToggle', 'enabled')
 			.click('.moduleToggle')
-			.assert.cssClassNotPresent('.moduleToggle', 'enabled')
+			.assert.not.cssClassPresent('.moduleToggle', 'enabled')
 			.refresh()
 			.waitForElementVisible('#RESConsoleContainer')
-			.assert.cssClassNotPresent('.moduleToggle', 'enabled')
+			.assert.not.cssClassPresent('.moduleToggle', 'enabled')
 			.end();
 	},
 	'adding a row to table option doesn\'t duplicate value': browser => {

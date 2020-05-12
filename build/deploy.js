@@ -6,7 +6,6 @@ const fs = require('fs'); // eslint-disable-line import/no-extraneous-dependenci
 const path = require('path'); // eslint-disable-line import/no-extraneous-dependencies
 const chromeDeploy = require('chrome-extension-deploy');
 const firefoxDeploy = require('firefox-extension-deploy');
-const operaDeploy = require('opera-extension-deploy');
 const { version } = require('../package.json');
 const isBetaVersion = require('./isBetaVersion');
 
@@ -20,7 +19,6 @@ if (isBetaVersion(version)) {
 	deployChromeBeta();
 	deployChromeStable();
 	deployFirefoxStable();
-	deployOperaStable();
 }
 
 function deployChromeBeta() {
@@ -72,23 +70,5 @@ function deployFirefoxStable() {
 	}, err => {
 		console.error('Firefox stable failed:', err);
 		process.exitCode = 1;
-	});
-}
-
-function deployOperaStable() {
-	console.log('Deploying Opera stable...');
-
-	operaDeploy({
-		username: process.env.OPERA_USER,
-		password: process.env.OPERA_PASSWORD,
-		id: '53435',
-		zip: fs.readFileSync(path.join(__dirname, '../dist/zip/chrome.zip')),
-	}).then(() => {
-		console.log('Opera stable deployment complete!');
-	}, err => {
-		console.error('Opera stable failed:', err);
-		// FIXME There's an known issue with the Opera deployment,
-		// don't report that as an failure
-		// process.exitCode = 1;
 	});
 }

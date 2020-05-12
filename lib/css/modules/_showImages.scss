@@ -51,7 +51,7 @@ img {
 	vertical-align: middle;
 
 	.expando-button {
-		margin: calc(calc(1em * .5) - 50%) 0 0 0  !important;
+		margin: calc(calc(1em * .5) - 50%) 0 0 0 !important;
 		transform: scale(0.8); // Try to not exceed height of line
 	}
 
@@ -288,30 +288,14 @@ img {
 		font-size: 12px;
 	}
 
-	.res-gallery-individual-controls {
-		display: flex;
-		align-items: center;
-		margin: 4px 0 4px 10px;
+	.res-gallery-to-filmstrip {
+		margin-left: 1em;
+		cursor: pointer;
 
-		&[last-piece=true] .res-gallery-next::after,
-		&[first-piece=true] .res-gallery-previous::after {
-			content: '\F157';
-		}
-
-		&[last-piece=true] .res-gallery-next,
-		&[first-piece=true] .res-gallery-previous {
-			transform: scaleX(-1);
-		}
-
-		.res-gallery-to-filmstrip {
-			margin-left: 1em;
-			cursor: pointer;
-
-			&::before {
-				content: '🎞';
-				display: block;
-				transform: rotate(90deg);
-			}
+		&::before {
+			content: '🎞';
+			display: block;
+			transform: rotate(90deg);
 		}
 	}
 
@@ -327,12 +311,6 @@ img {
 
 		.res-gallery-increase-concurrent {
 			cursor: pointer;
-		}
-	}
-
-	&:not(.res-gallery-slideshow) {
-		.res-gallery-individual-controls {
-			display: none;
 		}
 	}
 }

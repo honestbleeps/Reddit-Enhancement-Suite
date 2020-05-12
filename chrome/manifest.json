@@ -58,6 +58,7 @@
 		],
 		"run_at": "document_start"
 	}],
+	"content_security_policy": "default-src 'self'; img-src 'self' data:; connect-src https:; frame-ancestors https://*.reddit.com",
 	"permissions": [
 		"https://*.reddit.com/*",
 		"cookies",
@@ -77,13 +78,12 @@
 		"https://api.tumblr.com/v2/blog/*/posts",
 		"https://xkcd.com/*/info.0.json",
 		"https://api.steampowered.com/ISteamRemoteStorage/GetPublishedFileDetails/*",
-		"https://*.googleusercontent.com/download/drive/v3/*",
-		"https://content.googleapis.com/drive/v3/*",
+		"https://www.googleapis.com/drive/v3/*",
 		"https://v.redd.it/*/DASHPlaylist.mpd",
 		"https://www.flickr.com/services/oembed",
 
 		"https://redditenhancementsuite.com/oauth",
-		"https://accounts.google.com/o/oauth2/v2/auth",
+		"https://accounts.google.com/signin/oauth",
 		"https://www.dropbox.com/oauth2/authorize",
 		"https://login.live.com/oauth20_authorize.srf"
 	],

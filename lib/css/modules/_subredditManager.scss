@@ -19,11 +19,12 @@
 	z-index: 9999;
 	border: 1px solid black;
 	background-color: #FAFAFA;
-	width: auto;
+	min-width: 320px;
+	padding: 2px 2px 0 2px;
 	overflow-y: auto;
 	overscroll-behavior-y: contain;
 
-	tr {
+	tbody tr {
 		border-bottom: 1px solid gray;
 
 		&:hover {
