@@ -24,40 +24,23 @@
 	},
 	"extends": ["eslint:all", "plugin:ava/recommended"],
 	"rules": {
-		"flowtype/array-style-complex-type": 0,
-		"flowtype/array-style-simple-type": 0,
 		"flowtype/boolean-style": 2,
 		"flowtype/define-flow-type": 2,
 		"flowtype/delimiter-dangle": [2, "always-multiline"],
 		"flowtype/generic-spacing": 2,
-		"flowtype/newline-after-flow-annotation": 0,
-		"flowtype/no-dupe-keys": 0, // temporarily disabled, https://github.com/gajus/eslint-plugin-flowtype/pull/266
-		"flowtype/no-existential-type": 0,
-		"flowtype/no-flow-fix-me-comments": 0,
-		"flowtype/no-mutable-array": 0,
 		"flowtype/no-primitive-constructor-types": 2,
 		"flowtype/no-types-missing-file-annotation": 2,
 		"flowtype/no-unused-expressions": 2,
 		"flowtype/no-weak-types": [2, { "any": false }],
-		"flowtype/object-type-delimiter": 0,
-		"flowtype/require-exact-type": 0,
-		"flowtype/require-parameter-type": 0,
-		"flowtype/require-return-type": 0,
-		"flowtype/require-types-at-top": 0,
 		"flowtype/require-valid-file-annotation": [2, "always"],
-		"flowtype/require-variable-type": 0,
 		"flowtype/semi": 2,
-		"flowtype/sort-keys": 0,
 		"flowtype/space-after-type-colon": 2,
 		"flowtype/space-before-generic-bracket": 2,
 		"flowtype/space-before-type-colon": 2,
 		"flowtype/type-id-match": [2, "^([A-Z][a-z0-9]+)+$"],
 		"flowtype/type-import-style": [2, "declaration"],
 		"flowtype/union-intersection-spacing": 2,
-		"flowtype/use-flow-type": 0, // this doesn't seem to be necessary, except in flow/ where they aren't used directly
 		"flowtype/valid-syntax": 2,
-
-		"ava/prefer-async-await": 0,
 
 		"dollar-sign/dollar-sign": [2, "ignoreProperties"],
 
@@ -67,9 +50,7 @@
 
 		"function-call-argument-newline": 0,
 
-		"filenames/match-regex": 0,
 		"filenames/match-exported": 2,
-		"filenames/no-index": 0,
 
 		"import/no-restricted-paths": [2, { "zones": [
 			{ "target": "./lib/core", "from": "./lib/modules" },
@@ -82,15 +63,12 @@
 		] }],
 		"import/default": 2,
 		"import/dynamic-import-chunkname": 2,
-		"import/export": 2,
 		"import/exports-last": 0,
 		"import/extensions": [2, { "js": "never" }],
 		"import/first": 2,
 		"import/group-exports": 0,
 		"import/imports-first": 2,
 		"import/max-dependencies": 0,
-		"import/named": 2,
-		"import/namespace": 2,
 		"import/newline-after-import": 2,
 		"import/no-absolute-path": 2,
 		"import/no-amd": 2,
