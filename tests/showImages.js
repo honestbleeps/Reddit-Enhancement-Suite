@@ -12,8 +12,8 @@ module.exports = {
 			.click('.expando-button')
 			.waitForElementVisible('.res-expando-box')
 			.assert.attributeEquals('.res-expando-box', 'data-host', 'default')
-			.assert.attributeEquals('.res-expando-box img', 'src', 'https://media.snl.no/system/images/59080/article_topimage_flagg2.png')
-			.assert.attributeEquals('.res-expando-box a', 'href', 'https://media.snl.no/system/images/59080/article_topimage_flagg2.png')
+			.assert.attributeEquals('.res-expando-box img', 'src', 'https://upload.wikimedia.org/wikipedia/commons/b/b1/Joe_Exotic_%28Santa_Rose_County_Jail%29.png')
+			.assert.attributeEquals('.res-expando-box a', 'href', 'https://upload.wikimedia.org/wikipedia/commons/b/b1/Joe_Exotic_%28Santa_Rose_County_Jail%29.png')
 
 			.pause(1000)
 			.windowHandles(result => {
@@ -27,7 +27,7 @@ module.exports = {
 			.windowHandles(result => {
 				browser.switchWindow(result.value.find(win => !oldWindowHandles.includes(win)));
 			})
-			.assert.urlContains('/article_topimage_flagg2.png')
+			.assert.urlContains('/Joe_Exotic_(Santa_Rose_County_Jail).png')
 
 			.end();
 	},
