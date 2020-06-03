@@ -5,7 +5,6 @@
 import path from 'path'; // eslint-disable-line import/no-extraneous-dependencies
 
 import InertEntryPlugin from 'inert-entry-webpack-plugin';
-import LodashModuleReplacementPlugin from 'lodash-webpack-plugin';
 import ZipPlugin from 'zip-webpack-plugin';
 import sass from 'sass';
 
@@ -76,7 +75,6 @@ export default (env = {}, argv = {}) => {
 									'process.env.BUILD_TARGET': conf.target,
 									'process.env.NODE_ENV': argv.mode,
 								}],
-								'lodash',
 							],
 							comments: !isProduction,
 							babelrc: false,
@@ -143,7 +141,6 @@ export default (env = {}, argv = {}) => {
 		},
 		plugins: [
 			new InertEntryPlugin(),
-			new LodashModuleReplacementPlugin(),
 			(env.zip && !conf.noZip && new ZipPlugin({
 				path: path.join('..', 'zip'),
 				filename: conf.output,
