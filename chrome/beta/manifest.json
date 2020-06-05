@@ -5,7 +5,7 @@
 	"description": "{{prop-loader?description!../../package.json}}",
 	"author": "{{prop-loader?author!../../package.json}}",
 	"homepage_url": "{{prop-loader?homepage!../../package.json}}",
-	"minimum_chrome_version": "76",
+	"minimum_chrome_version": "83",
 	"icons": {
 		"48": "{{../../images/beta48.png}}",
 		"128": "{{../../images/beta128.png}}"
