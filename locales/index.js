@@ -1,6 +1,6 @@
 /* @flow */
 
-import _ from 'lodash';
+import { mapValues } from 'lodash-es';
 import locales from './locales';
 
 // `en-ca` -> `en_CA`
@@ -42,5 +42,5 @@ export function getLocaleDictionary(localeName: string): { [string]: string } {
 		...locales[transifexLocale],
 	};
 
-	return _.mapValues(mergedLocales, x => x.message);
+	return mapValues(mergedLocales, x => x.message);
 }

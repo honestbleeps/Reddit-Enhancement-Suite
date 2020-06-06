@@ -22,7 +22,7 @@
 		"node": true,
 		"es6": true
 	},
-	"extends": ["eslint:all", "plugin:ava/recommended"],
+	"extends": ["eslint:all", "plugin:ava/recommended", "plugin:you-dont-need-lodash-underscore/all"],
 	"rules": {
 		"flowtype/boolean-style": 2,
 		"flowtype/define-flow-type": 2,
@@ -40,6 +40,8 @@
 		"flowtype/type-import-style": [2, "declaration"],
 		"flowtype/union-intersection-spacing": 2,
 		"flowtype/valid-syntax": 2,
+
+		"you-dont-need-lodash-underscore/throttle": 0,
 
 		"dollar-sign/dollar-sign": [2, "ignoreProperties"],
 

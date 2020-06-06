@@ -4,7 +4,8 @@
 
 import fs from 'fs';
 import path from 'path'; // eslint-disable-line import/no-extraneous-dependencies
-import _ from 'lodash';
+import { mapValues, startCase } from 'lodash-es';
+
 
 export default function i18nTransformer(file, api) {
 	const j = api.jscodeshift;
@@ -39,7 +40,7 @@ export default function i18nTransformer(file, api) {
 			const optName = optionPath.node.key.name;
 
 			const titleKey = `${modName}${upCase(optName)}Title`;
-			newI18nKeys[titleKey] = _.startCase(optName);
+			newI18nKeys[titleKey] = startCase(optName);
 			optionPath.node.value.properties.unshift(j.property('init', j.identifier('title'), j.literal(titleKey)));
 
 			j(optionPath)
@@ -59,7 +60,7 @@ export default function i18nTransformer(file, api) {
 	const enJson = fs.readFileSync(enJsonLocation, { encoding: 'utf8' });
 
 	const enJsonObj = JSON.parse(enJson);
-	Object.assign(enJsonObj, _.mapValues(newI18nKeys, message => ({ message })));
+	Object.assign(enJsonObj, mapValues(newI18nKeys, message => ({ message })));
 	const newEnJson = JSON.stringify(enJsonObj, null, '\t');
 
 	fs.writeFileSync(enJsonLocation, newEnJson);
