@@ -139,6 +139,9 @@ export default (env = {}, argv = {}) => {
 			minimize: false,
 			concatenateModules: true,
 		},
+		resolve: {
+			mainFields: ['module', 'main', 'browser'],
+		},
 		plugins: [
 			new InertEntryPlugin(),
 			(env.zip && !conf.noZip && new ZipPlugin({
