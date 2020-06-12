@@ -6,5 +6,6 @@ export default {
 	],
 	require: [
 		'@babel/register',
+		'esm',
 	],
 };
