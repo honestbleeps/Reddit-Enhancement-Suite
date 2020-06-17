@@ -2451,6 +2451,18 @@
 	"filteRedditFlairDesc": {
 		"message": "Hide posts where certain keywords are in the post's link flair."
 	},
+	"filteRedditCommentContentTitle": {
+		"message": "Comment Content"
+	},
+	"filteRedditCommentContentDesc": {
+		"message": "Hide comments containing certain keywords.\n\nAdvanced examples:\n\n`/^/?r/w/i` hides all links to subreddits\n\n`/(?=^.{0,40}$)(?=.*cake day.*)/im` hides all short comment (at most 40 characters) that contains `cake day`"
+	},
+	"filteRedditCommentContentHideRepliesTitle": {
+		"message": "Comment Content Hide Replies"
+	},
+	"filteRedditCommentContentHideRepliesDesc": {
+		"message": "When disabled, matching comments are completely hidden only when they don't have any replies."
+	},
 	"filteRedditUsername": {
 		"message": "Username"
 	},
