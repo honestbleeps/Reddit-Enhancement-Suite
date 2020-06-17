@@ -1,7 +1,3 @@
-.srOver {
-	outline: 1px dashed black;
-}
-
 .res-subredditManager #sr-header-area {
 	overflow: hidden;
 
@@ -328,11 +324,6 @@
 	&::before {
 		content: '\F155';
 		font-family: 'Batch';
-	}
-
-	&.srOver {
-		outline: none;
-		border-color: rgb(200, 50, 50);
 	}
 }
 
