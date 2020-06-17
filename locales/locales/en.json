@@ -2461,7 +2461,7 @@
 		"message": "Comment Content"
 	},
 	"filteRedditCommentContentDesc": {
-		"message": "Hide comments containing certain keywords.\n\nAdvanced examples:\n\n`/^/?r/w/i` hides all links to subreddits\n\n`/(?=^.{0,40}$)(?=.*cake day.*)/im` hides all short comment (at most 40 characters) that contains `cake day`"
+		"message": "Hide comments containing certain keywords.\n\nAdvanced examples:\n\n`/^/?r/w$/s` hides comments which only links to a subreddit\n\n`/(?=^.{0,40}$)(?=.*cake day.*)/is` hides short comment (at most 40 characters) that contains `cake day`"
 	},
 	"filteRedditCommentContentHideRepliesTitle": {
 		"message": "Comment Content Hide Replies"
