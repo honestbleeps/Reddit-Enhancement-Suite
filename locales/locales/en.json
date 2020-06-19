@@ -2371,13 +2371,13 @@
 		"message": "Users Match Action"
 	},
 	"filteRedditUsersMatchActionDesc": {
-		"message": "When filtering users in the above list, how should they be ignored?\n\n**Hidden**: Hide all links, and hide comments unless they have visible replies, in which case fade and reduce its size.\n\n**Replaced with placeholder**: Display a placeholder which can be clicked on to display the post's original content."
+		"message": "When filtering users in the above list, how should they be ignored?\n\n**Hidden**: Hide all links and comments.\n\n**Replaced with placeholder**: Display a placeholder which can be clicked on to display the post's original content."
 	},
 	"filteRedditUsersMatchRepliesActionTitle": {
 		"message": "Users Match Replies Action"
 	},
 	"filteRedditUsersMatchRepliesActionDesc": {
-		"message": "What should be done to replies of filtered comments?"
+		"message": "What should be done to filtered comments which has replies?\n\n**Kept visible**: Show replies normally, but fade and shrink the filtered comment.\n\n**Collapsed**: Like _kept visible_, but collapse the filtered comment.\n\n**Hidden**: Hide both the filtered comment and its replies."
 	},
 	"filteRedditNSFWfilterTitle": {
 		"message": "NSFW Filter"
