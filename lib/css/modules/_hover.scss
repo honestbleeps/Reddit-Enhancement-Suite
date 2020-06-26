@@ -107,18 +107,22 @@
 		position: relative;
 		cursor: pointer;
 		border-bottom: 1px solid #369;
-		line-height: 34px;
+		line-height: 19px;
 		font-weight: bold;
 		color: #c9def2;
-		padding-left: 10px;
+		padding: 8px 3px 8px 10px;
 		box-sizing: content-box;
+
+		> div {
+			display: flex;
+		}
 	}
 
 	.toggleButton {
-		line-height: 14px;
-		right: 5px;
-		top: 9px;
-		position: absolute;
+		margin-left: auto;
+		justify-content: center;
+		align-content: center;
+		height: 19px;
 	}
 
 	a {
