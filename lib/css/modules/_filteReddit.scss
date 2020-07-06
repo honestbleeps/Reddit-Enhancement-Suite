@@ -47,6 +47,10 @@ html:not(.res-filters-disabled):not(.res-display-match-reason) {
 	}
 }
 
+.res-thing-filterline-highlight {
+	background-color: rgba(255, 155, 155, .16);
+}
+
 .res-thing-has-placeholder {
 	&.link {
 		a.title,
