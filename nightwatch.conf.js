@@ -42,7 +42,7 @@ module.exports = {
 		firefox: {
 			desiredCapabilities: {
 				browserName: 'firefox',
-				version: 'dev',
+				version: firefoxManifest.applications.gecko.strict_min_version,
 				firefox_profile: getFirefoxProfile(),
 			},
 		},
