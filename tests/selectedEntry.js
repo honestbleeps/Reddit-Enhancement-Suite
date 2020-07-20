@@ -1,5 +1,11 @@
 module.exports = {
 	'selecting on comments page': browser => {
+		if (browser.options.desiredCapabilities.browserName === 'firefox') {
+			// Firefox 79.0a seemingly has a bug which prevents RES initializing during the test
+			browser.end();
+			return;
+		}
+
 		const selectedClass = 'RES-keyNav-activeThing';
 		const parentPost = '#thing_t3_5lfy0v';
 		const stickiedComment = '#thing_t1_dbvc8xr';
