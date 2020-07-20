@@ -45,6 +45,13 @@
 @import 'modules/commentQuickCollapse';
 @import 'modules/wheelBrowse';
 
+@font-face {
+	font-family: 'Batch';
+	src: url('../fonts/batch-icons-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
 body.res-console-open {
 	overflow: hidden;
 }

@@ -63,7 +63,7 @@
 		],
 		"run_at": "document_start"
 	}],
-	"content_security_policy": "default-src 'self'; img-src 'self' data:; connect-src https:; frame-ancestors https://*.reddit.com",
+	"content_security_policy": "default-src 'self'; img-src 'self' data:; connect-src https:; font-src 'self' data:; frame-ancestors https://*.reddit.com",
 	"permissions": [
 		"https://*.reddit.com/*",
 		"cookies",
@@ -87,7 +87,6 @@
 		"https://www.flickr.com/services/oembed"
 	],
 	"web_accessible_resources": [
-		"{{../../lib/fonts/batch-icons-webfont.woff}}",
 		"{{../../lib/environment/background/permissions/prompt.html}}",
 		"{{../../lib/environment/background/permissions/prompt.entry.js}}",
 		"{{../../lib/options/options.html}}"
