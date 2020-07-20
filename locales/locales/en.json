@@ -1836,6 +1836,18 @@
 	"backupAndRestoreWarnBeforeAutomaticRestoreTitle": {
 		"message": "Warn Before Automatic Restore"
 	},
+	"backupAndRestoreAutomaticRestoreDesc": {
+		"message": "Should RES automatically restore a newer backup (e.g. from another computer) when available?"
+	},
+	"backupAndRestoreAutomaticRestoreTitle": {
+		"message": "Automatic Restore"
+	},
+	"backupAndRestoreSyncFrequencyDesc": {
+		"message": "How often (in hours) should RES update its backup?"
+	},
+	"backupAndRestoreSyncFrequencyTitle": {
+		"message": "Sync Frequency"
+	},
 	"backupAndRestoreWarnBeforeAutomaticRestoreDesc": {
 		"message": "Before automatically restoring a backup, should a popup ask for confirmation?\n\nWarning: if this option is disabled and something goes wrong, your settings may be silently deleted. Use at your own risk."
 	},
