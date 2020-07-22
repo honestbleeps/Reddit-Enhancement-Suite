@@ -13,12 +13,11 @@ We support the latest version of RES on all supported browsers. Please see below
 | Google Chrome   | :white_check_mark: |
 | Mozilla Firefox   | :white_check_mark:                |
 | Mozilla Firefox ESR 78   | :white_check_mark:                |
-| Mozilla Firefox ESR 68   | :grey_question:*                |
+| Mozilla Firefox ESR 68   | :x:                 |
 | Microsoft Edge   | :x:                |
 | Microsoft Edge Chromium  | :white_check_mark:                |
 | Safari  | :x:                |
 
-Mozilla Firefox ESR 68: We will backport depending on the impact of the vulnerability.
 
 ## Reporting a Vulnerability
 
