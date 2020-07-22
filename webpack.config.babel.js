@@ -131,7 +131,7 @@ export default (env = {}, argv = {}) => {
 			}, {
 				test: /\.woff$/,
 				use: [
-					{ loader: 'file-loader', options: { esModule: false, name: '[name].[ext]' } },
+					{ loader: 'url-loader', options: { esModule: false } },
 				],
 			}],
 		},
