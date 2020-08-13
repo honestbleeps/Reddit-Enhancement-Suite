@@ -105,7 +105,7 @@ export default (env = {}, argv = {}) => {
 				use: [
 					{ loader: 'file-loader', options: { esModule: false, name: '[name].css' } },
 					{ loader: 'extricate-loader', options: { resolve: '\\.js$' } },
-					{ loader: 'css-loader' },
+					{ loader: 'css-loader', options: { esModule: false } },
 					{ loader: 'postcss-loader' },
 					{ loader: 'sass-loader', options: { implementation: sass } },
 				],
