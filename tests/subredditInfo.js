@@ -15,9 +15,6 @@ module.exports = {
 			.assert.containsText('.RESHover', '/r/RESIntegrationTests')
 			.assert.visible('.RESHover a[href$="/r/RESIntegrationTests"]')
 			.assert.containsText('.RESHover', 'Subreddit created:')
-			.moveToElement('.RESHover .RESCloseButton', 0, 0)
-			.click('.RESHover .RESCloseButton')
-			.waitForElementNotPresent('.RESHover')
 			.end();
 	},
 };
