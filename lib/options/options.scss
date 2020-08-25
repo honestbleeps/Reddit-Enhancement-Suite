@@ -21,6 +21,10 @@ li {
 }
 
 #RESConsoleContainer {
+	&:not(.advanced-options-enabled) .advanced {
+		display: none;
+	}
+
 	background-color: #fff;
 }
 
@@ -94,11 +98,6 @@ li {
 	padding-left: 5px;
 	height: calc(100vh - 61px);
 
-	&.advanced-options-disabled .SearchRES-result-item.advanced,
-	&.advanced-options-disabled .optionContainer.advanced {
-		display: none;
-	}
-
 	#contributeContents {
 		padding-top: 15px;
 
@@ -155,7 +154,7 @@ li {
 
 #RESConfigPanelModulesList {
 	color: rgb(80, 80, 80);
-	height: calc(100% - 50px);
+	height: calc(100% - 55px);
 	overflow-y: auto;
 
 	> ul {
