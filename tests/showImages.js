@@ -27,6 +27,7 @@ module.exports = {
 			.windowHandles(result => {
 				browser.switchWindow(result.value.find(win => !oldWindowHandles.includes(win)));
 			})
+			.pause(1000)
 			.assert.urlContains('https://upload.wikimedia.org/wikipedia/commons/b/b1/Joe_Exotic_%28Santa_Rose_County_Jail%29.png')
 
 			.end();

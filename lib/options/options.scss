@@ -21,11 +21,11 @@ li {
 }
 
 #RESConsoleContainer {
+	background-color: #fff;
+
 	&:not(.advanced-options-enabled) .advanced {
 		display: none;
 	}
-
-	background-color: #fff;
 }
 
 .RESDonateButton {
