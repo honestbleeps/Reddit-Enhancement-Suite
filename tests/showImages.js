@@ -1,5 +1,11 @@
 module.exports = {
 	'image expando': browser => {
+		if (browser.options.desiredCapabilities.browserName === 'firefox') {
+			// firefox is not able to perform the tab switch part of the test
+			browser.end();
+			return;
+		}
+
 		let oldWindowHandles;
 
 		browser
