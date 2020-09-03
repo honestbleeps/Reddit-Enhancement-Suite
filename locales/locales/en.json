@@ -165,6 +165,9 @@
 	"accountSwitcherUnknownError": {
 		"message": "Could not log in as $1 due to an unknown error: $2\n\nCheck your settings?"
 	},
+	"accountSwitcherOTPError": {
+		"message": "Could not log in as $1 due to an invalid one time password.\n\nCheck your settings?"
+	},
 	"accountSwitcherReload": {
 		"message": "reload"
 	},
