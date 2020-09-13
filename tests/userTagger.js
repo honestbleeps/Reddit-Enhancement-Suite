@@ -43,7 +43,7 @@ module.exports = {
 			.keys(['.'])
 			.assert.visible('#keyCommandLineWidget')
 			.keys(['tag tag via cli'])
-			.waitForElementVisible('css selector', #keyCommandInputTip:not(:empty)')
+			.waitForElementVisible('css selector', '#keyCommandInputTip:not(:empty)')
 			.keys([browser.Keys.ENTER])
 			.assert.containsText(tag(post), 'tag via cli')
 			.end();
