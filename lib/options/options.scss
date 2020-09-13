@@ -214,11 +214,8 @@ li {
 		display: block;
 	}
 
-	// for when the functionality is there
-	&.depends {
-		margin-top: -11px;
-		border-radius: 0 0 2px 2px;
-		background-color: rgb(251, 252, 255);
+	&.dependsOnDisabledOptions {
+		display: none;
 	}
 
 	&.highlight {
