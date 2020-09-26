@@ -66,6 +66,7 @@
 	"content_security_policy": "default-src 'self'; img-src 'self' data:; connect-src https:; font-src 'self' data:; frame-ancestors https://*.reddit.com",
 	"permissions": [
 		"https://*.reddit.com/*",
+		"cookies",
 		"identity",
 		"tabs",
 		"history",
