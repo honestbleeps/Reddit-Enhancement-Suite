@@ -415,11 +415,6 @@ a.RESConsoleButton {
 	&.optionsSaved::before {
 		background: #259;
 	}
-
-	&::-moz-focus-inner {
-		border: none;
-		padding: 0;
-	}
 }
 
 #moduleOptionsSaveStatus {
