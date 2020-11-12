@@ -1,6 +1,6 @@
 # All browsers
 
-1. Run [`yarn build all`](/CONTRIBUTING.md#build-commands) for the desired browser
+1. Run [`yarn build browers=all`](/CONTRIBUTING.md#build-commands).
 
 ## Chrome
 

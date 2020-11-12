@@ -1,4 +1,4 @@
-This project imports several third-party ("vendor") libraries which are unavailable via npm. These files are stored in this directory, along with several ancillary files.
+This project imports several third-party ("vendor") libraries which are unavailable via yarn. These files are stored in this directory, along with several ancillary files.
 
 # SCSS vs CSS
 
