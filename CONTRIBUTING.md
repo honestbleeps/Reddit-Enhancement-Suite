@@ -19,7 +19,7 @@ Thinking about contributing to RES? Awesome! We just ask that you follow a few s
 #### First time installation
 
 1. Install [git](https://git-scm.com/).
-1. Install [node.js](https://nodejs.org) (version >= 8).
+1. Install [node.js](https://nodejs.org) (version >= 10).
 1. Install [yarn](https://yarnpkg.com/lang/en/docs/install/)
 1. [Clone this repository](https://help.github.com/articles/cloning-a-repository/).
 1. Run `yarn` in that folder.
