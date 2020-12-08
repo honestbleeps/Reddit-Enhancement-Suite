@@ -45,7 +45,7 @@ matrix:
         - yarn run integration chrome --retries 1 --suiteRetries 1 && yarn run integration-only firefox --retries 1 --suiteRetries 2
     - env: RES_JOB=build_deploy
       script:
-        - yarn run build all
+        - yarn run build --env browsers=all
       deploy:
         - provider: releases
           api_key:
