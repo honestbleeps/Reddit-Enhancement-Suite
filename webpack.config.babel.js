@@ -25,10 +25,16 @@ const browserConfig = {
 		output: 'firefox',
 		noSourcemap: true,
 	},
-	firefoxbeta: {
-		target: 'firefox',
-		entry: 'firefox/beta/manifest.json',
-		output: 'firefox-beta',
+	opera: {
+		target: 'opera',
+		entry: 'chrome/manifest.json',
+		output: 'opera',
+		noSourcemap: true,
+	},
+	edge: {
+		target: 'edge',
+		entry: 'chrome/manifest.json',
+		output: 'edge',
 	},
 };
 

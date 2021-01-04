@@ -55,7 +55,8 @@ matrix:
             - dist/zip/chrome.zip
             - dist/zip/chrome-beta.zip
             - dist/zip/firefox.zip
-            - dist/zip/firefox-beta.zip
+            - dist/zip/opera.zip
+            - dist/zip/edge.zip
           skip_cleanup: true
           overwrite: true
           on:
