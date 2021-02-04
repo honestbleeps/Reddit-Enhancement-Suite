@@ -1,5 +1,4 @@
 {
-	"ignore": ["ava.config.js"],
 	"plugins": [
 		'@babel/plugin-proposal-export-namespace-from',
 		["@babel/plugin-proposal-class-properties", { "loose": true }],
