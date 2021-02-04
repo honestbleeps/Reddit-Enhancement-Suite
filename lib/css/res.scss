@@ -1,5 +1,4 @@
 @import '../vendor/index';
-
 @import 'zindex';
 @import 'modules/nightMode';
 @import 'modules/version';
@@ -292,7 +291,6 @@ div.usertext-edit {
 			line-height: 0;
 			opacity: 0;
 		}
-
 	}
 
 	// Also custom toggle labels
@@ -360,6 +358,7 @@ div.usertext-edit {
 
 span.multi-count {
 	@extend %res-fancy-toggle-button;
+
 	background: #ff7500;
 	color: white;
 }
@@ -845,11 +844,9 @@ html[res-warning]::before {
 .res-floater {
 	&-list {
 		all: initial;
-
 		display: inline-flex;
 		align-items: center;
 		float: right;
-
 		font-size: 10px;
 
 		> li {

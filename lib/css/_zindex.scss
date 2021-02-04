@@ -1,6 +1,7 @@
 @function _($i) {
 	$base: 10000000;
 	$increment: $base / 100;
+
 	@return $base + $i * $increment;
 }
 

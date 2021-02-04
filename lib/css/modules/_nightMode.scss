@@ -633,7 +633,6 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 		}
 	}
 
-
 	.tagline a {
 		color: hsl(200, 30%, 55%);
 	}
@@ -1676,8 +1675,7 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 		color: $title-link-visited-color;
 	}
 
-
-	.ProfileBarDropdown__list:hover
+	.ProfileBarDropdown__list:hover,
 	.ProfileBarDropdown__listItem:hover {
 		background-color: $header-background-color;
 	}

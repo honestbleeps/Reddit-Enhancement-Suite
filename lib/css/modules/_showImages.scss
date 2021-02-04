@@ -29,11 +29,13 @@ img {
 .title ~ .expando-button {
 	.res-showImages-highlightSpoilerButton .thing.spoiler &::before {
 		@extend %expando-button-overlay;
+
 		background-image: linear-gradient(45deg, rgba(255, 130, 0, .3) 25%, transparent 25%, transparent 50%, rgba(255, 130, 0, .3) 50%, rgba(255, 130, 0, .3) 75%, transparent 75%, transparent);
 	}
 
 	.res-showImages-highlightNSFWButton .thing.over18 &::before {
 		@extend %expando-button-overlay;
+
 		background-image: linear-gradient(45deg, rgba(255, 0, 0, .15) 25%, transparent 25%, transparent 50%, rgba(255, 0, 0, .15) 50%, rgba(255, 0, 0, .15) 75%, transparent 75%, transparent);
 	}
 }
@@ -67,7 +69,6 @@ img {
 	display: inline-block;
 	margin-right: 5px;
 	padding: 0;
-
 	background-image: url('../images/expandoEmpty.svg');
 
 	// Race conditions may cause Reddit to add an expando after ours

@@ -7,7 +7,7 @@ body.hideOver18 {
 .res-thing-filter-unprocessed {
 	// Let the first thing be rendered (but invisible) so that the sidebar flows properly
 	opacity: 0 !important;
-	& ~ * { display: none !important; }
+	~ * { display: none !important; }
 }
 
 html:not(.res-filters-disabled):not(.res-display-match-reason) {
@@ -114,15 +114,17 @@ html:not(.res-filters-disabled):not(.res-display-match-reason) {
 }
 
 .res-filterline {
-	@include filterline-basic-layout;
 
 	$c: &;
+
+	@include filterline-basic-layout;
 
 	font: normal 12px sans-serif, arial;
 	color: gray;
 
 	&-preamble::before {
 		@extend %res-filterline-icon;
+
 		margin: 0 2px;
 	}
 
@@ -169,11 +171,11 @@ html:not(.res-filters-disabled):not(.res-display-match-reason) {
 					overflow: hidden;
 				}
 
-				& #{$v}-group {
+				#{$v}-group {
 					margin: unset;
 					height: 22px;
 
-					& #{$v}-button {
+					#{$v}-button {
 						width: max-content;
 					}
 				}
@@ -220,7 +222,6 @@ html:not(.res-filters-disabled):not(.res-display-match-reason) {
 		all: unset;
 		cursor: pointer;
 		float: right;
-
 		color: darkred;
 		&:checked { color: hsla(120, 100%, 20%, .5); }
 
