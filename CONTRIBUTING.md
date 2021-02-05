@@ -32,7 +32,7 @@ To load the extension into your browser, see [Loading RES into your browser](#lo
 
 **`yarn start [--env browsers=<browsers>]`** will clean `dist/`, then build RES (dev mode), and start a watch task that will rebuild RES when you make changes. Only changed files will be rebuilt.
 
-**`yarn build [--env browsers=<browsers>]`** will clean `dist/`, then build RES (dev mode) a single time.
+**`yarn once [--env browsers=<browsers>]`** will clean `dist/`, then build RES (dev mode) a single time.
 
 **`yarn build [--env browsers=<browsers>]`** will clean `dist/`, then build RES (release mode). Each build output will be compressed to a .zip file in `dist/zip/`.
 
