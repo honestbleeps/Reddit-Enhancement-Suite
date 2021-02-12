@@ -37,7 +37,7 @@ matrix:
       script:
         - yarn run flow check --show-all-errors
         - yarn run eslint
-        - yarn run sass-lint
+        - yarn run stylelint
         - yarn run i18n-lint
     - env: RES_JOB=test
       script:
