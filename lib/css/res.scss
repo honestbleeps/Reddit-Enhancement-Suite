@@ -837,6 +837,7 @@ html[res-warning]::before {
 	opacity: 0.5;
 }
 
+.res-thing-not-completed,
 .res-hide-following ~ * {
 	display: none !important;
 }
