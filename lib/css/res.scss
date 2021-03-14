@@ -535,12 +535,16 @@ span.multi-count {
 	.builderItemControls {
 		display: flex;
 		margin-bottom: 5px;
+		border-bottom: 1px solid #80808033;
 
-		> .builderCustomOptions {
-			margin-left: 10px;
+		.builderCustomOptions {
+			width: 200px;
+			margin: 0;
+
+			input[type='text'] { width: 140px; }
 		}
 
-		> .builderControls {
+		.builderControls {
 			padding: .3em .2em;
 		}
 
@@ -559,12 +563,10 @@ span.multi-count {
 .builderWrap {
 	display: flex;
 	align-items: center;
-	width: stretch;
 	position: relative;
 }
 
 .builderBlock {
-	width: stretch;
 	flex-wrap: wrap;
 	white-space: pre-wrap;
 
@@ -604,7 +606,7 @@ span.multi-count {
 }
 
 .builderMulti {
-	padding: 3px 0;
+	margin: 3px 0;
 
 	li {
 		padding: 3px 0;
