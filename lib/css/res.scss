@@ -167,9 +167,10 @@ body.res-console-open {
 	color: #666;
 	position: relative;
 
-	> h3 {
+	.RESHoverTitle {
 		color: #000;
 		font-size: 14px;
+		line-height: 14px;
 		margin: 0 0 10px;
 		font-weight: normal;
 		background-color: #f0f3fc;
@@ -177,8 +178,7 @@ body.res-console-open {
 		width: auto;
 		position: relative;
 		height: 28px;
-		padding-left: 10px;
-		padding-top: 12px;
+		padding: 12px 35px 0 10px; // Don't overlap close button on the right side
 	}
 
 	.RESDialogContents {
@@ -472,18 +472,10 @@ span.multi-count {
 	input {
 		border: 1px solid;
 		padding: 6px 9px;
-		float: left;
 		background-color: #dfdfdf;
 		cursor: pointer;
 		margin-right: 10px;
-
-		&.button-right {
-			float: right;
-		}
-	}
-
-	> div {
-		margin-bottom: 20px;
+		margin-top: 20px;
 	}
 }
 
@@ -495,10 +487,6 @@ span.multi-count {
 	right: 0;
 	background-color: rgba(0, 0, 0, .7);
 	z-index: $zindex-alert-message - 1;
-}
-
-.res-left {
-	float: left;
 }
 
 .res-icon {
@@ -932,13 +920,15 @@ body.res-dashboard {
 			}
 		}
 
-		.deleteIcon {
-			color: rgba(0, 0, 0, 0);
-			cursor: button;
+		tr:nth-child(2n) {
+			background-color: #7979791a;
 		}
 
-		tr:hover .deleteIcon {
-			color: #369;
+		.deleteIcon {
+			color: transparent;
+			cursor: pointer;
 		}
+
+		tr:hover .deleteIcon { color: #369; }
 	}
 }
