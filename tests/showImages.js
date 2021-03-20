@@ -115,7 +115,7 @@ module.exports = {
 	'crosspost expando': browser => {
 		browser
 			.url('https://en.reddit.com/by_id/t3_7wn64k/')
-			.waitForElementVisible('.expando-button[data-host]') // Look for `data-host` attribute in case RES doen't replace the native expando immediately
+			.waitForElementVisible('.expando-button[data-host]') // Look for `data-host` attribute in case RES doesn't replace the native expando immediately
 			.click('.expando-button')
 			.waitForElementVisible('.res-expando-box')
 			.assert.cssClassPresent('.crosspost-preview', 'res-crosspost-preview')
