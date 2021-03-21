@@ -228,6 +228,7 @@ li {
 
 	&.advanced .optionTitle::before {
 		@extend %warning-icon;
+
 		margin: 0 4px 0 -15px; // 4+(-15) = 11 == Batch font-size
 	}
 

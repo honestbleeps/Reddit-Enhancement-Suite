@@ -20,7 +20,7 @@
 .res-orangered-hideModMail #modmail,
 .res-orangered-hideNewModMail #new_modmail {
 	&,
-	& + .separator {
+	+ .separator {
 		display: none;
 	}
 }

@@ -1,11 +1,15 @@
 .userTagger-dialog-head {
 	display: flex;
 
+	.res-icon {
+		color: #9BD;
+	}
+
 	span { margin-right: 3px; }
 
 	.res-usertag-ignore {
 		margin-left: auto;
-		margin-right: 40px; // Don't overlap close button
+		width: 25px;
 
 		// The icons are sufficient to toggle ignore
 		.toggleThumb { display: none; }
@@ -40,12 +44,9 @@
 		width: 30px;
 	}
 
-	h3 .res-icon {
-		color: #9BD;
-	}
-
 	.res-usertag-ignore {
 		display: flex;
+		line-height: 14px;
 		align-items: center;
 
 		.gearIcon {
@@ -122,27 +123,4 @@ a.voteWeight {
 
 #userTaggerPresetSaveAs {
 	margin-left: auto;
-}
-
-#userTaggerTable th {
-	cursor: pointer;
-	user-select: none;
-}
-
-#userTaggerTable .deleteIcon {
-	color: #999;
-	cursor: pointer;
-
-	&:hover {
-		color: #333;
-	}
-}
-
-#userTaggerContents .show {
-	display: inline-block;
-}
-
-#tagPageControls {
-	display: inline-block;
-	margin: 0 0 0 10px;
 }

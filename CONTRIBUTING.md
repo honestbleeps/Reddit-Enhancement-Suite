@@ -32,7 +32,7 @@ To load the extension into your browser, see [Loading RES into your browser](#lo
 
 **`yarn start [--env browsers=<browsers>]`** will clean `dist/`, then build RES (dev mode), and start a watch task that will rebuild RES when you make changes. Only changed files will be rebuilt.
 
-**`yarn build [--env browsers=<browsers>]`** will clean `dist/`, then build RES (dev mode) a single time.
+**`yarn once [--env browsers=<browsers>]`** will clean `dist/`, then build RES (dev mode) a single time.
 
 **`yarn build [--env browsers=<browsers>]`** will clean `dist/`, then build RES (release mode). Each build output will be compressed to a .zip file in `dist/zip/`.
 
@@ -40,7 +40,7 @@ To load the extension into your browser, see [Loading RES into your browser](#lo
 
 #### Lint and test commands
 
-**`yarn lint`** will verify the code style (and point out any errors) of all `.js` files in `lib/` (except `lib/vendor/`) using [ESLint](http://eslint.org/), as well as all `.scss` files with [sass-lint](https://github.com/sasstools/sass-lint).
+**`yarn lint`** will verify the code style (and point out any errors) of all `.js` files in `lib/` (except `lib/vendor/`) using [ESLint](http://eslint.org/), as well as all `.scss` files with [stylelint](https://stylelint.io/).
 
 **`yarn lint-fix`** will autofix any [fixable](http://eslint.org/docs/user-guide/command-line-interface#fix) lint issues.
 

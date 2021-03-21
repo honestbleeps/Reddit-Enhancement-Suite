@@ -633,7 +633,6 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 		}
 	}
 
-
 	.tagline a {
 		color: hsl(200, 30%, 55%);
 	}
@@ -753,7 +752,7 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 		border-left-color: $highlight-background-color;
 	}
 
-	.RESDialogSmall > h3,
+	.RESDialogSmall > .RESHoverTitle,
 	.NERPageMarker {
 		color: inherit;
 		border-color: hsl(0, 0%, 30%);
@@ -1347,7 +1346,7 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 	}
 
 	.diff_sub {
-		background-color: rgba(240, 128, 128 , .5);
+		background-color: rgba(240, 128, 128, .5);
 	}
 
 	.diff_add {
@@ -1676,8 +1675,7 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 		color: $title-link-visited-color;
 	}
 
-
-	.ProfileBarDropdown__list:hover
+	.ProfileBarDropdown__list:hover,
 	.ProfileBarDropdown__listItem:hover {
 		background-color: $header-background-color;
 	}
