@@ -1173,6 +1173,27 @@
 	"nerShowServerInfoTitle": {
 		"message": "Show Server Info"
 	},
+	"nerVisitOnLoadTitle": {
+		"message": "Visit on load"
+	},
+	"nerVisitOnLoadDesc": {
+		"message": "When a new page is loaded mark links on the previous page as visited.\n\nWarning: this will add links to your browser history."
+	},
+	"nerVisitOnLoadAll": {
+		"message": "All posts"
+	},
+	"nerVisitOnLoadLinks": {
+		"message": "Only links"
+	},
+	"nerVisitOnLoadSelf": {
+		"message": "Only self-posts"
+	},
+	"nerVisitOnLoadNsfwTitle": {
+		"message": "Visit on load ignores NSFW"
+	},
+	"nerVisitOnLoadNsfwDesc": {
+		"message": "Don't visit NSFW links when marking the previous page as visited"
+	},
 	"nerShowServerInfoDesc": {
 		"message": "Show the π server / debug details next to the floating Never-Ending Reddit tools."
 	},
