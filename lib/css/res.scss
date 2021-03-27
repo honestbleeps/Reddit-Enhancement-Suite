@@ -167,7 +167,7 @@ body.res-console-open {
 	color: #666;
 	position: relative;
 
-	.RESHoverTitle {
+	> h3 {
 		color: #000;
 		font-size: 14px;
 		line-height: 14px;
@@ -475,7 +475,10 @@ span.multi-count {
 		background-color: #dfdfdf;
 		cursor: pointer;
 		margin-right: 10px;
-		margin-top: 20px;
+	}
+
+	> div:not(:last-of-type) {
+		margin-bottom: 20px;
 	}
 }
 
