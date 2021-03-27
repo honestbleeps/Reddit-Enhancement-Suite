@@ -5,6 +5,7 @@
 
 .RESSubscriptionButton {
 	float: right;
+	contain: paint;
 	cursor: pointer;
 	color: #369;
 	font-size: 12px;
