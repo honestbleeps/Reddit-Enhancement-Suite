@@ -73,6 +73,7 @@ export default (env = {}, argv = {}) => {
 						loader: 'babel-loader',
 						options: {
 							plugins: [
+								'@babel/plugin-proposal-optional-chaining',
 								'@babel/plugin-proposal-export-namespace-from',
 								['@babel/plugin-proposal-class-properties', { loose: true }],
 								'@babel/plugin-transform-flow-strip-types',

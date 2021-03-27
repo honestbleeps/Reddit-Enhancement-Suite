@@ -17,6 +17,7 @@ module.name_mapper='^sibling-loader\(\?.+\)?!.+$'->'<PROJECT_ROOT>/flow/stub/sib
 module.name_mapper='^exec-loader\(\?cache\)?!\(.+\)$'->'\2'
 
 esproposal.export_star_as=enable
+esproposal.optional_chaining=enable
 
 suppress_type=$FlowIssue
 suppress_type=$FlowIgnore
