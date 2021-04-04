@@ -158,8 +158,6 @@ html:not(.res-filters-disabled):not(.res-display-match-reason) {
 			$v: &;
 
 			&-preamble {
-				// Hacky
-				width: calc(100% - 36px);
 				height: 100%;
 				display: flex;
 				margin-top: -7px;
