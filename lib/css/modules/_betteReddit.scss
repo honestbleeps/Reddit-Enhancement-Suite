@@ -38,7 +38,7 @@ html.res-hide-body body {
 	}
 }
 
-.res-betteReddit-truncateLongLinks {
+body.res-betteReddit-truncateLongLinks:not(.comments-page) {
 	.link .title {
 		overflow: hidden;
 		text-overflow: ellipsis;
