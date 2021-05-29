@@ -65,7 +65,7 @@
 		"import/default": 2,
 		"import/dynamic-import-chunkname": 2,
 		"import/exports-last": 0,
-		"import/extensions": [2, { "js": "never" }],
+		"import/extensions": [2, { "js": "never", "json": "always" }],
 		"import/first": 2,
 		"import/group-exports": 0,
 		"import/imports-first": 2,
