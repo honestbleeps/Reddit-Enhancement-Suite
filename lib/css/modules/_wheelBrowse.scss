@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 $full-width: 32px;
 
 .res-wheel-browse {
@@ -16,9 +18,9 @@ $full-width: 32px;
 
 	&-gallery {
 		position: absolute;
-		width: $full-width / 2;
+		width: math.div($full-width, 2);
 		height: 100%;
-		left: $full-width / 2;
+		left: math.div($full-width, 2);
 		background-color: rgba(255, 0, 0, .24);
 	}
 }
