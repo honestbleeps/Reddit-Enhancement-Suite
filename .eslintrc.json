@@ -1,6 +1,6 @@
 {
 	"root": true,
-	"parser": "babel-eslint",
+	"parser": "@babel/eslint-parser",
 	"plugins": [
 		"flowtype",
 		"ava",
@@ -112,6 +112,7 @@
 		"no-inline-comments": 0,
 		"no-inner-declarations": 0, // ES6 has block-scoped functions
 		"no-invalid-this": 0,
+		"no-lone-blocks": 0,
 		"no-lonely-if": 0,
 		"no-loop-func": 0,
 		"no-magic-numbers": 0,

@@ -45,7 +45,7 @@
 @import 'modules/wheelBrowse';
 
 @font-face {
-	font-family: 'Batch';
+	font-family: Batch;
 	src: url('../fonts/batch-icons-webfont.woff') format('woff');
 	font-weight: normal;
 	font-style: normal;
@@ -93,7 +93,7 @@ body.res-console-open {
 
 	&::before,
 	&::after {
-		font: normal 14px/1 'Batch';
+		font: normal 14px/1 Batch;
 		vertical-align: middle;
 	}
 
@@ -217,7 +217,7 @@ div.usertext-edit {
 .res-icon-button {
 	cursor: pointer;
 	margin: 0 2px;
-	opacity: .4;
+	opacity: 0.4;
 
 	&:hover {
 		opacity: 1;
@@ -305,7 +305,7 @@ div.usertext-edit {
 		}
 	}
 
-	input[type=checkbox] {
+	input[type='checkbox'] {
 		display: none;
 	}
 
@@ -339,8 +339,8 @@ div.usertext-edit {
 	display: inline-block;
 	margin: 0 5px 5px 0;
 	padding: 1px 6px;
-	border: 1px solid rgb(68, 68, 68);
-	background-image: linear-gradient(to bottom, rgb(123, 184, 80), rgb(117, 168, 73));
+	border: 1px solid rgb(68 68 68);
+	background-image: linear-gradient(to bottom, rgb(123 184 80), rgb(117 168 73));
 	border-radius: 3px;
 	cursor: pointer;
 }
@@ -349,7 +349,7 @@ div.usertext-edit {
 	@extend %res-fancy-toggle-button;
 
 	&.remove {
-		background-image: linear-gradient(to bottom, rgb(207, 97, 101), rgb(190, 94, 96));
+		background-image: linear-gradient(to bottom, rgb(207 97 101), rgb(190 94 96));
 	}
 }
 
@@ -426,7 +426,7 @@ span.multi-count {
 }
 
 .RESLoadingSpinner {
-	color: hsl(210, 80%, 50%);
+	color: hsl(210deg 80% 50%);
 	font-size: inherit; // Determines size of the icon.
 	display: inline-block;
 	vertical-align: text-bottom;
@@ -489,12 +489,12 @@ span.multi-count {
 	left: 0;
 	bottom: 0;
 	right: 0;
-	background-color: rgba(0, 0, 0, .7);
+	background-color: rgb(0 0 0 / 70%);
 	z-index: $zindex-alert-message - 1;
 }
 
 .res-icon {
-	font: normal 16px/1 'Batch';
+	font: normal 16px/1 Batch;
 	display: inline-block;
 
 	&.res-icon-12 { font-size: 12px; }
@@ -518,7 +518,7 @@ span.multi-count {
 .builderItem {
 	border: thin solid lightgrey;
 	border-radius: 5px;
-	background-color: rgba(10, 10, 10, .05);
+	background-color: rgb(10 10 10 / 5%);
 	padding: .4em .5em;
 	margin-top: .5em;
 	margin-bottom: .5em;
@@ -611,7 +611,7 @@ span.multi-count {
 		}
 
 		&:nth-of-type(2n) {
-			background-color: rgba(10, 10, 10, .05);
+			background-color: rgb(10 10 10 / 5%);
 		}
 	}
 
@@ -691,7 +691,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		bottom: 0;
 		left: 0;
 		background-color: #999;
-		opacity: .6;
+		opacity: 0.6;
 	}
 
 	&::after {
@@ -745,17 +745,17 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		align-items: center;
 		margin: 4px 0 4px 10px;
 
-		&[first-piece=true] .res-step-previous::after,
-		&[last-piece=true] .res-step-next::after {
+		&[first-piece='true'] .res-step-previous::after,
+		&[last-piece='true'] .res-step-next::after {
 			content: '\F157';
 		}
 
-		&[first-piece=true] .res-step-previous,
-		&[last-piece=true] .res-step-next {
+		&[first-piece='true'] .res-step-previous,
+		&[last-piece='true'] .res-step-next {
 			transform: scaleX(-1);
 		}
 
-		&[first-piece=true][last-piece=true] {
+		&[first-piece='true'][last-piece='true'] {
 			display: none;
 		}
 	}
@@ -845,7 +845,7 @@ html[res-warning]::before {
 
 		> li {
 			display: flex;
-			opacity: .7;
+			opacity: 0.7;
 			&:hover { opacity: 1; }
 
 			> * {
@@ -915,7 +915,7 @@ body.res-dashboard {
 		th {
 			min-width: 0;
 			padding: 5px 8px;
-			border: 1px solid rgb(200, 200, 200);
+			border: 1px solid rgb(200 200 200);
 
 			&:first-child {
 				width: auto;
