@@ -558,6 +558,10 @@ span.multi-count {
 	position: relative;
 }
 
+.builderNote {
+	margin-left: 10px;
+}
+
 .builderBlock {
 	flex-wrap: wrap;
 	white-space: pre-wrap;
@@ -934,4 +938,22 @@ body.res-dashboard {
 
 		tr:hover .deleteIcon { color: #369; }
 	}
+}
+
+.res-button-undo {
+	position: absolute;
+	bottom: 20px;
+	right: 20px;
+	border-radius: 5px;
+	background-color: #3a3a3af2;
+	box-shadow: 0 0 6px 2px #3a3a3a;
+	border: none;
+	padding: 7px;
+	color: white;
+	font-size: 14px;
+	cursor: pointer;
+}
+
+.pushRight {
+	margin-left: auto;
 }
