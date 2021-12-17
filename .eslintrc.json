@@ -24,6 +24,8 @@
 	},
 	"extends": ["eslint:all", "plugin:ava/recommended", "plugin:you-dont-need-lodash-underscore/all"],
 	"rules": {
+		"ava/no-ignored-test-files": 0,
+
 		"flowtype/boolean-style": 2,
 		"flowtype/define-flow-type": 2,
 		"flowtype/delimiter-dangle": [2, "always-multiline"],
