@@ -1,6 +1,6 @@
 {
 	"root": true,
-	"parser": "babel-eslint",
+	"parser": "@babel/eslint-parser",
 	"plugins": [
 		"flowtype",
 		"ava",
@@ -24,6 +24,8 @@
 	},
 	"extends": ["eslint:all", "plugin:ava/recommended", "plugin:you-dont-need-lodash-underscore/all"],
 	"rules": {
+		"ava/no-ignored-test-files": 0,
+
 		"flowtype/boolean-style": 2,
 		"flowtype/define-flow-type": 2,
 		"flowtype/delimiter-dangle": [2, "always-multiline"],
@@ -112,6 +114,7 @@
 		"no-inline-comments": 0,
 		"no-inner-declarations": 0, // ES6 has block-scoped functions
 		"no-invalid-this": 0,
+		"no-lone-blocks": 0,
 		"no-lonely-if": 0,
 		"no-loop-func": 0,
 		"no-magic-numbers": 0,

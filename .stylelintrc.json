@@ -1,6 +1,7 @@
 {
   "defaultSeverity": "error",
   "extends": [
+    "stylelint-config-standard-scss",
     "stylelint-config-standard",
     "stylelint-config-recommended",
     "stylelint-config-sass-guidelines"
@@ -14,6 +15,8 @@
     "declaration-property-value-disallowed-list": null,
     "font-family-no-missing-generic-family-keyword": [true, { "ignoreFontFamilies": "Batch" }],
     "indentation": "tab",
+    "keyframes-name-pattern": null,
+    "max-line-length": null,
     "max-nesting-depth": null,
     "no-descending-specificity": null,
     "number-leading-zero": null,
@@ -22,6 +25,7 @@
     "scss/at-mixin-pattern": null,
     "scss/dollar-variable-colon-space-after": null,
     "selector-class-pattern": null,
+    "selector-id-pattern": null,
     "selector-max-compound-selectors": null,
     "selector-max-id": null,
     "selector-no-qualifying-type": null,
