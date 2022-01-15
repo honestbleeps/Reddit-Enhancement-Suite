@@ -36,7 +36,7 @@ jobs:
       env:
         SAUCE_USERNAME: RES-Auto
         SELENIUM_HOST: ondemand.saucelabs.com
-        SELENIUM_PORT: 443
+        SELENIUM_PORT: 80
         SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
 
   windows:
