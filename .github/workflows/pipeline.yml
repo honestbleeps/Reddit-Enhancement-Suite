@@ -39,42 +39,6 @@ jobs:
         SELENIUM_PORT: 80
         SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
 
-  build_deploy:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-node@v2
-      with:
-        node-version: '16'
-    - run: yarn install --frozen-lockfile
-
-    - run: yarn build all
-
-    - uses: softprops/action-gh-release@v1
-      if: startsWith(github.ref, 'refs/tags/')
-      with:
-        files: |
-          dist/zip/chrome.zip
-          dist/zip/chrome-beta.zip
-          dist/zip/edge.zip
-          dist/zip/firefox.zip
-          dist/zip/opera.zip
-        prerelease: true
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    - run: ./build/travisDeploy.sh
-      if: startsWith(github.ref, 'refs/tags/')
-      env:
-        CHROME_CLIENT_ID: ${{ secrets.CHROME_CLIENT_ID }}
-        CHROME_CLIENT_SECRET: ${{ secrets.CHROME_CLIENT_SECRET }}
-        CHROME_REFRESH_TOKEN: ${{ secrets.CHROME_REFRESH_TOKEN }}
-        FIREFOX_ISSUER: ${{ secrets.FIREFOX_ISSUER }}
-        FIREFOX_SECRET: ${{ secrets.FIREFOX_SECRET }}
-        OPERA_USER: ${{ secrets.OPERA_USER }}
-        OPERA_PASSWORD: ${{ secrets.OPERA_PASSWORD }}
-        BOT_USER: Reddit-Enhancement-Suite-Bot
-        BOT_PASSWORD: ${{ secrets.BOT_PASSWORD }}
-
   windows:
     runs-on: windows-latest
     steps:
