@@ -10,6 +10,7 @@ on:
 
 jobs:
   lint_flow:
+  name: Lint Checks
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -24,6 +25,7 @@ jobs:
     - run: yarn i18n-lint
 
   test:
+    name: Unit & Integration Tests
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -44,6 +46,7 @@ jobs:
         SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
 
   windows:
+    name: Windows Build Test
     runs-on: windows-latest
     steps:
     - uses: actions/checkout@v2
