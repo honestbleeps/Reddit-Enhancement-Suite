@@ -1,8 +1,6 @@
 # Reddit Enhancement Suite
 
-[![Travis Build Status](https://travis-ci.org/honestbleeps/Reddit-Enhancement-Suite.svg?branch=master)](https://travis-ci.org/honestbleeps/Reddit-Enhancement-Suite)
-[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/honestbleeps/Reddit-Enhancement-Suite?branch=master&svg=true)](https://ci.appveyor.com/project/honestbleeps/Reddit-Enhancement-Suite)
-[![Coverage Status](https://coveralls.io/repos/github/honestbleeps/Reddit-Enhancement-Suite/badge.svg?branch=master)](https://coveralls.io/github/honestbleeps/Reddit-Enhancement-Suite?branch=master)
+[![RES Pipeline](https://github.com/honestbleeps/Reddit-Enhancement-Suite/actions/workflows/pipeline.yml/badge.svg)](https://github.com/honestbleeps/Reddit-Enhancement-Suite/actions/workflows/pipeline.yml)
 [![Chat on Discord](https://img.shields.io/discord/681993947085799490?label=Discord)](https://discord.gg/UzkFNNa)
 
 Reddit Enhancement Suite (RES) is a suite of modules that enhances your Reddit browsing experience.
