@@ -114,7 +114,6 @@ html:not(.res-filters-disabled):not(.res-display-match-reason) {
 }
 
 .res-filterline {
-
 	$c: &;
 
 	@include filterline-basic-layout;
