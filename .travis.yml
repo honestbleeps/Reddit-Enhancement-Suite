@@ -1,0 +1,76 @@
+sudo: false
+language: node_js
+node_js: 16
+branches:
+  only:
+    - master
+    - /^v[0-9]/
+env:
+  global:
+    # CHROME_CLIENT_ID
+    - secure: CF4N+tG66lh8Ks8OGMpCqVtkCLwBla9gg5NMuLyz96ukOkgIAWUSxFARpL0TaFWrf4LvNyyxzarjlOAf9iN3fGa8KOTuqBzMVthP9HqQhBGhpjZHmCDQJwbvmHauGBKwrkW3rBU44ngM+FxdWQqW4F/oeiNCrHOikzHwNj1l/Y8=
+    # CHROME_CLIENT_SECRET
+    - secure: ZiY6l1xbMUGNKHlkNzOrOoZXOrdQxAwQK5WpR+e+F3nTgw7yS26HGhMq8ajFDI/Tk0ZpjSEfev148X93OaZ+njj88uSaDCDS2xbltInAQw+YfigIpGpbssE/CxUwTDjiEE/se+WybqZthpcLydmJbQt/kT6khhhIOFn7EIFknks=
+    # CHROME_REFRESH_TOKEN
+    - secure: LfNqGTqtHtRJKrD2TKHKIcfhtEjwuctoGJlt8dAvqo9LuChFh8t7feBObJ/b79v/vZeRsKVn8dExZRz/b4V8NyVc9xT4DgSCuaY3vKfbJ99TRa1vKK+wC5rElhJpBWqosP+rF8cocorXerfWQIst9f9LeGggX0to/hhCJ5RqSkw=
+    # FIREFOX_ISSUER
+    - secure: CfCvu8+QKGS4IkL5Aie2siLfoJM34lUhX0DymwaueVD82ofVKiJJTlzmSEpgYwo2M6mEKfiLr2sygZIFSrF2EkTpt1l1fPSDbs+jt7XyGv9hLqIZ/QYvfu6VIcoPe9sUHe0qIxFEdjJD4/Hca59f+YBMXBxDdqum4JaXR2m4lRM=
+    # FIREFOX_SECRET
+    - secure: QmAjceJoWyJYCxXAozXcZBd7+vCnvqurW/4c6W9uJNwbq0GmRFy/Y8zFutNIMhiJ89NflPERkd2CvBFqqCYcvTyAl1AE3+9eruvsSxsamycJQc/J5zNwDNYSidq0/nQNQ/RwZMcbiSKZmJOGT0q4nhO4blekczza1fgspw78g2A=
+    - BOT_USER=Reddit-Enhancement-Suite-Bot
+    # BOT_PASSWORD
+    - secure: ZBBtGxs7i536e3jEUsVTXu7/PfcXGWslftul6G3l9e9I9mqUcxsZY0ET/YbJib9pjmw2O9SAT5E+3uAftPpfgHxXcqm+/+Hw7qXqqG2woR18s2jxZmW9m0paa5uqsG0GZv/MYzoWGIBPfFmxEdYAKwHYy9ei4uXRwQZLc/aZXEE=
+    - SAUCE_USERNAME=RES-Auto
+    - SELENIUM_HOST=ondemand.saucelabs.com
+    - SELENIUM_PORT=80
+addons:
+  jwt:
+    # SAUCE_ACCESS_KEY=<secure>
+    secure: hHF06xHY6pLdxscwYhUHdSRuUH2CPA61AUrvPiW54lnMwwkDvCQakR+aY5HbjptFIfOwkWsS4xoqXH4pZTfhMOji32S/+ELT+AqLdkIgnLYDfBj4RcsZoXyvuiLx29i4PVCnGMikctBp4dM6wORgfd1tu3uwhcoQrBjxCMW1qmY=
+cache:
+  yarn: true
+install:
+  - yarn install --frozen-lockfile
+matrix:
+  include:
+    - env: RES_JOB=lint_flow
+      script:
+        - yarn run flow check --show-all-errors
+        - yarn run eslint
+        - yarn run stylelint
+        - yarn run i18n-lint
+    - env: RES_JOB=test
+      script:
+        - yarn run coverage && yarn run report-coverage
+        - yarn run integration chrome --retries 1 --suiteRetries 1 && yarn run integration-only firefox --retries 1 --suiteRetries 2
+    - env: RES_JOB=build_deploy
+      script:
+        - yarn run build --env browsers=all
+      deploy:
+        - provider: releases
+          api_key:
+            secure: F0CNYZBoZbLiZDm+KkIpX/FjWhwUKMQs4O+bg6EUT32GOb17ed1HBS1Dw9DCTClyydEkhtCMZTFHQUbfNhlU7xkZxy8J/Ac9UykngVmjJBz3+ZKmbGsokjwCm8r08VCMzB0AJrvIodRwegzg9J5muXvMGNBzKxi7Q7XiNsxLNDc=
+          prerelease: true
+          file:
+            - dist/zip/chrome.zip
+            - dist/zip/chrome-beta.zip
+            - dist/zip/firefox.zip
+            - dist/zip/opera.zip
+            - dist/zip/edge.zip
+          skip_cleanup: true
+          overwrite: true
+          on:
+            tags: true
+        - provider: script
+          script: build/travisDeploy.sh
+          skip_cleanup: true
+          on:
+            tags: true
+notifications:
+  irc:
+    channels:
+      # irc.snoonet.org#enhancement (encrypted so forks don't send notifications)
+      - secure: WeniQ6F8g8c5lO/XaTvX66JHiqXoz1Hc77Bh9CJoFUpqZYB9Gpy9DHpV/nCPZhkNlNAWkUoOpa1aCah9VV84I8YeWl9Yo54MwyZc1aAMoiXAKBqbxO5whkGb6ql2elCrdecV7L1GtPSpnrToVvxXUKr8F/5M6UEspLIaT7gJTiw=
+    on_success: change
+    on_failure: always
+    skip_join: true
