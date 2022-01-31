@@ -32,7 +32,7 @@ jobs:
         node-version: '16'
     - run: yarn install --frozen-lockfile
 
-    - run: yarn build all
+    - run: yarn build --env browsers=all
 
     - uses: softprops/action-gh-release@v1
       if: startsWith(github.ref, 'refs/tags/')
