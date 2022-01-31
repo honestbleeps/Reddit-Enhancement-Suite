@@ -3,6 +3,8 @@
 [![RES Pipeline](https://github.com/honestbleeps/Reddit-Enhancement-Suite/actions/workflows/pipeline.yml/badge.svg)](https://github.com/honestbleeps/Reddit-Enhancement-Suite/actions/workflows/pipeline.yml)
 [![Chat on Discord](https://img.shields.io/discord/681993947085799490?label=Discord)](https://discord.gg/UzkFNNa)
 
+## [Please read this post before continuing.](https://www.reddit.com/r/RESAnnouncements/comments/sh83gx/announcement_life_of_reddit_enhancement_suite/)
+
 Reddit Enhancement Suite (RES) is a suite of modules that enhances your Reddit browsing experience.
 For general documentation, visit the [Reddit Enhancement Suite Wiki](https://www.reddit.com/r/Enhancement/wiki/index).
 
