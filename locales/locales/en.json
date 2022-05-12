@@ -1860,6 +1860,27 @@
 	"backupAndRestoreGoogleAccountDesc": {
 		"message": "If, and only if, you have multiple Google accounts logged in at once, enter the email of the account you want to use.\n\nIn most cases you will not need to use this option."
 	},
+	"backupAndRestoreAddWebDAVAccount": {
+		"message": "+add account"
+	},
+	"backupAndRestoreWebDAVTitle": {
+		"message": "WebDAV"
+	},
+	"backupAndRestoreWebDAVDesc": {
+		"message": "Configure a WebDAV account for use in RES backups"
+	},
+	"backupAndRestoreUsername": {
+		"message": "username"
+	},
+	"backupAndRestorePassword": {
+		"message": "password"
+	},
+	"backupAndRestoreUrl": {
+		"message": "url"
+	},
+	"backupAndRestoreDigest": {
+		"message": "uses digest"
+	},
 	"backupAndRestoreBackupTitle": {
 		"message": "Backup"
 	},
@@ -1883,6 +1904,12 @@
 	},
 	"backupAndRestoreSavedNotification": {
 		"message": "Backup saved to $1."
+	},
+	"backupAndRestoreWarnNotification": {
+		"message": "RES stores WebDAV credentials in plain text."
+	},
+	"backupAndRestoreWarn": {
+		"message": "Warning"
 	},
 	"backupAndRestoreFoundBackup": {
 		"message": "Found new automatic backup from $1."
