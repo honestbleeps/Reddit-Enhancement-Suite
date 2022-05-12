@@ -91,6 +91,7 @@ export default (env = {}, argv = {}) => {
 			}, {
 				test: /\.js$/,
 				include: path.join(__dirname, 'node_modules'),
+				exclude: path.join(__dirname, 'node_modules', 'dashjs', 'dist', 'dash.mediaplayer.min.js'),
 				use: [
 					{
 						loader: 'babel-loader',
