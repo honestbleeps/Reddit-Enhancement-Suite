@@ -11,7 +11,7 @@ body {
 	height: 100%;
 	box-sizing: border-box;
 	border-radius: 3px;
-	box-shadow: 5px 5px 10px rgba(0, 0, 0, .2);
+	box-shadow: 5px 5px 10px rgb(0 0 0 / 20%);
 }
 
 ul,
@@ -34,7 +34,7 @@ li {
 	color: orangered;
 	border-radius: 10px;
 	padding: 10px 20px;
-	border: 1px solid rgb(255, 69, 0);
+	border: 1px solid rgb(255 69 0);
 }
 
 .donateOption {
@@ -139,7 +139,7 @@ li {
 	bottom: 0;
 	left: 0;
 	z-index: 1;
-	background-color: rgba(255, 255, 255, .7);
+	background-color: rgb(255 255 255 / 70%);
 
 	&.visible {
 		display: block;
@@ -153,13 +153,13 @@ li {
 }
 
 #RESConfigPanelModulesList {
-	color: rgb(80, 80, 80);
+	color: rgb(80 80 80);
 	height: calc(100% - 55px);
 	overflow-y: auto;
 
 	> ul {
 		margin: 0;
-		border: 1px solid rgb(230, 230, 230);
+		border: 1px solid rgb(230 230 230);
 		border-radius: 2px;
 	}
 }
@@ -178,21 +178,21 @@ li {
 		padding: 5px 10px;
 		margin: 0;
 		cursor: pointer;
-		border-top: 1px solid rgb(230, 230, 230);
+		border-top: 1px solid rgb(230 230 230);
 		font-weight: normal;
 	}
 
 	li.active h3 {
-		border-bottom: 1px solid rgb(230, 230, 230);
-		background: rgb(245, 245, 245);
+		border-bottom: 1px solid rgb(230 230 230);
+		background: rgb(245 245 245);
 	}
 }
 
 %warning-icon {
 	content: '\F15A';
 	margin-left: 3px;
-	color: rgb(230, 30, 30);
-	font: normal 11px 'Batch';
+	color: rgb(230 30 30);
+	font: normal 11px Batch;
 }
 
 #RESAllOptionsSpan::after {
@@ -200,7 +200,7 @@ li {
 }
 
 .optionContainer {
-	border: 1px solid hsl(205, 50%, 78%);
+	border: 1px solid hsl(205deg 50% 78%);
 	border-radius: 2px;
 	padding: 10px 20px;
 	background-color: #f0f3fc;
@@ -219,7 +219,7 @@ li {
 	}
 
 	&.highlight {
-		box-shadow: 0 0 5px 1px rgb(171, 204, 227);
+		box-shadow: 0 0 5px 1px rgb(171 204 227);
 
 		.optionTitle {
 			font-weight: bold;
@@ -235,7 +235,7 @@ li {
 	&:not(.table):not(.specialOptionType) .optionSetting {
 		padding: 0 10px;
 		margin-right: 10px;
-		border-right: 1px dashed hsl(205, 50%, 78%);
+		border-right: 1px dashed hsl(205deg 50% 78%);
 	}
 
 	table {
@@ -282,25 +282,25 @@ li {
 	flex-grow: 1;
 }
 
-#RESConsoleContainer input[type=radio],
-#RESConsoleContainer input[type=checkbox] {
+#RESConsoleContainer input[type='radio'],
+#RESConsoleContainer input[type='checkbox'] {
 	vertical-align: bottom;
 	margin: 0 3px 0 0;
 }
 
 .moduleButton {
 	font: 12px sans-serif;
-	color: rgb(180, 180, 180);
+	color: rgb(180 180 180);
 	padding: 7px 10px;
 	cursor: pointer;
 
 	&.enabled {
-		color: rgb(80, 80, 80);
+		color: rgb(80 80 80);
 	}
 
 	&.active {
 		font-weight: bold;
-		box-shadow: inset 5px 0 0 0 rgb(171, 204, 227);
+		box-shadow: inset 5px 0 0 0 rgb(171 204 227);
 	}
 
 	small {
@@ -314,7 +314,7 @@ li {
 }
 
 .moduleName {
-	font: 20px segoe ui, arial, sans-serif;
+	font: 20px 'segoe ui', arial, sans-serif;
 	margin-right: 10px;
 	display: inline-block;
 	vertical-align: middle;
@@ -330,13 +330,13 @@ li {
 		font-weight: bold;
 		font-size: 14px;
 		color: white;
-		text-shadow: 1px 1px 1px rgba(0, 0, 0, .3);
+		text-shadow: 1px 1px 1px rgb(0 0 0 / 30%);
 		padding: 7px 5px;
-		background-color: rgb(150, 191, 232);
+		background-color: rgb(150 191 232);
 	}
 
 	tr:nth-child(even) {
-		background-color: hsl(215, 40%, 93%);
+		background-color: hsl(215deg 40% 93%);
 	}
 
 	td {
@@ -347,12 +347,12 @@ li {
 		width: 80% !important;
 		background-color: transparent;
 
-		input[type=text] {
+		input[type='text'] {
 			width: auto !important;
 		}
 	}
 
-	input[type=text] {
+	input[type='text'] {
 		width: 100%;
 	}
 
@@ -397,10 +397,10 @@ a.RESConsoleButton {
 	color: #fff;
 	border: 1px solid #636363;
 	border-radius: 3px;
-	background-color: rgba(16, 122, 196, .9);
+	background-color: rgb(16 122 196 / 90%);
 
 	&:hover {
-		background-color: rgb(16, 122, 196);
+		background-color: rgb(16 122 196);
 	}
 
 	&::before {
@@ -483,7 +483,7 @@ a.RESConsoleButton {
 
 .SearchRES-result-copybutton {
 	float: right;
-	opacity: .4;
+	opacity: 0.4;
 	padding: 10px;
 	width: 26px;
 	height: 22px;
@@ -506,8 +506,8 @@ a.RESConsoleButton {
 		position: absolute;
 		right: 0;
 		padding: 5px;
-		color: rgb(130, 177, 210);
-		font: normal 16px/1 'Batch';
+		color: rgb(130 177 210);
+		font: normal 16px/1 Batch;
 		content: '\f094';
 	}
 }
@@ -516,7 +516,7 @@ a.RESConsoleButton {
 	box-sizing: border-box;
 	width: 100%;
 	font-size: 14px;
-	border: 1px solid rgb(171, 204, 227);
+	border: 1px solid rgb(171 204 227);
 	border-radius: 2px;
 }
 

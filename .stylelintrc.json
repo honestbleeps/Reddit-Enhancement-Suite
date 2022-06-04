@@ -1,6 +1,7 @@
 {
   "defaultSeverity": "error",
   "extends": [
+    "stylelint-config-standard-scss",
     "stylelint-config-standard",
     "stylelint-config-recommended",
     "stylelint-config-sass-guidelines"
@@ -9,19 +10,29 @@
     "stylelint-scss"
   ],
   "rules": {
+    "alpha-value-notation": null,
     "color-hex-case": null,
     "color-named": null,
+    "color-function-notation": null,
     "declaration-property-value-disallowed-list": null,
     "font-family-no-missing-generic-family-keyword": [true, { "ignoreFontFamilies": "Batch" }],
+    "font-family-name-quotes": null,
+    "function-no-unknown": null,
+    "hue-degree-notation": null,
     "indentation": "tab",
+    "keyframes-name-pattern": null,
+    "max-line-length": null,
     "max-nesting-depth": null,
     "no-descending-specificity": null,
     "number-leading-zero": null,
     "order/properties-alphabetical-order": null,
+    "scss/double-slash-comment-empty-line-before": null,
     "scss/at-function-pattern": null,
     "scss/at-mixin-pattern": null,
     "scss/dollar-variable-colon-space-after": null,
+    "selector-attribute-quotes": null,
     "selector-class-pattern": null,
+    "selector-id-pattern": null,
     "selector-max-compound-selectors": null,
     "selector-max-id": null,
     "selector-no-qualifying-type": null,

@@ -1,0 +1,60 @@
+name: RES Pipeline
+
+on:
+  push:
+    branches:
+    - master
+    tags:
+      - v*.*.*
+  pull_request:
+
+jobs:
+  lint_flow:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v2
+      with:
+        node-version: '16'
+    - run: yarn install --frozen-lockfile
+
+    - run: yarn flow check --show-all-errors
+    - run: yarn eslint
+    - run: yarn stylelint
+    - run: yarn i18n-lint
+
+  build_deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v2
+      with:
+        node-version: '16'
+    - run: yarn install --frozen-lockfile
+
+    - run: yarn build --env browsers=all
+
+    - uses: softprops/action-gh-release@v1
+      if: startsWith(github.ref, 'refs/tags/')
+      with:
+        files: |
+          dist/zip/chrome.zip
+          dist/zip/chrome-beta.zip
+          dist/zip/edge.zip
+          dist/zip/firefox.zip
+          dist/zip/opera.zip
+        prerelease: true
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  windows:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v2
+      with:
+        node-version: '16'
+    - run: yarn install --frozen-lockfile
+
+    - run: yarn test
+    - run: yarn build --env browsers=all
