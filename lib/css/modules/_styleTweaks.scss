@@ -104,11 +104,12 @@ blockquote.twitter-tweet {
 }
 
 .res-styleTweaks-postTitleCapitalization-title {
-	.entry a.title { text-transform: capitalize; }
+	.entry a.title, a[data-click-id='body'] div h3 { text-transform: capitalize; }
 }
 
 .res-styleTweaks-postTitleCapitalization-sentence {
-	.entry a.title {
+	.entry a.title,
+	a[data-click-id='body'] div h3 {
 		text-transform: lowercase;
 		display: inline-block;
 
@@ -119,7 +120,7 @@ blockquote.twitter-tweet {
 }
 
 .res-styleTweaks-postTitleCapitalization-lowercase {
-	.entry a.title { text-transform: lowercase; }
+	.entry a.title, a[data-click-id='body'] div h3 { text-transform: lowercase; }
 }
 
 .res-styleTweaks-floatingSideBar {
