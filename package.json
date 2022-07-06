@@ -35,7 +35,8 @@
     "integration": "yarn integration-only",
     "deploy": "node build/deploy.js",
     "deploy-changelog": "node build/deployChangelog.js",
-    "version": "node build/version.js"
+    "version": "node build/version.js",
+    "prepare": "husky install"
   },
   "nyc": {
     "all": true,
@@ -124,6 +125,7 @@
     "webpack": "4.46.0",
     "webpack-cli": "4.9.2",
     "webpack-sources": "3.2.3",
-    "zip-webpack-plugin": "4.0.1"
+    "zip-webpack-plugin": "4.0.1",
+    "husky": "^7.0.0"
   }
 }
