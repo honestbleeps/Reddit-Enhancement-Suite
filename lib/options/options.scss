@@ -232,7 +232,7 @@ li {
 		margin: 0 4px 0 -15px; // 4+(-15) = 11 == Batch font-size
 	}
 
-	&:not(.table):not(.specialOptionType) .optionSetting {
+	&:not(.table, .specialOptionType) .optionSetting {
 		padding: 0 10px;
 		margin-right: 10px;
 		border-right: 1px dashed hsl(205deg 50% 78%);
