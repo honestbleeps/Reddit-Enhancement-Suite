@@ -63,14 +63,17 @@
 		"img-src": "'self' data:",
 		"connect-src": "https:",
 		"font-src": "'self' data:",
-		"frame-ancestors": "https://*.reddit.com"
+		"frame-ancestors": "https://*.reddit.com",
+		"script-src": "self",
+		"script-src-elem": "self"
 	},
 	"permissions": [
 		"tabs",
 		"history",
 		"storage",
 		"unlimitedStorage",
-		"webRequest"
+		"webRequest",
+		"scripting"
 	],
 	"optional_permissions": [
 		"downloads",
