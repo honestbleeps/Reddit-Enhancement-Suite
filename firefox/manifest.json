@@ -1,5 +1,5 @@
 {
-	"manifest_version": 2,
+	"manifest_version": 3,
 	"name": "{{prop-loader?title!../package.json}}",
 	"version": "{{prop-loader?version!../package.json}}",
 	"description": "{{prop-loader?description!../package.json}}",
@@ -15,7 +15,7 @@
 		"48": "{{../images/icon48.png}}",
 		"128": "{{../images/icon128.png}}"
 	},
-	"page_action": {
+	"action": {
 		"default_icon": {
 			"19": "{{../images/css-on-small.png}}",
 			"38": "{{../images/css-on.png}}"
@@ -26,9 +26,7 @@
 		"open_in_tab": true
 	},
 	"background": {
-		"scripts": [
-			"{{../lib/background.entry.js}}"
-		]
+		"service_worker": "{{../lib/background.entry.js}}"
 	},
 	"content_scripts": [{
 		"matches": [
@@ -65,20 +63,25 @@
 		],
 		"run_at": "document_start"
 	}],
-	"content_security_policy": "default-src 'self'; img-src 'self' data:; connect-src https:; font-src 'self' data:; frame-ancestors https://*.reddit.com",
+	"content_security_policy": {
+		"extension_pages": "default-src 'self'; img-src 'self' data:; connect-src https:; font-src 'self' data:; frame-ancestors https://*.reddit.com; script-src-elem 'self'"
+	},
 	"permissions": [
-		"https://*.reddit.com/*",
-		"cookies",
-		"identity",
 		"tabs",
 		"history",
 		"storage",
-		"unlimitedStorage"
+		"unlimitedStorage",
+		"webRequest",
+		"scripting",
+		"cookies",
+		"identity"
 	],
 	"optional_permissions": [
 		"downloads",
-		"geolocation",
-
+		"geolocation"
+	],
+	"host_permissions": [
+		"https://*.reddit.com/*",
 		"https://publish.twitter.com/oembed",
 		"https://backend.deviantart.com/oembed",
 		"https://api.gyazo.com/api/oembed",
@@ -87,11 +90,20 @@
 		"https://api.steampowered.com/ISteamRemoteStorage/GetPublishedFileDetails/*",
 		"https://www.googleapis.com/drive/v3/*",
 		"https://*.redd.it/*",
-		"https://www.flickr.com/services/oembed"
-	],
+		"https://www.flickr.com/services/oembed",
+		"https://redditenhancementsuite.com/oauth",
+		"https://accounts.google.com/signin/oauth",
+		"https://www.dropbox.com/oauth2/authorize",
+		"https://login.live.com/oauth20_authorize.srf"
+	  ],
 	"web_accessible_resources": [
-		"{{../lib/environment/background/permissions/prompt.html}}",
-		"{{../lib/environment/background/permissions/prompt.entry.js}}",
-		"{{../lib/options/options.html}}"
+        {
+            "resources": [
+				"{{../lib/environment/background/permissions/prompt.html}}",
+				"{{../lib/environment/background/permissions/prompt.entry.js}}",
+				"{{../lib/options/options.html}}*"
+            ],
+            "matches": ["https://*.reddit.com/*"]
+        }
 	]
 }

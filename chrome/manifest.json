@@ -59,13 +59,7 @@
 		"run_at": "document_start"
 	}],
 	"content_security_policy": {
-		"default-src": "self",
-		"img-src": "'self' data:",
-		"connect-src": "https:",
-		"font-src": "'self' data:",
-		"frame-ancestors": "https://*.reddit.com",
-		"script-src": "self",
-		"script-src-elem": "self"
+		"extension_pages": "default-src 'self'; img-src 'self' data:; connect-src https:; font-src 'self' data:; frame-ancestors https://*.reddit.com; script-src-elem 'self'"
 	},
 	"permissions": [
 		"tabs",
