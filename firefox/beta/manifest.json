@@ -26,7 +26,7 @@
 		"open_in_tab": true
 	},
 	"background": {
-		"service_worker": "{{../lib/background.entry.js}}"
+		"service_worker": "{{../../lib/background.entry.js}}"
 	},
 	"content_scripts": [{
 		"matches": [
@@ -99,9 +99,9 @@
 	"web_accessible_resources": [
         {
             "resources": [
-				"{{../lib/environment/background/permissions/prompt.html}}",
-				"{{../lib/environment/background/permissions/prompt.entry.js}}",
-				"{{../lib/options/options.html}}*"
+				"{{../../lib/environment/background/permissions/prompt.html}}",
+				"{{../../lib/environment/background/permissions/prompt.entry.js}}",
+				"{{../../lib/options/options.html}}*"
             ],
             "matches": ["https://*.reddit.com/*"]
         }
