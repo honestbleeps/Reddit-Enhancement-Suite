@@ -12,10 +12,10 @@ jobs:
   lint_flow:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-node@v2
+    - uses: actions/checkout@v3
+    - uses: actions/setup-node@v3
       with:
-        node-version: '16'
+        node-version: '19'
     - run: yarn install --frozen-lockfile
 
     - run: yarn flow check --show-all-errors
@@ -26,10 +26,10 @@ jobs:
   build_deploy:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-node@v2
+    - uses: actions/checkout@v3
+    - uses: actions/setup-node@v3
       with:
-        node-version: '16'
+        node-version: '19'
     - run: yarn install --frozen-lockfile
 
     - run: yarn build --env browsers=all
@@ -50,10 +50,10 @@ jobs:
   windows:
     runs-on: windows-latest
     steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-node@v2
+    - uses: actions/checkout@v3
+    - uses: actions/setup-node@v3
       with:
-        node-version: '16'
+        node-version: '19'
     - run: yarn install --frozen-lockfile
 
     - run: yarn test
