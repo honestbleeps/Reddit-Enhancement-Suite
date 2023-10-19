@@ -87,7 +87,8 @@
 		"https://api.steampowered.com/ISteamRemoteStorage/GetPublishedFileDetails/*",
 		"https://www.googleapis.com/drive/v3/*",
 		"https://*.redd.it/*",
-		"https://www.flickr.com/services/oembed"
+		"https://www.flickr.com/services/oembed",
+		"https://*.redgifs.com/*"
 	],
 	"web_accessible_resources": [
 		"{{../../lib/environment/background/permissions/prompt.html}}",
