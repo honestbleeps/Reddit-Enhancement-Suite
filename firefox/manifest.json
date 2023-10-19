@@ -88,7 +88,7 @@
 		"https://www.googleapis.com/drive/v3/*",
 		"https://*.redd.it/*",
 		"https://www.flickr.com/services/oembed",
-		"https://*.redgifs.com/*"
+		"https://api.redgifs.com/v2/*"
 	],
 	"web_accessible_resources": [
 		"{{../lib/environment/background/permissions/prompt.html}}",
