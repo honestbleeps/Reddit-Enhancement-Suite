@@ -14,8 +14,7 @@
 		"import/ignore": [
 			"node_modules",
 			"\\.(json|png|gif|html|scss)$"
-		],
-		"import/resolver": "webpack"
+		]
 	},
 	"env": {
 		"browser": true,
@@ -92,7 +91,7 @@
 		"import/no-nodejs-modules": 2,
 		"import/no-self-import": 2,
 		"import/no-unassigned-import": 0,
-		"import/no-unresolved": 2,
+		"import/no-unresolved": [2, { "ignore": ["ava"] }],
 		"import/no-useless-path-segments": 0,
 		"import/no-webpack-loader-syntax": 0,
 		"import/order": 2,
@@ -153,7 +152,7 @@
 		"no-undef": [2, { "typeof": true }],
 		"no-undefined": 0,
 		"no-underscore-dangle": 0,
-		"no-unused-expressions": 0, // see flowtype/no-unused-expressions
+		"no-unused-expressions": 2,
 		"no-unused-vars": [2, { "ignoreRestSiblings": true }],
 		"no-use-before-define": [0, "nofunc"],
 		"no-useless-escape": 0,
@@ -188,6 +187,7 @@
 		"line-comment-position": 0,
 		"lines-around-comment": [0, { "allowBlockStart": true }],
 		"lines-between-class-members": [2, "always", { "exceptAfterSingleLine": true }],
+		"logical-assignment-operators": 0, // not support in used flowtype
 		"max-classes-per-file": 0,
 		"max-depth": 0,
 		"max-len": 0,

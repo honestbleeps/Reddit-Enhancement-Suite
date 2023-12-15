@@ -13,9 +13,6 @@
 [options]
 module.use_strict=true
 
-module.name_mapper='^sibling-loader\(\?.+\)?!.+$'->'<PROJECT_ROOT>/flow/stub/sibling-loader.js'
-module.name_mapper='^exec-loader\(\?cache\)?!\(.+\)$'->'\2'
-
 esproposal.export_star_as=enable
 esproposal.optional_chaining=enable
 

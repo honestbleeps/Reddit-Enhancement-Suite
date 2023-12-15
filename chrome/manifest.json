@@ -1,28 +1,28 @@
 {
 	"manifest_version": 2,
-	"name": "{{prop-loader?title!../package.json}}",
-	"version": "{{prop-loader?version!../package.json}}",
-	"description": "{{prop-loader?description!../package.json}}",
-	"author": "{{prop-loader?author!../package.json}}",
-	"homepage_url": "{{prop-loader?homepage!../package.json}}",
-	"minimum_chrome_version": "83",
+	"name": "__name__",
+	"version": "__version__",
+	"description": "__description__",
+	"author": "__author__",
+	"homepage_url": "__homepage__",
+	"minimum_chrome_version": "114",
 	"icons": {
-		"48": "{{../images/icon48.png}}",
-		"128": "{{../images/icon128.png}}"
+		"48": "icon48.png",
+		"128": "icon128.png"
 	},
 	"page_action": {
 		"default_icon": {
-			"19": "{{../images/css-on-small.png}}",
-			"38": "{{../images/css-on.png}}"
+			"19": "css-on-small.png",
+			"38": "css-on.png"
 		}
 	},
 	"options_ui": {
-		"page": "{{../lib/options/options.html}}",
+		"page": "options.html",
 		"open_in_tab": true
 	},
 	"background": {
 		"scripts": [
-			"{{../lib/background.entry.js}}"
+			"background.entry.js"
 		]
 	},
 	"content_scripts": [{
@@ -53,10 +53,10 @@
 			"https://*.reddit.com/*.json-html?*"
 		],
 		"js": [
-			"{{../lib/foreground.entry.js}}"
+			"foreground.entry.js"
 		],
 		"css": [
-			"{{../lib/css/res.scss}}"
+			"res.css"
 		],
 		"run_at": "document_start"
 	}],
@@ -89,8 +89,9 @@
 		"https://login.live.com/oauth20_authorize.srf"
 	],
 	"web_accessible_resources": [
-		"{{../lib/environment/background/permissions/prompt.html}}",
-		"{{../lib/environment/background/permissions/prompt.entry.js}}",
-		"{{../lib/options/options.html}}*"
+		"prompt.html",
+		"prompt.entry.js",
+		"options.css",
+		"options.html"
 	]
 }
