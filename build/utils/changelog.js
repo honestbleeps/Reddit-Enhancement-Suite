@@ -1,18 +1,14 @@
 /* @noflow */
+/* eslint import/no-nodejs-modules: 0 */
 
-/* eslint-disable import/no-commonjs, import/no-nodejs-modules */
-
-const path = require('path'); // eslint-disable-line import/no-extraneous-dependencies
+import path from 'node:path';
 
 const dir = 'changelog';
 
-function changelogPath(filename) {
-	return path.resolve(__dirname, path.join('..', '..', dir, filename));
+export function changelogPath(filename) {
+	return path.join(import.meta.dirname, '..', '..', dir, filename);
 }
 
-function changelogPathFromVersion(version) {
+export function changelogPathFromVersion(version) {
 	return changelogPath(`v${version}.md`);
 }
-
-module.exports.changelogPath = changelogPath;
-module.exports.changelogPathFromVersion = changelogPathFromVersion;

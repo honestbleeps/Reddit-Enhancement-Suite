@@ -1,17 +1,17 @@
-/* @flow */
-/* eslint import/no-nodejs-modules: 0 */
+/* @noflow */
+/* eslint import/no-nodejs-modules: 0, import/extensions: 0 */
 
-// $FlowIssue
 import fs from 'node:fs';
-// $FlowIssue
 import path from 'node:path';
 import * as commander from 'commander';
+import * as esbuild from 'esbuild';
 import * as semver from 'semver';
 import JSZip from 'jszip';
-import * as esbuild from 'esbuild';
-import { copy } from 'esbuild-plugin-copy';
 import flow from 'esbuild-plugin-flow';
+import { copy } from 'esbuild-plugin-copy';
 import { sassPlugin } from 'esbuild-sass-plugin';
+import isBetaVersion from './build/isBetaVersion.js';
+import packageInfo from './package.json' with { type: 'json' };
 
 const targets = {
 	chrome: {
@@ -25,12 +25,12 @@ const targets = {
 		manifest: './chrome/beta/manifest.json',
 	},
 	edge: {
-		browserName: 'chrome',
+		browserName: 'edge',
 		browserMinVersion: '114.0',
 		manifest: './chrome/manifest.json',
 	},
 	opera: {
-		browserName: 'chrome',
+		browserName: 'opera',
 		browserMinVersion: '114.0',
 		manifest: './chrome/manifest.json',
 		noSourcemap: true,
@@ -53,29 +53,27 @@ const options = commander.program
 
 const isProduction = options.mode === 'production';
 const devBuildToken = `${Math.random()}`.slice(2);
+const announcementsSubreddit /*: string */ = 'RESAnnouncements';
+const name /*: string */ = packageInfo.title;
+const author /*: string */ = packageInfo.author;
+const description /*: string */ = packageInfo.description;
+const version /*: string */ = packageInfo.version;
+const isBeta /*: boolean */ = isBetaVersion(version);
+const isPatch /*: boolean */ = semver.patch(version) !== 0;
+const isMinor /*: boolean */ = !isPatch && semver.minor(version) !== 0;
+const isMajor /*: boolean */ = !isPatch && !isMinor && semver.major(version) !== 0;
+const updatedURL /*: string */ = isBeta ?
+// link to the release listing page instead of a specific release page
+// so if someone goes from the previous version to a hotfix (e.g. 5.10.3 -> 5.12.1)
+// they see the big release notes for the minor release in addition to the changes in the hotfix
+	`https://redditenhancementsuite.com/releases/beta/#v${version}` :
+	`https://redditenhancementsuite.com/releases/#v${version}`;
+const homepageURL /*: string */ = packageInfo.homepage;
+// used for invalidating caches on each build (executed at build time)
+// production builds uses version number to keep the build reproducible
+const buildToken = isProduction ? version : devBuildToken;
 
 async function buildForBrowser(targetName, { manifest, noSourceMap, browserName, browserMinVersion }) {
-	const packageInfo = await fs.promises.readFile('./package.json').then(JSON.parse);
-	const announcementsSubreddit /*: string */ = 'RESAnnouncements';
-	const name /*: string */ = packageInfo.title;
-	const author /*: string */ = packageInfo.author;
-	const description /*: string */ = packageInfo.description;
-	const version /*: string */ = packageInfo.version;
-	const isBeta /*: boolean */ = (semver.minor(version) % 2) === 1;
-	const isPatch /*: boolean */ = semver.patch(version) !== 0;
-	const isMinor /*: boolean */ = !isPatch && semver.minor(version) !== 0;
-	const isMajor /*: boolean */ = !isPatch && !isMinor && semver.major(version) !== 0;
-	const updatedURL /*: string */ = isBeta ?
-		// link to the release listing page instead of a specific release page
-		// so if someone goes from the previous version to a hotfix (e.g. 5.10.3 -> 5.12.1)
-		// they see the big release notes for the minor release in addition to the changes in the hotfix
-		`https://redditenhancementsuite.com/releases/beta/#v${version}` :
-		`https://redditenhancementsuite.com/releases/#v${version}`;
-	const homepageURL /*: string */ = packageInfo.homepage;
-	// used for invalidating caches on each build (executed at build time)
-	// production builds uses version number to keep the build reproducible
-	const buildToken = isProduction ? version : devBuildToken;
-
 	const context = {
 		entryPoints: {
 			'foreground.entry': './lib/foreground.entry.js',
