@@ -87,6 +87,7 @@ async function buildForBrowser(targetName, { manifest, noSourceMap, browserName,
 		sourcemap: !isProduction || !noSourceMap,
 		outdir: `./dist/${targetName}/`,
 		bundle: true,
+		format: 'iife',
 		metafile: true,
 		target: [`${browserName}${browserMinVersion}`],
 		loader: {
