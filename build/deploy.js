@@ -1,13 +1,15 @@
 /* @noflow */
 
-/* eslint-disable import/no-commonjs, import/no-nodejs-modules */
+/* eslint import/no-nodejs-modules: 0, import/extensions: 0 */
 
-const fs = require('fs'); // eslint-disable-line import/no-extraneous-dependencies
-const path = require('path'); // eslint-disable-line import/no-extraneous-dependencies
-const chromeDeploy = require('chrome-extension-deploy');
-const firefoxDeploy = require('firefox-extension-deploy');
-const { version } = require('../package.json');
-const isBetaVersion = require('./isBetaVersion');
+import fs from 'node:fs';
+import path from 'node:path';
+import chromeDeploy from 'chrome-extension-deploy';
+import firefoxDeploy from 'firefox-extension-deploy';
+import packageInfo from '../package.json' with { type: 'json' };
+import isBetaVersion from './isBetaVersion.js';
+
+const version = packageInfo.version;
 
 if (isBetaVersion(version)) {
 	console.log(`Deploying ${version} beta release...`);
@@ -29,7 +31,7 @@ function deployChromeBeta() {
 		clientSecret: process.env.CHROME_CLIENT_SECRET,
 		refreshToken: process.env.CHROME_REFRESH_TOKEN,
 		id: 'flhpapomijliefifkkeepedibpmibbpo',
-		zip: fs.readFileSync(path.join(__dirname, '../dist/zip/chrome-beta.zip')),
+		zip: fs.readFileSync(path.join(import.meta.dirname, '../dist/zip/chromebeta.zip')),
 		to: chromeDeploy.TRUSTED_TESTERS,
 	}).then(() => {
 		console.log('Chrome beta deployment complete!');
@@ -47,7 +49,7 @@ function deployChromeStable() {
 		clientSecret: process.env.CHROME_CLIENT_SECRET,
 		refreshToken: process.env.CHROME_REFRESH_TOKEN,
 		id: 'kbmfpngjjgdllneeigpgjifpgocmfgmb',
-		zip: fs.readFileSync(path.join(__dirname, '../dist/zip/chrome.zip')),
+		zip: fs.readFileSync(path.join(import.meta.dirname, '../dist/zip/chrome.zip')),
 	}).then(() => {
 		console.log('Chrome stable deployment complete!');
 	}, err => {
@@ -63,8 +65,8 @@ function deployFirefoxStable() {
 		issuer: process.env.FIREFOX_ISSUER,
 		secret: process.env.FIREFOX_SECRET,
 		id: 'jid1-xUfzOsOFlzSOXg@jetpack',
-		version: require('../dist/firefox/manifest.json').version, // eslint-disable-line global-require
-		src: fs.createReadStream(path.join(__dirname, '../dist/zip/firefox.zip')),
+		version,
+		src: fs.createReadStream(path.join(import.meta.dirname, '../dist/zip/firefox.zip')),
 	}).then(() => {
 		console.log('Firefox stable deployment complete!');
 	}, err => {

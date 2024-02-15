@@ -20,7 +20,7 @@
 		cursor: help;
 	}
 
-	&:not(:hover):not(:active) &-contents {
+	&:not(:hover, :active) &-contents {
 		display: none;
 	}
 }

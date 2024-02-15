@@ -10,7 +10,7 @@ body.hideOver18 {
 	~ * { display: none !important; }
 }
 
-html:not(.res-filters-disabled):not(.res-display-match-reason) {
+html:not(.res-filters-disabled, .res-display-match-reason) {
 	.res-thing-filter-hide {
 		&:not(.res-thing-partial),
 		&.res-thing-partial.res-thing-hide-children,

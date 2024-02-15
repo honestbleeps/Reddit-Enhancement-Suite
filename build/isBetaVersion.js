@@ -1,9 +1,7 @@
 /* @flow */
 
-/* eslint-disable import/no-commonjs */
+import semver from 'semver';
 
-const semver = require('semver');
-
-module.exports = function isBetaVersion(version /*: string */) /*: boolean */ {
+export default function isBetaVersion(version /*: string */) /*: boolean */ {
 	return (semver.minor(version) % 2) === 1;
 };
