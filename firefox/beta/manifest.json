@@ -5,7 +5,7 @@
   "description": "__description__",
   "author": "__author__",
   "homepage_url": "__homepage__",
-  "applications": {
+  "browser_specific_settings": {
     "gecko": {
       "id": "jid1-xUfzOsOFlzSOXg@jetpack",
       "strict_min_version": "__browser_min_version__"
@@ -26,7 +26,7 @@
     "open_in_tab": true
   },
   "background": {
-    "service_worker": "background.entry.js"
+    "scripts": ["background.entry.js"]
   },
   "content_scripts": [
     {
