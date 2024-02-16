@@ -19,7 +19,7 @@ Thinking about contributing to RES? Awesome! We just ask that you follow a few s
 #### First time installation
 
 1. Install [git](https://git-scm.com/).
-1. Install [node.js](https://nodejs.org) (version >= 10).
+1. Install [node.js](https://nodejs.org) (version >= 21).
 1. Install [yarn](https://yarnpkg.com/lang/en/docs/install/)
 1. [Clone this repository](https://help.github.com/articles/cloning-a-repository/).
 1. Run `yarn` in that folder.
@@ -30,11 +30,11 @@ To load the extension into your browser, see [Loading RES into your browser](#lo
 
 #### Build commands
 
-**`yarn start [--env browsers=<browsers>]`** will clean `dist/`, then build RES (dev mode), and start a watch task that will rebuild RES when you make changes. Only changed files will be rebuilt.
+**`yarn start [--browsers <browsers>]`** will clean `dist/`, then build RES (dev mode), and start a watch task that will rebuild RES when you make changes. Only changed files will be rebuilt.
 
-**`yarn once [--env browsers=<browsers>]`** will clean `dist/`, then build RES (dev mode) a single time.
+**`yarn once [--browsers <browsers>]`** will clean `dist/`, then build RES (dev mode) a single time.
 
-**`yarn build [--env browsers=<browsers>]`** will clean `dist/`, then build RES (release mode). Each build output will be compressed to a .zip file in `dist/zip/`.
+**`yarn build [--browsers <browsers>]`** will clean `dist/`, then build RES (release mode). Each build output will be compressed to a .zip file in `dist/zip/`.
 
 `<browsers>` is a comma-separated list of browsers to target, e.g. `chrome,firefox`. `all` will build all targets. By default, `chrome` will be targeted.
 
@@ -95,7 +95,7 @@ The default host and port (`localhost` and `4444`) should work for most local in
   - `locales`: RES i18n translations
   - `tests/`: integration tests
   - `package.json`: package info, dependencies
-  - `webpack.config.babel.js`: build script
+  - `build.js`: build script
 
 ## Adding new files
 
@@ -105,7 +105,7 @@ First, check to see if there is an existing module with the same focus.
 
 See [`examples/module.js`](https://github.com/honestbleeps/Reddit-Enhancement-Suite/blob/master/examples/module.js) for an example.
 
-Create a new `.js` file in `lib/modules`.
+Create a new `.js` file in `lib/modules`. Export it in `lib/modules/index.js` 
 It will automatically be loaded when the build script is restarted.
 
 All user-visible text must be translated. See the [locales README](/locales/locales/README.md) for details.
@@ -114,7 +114,7 @@ All user-visible text must be translated. See the [locales README](/locales/loca
 
 See [`examples/host.js`](https://github.com/honestbleeps/Reddit-Enhancement-Suite/blob/master/examples/host.js) for an example.
 
-Create a new `.js` file in `lib/modules/hosts`.
+Create a new `.js` file in `lib/modules/hosts`. Export it in `lib/modules/hosts/index.js` 
 It will automatically be loaded when the build script is restarted.
 
 If the host uses an API that does not support [CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing), you must add it to the browsers' manifests and the host's `permissions` property. For example, search for usages of `api.twitter.com`.

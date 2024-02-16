@@ -191,8 +191,7 @@
 
 	ul {
 		padding: 15px 0;
-		overflow-x: hidden;
-		overflow-y: auto;
+		overflow: hidden auto;
 		max-width: 300px;
 		max-height: 500px;
 		border-bottom: 1px rgba(0, 0, 0, .5) solid;
@@ -273,10 +272,7 @@
 #res-trash-overlay {
 	transition: opacity .2s;
 	position: fixed;
-	top: 20px;
-	right: 0;
-	bottom: 0;
-	left: 0;
+	inset: 20px 0 0 0;
 	background-color: rgba(255, 255, 255, .7);
 	z-index: 999;
 }

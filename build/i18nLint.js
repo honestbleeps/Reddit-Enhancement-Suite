@@ -1,14 +1,14 @@
 /* @noflow */
 
-/* eslint-disable import/no-commonjs, import/no-nodejs-modules */
+/* eslint-disable import/no-nodejs-modules */
 
 // Checks that all keys listed in locales/locales/en.json are used somewhere in lib/**/*.js.
 // Keys must be used verbatim, that is, literally 'thisKey', and not 'this' + 'Key'.
 // This is required not only for this script, but also so that developers can always grep for usages of an i18n key.
 
-const { readFileSync, readdirSync, statSync } = require('fs');
-const { join } = require('path'); // eslint-disable-line import/no-extraneous-dependencies
-const i18n = require('../locales/locales/en.json');
+import { readFileSync, readdirSync, statSync } from 'fs';
+import { join } from 'path';
+import i18n from '../locales/locales/en.json' with { type: 'json' };
 
 function checkUnused() {
 	let allFiles = '';
@@ -23,7 +23,7 @@ function checkUnused() {
 				allFiles += readFileSync(filePath);
 			}
 		}
-	})(join(__dirname, '..', 'lib'));
+	})(join(import.meta.dirname, '..', 'lib'));
 
 	const allKeys = Object.keys(i18n);
 	const unusedKeys = allKeys.filter(key => !allFiles.includes(`'${key}'`));

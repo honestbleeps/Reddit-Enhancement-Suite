@@ -3,10 +3,7 @@
 #quickMessage {
 	display: none;
 	position: fixed;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
+	inset: 0 0 0 0;
 	background-color: rgba(0, 0, 0, .75);
 	z-index: $zindex-quick-message-dialog - 1;
 }

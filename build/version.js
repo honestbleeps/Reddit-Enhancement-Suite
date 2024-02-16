@@ -1,12 +1,12 @@
-/* @flow */
+/* @noflow */
+/* eslint import/no-nodejs-modules: 0, import/extensions: 0 */
 
-/* eslint-disable import/no-commonjs, import/no-nodejs-modules */
+import { execSync } from 'child_process';
+import fs from 'fs';
+import packageData from '../package.json' with { type: 'json' };
+import { changelogPath, changelogPathFromVersion } from './utils/changelog.js';
 
-const { execSync } = require('child_process');
-const fs = require('fs');
-const { version, repository } = require('../package.json');
-const { changelogPath, changelogPathFromVersion } = require('./utils/changelog');
-
+const { version, repository } = packageData;
 const unreleasedChangelog = changelogPath('UNRELEASED.md');
 const templateChangelog = changelogPath('_EXAMPLE.md');
 const newChangelog = changelogPathFromVersion(version);

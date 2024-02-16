@@ -1,22 +1,22 @@
 /* @noflow */
+/* eslint import/no-nodejs-modules: 0, import/extensions: 0  */
 
-/* eslint-disable import/no-commonjs, import/no-nodejs-modules */
+import { execSync } from 'child_process';
+import fs from 'node:fs';
+import path from 'node:path';
+import { rimrafSync } from 'rimraf';
+import packageInfo from '../package.json' with { type: 'json' };
+import { changelogPathFromVersion } from './utils/changelog.js';
+import isBetaVersion from './isBetaVersion.js';
 
-const { execSync } = require('child_process');
-const fs = require('fs');
-const path = require('path'); // eslint-disable-line import/no-extraneous-dependencies
-const rimraf = require('rimraf');
-const { version } = require('../package.json');
-const { changelogPathFromVersion } = require('./utils/changelog');
-const isBetaVersion = require('./isBetaVersion');
+const version = packageInfo.version;
 
-const tempDir = path.join(__dirname, '..', 'dist', 'temp');
+const tempDir = path.join(import.meta.dirname, '..', 'dist', 'temp');
 
-rimraf.sync(tempDir);
+rimrafSync(tempDir);
 execSync(`git clone --depth=1 https://github.com/Reddit-Enhancement-Suite/Reddit-Enhancement-Suite.github.io.git ${tempDir}`);
 
-const releaseTimestamp = (/^tagger.+?\s(\d+)\s/m).exec(execSync(`git cat-file tag v${version}`, { encoding: 'utf8' }))[1];
-const releaseDate = new Date(releaseTimestamp * 1000);
+const releaseDate = new Date(execSync(`git log -1 --format=%ai v${version}`, { encoding: 'utf8' }));
 
 const newChangelogFile = path.join(tempDir, '_posts', `${releaseDate.toISOString().slice(0, 10)}-${version.replace(/\./g, '')}.md`);
 

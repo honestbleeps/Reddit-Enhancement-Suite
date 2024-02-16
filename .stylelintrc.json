@@ -11,7 +11,6 @@
   ],
   "rules": {
     "alpha-value-notation": null,
-    "color-hex-case": null,
     "color-named": null,
     "color-function-notation": null,
     "declaration-property-value-disallowed-list": null,
@@ -19,13 +18,10 @@
     "font-family-name-quotes": null,
     "function-no-unknown": null,
     "hue-degree-notation": null,
-    "indentation": "tab",
+    "import-notation": null,
     "keyframes-name-pattern": null,
-    "max-line-length": null,
     "max-nesting-depth": null,
     "no-descending-specificity": null,
-    "number-leading-zero": null,
-    "order/properties-alphabetical-order": null,
     "scss/double-slash-comment-empty-line-before": null,
     "scss/at-function-pattern": null,
     "scss/at-mixin-pattern": null,
@@ -36,7 +32,6 @@
     "selector-max-compound-selectors": null,
     "selector-max-id": null,
     "selector-no-qualifying-type": null,
-    "shorthand-property-no-redundant-values": null,
-    "string-quotes": "single"
+    "shorthand-property-no-redundant-values": null
   }
 }
