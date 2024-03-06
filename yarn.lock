@@ -2461,12 +2461,12 @@ flow-parser@0.*:
   resolved "https://registry.yarnpkg.com/flow-parser/-/flow-parser-0.226.0.tgz#d552ab6762342e0e2b112fc937dd70b59e5e5d05"
   integrity sha512-YlH+Y/P/5s0S7Vg14RwXlJMF/JsGfkG7gcKB/zljyoqaPNX9YVsGzx+g6MLTbhZaWbPhs4347aTpmSb9GgiPtw==
 
-flow-remove-types@2.229.2:
-  version "2.229.2"
-  resolved "https://registry.yarnpkg.com/flow-remove-types/-/flow-remove-types-2.229.2.tgz#d7865952cd6090ac7da06d8668ad8d83e319d960"
-  integrity sha512-NF9YGM2jdnwHIEFsG0w6ri3Nukc/MXbAcvLA0O0syKsOk2QurUvfu9ebKyo/b1YAYsPgT/yram0Lg9SwYdM/9Q==
+flow-remove-types@2.230.0:
+  version "2.230.0"
+  resolved "https://registry.yarnpkg.com/flow-remove-types/-/flow-remove-types-2.230.0.tgz#6db703e68dddfe29fc41b82c0d809972f330a455"
+  integrity sha512-VNIr9AyA+XvcYyy26q5qCTyKuWriymAqax+B4k/bBLAK2IVhafDxX9F2ERZydmqqcbY+jxgybgvy90O1Dg//Gg==
   dependencies:
-    hermes-parser "0.19.1"
+    hermes-parser "0.19.2"
     pirates "^3.0.2"
     vlq "^0.2.1"
 
@@ -2826,17 +2826,17 @@ he@1.2.0:
   resolved "https://registry.npmjs.org/he/-/he-1.2.0.tgz"
   integrity sha512-F/1DnUGPopORZi0ni+CvrCgHQ5FyEAHRLSApuYWMmrbSwoN2Mn/7k+Gl38gJnR7yyDZk6WLXwiGod1JOWNDKGw==
 
-hermes-estree@0.19.1:
-  version "0.19.1"
-  resolved "https://registry.yarnpkg.com/hermes-estree/-/hermes-estree-0.19.1.tgz#d5924f5fac2bf0532547ae9f506d6db8f3c96392"
-  integrity sha512-daLGV3Q2MKk8w4evNMKwS8zBE/rcpA800nu1Q5kM08IKijoSnPe9Uo1iIxzPKRkn95IxxsgBMPeYHt3VG4ej2g==
+hermes-estree@0.19.2:
+  version "0.19.2"
+  resolved "https://registry.yarnpkg.com/hermes-estree/-/hermes-estree-0.19.2.tgz#b35f59c7fa184ac63a049a9ad37b370c5151bd20"
+  integrity sha512-dMDmDgaW9LXQxGOQ+gsAZUlXiPXkHvUrpKESCPhkm3pH0SjHy5uaBaT8psxmPol1EBh8GVM2lGC/W0bhuW/fpQ==
 
-hermes-parser@0.19.1:
-  version "0.19.1"
-  resolved "https://registry.yarnpkg.com/hermes-parser/-/hermes-parser-0.19.1.tgz#1044348097165b7c93dc198a80b04ed5130d6b1a"
-  integrity sha512-Vp+bXzxYJWrpEuJ/vXxUsLnt0+y4q9zyi4zUlkLqD8FKv4LjIfOvP69R/9Lty3dCyKh0E2BU7Eypqr63/rKT/A==
+hermes-parser@0.19.2:
+  version "0.19.2"
+  resolved "https://registry.yarnpkg.com/hermes-parser/-/hermes-parser-0.19.2.tgz#67b0fd92f4d7a374234f58c4f980f816734a7695"
+  integrity sha512-FxPcupAYzTks42tx8c29UGW59BbZQ67aKKS4jFi0eiD8Q3US3O8raxfNx0yi0ha0dTCq1WXK2MlJv+RCjkVp3Q==
   dependencies:
-    hermes-estree "0.19.1"
+    hermes-estree "0.19.2"
 
 html-entities@^1.2.1:
   version "1.4.0"
@@ -5167,10 +5167,10 @@ stylelint-config-standard@36.0.0, stylelint-config-standard@^36.0.0:
   dependencies:
     stylelint-config-recommended "^14.0.0"
 
-stylelint-scss@6.1.0:
-  version "6.1.0"
-  resolved "https://registry.yarnpkg.com/stylelint-scss/-/stylelint-scss-6.1.0.tgz#b7ef162c417132e8df2b69d1759ae07395d54fb5"
-  integrity sha512-kCfK8TQzthGwb4vaZniZgxRsVbCM4ZckmT1b/H5m4FU3I8Dz0id9llKsy1NMp3XXqC8+OPD4rVKtUbSxXlJb5g==
+stylelint-scss@6.2.1:
+  version "6.2.1"
+  resolved "https://registry.yarnpkg.com/stylelint-scss/-/stylelint-scss-6.2.1.tgz#7675f3f5034a3b1d7d064d480e0d834ef9353244"
+  integrity sha512-ZoGLbVb1keZYRVGQlhB8G6sZOoNqw61whzzzGFWp05N12ErqLFfBv3JPrXiMLZaW98sBS7K/vUQhRnvUj4vwdw==
   dependencies:
     known-css-properties "^0.29.0"
     postcss-media-query-parser "^0.2.3"

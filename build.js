@@ -88,6 +88,7 @@ async function buildForBrowser(targetName, { manifest, noSourceMap, browserName,
 		outdir: `./dist/${targetName}/`,
 		bundle: true,
 		format: 'iife',
+		treeShaking: true,
 		metafile: true,
 		target: [`${browserName}${browserMinVersion}`],
 		loader: {
