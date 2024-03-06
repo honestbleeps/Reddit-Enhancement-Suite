@@ -155,7 +155,7 @@ async function buildForBrowser(targetName, { manifest, noSourceMap, browserName,
 							__browser_min_version__: browserMinVersion,
 						}
 						Object.keys(replace).forEach(v => {
-							text = text.replace(v, replace[v]);
+							text = text.replaceAll(v, replace[v]);
 						});
 						JSON.parse(text); // Check if resulting JSON is valid
 						return { contents: text, loader: 'copy' };
