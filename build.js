@@ -155,7 +155,7 @@ async function buildForBrowser(targetName, { manifest, noSourceMap, browserName,
 							__homepage__: homepageURL,
 							__author__: author,
 							__browser_min_version__: browserMinVersion,
-							__browser_mobile_min_version__: browserMobileMinVersion
+							__browser_mobile_min_version__: browserMobileMinVersion,
 						}
 						Object.keys(replace).forEach(v => {
 							text = text.replaceAll(v, replace[v]);
