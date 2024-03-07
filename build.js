@@ -38,6 +38,7 @@ const targets = {
 	firefox: {
 		browserName: 'firefox',
 		browserMinVersion: '115.0',
+		browserMobileMinVersion: '120.0',
 		manifest: './firefox/manifest.json',
 		noSourcemap: true,
 	},
@@ -73,7 +74,7 @@ const homepageURL /*: string */ = packageInfo.homepage;
 // production builds uses version number to keep the build reproducible
 const buildToken = isProduction ? version : devBuildToken;
 
-async function buildForBrowser(targetName, { manifest, noSourceMap, browserName, browserMinVersion }) {
+async function buildForBrowser(targetName, { manifest, noSourceMap, browserName, browserMinVersion, browserMobileMinVersion }) {
 	const context = {
 		entryPoints: {
 			'foreground.entry': './lib/foreground.entry.js',
@@ -154,6 +155,7 @@ async function buildForBrowser(targetName, { manifest, noSourceMap, browserName,
 							__homepage__: homepageURL,
 							__author__: author,
 							__browser_min_version__: browserMinVersion,
+							__browser_mobile_min_version__: browserMobileMinVersion
 						}
 						Object.keys(replace).forEach(v => {
 							text = text.replaceAll(v, replace[v]);
