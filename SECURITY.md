@@ -10,11 +10,10 @@ We support the latest version of RES on all supported browsers. Please see below
 
 | Browser | Supported          |
 | ------- | ------------------ |
-| Google Chrome   | :white_check_mark: |
-| Mozilla Firefox   | :white_check_mark:                |
-| Mozilla Firefox ESR 115   | :white_check_mark:                |
-| Mozilla Firefox ESR 102   | :x:                 |
-| Microsoft Edge| :white_check_mark:                |
+| Google Chrome 114+  | :white_check_mark: |
+| Mozilla Firefox 115+  | :white_check_mark:                |
+| Microsoft Edge 114+ | :white_check_mark:                |
+| Opera 114+ | :white_check_mark:                |
 | Safari  | :x:                |
 
 
