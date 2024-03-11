@@ -17,7 +17,7 @@ Other questions?    Visit https://www.reddit.com/r/Enhancement
 
 - My browser (copy from https://www.whatismybrowser.com):
 - My RES version:
-- Am I in reddit beta (yes/no): 
+- [ ] I am in reddit beta
 
 *What's the problem?*
 
