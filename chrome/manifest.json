@@ -76,7 +76,9 @@
     "downloads"
   ],
   "host_permissions": [
-    "https://*.reddit.com/*",
+    "https://*.reddit.com/*"
+  ],
+  "optional_host_permissions":[
     "https://publish.twitter.com/oembed",
     "https://backend.deviantart.com/oembed",
     "https://api.gyazo.com/api/oembed",
