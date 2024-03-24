@@ -69,11 +69,11 @@
     "storage",
     "unlimitedStorage",
     "webRequest",
-    "scripting",
-    "geolocation"
+    "scripting"
   ],
   "optional_permissions": [
-    "downloads"
+    "downloads",
+    "geolocation"
   ],
   "host_permissions": [
     "https://*.reddit.com/*"
