@@ -19,6 +19,6 @@ We support the latest version of RES on all supported browsers. Please see below
 
 ## Reporting a Vulnerability
 
-In order to report a vulnerability/security concern, please send an email to: ben@redditenhancementsuite.com and we will respond confirming the report. Please provide as much detail as possible for the initial triage, we will provide a public PGP key upon request.
+In order to report a vulnerability/security concern, please use GitHubs private vulnerability reporting system [here](https://github.com/honestbleeps/Reddit-Enhancement-Suite/security) and provide as much detail as possible.
 
 We will aim to respond in 24 hours, if you do not get a response in this timeframe place raise a GitHub issue stating you are having problems contacting us.
