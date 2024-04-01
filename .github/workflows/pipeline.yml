@@ -3,7 +3,7 @@ name: RES Pipeline
 on:
   push:
     branches:
-    - master
+    - main
     tags:
       - v*.*.*
   pull_request:
@@ -34,27 +34,27 @@ jobs:
 
     - run: yarn build --browsers=all
 
-    - uses: softprops/action-gh-release@v2
-      if: startsWith(github.ref, 'refs/tags/')
-      with:
-        files: |
-          dist/zip/chrome.zip
-          dist/zip/chromebeta.zip
-          dist/zip/edge.zip
-          dist/zip/firefox.zip
-          dist/zip/opera.zip
-        prerelease: true
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    # - uses: softprops/action-gh-release@v2
+    #   if: startsWith(github.ref, 'refs/tags/')
+    #   with:
+    #     files: |
+    #       dist/zip/chrome.zip
+    #       dist/zip/chromebeta.zip
+    #       dist/zip/edge.zip
+    #       dist/zip/firefox.zip
+    #       dist/zip/opera.zip
+    #     prerelease: true
+    #   env:
+    #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-  windows:
-    runs-on: windows-latest
-    steps:
-    - uses: actions/checkout@v4
-    - uses: actions/setup-node@v4
-      with:
-        node-version: '21'
-    - run: yarn install --frozen-lockfile
+  # windows:
+  #   runs-on: windows-latest
+  #   steps:
+  #   - uses: actions/checkout@v4
+  #   - uses: actions/setup-node@v4
+  #     with:
+  #       node-version: '21'
+  #   - run: yarn install --frozen-lockfile
 
-    - run: yarn test
-    - run: yarn build --browsers=all
+  #   - run: yarn test
+  #   - run: yarn build --browsers=all
