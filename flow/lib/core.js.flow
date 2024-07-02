@@ -41,3 +41,5 @@ declare class Object {
 	valueOf(): Object;
 	[any]: any;
 }
+
+declare function structuredClone<T>(value: T): T;
