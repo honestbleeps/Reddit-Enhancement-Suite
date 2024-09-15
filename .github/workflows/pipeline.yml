@@ -15,7 +15,7 @@ jobs:
     - uses: actions/checkout@v4
     - uses: actions/setup-node@v4
       with:
-        node-version: '21'
+        node-version: '22'
     - run: yarn install --frozen-lockfile
 
     - run: yarn flow check --show-all-errors
@@ -29,7 +29,7 @@ jobs:
     - uses: actions/checkout@v4
     - uses: actions/setup-node@v4
       with:
-        node-version: '21'
+        node-version: '22'
     - run: yarn install --frozen-lockfile
 
     - run: yarn build --browsers=all
@@ -53,7 +53,7 @@ jobs:
     - uses: actions/checkout@v4
     - uses: actions/setup-node@v4
       with:
-        node-version: '21'
+        node-version: '22'
     - run: yarn install --frozen-lockfile
 
     - run: yarn test
