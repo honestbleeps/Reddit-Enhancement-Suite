@@ -102,6 +102,16 @@ Known Safari gaps in the current port:
   - Automatic cloud backups remain disabled until Safari background redirect auth is validated manually.
   - Safari runtime diagnostics are enabled by default and stored in extension local storage until the port stabilizes.
 
+#### Cross-browser regression smoke
+
+If a change touches `lib/environment/`, browser manifests, or build target logic, do not mark the PR review-ready until this short smoke pass has been completed on the PR branch:
+
+  - Chrome on old Reddit: RES injects, settings save/reload, toolbar style toggle works on a styled subreddit, `showImages` expands media, downloads remain managed, and history-based behavior still works.
+  - Firefox on old Reddit: same smoke pass, plus Firefox-specific auth/storage behavior still matches expected pre-Safari behavior.
+  - Safari: keep the existing Safari smoke checklist above.
+
+Chrome is the representative Chromium runtime for these checks. Edge and Opera only need build validation unless Chrome shows a regression.
+
 ## Project structure
 
 #### Top level files and folders
