@@ -35,6 +35,12 @@ const targets = {
 		manifest: './chrome/manifest.json',
 		noSourcemap: true,
 	},
+	safari: {
+		browserName: 'safari',
+		browserMinVersion: '18.4',
+		manifest: './safari/manifest.json',
+		noSourcemap: true,
+	},
 	firefox: {
 		browserName: 'firefox',
 		browserMinVersion: '115.0',
@@ -70,22 +76,25 @@ const updatedURL /*: string */ = isBeta ?
 	`https://redditenhancementsuite.com/releases/beta/#v${version}` :
 	`https://redditenhancementsuite.com/releases/#v${version}`;
 const homepageURL /*: string */ = packageInfo.homepage;
+const repositoryURL /*: string */ = `https://github.com/${packageInfo.repository.username}/${packageInfo.repository.repository}`;
+const safariBetaIssueURL /*: string */ = `${repositoryURL}/issues/new?template=safari-beta-bug.yml`;
 // used for invalidating caches on each build (executed at build time)
 // production builds uses version number to keep the build reproducible
 const buildToken = isProduction ? version : devBuildToken;
 
-async function buildForBrowser(targetName, { manifest, noSourceMap, browserName, browserMinVersion, browserMobileMinVersion }) {
+async function buildForBrowser(targetName, { manifest, noSourcemap, browserName, browserMinVersion, browserMobileMinVersion }) {
 	const context = {
 		entryPoints: {
 			'foreground.entry': './lib/foreground.entry.js',
 			'background.entry': './lib/background.entry.js',
+			'debug.entry': './lib/debug/debug.entry.js',
 			'options.entry': './lib/options/options.entry.js',
 			'prompt.entry': './lib/environment/background/permissions/prompt.entry.js',
 			manifest,
 			options: './lib/options/options.scss',
 			res: './lib/css/res.scss',
 		},
-		sourcemap: !isProduction || !noSourceMap,
+		sourcemap: !isProduction || !noSourcemap,
 		outdir: `./dist/${targetName}/`,
 		bundle: true,
 		format: 'iife',
@@ -113,6 +122,8 @@ async function buildForBrowser(targetName, { manifest, noSourceMap, browserName,
 			'process.env.isMajor': `"${isMajor.toString()}"`,
 			'process.env.updatedURL': `"${updatedURL}"`,
 			'process.env.homepageURL': `"${homepageURL}"`,
+			'process.env.repositoryURL': `"${repositoryURL}"`,
+			'process.env.safariBetaIssueURL': `"${safariBetaIssueURL}"`,
 		},
 		plugins: [
 			{
@@ -138,6 +149,7 @@ async function buildForBrowser(targetName, { manifest, noSourceMap, browserName,
 					{ from: ['./images/css-on.png'], to: ['./'] },
 					{ from: ['./images/icon128.png'], to: ['./'] },
 					{ from: ['./images/icon48.png'], to: ['./'] },
+					{ from: ['./lib/debug/debug.html'], to: ['./'] },
 					{ from: ['./lib/environment/background/permissions/prompt.html'], to: ['./'] },
 					{ from: ['./lib/options/options.html'], to: ['./'] },
 					{ from: ['./node_modules/dashjs/dist/dash.mediaplayer.min.js'], to: ['./'] },
