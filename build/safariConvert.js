@@ -9,6 +9,10 @@ import { spawnSync } from 'node:child_process';
 const defaultAppName = 'Reddit Enhancement Suite Safari';
 const defaultBundleIdentifier = 'com.honestbleeps.redditenhancementsuitesafari';
 
+function getExtensionBundleIdentifier(bundleIdentifier) {
+	return `${bundleIdentifier}.extension`;
+}
+
 function parseArgs(argv) {
 	const flags = new Map();
 	const entries = argv.entries();
@@ -50,10 +54,11 @@ function patchProjectBundleIdentifiers(projectFile, bundleIdentifier) {
 	}
 
 	const bundlePattern = /PRODUCT_BUNDLE_IDENTIFIER = (?:"([^"]+)"|([A-Za-z0-9._-]+));/g;
+	const extensionBundleIdentifier = getExtensionBundleIdentifier(bundleIdentifier);
 	const original = fs.readFileSync(projectFile, 'utf8');
 	const updated = original.replace(bundlePattern, (match, quotedValue, bareValue) => {
 		const currentValue = quotedValue || bareValue;
-		const nextValue = currentValue.endsWith('.Extension') ? `${bundleIdentifier}.Extension` : bundleIdentifier;
+		const nextValue = /\.(Extension|extension)$/.test(currentValue) ? extensionBundleIdentifier : bundleIdentifier;
 		const encoded = quotedValue ? `"${nextValue}"` : nextValue;
 		return `PRODUCT_BUNDLE_IDENTIFIER = ${encoded};`;
 	});
@@ -67,7 +72,10 @@ function patchProjectBundleIdentifiers(projectFile, bundleIdentifier) {
 
 const args = parseArgs(process.argv.slice(2));
 const appName = args.get('app-name') || defaultAppName;
-const bundleIdentifier = args.get('bundle-identifier') || defaultBundleIdentifier;
+const bundleIdentifier =
+	args.get('bundle-identifier') ||
+	process.env.RES_SAFARI_BUNDLE_IDENTIFIER ||
+	defaultBundleIdentifier;
 const source = path.resolve(args.get('source') || 'dist/safari');
 const projectLocation = path.resolve(args.get('project-location') || 'dist/safari-xcode');
 const validateBuild = args.has('validate-build');
@@ -97,6 +105,8 @@ const projectFile = path.join(projectPath, 'project.pbxproj');
 patchProjectBundleIdentifiers(projectFile, bundleIdentifier);
 
 console.log(`Patched Xcode bundle identifiers in ${projectFile}`);
+console.log(`App bundle identifier: ${bundleIdentifier}`);
+console.log(`Extension bundle identifier: ${getExtensionBundleIdentifier(bundleIdentifier)}`);
 
 if (validateBuild) {
 	run('xcodebuild', [
