@@ -77,6 +77,7 @@ The default host and port (`localhost` and `4444`) should work for most local in
 1. Install Xcode and its command line tools on macOS.
 1. If the converter fails with `A required plugin failed to load`, run `xcodebuild -runFirstLaunch` once.
 1. Run `yarn safari:validate` to build `dist/safari`, convert it into `dist/safari-xcode/`, patch the generated Xcode bundle identifiers, and verify that the app target can be built locally without signing.
+1. If you need to sign the app locally with your own Apple team, rebuild with a unique base bundle ID first, for example `RES_SAFARI_BUNDLE_IDENTIFIER=com.<yourname>.redditenhancementsuitesafari yarn safari:validate`. The extension bundle ID is derived automatically as `<base>.extension`.
 1. Open `/dist/safari-xcode/Reddit Enhancement Suite Safari/Reddit Enhancement Suite Safari.xcodeproj` in Xcode, run the containing app locally to enable the extension in Safari, and use Xcode for reload/debug cycles.
 1. Public distribution goes through Apple's Safari Web Extension packaging flow and App Store Connect rather than the browser store automation used for Chrome and Firefox.
 1. Broad public Safari testing should use TestFlight rather than GitHub artifacts; see [`docs/safari-public-beta.md`](docs/safari-public-beta.md).
