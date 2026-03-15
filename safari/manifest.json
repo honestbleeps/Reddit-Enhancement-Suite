@@ -69,7 +69,8 @@
     "scripting"
   ],
   "host_permissions": [
-    "https://*.reddit.com/*"
+    "https://*.reddit.com/*",
+    "https://*.redd.it/*"
   ],
   "optional_host_permissions": [
     "https://publish.twitter.com/oembed",
@@ -79,7 +80,6 @@
     "https://xkcd.com/*/info.0.json",
     "https://api.steampowered.com/ISteamRemoteStorage/GetPublishedFileDetails/*",
     "https://www.googleapis.com/drive/v3/*",
-    "https://*.redd.it/*",
     "https://www.flickr.com/services/oembed",
     "https://redditenhancementsuite.com/oauth",
     "https://accounts.google.com/signin/oauth",
