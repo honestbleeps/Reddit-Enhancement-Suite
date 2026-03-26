@@ -36,9 +36,7 @@ To load the extension into your browser, see [Loading RES into your browser](#lo
 
 **`yarn build [--browsers <browsers>]`** will clean `dist/`, then build RES (release mode). Each build output will be compressed to a .zip file in `dist/zip/`.
 
-`<browsers>` is a comma-separated list of browsers to target, e.g. `chrome,firefox,safari`. `all` will build all targets. By default, `chrome` will be targeted.
-
-Safari builds emit a WebExtension bundle in `dist/safari/` and `dist/zip/safari.zip`. Packaging that bundle for distribution still requires Xcode on macOS.
+`<browsers>` is a comma-separated list of browsers to target, e.g. `chrome,firefox`. `all` will build all targets. By default, `chrome` will be targeted.
 
 #### Lint and test commands
 
@@ -71,52 +69,11 @@ The default host and port (`localhost` and `4444`) should work for most local in
 1. Click `Load Temporary Add-on` and select `/dist/firefox/manifest.json` (not the `/firefox` folder).
 1. Any time you make changes, you must go back to the `about:debugging` page and `Reload` the extension.
 
-##### Safari (macOS)
-
-1. Install Xcode and its command line tools on macOS.
-1. If the converter fails with `A required plugin failed to load`, run `xcodebuild -runFirstLaunch` once.
-1. Run `yarn safari:validate` to build `dist/safari`, convert it into `dist/safari-xcode/`, patch the generated Xcode bundle identifiers, and verify that the app target can be built locally without signing.
-1. If you need to sign the app locally with your own Apple team, rebuild with a unique base bundle ID first, for example `RES_SAFARI_BUNDLE_IDENTIFIER=com.<yourname>.redditenhancementsuitesafari yarn safari:validate`. The extension bundle ID is derived automatically as `<base>.extension`.
-1. Open `/dist/safari-xcode/Reddit Enhancement Suite Safari/Reddit Enhancement Suite Safari.xcodeproj` in Xcode, run the containing app locally to enable the extension in Safari, and use Xcode for reload/debug cycles.
-1. Public distribution goes through Apple's Safari Web Extension packaging flow rather than the browser store automation used for Chrome and Firefox.
-
-Safari smoke checklist after the containing app is installed:
-
-  - Extension enables and injects on old Reddit.
-  - Options page opens and settings/translations load.
-  - Toolbar action still toggles subreddit CSS.
-  - `showImages` expands media and optional host-permission prompts still work.
-  - Download actions open the asset for manual save.
-  - History-dependent UI is absent or intentionally inert, without console errors.
-  - File backup/restore works.
-  - Cloud backup works for manual auth only, or the provider is intentionally hidden if manual auth fails.
-  - Private browsing does not crash the extension.
-  - If the options page is blank or the toolbar click does nothing, open `debug.html` inside the extension bundle to inspect persisted Safari runtime diagnostics and clear them between attempts.
-  - If you need to file a Safari bug, use the copy/download actions on `debug.html` and submit the report through the normal GitHub issue flow.
-
-Known Safari gaps in the current port:
-
-  - No extension-managed browsing history; history-dependent filters and showImages history writes are disabled.
-  - No controlled extension downloads; Safari falls back to opening the asset in a new tab for manual save.
-  - Automatic cloud backups remain disabled until Safari background redirect auth is validated manually.
-  - Safari runtime diagnostics are enabled by default and stored in extension local storage until the port stabilizes.
-
-#### Cross-browser regression smoke
-
-If a change touches `lib/environment/`, browser manifests, or build target logic, do not mark the PR review-ready until this short smoke pass has been completed on the PR branch:
-
-  - Chrome on old Reddit: RES injects, settings save/reload, toolbar style toggle works on a styled subreddit, `showImages` expands media, downloads remain managed, and history-based behavior still works.
-  - Firefox on old Reddit: same smoke pass, plus Firefox-specific auth/storage behavior still matches expected pre-Safari behavior.
-  - Safari: keep the existing Safari smoke checklist above.
-
-Chrome is the representative Chromium runtime for these checks. Edge and Opera only need build validation unless Chrome shows a regression.
-
 ## Project structure
 
 #### Top level files and folders
 
   - `.github/`: Github templates
-  - `docs/`: release and rollout documentation
   - `browser/`: extension API files common to all browsers
   - `build/`: files handling automated browser deployments
   - `changelog/`: release changelogs
@@ -136,7 +93,6 @@ Chrome is the representative Chromium runtime for these checks. Edge and Opera o
   - `lib/vendor/`: RES vendor libraries (old libs not on npm)
   - `lib/**/__tests__`: unit tests
   - `locales`: RES i18n translations
-  - `safari/`: Safari-specific RES files
   - `tests/`: integration tests
   - `package.json`: package info, dependencies
   - `build.js`: build script

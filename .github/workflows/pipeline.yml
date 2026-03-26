@@ -43,33 +43,9 @@ jobs:
           dist/zip/edge.zip
           dist/zip/firefox.zip
           dist/zip/opera.zip
-          dist/zip/safari.zip
         prerelease: true
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-  safari_validation:
-    runs-on: macos-latest
-    steps:
-    - uses: actions/checkout@v4
-    - uses: actions/setup-node@v4
-      with:
-        node-version: '22'
-    - run: yarn install --frozen-lockfile
-
-    - run: yarn test
-    - run: yarn eslint
-    - run: yarn safari:validate
-    - run: tar -C dist -czf dist/zip/safari-xcode.tar.gz safari-xcode
-
-    - uses: actions/upload-artifact@v4
-      with:
-        name: safari-validation-artifacts
-        path: |
-          dist/zip/safari.zip
-          dist/zip/safari-xcode.tar.gz
-        if-no-files-found: error
-        retention-days: 7
 
   windows:
     runs-on: windows-latest
