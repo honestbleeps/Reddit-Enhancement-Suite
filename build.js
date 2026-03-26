@@ -77,7 +77,7 @@ const updatedURL /*: string */ = isBeta ?
 	`https://redditenhancementsuite.com/releases/#v${version}`;
 const homepageURL /*: string */ = packageInfo.homepage;
 const repositoryURL /*: string */ = `https://github.com/${packageInfo.repository.username}/${packageInfo.repository.repository}`;
-const safariBetaIssueURL /*: string */ = `${repositoryURL}/issues/new?template=safari-beta-bug.yml`;
+const issueURL /*: string */ = `${repositoryURL}/issues/new/choose`;
 // used for invalidating caches on each build (executed at build time)
 // production builds uses version number to keep the build reproducible
 const buildToken = isProduction ? version : devBuildToken;
@@ -124,7 +124,7 @@ async function buildForBrowser(targetName, { manifest, noSourcemap, browserName,
 			'process.env.updatedURL': `"${updatedURL}"`,
 			'process.env.homepageURL': `"${homepageURL}"`,
 			'process.env.repositoryURL': `"${repositoryURL}"`,
-			'process.env.safariBetaIssueURL': `"${safariBetaIssueURL}"`,
+			'process.env.issueURL': `"${issueURL}"`,
 		},
 		plugins: [
 			{

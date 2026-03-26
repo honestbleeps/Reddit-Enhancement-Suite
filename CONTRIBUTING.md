@@ -39,7 +39,6 @@ To load the extension into your browser, see [Loading RES into your browser](#lo
 `<browsers>` is a comma-separated list of browsers to target, e.g. `chrome,firefox,safari`. `all` will build all targets. By default, `chrome` will be targeted.
 
 Safari builds emit a WebExtension bundle in `dist/safari/` and `dist/zip/safari.zip`. Packaging that bundle for distribution still requires Xcode on macOS.
-For the broad public beta/TestFlight rollout, use [`docs/safari-public-beta.md`](docs/safari-public-beta.md) as the source of truth.
 
 #### Lint and test commands
 
@@ -79,8 +78,7 @@ The default host and port (`localhost` and `4444`) should work for most local in
 1. Run `yarn safari:validate` to build `dist/safari`, convert it into `dist/safari-xcode/`, patch the generated Xcode bundle identifiers, and verify that the app target can be built locally without signing.
 1. If you need to sign the app locally with your own Apple team, rebuild with a unique base bundle ID first, for example `RES_SAFARI_BUNDLE_IDENTIFIER=com.<yourname>.redditenhancementsuitesafari yarn safari:validate`. The extension bundle ID is derived automatically as `<base>.extension`.
 1. Open `/dist/safari-xcode/Reddit Enhancement Suite Safari/Reddit Enhancement Suite Safari.xcodeproj` in Xcode, run the containing app locally to enable the extension in Safari, and use Xcode for reload/debug cycles.
-1. Public distribution goes through Apple's Safari Web Extension packaging flow and App Store Connect rather than the browser store automation used for Chrome and Firefox.
-1. Broad public Safari testing should use TestFlight rather than GitHub artifacts; see [`docs/safari-public-beta.md`](docs/safari-public-beta.md).
+1. Public distribution goes through Apple's Safari Web Extension packaging flow rather than the browser store automation used for Chrome and Firefox.
 
 Safari smoke checklist after the containing app is installed:
 
@@ -94,7 +92,7 @@ Safari smoke checklist after the containing app is installed:
   - Cloud backup works for manual auth only, or the provider is intentionally hidden if manual auth fails.
   - Private browsing does not crash the extension.
   - If the options page is blank or the toolbar click does nothing, open `debug.html` inside the extension bundle to inspect persisted Safari runtime diagnostics and clear them between attempts.
-  - If you need to file a Safari bug, use the copy/download actions on `debug.html` and submit the report through the GitHub Safari beta issue template.
+  - If you need to file a Safari bug, use the copy/download actions on `debug.html` and submit the report through the normal GitHub issue flow.
 
 Known Safari gaps in the current port:
 

@@ -6,7 +6,7 @@
 
 - Added a Safari build target, local Xcode conversion/validation workflow, and explicit Safari fallbacks for unsupported history/download APIs.
 - Added Safari runtime diagnostics, a `debug.html` troubleshooting page, and non-fatal Safari toolbar/options fallbacks so runtime failures no longer fail silently.
-- Added Safari beta diagnostics export/copy actions, GitHub Safari beta issue intake, and TestFlight rollout guidance for broader public testing.
+- Added Safari diagnostics export/copy actions and GitHub issue links so Safari runtime failures can be reported with attached diagnostic context.
 
 ### Housekeeping / Other
 

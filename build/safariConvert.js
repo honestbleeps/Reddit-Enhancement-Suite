@@ -8,6 +8,7 @@ import { spawnSync } from 'node:child_process';
 
 const defaultAppName = 'Reddit Enhancement Suite Safari';
 const defaultBundleIdentifier = 'com.honestbleeps.redditenhancementsuitesafari';
+const defaultAppCategory = 'public.app-category.utilities';
 
 function getExtensionBundleIdentifier(bundleIdentifier) {
 	return `${bundleIdentifier}.extension`;
@@ -70,12 +71,42 @@ function patchProjectBundleIdentifiers(projectFile, bundleIdentifier) {
 	fs.writeFileSync(projectFile, updated);
 }
 
+function patchAppInfoPlist(infoPlistFile, appCategory) {
+	if (!fs.existsSync(infoPlistFile)) {
+		throw new Error(`Safari app Info.plist not found: ${infoPlistFile}`);
+	}
+
+	const original = fs.readFileSync(infoPlistFile, 'utf8');
+	let updated = original;
+
+	const patchKeyValue = (key, valuePattern, valueBlock) => {
+		const keyPattern = new RegExp(`<key>${key}<\\/key>\\s*${valuePattern.source}`);
+		if (keyPattern.test(updated)) {
+			updated = updated.replace(keyPattern, `<key>${key}</key>\n\t${valueBlock}`);
+			return;
+		}
+
+		updated = updated.replace('</dict>', `\t<key>${key}</key>\n\t${valueBlock}\n</dict>`);
+	};
+
+	patchKeyValue('LSApplicationCategoryType', /<string>[^<]*<\/string>/, `<string>${appCategory}</string>`);
+	patchKeyValue('ITSAppUsesNonExemptEncryption', /<(true|false)\/>/, '<false/>');
+
+	if (updated === original) {
+		throw new Error(`Could not patch application metadata in ${infoPlistFile}`);
+	}
+
+	fs.writeFileSync(infoPlistFile, updated);
+}
+
 const args = parseArgs(process.argv.slice(2));
-const appName = args.get('app-name') || defaultAppName;
+const appName = args.get('app-name') || process.env.SAFARI_APP_NAME || defaultAppName;
 const bundleIdentifier =
 	args.get('bundle-identifier') ||
+	process.env.SAFARI_BUNDLE_IDENTIFIER ||
 	process.env.RES_SAFARI_BUNDLE_IDENTIFIER ||
 	defaultBundleIdentifier;
+const appCategory = args.get('app-category') || process.env.SAFARI_APP_CATEGORY || defaultAppCategory;
 const source = path.resolve(args.get('source') || 'dist/safari');
 const projectLocation = path.resolve(args.get('project-location') || 'dist/safari-xcode');
 const validateBuild = args.has('validate-build');
@@ -101,12 +132,16 @@ run('xcrun', [
 const projectDirectory = path.join(projectLocation, appName);
 const projectPath = path.join(projectDirectory, `${appName}.xcodeproj`);
 const projectFile = path.join(projectPath, 'project.pbxproj');
+const appInfoPlistFile = path.join(projectDirectory, appName, 'Info.plist');
 
 patchProjectBundleIdentifiers(projectFile, bundleIdentifier);
+patchAppInfoPlist(appInfoPlistFile, appCategory);
 
 console.log(`Patched Xcode bundle identifiers in ${projectFile}`);
+console.log(`Patched application metadata in ${appInfoPlistFile}`);
 console.log(`App bundle identifier: ${bundleIdentifier}`);
 console.log(`Extension bundle identifier: ${getExtensionBundleIdentifier(bundleIdentifier)}`);
+console.log(`App category: ${appCategory}`);
 
 if (validateBuild) {
 	run('xcodebuild', [
