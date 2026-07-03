@@ -11,6 +11,18 @@ blockquote.twitter-tweet {
 	}
 }
 
+// We need to style bluesky post expandos because they can't take advantage of bsky.app's embeded.js
+blockquote.bluesky-embed {
+	padding: 15px;
+	border-left: 5px solid #ccc;
+	font-size: 14px;
+	line-height: 20px;
+
+	p {
+		margin-bottom: 15px;
+	}
+}
+
 // wow, Reddit only adds a visited style for submission titles!
 // let's add visited styles to user-editable content (.md) if the user wants to.
 .res-styleTweaks-visitedStyle {
