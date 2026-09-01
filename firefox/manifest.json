@@ -11,7 +11,10 @@
 			"data_collection_permissions": {
 				"required": [
 					"none"
-				]
+				],
+				"optional": [
+					"authenticationInfo"
+				],
 			},
 			"strict_min_version": "__browser_min_version__"
 		},
