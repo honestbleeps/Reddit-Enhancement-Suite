@@ -1,7 +1,7 @@
 {
   "title": "Reddit Enhancement Suite",
   "name": "reddit-enhancement-suite",
-  "version": "5.24.10",
+  "version": "5.24.11",
   "description": "A suite of modules that enhance your Reddit browsing experience",
   "author": "Reddit Enhancement Suite contributors",
   "license": "GPL-3.0",
@@ -39,8 +39,8 @@
     "version": "node build/version.js"
   },
   "browserslist": [
-    "chrome 114",
-    "firefox 119"
+    "chrome 138",
+    "firefox 140"
   ],
   "dependencies": {
     "dashjs": "4.7.4",
