@@ -49,5 +49,6 @@
 	.comment > .entry > .tagline > .expand:hover,
 	.comment > .entry > .tagline > .expand {
 		color: transparent !important;
+		text-indent: -9999px;
 	}
 }
