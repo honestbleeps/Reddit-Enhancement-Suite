@@ -36,7 +36,8 @@
     "integration": "yarn integration-only",
     "deploy": "node build/deploy.js",
     "deploy-changelog": "node build/deployChangelog.js",
-    "version": "node build/version.js"
+    "version": "node build/version.js",
+		"build-for-amo": "yarn && yarn build --browsers firefox"
   },
   "browserslist": [
     "chrome 138",
