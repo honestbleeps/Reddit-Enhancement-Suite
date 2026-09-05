@@ -22,6 +22,8 @@
     "once": "node build.js --mode development",
     "prebuild": "rimraf dist",
     "build": "node build.js --mode production --zip",
+    "safari:convert": "node build/safariConvert.js",
+    "safari:validate": "yarn build --browsers safari && node build/safariConvert.js --validate-build",
     "autoi18n": "jscodeshift --parser flow --transform build/i18nTransformer.cjs",
     "postautoi18n": "eslint --fix lib/modules/*.js",
     "eslint": "eslint .",

@@ -35,6 +35,12 @@ const targets = {
 		manifest: './chrome/manifest.json',
 		noSourcemap: true,
 	},
+	safari: {
+		browserName: 'safari',
+		browserMinVersion: '18.4',
+		manifest: './safari/manifest.json',
+		noSourcemap: true,
+	},
 	firefox: {
 		browserName: 'firefox',
 		browserMinVersion: '140.0',
@@ -74,7 +80,7 @@ const homepageURL /*: string */ = packageInfo.homepage;
 // production builds uses version number to keep the build reproducible
 const buildToken = isProduction ? version : devBuildToken;
 
-async function buildForBrowser(targetName, { manifest, noSourceMap, browserName, browserMinVersion, browserMobileMinVersion }) {
+async function buildForBrowser(targetName, { manifest, noSourcemap, browserName, browserMinVersion, browserMobileMinVersion }) {
 	const context = {
 		entryPoints: {
 			'foreground.entry': './lib/foreground.entry.js',
@@ -85,7 +91,7 @@ async function buildForBrowser(targetName, { manifest, noSourceMap, browserName,
 			options: './lib/options/options.scss',
 			res: './lib/css/res.scss',
 		},
-		sourcemap: !isProduction || !noSourceMap,
+		sourcemap: !isProduction || !noSourcemap,
 		outdir: `./dist/${targetName}/`,
 		bundle: true,
 		format: 'iife',

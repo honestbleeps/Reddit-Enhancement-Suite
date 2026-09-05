@@ -10,7 +10,11 @@
 <PROJECT_ROOT>/node_modules/hermes-parser/dist/.*
 <PROJECT_ROOT>/lib/utils/__tests__/.*
 <PROJECT_ROOT>/lib/environment/utils/__tests__/.*
+<PROJECT_ROOT>/lib/environment/background/__tests__/.*
+<PROJECT_ROOT>/lib/environment/foreground/__tests__/.*
 <PROJECT_ROOT>/lib/modules/backupAndRestore/__tests__/.*
+<PROJECT_ROOT>/lib/modules/hosts/__tests__/.*
+<PROJECT_ROOT>/lib/modules/showImages/__tests__/.*
 
 [include]
 

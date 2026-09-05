@@ -19,6 +19,8 @@ declare class Object {
 	static entries<K, V>(object: { [K]: V }): Array<[K, V]>;
 	static entries(object: any): Array<[string, mixed]>;
 	static freeze<T>(o: T): T;
+	static fromEntries<K, V>(entries: Array<[K, V]>): { [K]: V };
+	static fromEntries(entries: any): { [string]: mixed };
 	static getOwnPropertyDescriptor<T>(o: any, p: any): PropertyDescriptor<T> | void;
 	static getOwnPropertyNames(o: any): Array<string>;
 	static getOwnPropertySymbols(o: any): Symbol[];
