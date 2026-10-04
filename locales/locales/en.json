@@ -429,6 +429,114 @@
 	"hoverCloseOnMouseOutDesc": {
 		"message": "Whether to close the popup on mouseout in addition to the close button."
 	},
+	"insightsName": {
+		"message": "Post & Comment Insights"
+	},
+	"insightsDesc": {
+		"message": "Brings new Reddit's post and comment insights to old Reddit. Adds an \"insights\" button to posts and comments that shows the stats from new Reddit's Insights pages, such as views, shares, upvote rate, replies, crossposts and awards.\n\nReddit only shares detailed insights (like views and shares) with the author, so other posts and comments show the public stats only. Stats are loaded from www.reddit.com using your current login."
+	},
+	"insightsShowForTitle": {
+		"message": "Show For"
+	},
+	"insightsShowForDesc": {
+		"message": "Which posts and comments get an insights button. Reddit only shares detailed insights with the author (and with moderators, for some post stats); anything else shows the public stats only, such as the upvote rate of comments."
+	},
+	"insightsPostsTitle": {
+		"message": "Posts"
+	},
+	"insightsPostsDesc": {
+		"message": "Add an insights button to posts."
+	},
+	"insightsCommentsTitle": {
+		"message": "Comments"
+	},
+	"insightsCommentsDesc": {
+		"message": "Add an insights button to comments."
+	},
+	"insightsButton": {
+		"message": "insights"
+	},
+	"insightsPostHeading": {
+		"message": "Post insights"
+	},
+	"insightsCommentHeading": {
+		"message": "Comment insights"
+	},
+	"insightsRefresh": {
+		"message": "refresh"
+	},
+	"insightsViewFull": {
+		"message": "full insights on reddit.com"
+	},
+	"insightsHide": {
+		"message": "hide"
+	},
+	"insightsLoading": {
+		"message": "Loading insights…"
+	},
+	"insightsLoadError": {
+		"message": "Couldn't load insights from reddit.com. You can still open the full insights page."
+	},
+	"insightsScore": {
+		"message": "Score"
+	},
+	"insightsUpvoteRate": {
+		"message": "Upvote rate"
+	},
+	"insightsComments": {
+		"message": "Comments"
+	},
+	"insightsReplies": {
+		"message": "Replies"
+	},
+	"insightsCrossposts": {
+		"message": "Crossposts"
+	},
+	"insightsAwards": {
+		"message": "Awards"
+	},
+	"insightsDetailedHeading": {
+		"message": "Detailed insights"
+	},
+	"insightsViews": {
+		"message": "Views"
+	},
+	"insightsShares": {
+		"message": "Shares"
+	},
+	"insightsProfilePostRank": {
+		"message": "Rank among your posts"
+	},
+	"insightsRankOf": {
+		"message": "#$1 of $2",
+		"description": "A ranking, e.g. '#2 of 3' for the second best of three posts"
+	},
+	"insightsEngagement": {
+		"message": "Engagement"
+	},
+	"insightsViewsOverTime": {
+		"message": "Views over time"
+	},
+	"insightsViewsByCountry": {
+		"message": "Views by country"
+	},
+	"insightsOther": {
+		"message": "Other",
+		"description": "The remaining countries in the 'Views by country' list"
+	},
+	"insightsPeak": {
+		"message": "peak $1",
+		"description": "Highest value in a chart, e.g. 'peak 1,234'"
+	},
+	"insightsAuthorOnly": {
+		"message": "Reddit only shares detailed insights, such as views and shares, with the author."
+	},
+	"insightsNoDetailedStats": {
+		"message": "Reddit didn't return detailed insights, such as views and shares, for this yet. The full insights page may have more."
+	},
+	"insightsSessionNotRecognized": {
+		"message": "reddit.com didn't recognize you as the author, so only public stats are shown. Visit www.reddit.com once while logged in so your login carries over, then refresh."
+	},
 	"keyboardNavName": {
 		"message": "Keyboard Navigation"
 	},
