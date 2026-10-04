@@ -1,6 +1,7 @@
 /* @noflow */
 /* eslint import/no-nodejs-modules: 0, import/extensions: 0 */
 
+import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
 import * as commander from 'commander';
@@ -71,8 +72,14 @@ const updatedURL /*: string */ = isBeta ?
 	`https://redditenhancementsuite.com/releases/#v${version}`;
 const homepageURL /*: string */ = packageInfo.homepage;
 // used for invalidating caches on each build (executed at build time)
-// production builds uses version number to keep the build reproducible
-const buildToken = isProduction ? version : devBuildToken;
+// production builds uses version number to keep the build reproducible,
+// plus a hash of the locales so builds of the same version with different strings don't share a cache
+const localesHash = crypto.createHash('sha1');
+for (const file of fs.readdirSync('./locales/locales').filter(f => f.endsWith('.json')).sort()) {
+	// normalize line endings so the token doesn't depend on the checkout's platform
+	localesHash.update(fs.readFileSync(path.join('./locales/locales', file), 'utf8').replace(/\r\n/g, '\n'));
+}
+const buildToken = isProduction ? `${version}-${localesHash.digest('hex').slice(0, 8)}` : devBuildToken;
 
 async function buildForBrowser(targetName, { manifest, noSourceMap, browserName, browserMinVersion, browserMobileMinVersion }) {
 	const context = {
