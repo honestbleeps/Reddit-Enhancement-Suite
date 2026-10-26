@@ -3,6 +3,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
+import { createHash } from 'node:crypto';
 import * as commander from 'commander';
 import * as esbuild from 'esbuild';
 import * as semver from 'semver';
@@ -54,6 +55,16 @@ const options = commander.program
 
 const isProduction = options.mode === 'production';
 const devBuildToken = `${Math.random()}`.slice(2);
+const localeBuildToken = createHash('sha256')
+	.update(
+		fs.readdirSync('./locales/locales')
+			.filter(filename => filename.endsWith('.json'))
+			.sort()
+			.map(filename => fs.readFileSync(path.join('./locales/locales', filename)))
+			.join(''),
+	)
+	.digest('hex')
+	.slice(0, 12);
 const announcementsSubreddit /*: string */ = 'RESAnnouncements';
 const name /*: string */ = packageInfo.title;
 const author /*: string */ = packageInfo.author;
@@ -71,8 +82,8 @@ const updatedURL /*: string */ = isBeta ?
 	`https://redditenhancementsuite.com/releases/#v${version}`;
 const homepageURL /*: string */ = packageInfo.homepage;
 // used for invalidating caches on each build (executed at build time)
-// production builds uses version number to keep the build reproducible
-const buildToken = isProduction ? version : devBuildToken;
+// Production builds use stable source data to remain reproducible while invalidating stale locale caches.
+const buildToken = isProduction ? `${version}-${localeBuildToken}` : devBuildToken;
 
 async function buildForBrowser(targetName, { manifest, noSourceMap, browserName, browserMinVersion, browserMobileMinVersion }) {
 	const context = {
