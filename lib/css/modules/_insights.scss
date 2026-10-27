@@ -1,0 +1,149 @@
+.res-insights-panel {
+	max-width: 640px;
+	margin: 6px 0 8px;
+	padding: 6px 10px 8px;
+	border: 1px solid #e0e0e0;
+	border-radius: 3px;
+	background-color: #fafafa;
+	color: #444;
+	font-size: 11px;
+	line-height: 1.4;
+
+	&[hidden] {
+		display: none;
+	}
+}
+
+.res-insights-header {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	gap: 4px 10px;
+	margin-bottom: 4px;
+
+	a {
+		color: #888;
+		font-weight: bold;
+	}
+}
+
+.res-insights-title {
+	margin-right: auto;
+	color: #222;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.res-insights-tiles {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 6px;
+	margin: 4px 0;
+}
+
+.res-insights-tile {
+	min-width: 72px;
+	padding: 4px 8px;
+	border: 1px solid #e6e6e6;
+	border-radius: 3px;
+	background-color: #fff;
+}
+
+.res-insights-value {
+	color: #222;
+	font-size: 15px;
+	font-weight: bold;
+	font-variant-numeric: tabular-nums;
+}
+
+.res-insights-label,
+.res-insights-caption,
+.res-insights-loading {
+	color: #888;
+}
+
+.res-insights-row .res-insights-label {
+	margin-right: 4px;
+}
+
+.res-insights-detailed {
+	margin-top: 8px;
+	padding-top: 6px;
+	border-top: 1px solid #e6e6e6;
+}
+
+.res-insights-section {
+	margin: 6px 0;
+}
+
+.res-insights-section-title {
+	margin-bottom: 2px;
+	color: #555;
+	font-weight: bold;
+}
+
+.res-insights-sparkline {
+	display: block;
+	width: 100%;
+	max-width: 320px;
+	height: 36px;
+	fill: #5f99cf;
+}
+
+.res-insights-breakdown {
+	border-collapse: collapse;
+
+	td {
+		padding: 1px 12px 1px 0;
+	}
+}
+
+.res-insights-breakdown-value {
+	font-variant-numeric: tabular-nums;
+	text-align: right;
+}
+
+.res-insights-breakdown-other {
+	color: #888;
+}
+
+.res-insights-note {
+	margin-top: 6px;
+	color: #888;
+	font-style: italic;
+}
+
+.res-insights-error {
+	color: #c00;
+	font-style: normal;
+}
+
+.res-nightmode {
+	.res-insights-panel {
+		border-color: hsl(0, 0%, 30%);
+		background-color: hsl(0, 0%, 20%);
+		color: #ccc;
+	}
+
+	.res-insights-tile {
+		border-color: hsl(0, 0%, 30%);
+		background-color: hsl(0, 0%, 15%);
+	}
+
+	.res-insights-title,
+	.res-insights-value {
+		color: #ddd;
+	}
+
+	.res-insights-section-title {
+		color: #aaa;
+	}
+
+	.res-insights-detailed {
+		border-color: hsl(0, 0%, 30%);
+	}
+
+	.res-insights-error {
+		color: #f66;
+	}
+}
