@@ -1824,6 +1824,12 @@
 	"backupAndRestoreProvidersFile": {
 		"message": "File"
 	},
+	"backupAndRestoreExcludeAccountSwitcherTitle": {
+		"message": "Exclude Account Switcher"
+	},
+	"backupAndRestoreExcludeAccountSwitcherDesc": {
+		"message": "Exclude Account Switcher settings, including saved usernames, passwords, and two-factor authentication settings, from all new file and cloud backups (manual and automatic). Restoring these backups leaves the destination's Account Switcher settings unchanged. Existing backups are not changed."
+	},
 	"backupAndRestoreReloadWarningTitle": {
 		"message": "Reload Warning"
 	},
@@ -1843,7 +1849,7 @@
 		"message": "Automatic Backups"
 	},
 	"backupAndRestoreAutomaticBackupsDescWithCredentialWarning": {
-		"message": "Sync your backups to the specified provider.\n\n**Cloud backup warning:** If you use Account Switcher with saved passwords, those clear-text credentials are included in backups uploaded to cloud providers. See our [privacy policy](https://redditenhancementsuite.com/privacy/) for more details.\n\nSyncing will occur periodically on pageload. If you use two computers simultaneously, some changes may be lost."
+		"message": "Sync your backups to the specified provider.\n\n**Cloud backup warning:** Unless \"Exclude Account Switcher\" is enabled, saved Account Switcher passwords are included as clear-text credentials in backups uploaded to cloud providers. See our [privacy policy](https://redditenhancementsuite.com/privacy/) for more details.\n\nSyncing will occur periodically on pageload. If you use two computers simultaneously, some changes may be lost."
 	},
 	"backupAndRestoreAutomaticBackupsNone": {
 		"message": "None"
@@ -1876,7 +1882,7 @@
 		"message": "Backup"
 	},
 	"backupAndRestoreBackupDescWithCredentialWarning": {
-		"message": "Make a backup of your current RES state. Download it with \"File\", or upload it to a cloud backup provider.\n\n**Cloud backup warning:** If you use Account Switcher with saved passwords, those clear-text credentials are included in backups uploaded to cloud providers. See our [privacy policy](https://redditenhancementsuite.com/privacy/) for more details."
+		"message": "Make a backup of your current RES state. Download it with \"File\", or upload it to a cloud backup provider.\n\n**Cloud backup warning:** Unless \"Exclude Account Switcher\" is enabled, saved Account Switcher passwords are included as clear-text credentials in backups uploaded to cloud providers. See our [privacy policy](https://redditenhancementsuite.com/privacy/) for more details."
 	},
 	"backupAndRestoreRestoreTitle": {
 		"message": "Restore"
