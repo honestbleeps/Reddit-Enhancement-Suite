@@ -1842,8 +1842,8 @@
 	"backupAndRestoreAutomaticBackupsTitle": {
 		"message": "Automatic Backups"
 	},
-	"backupAndRestoreAutomaticBackupsDesc": {
-		"message": "Sync your backups to the specified provider.\n\nSyncing will occur periodically on pageload. If you use two computers simultaneously, some changes may be lost."
+	"backupAndRestoreAutomaticBackupsDescWithCredentialWarning": {
+		"message": "Sync your backups to the specified provider.\n\n**Cloud backup warning:** If you use Account Switcher with saved passwords, those clear-text credentials are included in backups uploaded to cloud providers.\n\nSyncing will occur periodically on pageload. If you use two computers simultaneously, some changes may be lost."
 	},
 	"backupAndRestoreAutomaticBackupsNone": {
 		"message": "None"
@@ -1875,8 +1875,8 @@
 	"backupAndRestoreBackupTitle": {
 		"message": "Backup"
 	},
-	"backupAndRestoreBackupDesc": {
-		"message": "Make a backup of your current RES state. Download it with \"File\", or upload it to a cloud backup provider."
+	"backupAndRestoreBackupDescWithCredentialWarning": {
+		"message": "Make a backup of your current RES state. Download it with \"File\", or upload it to a cloud backup provider.\n\n**Cloud backup warning:** If you use Account Switcher with saved passwords, those clear-text credentials are included in backups uploaded to cloud providers."
 	},
 	"backupAndRestoreRestoreTitle": {
 		"message": "Restore"
