@@ -22,6 +22,10 @@
 
 [options]
 module.use_strict=true
+module.file_ext=.js
+module.file_ext=.jsx
+module.file_ext=.json
+module.file_ext=.cjs
 
 esproposal.export_star_as=enable
 esproposal.optional_chaining=enable

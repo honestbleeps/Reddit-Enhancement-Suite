@@ -6,38 +6,47 @@ declare module 'suncalc' {
 		altitude: number,
 	};
 
-	declare function getTimes(date: Date, lat: number, long: number): {
+	declare function getTimes(date: Date, lat: number, long: number, height?: number, utcOffset?: number): {
 		solarNoon: Date,
 		nadir: Date,
-		sunrise: Date,
-		sunset: Date,
-		sunriseEnd: Date,
-		sunsetStart: Date,
-		dawn: Date,
-		dusk: Date,
-		nauticalDawn: Date,
-		nauticalDusk: Date,
-		nightEnd: Date,
-		night: Date,
-		goldenHourEnd: Date,
-		goldenHour: Date,
+		sunrise: Date | null,
+		sunset: Date | null,
+		sunriseEnd: Date | null,
+		sunsetStart: Date | null,
+		dawn: Date | null,
+		dusk: Date | null,
+		nauticalDawn: Date | null,
+		nauticalDusk: Date | null,
+		nightEnd: Date | null,
+		night: Date | null,
+		goldenHourEnd: Date | null,
+		goldenHour: Date | null,
+		alwaysUp?: boolean,
+		alwaysDown?: boolean,
 	};
+
+	declare var times: Array<[number, string, string]>;
+	declare function addTime(angle: number, riseName: string, setName: string): void;
 
 	declare function getMoonPosition(date: Date, lat: number, long: number): {
 		azimuth: number,
 		altitude: number,
 		distance: number,
+		parallacticAngle: number,
 	};
 
-	declare function getMoonIllumination(date: Date): {
+	declare function getMoonIllumination(date?: Date): {
 		fraction: number,
 		phase: number,
 		angle: number,
+		waxing: boolean,
 	};
 
-	declare function getMoonTimes(date: Date, lat: number, long: number, inUTC?: boolean): {
-		rise?: number,
-		set?: number,
+	declare function getMoonTimes(date: Date, lat: number, long: number, utcOffset?: number): {
+		rise?: Date,
+		set?: Date,
+		transit?: Date,
+		lowerTransit?: Date,
 		alwaysUp?: boolean,
 		alwaysDown?: boolean,
 	};
