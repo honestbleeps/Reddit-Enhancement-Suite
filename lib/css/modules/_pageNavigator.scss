@@ -45,7 +45,8 @@ $page-offsetleft: 15px;
 	}
 
 	.res-show-link-content {
-		margin: 5px 46px 5px $content-offsetleft;
+		margin: 5px 46px;
+		margin-left: $content-offsetleft;
 	}
 
 	.res-show-link-thumb {

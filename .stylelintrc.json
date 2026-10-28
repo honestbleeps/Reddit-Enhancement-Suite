@@ -9,6 +9,15 @@
   "plugins": [
     "stylelint-scss"
   ],
+  "overrides": [
+    {
+      "files": ["**/*.scss"],
+      "rules": {
+        "at-rule-prelude-no-invalid": [true, { "ignoreAtRules": ["media", "function"] }],
+        "nesting-selector-no-missing-scoping-root": [true, { "ignoreAtRules": ["mixin"] }]
+      }
+    }
+  ],
   "rules": {
     "alpha-value-notation": null,
     "color-named": null,
