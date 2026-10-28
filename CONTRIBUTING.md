@@ -48,7 +48,9 @@ To load the extension into your browser, see [Loading RES into your browser](#lo
 
 **`yarn test`** will run unit tests (in `__tests__` directories) using [Ava](https://github.com/avajs/ava).
 
-**`yarn integration <browsers> [-f <testFileGlob>]`** will run integration tests (in `tests/`) using [Nightwatch.js](http://nightwatchjs.org/).
+The integration tests and their infrastructure are retained for future use, but are not currently runnable because Nightwatch is no longer installed. To re-enable the suite, restore the Nightwatch dependency (previously `1.7.13`).
+
+Once re-enabled, **`yarn integration <browsers> [-f <testFileGlob>]`** will run integration tests (in `tests/`) using [Nightwatch.js](http://nightwatchjs.org/).
 Currently just `chrome` and `firefox` can be targeted.
 
 To run integration tests locally, you need to run an instance of [Selenium Standalone Server](http://www.seleniumhq.org/download/) and have either [ChromeDriver](https://sites.google.com/a/chromium.org/chromedriver/home) or [GeckoDriver](https://github.com/mozilla/geckodriver) on your `PATH`.
