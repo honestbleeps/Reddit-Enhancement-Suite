@@ -2,8 +2,8 @@ version: "2"
 
 plugins:
   eslint:
-    enabled: true
-    channel: "eslint-4"
+    # ESLint 10 flat config is checked by GitHub Actions, not this legacy engine.
+    enabled: false
   duplication:
     enabled: true
     config:
