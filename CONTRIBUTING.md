@@ -75,8 +75,6 @@ The default host and port (`localhost` and `4444`) should work for most local in
 
   - `.github/`: Github templates
   - `browser/`: extension API files common to all browsers
-  - `build/`: files handling automated browser deployments
-  - `changelog/`: release changelogs
   - `chrome/`: Chrome-specific RES files
   - `dist/`: build output
   - `examples/`: example code for new hosts/modules
