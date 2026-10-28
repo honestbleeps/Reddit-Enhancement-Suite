@@ -20,9 +20,11 @@ Thinking about contributing to RES? Awesome! We just ask that you follow a few s
 
 1. Install [git](https://git-scm.com/).
 1. Install [node.js](https://nodejs.org) (version 22.20 or newer in the 22.x release line, required by AVA).
-1. Install [yarn](https://yarnpkg.com/lang/en/docs/install/)
+1. Install [Corepack](https://yarnpkg.com/corepack) with `npm install --global corepack`, then run `corepack enable`. If an existing global Yarn installation conflicts, uninstall it with `npm uninstall --global yarn` first.
 1. [Clone this repository](https://help.github.com/articles/cloning-a-repository/).
-1. Run `yarn` in that folder.
+1. Run `yarn install` in that folder. Corepack automatically uses the Yarn version pinned in `package.json`.
+
+The project uses Yarn 4 with the `node-modules` linker. Commit `yarn.lock` when dependencies change; use `yarn install --immutable` to verify that an install does not change it (as CI does).
 
 Once done, you can build the extension by running `yarn start` (see [Build commands](#build-commands)).
 
@@ -48,7 +50,7 @@ GitHub Actions runs the current ESLint checks. Code Climate's legacy ESLint engi
 
 **`yarn lint-fix`** will autofix any [fixable](http://eslint.org/docs/user-guide/command-line-interface#fix) lint issues.
 
-**`yarn flow`** will run [Flow](https://flowtype.org/) type checking, and start the Flow server so future runs will complete faster. Use `yarn flow -- stop` to stop the server, or `yarn flow check` to run Flow once without starting the server.
+**`yarn flow`** will run [Flow](https://flowtype.org/) type checking, and start the Flow server so future runs will complete faster. Use `yarn flow stop` to stop the server, or `yarn flow check` to run Flow once without starting the server.
 
 **`yarn test`** will run unit tests (in `lib/**/__tests__` directories) and ESLint configuration regression tests (in `build/__tests__`) using [Ava](https://github.com/avajs/ava).
 

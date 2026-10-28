@@ -16,7 +16,9 @@ jobs:
     - uses: actions/setup-node@v7
       with:
         node-version: '22'
-    - run: yarn install --frozen-lockfile
+    - run: npm install --global corepack --force
+    - run: corepack enable
+    - run: yarn install --immutable
 
     - run: yarn flow check --show-all-errors
     - run: yarn eslint
@@ -30,7 +32,9 @@ jobs:
     - uses: actions/setup-node@v7
       with:
         node-version: '22'
-    - run: yarn install --frozen-lockfile
+    - run: npm install --global corepack --force
+    - run: corepack enable
+    - run: yarn install --immutable
 
     - run: yarn build --browsers=all
 
@@ -54,7 +58,9 @@ jobs:
     - uses: actions/setup-node@v7
       with:
         node-version: '22'
-    - run: yarn install --frozen-lockfile
+    - run: npm install --global corepack --force
+    - run: corepack enable
+    - run: yarn install --immutable
 
     - run: yarn test
     - run: yarn build --browsers=all
