@@ -140,7 +140,7 @@ async function buildForBrowser(targetName, { manifest, noSourceMap, browserName,
 					{ from: ['./images/icon48.png'], to: ['./'] },
 					{ from: ['./lib/environment/background/permissions/prompt.html'], to: ['./'] },
 					{ from: ['./lib/options/options.html'], to: ['./'] },
-					{ from: ['./node_modules/dashjs/dist/dash.mediaplayer.min.js'], to: ['./'] },
+					{ from: ['./node_modules/dashjs/dist/modern/umd/dash.mediaplayer.min.js'], to: ['./'] },
 				],
 			}),
 			{
