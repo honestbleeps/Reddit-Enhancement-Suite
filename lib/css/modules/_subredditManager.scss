@@ -65,7 +65,7 @@
 	border-radius: 7px;
 	font-size: 12px;
 	color: #000;
-	box-shadow: 2px 2px 7px rgba(0, 0, 0, .1);
+	box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.1);
 
 	h3 {
 		margin: 0 0 1em 0;
@@ -182,11 +182,11 @@
 	}
 
 	.shortcutSuffix {
-		opacity: .4;
+		opacity: 0.4;
 	}
 
 	a:hover .shortcutSuffix {
-		opacity: .6;
+		opacity: 0.6;
 	}
 
 	ul {
@@ -194,7 +194,7 @@
 		overflow: hidden auto;
 		max-width: 300px;
 		max-height: 500px;
-		border-bottom: 1px rgba(0, 0, 0, .5) solid;
+		border-bottom: 1px rgba(0, 0, 0, 0.5) solid;
 
 		li {
 			padding: 0;
@@ -205,7 +205,7 @@
 			padding: 1px 15px;
 
 			&:hover {
-				background-color: rgba(255, 255, 255, .6);
+				background-color: rgba(255, 255, 255, 0.6);
 			}
 		}
 
@@ -270,15 +270,15 @@
 }
 
 #res-trash-overlay {
-	transition: opacity .2s;
+	transition: opacity 0.2s;
 	position: fixed;
 	inset: 20px 0 0 0;
-	background-color: rgba(255, 255, 255, .7);
+	background-color: rgba(255, 255, 255, 0.7);
 	z-index: 999;
 }
 
 #res-shortcut-trash {
-	transition: opacity .2s;
+	transition: opacity 0.2s;
 	overflow: hidden;
 	z-index: 1000;
 	width: 400px;
@@ -291,7 +291,7 @@
 	background-color: rgb(255, 255, 255);
 	border: 5px solid rgb(156, 193, 228);
 	border-radius: 5px;
-	box-shadow: 2px 2px 1px 0 rgba(0, 50, 100, .1);
+	box-shadow: 2px 2px 1px 0 rgba(0, 50, 100, 0.1);
 	font: 14px/1.5 verdana, sans-serif;
 	color: rgb(30, 30, 30);
 	box-sizing: content-box;
@@ -338,7 +338,7 @@
 	font-size: 12px;
 	color: #000;
 	box-sizing: content-box;
-	box-shadow: 2px 0 7px rgba(0, 0, 0, .1);
+	box-shadow: 2px 0 7px rgba(0, 0, 0, 0.1);
 }
 
 #shortCutsAddForm {

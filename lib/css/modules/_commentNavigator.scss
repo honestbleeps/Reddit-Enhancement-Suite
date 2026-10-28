@@ -16,7 +16,7 @@
 		z-index: 41;
 		display: none;
 		position: absolute;
-		background-color: rgba(255, 255, 255, .9);
+		background-color: rgba(255, 255, 255, 0.9);
 		padding: 8px;
 		border-radius: 3px;
 		box-shadow: rgb(144, 144, 144) 1px 2px 4px;
@@ -45,9 +45,9 @@
 	float: right;
 	margin-top: 5px;
 	padding: 3px;
-	opacity: .3;
+	opacity: 0.3;
 	user-select: none;
-	transition: opacity .5s ease-in;
+	transition: opacity 0.5s ease-in;
 
 	&:focus-within,
 	&:hover {
@@ -83,7 +83,7 @@
 	}
 
 	&[disabled] {
-		opacity: .3;
+		opacity: 0.3;
 		cursor: default;
 	}
 }

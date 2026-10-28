@@ -104,9 +104,9 @@ body.res-console-open {
 #RESAnnouncementAlert {
 	display: inline-block;
 	vertical-align: bottom;
-	margin-left: .5em;
+	margin-left: 0.5em;
 	color: goldenrod;
-	animation: fadeIn .5s ease-out 7 alternate;
+	animation: fadeIn 0.5s ease-out 7 alternate;
 
 	.important {
 		animation: pop 1s ease-out infinite alternate;
@@ -235,7 +235,7 @@ div.usertext-edit {
 		background-color: #ccc;
 		border: 2px solid #ccc;
 		border-radius: 2px;
-		transition: .1s;
+		transition: 0.1s;
 		transition-timing-function: ease-in;
 	}
 
@@ -259,7 +259,7 @@ div.usertext-edit {
 		left: 2px;
 		border-radius: 2px;
 		background-color: white;
-		transition: .4s;
+		transition: 0.4s;
 	}
 
 	&.enabled .toggleThumb::before {
@@ -406,7 +406,7 @@ span.multi-count {
 	border-radius: 5px;
 
 	&:hover {
-		background-color: #DDD;
+		background-color: #ddd;
 	}
 }
 
@@ -415,7 +415,7 @@ span.multi-count {
 }
 
 .transitionToTransparent {
-	transition: opacity 3s cubic-bezier(.82, 0, 1, .55); // Change fast towards the end
+	transition: opacity 3s cubic-bezier(0.82, 0, 1, 0.55); // Change fast towards the end
 	opacity: 0;
 }
 
@@ -425,8 +425,8 @@ span.multi-count {
 	display: inline-block;
 	vertical-align: text-bottom;
 	width: 1em;
-	height: .5em;
-	border-bottom: .5em solid;
+	height: 0.5em;
+	border-bottom: 0.5em solid;
 	border-radius: 50%;
 	animation: spin 1000ms 0ms infinite linear;
 }
@@ -510,9 +510,9 @@ span.multi-count {
 	border: thin solid lightgrey;
 	border-radius: 5px;
 	background-color: rgb(10 10 10 / 5%);
-	padding: .4em .5em;
-	margin-top: .5em;
-	margin-bottom: .5em;
+	padding: 0.4em 0.5em;
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
 	line-height: 18px;
 
 	.builderItemControls {
@@ -528,7 +528,7 @@ span.multi-count {
 		}
 
 		.builderControls {
-			padding: .3em .2em;
+			padding: 0.3em 0.2em;
 		}
 
 		.res-icon-button {
@@ -574,7 +574,7 @@ span.multi-count {
 }
 
 .builderControls {
-	padding: .2em .1em;
+	padding: 0.2em 0.1em;
 	align-self: flex-start;
 
 	&.res-icon-button {
@@ -621,7 +621,7 @@ span.multi-count {
 }
 
 .addBuilderBlock {
-	margin: .4em 0 .4em .4em;
+	margin: 0.4em 0 0.4em 0.4em;
 }
 
 .durationField {
@@ -694,10 +694,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		top: 50%;
 		left: 50%;
 		margin: -24px 0 0 -24px;
-		transition: all .75s ease 0s;
+		transition: all 0.75s ease 0s;
 		border-radius: 100%;
 		border-top: 4px solid #555;
-		animation: fadeIn 2s 1 cubic-bezier(.3, .25, .7, .15), standard .75s infinite linear;
+		animation: fadeIn 2s 1 cubic-bezier(0.3, 0.25, 0.7, 0.15), standard 0.75s infinite linear;
 		transform-origin: center;
 	}
 
@@ -799,7 +799,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 }
 
 #beta-help .help-section::after {
-	margin: .5em;
+	margin: 0.5em;
 	display: block;
 	content: 'Since you are using RES with reddit beta, you should also check out /r/RESissues if you experience bugs.';
 }

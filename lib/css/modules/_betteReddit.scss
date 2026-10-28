@@ -92,8 +92,8 @@ body.res-betteReddit-truncateLongLinks:not(.comments-page) {
 	z-index: 10000;
 	top: 0 !important;
 	bottom: auto !important;
-	opacity: .6;
-	transition: opacity .3s ease-in;
+	opacity: 0.6;
+	transition: opacity 0.3s ease-in;
 
 	&:hover {
 		opacity: 1;

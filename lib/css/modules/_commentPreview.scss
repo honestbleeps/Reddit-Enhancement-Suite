@@ -49,7 +49,7 @@
 
 .res-commentPreview-draftStyle {
 	.livePreview {
-		background: repeating-linear-gradient(-225deg, transparent, transparent 40px, rgba(166, 166, 166, .07) 40px, rgba(166, 166, 166, .07) 80px);
+		background: repeating-linear-gradient(-225deg, transparent, transparent 40px, rgba(166, 166, 166, 0.07) 40px, rgba(166, 166, 166, 0.07) 80px);
 	}
 }
 
@@ -63,10 +63,10 @@ body.RESScrollLock {
 	position: fixed;
 	z-index: $zindex-big-editor;
 	inset: 0 0 0 0;
-	background-color: rgba(0, 0, 0, .75);
+	background-color: rgba(0, 0, 0, 0.75);
 
 	> div {
-		margin: 1em .5em;
+		margin: 1em 0.5em;
 	}
 
 	.markdownEditor-wrapper {
@@ -113,7 +113,7 @@ body.RESScrollLock {
 }
 
 .BEFoot {
-	margin-top: .5em;
+	margin-top: 0.5em;
 
 	button {
 		display: inline-block;
