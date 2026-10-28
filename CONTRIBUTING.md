@@ -48,13 +48,6 @@ To load the extension into your browser, see [Loading RES into your browser](#lo
 
 **`yarn test`** will run unit tests (in `__tests__` directories) using [Ava](https://github.com/avajs/ava).
 
-**`yarn integration <browsers> [-f <testFileGlob>]`** will run integration tests (in `tests/`) using [Nightwatch.js](http://nightwatchjs.org/).
-Currently just `chrome` and `firefox` can be targeted.
-
-To run integration tests locally, you need to run an instance of [Selenium Standalone Server](http://www.seleniumhq.org/download/) and have either [ChromeDriver](https://sites.google.com/a/chromium.org/chromedriver/home) or [GeckoDriver](https://github.com/mozilla/geckodriver) on your `PATH`.
-The [`selenium-standalone`](https://www.npmjs.com/package/selenium-standalone) package may help with this.
-The default host and port (`localhost` and `4444`) should work for most local installations, but if necessary they can be overridden with the `SELENIUM_HOST` and `SELENIUM_PORT` environment variables.
-
 #### Loading RES into your browser
 
 ##### Chrome
@@ -91,7 +84,6 @@ The default host and port (`localhost` and `4444`) should work for most local in
   - `lib/vendor/`: RES vendor libraries (old libs not on npm)
   - `lib/**/__tests__`: unit tests
   - `locales`: RES i18n translations
-  - `tests/`: integration tests
   - `package.json`: package info, dependencies
   - `build.js`: build script
 

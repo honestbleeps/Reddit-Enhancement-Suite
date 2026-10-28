@@ -31,9 +31,6 @@
     "lint-fix": "eslint . --fix; stylelint lib/**/*.scss --fix;",
     "flow": "flow",
     "test": "rimraf dist/transpiled && flow-remove-types lib -q --out-dir dist/transpiled && cross-env NODE_ENV=test ava",
-    "integration-only": "nightwatch --env",
-    "preintegration": "yarn build --browsers chrome,firefox",
-    "integration": "yarn integration-only",
     "build-for-amo": "yarn && yarn build --browsers firefox"
   },
   "browserslist": [
@@ -79,7 +76,6 @@
     "flow-remove-types": "2.246.0",
     "jscodeshift": "17.0.0",
     "jszip": "3.10.1",
-    "nightwatch": "1.7.13",
     "postcss": "8.5.23",
     "rimraf": "6.0.1",
     "semver": "7.6.3",
