@@ -3206,6 +3206,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"flow-enums-runtime@npm:^0.0.6":
+  version: 0.0.6
+  resolution: "flow-enums-runtime@npm:0.0.6"
+  checksum: 10c0/f0b9ca52dbf9cf30264ebf1af034ac7b80fb5e5ef009efc789b89a90aa17349a3ff5672b3b27c6eb89d5e02808fc0dfb7effbfc5a793451694d6cce48774d51e
+  languageName: node
+  linkType: hard
+
+"flow-estree@npm:0.337.0":
+  version: 0.337.0
+  resolution: "flow-estree@npm:0.337.0"
+  checksum: 10c0/f245c24808e38d9455bac576ea18884f7d0c90aa2678676907b6e4fa58e6b30d99c89e47a998508e9670221dde09cae3f932bebf90d88039d866cc9eaa445f60
+  languageName: node
+  linkType: hard
+
 "flow-parser@npm:0.*":
   version: 0.226.0
   resolution: "flow-parser@npm:0.226.0"
@@ -3213,17 +3227,28 @@ __metadata:
   languageName: node
   linkType: hard
 
-"flow-remove-types@npm:2.246.0":
-  version: 2.246.0
-  resolution: "flow-remove-types@npm:2.246.0"
+"flow-parser@npm:^0.337.0":
+  version: 0.337.0
+  resolution: "flow-parser@npm:0.337.0"
   dependencies:
-    hermes-parser: "npm:0.23.1"
+    flow-estree: "npm:0.337.0"
+  checksum: 10c0/0b3831e401807fcf2ebdaeae231b2dbf7331e1cbd9f7f1ad8ec1a2370b66dbaf64b09325aaea2fee0b6ec78ec9f9db99d4029a1a990824677b557875c8fef14a
+  languageName: node
+  linkType: hard
+
+"flow-remove-types@npm:2.337.0":
+  version: 2.337.0
+  resolution: "flow-remove-types@npm:2.337.0"
+  dependencies:
+    flow-enums-runtime: "npm:^0.0.6"
+    flow-parser: "npm:^0.337.0"
     pirates: "npm:^3.0.2"
+    source-map-support: "npm:^0.5.21"
     vlq: "npm:^0.2.1"
   bin:
     flow-node: flow-node
     flow-remove-types: flow-remove-types
-  checksum: 10c0/532f8455a65a47ce1d2d8c0bfc305b16ba8b793aa51ab70e34666a5d32977354c137dbe4fb550b1b66416c429ac2e4526ce81180a82dbdb24a2bfc6f409d75d8
+  checksum: 10c0/65ecd2777cd3de5b51c066d95b0924fa38c2de1d0e314872e512d8fcd1401af387c61da2d72406491b5a987dffc13c2ecf847946f607f674567c77b3deef2f79
   languageName: node
   linkType: hard
 
@@ -3459,22 +3484,6 @@ __metadata:
   dependencies:
     function-bind: "npm:^1.1.2"
   checksum: 10c0/2d8de939e270b70618f8cebb69746620db10617dbb495bc66ddad326955ea24d3ca4af133aff3eb7c1853e0218f867bc2b050ec26fe02e3aea58f880ffc5e506
-  languageName: node
-  linkType: hard
-
-"hermes-estree@npm:0.23.1":
-  version: 0.23.1
-  resolution: "hermes-estree@npm:0.23.1"
-  checksum: 10c0/59ca9f3980419fcf511a172f0ee9960d86c8ba44ea8bc13d3bd0b6208e9540db1a0a9e46b0e797151f11b0e8e33b2bf850907aef4a5c9ac42c53809cefefc405
-  languageName: node
-  linkType: hard
-
-"hermes-parser@npm:0.23.1":
-  version: 0.23.1
-  resolution: "hermes-parser@npm:0.23.1"
-  dependencies:
-    hermes-estree: "npm:0.23.1"
-  checksum: 10c0/56907e6136d2297543922dd9f8ee27378ef010c11dc1e0b4a0866faab2c527613b0edcda5e1ebc0daa0ca1ae6528734dfc479e18267aabe4dce0c7198217fd97
   languageName: node
   linkType: hard
 
@@ -4858,7 +4867,7 @@ __metadata:
     fast-levenshtein: "npm:3.0.0"
     favico.js: "npm:0.3.10"
     flow-bin: "npm:0.84.0"
-    flow-remove-types: "npm:2.246.0"
+    flow-remove-types: "npm:2.337.0"
     globals: "npm:17.13.0"
     jquery: "npm:3.7.1"
     jscodeshift: "npm:17.0.0"
@@ -5148,7 +5157,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"source-map-support@npm:^0.5.16":
+"source-map-support@npm:^0.5.16, source-map-support@npm:^0.5.21":
   version: 0.5.21
   resolution: "source-map-support@npm:0.5.21"
   dependencies:
