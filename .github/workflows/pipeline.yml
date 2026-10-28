@@ -23,7 +23,7 @@ jobs:
     - run: yarn stylelint
     - run: yarn i18n-lint
 
-  build_deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v7
