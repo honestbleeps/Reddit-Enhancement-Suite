@@ -8,4 +8,4 @@
 
 ### Housekeeping / Other
 
-- None (thanks nobody)
+- Updated SunCalc to 2.1.1 and automatic night mode to handle polar day and night.
