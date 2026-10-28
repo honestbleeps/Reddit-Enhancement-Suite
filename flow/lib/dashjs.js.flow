@@ -1,0 +1,17 @@
+/* @flow */
+
+declare module 'dashjs' {
+	declare type MediaPlayerInstance = {
+		initialize(): void,
+		setAutoPlay(value: boolean): void,
+		attachView(view: HTMLVideoElement): void,
+		attachSource(source: string | null): void,
+	};
+
+	declare module.exports: {
+		skipAutoCreate: boolean,
+		MediaPlayer(): {
+			create(): MediaPlayerInstance,
+		},
+	};
+}
