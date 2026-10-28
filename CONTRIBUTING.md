@@ -30,11 +30,11 @@ To load the extension into your browser, see [Loading RES into your browser](#lo
 
 #### Build commands
 
-**`yarn start [--browsers <browsers>]`** will clean `dist/`, then build RES (dev mode), and start a watch task that will rebuild RES when you make changes. Only changed files will be rebuilt.
+**`yarn start --browsers <browsers>`** will clean `dist/`, then build RES (dev mode), and start a watch task that will rebuild RES when you make changes. Only changed files will be rebuilt.
 
-**`yarn once [--browsers <browsers>]`** will clean `dist/`, then build RES (dev mode) a single time.
+**`yarn once --browsers <browsers>`** will clean `dist/`, then build RES (dev mode) a single time.
 
-**`yarn build [--browsers <browsers>]`** will clean `dist/`, then build RES (release mode). Each build output will be compressed to a .zip file in `dist/zip/`.
+**`yarn build --browsers <browsers>`** will clean `dist/`, then build RES (release mode). Each build output will be compressed to a .zip file in `dist/zip/`.
 
 `<browsers>` is a comma-separated list of browsers to target, e.g. `chrome,firefox`. `all` will build all targets. By default, `chrome` will be targeted.
 
@@ -75,8 +75,6 @@ The default host and port (`localhost` and `4444`) should work for most local in
 
   - `.github/`: Github templates
   - `browser/`: extension API files common to all browsers
-  - `build/`: files handling automated browser deployments
-  - `changelog/`: release changelogs
   - `chrome/`: Chrome-specific RES files
   - `dist/`: build output
   - `examples/`: example code for new hosts/modules
