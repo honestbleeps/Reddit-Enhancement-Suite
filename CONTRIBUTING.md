@@ -48,7 +48,7 @@ To load the extension into your browser, see [Loading RES into your browser](#lo
 
 **`yarn test`** will run unit tests (in `__tests__` directories) using [Ava](https://github.com/avajs/ava).
 
-The integration tests and their infrastructure are retained for future use, but are not currently runnable. Nightwatch is no longer installed, and the test-only settings redirect has been removed from the extension. To re-enable the suite, restore the Nightwatch dependency (previously `1.7.13`) and support for `#res:settings-redirect-standalone-options-page`.
+The integration tests and their infrastructure are retained for future use, but are not currently runnable because Nightwatch is no longer installed. To re-enable the suite, restore the Nightwatch dependency (previously `1.7.13`).
 
 Once re-enabled, **`yarn integration <browsers> [-f <testFileGlob>]`** will run integration tests (in `tests/`) using [Nightwatch.js](http://nightwatchjs.org/).
 Currently just `chrome` and `firefox` can be targeted.
