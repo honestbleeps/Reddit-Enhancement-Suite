@@ -31,6 +31,9 @@
     "lint-fix": "eslint . --fix; stylelint lib/**/*.scss --fix;",
     "flow": "flow",
     "test": "rimraf dist/transpiled && flow-remove-types lib -q --out-dir dist/transpiled && cross-env NODE_ENV=test ava",
+    "integration-only": "nightwatch --env",
+    "preintegration": "yarn build --browsers chrome,firefox",
+    "integration": "yarn integration-only",
     "build-for-amo": "yarn && yarn build --browsers firefox"
   },
   "browserslist": [
