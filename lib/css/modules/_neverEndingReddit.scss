@@ -18,7 +18,7 @@
 
 	.gearIcon {
 		float: right;
-		margin-right: .5em;
+		margin-right: 0.5em;
 	}
 
 	.nextprev {
@@ -46,7 +46,7 @@
 	cursor: pointer;
 
 	h2 {
-		margin-bottom: .5em;
+		margin-bottom: 0.5em;
 	}
 
 	.gearIcon {
@@ -82,18 +82,18 @@
 		position: fixed;
 		bottom: 5px;
 		right: 5px;
-		background: rgba(255, 255, 255, .3);
+		background: rgba(255, 255, 255, 0.3);
 
 		.res-nightmode & {
-			background: rgba(30, 30, 30, .5);
+			background: rgba(30, 30, 30, 0.5);
 			color: #ccc;
 		}
 
 		&:hover {
-			background: rgba(255, 255, 255, .8);
+			background: rgba(255, 255, 255, 0.8);
 
 			.res-nightmode & {
-				background: rgba(30, 30, 30, .8);
+				background: rgba(30, 30, 30, 0.8);
 			}
 		}
 	}

@@ -4,10 +4,10 @@
 	}
 
 	textarea {
-		background: repeating-linear-gradient(-225deg, transparent, transparent 40px, rgba(166, 166, 166, .05) 40px, rgba(166, 166, 166, .05) 80px), white;
+		background: repeating-linear-gradient(-225deg, transparent, transparent 40px, rgba(166, 166, 166, 0.05) 40px, rgba(166, 166, 166, 0.05) 80px), white;
 
 		&[readonly] {
-			background: repeating-linear-gradient(-225deg, transparent, transparent 40px, rgba(166, 166, 166, .1) 40px, rgba(166, 166, 166, .1) 80px), white;
+			background: repeating-linear-gradient(-225deg, transparent, transparent 40px, rgba(166, 166, 166, 0.1) 40px, rgba(166, 166, 166, 0.1) 80px), white;
 		}
 	}
 }

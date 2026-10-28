@@ -30,13 +30,13 @@ img {
 	.res-showImages-highlightSpoilerButton .thing.spoiler &::before {
 		@extend %expando-button-overlay;
 
-		background-image: linear-gradient(45deg, rgba(255, 130, 0, .3) 25%, transparent 25%, transparent 50%, rgba(255, 130, 0, .3) 50%, rgba(255, 130, 0, .3) 75%, transparent 75%, transparent);
+		background-image: linear-gradient(45deg, rgba(255, 130, 0, 0.3) 25%, transparent 25%, transparent 50%, rgba(255, 130, 0, 0.3) 50%, rgba(255, 130, 0, 0.3) 75%, transparent 75%, transparent);
 	}
 
 	.res-showImages-highlightNSFWButton .thing.over18 &::before {
 		@extend %expando-button-overlay;
 
-		background-image: linear-gradient(45deg, rgba(255, 0, 0, .15) 25%, transparent 25%, transparent 50%, rgba(255, 0, 0, .15) 50%, rgba(255, 0, 0, .15) 75%, transparent 75%, transparent);
+		background-image: linear-gradient(45deg, rgba(255, 0, 0, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 0, 0, 0.15) 50%, rgba(255, 0, 0, 0.15) 75%, transparent 75%, transparent);
 	}
 }
 
@@ -53,7 +53,7 @@ img {
 	vertical-align: middle;
 
 	.expando-button {
-		margin: calc(calc(1em * .5) - 50%) 0 0 0 !important;
+		margin: calc(calc(1em * 0.5) - 50%) 0 0 0 !important;
 		transform: scale(0.8); // Try to not exceed height of line
 	}
 
@@ -127,7 +127,7 @@ img {
 
 	&-generic {
 		clear: left;
-		margin: .5em;
+		margin: 0.5em;
 	}
 
 	> a:first-of-type {
@@ -143,7 +143,7 @@ img {
 
 	.gearIcon {
 		margin-left: 4px;
-		opacity: .3;
+		opacity: 0.3;
 
 		&:hover,
 		&:active {
@@ -169,7 +169,7 @@ img {
 	display: inline-flex;
 	align-items: center;
 	z-index: 2;
-	background: rgba(0, 0, 0, .3);
+	background: rgba(0, 0, 0, 0.3);
 	opacity: 0;
 	cursor: pointer;
 
@@ -223,7 +223,7 @@ img {
 	position: relative;
 
 	&:hover .res-media-controls {
-		opacity: .8;
+		opacity: 0.8;
 	}
 }
 
@@ -376,7 +376,7 @@ img {
 		border-radius: 50%;
 		background-color: white;
 		box-shadow: -1px -1px 2px -1px inset;
-		opacity: .8;
+		opacity: 0.8;
 
 		#{$va}-progress:hover & {
 			display: block;
@@ -388,7 +388,7 @@ img {
 		position: relative;
 		width: 2%;
 		margin-left: -1% !important;
-		background-color: rgba(255, 47, 0, .6);
+		background-color: rgba(255, 47, 0, 0.6);
 		border-radius: 1px;
 	}
 
@@ -397,7 +397,7 @@ img {
 		padding: 3px 5px 5px 5px;
 		justify-content: space-between;
 		flex-wrap: wrap;
-		color: rgba(256, 256, 256, .95);
+		color: rgba(256, 256, 256, 0.95);
 
 		> * {
 			height: 20px;
@@ -418,7 +418,7 @@ img {
 
 	&-link {
 		padding: 0 3px;
-		color: rgba(256, 256, 256, .9);
+		color: rgba(256, 256, 256, 0.9);
 
 		&:not(:last-of-type)::after {
 			content: '|';
@@ -444,7 +444,7 @@ img {
 		margin-right: 7px !important;
 
 		&:hover {
-			color: rgba(256, 256, 256, .8);
+			color: rgba(256, 256, 256, 0.8);
 		}
 	}
 
@@ -512,7 +512,7 @@ img {
 
 	&:not(&-has-native-controls):hover &-interface {
 		display: block;
-		background: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, .6));
+		background: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.6));
 		position: absolute;
 		bottom: 0;
 		width: 100%;
@@ -651,7 +651,7 @@ body:not(.res-showImages-displayImageCaptions) {
 
 		p {
 			line-height: 1.2rem;
-			font-size: .9rem;
+			font-size: 0.9rem;
 		}
 
 		h2 {
