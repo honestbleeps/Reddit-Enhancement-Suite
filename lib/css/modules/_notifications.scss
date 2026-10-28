@@ -21,10 +21,10 @@
 	position: relative;
 	background-color: #fff;
 	border: 1px solid rgb(255, 255, 255);
-	box-shadow: 0 2px 8px 0 rgba(0, 0, 0, .3);
+	box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.3);
 	max-height: 0;
 	margin-bottom: 5px;
-	transition: max-height .15s;
+	transition: max-height 0.15s;
 
 	a {
 		color: #369;
@@ -38,8 +38,8 @@
 		.RESNotificationHeader .gearIcon,
 		.RESCloseButton,
 		.RESNotificationFooter {
-			opacity: .3;
-			transition: opacity .3s linear;
+			opacity: 0.3;
+			transition: opacity 0.3s linear;
 		}
 	}
 
@@ -63,7 +63,7 @@
 		}
 
 		p {
-			margin: .5em 0;
+			margin: 0.5em 0;
 		}
 
 		strong {
@@ -77,7 +77,7 @@
 		font-size: 11px;
 
 		.RESNotificationToggle {
-			margin-top: .5em;
+			margin-top: 0.5em;
 			font-size: smaller;
 			font-weight: normal;
 		}

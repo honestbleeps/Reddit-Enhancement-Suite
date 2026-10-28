@@ -72,7 +72,7 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 	}
 
 	.drop-choices {
-		box-shadow: 4px 4px 4px rgba(0, 0, 0, .3);
+		box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.3);
 	}
 
 	.read-next .read-next-header,
@@ -101,7 +101,7 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 
 	.entry .morecomments .gray,
 	.markdownEditor .RESCharCounter {
-		color: rgba(221, 221, 221, .8);
+		color: rgba(221, 221, 221, 0.8);
 	}
 
 	#BigEditor .markdownEditor .RESMacroDropdownList li:hover a {
@@ -113,7 +113,7 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 	}
 
 	.sidecontentbox .content {
-		border-color: rgba(234, 234, 234, .1);
+		border-color: rgba(234, 234, 234, 0.1);
 	}
 
 	.RESUserTagImage::after {
@@ -262,7 +262,7 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 		background-color: transparent !important;
 
 		.nextprev {
-			opacity: .5;
+			opacity: 0.5;
 		}
 	}
 
@@ -388,11 +388,11 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 	}
 
 	.nextprev img:hover {
-		opacity: .85;
+		opacity: 0.85;
 	}
 
 	#ad-frame {
-		opacity: .8;
+		opacity: 0.8;
 	}
 
 	.comment.unread {
@@ -444,8 +444,8 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 	}
 
 	.create-reddit .title {
-		background-color: rgba(24, 24, 24, .2);
-		color: #8AD;
+		background-color: rgba(24, 24, 24, 0.2);
+		color: #8ad;
 	}
 
 	.linefield,
@@ -849,7 +849,7 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 
 	.voteWeight,
 	.nextprev img {
-		opacity: .7;
+		opacity: 0.7;
 	}
 
 	.searchfacets {
@@ -927,7 +927,7 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 
 	.listing-chooser li a,
 	.listing-chooser li.selected a {
-		color: #8AD;
+		color: #8ad;
 	}
 
 	.listing-chooser .intro {
@@ -1076,7 +1076,7 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 
 	.goldvertisement,
 	.goldvertisement .inner {
-		border-color: rgba(196, 180, 135, .5);
+		border-color: rgba(196, 180, 135, 0.5);
 	}
 
 	.goldvertisement .inner h2,
@@ -1124,7 +1124,7 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 	}
 
 	.guiders_arrow {
-		opacity: .5;
+		opacity: 0.5;
 	}
 
 	.white-field,
@@ -1218,7 +1218,7 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 	}
 
 	#modalOverlay.fadeIn {
-		background-color: rgba(0, 0, 0, .7);
+		background-color: rgba(0, 0, 0, 0.7);
 	}
 
 	#RESConsoleTopBar,
@@ -1274,7 +1274,7 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 	}
 
 	#moduleOptionsScrim {
-		background-color: rgba(34, 34, 34, .7);
+		background-color: rgba(34, 34, 34, 0.7);
 	}
 
 	.optionsTable th {
@@ -1295,7 +1295,7 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 		.toggleOn,
 		&.reverseToggleButton:not(.enabled) .toggleOff,
 		&.reverseToggleButton:not(.enabled) .toggleOn {
-			color: rgba(255, 255, 255, .8);
+			color: rgba(255, 255, 255, 0.8);
 			border-color: rgb(60, 60, 60);
 		}
 
@@ -1347,15 +1347,15 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 	}
 
 	.diff_sub {
-		background-color: rgba(240, 128, 128, .5);
+		background-color: rgba(240, 128, 128, 0.5);
 	}
 
 	.diff_add {
-		background-color: rgba(144, 238, 144, .4);
+		background-color: rgba(144, 238, 144, 0.4);
 	}
 
 	.diff_chg {
-		background-color: rgba(255, 255, 0, .4);
+		background-color: rgba(255, 255, 0, 0.4);
 	}
 
 	.hover-bubble.multi-selector .create-multi input[type='text'] {
@@ -1397,7 +1397,7 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 	}
 
 	.res-filterline {
-		background-color: rgba(38, 38, 38, .9);
+		background-color: rgba(38, 38, 38, 0.9);
 
 		&-filter {
 			border-bottom-color: #383838;
@@ -1432,7 +1432,7 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 
 	.res-commentNavToggle {
 		&-choices {
-			background-color: rgba(0, 0, 0, .9);
+			background-color: rgba(0, 0, 0, 0.9);
 			box-shadow: rgb(49, 49, 49) 1px 2px 4px;
 		}
 	}
@@ -1604,7 +1604,7 @@ $title-link-visited-color: hsl(0, 0%, 65%);
 	}
 
 	.desktop-onboarding__col_sign-up_image {
-		opacity: .7;
+		opacity: 0.7;
 	}
 
 	.subreddit-picker,
