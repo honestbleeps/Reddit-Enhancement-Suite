@@ -44,6 +44,8 @@ To load the extension into your browser, see [Loading RES into your browser](#lo
 
 **`yarn lint`** will verify JavaScript code style throughout the repository (`.js`, `.cjs`, and `.mjs`) using [ESLint](https://eslint.org/), all `.scss` files with [stylelint](https://stylelint.io/), and translation key usage.
 
+Stylelint uses `stylelint-scss` 7 with shared configs that support Stylelint 17 and depend on the same SCSS plugin major, without Yarn resolutions. These configs use `scss/load-partial-extension` instead of the removed `scss/at-import-partial-extension` rule. The root config disables newly introduced checks and formatting rules and retains the previous `string-no-newline` setting to preserve the existing lint policy.
+
 ESLint 10 uses the root `eslint.config.js` flat configuration, including directory-specific overrides and ignores for `dist/` and vendor code (except `lib/vendor/index.js`). Babel 8 parses Flow and import attributes; `eslint-plugin-import-x` retains the existing `import/*` rule names. Older custom plugins, including `eslint-plugin-flowtype`, run through `@eslint/compat`; that plugin's published peer dependency ranges are older than this toolchain, so Yarn still reports compatibility warnings. Keep the compatibility wrappers until those plugins support the current ESLint API.
 
 GitHub Actions runs the current ESLint checks. Code Climate's legacy ESLint engine is disabled because it cannot load this configuration.
@@ -52,7 +54,7 @@ GitHub Actions runs the current ESLint checks. Code Climate's legacy ESLint engi
 
 **`yarn flow`** will run [Flow](https://flowtype.org/) type checking, and start the Flow server so future runs will complete faster. Use `yarn flow stop` to stop the server, or `yarn flow check` to run Flow once without starting the server.
 
-**`yarn test`** will run unit tests (in `lib/**/__tests__` directories) and ESLint configuration regression tests (in `build/__tests__`) using [Ava](https://github.com/avajs/ava).
+**`yarn test`** will run unit tests (in `lib/**/__tests__` directories) and lint configuration regression tests (in `build/__tests__`) using [Ava](https://github.com/avajs/ava).
 
 The integration tests and their infrastructure are retained for future use, but are not currently runnable because Nightwatch is no longer installed. To re-enable the suite, restore the Nightwatch dependency (previously `1.7.13`).
 
