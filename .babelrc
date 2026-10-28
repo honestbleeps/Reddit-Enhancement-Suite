@@ -1,7 +1,6 @@
 {
 	"plugins": [
-		"@babel/plugin-transform-flow-strip-types",
-		"@babel/plugin-syntax-import-attributes"
+		"@babel/plugin-transform-flow-strip-types"
 	],
 	"sourceMaps": "inline"
 }
