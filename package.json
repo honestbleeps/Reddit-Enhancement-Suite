@@ -6,6 +6,7 @@
   "author": "Reddit Enhancement Suite contributors",
   "license": "GPL-3.0",
   "private": true,
+  "packageManager": "yarn@4.18.1",
   "type": "module",
   "homepage": "https://redditenhancementsuite.com",
   "repository": {
@@ -17,12 +18,12 @@
   "scripts": {
     "preinstall": "node -v",
     "prestart": "rimraf dist",
-    "start": "node build.js --watch --mode development",
+    "start": "yarn prestart && node build.js --watch --mode development",
     "preonce": "rimraf dist",
-    "once": "node build.js --mode development",
+    "once": "yarn preonce && node build.js --mode development",
     "prebuild": "rimraf dist",
-    "build": "node build.js --mode production --zip",
-    "autoi18n": "jscodeshift --parser flow --transform build/i18nTransformer.cjs",
+    "build": "yarn prebuild && node build.js --mode production --zip",
+    "autoi18n": "jscodeshift --parser flow --transform build/i18nTransformer.cjs \"$@\" && yarn postautoi18n",
     "postautoi18n": "eslint --fix lib/modules/*.js",
     "eslint": "eslint .",
     "stylelint": "stylelint lib/**/*.scss",
@@ -33,7 +34,7 @@
     "test": "rimraf dist/transpiled && flow-remove-types lib -q --out-dir dist/transpiled && cross-env NODE_ENV=test ava",
     "integration-only": "nightwatch --env",
     "preintegration": "yarn build --browsers chrome,firefox",
-    "integration": "yarn integration-only",
+    "integration": "yarn preintegration && yarn integration-only",
     "build-for-amo": "yarn && yarn build --browsers firefox"
   },
   "browserslist": [
