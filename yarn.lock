@@ -348,10 +348,10 @@
     "@babel/plugin-transform-modules-commonjs" "^7.24.7"
     "@babel/plugin-transform-typescript" "^7.24.7"
 
-"@babel/register@7.24.6", "@babel/register@^7.24.6":
-  version "7.24.6"
-  resolved "https://registry.yarnpkg.com/@babel/register/-/register-7.24.6.tgz#59e21dcc79e1d04eed5377633b0f88029a6bef9e"
-  integrity sha512-WSuFCc2wCqMeXkz/i3yfAAsxwWflEgbVkZzivgAmXl/MxrXeoYFZOOPllbC8R8WTF7u61wSRQtDVZ1879cdu6w==
+"@babel/register@7.29.7", "@babel/register@^7.24.6":
+  version "7.29.7"
+  resolved "https://registry.yarnpkg.com/@babel/register/-/register-7.29.7.tgz#d5bb4337065512f643b29cb565b6e8ccadcc1ec6"
+  integrity sha512-AMGJoWuES861riy6pcB0fphE1YXybtQnBYQMuIyPv6mKLiosfa79BKTnAOyx215c/3RJPJpdQwoHZ3earVH7AA==
   dependencies:
     clone-deep "^4.0.1"
     find-cache-dir "^2.0.0"
