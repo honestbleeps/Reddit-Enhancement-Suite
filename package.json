@@ -11,31 +11,24 @@
   "homepage": "https://redditenhancementsuite.com",
   "repository": {
     "type": "git",
-    "url": "https://github.com/honestbleeps/Reddit-Enhancement-Suite.git",
-    "username": "honestbleeps",
-    "repository": "Reddit-Enhancement-Suite"
+    "url": "git+https://github.com/honestbleeps/Reddit-Enhancement-Suite.git"
   },
+  "bugs": "https://github.com/honestbleeps/Reddit-Enhancement-Suite/issues",
   "scripts": {
-    "preinstall": "node -v",
-    "prestart": "rimraf dist",
-    "start": "yarn prestart && node build.js --watch --mode development",
-    "preonce": "rimraf dist",
-    "once": "yarn preonce && node build.js --mode development",
-    "prebuild": "rimraf dist",
-    "build": "yarn prebuild && node build.js --mode production --zip",
-    "autoi18n": "jscodeshift --transform build/i18nTransformer.cjs \"$@\" && yarn postautoi18n",
-    "postautoi18n": "eslint --fix lib/modules/*.js",
+    "start": "rimraf dist && node build.js --watch --mode development",
+    "once": "rimraf dist && node build.js --mode development",
+    "build": "rimraf dist && node build.js --mode production --zip",
+    "build-for-amo": "npm install --global corepack --force && corepack enable && yarn install --immutable && yarn build --browsers firefox",
+    "autoi18n": "jscodeshift --transform build/i18nTransformer.cjs \"$@\" && eslint --fix lib/modules/*.js",
     "eslint": "eslint .",
-    "stylelint": "stylelint lib/**/*.scss",
+    "stylelint": "stylelint \"lib/**/*.scss\"",
     "i18n-lint": "node build/i18nLint.js",
     "lint": "yarn eslint && yarn stylelint && yarn i18n-lint",
-    "lint-fix": "eslint . --fix; stylelint lib/**/*.scss --fix;",
+    "lint-fix": "eslint . --fix; stylelint \"lib/**/*.scss\" --fix",
     "flow": "flow",
     "test": "rimraf dist/transpiled && flow-remove-types lib -q --out-dir dist/transpiled && cross-env NODE_ENV=test ava",
-    "integration-only": "nightwatch --env",
-    "preintegration": "yarn build --browsers chrome,firefox",
-    "integration": "yarn preintegration && yarn integration-only",
-    "build-for-amo": "npm install --global corepack && corepack enable && yarn install && yarn build --browsers firefox"
+    "integration": "yarn build --browsers chrome,firefox && yarn integration-only",
+    "integration-only": "nightwatch --env"
   },
   "browserslist": [
     "chrome 138",
