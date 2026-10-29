@@ -26,6 +26,8 @@ Thinking about contributing to RES? Awesome! We just ask that you follow a few s
 
 The project uses Yarn 4 with the `node-modules` linker. Commit `yarn.lock` when dependencies change; use `yarn install --immutable` to verify that an install does not change it (as CI does).
 
+The esbuild toolchain requires macOS 12 (Monterey) or newer on macOS, or Linux kernel 3.2 or newer on Linux.
+
 Once done, you can build the extension by running `yarn start` (see [Build commands](#build-commands)).
 
 To load the extension into your browser, see [Loading RES into your browser](#loading-res-into-your-browser).
