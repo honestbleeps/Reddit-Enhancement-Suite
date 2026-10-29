@@ -1,9 +1,9 @@
-@import '../zindex';
+@use '../zindex';
 
 .RESHover,
 .RESHover.RESDialogSmall {
 	position: absolute;
-	z-index: $zindex-res-hover;
+	z-index: zindex.$zindex-res-hover;
 }
 
 .RESHoverInfoCard {

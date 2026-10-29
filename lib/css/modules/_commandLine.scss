@@ -1,4 +1,4 @@
-@import '../zindex';
+@use '../zindex';
 
 #keyCommandLineWidget {
 	font-size: 14px;
@@ -6,7 +6,7 @@
 	top: 30px;
 	left: 50%;
 	margin-left: -275px;
-	z-index: $zindex-command-line-widget;
+	z-index: zindex.$zindex-command-line-widget;
 	width: 550px;
 	border: 3px solid #555;
 	border-radius: 10px;

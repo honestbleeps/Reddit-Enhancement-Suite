@@ -1,48 +1,48 @@
-@import '../vendor/index';
-@import 'zindex';
-@import 'modules/nightMode';
-@import 'modules/version';
-@import 'modules/commentStyle';
-@import 'modules/showParent';
-@import 'modules/quickMessage';
-@import 'modules/accountSwitcher';
-@import 'modules/betteReddit';
-@import 'modules/commandLine';
-@import 'modules/commentNavigator';
-@import 'modules/commentPreview';
-@import 'modules/commentTools';
-@import 'modules/dashboard';
-@import 'modules/easterEgg';
-@import 'modules/newCommentCount';
-@import 'modules/noParticipation';
-@import 'modules/notifications';
-@import 'modules/filteReddit';
-@import 'modules/hover';
-@import 'modules/keyboardNav';
-@import 'modules/modhelper';
-@import 'modules/neverEndingReddit';
-@import 'modules/orangered';
-@import 'modules/pageNavigator';
-@import 'modules/saveComments';
-@import 'modules/searchHelper';
-@import 'modules/selectedEntry';
-@import 'modules/showImages';
-@import 'modules/sourceSnudown';
-@import 'modules/spoilerTags';
-@import 'modules/styleTweaks';
-@import 'modules/submitIssue';
-@import 'modules/subredditInfo';
-@import 'modules/subredditManager';
-@import 'modules/tableTools';
-@import 'modules/temporaryDropdownLinks';
-@import 'modules/troubleshooter';
-@import 'modules/userbarHider';
-@import 'modules/userInfo';
-@import 'modules/redditUserInfo';
-@import 'modules/userTagger';
-@import 'modules/voteEnhancements';
-@import 'modules/commentQuickCollapse';
-@import 'modules/wheelBrowse';
+@use '../vendor/index';
+@use 'zindex';
+@use 'modules/nightMode';
+@use 'modules/version';
+@use 'modules/commentStyle';
+@use 'modules/showParent';
+@use 'modules/quickMessage';
+@use 'modules/accountSwitcher';
+@use 'modules/betteReddit';
+@use 'modules/commandLine';
+@use 'modules/commentNavigator';
+@use 'modules/commentPreview';
+@use 'modules/commentTools';
+@use 'modules/dashboard';
+@use 'modules/easterEgg';
+@use 'modules/newCommentCount';
+@use 'modules/noParticipation';
+@use 'modules/notifications';
+@use 'modules/filteReddit';
+@use 'modules/hover';
+@use 'modules/keyboardNav';
+@use 'modules/modhelper';
+@use 'modules/neverEndingReddit';
+@use 'modules/orangered';
+@use 'modules/pageNavigator';
+@use 'modules/saveComments';
+@use 'modules/searchHelper';
+@use 'modules/selectedEntry';
+@use 'modules/showImages';
+@use 'modules/sourceSnudown';
+@use 'modules/spoilerTags';
+@use 'modules/styleTweaks';
+@use 'modules/submitIssue';
+@use 'modules/subredditInfo';
+@use 'modules/subredditManager';
+@use 'modules/tableTools';
+@use 'modules/temporaryDropdownLinks';
+@use 'modules/troubleshooter';
+@use 'modules/userbarHider';
+@use 'modules/userInfo';
+@use 'modules/redditUserInfo';
+@use 'modules/userTagger';
+@use 'modules/voteEnhancements';
+@use 'modules/commentQuickCollapse';
+@use 'modules/wheelBrowse';
 
 @font-face {
 	font-family: Batch;
@@ -56,7 +56,7 @@ body.res-console-open {
 }
 
 #console-container {
-	z-index: $zindex-console-container - 1;
+	z-index: zindex.$zindex-console-container - 1;
 	position: fixed;
 	inset: 0 0 0 0;
 	width: 100%;
@@ -451,7 +451,7 @@ span.multi-count {
 	border: 1px solid;
 	background-color: #efefef;
 	overflow: auto;
-	z-index: $zindex-alert-message;
+	z-index: zindex.$zindex-alert-message;
 
 	@media (width <= 520px) {
 		width: auto;
@@ -481,7 +481,7 @@ span.multi-count {
 	position: fixed;
 	inset: 0 0 0 0;
 	background-color: rgb(0 0 0 / 70%);
-	z-index: $zindex-alert-message - 1;
+	z-index: zindex.$zindex-alert-message - 1;
 }
 
 .res-icon {

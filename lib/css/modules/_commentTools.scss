@@ -1,4 +1,4 @@
-@import '../zindex';
+@use '../zindex';
 
 .markdownEditor-wrapper { width: 500px; } // same as textarea.
 
@@ -163,7 +163,7 @@
 // Autocomplete
 #autocomplete_dropdown {
 	display: inline-block;
-	z-index: $zindex-autocomplete-dropdown;
+	z-index: zindex.$zindex-autocomplete-dropdown;
 }
 
 .selectedItem {

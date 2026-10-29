@@ -1,4 +1,4 @@
-@import '../zindex';
+@use '../zindex';
 
 $thumb-width: 100px;
 $content-offsetleft: 54px; // icon width + margins
@@ -21,7 +21,7 @@ $page-offsetleft: 15px;
 	box-sizing: border-box;
 	box-shadow: hsla(0, 0%, 0%, 0.24) 0 1px 3px, hsla(0, 0%, 0%, 0.12) 0 3px 3px;
 	transition: all 0.3s;
-	z-index: $zindex-show-link-title;
+	z-index: zindex.$zindex-show-link-title;
 	font: 11px/1.6 verdana, sans-serif;
 
 	.res-nightmode & {
