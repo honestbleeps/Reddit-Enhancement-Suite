@@ -132,7 +132,8 @@ If the host uses an API that does not support [CORS](https://en.wikipedia.org/wi
 #### Stylesheets
 
 Create a new `.scss` file in `lib/css/modules/` (with a leading underscore, e.g. `_myModule.scss`).
-Import the file in `lib/css/res.scss` (e.g. `@import 'modules/myPartial';`).
+Load the file with the other modules at the top of `lib/css/res.scss` (e.g. `@use 'modules/myPartial';`).
+Sass modules have their own scope: load shared dependencies explicitly in each partial (e.g. `@use '../zindex';` and `z-index: zindex.$zindex-big-editor;`). Do not use deprecated Sass `@import` rules.
 
 For toggleable CSS, add `bodyClass: true` to an option or module, then wrap your CSS with `.res-moduleId-optionKey` (boolean options), `.res-moduleId-optionKey-optionValue` (enum options), or `.res-moduleId` (modules).
 

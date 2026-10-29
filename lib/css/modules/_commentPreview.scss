@@ -1,3 +1,5 @@
+@use '../zindex';
+
 .content .RESBigEditorPop {
 	float: right;
 	margin-top: 5px;
@@ -61,7 +63,7 @@ body.RESScrollLock {
 
 #BigEditor {
 	position: fixed;
-	z-index: $zindex-big-editor;
+	z-index: zindex.$zindex-big-editor;
 	inset: 0 0 0 0;
 	background-color: rgba(0, 0, 0, 0.75);
 

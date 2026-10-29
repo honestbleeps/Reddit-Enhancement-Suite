@@ -1,4 +1,4 @@
-@import '../zindex';
+@use '../zindex';
 
 #keyHelp {
 	display: none;
@@ -7,7 +7,7 @@
 	overflow-y: auto;
 	right: 20px;
 	top: 20px;
-	z-index: $zindex-key-help;
+	z-index: zindex.$zindex-key-help;
 	border: 2px solid #aaa;
 	border-radius: 5px;
 	width: 300px;
@@ -44,7 +44,7 @@
 	width: 250px;
 	margin-left: -125px;
 	margin-top: -140px;
-	z-index: $zindex-go-mode-panel;
+	z-index: zindex.$zindex-go-mode-panel;
 
 	table {
 		width: 100%;

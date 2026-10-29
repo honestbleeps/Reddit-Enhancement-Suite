@@ -1,4 +1,4 @@
-@import '../zindex';
+@use '../zindex';
 
 #RESNotifications {
 	position: fixed;
@@ -7,7 +7,7 @@
 	height: auto;
 	width: 300px;
 	background: none;
-	z-index: $zindex-notifications !important;
+	z-index: zindex.$zindex-notifications !important;
 	font: 12px/1.6 verdana, arial, sans-serif;
 	color: #000;
 
