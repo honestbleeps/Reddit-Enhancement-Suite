@@ -24,7 +24,7 @@ test('ESLint covers JavaScript tooling extensions as modules', async t => {
 	for (const config of configs) {
 		t.is(config.languageOptions.sourceType, 'module');
 		t.is(config.rules['no-undef'][0], 2);
-		t.is(config.rules['flowtype/require-valid-file-annotation'][0], 2);
+		t.is(config.rules['local/flow-file-annotation'][0], 2);
 	}
 });
 
@@ -49,12 +49,29 @@ test('ESLint reports undefined values but not Flow library types', async t => {
 	t.deepEqual(messages.filter(message => message.ruleId === 'no-undef').map(message => message.message), ['\'undefinedValue\' is not defined.']);
 });
 
-test('ESLint still requires Flow annotations and enforces Flow style', async t => {
-	const unannotated = await lint('export const fixture = 1;\n');
-	const primitive = await lint('/* @flow */\nexport type Fixture = Boolean;\n');
+const restrictedMessages = messages => messages.filter(message => message.ruleId === 'no-restricted-syntax').map(message => message.message);
 
-	t.true(unannotated.some(message => message.ruleId === 'flowtype/require-valid-file-annotation'));
-	t.true(primitive.some(message => message.ruleId === 'flowtype/no-primitive-constructor-types'));
+test('ESLint still requires Flow annotations', async t => {
+	const unannotated = await lint('export const fixture = 1;\n');
+	const lateAnnotation = await lint('export const fixture = 1;\n/* @flow */\n');
+	const annotated = await Promise.all(['/* @flow */', '// @flow', '/* @flow strict */', '/* @noflow */']
+		.map(annotation => lint(`${annotation}\nexport const fixture = 1;\n`)));
+
+	t.true(unannotated.some(message => message.ruleId === 'local/flow-file-annotation'));
+	t.true(lateAnnotation.some(message => message.ruleId === 'local/flow-file-annotation'));
+	for (const messages of annotated) t.deepEqual(messages, []);
+});
+
+test('ESLint enforces Flow type conventions', async t => {
+	t.deepEqual(restrictedMessages(await lint('/* @flow */\nexport type Fixture = Boolean | Number | String;\n')),
+		Array(3).fill('Use the primitive type (`boolean`, `number`, `string`) instead of its constructor type.'));
+	t.deepEqual(restrictedMessages(await lint('/* @flow */\nexport type Fixture = Function | Object;\n')),
+		Array(2).fill('Unexpected weak type; use a specific function or object type.'));
+	t.deepEqual(restrictedMessages(await lint('/* @flow */\ntype fixture = string;\nopaque type FIXTURE = string;\nexport type Fixture = fixture | FIXTURE;\n')),
+		Array(2).fill('Type names must be PascalCase.'));
+	t.deepEqual(restrictedMessages(await lint('/* @flow */\nimport { type Fixture } from \'./lintFixture\';\nexport type Value = Fixture;\n')),
+		['Import types with an `import type { ... }` declaration.']);
+	t.deepEqual(restrictedMessages(await lint('/* @flow */\nimport type { Fixture } from \'./lintFixture\';\nexport type Value = Fixture;\n')), []);
 });
 
 test('ESLint limits WebExtension globals to the environment layer', async t => {
@@ -70,17 +87,18 @@ test('ESLint preserves integration, example and Flow declaration overrides', asy
 	const integration = await eslint.calculateConfigForFile('tests/lintFixture.js');
 	const example = await eslint.calculateConfigForFile('examples/lintFixture.js');
 	const declaration = await eslint.calculateConfigForFile('flow/lintFixture.js');
-	const library = await eslint.calculateConfigForFile('flow/lib/lintFixture.js');
 
-	t.is(integration.rules['flowtype/no-unused-expressions'][0], 0);
-	t.is(integration.rules['flowtype/require-valid-file-annotation'][0], 0);
+	t.is(integration.rules['local/flow-file-annotation'][0], 0);
 	t.is(integration.rules['import/no-commonjs'][0], 0);
 	t.is(example.rules['import/no-unresolved'][0], 0);
-	t.is(declaration.rules['flowtype/no-dupe-keys'][0], 0);
-	t.is(declaration.rules['flowtype/no-weak-types'][0], 0);
 	t.is(declaration.rules['no-unused-vars'][0], 0);
-	t.is(library.rules['flowtype/boolean-style'][0], 0);
-	t.is(library.rules['flowtype/type-id-match'][0], 0);
+
+	const weakTypes = '/* @flow */\nexport type Fixture = Function;\n';
+	const typeName = '/* @flow */\nexport type fixture = string;\n';
+	t.deepEqual(restrictedMessages(await lint(weakTypes, 'flow/lintFixture.js')), []);
+	t.deepEqual(restrictedMessages(await lint(typeName, 'flow/lintFixture.js')), ['Type names must be PascalCase.']);
+	t.deepEqual(restrictedMessages(await lint(typeName, 'flow/lib/lintFixture.js')), []);
+	t.is(restrictedMessages(await lint('/* @flow */\nexport type Fixture = String;\n', 'flow/lib/lintFixture.js')).length, 1);
 });
 
 test('ESLint continues enforcing import layer boundaries', async t => {

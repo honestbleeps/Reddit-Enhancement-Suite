@@ -4,7 +4,13 @@
 
 import fs from 'fs';
 import path from 'path'; // eslint-disable-line import/no-extraneous-dependencies
+import { parse } from 'hermes-parser';
 import _ from 'lodash';
+
+// recast cannot print newer Flow syntax (`as` casts, `keyof`, ...); hermes-parser's Babel mode lowers it to an AST recast understands.
+export const parser = {
+	parse: source => parse(source, { babel: true, sourceType: 'module', tokens: true }),
+};
 
 
 export default function i18nTransformer(file, api) {
@@ -34,24 +40,24 @@ export default function i18nTransformer(file, api) {
 	}
 
 	modOptionsPath
-		.find(j.Property, { value: { properties: [] } })
+		.find(j.ObjectProperty, { value: { properties: [] } })
 		.filter(path => path.parentPath.parentPath.parentPath.node === modOptionsPath.get().node)
 		.forEach(optionPath => {
 			const optName = optionPath.node.key.name;
 
 			const titleKey = `${modName}${upCase(optName)}Title`;
 			newI18nKeys[titleKey] = _.startCase(optName);
-			optionPath.node.value.properties.unshift(j.property('init', j.identifier('title'), j.literal(titleKey)));
+			optionPath.node.value.properties.unshift(j.objectProperty(j.identifier('title'), j.stringLiteral(titleKey)));
 
 			j(optionPath)
-				.find(j.Property, { kind: 'init', key: { name: 'description' } })
+				.find(j.ObjectProperty, { key: { name: 'description' } })
 				.filter(path => path.parentPath.parentPath.parentPath.node === optionPath.node)
 				.replaceWith(descPath => {
 					const descKey = `${modName}${upCase(optName)}Desc`;
 					newI18nKeys[descKey] = descPath.node.value.type === 'TemplateLiteral' ?
 						descPath.node.value.quasis[0].value.raw.trim() :
 						descPath.node.value.value;
-					return j.property('init', j.identifier('description'), j.literal(descKey));
+					return j.objectProperty(j.identifier('description'), j.stringLiteral(descKey));
 				});
 		});
 

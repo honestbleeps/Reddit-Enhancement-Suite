@@ -6,7 +6,6 @@ import js from '@eslint/js';
 import ava from 'eslint-plugin-ava';
 import dollarSign from 'eslint-plugin-dollar-sign';
 import filenames from 'eslint-plugin-filenames';
-import flowtype from 'eslint-plugin-flowtype';
 import importPlugin from 'eslint-plugin-import-x';
 import noUselessAssign from 'eslint-plugin-no-useless-assign';
 import preferSpread from 'eslint-plugin-prefer-spread';
@@ -45,6 +44,57 @@ const flowParser = {
 	},
 };
 
+// Every file must opt in to (`@flow`) or out of (`@noflow`) Flow checking in a comment before any code.
+const flowFileAnnotation = {
+	meta: {
+		schema: [],
+		messages: { missing: 'Flow file annotation is missing; start the file with `/* @flow */` or `/* @noflow */`.' },
+	},
+	create: (context /*: any */) /*: any */ => ({
+		Program(program /*: any */) {
+			const { sourceCode } = context;
+			const firstToken = sourceCode.getFirstToken(program);
+			const annotated = sourceCode.getAllComments().some(comment =>
+				(!firstToken || comment.range[1] <= firstToken.range[0]) && (/^\s*@(?:no)?flow\b/).test(comment.value),
+			);
+			if (!annotated) context.report({ loc: { line: 1, column: 0 }, messageId: 'missing' });
+		},
+	}),
+};
+
+const restrictedSyntax = [{
+	selector: 'ForStatement',
+	message: 'No C-style for-loops; use for..of or Array.prototype methods.',
+}, {
+	selector: 'AssignmentExpression[left.property.name=\'options\'] > ObjectExpression > Property > Literal.key[value=/ /]',
+	message: 'No spaces in option names.',
+}, {
+	selector: 'Property[key.name=\'options\'] > ObjectExpression > Property > Literal.key[value=/ /]',
+	message: 'No spaces in option names.',
+}, {
+	selector: 'ForInStatement',
+	message: 'No for-in loops; use for..of with Object.keys/values/entries.',
+}, {
+	selector: 'BinaryExpression[operator=\'in\']',
+	message: 'No in keyword; use Set/Map or hasOwnProperty.',
+}, {
+	selector: 'GenericTypeAnnotation > Identifier.id[name=/^(Boolean|Number|String)$/]',
+	message: 'Use the primitive type (`boolean`, `number`, `string`) instead of its constructor type.',
+}, {
+	selector: 'ImportDeclaration[importKind=\'value\'] > ImportSpecifier[importKind=\'type\']',
+	message: 'Import types with an `import type { ... }` declaration.',
+}];
+
+const restrictedWeakTypes = {
+	selector: 'GenericTypeAnnotation > Identifier.id[name=/^(Function|Object)$/]',
+	message: 'Unexpected weak type; use a specific function or object type.',
+};
+
+const restrictedTypeNames = {
+	selector: ':matches(TypeAlias, OpaqueType) > Identifier.id:not([name=/^([A-Z][a-z0-9]+)+$/])',
+	message: 'Type names must be PascalCase.',
+};
+
 export default ([
 	{
 		ignores: ['dist/**', 'lib/vendor/*.js', '!lib/vendor/index.js'],
@@ -64,7 +114,7 @@ export default ([
 			reportUnusedDisableDirectives: 'off',
 		},
 		plugins: {
-			flowtype: fixupPluginRules(flowtype),
+			local: { rules: { 'flow-file-annotation': flowFileAnnotation } },
 			ava,
 			// This legacy rule supplies fixes without declaring the metadata ESLint now requires.
 			'dollar-sign': fixupPluginRules({
@@ -99,22 +149,7 @@ export default ([
 			'ava/no-conditional-assertion': 0,
 			'ava/no-nested-assertions': 0, // Tests intentionally assert inside callbacks passed to other assertions.
 
-			'flowtype/boolean-style': 2,
-			'flowtype/define-flow-type': 0, // superseded by hermes-eslint's type-aware scope analysis (see flowParser)
-			'flowtype/delimiter-dangle': [2, 'always-multiline'],
-			'flowtype/generic-spacing': 2,
-			'flowtype/no-primitive-constructor-types': 2,
-			'flowtype/no-types-missing-file-annotation': 2,
-			'flowtype/no-unused-expressions': 2,
-			'flowtype/no-weak-types': [2, { any: false }],
-			'flowtype/require-valid-file-annotation': [2, 'always'],
-			'flowtype/space-after-type-colon': 2,
-			'flowtype/space-before-generic-bracket': 2,
-			'flowtype/space-before-type-colon': 2,
-			'flowtype/type-id-match': [2, '^([A-Z][a-z0-9]+)+$'],
-			'flowtype/type-import-style': [2, 'declaration'],
-			'flowtype/union-intersection-spacing': 2,
-			'flowtype/valid-syntax': 2,
+			'local/flow-file-annotation': 2,
 
 			'you-dont-need-lodash-underscore/throttle': 0,
 
@@ -203,22 +238,7 @@ export default ([
 			'no-prototype-builtins': 0,
 			'no-restricted-globals': [2, 'alert'],
 			'no-restricted-modules': 0, // see import/no-nodejs-modules
-			'no-restricted-syntax': [2, {
-				selector: 'ForStatement',
-				message: 'No C-style for-loops; use for..of or Array.prototype methods.',
-			}, {
-				selector: 'AssignmentExpression[left.property.name=\'options\'] > ObjectExpression > Property > Literal.key[value=/ /]',
-				message: 'No spaces in option names.',
-			}, {
-				selector: 'Property[key.name=\'options\'] > ObjectExpression > Property > Literal.key[value=/ /]',
-				message: 'No spaces in option names.',
-			}, {
-				selector: 'ForInStatement',
-				message: 'No for-in loops; use for..of with Object.keys/values/entries.',
-			}, {
-				selector: 'BinaryExpression[operator=\'in\']',
-				message: 'No in keyword; use Set/Map or hasOwnProperty.',
-			}],
+			'no-restricted-syntax': [2, ...restrictedSyntax, restrictedWeakTypes, restrictedTypeNames],
 			'no-shadow': 0,
 			'no-sync': 0,
 			'no-tabs': 0,
@@ -320,8 +340,7 @@ export default ([
 	{
 		files: ['tests/**/*.{js,cjs,mjs}'],
 		rules: {
-			'flowtype/no-unused-expressions': 0,
-			'flowtype/require-valid-file-annotation': 0,
+			'local/flow-file-annotation': 0,
 			'import/no-commonjs': 0,
 		},
 	},
@@ -334,16 +353,14 @@ export default ([
 	{
 		files: ['flow/**/*.{js,cjs,mjs}'],
 		rules: {
-			'flowtype/no-dupe-keys': 0, // Declaration overloads use duplicate keys.
-			'flowtype/no-weak-types': 0,
+			'no-restricted-syntax': [2, ...restrictedSyntax, restrictedTypeNames], // Declarations may use weak types.
 			'no-unused-vars': 0,
 		},
 	},
 	{
 		files: ['flow/lib/**/*.{js,cjs,mjs}'],
 		rules: {
-			'flowtype/boolean-style': 0,
-			'flowtype/type-id-match': 0, // Type names are dictated by the API.
+			'no-restricted-syntax': [2, ...restrictedSyntax], // Type names are dictated by the API.
 		},
 	},
 ] /*:: as Array<any> */);
