@@ -20,7 +20,7 @@ Thinking about contributing to RES? Awesome! We just ask that you follow a few s
 
 1. Install [git](https://git-scm.com/).
 1. Install [node.js](https://nodejs.org) (version 26 LTS).
-1. Install [Corepack](https://yarnpkg.com/corepack) with `npm install --global corepack`, then run `corepack enable` (this command may require administrator rights). If an existing global Yarn installation conflicts, uninstall it with `npm uninstall --global yarn` first.
+1. Install [Corepack](https://yarnpkg.com/corepack) with `npm install --global corepack`, then run `corepack enable` (this command may require administrator rights on Windows). If an existing global Yarn installation conflicts, uninstall it with `npm uninstall --global yarn` first.
 1. [Clone this repository](https://help.github.com/articles/cloning-a-repository/).
 1. Run `yarn install` in that folder. Corepack automatically uses the Yarn version pinned in `package.json`.
 
