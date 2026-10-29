@@ -11,17 +11,19 @@ declare module 'favico.js' {
 		animation?: 'slide' | 'fade' | 'pop' | 'popFade' | 'none',
 		dataUrl?: (dataUrl: string) => void,
 		win?: WindowProxy,
+		...
 	};
 
 	declare class Favico {
 		constructor(opts?: FavicoOptions): void;
-		badge(num: number, opts?: FavicoOptions | $PropertyType<FavicoOptions, 'animation'>): void;
+		badge(num: number, opts?: FavicoOptions | FavicoOptions['animation']): void;
 		image(image: HTMLImageElement): void;
 		video(video: HTMLVideoElement | 'stop'): void;
 		webcam(action?: 'stop'): void;
 		reset(): void;
 		browser: {
 			supported: boolean,
+			...
 		};
 	}
 

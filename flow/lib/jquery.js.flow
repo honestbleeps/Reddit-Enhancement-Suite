@@ -1,5 +1,9 @@
 /* @flow */
 
+// Event type unions formerly provided by Flow's bundled DOM libdef
+type MouseEventTypes = 'contextmenu' | 'mousedown' | 'mouseenter' | 'mouseleave' | 'mousemove' | 'mouseout' | 'mouseover' | 'mouseup' | 'click' | 'dblclick';
+type KeyboardEventTypes = 'keydown' | 'keyup' | 'keypress';
+
 // https://github.com/marudor/flowInterfaces/blob/3fe07b33cae783b17ccc974f3bfd6010637d0d1a/packages/iflow-jquery/index.js.flow
 // reordered/merged some overloaded function definitions for better inference
 // disabled one permutation of `$.fn.on` because it conflicts with delegated listeners (and we don't use it)
@@ -44,6 +48,7 @@ declare type JQueryAjaxSettings = {
 
 	contents?: {
 		[key: string]: any;
+		...
 	};
 
 	contentType?: any;
@@ -52,6 +57,7 @@ declare type JQueryAjaxSettings = {
 
 	converters?: {
 		[key: string]: any;
+		...
 	};
 
 	crossDomain?: boolean;
@@ -68,6 +74,7 @@ declare type JQueryAjaxSettings = {
 
 	headers?: {
 		[key: string]: any;
+		...
 	};
 
 	ifModified?: boolean;
@@ -90,6 +97,7 @@ declare type JQueryAjaxSettings = {
 
 	statusCode?: {
 		[key: string]: any;
+		...
 	};
 
 	success?: (data: any, textStatus: string, jqXHR: JQueryXHR) => any;
@@ -108,7 +116,9 @@ declare type JQueryAjaxSettings = {
 
 	xhrFields?: {
 		[key: string]: any;
+		...
 	};
+	...
 };
 
 declare class JQueryXHR extends XMLHttpRequest {
@@ -123,7 +133,7 @@ declare class JQueryXHR extends XMLHttpRequest {
 	error(xhr: JQueryXHR, textStatus: string, errorThrown: string): void;
 }
 
-declare class JQueryCallback<A, B, C, D, E, F, T: (a: A, b: B, c: C, d: D, e: E, f: F) => void> {
+declare class JQueryCallback<A, B, C, D, E, F, T extends (a: A, b: B, c: C, d: D, e: E, f: F) => void> {
 	constructor(flags?: string): void;
 
 	add(callbacks: T): this;
@@ -139,7 +149,7 @@ declare class JQueryCallback<A, B, C, D, E, F, T: (a: A, b: B, c: C, d: D, e: E,
 
 	fired(): boolean;
 
-	fireWith(context?: mixed, args?: [A, B, C, D, E, F]): this;
+	fireWith(context?: unknown, args?: [A, B, C, D, E, F]): this;
 
 	has(callback: T): boolean;
 
@@ -351,7 +361,7 @@ declare class JQueryStatic {
 	post(url: string, success?: (data: any, textStatus: string, jqXHR: JQueryXHR) => any, dataType?: string): JQueryXHR;
 	post(url: string, data?: Object | string, success?: (data: any, textStatus: string, jqXHR: JQueryXHR) => any, dataType?: string): JQueryXHR;
 
-	Callbacks<A, B, C, D, E, F, T: (a: A, b: B, c: C, d: D, e: E, f: F) => void>(flags?: string): JQueryCallback<A, B, C, D, E, F, T>;
+	Callbacks<A, B, C, D, E, F, T extends (a: A, b: B, c: C, d: D, e: E, f: F) => void>(flags?: string): JQueryCallback<A, B, C, D, E, F, T>;
 
 	holdReady(hold: boolean): void;
 
@@ -359,11 +369,14 @@ declare class JQueryStatic {
 
 	(element: Element): JQuery;
 
-	/*:: <T: Element>(elementArray: T[]): JQuery; */
+	// Unions of the selector and element overloads above (overloads don't distribute over union arguments)
+	(selectorOrElement: string | Element, context?: Element | JQuery): JQuery;
+
+	/*:: <T extends Element>(elementArray: T[]): JQuery; */
 
 	(callback: (jQueryAlias?: JQueryStatic) => any): JQuery;
 
-	(object: ?{}): JQuery;
+	(object: ?{...}): JQuery;
 
 	(object: JQuery): JQuery;
 
@@ -379,6 +392,7 @@ declare class JQueryStatic {
 
 	cssHooks: {
 		[key: string]: any;
+		...
 	};
 
 	data(element: Element, key: string): any;
@@ -407,10 +421,12 @@ declare class JQueryStatic {
 		stop: () => void;
 		speeds: {
 			slow: number;fast: number;
+			...
 		};
 
 		off: boolean;
 		step: any;
+		...
 	};
 
 	proxy(fnction: (...args: any[]) => any, context: Object, ...additionalArguments: any[]): any;
@@ -560,6 +576,7 @@ declare class JQuery {
 	data(key: string, value: any): JQuery;
 	data(obj: {
 		[key: string]: any;
+		...
 	}): JQuery;
 	data(): any;
 
@@ -693,6 +710,7 @@ declare class JQuery {
 	off(events: string, handler: (...args: any[]) => any): JQuery;
 	off(events: {
 		[key: string]: any;
+		...
 	}, selector?: string): JQuery;
 
 
@@ -706,10 +724,12 @@ declare class JQuery {
 
 	on(events: {
 		[key: string]: any;
+		...
 	}, selector?: string): JQuery;
 
 	on(events: {
 		[key: string]: any;
+		...
 	}): JQuery;
 
 	one(events: MouseEventTypes, handler: (eventObject: JQueryMouseEventObject) => any): JQuery;
@@ -722,10 +742,12 @@ declare class JQuery {
 
 	one(events: {
 		[key: string]: any;
+		...
 	}, selector?: string, data?: any): JQuery;
 
 	one(events: {
 		[key: string]: any;
+		...
 	}, data?: any): JQuery;
 
 	ready(handler: (jQueryAlias?: JQueryStatic) => any): JQuery;

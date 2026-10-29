@@ -28,17 +28,25 @@ test('ESLint covers JavaScript tooling extensions as modules', async t => {
 	}
 });
 
-test('ESLint parses legacy Flow types, casts, optional chaining and import attributes', async t => {
+test('ESLint parses modern Flow types, casts, optional chaining and import attributes', async t => {
 	const messages = await lint([
 		'/* @flow */',
 		'import packageInfo from \'../../package.json\' with { type: \'json\' };',
 		'',
-		'export type Fixture = { value: ?string, anything: *, ... };',
-		'export const fixture = (packageInfo.version: string)?.trim();',
+		'export type Fixture = { readonly value: ?string, keys: keyof { a: 1 }, items: ReadonlyArray<Iterable<unknown>>, ... };',
+		'export function isString(value: unknown): value is string { return typeof value === \'string\'; }',
+		'export function first<T extends { readonly length: number }>(value: T): T { return value; }',
+		'export const fixture = (packageInfo.version as string)?.trim();',
 		'',
 	].join('\n'));
 
 	t.deepEqual(messages, []);
+});
+
+test('ESLint reports undefined values but not Flow library types', async t => {
+	const messages = await lint('/* @flow */\nexport const fixture: Iterable<TimeoutID> = undefinedValue;\n');
+
+	t.deepEqual(messages.filter(message => message.ruleId === 'no-undef').map(message => message.message), ['\'undefinedValue\' is not defined.']);
 });
 
 test('ESLint still requires Flow annotations and enforces Flow style', async t => {

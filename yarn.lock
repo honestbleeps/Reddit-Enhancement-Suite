@@ -3336,12 +3336,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"flow-bin@npm:0.84.0":
-  version: 0.84.0
-  resolution: "flow-bin@npm:0.84.0"
+"flow-bin@npm:0.337.0":
+  version: 0.337.0
+  resolution: "flow-bin@npm:0.337.0"
   bin:
     flow: cli.js
-  checksum: 10c0/c4b13c89ac0db2484cbeabb8ed538009b55ac104d0c65593105b44316b83f1a2b824d0c326bcd2e747be30f3a84a1e318bfc6b88e9a7c8ae4f3089b44253f9b7
+  checksum: 10c0/2379bcaa4e4b7c67a517abd39e84002639bd6e8c2225a768b9d400b634d0e12273723064711efd632fa12cc315c9dd7ba7b4523149efea573f1dfd8c2eb2de99
   languageName: node
   linkType: hard
 
@@ -3609,6 +3609,37 @@ __metadata:
   dependencies:
     function-bind: "npm:^1.1.2"
   checksum: 10c0/2d8de939e270b70618f8cebb69746620db10617dbb495bc66ddad326955ea24d3ca4af133aff3eb7c1853e0218f867bc2b050ec26fe02e3aea58f880ffc5e506
+  languageName: node
+  linkType: hard
+
+"hermes-eslint@npm:0.37.0":
+  version: 0.37.0
+  resolution: "hermes-eslint@npm:0.37.0"
+  dependencies:
+    hermes-estree: "npm:0.37.0"
+    hermes-parser: "npm:0.37.0"
+  peerDependencies:
+    eslint: ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0 || ^9.0.0 || ^10.0.0
+  peerDependenciesMeta:
+    eslint:
+      optional: true
+  checksum: 10c0/5409bc01230169c5b08271bca3c9b52262e71b37b0c961154a5f3da5746b161751f646ac04b51382245d740bc8235063ae60f586d3e477f446afd9c2ed6ab885
+  languageName: node
+  linkType: hard
+
+"hermes-estree@npm:0.37.0":
+  version: 0.37.0
+  resolution: "hermes-estree@npm:0.37.0"
+  checksum: 10c0/9da99ec854e4d7b0b7840c5452d3788b3dce5d56a174537cd164f7fb2bc1f07a6ee0e030b0652c0cfd7ab1e2a596de290ef35b2d37f3e75d60144b1d6d8e7833
+  languageName: node
+  linkType: hard
+
+"hermes-parser@npm:0.37.0":
+  version: 0.37.0
+  resolution: "hermes-parser@npm:0.37.0"
+  dependencies:
+    hermes-estree: "npm:0.37.0"
+  checksum: 10c0/568be1f4cdffc8e0471e917c49ed7ebde4309c222e1a0bfaee883a4146f21274ffaba2f7ebf697e8a20316e73e76d4fbff768d27233e63187478f120218affca
   languageName: node
   linkType: hard
 
@@ -4928,9 +4959,10 @@ __metadata:
     eslint-plugin-you-dont-need-lodash-underscore: "npm:6.14.0"
     fast-levenshtein: "npm:3.0.0"
     favico.js: "npm:0.3.10"
-    flow-bin: "npm:0.84.0"
+    flow-bin: "npm:0.337.0"
     flow-remove-types: "npm:2.337.0"
     globals: "npm:17.13.0"
+    hermes-eslint: "npm:0.37.0"
     jquery: "npm:4.0.0"
     jscodeshift: "npm:17.4.0"
     jszip: "npm:3.10.2"

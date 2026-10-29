@@ -1,21 +1,25 @@
 [ignore]
-<PROJECT_ROOT>/dist/.*
-<PROJECT_ROOT>/utils/.*
-<PROJECT_ROOT>/examples/.*
-<PROJECT_ROOT>/node_modules/.*/test/.*
-<PROJECT_ROOT>/node_modules/.*/__tests__/.*
-<PROJECT_ROOT>/node_modules/esbuild-plugin-flow/.*
-<PROJECT_ROOT>/node_modules/flow-estree/dist/.*
-<PROJECT_ROOT>/node_modules/flow-parser/dist/.*
-<PROJECT_ROOT>/node_modules/hermes-estree/dist/generated/.*
-<PROJECT_ROOT>/node_modules/hermes-estree/dist/.*
-<PROJECT_ROOT>/node_modules/hermes-parser/dist/.*
-<PROJECT_ROOT>/lib/utils/__tests__/.*
-<PROJECT_ROOT>/lib/environment/utils/__tests__/.*
-<PROJECT_ROOT>/lib/environment/background/__tests__/.*
-<PROJECT_ROOT>/lib/environment/foreground/__tests__/.*
-<PROJECT_ROOT>/lib/modules/__tests__/.*
-<PROJECT_ROOT>/lib/modules/backupAndRestore/__tests__/.*
+dist/**
+utils/**
+examples/**
+node_modules/**/test/**
+node_modules/**/__tests__/**
+node_modules/esbuild-plugin-flow/**
+node_modules/flow-estree/dist/**
+node_modules/flow-parser/dist/**
+node_modules/hermes-estree/dist/generated/**
+node_modules/hermes-estree/dist/**
+node_modules/hermes-parser/dist/**
+node_modules/immutable/dist/**
+lib/utils/__tests__/**
+lib/environment/utils/__tests__/**
+lib/environment/background/__tests__/**
+lib/environment/foreground/__tests__/**
+lib/modules/__tests__/**
+lib/modules/backupAndRestore/__tests__/**
+
+[declarations]
+.*/flowlib_[^/]*/lib\.dom\.d\.ts
 
 [include]
 
@@ -29,13 +33,5 @@ module.file_ext=.jsx
 module.file_ext=.json
 module.file_ext=.cjs
 
-esproposal.export_star_as=enable
-esproposal.optional_chaining=enable
-
-suppress_type=$FlowIssue
-suppress_type=$FlowIgnore
-suppress_comment=\\(.\\|\n\\)*\\$FlowIssue
-suppress_comment=\\(.\\|\n\\)*\\$FlowIgnore
-
 [version]
-0.84.0
+0.337.0

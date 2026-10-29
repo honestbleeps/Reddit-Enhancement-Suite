@@ -12,9 +12,10 @@ declare module 'snudown-js' {
 		target?: string,
 		enableToc?: boolean,
 		tocIdPrefix?: string,
+		...
 	};
 
-	declare function markdown(options: MarkdownOptions & { renderer?: number }): string;
+	declare function markdown(options: MarkdownOptions & { renderer?: number, ... }): string;
 	declare function markdown(text: string, nofollow?: boolean, target?: string, renderer?: number, enableToc?: boolean, tocIdPrefix?: string): string;
 
 	declare function markdownWiki(options: MarkdownOptions): string;

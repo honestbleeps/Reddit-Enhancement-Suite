@@ -2,7 +2,6 @@
 /* eslint-disable import/no-nodejs-modules */
 
 import { fixupPluginRules } from '@eslint/compat';
-import babelParser from '@babel/eslint-parser';
 import js from '@eslint/js';
 import ava from 'eslint-plugin-ava';
 import dollarSign from 'eslint-plugin-dollar-sign';
@@ -13,18 +12,47 @@ import noUselessAssign from 'eslint-plugin-no-useless-assign';
 import preferSpread from 'eslint-plugin-prefer-spread';
 import lodash from 'eslint-plugin-you-dont-need-lodash-underscore';
 import globals from 'globals';
+import * as hermesParser from 'hermes-eslint';
 
-export default [
+// hermes-eslint is Flow's official ESLint parser and supports current Flow syntax (`as` casts, `readonly`, `keyof`, ...).
+// Its scope manager predates a few ESLint 10 expectations, which are bridged here without changing the AST.
+const flowParser = {
+	meta: { name: 'hermes-eslint-compat' },
+	parseForESLint(code /*: string */, options /*: any */) /*: any */ {
+		const result /*: any */ = hermesParser.parseForESLint(code, options);
+		const { globalScope, scopes } = result.scopeManager;
+		// ESLint 10 reads implicit globals from `scope.implicit`.
+		if (globalScope && globalScope.implicit === undefined && globalScope.__implicit) {
+			// $FlowFixMe[object-this-reference] the getter is only ever invoked on `globalScope`
+			Object.defineProperty(globalScope, 'implicit', { get() { return this.__implicit; } });
+		}
+		// ESLint 10's no-unused-vars expects every `ClassName` definition to have a class body; `declare class` has an object type body.
+		for (const scope of scopes) {
+			for (const variable of scope.variables) {
+				for (const def of variable.defs) {
+					if (def.type === 'ClassName' && def.node.type === 'DeclareClass' && !def.node.body.body) {
+						Object.defineProperty(def.node.body, 'body', { value: [], enumerable: false });
+					}
+				}
+			}
+		}
+		// Global Flow types (e.g. `Iterable`, `Class`, `TimeoutID`) come from libdefs, not JS globals. Like the previous
+		// `flowtype/define-flow-type` rule, keep unresolved type-only references from being reported by `no-undef`.
+		if (globalScope) {
+			globalScope.through = globalScope.through.filter(reference => !(reference.isTypeReference && !reference.isValueReference));
+		}
+		return result;
+	},
+};
+
+export default ([
 	{
 		ignores: ['dist/**', 'lib/vendor/*.js', '!lib/vendor/index.js'],
 	},
 	{
 		files: ['**/*.{js,cjs,mjs}'],
 		languageOptions: {
-			parser: babelParser,
-			parserOptions: {
-				requireConfigFile: false,
-			},
+			parser: flowParser,
 			sourceType: 'module',
 			globals: {
 				...globals.browser,
@@ -72,7 +100,7 @@ export default [
 			'ava/no-nested-assertions': 0, // Tests intentionally assert inside callbacks passed to other assertions.
 
 			'flowtype/boolean-style': 2,
-			'flowtype/define-flow-type': 2,
+			'flowtype/define-flow-type': 0, // superseded by hermes-eslint's type-aware scope analysis (see flowParser)
 			'flowtype/delimiter-dangle': [2, 'always-multiline'],
 			'flowtype/generic-spacing': 2,
 			'flowtype/no-primitive-constructor-types': 2,
@@ -318,4 +346,4 @@ export default [
 			'flowtype/type-id-match': 0, // Type names are dictated by the API.
 		},
 	},
-];
+] /*:: as Array<any> */);

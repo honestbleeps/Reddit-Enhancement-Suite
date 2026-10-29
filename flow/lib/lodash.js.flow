@@ -10,23 +10,27 @@ type TemplateSettings = {
 	imports?: Object,
 	interpolate?: RegExp,
 	variable?: string,
+	...
 };
 
 type TruncateOptions = {
 	length?: number,
 	omission?: string,
 	separator?: RegExp | string,
+	...
 };
 
 type DebounceOptions = {
-	leading?: bool,
+	leading?: boolean,
 	maxWait?: number,
-	trailing?: bool,
+	trailing?: boolean,
+	...
 };
 
 type ThrottleOptions = {
-	leading?: bool,
-	trailing?: bool,
+	leading?: boolean,
+	trailing?: boolean,
+	...
 };
 
 declare interface Curry1<A, R> {
@@ -73,26 +77,26 @@ declare interface CurryRight4<A, B, C, D, R> {
 	(a: A, b: B, c: C, d: D): R;
 }
 
-type OPredicate<O> = (value: any, key: string, object: O) => ?bool;
+type OPredicate<O> = (value: any, key: string, object: O) => ?boolean;
 type OIterateeWithResult<V, O, R> = (value: V, key: string, object: O) => R;
 type OIteratee<O> = OIterateeWithResult<any, O, any>;
 
-type Predicate<T> = (value: T, index: number, array: Array<T>) => ?bool;
-type Iteratee<T> = (item: T, index: number, array: ?Array<T>) => mixed;
+type Predicate<T> = (value: T, index: number, array: Array<T>) => ?boolean;
+type Iteratee<T> = (item: T, index: number, array: ?Array<T>) => unknown;
 type Iteratee2<T, U> = (item: T, index: number, array: ?Array<T>) => U;
 type FlatMapIteratee<T, U> = (item: T, index: number, array: ?Array<T>) => Array<U>;
-type Comparator<T> = (item: T, item2: T) => bool;
+type Comparator<T> = (item: T, item2: T) => boolean;
 
-type MapIterator1<T, U> = (item: T) => U;
-type MapIterator2<T, U> = (item: T, index: number) => U;
-type MapIterator3<T, U> = (item: T, index: number, array: Array<T>) => U;
-type MapIterator<T, U> = MapIterator1<T, U> | MapIterator2<T, U> | MapIterator3<T, U>;
+type LodashMapIterator1<T, U> = (item: T) => U;
+type LodashMapIterator2<T, U> = (item: T, index: number) => U;
+type LodashMapIterator3<T, U> = (item: T, index: number, array: Array<T>) => U;
+type LodashMapIterator<T, U> = LodashMapIterator1<T, U> | LodashMapIterator2<T, U> | LodashMapIterator3<T, U>;
 
 declare module 'lodash' {
 	declare class Lodash {
 		// Array
 		chunk<T>(array: ?Array<T>, size?: number): Array<T>;
-		compact<T, N:?T>(array: Array<N>): Array<T>;
+		compact<T, N extends ?T>(array: Array<N>): Array<T>;
 		concat<T>(base: Array<T>, ...elements: Array<any>): Array<T | any>;
 		difference<T>(array: ?Array<T>, values?: Array<T>): Array<T>;
 		differenceBy<T>(array: ?Array<T>, values: Array<T>, iteratee: Iteratee<T>): T[];
@@ -144,7 +148,7 @@ declare module 'lodash' {
 		sortedLastIndexBy<T>(array: ?Array<T>, value: T, iteratee?: Iteratee<T>): number;
 		sortedLastIndexOf<T>(array: ?Array<T>, value: T): number;
 		sortedUniq<T>(array: ?Array<T>): Array<T>;
-		sortedUniqBy<T>(array: ?Array<T>, iteratee?: (value: T) => mixed): Array<T>;
+		sortedUniqBy<T>(array: ?Array<T>, iteratee?: (value: T) => unknown): Array<T>;
 		tail<T>(array: ?Array<T>): Array<T>;
 		take<T>(array: ?Array<T>, n?: number): Array<T>;
 		takeRight<T>(array: ?Array<T>, n?: number): Array<T>;
@@ -188,73 +192,73 @@ declare module 'lodash' {
 
 		// Collection
 		countBy<T>(array: ?Array<T>, iteratee?: Iteratee<T>): Object;
-		countBy<T: Object>(object: T, iteratee?: OIteratee<T>): Object;
+		countBy<T extends Object>(object: T, iteratee?: OIteratee<T>): Object;
 		// alias of _.forEach
 		each<T>(array: ?Array<T>, iteratee?: Iteratee<T>): Array<T>;
-		each<T: Object>(object: T, iteratee?: OIteratee<T>): T;
+		each<T extends Object>(object: T, iteratee?: OIteratee<T>): T;
 		// alias of _.forEachRight
 		eachRight<T>(array: ?Array<T>, iteratee?: Iteratee<T>): Array<T>;
-		eachRight<T: Object>(object: T, iteratee?: OIteratee<T>): T;
-		every<T>(array: ?Array<T>, iteratee?: Iteratee<T>): bool;
-		every<T: Object>(object: T, iteratee?: OIteratee<T>): bool;
+		eachRight<T extends Object>(object: T, iteratee?: OIteratee<T>): T;
+		every<T>(array: ?Array<T>, iteratee?: Iteratee<T>): boolean;
+		every<T extends Object>(object: T, iteratee?: OIteratee<T>): boolean;
 		filter<T>(array: ?Array<T>, predicate?: Predicate<T>): Array<T>;
-		filter<V, T: Object>(object: T, predicate?: OPredicate<T>): Array<any>;
+		filter<V, T extends Object>(object: T, predicate?: OPredicate<T>): Array<any>;
 		find<T>(array: ?Array<T>, predicate?: Predicate<T>): T;
-		find<V, T: Object>(object: T, predicate?: OPredicate<T>): V;
+		find<V, T extends Object>(object: T, predicate?: OPredicate<T>): V;
 		findLast<T>(array: ?Array<T>, predicate?: Predicate<T>): T;
 		findLast<V, T>(object: T, predicate?: OPredicate<T>): V;
 		flatMap<T, U>(array: ?Array<T>, iteratee?: FlatMapIteratee<T, U>): Array<U>;
 		flatMapDeep<T, U>(array: ?Array<T>, iteratee?: FlatMapIteratee<T, U>): Array<U>;
 		flatMapDepth<T, U>(array: ?Array<T>, iteratee?: FlatMapIteratee<T, U>, depth?: number): Array<U>;
 		forEach<T>(array: ?Array<T>, iteratee?: Iteratee<T>): Array<T>;
-		forEach<T: Object>(object: T, iteratee?: OIteratee<T>): T;
+		forEach<T extends Object>(object: T, iteratee?: OIteratee<T>): T;
 		forEachRight<T>(array: ?Array<T>, iteratee?: Iteratee<T>): Array<T>;
-		forEachRight<T: Object>(object: T, iteratee?: OIteratee<T>): T;
+		forEachRight<T extends Object>(object: T, iteratee?: OIteratee<T>): T;
 		groupBy<T>(array: ?Array<T>, iteratee?: Iteratee<T>): Object;
-		groupBy<T: Object>(object: T, iteratee?: OIteratee<T>): Object;
-		includes<T>(array: ?Array<T>, value: T, fromIndex?: number): bool;
-		includes<T: Object>(object: T, value: any, fromIndex?: number): bool;
-		includes(str: string, value: string, fromIndex?: number): bool;
+		groupBy<T extends Object>(object: T, iteratee?: OIteratee<T>): Object;
+		includes<T>(array: ?Array<T>, value: T, fromIndex?: number): boolean;
+		includes<T extends Object>(object: T, value: any, fromIndex?: number): boolean;
+		includes(str: string, value: string, fromIndex?: number): boolean;
 		invokeMap<T>(array: ?Array<T>, path: ((value: T) => Array<string> | string) | Array<string> | string, ...args?: Array<any>): Array<any>;
-		invokeMap<T: Object>(object: T, path: ((value: any) => Array<string> | string) | Array<string> | string, ...args?: Array<any>): Array<any>;
-		keyBy<T, V>(array: ?Array<T>, iteratee?: Iteratee2<T, V>): {[V]: T};
-		keyBy<V, T: Object>(object: T, iteratee?: OIteratee<T>): Object;
-		map<T, U>(array: ?Array<T>, iteratee?: MapIterator<T, U>): Array<U>;
-		map<V, T: Object, U>(object: ?T, iteratee?: OIterateeWithResult<V, T, U>): Array<U>;
+		invokeMap<T extends Object>(object: T, path: ((value: any) => Array<string> | string) | Array<string> | string, ...args?: Array<any>): Array<any>;
+		keyBy<T, V>(array: ?Array<T>, iteratee?: Iteratee2<T, V>): {[V]: T, ...};
+		keyBy<V, T extends Object>(object: T, iteratee?: OIteratee<T>): Object;
+		map<T, U>(array: ?Array<T>, iteratee?: LodashMapIterator<T, U>): Array<U>;
+		map<V, T extends Object, U>(object: ?T, iteratee?: OIterateeWithResult<V, T, U>): Array<U>;
 		map(str: ?string, iteratee?: (char: string, index: number, str: string) => any): string;
 		orderBy<T>(array: ?Array<T>, iteratees?: Array<Iteratee<T>>, orders?: Array<'asc' | 'desc'>): Array<T>;
-		orderBy<V, T: Object>(object: T, iteratees?: Array<OIteratee<*>>, orders?: Array<'asc' | 'desc'>): Array<V>;
+		orderBy<V, T extends Object>(object: T, iteratees?: Array<OIteratee<any>>, orders?: Array<'asc' | 'desc'>): Array<V>;
 		partition<T>(array: ?Array<T>, predicate?: Predicate<T>): [T, T];
-		partition<V, T: Object>(object: T, predicate?: OPredicate<T>): [V, V];
+		partition<V, T extends Object>(object: T, predicate?: OPredicate<T>): [V, V];
 		reduce<T, U>(array: ?Array<T>, iteratee?: (accumulator: U, value: T, index: number, array: ?Array<T>) => U, accumulator?: U): U;
-		reduce<T: Object, U>(object: T, iteratee?: (accumulator: U, value: any, key: string, object: T) => U, accumulator?: U): U;
+		reduce<T extends Object, U>(object: T, iteratee?: (accumulator: U, value: any, key: string, object: T) => U, accumulator?: U): U;
 		reduceRight<T, U>(array: ?Array<T>, iteratee?: (accumulator: U, value: T, index: number, array: ?Array<T>) => U, accumulator?: U): U;
-		reduceRight<T: Object, U>(object: T, iteratee?: (accumulator: U, value: any, key: string, object: T) => U, accumulator?: U): U;
+		reduceRight<T extends Object, U>(object: T, iteratee?: (accumulator: U, value: any, key: string, object: T) => U, accumulator?: U): U;
 		reject<T>(array: ?Array<T>, predicate?: Predicate<T>): Array<T>;
-		reject<V: Object, T>(object: T, predicate?: OPredicate<T>): Array<V>;
+		reject<V extends Object, T>(object: T, predicate?: OPredicate<T>): Array<V>;
 		sample<T>(array: ?Array<T>): T;
-		sample<V, T: Object>(object: T): V;
+		sample<V, T extends Object>(object: T): V;
 		sampleSize<T>(array: ?Array<T>, n?: number): Array<T>;
-		sampleSize<V, T: Object>(object: T, n?: number): Array<V>;
+		sampleSize<V, T extends Object>(object: T, n?: number): Array<V>;
 		shuffle<T>(array: ?Array<T>): Array<T>;
-		shuffle<V, T: Object>(object: T): Array<V>;
+		shuffle<V, T extends Object>(object: T): Array<V>;
 		size(collection: Array<any> | Object): number;
-		some<T>(array: ?Array<T>, predicate?: Predicate<T>): bool;
-		some<T: Object>(object?: ?Object, predicate?: OPredicate<T>): bool;
+		some<T>(array: ?Array<T>, predicate?: Predicate<T>): boolean;
+		some<T extends Object>(object?: ?Object, predicate?: OPredicate<T>): boolean;
 		sortBy<T>(array: ?Array<T>, ...iteratees?: Array<Iteratee<T>>): Array<T>;
 		sortBy<T>(array: ?Array<T>, iteratees?: Array<Iteratee<T>>): Array<T>;
-		sortBy<V, T: Object>(object: T, ...iteratees?: Array<OIteratee<T>>): Array<V>;
-		sortBy<V, T: Object>(object: T, iteratees?: Array<OIteratee<T>>): Array<V>;
+		sortBy<V, T extends Object>(object: T, ...iteratees?: Array<OIteratee<T>>): Array<V>;
+		sortBy<V, T extends Object>(object: T, iteratees?: Array<OIteratee<T>>): Array<V>;
 
 		// Date
 		now(): number;
 
 		// Function
-		after<T: (...args: any) => void>(n: number, fn: T): T;
+		after<T extends (...args: any) => void>(n: number, fn: T): T;
 		ary<T>(func: (...args: any) => T, n?: number): (...args: any) => T;
-		before<T: Function>(n: number, fn: T): T;
+		before<T extends Function>(n: number, fn: T): T;
 		bind<T>(func: (...args: any) => T, thisArg: any, ...partials: Array<any>): (...args: any) => T;
-		bindKey<K: string, T>(obj: { [K]: (...args: any) => T }, key: string, ...partials: Array<any>): (...args: any) => T;
+		bindKey<K extends string, T>(obj: { [K]: (...args: any) => T, ... }, key: string, ...partials: Array<any>): (...args: any) => T;
 
 		curry<A, R>(func: (a: A) => R, arity: 1): Curry1<A, R>;
 		curry<A, R>(func: (a: A) => R, arity: void): Curry1<A, R>;
@@ -274,13 +278,13 @@ declare module 'lodash' {
 		curryRight<A, B, C, D, R>(func: (a: A, b: B, c: C, d: D) => R, arity: 4): CurryRight4<A, B, C, D, R>;
 		curryRight<A, B, C, D, R>(func: (a: A, b: B, c: C, d: D) => R, arity: void): CurryRight4<A, B, C, D, R>;
 
-		debounce<T: (...args: any) => void | Promise<void>>(func: T, wait?: number, options?: DebounceOptions): T;
+		debounce<T extends (...args: any) => void | Promise<void>>(func: T, wait?: number, options?: DebounceOptions): T;
 		defer(func: Function, ...args?: Array<any>): number;
 		delay(func: Function, wait: number, ...args?: Array<any>): number;
 		flip(func: Function): Function;
-		memoize<T: Function>(func: T, resolver?: Function): T;
+		memoize<T extends Function>(func: T, resolver?: Function): T;
 		negate(predicate: Function): Function;
-		once<T: Function>(func: T): T;
+		once<T extends Function>(func: T): T;
 		overArgs(func: Function, ...transforms: Array<Function>): Function;
 		overArgs(func: Function, transforms: Array<Function>): Function;
 		partial<T>(func: (...args: any) => T, ...partials: any[]): (...args: any) => T;
@@ -290,60 +294,60 @@ declare module 'lodash' {
 		rearg<T>(func: (...args: any) => T, indexes: Array<number>): (...args: any) => T;
 		rest<T>(func: (...args: any) => T, start?: number): (...args: any) => T;
 		spread<T>(func: (...args: any) => T): (...args: any) => T;
-		throttle<T: (...args: any) => void>(func: T, wait?: number, options?: ThrottleOptions): T;
-		unary<A, T: (a: A) => any>(func: T): T;
+		throttle<T extends (...args: any) => void>(func: T, wait?: number, options?: ThrottleOptions): T;
+		unary<A, T extends (a: A) => any>(func: T): T;
 		wrap<T, R>(value: T, wrapper: (first: T, ...args: any) => R): (...args: any) => R;
 
 		// Lang
-		castArray(value: *): any[];
+		castArray(value: any): any[];
 		clone<T>(value: T): T;
 		cloneDeep<T>(value: T): T;
 		cloneDeepWith<T, U>(value: T, customizer?: ?(value: T, key: number | string, object: T, stack: any) => U): U;
 		cloneWith<T, U>(value: T, customizer?: ?(value: T, key: number | string, object: T, stack: any) => U): U;
-		conformsTo<T: { [string]: mixed }>(source: T, predicates: T & { [string]: (x: any) => boolean }): boolean;
-		eq(value: any, other: any): bool;
-		gt(value: any, other: any): bool;
-		gte(value: any, other: any): bool;
-		isArguments(value: any): bool;
-		isArray(value: any): bool;
-		isArrayBuffer(value: any): bool;
-		isArrayLike(value: any): bool;
-		isArrayLikeObject(value: any): bool;
-		isBoolean(value: any): bool;
-		isBuffer(value: any): bool;
-		isDate(value: any): bool;
-		isElement(value: any): bool;
-		isEmpty(value: any): bool;
-		isEqual(value: any, other: any): bool;
-		isEqualWith<T, U>(value: T, other: U, customizer?: (objValue: any, otherValue: any, key: number | string, object: T, other: U, stack: any) => bool | void): bool;
-		isError(value: any): bool;
-		isFinite(value: any): bool;
+		conformsTo<T extends { [string]: unknown, ... }>(source: T, predicates: T & { [string]: (x: any) => boolean, ... }): boolean;
+		eq(value: any, other: any): boolean;
+		gt(value: any, other: any): boolean;
+		gte(value: any, other: any): boolean;
+		isArguments(value: any): boolean;
+		isArray(value: any): boolean;
+		isArrayBuffer(value: any): boolean;
+		isArrayLike(value: any): boolean;
+		isArrayLikeObject(value: any): boolean;
+		isBoolean(value: any): boolean;
+		isBuffer(value: any): boolean;
+		isDate(value: any): boolean;
+		isElement(value: any): boolean;
+		isEmpty(value: any): boolean;
+		isEqual(value: any, other: any): boolean;
+		isEqualWith<T, U>(value: T, other: U, customizer?: (objValue: any, otherValue: any, key: number | string, object: T, other: U, stack: any) => boolean | void): boolean;
+		isError(value: any): boolean;
+		isFinite(value: any): boolean;
 		isFunction(value: Function): true;
 		isFunction(value: number | string | void | null | Object): false;
-		isInteger(value: any): bool;
-		isLength(value: any): bool;
-		isMap(value: any): bool;
-		isMatch(object?: ?Object, source: Object): bool;
-		isMatchWith<T: Object, U: Object>(object: T, source: U, customizer?: (objValue: any, srcValue: any, key: number | string, object: T, source: U) => bool | void): bool;
-		isNaN(value: any): bool;
-		isNative(value: any): bool;
-		isNil(value: any): bool;
-		isNull(value: any): bool;
-		isNumber(value: any): bool;
-		isObject(value: any): bool;
-		isObjectLike(value: any): bool;
-		isPlainObject(value: any): bool;
-		isRegExp(value: any): bool;
-		isSafeInteger(value: any): bool;
-		isSet(value: any): bool;
-		isString(value: any): bool;
-		isSymbol(value: any): bool;
-		isTypedArray(value: any): bool;
-		isUndefined(value: any): bool;
-		isWeakMap(value: any): bool;
-		isWeakSet(value: any): bool;
-		lt(value: any, other: any): bool;
-		lte(value: any, other: any): bool;
+		isInteger(value: any): boolean;
+		isLength(value: any): boolean;
+		isMap(value: any): boolean;
+		isMatch(object?: ?Object, source: Object): boolean;
+		isMatchWith<T extends Object, U extends Object>(object: T, source: U, customizer?: (objValue: any, srcValue: any, key: number | string, object: T, source: U) => boolean | void): boolean;
+		isNaN(value: any): boolean;
+		isNative(value: any): boolean;
+		isNil(value: any): boolean;
+		isNull(value: any): boolean;
+		isNumber(value: any): boolean;
+		isObject(value: any): boolean;
+		isObjectLike(value: any): boolean;
+		isPlainObject(value: any): boolean;
+		isRegExp(value: any): boolean;
+		isSafeInteger(value: any): boolean;
+		isSet(value: any): boolean;
+		isString(value: any): boolean;
+		isSymbol(value: any): boolean;
+		isTypedArray(value: any): boolean;
+		isUndefined(value: any): boolean;
+		isWeakMap(value: any): boolean;
+		isWeakSet(value: any): boolean;
+		lt(value: any, other: any): boolean;
+		lte(value: any, other: any): boolean;
 		toArray(value: any): Array<any>;
 		toFinite(value: any): number;
 		toInteger(value: any): number;
@@ -360,71 +364,71 @@ declare module 'lodash' {
 		floor(number: number, precision?: number): number;
 		max<T>(array: ?Array<T>): T;
 		maxBy<T>(array: ?Array<T>, iteratee?: Iteratee<T>): T;
-		mean(array: Array<*>): number;
+		mean(array: Array<any>): number;
 		meanBy<T>(array: Array<T>, iteratee?: Iteratee<T>): number;
 		min<T>(array: ?Array<T>): T;
 		minBy<T>(array: ?Array<T>, iteratee?: Iteratee<T>): T;
 		multiply(multiplier: number, multiplicand: number): number;
 		round(number: number, precision?: number): number;
 		subtract(minuend: number, subtrahend: number): number;
-		sum(array: Array<*>): number;
+		sum(array: Array<any>): number;
 		sumBy<T>(array: Array<T>, iteratee?: Iteratee<T>): number;
 
 		// number
 		clamp(number: number, lower?: number, upper: number): number;
-		inRange(number: number, start?: number, end: number): bool;
-		random(lower?: number, upper?: number, floating?: bool): number;
+		inRange(number: number, start?: number, end: number): boolean;
+		random(lower?: number, upper?: number, floating?: boolean): number;
 
 		// Object
 		assign(object?: ?Object, ...sources?: Array<Object>): Object;
 		assignIn(object?: ?Object, ...sources?: Array<Object>): Object;
-		assignInWith<T: Object, A: Object>(object: T, s1: A, customizer?: (objValue: any, srcValue: any, key: string, object: T, source: A) => any | void): Object;
-		assignInWith<T: Object, A: Object, B: Object>(object: T, s1: A, s2: B, customizer?: (objValue: any, srcValue: any, key: string, object: T, source: A | B) => any | void): Object;
-		assignInWith<T: Object, A: Object, B: Object, C: Object>(object: T, s1: A, s2: B, s3: C, customizer?: (objValue: any, srcValue: any, key: string, object: T, source: A | B | C) => any | void): Object;
-		assignInWith<T: Object, A: Object, B: Object, C: Object, D: Object>(object: T, s1: A, s2: B, s3: C, s4: D, customizer?: (objValue: any, srcValue: any, key: string, object: T, source: A | B | C | D) => any | void): Object;
-		assignWith<T: Object, A: Object>(object: T, s1: A, customizer?: (objValue: any, srcValue: any, key: string, object: T, source: A) => any | void): Object;
-		assignWith<T: Object, A: Object, B: Object>(object: T, s1: A, s2: B, customizer?: (objValue: any, srcValue: any, key: string, object: T, source: A | B) => any | void): Object;
-		assignWith<T: Object, A: Object, B: Object, C: Object>(object: T, s1: A, s2: B, s3: C, customizer?: (objValue: any, srcValue: any, key: string, object: T, source: A | B | C) => any | void): Object;
-		assignWith<T: Object, A: Object, B: Object, C: Object, D: Object>(object: T, s1: A, s2: B, s3: C, s4: D, customizer?: (objValue: any, srcValue: any, key: string, object: T, source: A | B | C | D) => any | void): Object;
+		assignInWith<T extends Object, A extends Object>(object: T, s1: A, customizer?: (objValue: any, srcValue: any, key: string, object: T, source: A) => any | void): Object;
+		assignInWith<T extends Object, A extends Object, B extends Object>(object: T, s1: A, s2: B, customizer?: (objValue: any, srcValue: any, key: string, object: T, source: A | B) => any | void): Object;
+		assignInWith<T extends Object, A extends Object, B extends Object, C extends Object>(object: T, s1: A, s2: B, s3: C, customizer?: (objValue: any, srcValue: any, key: string, object: T, source: A | B | C) => any | void): Object;
+		assignInWith<T extends Object, A extends Object, B extends Object, C extends Object, D extends Object>(object: T, s1: A, s2: B, s3: C, s4: D, customizer?: (objValue: any, srcValue: any, key: string, object: T, source: A | B | C | D) => any | void): Object;
+		assignWith<T extends Object, A extends Object>(object: T, s1: A, customizer?: (objValue: any, srcValue: any, key: string, object: T, source: A) => any | void): Object;
+		assignWith<T extends Object, A extends Object, B extends Object>(object: T, s1: A, s2: B, customizer?: (objValue: any, srcValue: any, key: string, object: T, source: A | B) => any | void): Object;
+		assignWith<T extends Object, A extends Object, B extends Object, C extends Object>(object: T, s1: A, s2: B, s3: C, customizer?: (objValue: any, srcValue: any, key: string, object: T, source: A | B | C) => any | void): Object;
+		assignWith<T extends Object, A extends Object, B extends Object, C extends Object, D extends Object>(object: T, s1: A, s2: B, s3: C, s4: D, customizer?: (objValue: any, srcValue: any, key: string, object: T, source: A | B | C | D) => any | void): Object;
 		at(object?: ?Object, ...paths: Array<string>): Array<any>;
 		at(object?: ?Object, paths: Array<string>): Array<any>;
-		create<T>(prototype: T, properties?: Object): $Supertype<T>;
+		create<T>(prototype: T, properties?: Object): any;
 		defaults(object?: ?Object, ...sources?: Array<Object>): Object;
 		defaultsDeep(object?: ?Object, ...sources?: Array<Object>): Object;
-		findKey(object?: ?Object, predicate?: OPredicate<*>): string | void;
-		findLastKey(object?: ?Object, predicate?: OPredicate<*>): string | void;
-		forIn(object?: ?Object, iteratee?: OIteratee<*>): Object;
-		forInRight(object?: ?Object, iteratee?: OIteratee<*>): Object;
-		forOwn(object?: ?Object, iteratee?: OIteratee<*>): Object;
-		forOwnRight(object?: ?Object, iteratee?: OIteratee<*>): Object;
+		findKey(object?: ?Object, predicate?: OPredicate<any>): string | void;
+		findLastKey(object?: ?Object, predicate?: OPredicate<any>): string | void;
+		forIn(object?: ?Object, iteratee?: OIteratee<any>): Object;
+		forInRight(object?: ?Object, iteratee?: OIteratee<any>): Object;
+		forOwn(object?: ?Object, iteratee?: OIteratee<any>): Object;
+		forOwnRight(object?: ?Object, iteratee?: OIteratee<any>): Object;
 		functions(object?: ?Object): Array<string>;
 		functionsIn(object?: ?Object): Array<string>;
 		get(object?: ?Object, path?: ?Array<string> | string, defaultValue?: any): any;
-		has(object?: ?Object, path?: ?Array<string> | string): bool;
-		hasIn(object?: ?Object, path?: ?Array<string> | string): bool;
-		invert(object?: ?Object, multiVal?: bool): Object;
+		has(object?: ?Object, path?: ?Array<string> | string): boolean;
+		hasIn(object?: ?Object, path?: ?Array<string> | string): boolean;
+		invert(object?: ?Object, multiVal?: boolean): Object;
 		invertBy(object: ?Object, iteratee?: Function): Object;
 		invoke(object?: ?Object, path?: ?Array<string> | string, ...args?: Array<any>): any;
 		keys(object?: ?Object): Array<string>;
 		keysIn(object?: ?Object): Array<string>;
-		mapKeys(object?: ?Object, iteratee?: OIteratee<*>): Object;
-		mapValues(object?: ?Object, iteratee?: OIteratee<*>): Object;
+		mapKeys(object?: ?Object, iteratee?: OIteratee<any>): Object;
+		mapValues(object?: ?Object, iteratee?: OIteratee<any>): Object;
 		merge(object?: ?Object, ...sources?: Array<?Object>): Object;
-		mergeWith<T: Object, A: Object>(object: T, customizer?: (objValue: any, srcValue: any, key: string, object: T, source: A) => any | void): Object;
-		mergeWith<T: Object, A: Object, B: Object>(object: T, s1: A, s2: B, customizer?: (objValue: any, srcValue: any, key: string, object: T, source: A | B) => any | void): Object;
-		mergeWith<T: Object, A: Object, B: Object, C: Object>(object: T, s1: A, s2: B, s3: C, customizer?: (objValue: any, srcValue: any, key: string, object: T, source: A | B | C) => any | void): Object;
-		mergeWith<T: Object, A: Object, B: Object, C: Object, D: Object>(object: T, s1: A, s2: B, s3: C, s4: D, customizer?: (objValue: any, srcValue: any, key: string, object: T, source: A | B | C | D) => any | void): Object;
+		mergeWith<T extends Object, A extends Object>(object: T, customizer?: (objValue: any, srcValue: any, key: string, object: T, source: A) => any | void): Object;
+		mergeWith<T extends Object, A extends Object, B extends Object>(object: T, s1: A, s2: B, customizer?: (objValue: any, srcValue: any, key: string, object: T, source: A | B) => any | void): Object;
+		mergeWith<T extends Object, A extends Object, B extends Object, C extends Object>(object: T, s1: A, s2: B, s3: C, customizer?: (objValue: any, srcValue: any, key: string, object: T, source: A | B | C) => any | void): Object;
+		mergeWith<T extends Object, A extends Object, B extends Object, C extends Object, D extends Object>(object: T, s1: A, s2: B, s3: C, s4: D, customizer?: (objValue: any, srcValue: any, key: string, object: T, source: A | B | C | D) => any | void): Object;
 		omit(object?: ?Object, ...props: Array<string>): Object;
 		omit(object?: ?Object, props: Array<string>): Object;
-		omitBy(object?: ?Object, predicate?: OPredicate<*>): Object;
+		omitBy(object?: ?Object, predicate?: OPredicate<any>): Object;
 		pick(object?: ?Object, ...props: Array<string>): Object;
 		pick(object?: ?Object, props: Array<string>): Object;
-		pickBy(object?: ?Object, predicate?: OPredicate<*>): Object;
+		pickBy(object?: ?Object, predicate?: OPredicate<any>): Object;
 		result(object?: ?Object, path?: ?Array<string> | string, defaultValue?: any): any;
 		set(object?: ?Object, path?: ?Array<string> | string, value: any): Object;
 		setWith<T>(object: T, path?: ?Array<string> | string, value: any, customizer?: (nsValue: any, key: string, nsObject: T) => any): Object;
-		transform(collection: Object | Array<any>, iteratee?: OIteratee<*>, accumulator?: any): any;
-		unset(object?: ?Object, path?: ?Array<string> | string): bool;
+		transform(collection: Object | Array<any>, iteratee?: OIteratee<any>, accumulator?: any): any;
+		unset(object?: ?Object, path?: ?Array<string> | string): boolean;
 		update(object: Object, path: string[] | string, updater: Function): Object;
 		updateWith(object: Object, path: string[] | string, updater: Function, customizer?: Function): Object;
 		values(object?: ?Object): Array<any>;
@@ -442,7 +446,7 @@ declare module 'lodash' {
 		camelCase(string?: ?string): string;
 		capitalize(string?: string): string;
 		deburr(string?: string): string;
-		endsWith(string?: string, target?: string, position?: number): bool;
+		endsWith(string?: string, target?: string, position?: number): boolean;
 		escape(string?: string): string;
 		escapeRegExp(string?: string): string;
 		kebabCase(string?: string): string;
@@ -457,7 +461,7 @@ declare module 'lodash' {
 		snakeCase(string?: string): string;
 		split(string?: string, separator: RegExp | string, limit?: number): Array<string>;
 		startCase(string?: string): string;
-		startsWith(string?: string, target?: string, position?: number): bool;
+		startsWith(string?: string, target?: string, position?: number): boolean;
 		template(string?: string, options?: TemplateSettings): Function;
 		toLower(string?: string): string;
 		toUpper(string?: string): string;
@@ -477,17 +481,17 @@ declare module 'lodash' {
 		cond(pairs: Array<[Function, Function]>): Function;
 		conforms(source: Object): Function;
 		constant<T>(value: T): () => T;
-		defaultTo<T1: string | boolean | Object, T2>(value: T1, def: T2): T1;
+		defaultTo<T1 extends string | boolean | Object, T2>(value: T1, def: T2): T1;
 		// NaN is a number instead of its own type, otherwise it would behave like null/void
-		defaultTo<T1:number, T2>(value: T1, def: T2): T1 | T2;
-		defaultTo<T1:void | null, T2>(value: T1, def: T2): T2;
+		defaultTo<T1 extends number, T2>(value: T1, def: T2): T1 | T2;
+		defaultTo<T1 extends void | null, T2>(value: T1, def: T2): T2;
 		identity<T>(value: T): T;
 		iteratee(func?: any): Function;
 		matches(source: Object): Function;
 		matchesProperty(path?: ?Array<string> | string, srcValue: any): Function;
 		method(path?: ?Array<string> | string, ...args?: Array<any>): Function;
 		methodOf(object?: ?Object, ...args?: Array<any>): Function;
-		mixin<T: Function | Object>(object?: T, source: Object, options?: { chain: bool }): T;
+		mixin<T extends Function | Object>(object?: T, source: Object, options?: { chain: boolean, ... }): T;
 		noConflict(): Lodash;
 		noop(): void;
 		nthArg(n?: number): Function;
@@ -505,9 +509,9 @@ declare module 'lodash' {
 		rangeRight(end: number, step?: number): Array<number>;
 		runInContext(context?: Object): Function;
 
-		stubArray(): Array<*>;
+		stubArray(): Array<any>;
 		stubFalse(): false;
-		stubObject(): {};
+		stubObject(): {...};
 		stubString(): '';
 		stubTrue(): true;
 		times(n: number, iteratee?: Function): Function;
@@ -523,35 +527,35 @@ declare module 'lodash' {
 }
 
 declare module 'lodash/fp' {
-	declare function compact<A>(a: A[]): $NonMaybeType<A>[];
+	declare function compact<A>(a: A[]): NonNullable<A>[];
 
 	declare function filter<A>(fn: (a: A) => ?boolean): Curry1<A[], A[]>;
 
-	declare function flow<A1, A2, A3, A4, R, F1: (a1: A1, a2: A2, a3: A3, a4: A4) => R>
+	declare function flow<A1, A2, A3, A4, R, F1 extends (a1: A1, a2: A2, a3: A3, a4: A4) => R>
 		(f1: F1): (a1: A1, a2: A2, a3: A3, a4: A4) => R;
-	declare function flow<A1, A2, A3, A4, B, R, F1: (a1: A1, a2: A2, a3: A3, a4: A4) => B, F2: (b: B) => R>
+	declare function flow<A1, A2, A3, A4, B, R, F1 extends (a1: A1, a2: A2, a3: A3, a4: A4) => B, F2 extends (b: B) => R>
 		(f1: F1, f2: F2): (a1: A1, a2: A2, a3: A3, a4: A4) => R;
-	declare function flow<A1, A2, A3, A4, B, C, R, F1: (a1: A1, a2: A2, a3: A3, a4: A4) => B, F2: (b: B) => C, F3: (c: C) => R>
+	declare function flow<A1, A2, A3, A4, B, C, R, F1 extends (a1: A1, a2: A2, a3: A3, a4: A4) => B, F2 extends (b: B) => C, F3 extends (c: C) => R>
 		(f1: F1, f2: F2, f3: F3): (a1: A1, a2: A2, a3: A3, a4: A4) => R;
-	declare function flow<A1, A2, A3, A4, B, C, D, R, F1: (a1: A1, a2: A2, a3: A3, a4: A4) => B, F2: (b: B) => C, F3: (c: C) => D, F4: (d: D) => R>
+	declare function flow<A1, A2, A3, A4, B, C, D, R, F1 extends (a1: A1, a2: A2, a3: A3, a4: A4) => B, F2 extends (b: B) => C, F3 extends (c: C) => D, F4 extends (d: D) => R>
 		(f1: F1, f2: F2, f3: F3, f4: F4): (a1: A1, a2: A2, a3: A3, a4: A4) => R;
-	declare function flow<A1, A2, A3, A4, B, C, D, E, R, F1: (a1: A1, a2: A2, a3: A3, a4: A4) => B, F2: (b: B) => C, F3: (c: C) => D, F4: (d: D) => E, F5: (e: E) => R>
+	declare function flow<A1, A2, A3, A4, B, C, D, E, R, F1 extends (a1: A1, a2: A2, a3: A3, a4: A4) => B, F2 extends (b: B) => C, F3 extends (c: C) => D, F4 extends (d: D) => E, F5 extends (e: E) => R>
 		(f1: F1, f2: F2, f3: F3, f4: F4, f5: F5): (a1: A1, a2: A2, a3: A3, a4: A4) => R;
-	declare function flow<A1, A2, A3, A4, B, C, D, E, F, R, F1: (a1: A1, a2: A2, a3: A3, a4: A4) => B, F2: (b: B) => C, F3: (c: C) => D, F4: (d: D) => E, F5: (e: E) => F, F6: (f: F) => R>
+	declare function flow<A1, A2, A3, A4, B, C, D, E, F, R, F1 extends (a1: A1, a2: A2, a3: A3, a4: A4) => B, F2 extends (b: B) => C, F3 extends (c: C) => D, F4 extends (d: D) => E, F5 extends (e: E) => F, F6 extends (f: F) => R>
 		(f1: F1, f2: F2, f3: F3, f4: F4, f5: F5, f6: F6): (a1: A1, a2: A2, a3: A3, a4: A4) => R;
 
-	declare function groupBy<T, K>(fn: (x: T) => K): Curry1<T[], { [K]: T[] }>;
+	declare function groupBy<T, K>(fn: (x: T) => K): Curry1<T[], { [K]: T[], ... }>;
 
-	declare function join<S: string>(s: string): Curry1<S[], string>;
+	declare function join<S extends string>(s: string): Curry1<S[], string>;
 
-	declare function keyBy<T, K>(fn: (x: T) => K): Curry1<T[], { [K]: T }>;
-	declare function keyBy<KA, KB, T>(fn: (x: T) => KB): Curry1<{ [KA]: T }, { [KB]: T }>;
+	declare function keyBy<T, K>(fn: (x: T) => K): Curry1<T[], { [K]: T, ... }>;
+	declare function keyBy<KA, KB, T>(fn: (x: T) => KB): Curry1<{ [KA]: T, ... }, { [KB]: T, ... }>;
 
-	declare function map<A, B, K>(fn: (x: A) => B): Curry1<A[], B[]> & Curry1<{ [K]: A }, { [K]: B }>;
+	declare function map<A, B, K>(fn: (x: A) => B): Curry1<A[], B[]> & Curry1<{ [K]: A, ... }, { [K]: B, ... }>;
 
-	declare function mapValues<A, B, K>(fn: (x: A) => B): Curry1<{ [K]: A }, { [K]: B }>;
+	declare function mapValues<A, B, K>(fn: (x: A) => B): Curry1<{ [K]: A, ... }, { [K]: B, ... }>;
 
-	declare function once<T: Function>(func: T): T;
+	declare function once<T extends Function>(func: T): T;
 
 	declare function slice<T>(from: number, to: number): Curry1<T[], T[]>;
 
