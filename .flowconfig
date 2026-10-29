@@ -1,15 +1,8 @@
 [ignore]
 dist/**
-utils/**
 examples/**
 node_modules/**/test/**
 node_modules/**/__tests__/**
-node_modules/esbuild-plugin-flow/**
-node_modules/flow-estree/dist/**
-node_modules/flow-parser/dist/**
-node_modules/hermes-estree/dist/generated/**
-node_modules/hermes-estree/dist/**
-node_modules/hermes-parser/dist/**
 node_modules/immutable/dist/**
 lib/utils/__tests__/**
 lib/environment/utils/__tests__/**
