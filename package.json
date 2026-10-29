@@ -35,7 +35,7 @@
     "integration-only": "nightwatch --env",
     "preintegration": "yarn build --browsers chrome,firefox",
     "integration": "yarn preintegration && yarn integration-only",
-    "build-for-amo": "yarn && yarn build --browsers firefox"
+    "build-for-amo": "npm install --global corepack && corepack enable && yarn install && yarn build --browsers firefox"
   },
   "browserslist": [
     "chrome 138",
