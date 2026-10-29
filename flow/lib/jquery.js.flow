@@ -380,7 +380,6 @@ declare class JQueryStatic {
 	cssHooks: {
 		[key: string]: any;
 	};
-	cssNumber: any;
 
 	data(element: Element, key: string): any;
 	data<T>(element: Element, key: string, value: T): T;
@@ -450,17 +449,9 @@ declare class JQueryStatic {
 
 	inArray<T> (value: T, array: T[], fromIndex?: number): number;
 
-	isArray(obj: any): boolean;
-
 	isEmptyObject(obj: any): boolean;
 
-	isFunction(obj: any): boolean;
-
-	isNumeric(value: any): boolean;
-
 	isPlainObject(obj: any): boolean;
-
-	isWindow(obj: any): boolean;
 
 	isXMLDoc(node: Node): boolean;
 
@@ -473,17 +464,7 @@ declare class JQueryStatic {
 
 	noop(): any;
 
-	now(): number;
-
-	parseJSON(json: string): any;
-
 	parseXML(data: string): any;
-
-	trim(str: string): string;
-
-	type(obj: any): string;
-
-	unique(array: Element[]): Element[];
 
 	parseHTML(data: string, context?: HTMLElement, keepScripts?: boolean): any[];
 	parseHTML(data: string, context?: Document, keepScripts?: boolean): any[];
@@ -534,7 +515,6 @@ declare class JQuery {
 	removeProp(propertyName: string): JQuery;
 
 	toggleClass(className: string, swtch?: boolean): JQuery;
-	toggleClass(swtch?: boolean): JQuery;
 
 	val(value: string | string[] | number): JQuery;
 	val(): any;
@@ -784,9 +764,6 @@ declare class JQuery {
 	jquery: string;
 
 	error(handler: (eventObject: JQueryEventObject) => any): JQuery;
-
-	// inherited from Array.prototype?
-	push(...elements: HTMLElement[]): number;
 
 	pushStack(elements: any[]): JQuery;
 	pushStack(elements: any[], name: string, arguments: any[]): JQuery;
