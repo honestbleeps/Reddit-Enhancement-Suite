@@ -3,8 +3,10 @@
 import { mapValues } from 'lodash-es';
 import locales from './locales';
 
+type LocaleMessages = { readonly [key: string]: { readonly message: string, ... } };
+
 // `en-ca` -> `en_CA`
-function redditLocaleToTransifexLocale(redditLocale) {
+function redditLocaleToTransifexLocale(redditLocale: string): string {
 	switch (redditLocale) {
 		case 'leet':
 			return 'en'; // doesn't appear to exist
@@ -37,9 +39,9 @@ export function getLocaleDictionary(localeName: string): { [string]: string } {
 		// 3. Default (en)
 		...locales.en,
 		// 2. Match without region (en_CA -> en)
-		...locales[transifexLocale.slice(0, transifexLocale.indexOf('_'))],
+		...(locales as { readonly [locale: string]: LocaleMessages })[transifexLocale.slice(0, transifexLocale.indexOf('_'))],
 		// 1. Exact match (en_CA -> en_CA)
-		...locales[transifexLocale],
+		...(locales as { readonly [locale: string]: LocaleMessages })[transifexLocale],
 	};
 
 	return mapValues(mergedLocales, x => x.message);

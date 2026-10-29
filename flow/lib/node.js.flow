@@ -1,0 +1,4 @@
+/* @flow */
+
+// `process.env` values are inlined by the build. Flow no longer bundles a Node.js libdef, so declare the subset in use.
+declare var process: { readonly env: { readonly [key: string]: ?string, ... }, ... };
