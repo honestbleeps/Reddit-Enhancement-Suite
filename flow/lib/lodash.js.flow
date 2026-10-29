@@ -81,6 +81,15 @@ type OPredicate<O> = (value: any, key: string, object: O) => ?boolean;
 type OIterateeWithResult<V, O, R> = (value: V, key: string, object: O) => R;
 type OIteratee<O> = OIterateeWithResult<any, O, any>;
 
+declare interface MemoizeCache {
+	clear(): void;
+	delete(key: any): boolean;
+	get(key: any): any;
+	has(key: any): boolean;
+	set(key: any, value: any): this;
+}
+type Memoized<F> = F & { cache: MemoizeCache, ... };
+
 type Predicate<T> = (value: T, index: number, array: Array<T>) => ?boolean;
 type Iteratee<T> = (item: T, index: number, array: ?Array<T>) => unknown;
 type Iteratee2<T, U> = (item: T, index: number, array: ?Array<T>) => U;
@@ -282,7 +291,7 @@ declare module 'lodash' {
 		defer(func: Function, ...args?: Array<any>): number;
 		delay(func: Function, wait: number, ...args?: Array<any>): number;
 		flip(func: Function): Function;
-		memoize<T extends Function>(func: T, resolver?: Function): T;
+		memoize<T extends Function>(func: T, resolver?: Function): Memoized<T>;
 		negate(predicate: Function): Function;
 		once<T extends Function>(func: T): T;
 		overArgs(func: Function, ...transforms: Array<Function>): Function;
