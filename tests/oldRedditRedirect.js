@@ -17,7 +17,7 @@ module.exports = {
 			.assert.urlEquals('https://old.reddit.com/r/Enhancement/?sort=new#comments')
 			.url('https://www.reddit.com/media?url=https%3A%2F%2Fi.redd.it%2Fypujqousa1yh1.jpeg')
 			.pause(2000)
-			.assert.urlContains('https://old.reddit.com/comments/');
+			.assert.urlMatches(/^https:\/\/old\.reddit\.com\/r\/[^/]+\/comments\//);
 
 		for (const [mediaUrl, targetHostname] of mediaUrls) {
 			browser
