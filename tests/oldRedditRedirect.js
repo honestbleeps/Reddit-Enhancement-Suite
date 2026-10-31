@@ -1,6 +1,7 @@
 module.exports = {
 	'basic functionality': browser => {
 		const mediaUrls = [
+			['https://www.reddit.com/media?url=https%3A%2F%2Fi.redd.it%2Fypujqousa1yh1.jpeg', 'i.redd.it'],
 			['https://www.reddit.com/media/?url=https%3A%2F%2Fi.redd.it%2Fexample.jpg', 'i.redd.it'],
 			['https://reddit.com/media?url=https%3A%2F%2Fi.redd.it%2Fexample.jpg', 'i.redd.it'],
 			['https://www.reddit.com/media?url=https%3A%2F%2Fpreview.redd.it%2Fexample.jpg', 'preview.redd.it'],
@@ -14,10 +15,7 @@ module.exports = {
 			.click('.moduleToggle')
 			.url('https://www.reddit.com/r/Enhancement/?sort=new#comments')
 			.pause(1000)
-			.assert.urlEquals('https://old.reddit.com/r/Enhancement/?sort=new#comments')
-			.url('https://www.reddit.com/media?url=https%3A%2F%2Fi.redd.it%2Fypujqousa1yh1.jpeg')
-			.pause(2000)
-			.assert.urlMatches(/^https:\/\/old\.reddit\.com\/r\/[^/]+\/comments\//);
+			.assert.urlEquals('https://old.reddit.com/r/Enhancement/?sort=new#comments');
 
 		for (const [mediaUrl, targetHostname] of mediaUrls) {
 			browser
