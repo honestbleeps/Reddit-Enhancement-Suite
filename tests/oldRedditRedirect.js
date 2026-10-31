@@ -31,8 +31,13 @@ module.exports = {
 				});
 		}
 
+		browser
+			.url('https://www.reddit.com/gallery/633x7q')
+			.pause(1000)
+			.assert.urlContains('https://old.reddit.com/comments/633x7q');
+
 		for (const hostname of ['reddit.com', 'www.reddit.com']) {
-			for (const path of ['/gallery', '/gallery/', '/gallery/633x7q', '/poll', '/poll/', '/poll/633x7q/']) {
+			for (const path of ['/poll', '/poll/', '/poll/633x7q/']) {
 				const url = `https://${hostname}${path}`;
 				browser
 					.url(url)
