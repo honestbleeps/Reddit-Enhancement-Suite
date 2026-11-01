@@ -126,7 +126,7 @@ See [`examples/host.js`](https://github.com/honestbleeps/Reddit-Enhancement-Suit
 Create a new `.js` file in `lib/modules/hosts`. Export it in `lib/modules/hosts/index.js` 
 It will automatically be loaded when the build script is restarted.
 
-If the host uses an API that does not support [CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing), you must add it to the browsers' manifests and the host's `permissions` property. For example, search for usages of `api.twitter.com`.
+If the host uses an API that does not support [CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing), you must add it to `optional_host_permissions` in the browsers' manifests and to the host's `permissions` property. For example, search for usages of `api.twitter.com`.
 
 #### Stylesheets
 
