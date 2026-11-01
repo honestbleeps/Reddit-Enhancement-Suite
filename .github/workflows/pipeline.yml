@@ -8,6 +8,9 @@ on:
       - v*.*.*
   pull_request:
 
+permissions:
+  contents: read
+
 jobs:
   lint_flow:
     runs-on: ubuntu-latest
@@ -27,6 +30,8 @@ jobs:
 
   build_deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write # required to publish GitHub releases
     steps:
     - uses: actions/checkout@v7
     - uses: actions/setup-node@v7
