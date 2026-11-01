@@ -1,5 +1,5 @@
 {
-	"manifest_version": 2,
+	"manifest_version": 3,
 	"name": "__name__",
 	"version": "__version__",
 	"description": "__description__",
@@ -78,9 +78,10 @@
 			"run_at": "document_start"
 		}
 	],
-	"content_security_policy": "default-src 'self'; img-src 'self' data:; connect-src https:; font-src 'self' data:; frame-ancestors https://*.reddit.com",
+	"content_security_policy": {
+		"extension_pages": "default-src 'self'; script-src 'self'; img-src 'self' data:; connect-src https:; font-src 'self' data:; frame-ancestors https://*.reddit.com"
+	},
 	"permissions": [
-		"https://*.reddit.com/*",
 		"cookies",
 		"identity",
 		"tabs",
@@ -91,7 +92,12 @@
 	],
 	"optional_permissions": [
 		"downloads",
-		"geolocation",
+		"geolocation"
+	],
+	"host_permissions": [
+		"https://*.reddit.com/*"
+	],
+	"optional_host_permissions": [
 		"https://publish.x.com/oembed",
 		"https://backend.deviantart.com/oembed",
 		"https://api.gyazo.com/api/oembed",
@@ -104,9 +110,16 @@
 		"https://embed.bsky.app/oembed"
 	],
 	"web_accessible_resources": [
-		"prompt.html",
-		"prompt.entry.js",
-		"options.css",
-		"options.html"
+		{
+			"resources": [
+				"prompt.html",
+				"prompt.entry.js",
+				"options.css",
+				"options.html"
+			],
+			"matches": [
+				"https://*.reddit.com/*"
+			]
+		}
 	]
 }
