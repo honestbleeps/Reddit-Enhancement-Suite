@@ -73,14 +73,15 @@ module.exports = {
 		}
 
 		browser
-			.url('https://en.reddit.com/wiki/pages#res:settings-redirect-standalone-options-page/quickMessage')
+			.url('https://en.reddit.com/wiki/pages#res:settings-redirect-standalone-options-page/context')
 			.waitForElementVisible('#RESConsoleContainer')
 
 			// initial state, no options changed
 			.assert.cssClassPresent('#moduleOptionsSave', 'optionsSaved', 'options not staged')
 
-			// set a value for defaultSubject
-			.setValue('#defaultSubject', ['test subject'])
+			// set a value for defaultContext
+			.clearValue('#defaultContext')
+			.setValue('#defaultContext', ['7'])
 			.pause(1000)
 			.assert.not.cssClassPresent('#moduleOptionsSave', 'optionsSaved', 'options staged')
 
@@ -91,7 +92,7 @@ module.exports = {
 			// refresh and ensure that the option was saved
 			.refresh()
 			.waitForElementVisible('#RESConsoleContainer')
-			.assert.value('#defaultSubject', 'test subject')
+			.assert.value('#defaultContext', '7')
 			.end();
 	},
 	'change table option': browser => {
