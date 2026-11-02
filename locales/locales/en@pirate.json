@@ -387,10 +387,6 @@
         "message": "Retro Unread Count",
         "description": ""
     },
-    "messageMenuUseQuickMessageDesc": {
-        "message": "Use Quick Message pop-up when composing a new message.",
-        "description": ""
-    },
     "keyboardNavInboxNewTabTitle": {
         "message": "Inbox New Tab",
         "description": ""
@@ -473,10 +469,6 @@
     },
     "donateToRES": {
         "message": "donate to RES",
-        "description": ""
-    },
-    "quickMessageDefaultSubjectDesc": {
-        "message": "Text that will automatically be inserted into the subject field, unless it is auto-filled by context.",
         "description": ""
     },
     "newCommentCountMonitorPostsVisitedDesc": {
@@ -727,10 +719,6 @@
         "message": "Reset Favicon On Leave",
         "description": ""
     },
-    "quickMessageSendAsTitle": {
-        "message": "Send As",
-        "description": ""
-    },
     "pageNavName": {
         "message": "Page Navigator",
         "description": ""
@@ -753,10 +741,6 @@
     },
     "commentHidePerDesc": {
         "message": "Saves the state of hidden comments across page views.",
-        "description": ""
-    },
-    "quickMessageDesc": {
-        "message": "A pop-up dialog that allows you to send messages from anywhere on reddit. Messages can be sent from the quick message dialog by pressing control-enter or command-enter.",
         "description": ""
     },
     "keyboardNavLinkNewTabDesc": {
@@ -991,10 +975,6 @@
         "message": "Color to use to highlight Mods.",
         "description": ""
     },
-    "quickMessageLinkToCurrentPageDesc": {
-        "message": "Automatically start with a link to the current page in the message body (or, if opened from the user info popup, a link to the current post or comment).",
-        "description": ""
-    },
     "subredditInfoAddThisSubredditToDashboard": {
         "message": "Add this subreddit to your dashboard",
         "description": ""
@@ -1137,10 +1117,6 @@
     },
     "commentPreviewEnableForSubredditConfigDesc": {
         "message": "Show preview for editing subreddit settings.",
-        "description": ""
-    },
-    "quickMessageHandleSideLinksTitle": {
-        "message": "Handle Side Links",
         "description": ""
     },
     "userTaggerAllUsers": {
@@ -1405,10 +1381,6 @@
     },
     "imgurImageResolutionDesc": {
         "message": "Which size of imgur images should be loaded?",
-        "description": ""
-    },
-    "quickMessageOpenQuickMessageDesc": {
-        "message": "Keyboard shortcut to open the quick message dialog.",
         "description": ""
     },
     "nsfwSwitchToggleText": {
@@ -1839,10 +1811,6 @@
         "message": "Flair",
         "description": ""
     },
-    "messageMenuUseQuickMessageTitle": {
-        "message": "Use Quick Message",
-        "description": ""
-    },
     "selectedEntrySelectLastThingOnLoadTitle": {
         "message": "Select Last Thing On Load",
         "description": ""
@@ -2037,10 +2005,6 @@
     },
     "logoLinkHot": {
         "message": "/hot",
-        "description": ""
-    },
-    "quickMessageHandleContentLinksDesc": {
-        "message": "Open the quick message dialog when clicking on reddit.com/message/compose links in comments, selftext, or wiki pages.",
         "description": ""
     },
     "orangeredUpdateCurrentTabDesc": {
@@ -2607,10 +2571,6 @@
         "message": "Prefer RES Albums",
         "description": ""
     },
-    "userInfoUseQuickMessageTitle": {
-        "message": "Use Quick Message",
-        "description": ""
-    },
     "tableToolsSortTitle": {
         "message": "Sort",
         "description": ""
@@ -2837,10 +2797,6 @@
     },
     "keyboardNavMoveUpThreadTitle": {
         "message": "Move Up Thread",
-        "description": ""
-    },
-    "quickMessageHandleContentLinksTitle": {
-        "message": "Handle Content Links",
         "description": ""
     },
     "styleTweaksPostTitleCapitalizationTitle": {
@@ -3647,10 +3603,6 @@
         "message": "First Comment Color",
         "description": ""
     },
-    "quickMessageDefaultSubjectTitle": {
-        "message": "Default Subject",
-        "description": ""
-    },
     "betteRedditFixHideLinksDesc": {
         "message": "Changes \"hide\" links to read as \"hide\" or \"unhide\" depending on the hide state.",
         "description": ""
@@ -3899,10 +3851,6 @@
         "message": "Show Full Link Flair",
         "description": ""
     },
-    "quickMessageOpenQuickMessageTitle": {
-        "message": "Open Quick Message",
-        "description": ""
-    },
     "pageNavToTopTitle": {
         "message": "To Top",
         "description": ""
@@ -3993,10 +3941,6 @@
     },
     "commandLineDesc": {
         "message": "Command line fer navigatin' reddit, togglin' RES settin's, 'n debuggin' RES.",
-        "description": ""
-    },
-    "quickMessageHandleSideLinksDesc": {
-        "message": "Open the quick message dialog when clicking on reddit.com/message/compose links in the sidebar. (e.g. \"message the moderators\")",
         "description": ""
     },
     "keyboardNavPreviousGalleryImageDesc": {
@@ -5171,10 +5115,6 @@
         "message": "Helps moderators via tips and tricks for playing nice with RES.",
         "description": ""
     },
-    "quickMessageName": {
-        "message": "Quick Message",
-        "description": ""
-    },
     "penaltyBoxSuspendFeaturesUndoButton": {
         "message": "Enable this feature again",
         "description": ""
@@ -5365,10 +5305,6 @@
     },
     "orangeredHideNewModMailTitle": {
         "message": "Hide New Mod Mail",
-        "description": ""
-    },
-    "userInfoUseQuickMessageDesc": {
-        "message": "Open the quick message dialog when clicking on the \"send message\" button in hover info, instead of going straight to reddit's message page.",
         "description": ""
     },
     "commentToolsCtrolEnterSubmitsPostsTitle": {
@@ -5563,10 +5499,6 @@
         "message": "Link Friends",
         "description": ""
     },
-    "quickMessageSendAsDesc": {
-        "message": "The default user or subreddit to select when the \"from\" field is unspecified.\nReverts to the current user if the selected option can't be used (i.e. you aren't a moderator of the current subreddit).",
-        "description": ""
-    },
     "troubleshooterDesc": {
         "message": "Resolve common problems and clean/clear unwanted settings data.\n\nYour first line of defence against browser crashes/updates, or potential issues with RES, is a frequent backup.\n\nSee [here](/r/Enhancement/wiki/backing_up_res_settings) for details on backing up your RES settings.",
         "description": ""
@@ -5713,10 +5645,6 @@
     },
     "keyboardNavInboxTitle": {
         "message": "Inbox",
-        "description": ""
-    },
-    "quickMessageLinkToCurrentPageTitle": {
-        "message": "Link To Current Page",
         "description": ""
     },
     "userInfoUnhighlight": {
