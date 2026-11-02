@@ -1059,12 +1059,6 @@
 	"messageMenuLinksDesc": {
 		"message": "Links to show in the mail icon drop down menu."
 	},
-	"messageMenuUseQuickMessageTitle": {
-		"message": "Use Quick Message"
-	},
-	"messageMenuUseQuickMessageDesc": {
-		"message": "Use Quick Message pop-up when composing a new message."
-	},
 	"messageMenuHoverDelayTitle": {
 		"message": "Hover Delay"
 	},
@@ -1502,12 +1496,6 @@
 	},
 	"presetsDesc": {
 		"message": "Select from various preset RES configurations. Each preset turns on or off various modules/options, but does not reset your entire configuration."
-	},
-	"quickMessageName": {
-		"message": "Quick Message"
-	},
-	"quickMessageDesc": {
-		"message": "A pop-up dialog that allows you to send messages from anywhere on reddit. Messages can be sent from the quick message dialog by pressing control-enter or command-enter."
 	},
 	"resTipsName": {
 		"message": "RES Tips and Tricks"
@@ -2862,24 +2850,6 @@
 	"presetsNoPopupsDesc": {
 		"message": "Turn off notifications and hover pop-ups"
 	},
-	"quickMessageOpenQuickMessageDesc": {
-		"message": "Keyboard shortcut to open the quick message dialog."
-	},
-	"quickMessageDefaultSubjectDesc": {
-		"message": "Text that will automatically be inserted into the subject field, unless it is auto-filled by context."
-	},
-	"quickMessageSendAsDesc": {
-		"message": "The default user or subreddit to select when the \"from\" field is unspecified.\nReverts to the current user if the selected option can't be used (i.e. you aren't a moderator of the current subreddit)."
-	},
-	"quickMessageHandleContentLinksDesc": {
-		"message": "Open the quick message dialog when clicking on reddit.com/message/compose links in comments, selftext, or wiki pages."
-	},
-	"quickMessageHandleSideLinksDesc": {
-		"message": "Open the quick message dialog when clicking on reddit.com/message/compose links in the sidebar. (e.g. \"message the moderators\")"
-	},
-	"quickMessageLinkToCurrentPageDesc": {
-		"message": "Automatically start with a link to the current page in the message body (or, if opened from the user info popup, a link to the current post or comment)."
-	},
 	"requestPermissionsName": {
 		"message": "Request Permissions"
 	},
@@ -3138,24 +3108,6 @@
 	},
 	"profileRedirectCustomFromLandingPageDesc": {
 		"message": "Redirect to a custom view of a profile when loading the landing page, e.g. /user/username/{this}"
-	},
-	"quickMessageOpenQuickMessageTitle": {
-		"message": "Open Quick Message"
-	},
-	"quickMessageDefaultSubjectTitle": {
-		"message": "Default Subject"
-	},
-	"quickMessageSendAsTitle": {
-		"message": "Send As"
-	},
-	"quickMessageHandleContentLinksTitle": {
-		"message": "Handle Content Links"
-	},
-	"quickMessageHandleSideLinksTitle": {
-		"message": "Handle Side Links"
-	},
-	"quickMessageLinkToCurrentPageTitle": {
-		"message": "Link To Current Page"
 	},
 	"searchHelperAddSearchOptionsTitle": {
 		"message": "Add Search Options"
@@ -3660,12 +3612,6 @@
 	},
 	"userInfoHoverInfoDesc": {
 		"message": "Show information on user (karma, how long they've been a redditor) on hover."
-	},
-	"userInfoUseQuickMessageTitle": {
-		"message": "Use Quick Message"
-	},
-	"userInfoUseQuickMessageDesc": {
-		"message": "Open the quick message dialog when clicking on the \"send message\" button in hover info, instead of going straight to reddit's message page."
 	},
 	"userInfoHoverDelayTitle": {
 		"message": "Hover Delay"
