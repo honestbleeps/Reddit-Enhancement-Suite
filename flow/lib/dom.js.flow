@@ -4,7 +4,8 @@
 // this is unsound for `window.addEventListener`
 // but it's better than having to downcast every single event target
 // $FlowFixMe[libdef-override] intentionally replaces the built-in declaration (see comments above)
-declare interface Event {
+declare class Event {
+	constructor(type: string, eventInitDict?: EventInit): void;
 	bubbles: boolean;
 	cancelable: boolean;
 	currentTarget: HTMLElement;
@@ -28,7 +29,7 @@ declare interface Event {
 // make documentElement, body, head non-nullable
 
 // $FlowFixMe[libdef-override] intentionally replaces the built-in declaration (see comments above)
-declare interface Element extends Node {
+declare class Element extends Node {
 	assignedSlot: ?HTMLSlotElement;
 	attachShadow(shadowRootInitDict: ShadowRootInit): ShadowRoot;
 	attributes: NamedNodeMap;
@@ -157,7 +158,7 @@ remove(): void;
 }
 
 // $FlowFixMe[libdef-override] intentionally replaces the built-in declaration (see comments above)
-declare interface DocumentFragment extends Node {
+declare class DocumentFragment extends Node {
 	// from ParentNode interface
 	childElementCount: number;
 	children: HTMLCollectionOf<HTMLElement>;
@@ -171,7 +172,7 @@ declare interface DocumentFragment extends Node {
 }
 
 // $FlowFixMe[libdef-override] intentionally replaces the built-in declaration (see comments above)
-declare interface Document extends Node {
+declare class Document extends Node {
 	URL: string;
 	adoptNode<T extends Node>(source: T): T;
 	anchors: HTMLCollectionOf<HTMLAnchorElement>;
