@@ -226,6 +226,7 @@ declare class BaseJQueryEventObject extends Event {
 	result: any;
 	stopImmediatePropagation(): void;
 	stopPropagation(): void;
+	currentTarget: HTMLElement;
 	target: HTMLElement;
 	pageX: number;
 	pageY: number;
