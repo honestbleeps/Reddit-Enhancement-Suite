@@ -54,7 +54,7 @@ GitHub Actions runs the current ESLint checks. Code Climate's legacy ESLint engi
 
 **`yarn lint-fix`** will autofix any [fixable](http://eslint.org/docs/user-guide/command-line-interface#fix) lint issues.
 
-**`yarn flow`** will run [Flow](https://flowtype.org/) type checking, and start the Flow server so future runs will complete faster. Use `yarn flow stop` to stop the server, or `yarn flow check` to run Flow once without starting the server. Flow objects are exact by default, so write `{ a: T, ... }` for inexact object types, and suppress errors only with code-specific comments such as `// $FlowFixMe[incompatible-type] reason`.
+**`yarn flow`** will run [Flow](https://flow.org/) type checking, and start the Flow server so future runs will complete faster. Use `yarn flow stop` to stop the server, or `yarn flow check` to run Flow once without starting the server. Flow objects are exact by default, so write `{ a: T, ... }` for inexact object types, and suppress errors only with code-specific comments such as `// $FlowFixMe[incompatible-type] reason`.
 **`yarn test`** will run unit tests (in `lib/**/__tests__` directories) and lint configuration regression tests (in `build/__tests__`) using [Ava](https://github.com/avajs/ava).
 
 The integration tests and their infrastructure are retained for future use, but are not currently runnable because Nightwatch is no longer installed. To re-enable the suite, restore the Nightwatch dependency (previously `1.7.13`).
