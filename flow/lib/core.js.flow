@@ -1,6 +1,6 @@
 /* @flow */
 
-// Based on the `Object` declaration in Flow's bundled lib.es5.js (flow-bin 0.337.0)
+// Based on the `Object` declaration in Flow's bundled lib.es5.js (flow-bin 0.338.0)
 
 // specialize Object.entries and Object.values for known object types
 // this is technically unsound (https://github.com/facebook/flow/issues/2221),
