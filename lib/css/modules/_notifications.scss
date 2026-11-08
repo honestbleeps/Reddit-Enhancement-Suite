@@ -112,10 +112,10 @@
 				background: hsl(0, 70%, 55%);
 				color: rgb(255, 255, 255);
 				font-weight: bold;
+			}
 
-				&:hover {
-					background-color: rgb(200, 20, 20);
-				}
+			&:hover::after {
+				background-color: rgb(200, 20, 20);
 			}
 		}
 	}
