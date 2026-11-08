@@ -16,12 +16,12 @@ declare class Object {
 	static assign: Object$Assign;
 	static create(o: any, properties?: PropertyDescriptorMap): any; // compiler magic
 	static defineProperties(o: any, properties: PropertyDescriptorMap): any;
-	static defineProperty<T>(o: any, p: any, attributes: PropertyDescriptor<T>): any;
+	static defineProperty(o: any, p: any, attributes: PropertyDescriptor): any;
 	static entries<K, V>(object: { readonly [K]: V, ... }): Array<[K, V]>;
 	static entries(object: any): Array<[string, unknown]>;
 	static freeze<T>(o: T): T;
 	static fromEntries: Object$FromEntries & ObjectConstructor['fromEntries'];
-	static getOwnPropertyDescriptor<T = unknown>(o: any, p: any): PropertyDescriptor<T> | void;
+	static getOwnPropertyDescriptor(o: any, p: any): PropertyDescriptor | void;
 	static getOwnPropertyDescriptors(o: { ... }): PropertyDescriptorMap;
 	static getOwnPropertyNames(o: any): Array<string>;
 	static getOwnPropertySymbols(o: any): Array<symbol>;
