@@ -75,11 +75,15 @@
     "lodash": "4.18.1",
     "postcss": "8.5.32",
     "rimraf": "6.1.4",
-    "stylelint": "17.16.0",
-    "stylelint-config-recommended": "18.0.0",
+    "stylelint": "18.0.0",
+    "stylelint-config-recommended": "19.0.0",
     "stylelint-config-sass-guidelines": "13.0.0",
-    "stylelint-config-standard": "40.0.0",
+    "stylelint-config-standard": "41.0.0",
     "stylelint-config-standard-scss": "17.0.0",
     "stylelint-scss": "7.4.0"
+  },
+  "resolutions": {
+    "stylelint-config-sass-guidelines@npm:13.0.0": "patch:stylelint-config-sass-guidelines@npm%3A13.0.0#~/.yarn/patches/stylelint-config-sass-guidelines-npm-13.0.0-6391f82a65.patch",
+    "stylelint-config-standard@npm:^40.0.0": "patch:stylelint-config-standard@npm%3A40.0.0#~/.yarn/patches/stylelint-config-standard-npm-40.0.0-f0a3f5f228.patch"
   }
 }
