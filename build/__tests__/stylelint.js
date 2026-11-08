@@ -13,6 +13,7 @@ test('Stylelint shared configs use only the root SCSS plugin and supported rules
 
 	t.deepEqual([...new Set(scssPlugins)], [fileURLToPath(import.meta.resolve('stylelint-scss'))]);
 	t.is(config.rules['scss/at-import-partial-extension'], undefined);
+	t.is(config.rules['declaration-block-single-line-max-declarations'], undefined);
 	t.deepEqual(config.rules['scss/load-partial-extension'], ['never']);
 	t.deepEqual(config.rules['string-no-newline'], [true]);
 });

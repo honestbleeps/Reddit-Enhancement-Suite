@@ -1,0 +1,12 @@
+diff --git a/index.js b/index.js
+index 87a7ce7215c2cf8775d4a360fbac5cfb607701b0..5c21330308d8f07e669395b6c0b82fd2ca7cf30e 100644
+--- a/index.js
++++ b/index.js
+@@ -12,7 +12,6 @@ module.exports = {
+     "color-hex-length": "short",
+     "color-named": "never",
+     "color-no-invalid-hex": true,
+-    "declaration-block-single-line-max-declarations": 1,
+     "declaration-property-value-disallowed-list": {
+       "border": ["none"],
+       "border-top": ["none"],
