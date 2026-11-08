@@ -1188,69 +1188,69 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@svta/cml-608@npm:1.0.2":
-  version: 1.0.2
-  resolution: "@svta/cml-608@npm:1.0.2"
-  checksum: 10c0/ac1fc5cbf874a65319ebefe185f48200a9583da82f124fa4cf640ae140c101714e6a5a88a5e3e96766fdabb0845f7dff4220adb4a9a6289aff73864d79315c45
+"@svta/cml-608@npm:1.1.0":
+  version: 1.1.0
+  resolution: "@svta/cml-608@npm:1.1.0"
+  checksum: 10c0/06e3ce6c565785a985cc26a93e0cb5544545a7a2adcc85b4d6a51b68b180cbc1ef3e2a99ddcadc4e4b866cdbb6efce93febd864d4e278ebaab1ac111ff1bb32b
   languageName: node
   linkType: hard
 
-"@svta/cml-cmcd@npm:2.3.2":
-  version: 2.3.2
-  resolution: "@svta/cml-cmcd@npm:2.3.2"
+"@svta/cml-cmcd@npm:2.8.2":
+  version: 2.8.2
+  resolution: "@svta/cml-cmcd@npm:2.8.2"
   peerDependencies:
-    "@svta/cml-structured-field-values": 1.1.3
-    "@svta/cml-utils": 1.5.0
-  checksum: 10c0/2e61b7bbdcbfc09181ece1e9054b9dd6902cdb8bc0645ca94f5b524498504f242dcc77b55fef2d748c2c614bc94c8a27eabecd61387a2e28f14d1987d247bce9
+    "@svta/cml-structured-field-values": 1.1.6
+    "@svta/cml-utils": 1.6.1
+  checksum: 10c0/8fa714ac53bd5712c5cf791d01e9bb5d0c41b9bc24c5c9507908677ab59d42d2ef877c5add7cf4efead2c28976511a2f90d87bce7451e29292002d4cb03457d1
   languageName: node
   linkType: hard
 
-"@svta/cml-cmsd@npm:1.0.6":
-  version: 1.0.6
-  resolution: "@svta/cml-cmsd@npm:1.0.6"
+"@svta/cml-cmsd@npm:1.1.1":
+  version: 1.1.1
+  resolution: "@svta/cml-cmsd@npm:1.1.1"
   peerDependencies:
-    "@svta/cml-cta": 1.0.6
-    "@svta/cml-structured-field-values": 1.1.3
-    "@svta/cml-utils": 1.5.0
-  checksum: 10c0/a037592ef01b987ab240836e368dc59e8e7800faf64f5e7d5d4fe4d7ec42849f6866b4e525f1960b8890eb32afa808f4619e30aae3ca6b9e6b8fc23094791d05
+    "@svta/cml-cta": 1.0.9
+    "@svta/cml-structured-field-values": 1.1.6
+    "@svta/cml-utils": 1.6.1
+  checksum: 10c0/3c993670c8b76187acaada01722d24e6a05cefd0d1d39cdab579f223b8dee614e0aec3d358839d475d4b7a57f46b1835429cfca3912679a5379a8bee3369aea9
   languageName: node
   linkType: hard
 
-"@svta/cml-dash@npm:1.0.6":
-  version: 1.0.6
-  resolution: "@svta/cml-dash@npm:1.0.6"
+"@svta/cml-dash@npm:1.0.9":
+  version: 1.0.9
+  resolution: "@svta/cml-dash@npm:1.0.9"
   peerDependencies:
-    "@svta/cml-utils": 1.5.0
-  checksum: 10c0/e9968f957a62661508a968cbdb49370d217d66db2657498ffa8ddaa033f441c41576b3ee20ab7f7e5bda8fee8972094756d1444f05d3ec4dd0f6ca8cebe61015
+    "@svta/cml-utils": 1.6.1
+  checksum: 10c0/e42e316ebb9103a83df557a8e156e3022e945ccb7f9e5d78a5819c1e7467d0f727c596adc2f19b3e7fecbbc499976a2e3f4464ede871bb4a964a99421cc268e8
   languageName: node
   linkType: hard
 
-"@svta/cml-id3@npm:1.0.6":
-  version: 1.0.6
-  resolution: "@svta/cml-id3@npm:1.0.6"
+"@svta/cml-id3@npm:1.0.9":
+  version: 1.0.9
+  resolution: "@svta/cml-id3@npm:1.0.9"
   peerDependencies:
-    "@svta/cml-utils": 1.5.0
-  checksum: 10c0/866f19b8a04389acec666d25cbfa299651191f22a87d5ffa3e2e15207e82ae40d7b02977e8c6055aa28f3fb70a8018efae62a22b759322859966e596f3a170d8
+    "@svta/cml-utils": 1.6.1
+  checksum: 10c0/0d050ffee9c2fb385dfc3f503755e3786b18bc49a96d0f97fc692d1f7abe6cc3ee4f3b99ece381b36743407c82d23ec42a245544c8f2ea8bab0fefeda698182c
   languageName: node
   linkType: hard
 
-"@svta/cml-request@npm:1.0.12":
-  version: 1.0.12
-  resolution: "@svta/cml-request@npm:1.0.12"
+"@svta/cml-request@npm:1.0.21":
+  version: 1.0.21
+  resolution: "@svta/cml-request@npm:1.0.21"
   peerDependencies:
-    "@svta/cml-cmcd": 2.3.2
-    "@svta/cml-utils": 1.5.0
-    "@svta/cml-xml": 1.1.4
-  checksum: 10c0/5e0cabb725f8712e60c06a02856440208d1a2d9cb75c494d5f8930a05e6bf8c90373f4fb8760ac40f07231d574779ad3b18e71d8657a7c1fb80a642651c92f73
+    "@svta/cml-cmcd": 2.8.2
+    "@svta/cml-utils": 1.6.1
+    "@svta/cml-xml": 1.2.1
+  checksum: 10c0/5066d36a8cfa6797fe2118fdf54a76c706e618fb3ca79f12174f827ea1906cc832f8fddc1300fbf7a836ec317764bba2ec7dec04d0bb9c77b7911705645ed3aa
   languageName: node
   linkType: hard
 
-"@svta/cml-xml@npm:1.1.4":
-  version: 1.1.4
-  resolution: "@svta/cml-xml@npm:1.1.4"
+"@svta/cml-xml@npm:1.2.1":
+  version: 1.2.1
+  resolution: "@svta/cml-xml@npm:1.2.1"
   peerDependencies:
-    "@svta/cml-utils": 1.5.0
-  checksum: 10c0/09d881f9b9398b8b8c7f21c3e9869cac0a357a1a658c104d2c97ff64cdc1babd63d1e47d8961f9b6db14ec048e4cc0446a0e868970fafe8231fb51adb4e5de10
+    "@svta/cml-utils": 1.6.1
+  checksum: 10c0/4e22a4d5d602ef29286bf74ebf5c6e70246f16a022a8e3c87628a735b825631efa88f91b815aa1341b1766d97d58e931398d9c45529c517395f6c5d5119be0dc
   languageName: node
   linkType: hard
 
@@ -1744,13 +1744,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"bcp-47-match@npm:^2.0.3":
-  version: 2.0.3
-  resolution: "bcp-47-match@npm:2.0.3"
-  checksum: 10c0/ae5c202854df8a9ad4777dc3b49562578495a69164869f365a88c1a089837a9fbbce4c0c44f6f1a5e44c7841f47e91fe6fea00306ca49ce5ec95a7eb71f839c4
-  languageName: node
-  linkType: hard
-
 "binary-extensions@npm:^2.0.0":
   version: 2.3.0
   resolution: "binary-extensions@npm:2.3.0"
@@ -2149,25 +2142,24 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dashjs@npm:5.2.1":
-  version: 5.2.1
-  resolution: "dashjs@npm:5.2.1"
+"dashjs@npm:5.3.0":
+  version: 5.3.0
+  resolution: "dashjs@npm:5.3.0"
   dependencies:
-    "@svta/cml-608": "npm:1.0.2"
-    "@svta/cml-cmcd": "npm:2.3.2"
-    "@svta/cml-cmsd": "npm:1.0.6"
-    "@svta/cml-dash": "npm:1.0.6"
-    "@svta/cml-id3": "npm:1.0.6"
-    "@svta/cml-request": "npm:1.0.12"
-    "@svta/cml-xml": "npm:1.1.4"
-    bcp-47-match: "npm:^2.0.3"
+    "@svta/cml-608": "npm:1.1.0"
+    "@svta/cml-cmcd": "npm:2.8.2"
+    "@svta/cml-cmsd": "npm:1.1.1"
+    "@svta/cml-dash": "npm:1.0.9"
+    "@svta/cml-id3": "npm:1.0.9"
+    "@svta/cml-request": "npm:1.0.21"
+    "@svta/cml-xml": "npm:1.2.1"
     codem-isoboxer: "npm:0.3.10"
     fast-deep-equal: "npm:3.1.3"
     html-entities: "npm:^2.6.0"
     imsc: "npm:^1.1.5"
     localforage: "npm:^1.10.0"
     path-browserify: "npm:^1.0.1"
-  checksum: 10c0/a402b0ab2c0cbfa26fbc3f0c033d4db579fd0209329d9c76887b60a57e5c2eb17d0b2823adba871228013a86d48474239fa1f169858c09c2426fe00ef826d4ef
+  checksum: 10c0/cfb660a4f9bb67928dccc6254d19302e5c4890a230e4f7975f6acfe7714897fed46a498c1cc5a7c4f9b966ad369438567ef1f5ec060a7b8924675f40a57a57f4
   languageName: node
   linkType: hard
 
@@ -4391,7 +4383,7 @@ __metadata:
     ava: "npm:8.3.0"
     commander: "npm:15.0.0"
     cross-env: "npm:10.1.0"
-    dashjs: "npm:5.2.1"
+    dashjs: "npm:5.3.0"
     dayjs: "npm:1.11.23"
     dompurify: "npm:3.4.17"
     esbuild: "npm:0.28.2"
