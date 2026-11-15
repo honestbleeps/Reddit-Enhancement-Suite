@@ -4135,7 +4135,7 @@ __metadata:
     stylelint-config-sass-guidelines: "npm:13.0.0"
     stylelint-config-standard: "npm:41.0.0"
     stylelint-config-standard-scss: "npm:17.0.0"
-    stylelint-scss: "npm:7.4.0"
+    stylelint-scss: "npm:7.5.0"
     suncalc: "npm:2.1.4"
     tinycolor2: "npm:1.6.0"
   languageName: unknown
@@ -4569,7 +4569,28 @@ __metadata:
   languageName: node
   linkType: hard
 
-"stylelint-scss@npm:7.4.0, stylelint-scss@npm:^7.0.0":
+"stylelint-scss@npm:7.5.0":
+  version: 7.5.0
+  resolution: "stylelint-scss@npm:7.5.0"
+  dependencies:
+    "@csstools/css-calc": "npm:^3.4.3"
+    "@csstools/css-parser-algorithms": "npm:^4.0.0"
+    "@csstools/css-syntax-patches-for-csstree": "npm:^1.1.15"
+    "@csstools/css-tokenizer": "npm:^4.0.0"
+    css-tree: "npm:^3.2.1"
+    is-plain-object: "npm:^5.1.0"
+    known-css-properties: "npm:^0.37.0"
+    postcss-media-query-parser: "npm:^0.2.3"
+    postcss-resolve-nested-selector: "npm:^0.1.7"
+    postcss-selector-parser: "npm:^7.1.6"
+    postcss-value-parser: "npm:^4.2.0"
+  peerDependencies:
+    stylelint: ^16.8.2 || ^17.0.0 || ^18.0.0
+  checksum: 10c0/ce56b98eb353e2497a5ecd2798ca99690cd75695b787c892a0ad630c686a50acb5d029849cd56f913e8e8bfd95b2424d86f0637628fe618b6d27ee694f1bb2fd
+  languageName: node
+  linkType: hard
+
+"stylelint-scss@npm:^7.0.0":
   version: 7.4.0
   resolution: "stylelint-scss@npm:7.4.0"
   dependencies:
