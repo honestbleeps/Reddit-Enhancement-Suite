@@ -2747,7 +2747,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"flow-parser@npm:0.*, flow-parser@npm:^0.339.0":
+"flow-estree@npm:0.341.0":
+  version: 0.341.0
+  resolution: "flow-estree@npm:0.341.0"
+  checksum: 10c0/16bec53167cc0e1d28c00e94323e4f641ec6945f186f95750093123493d893fe659dc3169ada49b7caa620564b7e035db43be0732cd0505d67b1827897af0025
+  languageName: node
+  linkType: hard
+
+"flow-parser@npm:0.*":
   version: 0.339.0
   resolution: "flow-parser@npm:0.339.0"
   dependencies:
@@ -2756,19 +2763,28 @@ __metadata:
   languageName: node
   linkType: hard
 
-"flow-remove-types@npm:2.339.0":
-  version: 2.339.0
-  resolution: "flow-remove-types@npm:2.339.0"
+"flow-parser@npm:^0.341.0":
+  version: 0.341.0
+  resolution: "flow-parser@npm:0.341.0"
+  dependencies:
+    flow-estree: "npm:0.341.0"
+  checksum: 10c0/8c7a0755f796fea9b81e26f112ee14fe827af22818b635dd2b8bf6808f9e6ac4b6b2c48f05516285addd5d8bbf690c927eb0ea699e331d2cc5a58a6c8d29a11e
+  languageName: node
+  linkType: hard
+
+"flow-remove-types@npm:2.341.0":
+  version: 2.341.0
+  resolution: "flow-remove-types@npm:2.341.0"
   dependencies:
     flow-enums-runtime: "npm:^0.0.6"
-    flow-parser: "npm:^0.339.0"
+    flow-parser: "npm:^0.341.0"
     pirates: "npm:^3.0.2"
     source-map-support: "npm:^0.5.21"
     vlq: "npm:^0.2.1"
   bin:
     flow-node: flow-node
     flow-remove-types: flow-remove-types
-  checksum: 10c0/b20a4e71ca2877a0c7edef6046edebf14b6195b04d74945d46c2a442448205dea91893d467a76eff9dfada7205d6a140d6762da15ff1309101c5b84c0018beaa
+  checksum: 10c0/bbe58b653d0b91c7cac55595640a295c4b79ad856a1c68c1f4ad903d4514412e67c52dc78629fab5d6d8b2cfb9c8407694e1679e21fa3c263801d92cb6ec8dc5
   languageName: node
   linkType: hard
 
@@ -4116,7 +4132,7 @@ __metadata:
     fast-levenshtein: "npm:3.0.0"
     favico.js: "npm:0.3.10"
     flow-bin: "npm:0.339.0"
-    flow-remove-types: "npm:2.339.0"
+    flow-remove-types: "npm:2.341.0"
     globals: "npm:17.14.0"
     hermes-eslint: "npm:0.37.0"
     hermes-parser: "npm:0.37.0"
